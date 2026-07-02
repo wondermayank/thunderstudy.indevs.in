@@ -1,0 +1,250 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://thunderstudy.indevs.in/#org",
+      "name": "ThunderStudy",
+      "legalName": "ThunderStudy",
+      "alternateName": ["Thunder Study", "CommerceSehoga", "Thunderstudy Official"],
+      "url": "https://thunderstudy.indevs.in",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thunderstudy.indevs.in/logo.png",
+        "width": 400,
+        "height": 400
+      },
+      "image": "https://commercesehoga.github.io/og-cover.png",
+      "description": "ThunderStudy is India's largest 100% free study platform providing notes, mock tests and PYQs for CBSE Class 12, CUET 2026, UPSC, SSC CGL, Banking, JEE and NEET — with no registration, no ads and no cost.",
+      "slogan": "Free Education for Every Indian Student",
+      "foundingDate": "2023",
+      "dateModified": "2026-06-15",
+      "numberOfEmployees": 1,
+      "isAccessibleForFree": true,
+      "inLanguage": ["en-IN", "hi"],
+      "areaServed": {
+        "@type": "Country",
+        "name": "India",
+        "sameAs": "https://www.wikidata.org/wiki/Q668"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "addressCountry": "IN",
+        "latitude": "20.5937",
+        "longitude": "78.9629"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "url": "https://t.me/Thunderstudy_official",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "sameAs": [
+        "https://commercesehoga.github.io",
+        "https://commercesehoga.blogspot.com",
+        "https://thunderstudy.blogspot.com",
+        "https://t.me/Thunderstudy_official",
+        "https://youtube.com/@Thunderstudy_official",
+        "https://instagram.com/Thunderstudy_official",
+        "https://github.com/wondermayank"
+      ],
+      "founder": { "@id": "https://thunderstudy.indevs.in/#founder" },
+      "knowsAbout": [
+        "CBSE Class 12 Board Examination",
+        "CUET 2026 Common University Entrance Test",
+        "UPSC Civil Services Examination",
+        "SSC CGL Staff Selection Commission Combined Graduate Level",
+        "IBPS PO Banking Examination",
+        "SBI PO State Bank of India Probationary Officer",
+        "JEE Main Joint Entrance Examination",
+        "NEET UG National Eligibility cum Entrance Test",
+        "Accountancy Class 12",
+        "Business Studies Class 12",
+        "Economics Class 12",
+        "Physics Class 12",
+        "Chemistry Class 12",
+        "Biology Class 12",
+        "History Class 12",
+        "Geography Class 12",
+        "Political Science Class 12",
+        "Computer Science Class 12",
+        "Informatics Practices Class 12",
+        "Current Affairs India 2026",
+        "Boards Dominator Class 12",
+        "Boards Killer Class 12",
+        "GK MindMaster Best GK Book",
+        "Best Sample Papers Class 12",
+        "SSC Stenographer Preparation"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Free Study Resources — ThunderStudy",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Free CBSE Class 12 Commerce Notes",
+            "url": "https://commercesehoga.github.io/commerce",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "CBSE Class 12 Commerce — Accountancy, BST, Economics, Applied Maths",
+              "url": "https://commercesehoga.github.io/commerce",
+              "educationalLevel": "Class 12",
+              "isAccessibleForFree": true,
+              "inLanguage": "en-IN",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Free CBSE Class 12 Science Notes",
+            "url": "https://commercesehoga.github.io/science",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "CBSE Class 12 Science — Physics, Chemistry, Biology, Maths",
+              "url": "https://commercesehoga.github.io/science",
+              "educationalLevel": "Class 12",
+              "isAccessibleForFree": true,
+              "inLanguage": "en-IN",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Free CUET 2026 Mock Tests",
+            "url": "https://commercesehoga.github.io/cuet",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "CUET 2026 Full-Length Mock Tests — All Domain Subjects + GAT",
+              "url": "https://commercesehoga.github.io/cuet",
+              "educationalLevel": "Undergraduate Entrance",
+              "isAccessibleForFree": true,
+              "inLanguage": "en-IN",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Free SSC CGL Mock Tests",
+            "url": "https://commercesehoga.github.io/ssc",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "SSC CGL CBT Mock Tests with Real Interface",
+              "url": "https://commercesehoga.github.io/ssc",
+              "isAccessibleForFree": true,
+              "inLanguage": "en-IN",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Free Banking Mock Tests IBPS SBI",
+            "url": "https://commercesehoga.github.io/banking",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "Banking Mock Tests — IBPS PO, SBI PO, IBPS Clerk, SBI Clerk",
+              "url": "https://commercesehoga.github.io/banking",
+              "isAccessibleForFree": true,
+              "inLanguage": "en-IN",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Free GK MindMaster PDF — Best GK Book for All Exams",
+            "url": "https://thunderstudy.indevs.in/GK_Thunderstudy_compressed.pdf",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Book",
+              "name": "GK MindMaster — General Knowledge for All Competitive Exams",
+              "downloadUrl": "https://thunderstudy.indevs.in/GK_Thunderstudy_compressed.pdf",
+              "url": "https://commercesehoga.github.io/books",
+              "description": "Best free GK book for SSC, UPSC, Railways, Banking and all government exams. Top GK from India and the world.",
+              "inLanguage": "en-IN",
+              "isAccessibleForFree": true,
+              "genre": "General Knowledge",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "SSC Stenographer Preparation",
+            "url": "https://thunderstudy.indevs.in/steno",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "SSC Stenographer Grade C & D Preparation",
+              "url": "https://thunderstudy.indevs.in/steno",
+              "description": "Free SSC Stenographer prep — notes, mock tests and PYQs for Steno Grade C and D.",
+              "isAccessibleForFree": true,
+              "inLanguage": "en-IN",
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Free Class 12 Books — Boards Dominator & Boards Killer",
+            "url": "https://commercesehoga.github.io/books",
+            "price": "0",
+            "priceCurrency": "INR",
+            "itemOffered": {
+              "@type": "ItemList",
+              "name": "Free Class 12 Boards Books — Boards Dominator, Boards Killer, 20+ Sample Papers",
+              "url": "https://commercesehoga.github.io/books",
+              "description": "Best free books for CBSE Class 12 boards: Boards Dominator (Science), Boards Killer (Humanities), 20+ Sample Papers (Commerce) — all free at ThunderStudy.",
+              "isAccessibleForFree": true,
+              "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://thunderstudy.indevs.in/#founder",
+      "name": "Wondermayank",
+      "givenName": "Mayank",
+      "url": "https://wondermayank.github.io",
+      "jobTitle": "Developer & Educator",
+      "nationality": { "@type": "Country", "name": "India" },
+      "worksFor": { "@id": "https://thunderstudy.indevs.in/#org" },
+      "sameAs": [
+        "https://github.com/wondermayank",
+        "https://instagram.com/wondermayank",
+        "https://reddit.com/u/wondermayank"
+      ]
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://thunderstudy.indevs.in/#website",
+      "url": "https://thunderstudy.indevs.in",
+      "name": "ThunderStudy",
+      "description": "India's #1 free study platform — CBSE, CUET, SSC, Banking, JEE, NEET",
+      "inLanguage": "en-IN",
+      "publisher": { "@id": "https://thunderstudy.indevs.in/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://thunderstudy.indevs.in/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+
+  ]
+}
