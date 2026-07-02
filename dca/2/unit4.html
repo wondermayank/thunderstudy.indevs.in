@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderStudy | 2DCA1 IT Trends – Unit 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#1565C0;--blue-mid:#1976D2;--blue-light:#42A5F5;--blue-pale:#E3F2FD;
+  --amber:#F59E0B;--amber-light:#FEF3C7;--green:#22C55E;--red:#EF4444;
+  --bg:#F0F6FF;--card:#FFFFFF;--text:#0F1B35;--muted:#5A6885;
+  --border:#D0E3FF;--shadow:0 2px 16px rgba(21,101,192,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%);box-shadow:0 2px 24px rgba(13,71,161,0.4);}
+.header-inner{max-width:1200px;margin:auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand-icon{width:36px;height:36px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(245,158,11,0.5);}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.brand-tagline{font-size:10px;color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.5px;}
+.unit-dropdown-wrap{position:relative;}
+.unit-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:7px 16px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.unit-btn:hover{background:rgba(255,255,255,0.25);}
+.unit-btn .arrow{transition:transform 0.25s;font-size:12px;}
+.unit-dropdown-wrap.open .arrow{transform:rotate(180deg);}
+.unit-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(21,101,192,0.2);min-width:240px;overflow:hidden;border:1px solid var(--border);animation:dropIn 0.2s ease;}
+@keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.unit-dropdown-wrap.open .unit-menu{display:block;}
+.unit-menu a{display:flex;align-items:center;gap:10px;padding:11px 16px;text-decoration:none;color:var(--text);font-size:13.5px;font-weight:500;transition:background 0.15s;border-bottom:1px solid var(--border);}
+.unit-menu a:last-child{border-bottom:none;}
+.unit-menu a:hover{background:var(--blue-pale);}
+.unit-menu a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.unit-menu a .badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-pill{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 60%,#1E88E5 100%);padding:40px 24px 36px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,0.04);border-radius:50%;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;}
+.hero h1{font-size:clamp(22px,4vw,36px);font-weight:800;margin-bottom:8px;letter-spacing:-0.5px;}
+.hero p{font-size:14px;color:rgba(255,255,255,0.8);max-width:500px;margin:0 auto 20px;}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.hero-meta span{display:flex;align-items:center;gap:5px;font-size:12.5px;color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.1);padding:4px 12px;border-radius:20px;}
+
+/* LAYOUT */
+.layout{max-width:1200px;margin:0 auto;padding:28px 20px 60px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start;}
+.toc-sidebar{position:sticky;top:78px;background:var(--card);border-radius:16px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;}
+.toc-head{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);padding:14px 18px;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.toc-list{list-style:none;padding:8px 0;max-height:calc(100vh - 160px);overflow-y:auto;}
+.toc-list::-webkit-scrollbar{width:4px;}
+.toc-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.toc-list li a{display:flex;align-items:flex-start;gap:8px;padding:7px 16px;text-decoration:none;color:var(--muted);font-size:12.8px;font-weight:500;transition:all 0.15s;line-height:1.3;}
+.toc-list li a:hover,.toc-list li a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.toc-list li a .toc-num{flex-shrink:0;width:22px;height:20px;background:var(--blue-pale);color:var(--blue);border-radius:4px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.toc-list li a.active .toc-num{background:var(--blue);color:#fff;}
+
+/* MAIN */
+.main-content{display:flex;flex-direction:column;gap:20px;}
+.sec-card{background:var(--card);border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:80px;}
+.sec-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;gap:12px;transition:background 0.15s;}
+.sec-header:hover{background:var(--blue-pale);}
+.sec-title-wrap{display:flex;align-items:center;gap:12px;}
+.sec-num{width:36px;height:36px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;box-shadow:0 2px 8px rgba(21,101,192,0.3);}
+.sec-title{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.2px;}
+.sec-toggle{font-size:18px;color:var(--blue);transition:transform 0.3s;flex-shrink:0;}
+.sec-card.open .sec-toggle{transform:rotate(180deg);}
+.sec-body{display:none;padding:0 22px 22px;border-top:1px solid var(--border);animation:fadeIn 0.2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.sec-card.open .sec-body{display:block;}
+
+/* TYPOGRAPHY */
+.sec-body p{margin-top:14px;color:#2C3E60;font-size:15px;line-height:1.8;}
+.sec-body h3{font-size:15px;font-weight:700;color:var(--blue);margin-top:22px;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.sec-body h3::before{content:'';width:4px;height:16px;background:var(--amber);border-radius:2px;flex-shrink:0;}
+.sec-body ul{margin-top:10px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+.sec-body ul li{padding-left:20px;position:relative;font-size:14.5px;color:#2C3E60;line-height:1.7;}
+.sec-body ul li::before{content:'▸';position:absolute;left:0;color:var(--blue-light);font-size:12px;top:3px;}
+.sec-body ol{margin-top:10px;padding-left:20px;}
+.sec-body ol li{font-size:14.5px;color:#2C3E60;line-height:1.7;margin-bottom:4px;}
+
+/* INFO BOXES */
+.info-box{margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;line-height:1.7;}
+.info-box.blue{background:var(--blue-pale);border-left:4px solid var(--blue);color:#1A3A6B;}
+.info-box.amber{background:var(--amber-light);border-left:4px solid var(--amber);color:#7C4A00;}
+.info-box.green{background:#F0FDF4;border-left:4px solid var(--green);color:#14532D;}
+.info-box.red{background:#FEF2F2;border-left:4px solid var(--red);color:#7F1D1D;}
+.info-box strong{font-weight:700;display:block;margin-bottom:4px;}
+
+/* SUB SECTIONS */
+.sub-sec{margin-top:20px;background:#F8FAFE;border-radius:10px;border:1px solid var(--border);padding:14px 18px;}
+.sub-sec-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.sub-sec-title .dot{width:8px;height:8px;background:var(--amber);border-radius:50%;flex-shrink:0;}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.mini-card{background:var(--blue-pale);border-radius:10px;padding:12px 14px;border:1px solid rgba(21,101,192,0.15);}
+.mini-card .mc-icon{font-size:22px;margin-bottom:6px;}
+.mini-card .mc-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.mini-card .mc-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+
+/* TABLE */
+.content-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13.5px;border-radius:8px;overflow:hidden;}
+.content-table th{background:var(--blue);color:#fff;padding:10px 14px;text-align:left;font-weight:700;}
+.content-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;}
+.content-table tr:last-child td{border-bottom:none;}
+.content-table tr:nth-child(even) td{background:#F8FBFF;}
+
+/* DEF BOX */
+.def-box{margin-top:16px;background:linear-gradient(135deg,#E8F1FE 0%,#F0F7FF 100%);border:1px solid rgba(21,101,192,0.2);border-radius:12px;padding:16px 20px;}
+.def-box .def-label{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.def-box .def-text{font-family:'Lora',serif;font-size:15px;color:#1A3260;line-height:1.75;font-style:italic;}
+
+/* GENERATION CARDS */
+.gen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px;}
+.gen-card{border-radius:12px;padding:14px 10px;text-align:center;border:2px solid;}
+.gen-card.g1{border-color:#7C3AED;background:#F5F3FF;}
+.gen-card.g2{border-color:#1565C0;background:#EFF6FF;}
+.gen-card.g3{border-color:#059669;background:#ECFDF5;}
+.gen-card.g4{border-color:#D97706;background:#FFFBEB;}
+.gen-card.g5{border-color:#DC2626;background:#FEF2F2;}
+.gen-card .gen-label{font-size:20px;font-weight:800;margin-bottom:4px;}
+.gen-card.g1 .gen-label{color:#7C3AED;}
+.gen-card.g2 .gen-label{color:#1565C0;}
+.gen-card.g3 .gen-label{color:#059669;}
+.gen-card.g4 .gen-label{color:#D97706;}
+.gen-card.g5 .gen-label{color:#DC2626;}
+.gen-card .gen-speed{font-size:11px;font-weight:700;margin-bottom:6px;opacity:0.8;}
+.gen-card .gen-text{font-size:11.5px;color:var(--muted);line-height:1.4;}
+
+/* PROS CONS */
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.pros-box,.cons-box{border-radius:10px;padding:14px 16px;}
+.pros-box{background:#F0FDF4;border:1px solid #BBF7D0;}
+.cons-box{background:#FEF2F2;border:1px solid #FECACA;}
+.pros-box .pc-title{font-size:13px;font-weight:800;color:#14532D;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.cons-box .pc-title{font-size:13px;font-weight:800;color:#991B1B;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.pros-box ul,.cons-box ul{gap:4px;}
+.pros-box ul li{font-size:13px;color:#166534;line-height:1.5;padding-left:16px;}
+.pros-box ul li::before{color:#22C55E;}
+.cons-box ul li{font-size:13px;color:#991B1B;line-height:1.5;padding-left:16px;}
+.cons-box ul li::before{color:#EF4444;}
+
+/* TECH SPEC */
+.spec-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.spec-chip{background:var(--blue-pale);border:1px solid rgba(21,101,192,0.2);border-radius:20px;padding:4px 12px;font-size:12.5px;font-weight:600;color:var(--blue);}
+.spec-chip.amber{background:var(--amber-light);border-color:rgba(245,158,11,0.3);color:#92400E;}
+.spec-chip.green{background:#F0FDF4;border-color:#BBF7D0;color:#14532D;}
+
+/* KW */
+.kw{background:linear-gradient(120deg,rgba(245,158,11,0.2),rgba(245,158,11,0.1));color:#92400E;padding:1px 5px;border-radius:4px;font-weight:600;}
+.tech{color:var(--blue);font-weight:600;}
+.divider{height:1px;background:var(--border);margin:16px 0;}
+
+/* FEATURE LIST */
+.feat-list{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.feat-item{display:flex;gap:12px;align-items:flex-start;background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.feat-item .fi-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.feat-item .fi-content .fi-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.feat-item .fi-content p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255,255,255,0.85);padding:36px 24px 24px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;}
+.footer-brand .brand-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.footer-col h4{font-size:13px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;transition:color 0.15s;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.15);text-align:center;font-size:12.5px;color:rgba(255,255,255,0.5);}
+
+.scroll-top{position:fixed;bottom:28px;right:24px;width:44px;height:44px;background:var(--blue);color:#fff;border-radius:50%;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(21,101,192,0.4);z-index:500;transition:transform 0.2s;}
+.scroll-top:hover{transform:translateY(-3px);}
+.scroll-top.visible{display:flex;}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .toc-sidebar{position:static;display:none;}
+  .grid-2,.grid-3,.grid-4,.gen-grid,.pros-cons{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;gap:20px;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:20px;}
+  .nav-pill{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">T</div>
+      <div class="brand-text">
+        <span class="brand-name">ThunderStudy</span>
+        <span class="brand-tagline">by Wondermayank</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <span class="nav-pill">2DCA1 – IT Trends</span>
+      <div class="unit-dropdown-wrap" id="unitDrop">
+        <button class="unit-btn" onclick="toggleDrop()">📚 Unit 4 &nbsp;<span class="arrow">▾</span></button>
+        <div class="unit-menu">
+          <a href="https://thunderstudy.github.io/dca/2/unit1.html">Unit 1 – Multimedia</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit2.html">Unit 2 – Text &amp; Sound</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit4.html" class="active">Unit 4 – Wireless &amp; Mobile Tech <span class="badge">Current</span></a>
+          <a href="https://thunderstudy.github.io/dca/2/unit5.html">Unit 5 – AI, Cloud &amp; Google Apps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">📖 Unit 4 Notes</div>
+  <h1>Wireless &amp; Mobile Technology</h1>
+  <p>Complete Unit 4 study notes for 2DCA1 IT Trends – translated from official course material</p>
+  <div class="hero-meta">
+    <span>🏫 MCU, Bhopal</span>
+    <span>📋 17 Major Topics</span>
+    <span>⚡ Full PDF Content</span>
+    <span>🌐 English Medium</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc-sidebar">
+    <div class="toc-head">📑 Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">4</span> Computer Networks</a></li>
+      <li><a href="#s2"><span class="toc-num">4.1</span> Wireless LAN (WLAN)</a></li>
+      <li><a href="#s3"><span class="toc-num">4.2</span> Bluetooth</a></li>
+      <li><a href="#s4"><span class="toc-num">4.3</span> Wi-Fi</a></li>
+      <li><a href="#s5"><span class="toc-num">4.4</span> WiMAX</a></li>
+      <li><a href="#s6"><span class="toc-num">4.5</span> Mobile Generations (1G–5G)</a></li>
+      <li><a href="#s7"><span class="toc-num">4.6</span> IMEI</a></li>
+      <li><a href="#s8"><span class="toc-num">4.7</span> SIM Card</a></li>
+      <li><a href="#s9"><span class="toc-num">4.8</span> IP Telephony</a></li>
+      <li><a href="#s10"><span class="toc-num">4.9</span> Softphone</a></li>
+      <li><a href="#s11"><span class="toc-num">4.10</span> Voicemail</a></li>
+      <li><a href="#s12"><span class="toc-num">4.11</span> Ad Hoc Network</a></li>
+      <li><a href="#s13"><span class="toc-num">4.12</span> Sensor Network</a></li>
+      <li><a href="#s14"><span class="toc-num">4.13</span> GIS</a></li>
+      <li><a href="#s15"><span class="toc-num">4.14</span> ISP</a></li>
+      <li><a href="#s16"><span class="toc-num">4.15</span> Mobile Computing</a></li>
+      <li><a href="#s17"><span class="toc-num">4.16</span> Cellular System</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- S1: COMPUTER NETWORKS -->
+    <div class="sec-card open" id="s1">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4</div><div class="sec-title">Computer Networks – Introduction</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>When two or more computing devices share data or resources with each other, it is called a <span class="kw">Computer Network</span>. These computing devices can be computers, laptops, smartphones, tablet devices, or any other computing device. To create a computer network, specific hardware and software are both required, which help build the network system.</p>
+        <p>Computing devices use a medium to connect with each other in a network. This medium can be <span class="tech">wired</span> or <span class="tech">wireless</span>. In a wired network, computing devices share data through cables; in wireless networks, no cable is needed.</p>
+        <p>Wireless networks use radio waves to connect devices. The main types of wireless networks are:</p>
+
+        <div class="grid-2">
+          <div class="mini-card">
+            <div class="mc-icon">📡</div>
+            <div class="mc-title">Wireless LAN (WLAN)</div>
+            <div class="mc-text">Two or more devices connected by a wireless distribution system, with one access point linked to a larger network.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🏙️</div>
+            <div class="mc-title">Wireless MAN</div>
+            <div class="mc-text">Connects multiple wireless LANs together across a metropolitan area.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🌍</div>
+            <div class="mc-title">Wireless WAN</div>
+            <div class="mc-text">Connects a large area through a wireless distribution system.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🔵</div>
+            <div class="mc-title">Wireless PAN</div>
+            <div class="mc-text">Short-range wireless network connecting portable and mobile computers. No internet required. Bluetooth is an example.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S2: WLAN -->
+    <div class="sec-card open" id="s2">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.1</div><div class="sec-title">Wireless LAN (WLAN)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">A Wireless LAN (WLAN) is a wireless computer network that connects two or more devices using wireless communication to form a Local Area Network (LAN) within a limited area such as a home, school, computer lab, campus, or office building.</div>
+        </div>
+        <p>Mobiles, laptops, tablet computers, internet audio systems, gaming consoles, and internet-enabled home appliances can be connected via WLAN. The connection is made via radio waves through transmitters and receivers built into these devices or via antennas. WLAN keeps users connected to the network while remaining within a limited area. Through a gateway, a WLAN can also provide a connection to the broader internet.</p>
+        <p>The <span class="tech">IEEE 802.11</span> family of standards defines technologies for wireless LANs. The 802.11 standard uses the Ethernet protocol and <span class="tech">CSMA/CA</span> (Carrier Sense Multiple Access with Collision Avoidance) for path sharing. It also uses a Wired Equivalent Privacy (WEP) encryption algorithm.</p>
+
+        <h3>4.1.1 Advantages of WLAN</h3>
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="fi-icon">🔄</div>
+            <div class="fi-content"><div class="fi-title">Flexibility</div><p>Within radio coverage, nodes can communicate without interruption. Radio waves can pass through walls — the sender and receiver can be anywhere without disruption.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">📋</div>
+            <div class="fi-content"><div class="fi-title">Planning</div><p>Wired networks need a wiring plan, but wireless ad-hoc networks require no planning at all.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">🎨</div>
+            <div class="fi-content"><div class="fi-title">Design</div><p>Wireless devices can be moved from place to place within a defined range, allowing design of independent, small, pocket-sized devices. Wired devices don't offer this portability.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">🏔️</div>
+            <div class="fi-content"><div class="fi-title">Robustness</div><p>No planned cabling means wireless networks remain functional during natural disasters like earthquakes and floods — unlike wired networks which go completely down.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">💰</div>
+            <div class="fi-content"><div class="fi-title">Lower Cost</div><p>Setting up and maintaining a WLAN costs less on average than a wired LAN. Adding more users doesn't increase costs, and cabling and installation labor is eliminated.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">✅</div>
+            <div class="fi-content"><div class="fi-title">Ease of Use</div><p>WLAN is easy to use. Users need very little or no technical knowledge to take advantage of WLAN.</p></div>
+          </div>
+        </div>
+
+        <h3>4.1.2 Limitations of WLAN</h3>
+        <div class="pros-cons">
+          <div class="cons-box">
+            <div class="pc-title">⚠️ Limitations</div>
+            <ul>
+              <li>Lower quality than wired networks due to limited bandwidth and higher error rates from interference.</li>
+              <li>Proprietary solutions due to slow standardization processes.</li>
+              <li>Frequency restrictions imposed by government and non-government bodies.</li>
+              <li>Low power — battery-powered devices require special power-saving modes.</li>
+              <li>Interference from other electrical appliances (vacuum cleaners, hair dryers, etc.).</li>
+              <li>Global operation requires compliance with different national frequency regulations.</li>
+            </ul>
+          </div>
+          <div class="pros-box">
+            <div class="pc-title">✅ Advantages Summary</div>
+            <ul>
+              <li>No cables needed</li>
+              <li>Easy to install</li>
+              <li>Flexible and mobile</li>
+              <li>Robust during disasters</li>
+              <li>Cost-effective</li>
+              <li>Supports many devices simultaneously</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: BLUETOOTH -->
+    <div class="sec-card open" id="s3">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.2</div><div class="sec-title">Bluetooth</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Bluetooth usage has increased enormously today. Transferring data from smartphones and laptops to speakers, car music systems, and Bluetooth earphones is common for almost everyone.</p>
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Bluetooth is a wireless technology standard used for exchanging data over short distances between fixed and mobile devices using short-wavelength UHF radio waves in the industrial, scientific, and medical radio bands. It is managed by the Bluetooth Special Interest Group (SIG).</div>
+        </div>
+        <p>Bluetooth is a wireless communication standard that allows electronic devices to connect and interact with each other. It is found in smartphones, loudspeakers, laptops, and many gadgets. Bluetooth does not depend on Wi-Fi, mobile data, or cell networks — as long as devices are Bluetooth-compatible and close to each other, they can communicate wirelessly in two directions. A Bluetooth-enabled device equipped with a Bluetooth receiver can link and communicate with up to <strong>seven nearest Bluetooth devices</strong>.</p>
+
+        <h3>4.2.1 Bluetooth Architecture</h3>
+        <p>Bluetooth architecture defines two types of networks:</p>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> I. Piconet</div>
+          <p>A Piconet is a Bluetooth network with one <strong>primary (master)</strong> node and seven active <strong>secondary (slave)</strong> nodes, working on a master/slave model. The master device acts as coordinator — all devices send to and receive information from the master to communicate with each other.</p>
+          <ul>
+            <li>Maximum <strong>8 active nodes</strong> (1 master + 7 slaves) within 10 metres.</li>
+            <li>Each piconet can have only one master station.</li>
+            <li>Communication between primary and secondary can be one-to-one or one-to-many.</li>
+            <li>A slave cannot communicate directly with another slave.</li>
+          </ul>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> II. Scatternet</div>
+          <p>Two or more interconnected piconets form a <strong>Scatternet</strong>. This allows more than eight devices to communicate. A member of one piconet (master or slave) can act as a slave in another piconet. A device that is a slave in one piconet and master in another is called a <strong>Bridge Slave</strong>. A station cannot be master in two piconets simultaneously.</p>
+        </div>
+
+        <h3>4.2.2 Advantages of Bluetooth</h3>
+        <ul>
+          <li>Low installation cost — Bluetooth is usually built into electronic gadgets.</li>
+          <li>Easy to use — connectivity without internet.</li>
+          <li>Bluetooth waves can pass through walls within their limited range.</li>
+          <li>Can instantly create ad-hoc connections without any wires.</li>
+          <li>Used for both voice and data transfer.</li>
+        </ul>
+
+        <h3>4.2.3 Limitations of Bluetooth</h3>
+        <div class="info-box red">
+          <strong>⚠️ Key Limitations</strong>
+          Bluetooth can be hacked, making it less secure. Data transfer rate is slow — around 3 Mbps. Range is short — approximately 10 metres.
+        </div>
+      </div>
+    </div>
+
+    <!-- S4: WI-FI -->
+    <div class="sec-card open" id="s4">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.3</div><div class="sec-title">Wi-Fi</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>You may have experienced that at railway stations, restaurants, or shopping malls, even if your mobile internet is off, your phone shows internet availability — that's because of free Wi-Fi service at those locations. Wi-Fi internet connectivity comes from a wireless router. When you connect to this router, devices like mobiles and laptops get internet access.</p>
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Wi-Fi is a wireless networking technology that allows computers, smartphones, printers, video cameras, and other devices to interface with high-speed internet and networks using radio waves. It allows devices to exchange information and thus establish a network.</div>
+        </div>
+
+        <h3>4.3.1 How Wi-Fi Works</h3>
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="fi-icon">1️⃣</div>
+            <div class="fi-content"><div class="fi-title">Step 1 – Wireless Adapter</div><p>A computer's wireless adapter converts data into radio signals and sends them via antenna.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">2️⃣</div>
+            <div class="fi-content"><div class="fi-title">Step 2 – Wireless Router</div><p>The router receives and decodes the signal, then sends the information to the internet via a wired Ethernet connection.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">3️⃣</div>
+            <div class="fi-content"><div class="fi-title">Step 3 – Reverse Path</div><p>This process also works in reverse — the router receives internet data, converts it to radio signals, and sends it to the wireless adapter.</p></div>
+          </div>
+        </div>
+        <p>Technically, the <span class="tech">IEEE 802.11</span> standard defines the protocols that communicate with Wi-Fi enabled wireless devices, including wireless routers and access points. Different standards operate at different frequencies and provide varying bandwidths.</p>
+
+        <h3>4.3.2 Wireless Access Point (AP)</h3>
+        <p>A Wireless Access Point allows wireless devices to connect to a wireless network. It takes the bandwidth coming from a router and extends it so that devices at remote locations can also benefit from the network. An access point also provides useful data about devices, active security, and many other practical purposes.</p>
+
+        <h3>4.3.3 Wireless Router</h3>
+        <p>Wireless routers are commonly found in homes. They are hardware devices used by internet service providers to connect you to their cable or xDSL internet network. A wireless router combines the functions of a wireless access point and a router.</p>
+
+        <h3>4.3.4 Desktop Wi-Fi Router</h3>
+        <p>The most common way to connect users wirelessly to the internet is through a desktop wireless (Wi-Fi) router — small boxes with multiple antennas that broadcast signals across a home or workplace. Range extenders are often placed throughout work areas to extend coverage.</p>
+
+        <h3>4.3.5 Mobile Hotspot</h3>
+        <p>A mobile hotspot is a common feature on smartphones. When you turn on your phone's mobile hotspot, you share your wireless network connection with other devices. A WiFi hotspot is an area where a wireless network is available — such as a hotel, railway station, etc. You can also create a hotspot from your mobile, through which other mobiles or laptops can access the internet.</p>
+      </div>
+    </div>
+
+    <!-- S5: WIMAX -->
+    <div class="sec-card open" id="s5">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.4</div><div class="sec-title">WiMAX – Worldwide Interoperability for Microwave Access</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">WiMAX is a wireless technology used for delivering IP-centric services over a wide area. Based on wireless MAN technology, it is currently the most widely used broadband wireless technology, enabling broadband services to reach domestic and business users at very low cost.</div>
+        </div>
+        <p>WiMAX is based on the <span class="tech">IEEE 802.16</span> standard for delivering high-speed data over a wide area. WiMAX technology facilitates wireless data transmission through portable or fully mobile internet access via several points without any cable infrastructure requirement. WiMAX technology provides approximately <strong>72 Megabits per second</strong> without requiring any cable infrastructure.</p>
+
+        <div class="info-box blue">
+          <strong>💡 WiMAX in Rural Areas</strong>
+          In rural areas, establishing wired networks is very difficult and costly due to long distances. WiMAX can effectively provide broadband in remote rural areas, making residents' lives easier. Standards for WiMAX (IEEE 802.16) are the same as for Wireless MANs. Standards like 802.16d (for fixed applications) and 802.16e (for roaming and mobile markets) have been released.
+        </div>
+      </div>
+    </div>
+
+    <!-- S6: MOBILE GENERATIONS -->
+    <div class="sec-card open" id="s6">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.5</div><div class="sec-title">Mobile Technology Generations (1G to 5G)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>When you use the internet, its speed depends on signal strength — shown as <span class="kw">2G, 3G, 4G</span>, etc. on your device screen. Each "G" stands for <strong>Generation</strong> — the network standard on which the network operates. Both network technology and speed have been increasing together.</p>
+
+        <div class="gen-grid">
+          <div class="gen-card g1"><div class="gen-label">1G</div><div class="gen-speed">2.4 Kbps</div><div class="gen-text">Analogue technology, 1980s. Poor battery life, no security, drop calls.</div></div>
+          <div class="gen-card g2"><div class="gen-label">2G</div><div class="gen-speed">64 Kbps</div><div class="gen-text">GSM-based. Introduced SMS, MMS, digital calls. More secure than 1G.</div></div>
+          <div class="gen-card g3"><div class="gen-label">3G</div><div class="gen-speed">2 Mbps</div><div class="gen-text">Web browsing, email, video download. UMTS-based architecture.</div></div>
+          <div class="gen-card g4"><div class="gen-label">4G</div><div class="gen-speed">100 Mbps</div><div class="gen-text">LTE technology. HD mobile TV, video conferencing, cloud computing.</div></div>
+          <div class="gen-card g5"><div class="gen-label">5G</div><div class="gen-speed">&gt;1 Gbps</div><div class="gen-text">Target 35.46 Gbps. Very low delay, device-to-device, better battery.</div></div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> 1G – First Generation</div>
+          <p>Cell phone technology's first generation. Commercially implemented in the 1980s. It used <strong>analogue technology</strong>. Phones generally had poor battery life, poor voice quality, no security, and experienced dropped calls. Maximum speed was <strong>2.4 Kbps</strong>.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> 2G – Second Generation</div>
+          <p>The key difference between 1G and 2G is that 1G uses <strong>analogue radio signals</strong> while 2G uses <strong>digital signals</strong>. 2G introduced SMS, MMS, conference calls, call hold, internal roaming, and billing based on provided services. Commercially launched in Finland in 1991 by Radiolinja on the GSM standard. Maximum speed: <strong>50 Kbps–1 Mbps</strong> (with EDGE).</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> 3G – Third Generation</div>
+          <p>Introduced web browsing, email, video downloading, picture sharing, and other smartphone technologies. Commercially launched in 2001. Used <strong>UMTS (Universal Mobile Telecommunications System)</strong> as its core network architecture. Required a minimum speed of <strong>200 Kbps</strong> to qualify as 3G (per IMT-2000 specifications). 3G improved frequency spectrum efficiency.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> 4G – Fourth Generation</div>
+          <p>A very different technology from 3G. Uses <span class="tech">MIMO</span> (Multiple Input Multiple Output) and <span class="tech">OFDM</span> (Orthogonal Frequency Division Multiplex). Two key 4G standards: WiMAX (less common) and <strong>LTE</strong> (widespread). Maximum speed: <strong>100 Mbps when mobile, 1 Gbps when stationary</strong>. 4G phones are backward compatible — they can communicate on 3G or 2G networks too.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> 5G – Fifth Generation</div>
+          <p>Currently under development, aiming to improve on 4G. Promises much faster data rates, high connection density, and very low delay. Plans include device-to-device communication, better battery usage, and improved wireless coverage. Target maximum speed: <strong>35.46 Gbps</strong> — 35 times faster than 4G.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- S7: IMEI -->
+    <div class="sec-card open" id="s7">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.6</div><div class="sec-title">IMEI – International Mobile Equipment Identity</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">IMEI stands for International Mobile Equipment Identity. It is a code or number that identifies a specific mobile phone used on a mobile network. Every mobile phone has a unique IMEI number containing 15 to 17 digits.</div>
+        </div>
+        <p>Usually printed on the back of the mobile battery. The IMEI number tells the current location of any phone. If a person's phone is lost or stolen, its location can be traced via the IMEI number. To know your IMEI number, dial <strong>*#06#</strong> on your phone.</p>
+
+        <h3>IMEI Number Structure: AA.BBBBBB-CCCCCC D/EE</h3>
+        <table class="content-table">
+          <tr><th>Part</th><th>Meaning</th></tr>
+          <tr><td><strong>AA</strong></td><td>Reports Body Identifier — part of TAC (Type Allocation Code), shows mobile phone model and brand.</td></tr>
+          <tr><td><strong>BBBBBB</strong></td><td>Also part of TAC (Type Allocation Code).</td></tr>
+          <tr><td><strong>CCCCCC</strong></td><td>Serial Number.</td></tr>
+          <tr><td><strong>D</strong></td><td>Check Digit.</td></tr>
+          <tr><td><strong>EE</strong></td><td>Software version number.</td></tr>
+        </table>
+
+        <div class="info-box amber">
+          <strong>🔑 Key Benefit</strong>
+          The most important benefit of the IMEI number is that it helps in catching criminals and locating stolen phones.
+        </div>
+      </div>
+    </div>
+
+    <!-- S8: SIM -->
+    <div class="sec-card open" id="s8">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.7</div><div class="sec-title">SIM – Subscriber Identity Module</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">A SIM (Subscriber Identity Module) is an externally removable smart card for mobile phones — a small, portable memory chip that stores information about the cellular phone user. Its 17-digit code displays country code, switch configuration code, and unique user ID.</div>
+        </div>
+        <p>The subscriber ID (and personal number) is linked to the SIM card, not to a fixed mobile phone — making it easy to move from one phone to another. All GSM phones require a SIM card to operate. A SIM allows the phone to connect to GSM or CDMA networks and allows the network to track the phone's usage.</p>
+        <p>SIM cards can also store SMS messages and user contacts. Current SIM cards can store up to <strong>250 name/number pairs</strong> and up to <strong>50 SMS text messages</strong>.</p>
+
+        <h3>SIM Card Sizes</h3>
+        <div class="grid-4">
+          <div class="mini-card">
+            <div class="mc-icon">🟦</div>
+            <div class="mc-title">Full Size</div>
+            <div class="mc-text">85.6mm × 53.98mm × 0.76mm</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🟩</div>
+            <div class="mc-title">Mini-SIM</div>
+            <div class="mc-text">25mm × 15mm × 0.76mm</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🟨</div>
+            <div class="mc-title">Micro-SIM</div>
+            <div class="mc-text">15mm × 12mm × 0.76mm</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🟥</div>
+            <div class="mc-title">Nano-SIM</div>
+            <div class="mc-text">12.3mm × 8.8mm × 0.67mm</div>
+          </div>
+        </div>
+        <div class="info-box blue">
+          <strong>📲 eSIM (Embedded SIM)</strong>
+          eSIM size: 6mm × 5mm × &lt;1mm. Non-removable — embedded directly into the device.
+        </div>
+      </div>
+    </div>
+
+    <!-- S9: IP TELEPHONY -->
+    <div class="sec-card open" id="s9">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.8</div><div class="sec-title">IP Telephony (Internet Protocol Telephony)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>IP Telephony converts analogue audio signals into digital data and sends them through the internet. It allows calls via standard internet connections at far less cost than traditional telephone calls. WhatsApp calling uses this technology — it uses the internet (available worldwide) to enable voice calls without the high STD/ISD rates. WhatsApp mainly uses <span class="kw">VoIP (Voice over Internet Protocol)</span>, which uses voice traffic on the public internet.</p>
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">IP Telephony is a general term for technologies that use the packet-switched connections of the Internet Protocol to exchange voice, fax, and other forms of information — traditionally carried over the dedicated circuit-switched connections of the public switched telephone network (PSTN).</div>
+        </div>
+        <p>IP Phone systems, also called <span class="tech">IP PBX</span>, do not use the public internet but make internet phone calls within a private data network — suitable for business environments. Businesses use this to contact people at remote sites at internet rates.</p>
+        <p><span class="tech">VoIP</span> is an organized attempt to standardize IP Telephony. IP Telephony is an important part of the convergence of computers, telephone, and television into a single unified information environment. Currently, IP telephony service is relatively unregulated by governments.</p>
+      </div>
+    </div>
+
+    <!-- S10: SOFTPHONE -->
+    <div class="sec-card open" id="s10">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.9</div><div class="sec-title">Softphone (Soft Client Telephone)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">A Softphone (Software Telephone) is an application program that provides the facility to make Voice over Internet Protocol (VoIP) telephone calls from computing devices. In some enterprises, a softphone is sometimes called a soft client.</div>
+        </div>
+        <p>Most softphone applications work with a headset and microphone, a special VoIP phone (sometimes called a hardphone), or an Analog Telephone Adapter (such as Magic Jack) to enable VoIP calling from a standard telephone handset.</p>
+        <p>While softphones are often associated with mobile or home users, office employees also prefer them as convenient replacements for traditional desk phones. This can create a problem for network administrators because softphone traffic can cause network congestion.</p>
+        <div class="info-box amber">
+          <strong>⚠️ Network Challenge</strong>
+          Network management systems sometimes cannot differentiate softphone traffic from other software application traffic — and IP phones may use the same protocols as softphones, competing for bandwidth.
+        </div>
+      </div>
+    </div>
+
+    <!-- S11: VOICEMAIL -->
+    <div class="sec-card open" id="s11">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.10</div><div class="sec-title">Voicemail (Voice Mail)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">A Voicemail system (also known as Voice Message or Voice Bank) is a computer-based system that allows users and customers to exchange personal voice messages. It is a voice message sent by a caller when the called person is absent or busy — stored on the service provider's server (not an answering machine), in a space reserved for the user called a mailbox.</div>
+        </div>
+
+        <h3>4.10.1 Voicemail Features</h3>
+        <ul>
+          <li>Receive voice mail messages from multiple callers simultaneously.</li>
+          <li>Forward voice mail messages to other people's mailboxes.</li>
+          <li>Add a voice introduction to the message you are forwarding.</li>
+          <li>Broadcast voice messages — send one message to multiple people at once.</li>
+          <li>Store voice messages for a long time.</li>
+          <li>Receive notification of incoming voice mail via mobile phone or pager.</li>
+          <li>Give different greetings to different users.</li>
+          <li>Transfer and save voice messages to storage media like a hard drive; can be sent as email attachments.</li>
+          <li>Play back voicemail online or via email without using a phone.</li>
+        </ul>
+
+        <h3>4.10.2 Visual Voicemail</h3>
+        <p><span class="kw">Visual Voicemail</span> is an interface for voice messages that allows viewing, deleting, calling back, etc. in sequence — without listening to everything. It presents your voicemail like an email list. You can then choose options like re-listening, deleting, transferring, etc. — actions that are impossible or very difficult with regular voicemail.</p>
+      </div>
+    </div>
+
+    <!-- S12: AD HOC -->
+    <div class="sec-card open" id="s12">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.11</div><div class="sec-title">Ad Hoc Network</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>"Ad hoc" is a Latin phrase meaning "for this purpose." It is often used to describe solutions developed for a specific purpose. In computer networking, an <span class="kw">ad hoc network</span> describes a network connection established for a session — without requiring a router or wireless base station.</p>
+        <div class="info-box blue">
+          <strong>💡 Example</strong>
+          If you need to transfer files to a friend's laptop, you can create an ad hoc network between your computer and your friend's laptop using a crossover Ethernet cable or the computers' wireless cards. For sharing with more than one computer, you can set up a multi-hop ad hoc network that can transfer data over several nodes.
+        </div>
+        <p>Ad hoc networks are mostly wireless LANs. Instead of depending on base stations or access points, devices communicate directly with each other. Each device participates in routing activity — determining routes using routing algorithms and forwarding data to other devices through these routes.</p>
+        <p>An ad hoc network is a temporary network connection (like data transfer from one computer to another) made for a specific purpose. If kept for longer, it becomes a regular Local Area Network (LAN).</p>
+      </div>
+    </div>
+
+    <!-- S13: SENSOR NETWORK -->
+    <div class="sec-card open" id="s13">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.12</div><div class="sec-title">Sensor Network</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>A sensor network consists of small, usually battery-powered devices and a group of wireless infrastructure that monitors any number of environments and records data — from factories to data centers, hospital labs, and even forests.</p>
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">A wireless sensor network can be defined as a network of devices that communicates information collected from a monitored area through wireless links. With a gateway, data is connected to other networks like wireless Ethernet and forwarded through multiple nodes.</div>
+        </div>
+        <p><span class="tech">WSN (Wireless Sensor Network)</span> is a wireless network consisting of base stations and a number of nodes (wireless sensors). These networks are used to monitor physical or environmental conditions like sound, pressure, temperature, and transfer data through the network to a main location.</p>
+
+        <h3>Main Applications of Wireless Sensor Networks</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">🏥</div><div class="mc-title">Health</div><div class="mc-text">Patient monitoring and medical data collection.</div></div>
+          <div class="mini-card"><div class="mc-icon">🪖</div><div class="mc-title">Military</div><div class="mc-text">Battlefield surveillance and target detection.</div></div>
+          <div class="mini-card"><div class="mc-icon">🌿</div><div class="mc-title">Environment</div><div class="mc-text">Environmental monitoring, forest fire detection.</div></div>
+          <div class="mini-card"><div class="mc-icon">🏠</div><div class="mc-title">Home</div><div class="mc-text">Smart home automation and security.</div></div>
+          <div class="mini-card"><div class="mc-icon">🏭</div><div class="mc-title">Industrial</div><div class="mc-text">Factory automation and process monitoring.</div></div>
+          <div class="mini-card"><div class="mc-icon">🌾</div><div class="mc-title">Agriculture</div><div class="mc-text">Soil and crop monitoring.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S14: GIS -->
+    <div class="sec-card open" id="s14">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.13</div><div class="sec-title">GIS – Geographic Information System</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">GIS is a computer-based system (framework) that collects, manages, and analyses geographical data. Based on geographical science, this system integrates many kinds of data, analyses by location, organises, and displays information on maps or in 3D. All the map and nearby services you use on your mobile are possible because of GIS.</div>
+        </div>
+
+        <h3>GIS Stands For</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">🌐</div><div class="mc-title">Geographical</div><div class="mc-text">Data location received or calculated as X and Y coordinates.</div></div>
+          <div class="mini-card"><div class="mc-icon">ℹ️</div><div class="mc-title">Information</div><div class="mc-text">Database organised and available as useful knowledge — coloured maps, graphics, tables, or interactive query results.</div></div>
+          <div class="mini-card"><div class="mc-icon">⚙️</div><div class="mc-title">System</div><div class="mc-text">A group of interconnected elements capable of data capture, input, transformation, display, querying, analysis, and output modeling.</div></div>
+        </div>
+
+        <h3>4.13.1 How GIS Works</h3>
+        <ul>
+          <li><strong>Visualising Data:</strong> Geographical data stored in a database is displayed in GIS software.</li>
+          <li><strong>Combining Data:</strong> Layers are combined to create desired maps.</li>
+          <li><strong>Querying:</strong> Search for what's important in layers or perform geographical queries.</li>
+        </ul>
+
+        <h3>4.13.2 Advantages of GIS</h3>
+        <ul>
+          <li>Getting specific and detailed information about locations makes decision-making easier.</li>
+          <li>Traffic status and distances help determine travel time; additional tasks can be pre-planned.</li>
+          <li>Helps identify communities that are at risk or lack basic infrastructure.</li>
+          <li>Helps identify criminology cases.</li>
+          <li>Better management of natural resources; geographical changes are easily recorded.</li>
+          <li>Better communication during emergencies.</li>
+          <li>Better decisions lead to cost savings.</li>
+          <li>Helps identify various trends within communities and plan for demographic changes.</li>
+        </ul>
+
+        <h3>4.13.3 Components of GIS</h3>
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="fi-icon">💻</div>
+            <div class="fi-content"><div class="fi-title">Hardware</div><p>Physical components of the computer on which GIS runs — hard disk, processor, motherboard, capturing devices, sensors, cameras, scanners, display devices, printers, plotters.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">🖥️</div>
+            <div class="fi-content"><div class="fi-title">Software</div><p>GIS software provides tools and functions for input and storage of spatial/geographical data, running analysis models, and displaying geographical data as maps. Uses RDBMS for storage. Example: ArcGIS.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">📊</div>
+            <div class="fi-content"><div class="fi-title">Data</div><p>The most important and expensive component. Geographical data is a combination of physical characteristics stored in tables. Digitization (converting scanned hard-copy maps to digital format) is the most difficult task.</p></div>
+          </div>
+          <div class="feat-item">
+            <div class="fi-icon">👤</div>
+            <div class="fi-content"><div class="fi-title">Users</div><p>Users skillfully operate the GIS system using all three components above. Today's fast, user-friendly computers make it easy for everyone to use GIS daily.</p></div>
+          </div>
+        </div>
+
+        <h3>Types of GIS Applications</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">🌐</div><div class="mc-title">Web-Based GIS</div><div class="mc-text">Online GIS applications used as excellent data visualisation tools.</div></div>
+          <div class="mini-card"><div class="mc-icon">🔍</div><div class="mc-title">GeoBrowser</div><div class="mc-text">Like a web browser but only for GIS. Most popular: Google Earth.</div></div>
+          <div class="mini-card"><div class="mc-icon">🖱️</div><div class="mc-title">Desktop GIS</div><div class="mc-text">Mapping software running on desktop; used academically and commercially. Example: ArcGIS.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S15: ISP -->
+    <div class="sec-card open" id="s15">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.14</div><div class="sec-title">ISP – Internet Service Provider</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">An Internet Service Provider is a company or institution that provides internet connection services and other related services. Most telephone companies are internet service providers. They offer services like internet domain name registration and hosting.</div>
+        </div>
+        <p>ISP has both domestic and international networks so that customers connected through the ISP can connect to the global network. It streams data via wired (modem, leased line, broadband), radio, and other network transmission media. With cloud computing, ISPs offer even more services at different models and prices.</p>
+
+        <h3>4.14.1 Functions of ISP</h3>
+        <ul>
+          <li>Providing internet service as required to individuals, companies, or other business activities.</li>
+          <li>ISPs can provide dial-up or broadband service to consumers — the most common way is through telephone lines.</li>
+          <li>Dial-up connections require a phone line and typically provide speeds of <strong>56 Kbps or less</strong>.</li>
+          <li>Broadband connections (ISDN, wireless, cable modem, DSL, satellite, Ethernet) vary in speed from <strong>64 Kbps to 20+ Mbps</strong>.</li>
+          <li>All ISPs have their own servers, and users are connected to those servers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S16: MOBILE COMPUTING -->
+    <div class="sec-card open" id="s16">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.15</div><div class="sec-title">Mobile Computing</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Mobile computing is a technology that provides an environment in which two or more remote wireless-capable devices can exchange data at high speed and reliably without being connected by a fixed physical link (cable or wire). Data transmission happens wirelessly between devices in any form — message, voice, or video.</div>
+        </div>
+
+        <h3>Main Components of Mobile Computing</h3>
+        <div class="grid-3">
+          <div class="mini-card">
+            <div class="mc-icon">📡</div>
+            <div class="mc-title">Mobile Communication</div>
+            <div class="mc-text">The infrastructure of mobile computing — protocols, services, bandwidth, and portals. Infrastructure is basically radio waves. Data format is also defined at this level.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">📱</div>
+            <div class="mc-title">Mobile Hardware</div>
+            <div class="mc-text">Devices like portable laptops, smartphones, tablets, personal computers, PDAs. Configured to operate in full-duplex — sending and receiving signals simultaneously.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">⚙️</div>
+            <div class="mc-title">Mobile Software</div>
+            <div class="mc-text">Programs that run on mobile hardware. Popular mobile OS: Android, BlackBerry, Windows, iOS. The OS acts as an interface between hardware and user.</div>
+          </div>
+        </div>
+
+        <h3>Main Uses of Mobile Computing</h3>
+        <ul>
+          <li>Web or internet access.</li>
+          <li>Global Positioning System (GPS).</li>
+          <li>Emergency services.</li>
+          <li>Entertainment services.</li>
+          <li>Educational services.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S17: CELLULAR SYSTEM -->
+    <div class="sec-card open" id="s17">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">4.16</div><div class="sec-title">Cellular System, MTSO &amp; Handoff</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Old wireless systems used powerful transmitters that served an entire area, requiring very high power. Current wireless networking uses <span class="kw">cellular systems</span>. Cellular networks use low power, transmit data with more transmitters over short distances. The coverage area is divided into cells — each cell has its own antenna for transmitting signals and its own frequency.</p>
+        <p>In simple terms: a cell is a geographical area covered by a cellular telephone transmitter. The transmitter facility itself is called a <strong>cell site</strong>. A cell can be square or hexagonal in shape. Frequency reuse allows the same radio frequency to be used within a given area with minimum interference between cells.</p>
+
+        <h3>4.17 MTSO – Mobile Telephone Switching Office</h3>
+        <p>The MTSO is the mobile equivalent of a public switched telephone network (PSTN) central office. It contains switching equipment to route mobile phone calls and control units for the cell sites connected to the Mobile Switching Center (MSC). MTSO handles call interconnection with local and long-distance landline telephone companies, billing, registration, authentication, location updates, and call routing.</p>
+
+        <h3>4.17.1 Handoff in Mobile Connection</h3>
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">In cellular communication, handoff (also called handover) is the process of transferring an active call or data session from one cell or cellular network to another — to prevent service interruption for a caller or data session user.</div>
+        </div>
+
+        <h3>Conditions that Trigger Handoff</h3>
+        <ul>
+          <li>A subscriber moves out of one cell's coverage area and enters another cell's coverage.</li>
+          <li>A cell reaches its pre-configured capacity — some calls are transferred to neighbouring cells.</li>
+          <li>Cells are subdivided into microcells — handoff occurs when duties transfer between large and small cells.</li>
+          <li>Interference in calls using the same frequency.</li>
+        </ul>
+
+        <h3>4.17.3 Types of Handoff</h3>
+        <div class="pros-cons">
+          <div class="pros-box">
+            <div class="pc-title">⚡ Hard Handoff</div>
+            <ul>
+              <li>Actual break in connection when switching cells.</li>
+              <li>Radio link to current cell is cut before establishing link with next cell.</li>
+              <li>Usually an inter-frequency handoff.</li>
+              <li>"Break before Make" policy.</li>
+            </ul>
+          </div>
+          <div class="pros-box">
+            <div class="pc-title">✨ Soft Handoff</div>
+            <ul>
+              <li>At least one link is maintained when adding/removing radio links.</li>
+              <li>No break during handoff — seamless experience.</li>
+              <li>Usually adopted at co-located sites.</li>
+              <li>"Make before Break" policy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>4.17.4 Base Station</h3>
+        <p>A base station is a fixed communication location and part of the network's wireless telephone system. It transmits information from the transmitting unit and receives from the receiving unit (such as mobile phones). Often known as a cell site, a base station allows mobile phones to work in a local area as long as it is connected to a mobile or wireless service provider.</p>
+
+        <h3>Types of Base Stations</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">🏔️</div><div class="mc-title">Macrocells</div><div class="mc-text">Largest coverage base stations — usually in rural areas and highways.</div></div>
+          <div class="mini-card"><div class="mc-icon">🏙️</div><div class="mc-title">Microcells</div><div class="mc-text">Low-power stations covering areas where extra coverage is needed — suburban and urban areas.</div></div>
+          <div class="mini-card"><div class="mc-icon">🏢</div><div class="mc-title">Picocells</div><div class="mc-text">Small stations providing localised coverage inside buildings with many users and poor network quality.</div></div>
+        </div>
+
+        <div class="info-box green">
+          <strong>✅ Key Point</strong>
+          A base station is essential for the correct and better functioning of mobile phones. If there are not enough base stations in an area with many subscribers or geographical interference, service quality is significantly affected.
+        </div>
+
+        <div class="divider"></div>
+        <p style="text-align:center;color:var(--muted);font-size:13.5px;font-style:italic;">
+          📚 Source: 2DCA1 IT Trends – Unit 4 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
+          Authors: Dr. Sunita Dwivedi &amp; Prashant Parashar
+        </p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">⚡ ThunderStudy</div>
+      <p>Your ultimate study companion for CUET, DCA, and competitive exams. Built with ❤️ by Wondermayank.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul><li><a href="#">Dashboard</a></li><li><a href="#">StudyHub</a></li><li><a href="#">Mock Tests</a></li><li><a href="#">Leaderboard</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">@wondermayank (Instagram)</a></li>
+        <li><a href="#">@thunderstudy_official (Telegram)</a></li>
+        <li><a href="#">@wondermayank (YouTube)</a></li>
+        <li><a href="#">@mindmaster_robot (Support Bot)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 ThunderStudy by Wondermayank · All Rights Reserved · wondermayank.github.io</div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggle(header){header.parentElement.classList.toggle('open');}
+function toggleDrop(){document.getElementById('unitDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){const d=document.getElementById('unitDrop');if(!d.contains(e.target))d.classList.remove('open');});
+window.addEventListener('scroll',function(){document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
+const sections=document.querySelectorAll('.sec-card');
+const tocLinks=document.querySelectorAll('.toc-list li a');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const link=document.querySelector(`.toc-list li a[href="#${entry.target.id}"]`);if(link)link.classList.add('active');}});},{rootMargin:'-20% 0px -60% 0px'});
+sections.forEach(sec=>observer.observe(sec));
+</script>
+</body>
+</html>

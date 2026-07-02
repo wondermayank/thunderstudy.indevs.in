@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderStudy | 2DCA1 IT Trends – Unit 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#1565C0;--blue-mid:#1976D2;--blue-light:#42A5F5;--blue-pale:#E3F2FD;
+  --amber:#F59E0B;--amber-light:#FEF3C7;--green:#22C55E;--red:#EF4444;
+  --bg:#F0F6FF;--card:#FFFFFF;--text:#0F1B35;--muted:#5A6885;
+  --border:#D0E3FF;--shadow:0 2px 16px rgba(21,101,192,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%);box-shadow:0 2px 24px rgba(13,71,161,0.4);}
+.header-inner{max-width:1200px;margin:auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand-icon{width:36px;height:36px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(245,158,11,0.5);}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.brand-tagline{font-size:10px;color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.5px;}
+.unit-dropdown-wrap{position:relative;}
+.unit-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:7px 16px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.unit-btn:hover{background:rgba(255,255,255,0.25);}
+.unit-btn .arrow{transition:transform 0.25s;font-size:12px;}
+.unit-dropdown-wrap.open .arrow{transform:rotate(180deg);}
+.unit-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(21,101,192,0.2);min-width:240px;overflow:hidden;border:1px solid var(--border);animation:dropIn 0.2s ease;}
+@keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.unit-dropdown-wrap.open .unit-menu{display:block;}
+.unit-menu a{display:flex;align-items:center;gap:10px;padding:11px 16px;text-decoration:none;color:var(--text);font-size:13.5px;font-weight:500;transition:background 0.15s;border-bottom:1px solid var(--border);}
+.unit-menu a:last-child{border-bottom:none;}
+.unit-menu a:hover{background:var(--blue-pale);}
+.unit-menu a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.unit-menu a .badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-pill{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 60%,#1E88E5 100%);padding:40px 24px 36px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,0.04);border-radius:50%;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;}
+.hero h1{font-size:clamp(22px,4vw,36px);font-weight:800;margin-bottom:8px;letter-spacing:-0.5px;}
+.hero p{font-size:14px;color:rgba(255,255,255,0.8);max-width:500px;margin:0 auto 20px;}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.hero-meta span{display:flex;align-items:center;gap:5px;font-size:12.5px;color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.1);padding:4px 12px;border-radius:20px;}
+
+/* LAYOUT */
+.layout{max-width:1200px;margin:0 auto;padding:28px 20px 60px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start;}
+.toc-sidebar{position:sticky;top:78px;background:var(--card);border-radius:16px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;}
+.toc-head{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);padding:14px 18px;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.toc-list{list-style:none;padding:8px 0;max-height:calc(100vh - 160px);overflow-y:auto;}
+.toc-list::-webkit-scrollbar{width:4px;}
+.toc-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.toc-list li a{display:flex;align-items:flex-start;gap:8px;padding:7px 16px;text-decoration:none;color:var(--muted);font-size:12.8px;font-weight:500;transition:all 0.15s;line-height:1.3;}
+.toc-list li a:hover,.toc-list li a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.toc-list li a .toc-num{flex-shrink:0;width:22px;height:20px;background:var(--blue-pale);color:var(--blue);border-radius:4px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.toc-list li a.active .toc-num{background:var(--blue);color:#fff;}
+
+/* MAIN */
+.main-content{display:flex;flex-direction:column;gap:20px;}
+.sec-card{background:var(--card);border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:80px;}
+.sec-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;gap:12px;transition:background 0.15s;}
+.sec-header:hover{background:var(--blue-pale);}
+.sec-title-wrap{display:flex;align-items:center;gap:12px;}
+.sec-num{width:36px;height:36px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;box-shadow:0 2px 8px rgba(21,101,192,0.3);}
+.sec-title{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.2px;}
+.sec-toggle{font-size:18px;color:var(--blue);transition:transform 0.3s;flex-shrink:0;}
+.sec-card.open .sec-toggle{transform:rotate(180deg);}
+.sec-body{display:none;padding:0 22px 22px;border-top:1px solid var(--border);animation:fadeIn 0.2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.sec-card.open .sec-body{display:block;}
+
+/* TYPOGRAPHY */
+.sec-body p{margin-top:14px;color:#2C3E60;font-size:15px;line-height:1.8;}
+.sec-body h3{font-size:15px;font-weight:700;color:var(--blue);margin-top:22px;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.sec-body h3::before{content:'';width:4px;height:16px;background:var(--amber);border-radius:2px;flex-shrink:0;}
+.sec-body ul{margin-top:10px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+.sec-body ul li{padding-left:20px;position:relative;font-size:14.5px;color:#2C3E60;line-height:1.7;}
+.sec-body ul li::before{content:'▸';position:absolute;left:0;color:var(--blue-light);font-size:12px;top:3px;}
+.sec-body ol{margin-top:10px;padding-left:20px;}
+.sec-body ol li{font-size:14.5px;color:#2C3E60;line-height:1.7;margin-bottom:4px;}
+
+/* INFO BOXES */
+.info-box{margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;line-height:1.7;}
+.info-box.blue{background:var(--blue-pale);border-left:4px solid var(--blue);color:#1A3A6B;}
+.info-box.amber{background:var(--amber-light);border-left:4px solid var(--amber);color:#7C4A00;}
+.info-box.green{background:#F0FDF4;border-left:4px solid var(--green);color:#14532D;}
+.info-box.red{background:#FEF2F2;border-left:4px solid var(--red);color:#7F1D1D;}
+.info-box strong{font-weight:700;display:block;margin-bottom:4px;}
+
+/* SUB SECTIONS */
+.sub-sec{margin-top:20px;background:#F8FAFE;border-radius:10px;border:1px solid var(--border);padding:14px 18px;}
+.sub-sec-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.sub-sec-title .dot{width:8px;height:8px;background:var(--amber);border-radius:50%;flex-shrink:0;}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.mini-card{background:var(--blue-pale);border-radius:10px;padding:12px 14px;border:1px solid rgba(21,101,192,0.15);}
+.mini-card .mc-icon{font-size:22px;margin-bottom:6px;}
+.mini-card .mc-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.mini-card .mc-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+
+/* RED MINI CARD for cyber */
+.danger-card{background:#FEF2F2;border-radius:10px;padding:12px 14px;border:1px solid rgba(239,68,68,0.2);}
+.danger-card .dc-icon{font-size:22px;margin-bottom:6px;}
+.danger-card .dc-title{font-size:13px;font-weight:700;color:#991B1B;margin-bottom:4px;}
+.danger-card .dc-text{font-size:12.5px;color:#7F1D1D;line-height:1.5;}
+
+/* TABLE */
+.content-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13.5px;border-radius:8px;overflow:hidden;}
+.content-table th{background:var(--blue);color:#fff;padding:10px 14px;text-align:left;font-weight:700;}
+.content-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;}
+.content-table tr:last-child td{border-bottom:none;}
+.content-table tr:nth-child(even) td{background:#F8FBFF;}
+
+/* DEF BOX */
+.def-box{margin-top:16px;background:linear-gradient(135deg,#E8F1FE 0%,#F0F7FF 100%);border:1px solid rgba(21,101,192,0.2);border-radius:12px;padding:16px 20px;}
+.def-box .def-label{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.def-box .def-text{font-family:'Lora',serif;font-size:15px;color:#1A3260;line-height:1.75;font-style:italic;}
+
+/* G2X CARDS */
+.g2x-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+.g2x-card{border-radius:12px;padding:16px;border:2px solid;}
+.g2x-card.g2g{border-color:#1565C0;background:#EFF6FF;}
+.g2x-card.g2c{border-color:#059669;background:#ECFDF5;}
+.g2x-card.g2b{border-color:#D97706;background:#FFFBEB;}
+.g2x-card.g2e{border-color:#7C3AED;background:#F5F3FF;}
+.g2x-card .gx-tag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:0.5px;margin-bottom:8px;}
+.g2g .gx-tag{background:#1565C0;color:#fff;}
+.g2c .gx-tag{background:#059669;color:#fff;}
+.g2b .gx-tag{background:#D97706;color:#fff;}
+.g2e .gx-tag{background:#7C3AED;color:#fff;}
+.g2x-card .gx-title{font-size:14px;font-weight:700;margin-bottom:6px;}
+.g2g .gx-title{color:#1E3A8A;}
+.g2c .gx-title{color:#065F46;}
+.g2b .gx-title{color:#92400E;}
+.g2e .gx-title{color:#4C1D95;}
+.g2x-card p{font-size:13px;color:var(--muted);margin-top:0!important;line-height:1.6;}
+
+/* CYBER CRIME CARDS */
+.cyber-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.cyber-card{background:#FFF5F5;border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:14px;}
+.cyber-card .cc-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#DC2626;color:#fff;border-radius:50%;font-size:10px;font-weight:800;flex-shrink:0;margin-bottom:6px;}
+.cyber-card .cc-title{font-size:13.5px;font-weight:700;color:#991B1B;margin-bottom:6px;}
+.cyber-card p{font-size:13px;color:#7F1D1D;line-height:1.5;margin-top:0!important;}
+
+/* PREVENTION TIPS */
+.tip-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.tip-list li{display:flex;gap:10px;align-items:flex-start;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:10px 12px;}
+.tip-list li .tip-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.tip-list li .tip-text{font-size:13.5px;color:#14532D;line-height:1.6;}
+
+/* KW */
+.kw{background:linear-gradient(120deg,rgba(245,158,11,0.2),rgba(245,158,11,0.1));color:#92400E;padding:1px 5px;border-radius:4px;font-weight:600;}
+.tech{color:var(--blue);font-weight:600;}
+.divider{height:1px;background:var(--border);margin:16px 0;}
+
+/* SERVICE CARDS */
+.service-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px;}
+.service-card{background:var(--blue-pale);border-radius:10px;padding:14px;border:1px solid rgba(21,101,192,0.15);text-align:center;}
+.service-card .sv-icon{font-size:26px;margin-bottom:8px;}
+.service-card .sv-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.service-card .sv-text{font-size:12px;color:var(--muted);line-height:1.4;}
+
+/* AADHAR FEATURE */
+.aadhar-features{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.aadhar-feat{display:flex;gap:14px;align-items:flex-start;background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.aadhar-feat .af-num{width:30px;height:30px;background:linear-gradient(135deg,#FF6B35,#FF8C00);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
+.aadhar-feat .af-content .af-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.aadhar-feat .af-content p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255,255,255,0.85);padding:36px 24px 24px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;}
+.footer-brand .brand-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.footer-col h4{font-size:13px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;transition:color 0.15s;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.15);text-align:center;font-size:12.5px;color:rgba(255,255,255,0.5);}
+
+.scroll-top{position:fixed;bottom:28px;right:24px;width:44px;height:44px;background:var(--blue);color:#fff;border-radius:50%;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(21,101,192,0.4);z-index:500;transition:transform 0.2s;}
+.scroll-top:hover{transform:translateY(-3px);}
+.scroll-top.visible{display:flex;}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .toc-sidebar{position:static;display:none;}
+  .grid-2,.grid-3,.grid-4,.g2x-grid,.cyber-grid,.service-grid{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;gap:20px;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:20px;}
+  .nav-pill{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">T</div>
+      <div class="brand-text">
+        <span class="brand-name">ThunderStudy</span>
+        <span class="brand-tagline">by Wondermayank</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <span class="nav-pill">2DCA1 – IT Trends</span>
+      <div class="unit-dropdown-wrap" id="unitDrop">
+        <button class="unit-btn" onclick="toggleDrop()">📚 Unit 3 &nbsp;<span class="arrow">▾</span></button>
+        <div class="unit-menu">
+          <a href="https://thunderstudy.github.io/dca/2/unit1.html">Unit 1 – Multimedia</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit2.html">Unit 2 – Text &amp; Sound</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit3.html" class="active">Unit 3 – E-Governance &amp; Cyber <span class="badge">Current</span></a>
+          <a href="https://thunderstudy.github.io/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit5.html">Unit 5 – AI, Cloud &amp; Google Apps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">📖 Unit 3 Notes</div>
+  <h1>E-Governance &amp; Cyber Crime</h1>
+  <p>Complete Unit 3 study notes for 2DCA1 IT Trends – translated from official course material</p>
+  <div class="hero-meta">
+    <span>🏫 MCU, Bhopal</span>
+    <span>📋 13 Major Topics</span>
+    <span>⚡ Full PDF Content</span>
+    <span>🌐 English Medium</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc-sidebar">
+    <div class="toc-head">📑 Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">3</span> E-Governance</a></li>
+      <li><a href="#s2"><span class="toc-num">3.1</span> Types of E-Governance</a></li>
+      <li><a href="#s3"><span class="toc-num">3.2</span> E-Democracy</a></li>
+      <li><a href="#s4"><span class="toc-num">3.3</span> Public Private Partnership</a></li>
+      <li><a href="#s5"><span class="toc-num">3.4</span> Samadhan Portal MP</a></li>
+      <li><a href="#s6"><span class="toc-num">3.5</span> CM Helpline 181</a></li>
+      <li><a href="#s7"><span class="toc-num">3.6</span> MP Online Services</a></li>
+      <li><a href="#s8"><span class="toc-num">3.7</span> MyGov.in</a></li>
+      <li><a href="#s9"><span class="toc-num">3.8</span> UIDAI &amp; Aadhaar</a></li>
+      <li><a href="#s10"><span class="toc-num">3.10</span> UMANG App</a></li>
+      <li><a href="#s11"><span class="toc-num">3.11</span> DigiLocker</a></li>
+      <li><a href="#s12"><span class="toc-num">3.12</span> Digital Library</a></li>
+      <li><a href="#s13"><span class="toc-num">3.13</span> Cyber Crime</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- S1: E-GOVERNANCE -->
+    <div class="sec-card open" id="s1">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3</div><div class="sec-title">E-Governance (Electronic Governance)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>The continuous development of digitalization has prompted many governments around the world to include technology in government processes. <span class="kw">E-Governance</span> or Electronic Governance means technology-driven governance. E-Governance means that all government schemes and services are made available to citizens through Information and Communication Technology (ICT) so that these schemes and services can be used quickly and transparently.</p>
+
+        <p>E-Governance makes the government more citizen-centric. E-Governance is not just about government websites and e-mail, just about service delivery on the Internet, or just about digital access to government information or electronic payments — all these facilities are part of e-governance. E-Governance gives citizens the facility to communicate with the government, helps in making government policies, and gives citizens the facility to communicate with each other. The government can use e-governance as a tool to find out the real needs and welfare of citizens.</p>
+
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">"E-Governance truly allows citizens to participate in the process of governmental decision-making. Through e-governance, government services are made available to citizens in an appropriate, organised and transparent mode."</div>
+        </div>
+
+        <p>There are three main groups participating in governance concepts: the government itself, the general public, and business groups. The strategic objective of e-governance is to support and simplify governance for all parties — government, citizens, and businesses. The use of ICT can connect the support processes and activities of all three groups. In other words, e-governance supports and emulates good governance through the use of electronic means.</p>
+
+        <h3>Main Role of ICT in Governance</h3>
+        <ul>
+          <li>Improving the quality of governance products, schemes, and services currently being provided.</li>
+          <li>Citizen-centric governance — increasing people's participation in governance services.</li>
+          <li>Including deprived sections of society (the poor, illiterate, rural people, migrants and displaced people) under the governance sector.</li>
+          <li>An effective government that provides maximum value for taxpayers' money (quick and efficient services).</li>
+          <li>Generally, because records and information are at different locations, the government takes a lot of time to answer people's questions and problems. With the help of ICT, work can be done in less time.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S2: TYPES OF E-GOVERNANCE -->
+    <div class="sec-card open" id="s2">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.1</div><div class="sec-title">Types of E-Governance</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="g2x-grid">
+          <div class="g2x-card g2g">
+            <div class="gx-tag">G2G</div>
+            <div class="gx-title">Government to Government</div>
+            <p>When information and services are exchanged between different government departments, firms, and agencies. This increases the efficiency of government processes. Works between various government institutions and national, state, and local government institutions. Government agencies can share common databases using online communication. G2G services can be at the local or international level. For example, if the Indian government wants to give information to the states, that information can be uploaded to the related website — enabling more contact between governments in less time.</p>
+          </div>
+          <div class="g2x-card g2c">
+            <div class="gx-tag">G2C</div>
+            <div class="gx-title">Government to Citizen</div>
+            <p>A common citizen can easily complete their government tasks with this. The primary objective is to supply facilities to citizens. It also helps common people reduce time and cost for transactions. A citizen can get facilities from anywhere, anytime. Citizens have the freedom to share their views and complaints on government policies at any time, anywhere. Examples: insurance policy info without office visit, gas subsidy in account, exam results on website, paying income tax, water bill, rail tickets without visiting departments.</p>
+          </div>
+          <div class="g2x-card g2b">
+            <div class="gx-tag">G2B</div>
+            <div class="gx-title">Government to Business</div>
+            <p>Services are exchanged between the government and business firms through ICT. Productive and beneficial for both government and business companies. G2B plays an important role in business development. It enhances the efficiency and quality of communication and transparency of government projects. Through this, traders can do government work online from home. Examples: applying for trading license, company/society registration, information about government schemes for businesses, VAT registration, etc. This saves time for traders.</p>
+          </div>
+          <div class="g2x-card g2e">
+            <div class="gx-tag">G2E</div>
+            <div class="gx-title">Government to Employee</div>
+            <p>Any country's government is the biggest employer and therefore works with employees on a regular basis. The objective of G2E is to bring employees together and improve knowledge sharing. It provides online facilities to employees — such as applying for leave, reviewing salary payment records, and checking leave balance. G2E gives HR training and development. It helps in making contact between government and employees efficiently and quickly, and helps increase their benefits to reach their satisfaction level.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: E-DEMOCRACY -->
+    <div class="sec-card" id="s3">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.2</div><div class="sec-title">E-Democracy (Electronic Democracy)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>The Hindi meaning of the word <span class="kw">Democracy</span> is Loktantra, Jantantra, or Prajatantra — all meaning "the rule of the people." Democracy or Prajatantra is a system of governance in which people are given the right to elect their ruler according to their own wishes.</p>
+
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">"E-Democracy, i.e., e-Loktantra, is a combination of the words 'electronic' and 'democracy', also known as Digital Democracy or Internet Democracy. E-Democracy is the smart use of communication technology to enrich and transform existing e-governance models and practices."</div>
+        </div>
+
+        <p>Today's democracy is representative democracy in which representatives are elected for the creation and implementation of laws, policies, and regulations. The power of final decision-making rests with the representatives elected by the people. The big question is: how well do elected representatives represent the wishes or preferences of the people?</p>
+
+        <p>Technology and the Internet have made it easy for information to reach ordinary citizens. Getting information about the work of the government or politicians and expressing one's opinion on it has been made very easy by the Internet and ICT. Today, politicians also use technology and the Internet. By using social media sites and online tools, politicians can connect directly with the general public, communicate directly, and receive feedback and advice.</p>
+
+        <p>E-Democracy provides a platform for mutual discussion and public debate and allows them to influence public policy. It helps the government focus on key issues that the community wants. E-Democracy is a form of government in which all adult citizens are considered eligible to participate equally in political processes, proposals, development, and the making of laws. E-Democracy encompasses social, economic, and cultural circumstances.</p>
+      </div>
+    </div>
+
+    <!-- S4: PPP -->
+    <div class="sec-card" id="s4">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.3</div><div class="sec-title">Public Private Partnership (PPP)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Public Private Partnership is also known as <span class="kw">PPP, 3P or P3</span>. Public-Private Partnership is a model where the government joins with private companies to complete basic projects. It involves cooperation between a government agency and a private sector company. This coalition between the two parties ensures financing, design, construction, and maintenance of infrastructural facilities within the country.</p>
+
+        <p>Public-Private Partnership is a long-term contract made by a public authority and the private sector for providing long-term assets or services. Under this, the government completes its projects with private companies. Through this, funds are arranged for the development of any public service or basic infrastructure. In this, government and private institutions together fulfil their pre-determined goals. The PPP model is the model for public infrastructure projects like new telecommunication systems, airports, highways, public transport networks, parks, convention centres or power plants — which includes funding, planning, construction, operation, maintenance, and divestment.</p>
+
+        <h3>Key Points of PPP</h3>
+        <ul>
+          <li>PPP is related to high-priority government, planned projects. It involves two parties — the government and the concerned private company.</li>
+          <li>The PPP approach is related to facilitating long-term public services, which requires the design, construction, maintenance, and delivery of ancillary services by the private sector for a specific period.</li>
+          <li>For a successful project, capital, design, and other necessary resources are shared between the government and the firm. The PPP model frees the government from its budgetary problem and borrowing limits.</li>
+          <li>The main objective of PPP is to combine the skills, expertise, and experience of both public and private sectors so that high-quality and new-technology services can be provided.</li>
+          <li>These projects are usually for years, so the government authority and private institution are joined for an extended period.</li>
+          <li>PPP is used in government projects for the purpose of public benefit. The government is accountable for the quality and cost of services.</li>
+          <li>PPP reduces the life cycle of projects and implementation is faster — delivered in less time and with good quality.</li>
+          <li>The private company is chosen on the basis of open competitive bidding and receives payment based on performance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S5: SAMADHAN PORTAL -->
+    <div class="sec-card" id="s5">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.4</div><div class="sec-title">Samadhan: Madhya Pradesh Online Portal</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>As you know, people of the state had to make rounds of government departments to get their complaints resolved, and it was also necessary that they could only go to resolve their personal problems during office working hours — so their own employment and work was also greatly affected. Various other problems also had to be faced, which wasted a lot of time and money for people. Seeing all these problems, the Madhya Pradesh government has created a portal for people's complaints.</p>
+
+        <p>Through this portal, ordinary citizens can register their complaints online or by postal letter. This will save people's time and reduce the hassle of coming and going. Through this system, various complaints can be resolved transparently. Continuous monitoring for this will be done by the department.</p>
+
+        <div class="info-box blue">
+          <strong>🌐 Portal Details</strong>
+          To register a complaint, Madhya Pradesh state citizens must first go to the Samadhan portal at <span class="tech">samadhan.mp.gov.in</span>. The complainant needs to fill in essential information such as mobile number, Aadhaar number, name, surname, email, district, block, gram panchayat, address etc. The applicant must enter the correct "Mobile Number" and "Aadhaar Card Number" in the application form so that the form can be approved and the message reaches the beneficiary.
+        </div>
+
+        <p>If any other document is also required for complaint registration, the document must be scanned and uploaded. Provision has also been made for ordinary citizens to file their complaints in written form. For this, they can send their complaints to the Jan Shikayat Nivaran (Public Complaint Redressal) Department by letter. On receiving the letter, a unique Jan Shikayat number will be given after registering the complaint on the Samadhan portal. The unique number will be sent to the complainant's mobile number mentioned in the letter via SMS, or if no number is available, via letter.</p>
+
+        <p>Received complaints will be examined by the department and forwarded to the appropriate department, officer, or district, and the complaint resolution will be provided by the concerned department soon.</p>
+      </div>
+    </div>
+
+    <!-- S6: CM HELPLINE -->
+    <div class="sec-card" id="s6">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.5</div><div class="sec-title">CM Helpline 181</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>The aim of the governance system in Madhya Pradesh is that everyone should be happy, healthy, and everyone's welfare. Based on this, CM Helpline <span class="kw">181</span> has been launched in the state. Its purpose is that the people of the state will get quick information from CM Helpline and there will be quick resolution of complaints.</p>
+
+        <div class="grid-3">
+          <div class="mini-card">
+            <div class="mc-icon">📞</div>
+            <div class="mc-title">Toll Free Number</div>
+            <div class="mc-text">Call 181 — completely free of charge</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">⏰</div>
+            <div class="mc-title">Calling Hours</div>
+            <div class="mc-text">7 AM to 11 PM daily</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">📅</div>
+            <div class="mc-title">Resolution Time</div>
+            <div class="mc-text">7 to 30 days for complaint resolution</div>
+          </div>
+        </div>
+
+        <p>Through CM Helpline, you can get information about all schemes related to state governance. Along with this, you can register complaints, demands, and suggestions related to all facilities provided by the state government. Officers and employees of various departments of the state are connected to this helpline, who resolve the problems and complaints received from this helpline.</p>
+      </div>
+    </div>
+
+    <!-- S7: MP ONLINE SERVICES -->
+    <div class="sec-card" id="s7">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.6</div><div class="sec-title">MP Online Services</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p><span class="kw">MP Online</span> is a simple and secure way to effectively reach government services to citizens. MP Online is an important e-governance initiative of the Madhya Pradesh government, with the aim of making the services of various government departments available directly to common citizens sitting at home. MP Online Limited is a joint venture of the Madhya Pradesh Government and <span class="tech">Tata Consultancy Services (TCS) Limited</span>.</p>
+
+        <p>MP Online is providing services online through kiosks in more than <strong>350 tehsils</strong> of all <strong>52 districts</strong> of Madhya Pradesh. MP Online provides various government services such as admission process for MP universities and colleges, donations for religious places, online ticket booking for touring national parks in MP, bill payment facility, applications for recruitment in various government departments and online examination process including online counselling for admission to various courses.</p>
+
+        <div class="info-box blue">
+          <strong>📌 What is a Kiosk?</strong>
+          A Kiosk is a simple way to effectively reach online services of the MP Online portal to citizens. Generally a kiosk is a shop, office, or internet café located in an urban area that is authorised under a contract with MP Online Limited to provide online services to citizens. Kiosk operators receive a fixed service charge for each online service provided.
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card"><div class="sv-icon">🎓</div><div class="sv-title">Admissions</div><div class="sv-text">University &amp; college online admission counselling</div></div>
+          <div class="service-card"><div class="sv-icon">🎟️</div><div class="sv-title">Ticket Booking</div><div class="sv-text">National parks tourism tickets</div></div>
+          <div class="service-card"><div class="sv-icon">💳</div><div class="sv-title">Bill Payment</div><div class="sv-text">Utility and government bill payments</div></div>
+          <div class="service-card"><div class="sv-icon">📝</div><div class="sv-title">Recruitment</div><div class="sv-text">Government job application &amp; exams</div></div>
+          <div class="service-card"><div class="sv-icon">⛪</div><div class="sv-title">Donations</div><div class="sv-text">Online donations to religious places</div></div>
+          <div class="service-card"><div class="sv-icon">🏛️</div><div class="sv-title">All Government</div><div class="sv-text">One-click access to all state services</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S8: MYGOV.IN -->
+    <div class="sec-card" id="s8">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.7</div><div class="sec-title">MyGov.in — Indian Government's Citizen Platform</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p><span class="kw">MyGov (Meri Sarkar)</span> is a citizen platform created by the Indian Government with the purpose of increasing active participation of Indian citizens in the governance and development of the country. The objective of MyGov is to bring the common citizen and the government closer by using an online platform — for this, an interface has been created for the exchange of ideas between experts and common citizens.</p>
+
+        <p>The government's objective is to encourage citizen participation in the direction of good governance through citizens' ideas, suggestions, and small-level contributions. Through this platform, citizens of various regions of India can share their ideas and suggestions about various policies, programmes, schemes, etc. with the government.</p>
+
+        <div class="info-box green">
+          <strong>🌐 Focus Groups on MyGov</strong>
+          On MyGov, various focus groups are available for sharing your ideas where citizens can share their work of interest through various tasks, discussions, elections, talks, and blogs related to a special group.
+        </div>
+      </div>
+    </div>
+
+    <!-- S9: UIDAI & AADHAAR -->
+    <div class="sec-card" id="s9">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.8</div><div class="sec-title">UIDAI &amp; Aadhaar</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>The <span class="kw">Unique Identification Authority of India (UIDAI)</span> is a statutory authority established by the Government of India under the provisions of the Aadhaar (Targeted Delivery of Financial and Other Subsidies, Benefits and Services) Act, 2016 ("Aadhaar Act, 2016"), under the Ministry of Electronics &amp; Information Technology. India is a very large country divided into 28 states and 8 Union Territories with a current population of approximately 135 crore. The main objective of UIDAI is to provide a national identity document to every citizen of India.</p>
+
+        <h3>3.8.1 Goals of UIDAI</h3>
+        <ul>
+          <li>To provide a unique identity to India's residents that can be verified digitally anywhere, anytime.</li>
+        </ul>
+
+        <h3>3.8.2 Objectives of UIDAI</h3>
+        <ul>
+          <li>Providing each resident an Aadhaar number following a well-defined timeline and strict quality metrics.</li>
+          <li>Working with partners to build a structure convenient for residents to update and verify their digital identity.</li>
+          <li>Working with partners and service providers so residents can get fair, effective, and impartial service using Aadhaar; promoting innovation by providing a platform for government and non-government institutions to build Aadhaar-linked applications.</li>
+          <li>Ensuring availability, extensibility, and adaptability of Aadhaar's technical structure.</li>
+          <li>Building a strong and long-term organisation to promote UIDAI's goals and ideals.</li>
+          <li>Using the best skills available in various fields of the world on a partnership basis for UIDAI.</li>
+          <li>Ensuring availability, scalability, and adaptability of technology infrastructure.</li>
+        </ul>
+
+        <h3>3.9 Aadhaar</h3>
+        <p>Aadhaar is issued to residents of India after completing the verification process determined by the UIDAI authority. <span class="kw">Aadhaar number is a 12-digit random number</span>. Any person who is a resident of India, of any age, without any gender distinction can voluntarily get enrolled to receive Aadhaar. The enrollment process is completely free. The person has to provide minimum demographic and biometric information during the enrollment process. A person only needs to enroll once for Aadhaar. Uniqueness is achieved through the biometric de-duplication process and only one Aadhaar is created.</p>
+
+        <div class="info-box blue">
+          <strong>📋 Information Collected During Enrollment</strong>
+          <strong>Demographic:</strong> Name, Date of Birth (verified) or Age (declared), Gender, Address, Mobile Number (optional), Email ID (optional), Introducer's name and Aadhaar number (if applicable).<br><br>
+          <strong>Biometric:</strong> Ten fingerprints, two iris scans, and a photograph of the face.
+        </div>
+
+        <h3>3.9.1 Features of Aadhaar</h3>
+        <div class="aadhar-features">
+          <div class="aadhar-feat">
+            <div class="af-num">I</div>
+            <div class="af-content">
+              <div class="af-title">Uniqueness</div>
+              <p>Achieved through the process of demographic and biometric de-duplication. The de-duplication process verifies whether the resident is already in the UIDAI database. A person only needs to enroll once; after de-duplication, only one Aadhaar is created. If a person enrolls more than once, subsequent enrollments are rejected.</p>
+            </div>
+          </div>
+          <div class="aadhar-feat">
+            <div class="af-num">II</div>
+            <div class="af-content">
+              <div class="af-title">Portability</div>
+              <p>Aadhaar provides nation-wide portability because it can be authenticated online anywhere. This is important because millions of Indians move from one state to another or from rural areas to urban centres.</p>
+            </div>
+          </div>
+          <div class="aadhar-feat">
+            <div class="af-num">III</div>
+            <div class="af-content">
+              <div class="af-title">Random (Randomized) Number</div>
+              <p>Aadhaar number is a random number devoid of any logic or intelligence (for example, unlike sequential numbering of family members). Aadhaar enrollment does not collect details based on caste, religion, income, health, geography, etc.</p>
+            </div>
+          </div>
+          <div class="aadhar-feat">
+            <div class="af-num">IV</div>
+            <div class="af-content">
+              <div class="af-title">Centralised Storage</div>
+              <p>In the UID structure, citizens' data is stored centrally. Its online authentication can be done from anywhere in the country. Aadhaar Authentication Service has been set up to do 10 crore authentications in a day.</p>
+            </div>
+          </div>
+          <div class="aadhar-feat">
+            <div class="af-num">V</div>
+            <div class="af-content">
+              <div class="af-title">Open Source Technology</div>
+              <p>Open source architecture prevents dependence on specific computer hardware, specific storage, specific OS, specific database vendor, or specific vendor's technologies. Building applications using open source prevents dependence on a single type of hardware. Using different hardware does not benefit only one vendor.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>3.9.2 Aadhaar Enrollment</h3>
+        <ul>
+          <li>Aadhaar enrollment is free.</li>
+          <li>You can go to any authorised enrollment centre in India with your proof of identity and address documents.</li>
+          <li>UIDAI accepts many proof of identity and address documents such as Election Photo ID Card, Ration Card, Passport, and Driving Licence.</li>
+          <li>Photo PAN card and government identity certificate are acceptable as proof of identity documents. Utility bills (water/electricity/telephone) up to three months old are acceptable as proof of address.</li>
+          <li>If you don't have common proofs, a certificate issued by a gazetted officer/tehsildar on letter-head can be considered proof of identity, provided the person's photo is also attached.</li>
+          <li>At the enrollment centre, fill your personal details in the enrollment form. During enrollment, your photo, fingerprints, and iris scans will also be taken. You can also make corrections during enrollment by reviewing the information provided by yourself. An acknowledgement slip with an enrollment number including the captured information will be given to you during enrollment.</li>
+          <li>Within 96 hours of enrollment, any correction can be made in the enrollment data by visiting the enrollment centre with the acknowledgement slip.</li>
+          <li>The Aadhaar card is delivered to your address by the postal department, or it can be downloaded from the UIDAI website.</li>
+        </ul>
+
+        <h3>3.9.3 Uses of Aadhaar Card</h3>
+        <p>The Indian Government gives money to many social welfare schemes focused on the poor and weaker sections of society. Through Aadhaar, the government can systematise their distribution system transparently so that the right person gets the benefit. UIDAI issues Aadhaar numbers for residents after de-duplicating demographic and biometric expertise. It eliminates duplicates and provides the government with data of correct beneficiaries. It enables direct benefit programmes and allows government departments/service providers to coordinate and optimise their schemes.</p>
+
+        <p>The Aadhaar system provides citizens with the single source of online identity verification nationwide. Once enrolled, citizens can use their Aadhaar number through electronic means or offline verification to verify and authenticate their identity. It eliminates the complex process of document verification every time while providing services, subsidies, and other government benefits. Aadhaar number is not given based on caste, religion, income, health, and geography. Aadhaar number is proof of identity; however, this Aadhaar number does not grant any right of citizenship or domicile with respect to the Aadhaar number holder.</p>
+      </div>
+    </div>
+
+    <!-- S10: UMANG -->
+    <div class="sec-card" id="s10">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.10</div><div class="sec-title">UMANG – Unified Mobile Application for New-age Governance</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>To make e-governance, <span class="kw">UMANG (Unified Mobile Application for New-age Governance)</span> has been conceived as a mobile app. It has been developed by the Ministry of Electronics and Information Technology and the National e-Governance Division to run mobile governance in India. This app is available for Android, iOS, Windows device users, and feature phone users.</p>
+
+        <p>Using this all-in-one app, you can access all government-related services with just a mouse click. Users can access the app in <strong>12 different languages</strong>. UMANG provides all Indian citizens a platform to access all pan-India e-government services from the central to local government bodies and other citizen-centric services.</p>
+
+        <div class="info-box blue">
+          <strong>📊 UMANG by Numbers</strong>
+          Currently UMANG has <strong>643 services</strong>, <strong>117 departments</strong>, and <strong>23 states</strong> connected. Customer support is available all 7 days of the week, 10 AM to 6 PM.
+        </div>
+
+        <h3>3.10.1 Key Features of UMANG</h3>
+        <ul>
+          <li>Can be used on multiple channels like smartphones, desktops, and tablets.</li>
+          <li>UMANG's multimedia interface is powerful, focused on maximum usability and better user experience.</li>
+          <li>UMANG app provides all pan-India e-governance services from central to local government bodies and other citizen-centric services like Aadhaar and DigiLocker on one mobile app.</li>
+          <li>UMANG app currently provides services in 12 categories: Agriculture, Education, Employment &amp; Skills, Energy, Finance, Health, Housing, Police, Public Grievances, Revenue, Transport, and Utilities.</li>
+        </ul>
+
+        <h3>3.10.2 How to Install UMANG App</h3>
+        <ul>
+          <li>A download option is available on the UMANG website. Clicking on it gives the message to scan a QR code with your mobile device and download the UMANG app.</li>
+          <li>To install UMANG app on an Android phone, go to Google Play Store and type Umang, then click Install and wait for the app to download. For Apple users, the app can be installed from the Apple App Store.</li>
+          <li>Open the app and register an account by entering name, age, gender, phone number, and Aadhaar details. You can also correct information later.</li>
+          <li>You can also link your Aadhaar number with the app and other social media accounts.</li>
+          <li>After creating a UMANG account, go to the Service Section to use the app and browse through services and categories using the Filter Sort &amp; Filter section.</li>
+          <li>Go to the search option to look for specific services.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S11: DIGILOCKER -->
+    <div class="sec-card" id="s11">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.11</div><div class="sec-title">DigiLocker (Digital Locker)</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Digital Locker or DigiLocker or e-Locker is a major initiative of the Ministry of Electronics and IT under the Digital India programme. The Hindi meaning of Digital Locker is <span class="kw">Ankeey Tijori</span> or Electronic Safe — used for keeping copies of documents safe. The purpose of DigiLocker is for the 'Digital Empowerment' of citizens by digitally storing important documents like PAN card, passport, marksheets, and degree certificates.</p>
+
+        <p>DigiLocker is a mobile app and website of the Indian Government where you can keep your important documents like birth certificates, PAN cards, passports, educational certificates safely online. You are given <strong>1GB space free</strong> for all your documents. Basically, it is like a physical locker where you store your jewellery and documents, but this locker is digital and stores digital information. Using it has the convenience that you don't need to carry your documents with you at all times — whenever these documents are needed for any task, you can make them available online from your DigiLocker.</p>
+
+        <div class="info-box amber">
+          <strong>🔑 How to Sign Up for DigiLocker</strong>
+          Signing up for DigiLocker is easy — you just need your mobile number. Your mobile number will be verified by sending an OTP (One-Time Password), after which you will select a username and password. This will create your DigiLocker account. After your DigiLocker account is successfully created, you can voluntarily provide your Aadhaar number (issued by UIDAI) to avail additional services.
+        </div>
+
+        <h3>3.11.1 Benefits of DigiLocker</h3>
+        <div class="grid-2">
+          <div class="sub-sec">
+            <div class="sub-sec-title"><span class="dot"></span> I. Benefits to Citizens</div>
+            <ul>
+              <li>Users can submit their documents from anywhere, anytime through DigiLocker.</li>
+              <li>They can keep them safely for free.</li>
+              <li>For any government work where providing certified copies of documents is mandatory, they can give the URL of their locker instead of the original or photocopy — officials can view the certificates from there.</li>
+              <li>Indian citizens don't need to carry their necessary documents everywhere.</li>
+              <li>This is a completely secure, simple, and transparent process.</li>
+              <li>Fake documents can be avoided.</li>
+            </ul>
+          </div>
+          <div class="sub-sec">
+            <div class="sub-sec-title"><span class="dot"></span> II. Benefits to Agencies</div>
+            <ul>
+              <li><strong>Reduced Administrative Overhead:</strong> Focused on paperless governance concept. Reduces administrative overhead by reducing paper use and verification processes.</li>
+              <li><strong>Digital Transformation:</strong> Provides trustworthy issued documents. Documents issued through DigiLocker are received directly from the issuing agency.</li>
+              <li><strong>Secure Document Gateway:</strong> Acts as a secure document exchange platform like a payment gateway between trusted issuer and trusted requester-verifier with citizen's consent.</li>
+              <li><strong>Real-time Verification:</strong> Provides a verification module to enable government agencies to directly verify data from the issuer after obtaining user consent.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S12: DIGITAL LIBRARY -->
+    <div class="sec-card" id="s12">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.12</div><div class="sec-title">Digital Library</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>You know that our country is becoming Digital India very rapidly. The government is bringing new apps, schemes, and facilities for the public day by day to reduce people's problems and save time — such as Digital Locker, Digital Payment, Digital Signature, Digital Library. Libraries are stores of knowledge because books and other resources for obtaining knowledge are in printed form. With the development and extensive use of digital technology and internet connectivity, the landscape of libraries is also changing rapidly.</p>
+
+        <p>Books are in digital file format instead of paper, which can be read on computers, mobiles, and other digital devices. They can also be printed, distributed, or read on the internet. Content can be stored locally or accessed remotely. A Digital Library, unlike other forms of media such as print or microform, is a special form of library that includes a collection of digital assets. Such digital objects can be visual material, text, audio, or video electronic media.</p>
+
+        <h3>3.12.1 Advantages of Digital Library</h3>
+        <ul>
+          <li>Digital library is not limited to a specific place. Users can get their information from anywhere using the internet without making rounds of the library.</li>
+          <li>Any traditional library has a fixed time, but a digital library can be used <strong>24 hours a day and 365 days a year</strong>.</li>
+          <li>A single resource can be used by many users simultaneously at the same time.</li>
+          <li>Digital library provides access to very rich content in a more structured way — we can reach a specific book from a catalogue and then a specific chapter.</li>
+          <li>Information about new books in the market is immediately available. Which new book came by a favourite author can be known immediately.</li>
+          <li>Users are able to use any search term for a word or phrase from the entire collection.</li>
+          <li>An exact copy of the original can be made at any time without any deterioration in quality.</li>
+          <li>Traditional libraries are limited by storage space. Digital libraries have the ability to store much more information, because digital information requires very little physical space to store.</li>
+          <li>Many online libraries allow you to write reviews of books — this helps you estimate which book to buy.</li>
+          <li>Many online libraries give references of sites for collecting information on any topic. Authors' books of that subject are also listed by subject and topic.</li>
+          <li>This type of library can be updated daily and accessed instantly by users.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S13: CYBER CRIME -->
+    <div class="sec-card" id="s13">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">3.13</div><div class="sec-title">Cyber Crime</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>The use of networks and the Internet has brought many changes in all sectors over the last two decades. Information technology has become important in all types of personal and business activities — mutual communication, study, government work, and personal business. Internet use has established a world-level network. The virtual space where communication activities take place using information technology is called <span class="kw">Cyber Space</span>. Cyberspace is the electronic medium of computer networks where online communication takes place and where people can converse, exchange ideas, and share information.</p>
+
+        <p><span class="kw">Cyber Crime</span> refers to all activities carried out in cyberspace using the internet with criminal intent. Cyber crimes include crimes specific to computers, such as hacking, e-mail spamming, as well as traditional crimes done using computers — theft, fraud, and extortion — which have evolved with the development of new mediums. Cyber crime can affect any digital device (PC, notebook, Smart TV, tablet, smartphone, home electronic system, etc.). Cyber criminals can be professional hackers, criminal gangs, disgruntled employees, or professional competitive activists. Cyber crime is global in nature.</p>
+
+        <h3>3.13.1 Cyber Crime Classification</h3>
+        <div class="cyber-grid">
+          <div class="cyber-card">
+            <div class="cc-num">1</div>
+            <div class="cc-title">Crimes Against Individuals</div>
+            <p>Cyber crimes that directly affect a person or their personal activities. Done against a person's will. Examples: unauthorised control/access on computer system, phishing, email harassment, cyber bullying, child torture, spreading illegal adult content. Affects personality and illegally affects psychology of the youth.</p>
+          </div>
+          <div class="cyber-card">
+            <div class="cc-num">2</div>
+            <div class="cc-title">Crimes Against Society</div>
+            <p>Cyber crimes that affect public interest on a large scale. Illegal acts using cyberspace as a medium that automatically affect large numbers of people. Main targets are business activities that violate government rules. Examples: financial crimes against public organisations, selling illegal products, smuggling, online gambling, forgery.</p>
+          </div>
+          <div class="cyber-card">
+            <div class="cc-num">3</div>
+            <div class="cc-title">Crimes Against Companies/Organisations</div>
+            <p>This is the most common type of cyber crime today. When a company's online presence or any of its products is hacked, it becomes a serious problem resulting in consequences for the company, its employees, associates, and customers — all in large numbers.</p>
+          </div>
+          <div class="cyber-card">
+            <div class="cc-num">4</div>
+            <div class="cc-title">Crimes Against Government</div>
+            <p>One of the worst types of cyber crime in the world. Also known as Cyber Terrorism. Includes cyber attacks on government websites, breaking government systems and networks, vandalising and shutting down military websites, and spreading propaganda. These crimes are done to spread terror by spreading false information among people of a particular country.</p>
+          </div>
+        </div>
+
+        <h3>3.13.2 Types of Cyber Crime</h3>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> I. Malware</div>
+          <p>Malware means software created with malicious intent. Viruses, ransomware, spyware collectively fall in the category of malware. It is a shortform for "Malicious Software." Malware can be a file or code of software created with the intent of harming devices, stealing data, and generally causing disruption. Used to steal someone's identity on a computer or to intercept confidential information. Many malware send unsolicited emails and send/receive confidential and obscene messages on computers.</p>
+          <p><strong>Usual reasons for creating malware:</strong></p>
+          <ul>
+            <li>To be able to control a malware-infected computer system remotely.</li>
+            <li>Sending spam to unwanted targets from the infected computer system.</li>
+            <li>Checking infected users' personal and local network.</li>
+            <li>Stealing personal or sensitive data.</li>
+          </ul>
+          <p><strong>How to prevent malware from entering your computer:</strong></p>
+          <ul>
+            <li>Do not open or download files attached with spam emails.</li>
+            <li>Visit only trusted websites on the internet.</li>
+            <li>Do not download pirated files.</li>
+            <li>Always use updated antivirus software.</li>
+            <li>Keep a Firewall installed on your computer.</li>
+          </ul>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> II. Worm</div>
+          <p>A computer worm is a standalone malware computer program that can replicate itself to spread to other computers. A computer worm is not attached to any other software but can come as an attachment in spam emails or instant messages and infects the machine without the user's knowledge. It actually makes its own copy and copies itself — this way its size grows and it keeps filling hard disk space. After entering one computer, it keeps infecting other computer systems connected to that computer's network, making the system and network slower.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> III. Virus</div>
+          <p>A computer virus is a type of electronic code. This code is used to erase information present in a computer or damage it. It is a micro computer program that enters any computer and creates an obstruction in that device's functioning. It auto-executes on the target computer and grows itself. It is a piece of malicious program that tries to damage files and systems. It is a program that replicates itself and spreads using infected files. It spreads through all computer files without any user's knowledge. It attaches to a document or computer program to execute its code in the computer and gradually spreads in your computer.</p>
+          <p>A computer virus can come into your system in many ways — the most prominent method by which a virus spreads is through email (opening email attachments, visiting infected websites, clicking on executable files, opening advertisements on infected websites). Additionally, viruses can also spread from virus-infected USB drives, CDs, floppy disks, pen drives, etc.</p>
+          <div class="info-box amber">
+            <strong>🎯 Purpose of Computer Viruses</strong>
+            The objective of creating computer viruses is to infect weak systems, gain administrative control, and steal sensitive data. Once executed in a computer system, it can destroy your programs and files, slow computer performance, and stop system software from working completely.
+          </div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> IV. Trojan Horse</div>
+          <p>Trojan Horse is a harmful computer program that takes control of our system and carries out unusual activity. Unlike a virus, Trojans cannot make their own copies, but they can install viruses in the system. With the help of this, a hacker can control the computer from a remote computer sitting far away.</p>
+          <p><strong>A Trojan can:</strong></p>
+          <ul>
+            <li>Delete system files and data.</li>
+            <li>Steal important information and passwords.</li>
+            <li>Lock the system.</li>
+            <li>Download and install malware.</li>
+            <li>Restart the system.</li>
+            <li>Infect CDs.</li>
+            <li>Display messages on the system screen.</li>
+            <li>Close programs.</li>
+          </ul>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> V. Spyware</div>
+          <p>Spyware is a software that is a type of malware. It enters a computer without permission and gives all private information of that computer to the person or group sending the malware, without the users' knowledge. Simply put — just as in our daily life someone uses CCTV cameras to keep surveillance on people for security, similarly spyware also reaches a computer and keeps watching all activities done by the computer user on the internet — but the user is unaware of this.</p>
+          <p>However, note that in the present time, spyware is also installed in computers of many companies and offices to monitor employees — so the company's manager or CEO can keep an eye on employees' internet activities on the computer. Spyware is not a virus — unlike viruses, spyware does not spread from computer to other computers.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> VI. Logic Bomb</div>
+          <p>A logic bomb is a programming code that is secretly inserted into a system and is prepared to be active only under specific circumstances, time, day, or date — such as reaching a specific date or a user typing a specific command. Program codes set to be executed at a specific time are known as "logic bombs." It is a malicious code that executes a malicious action when a specific event is triggered. It remains inactive until specified conditions are fulfilled. When a logic bomb is activated, it can delete or corrupt data, remove files or completely delete the hard drive, damage a network, or produce many other undesirable effects.</p>
+          <div class="info-box amber">
+            <strong>⚠️ Example</strong>
+            The notorious "Friday the 13th" virus that attacked the host system only on specific dates — it "exploded" (duplicated itself) every Friday occurring in a month, thus causing slowdown in the system.
+          </div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> VII. Phishing</div>
+          <p>In electronic communications, <span class="kw">Phishing</span> (or electronic fraud) is an act in which an attempt is made to obtain various information such as username, password, and credit card details (and sometimes, indirectly, money) by wearing the disguise of a trusted entity. In this, a call or message is made through a bank or organisation to know banking/credit/debit card details and passwords. The user thinks the message was sent by a known contact or organisation, but it is fake.</p>
+          <p>The phishing page looks exactly like the Original page. Users are directed to a fake website whose appearance and feel is exactly the same as a real website (valid website). To protect yourself from phishing:</p>
+          <ul>
+            <li>Never click on any link from an unknown source email, and do not enter your information in any unknown link or download its attachment.</li>
+            <li>Do not provide any information on a page that appears in a pop-up window.</li>
+            <li>Never share your personal information or password on phone or via email on request.</li>
+            <li>Always remember that information like passwords, PIN, TIN etc. is completely confidential and bank employees/service staff don't demand it either.</li>
+            <li>When logging into any account, always pay attention to the URL. Always type the correct URL in the address bar to log on to the site. Enter your User ID and password only on the authorised login page.</li>
+            <li>Before entering your user ID and password in your bank, please ensure that the login page URL starts with 'https://' not 'http://'. The 'S' means Secured and indicates that the web page uses encryption.</li>
+          </ul>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> VIII. Hacking</div>
+          <p><span class="kw">Hacking</span> is a technical cleverness. When a person with wrong intent finds a weakness in some system function like a computer network, server etc. and by changing that system according to themselves steals, destroys, or changes the data — this process is called hacking. The person who does this technical trick is called a <span class="kw">Hacker</span>.</p>
+          <p>A hacker tries to break into a computer or network in various ways — finding out passwords, finding technical flaws in servers or networks, collecting data through similar types of websites, stealing computer information by presenting faulty software as useful, monitoring words typed by a person on their computer.</p>
+
+          <div class="grid-2">
+            <div class="mini-card">
+              <div class="mc-icon">✅</div>
+              <div class="mc-title">Ethical Hacking</div>
+              <div class="mc-text">Hacking done deliberately for a right purpose to get information. People find existing and potential flaws in networks, servers, data storage, and information systems so they can be fixed. No data is stolen, destroyed, or changed. Completely legal — done to protect people from potential threats.</div>
+            </div>
+            <div class="danger-card">
+              <div class="dc-icon">❌</div>
+              <div class="dc-title">Malicious Hacking</div>
+              <div class="dc-text">Hacking done for a wrong purpose — its method is illegal. Data can be stolen, destroyed, or misused. Examples: hacking an email account, hacking a Facebook account, stealing bank account information, taking over a website account for misuse. Governments and large companies can also suffer losses from this type of hacking.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> IX. Spoofing</div>
+          <p><span class="kw">Spoofing</span> is a malicious practice used by cyber scammers and hackers to deceive systems, individuals, and organisations. People are presented as an authentic and secure sender but this is not the case. It is a technique for unauthorised access to a server in which a computer sends a message to the network. The packet header of the sent packet's source address is changed by the attacker. Because of this, the destination computer thinks the message was sent from a trusted device.</p>
+          <p>Spoofing is mainly used for:</p>
+          <ul>
+            <li>Hiding the sender's identity from cyber police and authority, because it makes it difficult to trace the attacker.</li>
+            <li>To prevent the target device from being alerted.</li>
+            <li>To bypass security scripts — security scripts try to reduce Denial of Service attacks by blacklisting IP addresses.</li>
+          </ul>
+
+          <div class="grid-2">
+            <div class="sub-sec">
+              <div class="sub-sec-title"><span class="dot"></span> i. Man-in-the-Middle Attack</div>
+              <p>As the name suggests, communication between the original sender and the desired recipient is disrupted. The content of the message is then modified without the knowledge of either party. The attacker mixes the packet with their own message. The victim is tricked into thinking the content of the message is authentic.</p>
+            </div>
+            <div class="sub-sec">
+              <div class="sub-sec-title"><span class="dot"></span> ii. Denial of Service (DoS) Attack</div>
+              <p>A powerful hacking technique done on a large scale. In the internet world, such an attack on a server or website where any server or website is taken down or shut down or made unavailable to its users. Hackers send over-traffic to a website to take it down. Every website has a limit of how many people can access it per minute — if it exceeds, the server goes down.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> X. Spam Mail</div>
+          <p><span class="kw">Spam</span> means repeatedly sending messages or advertisements to people on the Internet that they did not request. That is, unsolicited email that is sent in very large quantities, coming without being asked or called, generally filled with advertisements. When any sender sends advertisement mail to someone in very large numbers, it is called spam mail. The main objective is to promote one's product through advertising-letters for free. For example, if a company sends spam mail to 1 lakh people — even if 10,000 people open that email, the company's product information has reached them, and if even 1,000 or 500 people buy the product, the company has made sales — all for free.</p>
+          <div class="info-box amber">
+            <strong>⚠️ Remember</strong>
+            If you get a message saying "Share this link with your 10 friends and you can win an iPhone" or "sharing this link gives you 100GB data" — these are completely false. Never click on such links and never share such messages. Such messages do not get anyone any prize.
+          </div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> XI. Identity Theft</div>
+          <p><span class="kw">Identity Theft</span> is the most common crime in today's time. It mostly targets people who use the internet for their financial transactions and banking services. In this cyber crime, some person with wrong intent obtains someone's data such as their bank account number, credit or debit card related information, internet banking related information, and personal information by some means. And using this information, taking that person's identity (identity), they try to buy things or goods online or gain other financial benefits or commit crimes.</p>
+          <p><strong>Identity theft includes:</strong></p>
+          <ul>
+            <li>Presenting yourself in someone else's name on a computer network, hiding your own identity, doing any scam in their name, making a fool of someone — all are offences under the IT Act.</li>
+            <li>Using another person's password.</li>
+            <li>Forging digital signatures also falls in this category of crime.</li>
+            <li>Taking unwanted benefits using someone else's name or committing fraud also falls in this type of crime.</li>
+            <li>Punishment is provided under IT Act 2008, Section 66C for such crimes.</li>
+          </ul>
+        </div>
+
+        <h3>3.13.3 Cyber Crime Prevention</h3>
+        <ul class="tip-list">
+          <li><span class="tip-icon">🔄</span><span class="tip-text"><strong>Keep Software Updated:</strong> Whenever you receive system software updates for your computer system, smartphone, tablet etc., update immediately — because sometimes previous versions can be easily attacked. Keep your OS updated to patch the latest bugs and vulnerabilities.</span></li>
+          <li><span class="tip-icon">🔑</span><span class="tip-text"><strong>Use Strong Passwords:</strong> Never use the same password on more than one website. Create different passwords and usernames for each account and avoid writing them down. Always ensure the password is strong by combining letters, special characters, and numbers. Strong passwords help keep accounts secure.</span></li>
+          <li><span class="tip-icon">🛡️</span><span class="tip-text"><strong>Use Antivirus:</strong> Always use trustworthy and highly advanced antivirus software on mobile and personal computers. Free antivirus/antimalware solutions can be helpful but they are often only trial software and do not provide full protection against threats.</span></li>
+          <li><span class="tip-icon">🚫</span><span class="tip-text"><strong>Protect Personal Information:</strong> Avoid posting your personal information online and do not share sensitive information such as security number, credit and debit card numbers, OTP. Be cautious while clicking any link or downloading any application.</span></li>
+          <li><span class="tip-icon">🔒</span><span class="tip-text"><strong>Be Wary of Suspicious Emails:</strong> When checking emails or chatting on messenger, be careful when clicking on suspicious links or attachments sent by unwanted emails or unknown persons. This will protect you from phishing attacks and unwanted infections.</span></li>
+          <li><span class="tip-icon">🛒</span><span class="tip-text"><strong>Safe Online Shopping:</strong> When shopping online, first ensure that the site where you are shopping is securely encrypted with HTTPS. Also ensure you are shopping on a reputed site. To avoid Man-in-the-Middle attacks on your credit card or online wallet.</span></li>
+          <li><span class="tip-icon">🔥</span><span class="tip-text"><strong>Use Firewall:</strong> Firewall is a network security system that monitors traffic between the computer/network and the internet. Whenever someone tries to enter by sending a bad packet on your open port, the system firewall acts as a digital barrier to stop the intruders.</span></li>
+          <li><span class="tip-icon">💾</span><span class="tip-text"><strong>Keep Data Backup:</strong> Maintain a backup copy of important data. Always check URLs — ensure the login page URL starts with 'https://' not 'http://'. 'S' means Secured.</span></li>
+          <li><span class="tip-icon">⚠️</span><span class="tip-text"><strong>Beware of Online Scams:</strong> Never trust any online scheme that talks about winning money, doubling it, or earning lakhs sitting at home. Criminals find new ways to commit crimes, so always be alert, vigilant, and careful about cyber crime.</span></li>
+        </ul>
+
+        <div class="divider"></div>
+        <p style="text-align:center;color:var(--muted);font-size:13.5px;font-style:italic;">
+          📚 Source: 2DCA1 IT Trends – Unit 3 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
+          Authors: Dr. Manish Maheshwari &amp; Dr. Sunita Dwivedi
+        </p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">⚡ ThunderStudy</div>
+      <p>Your ultimate study companion for CUET, DCA, and competitive exams. Built with ❤️ by Wondermayank.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul><li><a href="#">Dashboard</a></li><li><a href="#">StudyHub</a></li><li><a href="#">Mock Tests</a></li><li><a href="#">Leaderboard</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">@wondermayank (Instagram)</a></li>
+        <li><a href="#">@thunderstudy_official (Telegram)</a></li>
+        <li><a href="#">@wondermayank (YouTube)</a></li>
+        <li><a href="#">@mindmaster_robot (Support Bot)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 ThunderStudy by Wondermayank · All Rights Reserved · wondermayank.github.io</div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggle(header){header.parentElement.classList.toggle('open');}
+function toggleDrop(){document.getElementById('unitDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){const d=document.getElementById('unitDrop');if(!d.contains(e.target))d.classList.remove('open');});
+window.addEventListener('scroll',function(){document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
+const sections=document.querySelectorAll('.sec-card');
+const tocLinks=document.querySelectorAll('.toc-list li a');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const link=document.querySelector(`.toc-list li a[href="#${entry.target.id}"]`);if(link)link.classList.add('active');}});},{rootMargin:'-20% 0px -60% 0px'});
+sections.forEach(sec=>observer.observe(sec));
+</script>
+</body>
+</html>

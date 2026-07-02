@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderStudy | 2DCA1 IT Trends – Unit 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1565C0;
+  --blue-mid: #1976D2;
+  --blue-light: #42A5F5;
+  --blue-pale: #E3F2FD;
+  --amber: #F59E0B;
+  --amber-light: #FEF3C7;
+  --green: #22C55E;
+  --red: #EF4444;
+  --bg: #F0F6FF;
+  --card: #FFFFFF;
+  --text: #0F1B35;
+  --muted: #5A6885;
+  --border: #D0E3FF;
+  --shadow: 0 2px 16px rgba(21,101,192,0.10);
+  --shadow-md: 0 4px 32px rgba(21,101,192,0.14);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:15.5px; }
+
+/* HEADER */
+header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%); box-shadow:0 2px 24px rgba(13,71,161,0.4); }
+.header-inner { max-width:1200px; margin:auto; padding:0 24px; height:62px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.brand-icon { width:36px; height:36px; background:var(--amber); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; color:#fff; flex-shrink:0; box-shadow:0 2px 8px rgba(245,158,11,0.5); }
+.brand-text { display:flex; flex-direction:column; line-height:1.1; }
+.brand-name { font-size:18px; font-weight:800; color:#fff; letter-spacing:-0.3px; }
+.brand-tagline { font-size:10px; color:rgba(255,255,255,0.7); font-weight:400; letter-spacing:0.5px; }
+
+/* DROPDOWN */
+.unit-dropdown-wrap { position:relative; }
+.unit-btn { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; padding:7px 16px; border-radius:8px; font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:background 0.2s; backdrop-filter:blur(4px); }
+.unit-btn:hover { background:rgba(255,255,255,0.25); }
+.unit-btn .arrow { transition:transform 0.25s; font-size:12px; }
+.unit-dropdown-wrap.open .arrow { transform:rotate(180deg); }
+.unit-menu { display:none; position:absolute; right:0; top:calc(100% + 8px); background:#fff; border-radius:12px; box-shadow:0 8px 40px rgba(21,101,192,0.2); min-width:240px; overflow:hidden; border:1px solid var(--border); animation:dropIn 0.2s ease; }
+@keyframes dropIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+.unit-dropdown-wrap.open .unit-menu { display:block; }
+.unit-menu a { display:flex; align-items:center; gap:10px; padding:11px 16px; text-decoration:none; color:var(--text); font-size:13.5px; font-weight:500; transition:background 0.15s; border-bottom:1px solid var(--border); }
+.unit-menu a:last-child { border-bottom:none; }
+.unit-menu a:hover { background:var(--blue-pale); }
+.unit-menu a.active { background:var(--blue-pale); color:var(--blue); font-weight:700; }
+.unit-menu a .badge { margin-left:auto; background:var(--blue); color:#fff; font-size:10px; padding:2px 7px; border-radius:20px; font-weight:600; }
+.nav-right { display:flex; align-items:center; gap:12px; }
+.nav-pill { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.9); padding:5px 12px; border-radius:20px; font-size:12px; font-weight:600; letter-spacing:0.3px; }
+
+/* HERO */
+.hero { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 60%,#1E88E5 100%); padding:40px 24px 36px; text-align:center; color:#fff; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; background:rgba(255,255,255,0.05); border-radius:50%; }
+.hero::after { content:''; position:absolute; bottom:-80px; left:-40px; width:250px; height:250px; background:rgba(255,255,255,0.04); border-radius:50%; }
+.hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); padding:4px 14px; border-radius:20px; font-size:12px; font-weight:600; margin-bottom:12px; letter-spacing:0.5px; }
+.hero h1 { font-size:clamp(22px,4vw,36px); font-weight:800; margin-bottom:8px; letter-spacing:-0.5px; }
+.hero p { font-size:14px; color:rgba(255,255,255,0.8); max-width:500px; margin:0 auto 20px; }
+.hero-meta { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
+.hero-meta span { display:flex; align-items:center; gap:5px; font-size:12.5px; color:rgba(255,255,255,0.8); background:rgba(255,255,255,0.1); padding:4px 12px; border-radius:20px; }
+
+/* LAYOUT */
+.layout { max-width:1200px; margin:0 auto; padding:28px 20px 60px; display:grid; grid-template-columns:260px 1fr; gap:28px; align-items:start; }
+
+/* SIDEBAR */
+.toc-sidebar { position:sticky; top:78px; background:var(--card); border-radius:16px; box-shadow:var(--shadow); border:1px solid var(--border); overflow:hidden; }
+.toc-head { background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%); padding:14px 18px; color:#fff; font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; }
+.toc-list { list-style:none; padding:8px 0; max-height:calc(100vh - 160px); overflow-y:auto; }
+.toc-list::-webkit-scrollbar { width:4px; }
+.toc-list::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+.toc-list li a { display:flex; align-items:flex-start; gap:8px; padding:7px 16px; text-decoration:none; color:var(--muted); font-size:12.8px; font-weight:500; transition:all 0.15s; line-height:1.3; }
+.toc-list li a:hover, .toc-list li a.active { background:var(--blue-pale); color:var(--blue); font-weight:700; }
+.toc-list li a .toc-num { flex-shrink:0; width:20px; height:20px; background:var(--blue-pale); color:var(--blue); border-radius:4px; font-size:10px; font-weight:800; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.toc-list li a.active .toc-num { background:var(--blue); color:#fff; }
+
+/* MAIN */
+.main-content { display:flex; flex-direction:column; gap:20px; }
+
+/* SECTION CARD */
+.sec-card { background:var(--card); border-radius:16px; border:1px solid var(--border); box-shadow:var(--shadow); overflow:hidden; scroll-margin-top:80px; }
+.sec-header { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; cursor:pointer; user-select:none; gap:12px; transition:background 0.15s; }
+.sec-header:hover { background:var(--blue-pale); }
+.sec-title-wrap { display:flex; align-items:center; gap:12px; }
+.sec-num { width:36px; height:36px; background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%); color:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; flex-shrink:0; box-shadow:0 2px 8px rgba(21,101,192,0.3); }
+.sec-title { font-size:16px; font-weight:700; color:var(--text); letter-spacing:-0.2px; }
+.sec-toggle { font-size:18px; color:var(--blue); transition:transform 0.3s; flex-shrink:0; }
+.sec-card.open .sec-toggle { transform:rotate(180deg); }
+.sec-body { display:none; padding:0 22px 22px; border-top:1px solid var(--border); animation:fadeIn 0.2s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+.sec-card.open .sec-body { display:block; }
+
+/* TYPOGRAPHY */
+.sec-body p { margin-top:14px; color:#2C3E60; font-size:15px; line-height:1.8; }
+.sec-body h3 { font-size:15px; font-weight:700; color:var(--blue); margin-top:22px; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+.sec-body h3::before { content:''; width:4px; height:16px; background:var(--amber); border-radius:2px; flex-shrink:0; }
+.sec-body h4 { font-size:14px; font-weight:700; color:var(--text); margin-top:16px; margin-bottom:4px; }
+.sec-body ul { margin-top:10px; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
+.sec-body ul li { padding-left:20px; position:relative; font-size:14.5px; color:#2C3E60; line-height:1.7; }
+.sec-body ul li::before { content:'▸'; position:absolute; left:0; color:var(--blue-light); font-size:12px; top:3px; }
+.sec-body ol { margin-top:10px; padding-left:20px; }
+.sec-body ol li { font-size:14.5px; color:#2C3E60; line-height:1.7; margin-bottom:4px; }
+
+/* INFO BOXES */
+.info-box { margin-top:16px; padding:14px 18px; border-radius:10px; font-size:14px; line-height:1.7; }
+.info-box.blue { background:var(--blue-pale); border-left:4px solid var(--blue); color:#1A3A6B; }
+.info-box.amber { background:var(--amber-light); border-left:4px solid var(--amber); color:#7C4A00; }
+.info-box.green { background:#F0FDF4; border-left:4px solid var(--green); color:#14532D; }
+.info-box strong { font-weight:700; display:block; margin-bottom:4px; }
+
+/* SUB SECTIONS */
+.sub-sec { margin-top:20px; background:#F8FAFE; border-radius:10px; border:1px solid var(--border); padding:14px 18px; }
+.sub-sec-title { font-size:14px; font-weight:700; color:var(--blue); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.sub-sec-title .dot { width:8px; height:8px; background:var(--amber); border-radius:50%; flex-shrink:0; }
+
+/* GRIDS */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px; }
+.mini-card { background:var(--blue-pale); border-radius:10px; padding:12px 14px; border:1px solid rgba(21,101,192,0.15); }
+.mini-card .mc-icon { font-size:22px; margin-bottom:6px; }
+.mini-card .mc-title { font-size:13px; font-weight:700; color:var(--blue); margin-bottom:4px; }
+.mini-card .mc-text { font-size:12.5px; color:var(--muted); line-height:1.5; }
+
+/* TABLE */
+.content-table { width:100%; border-collapse:collapse; margin-top:14px; font-size:13.5px; border-radius:8px; overflow:hidden; }
+.content-table th { background:var(--blue); color:#fff; padding:10px 14px; text-align:left; font-weight:700; }
+.content-table td { padding:9px 14px; border-bottom:1px solid var(--border); color:var(--text); vertical-align:top; }
+.content-table tr:last-child td { border-bottom:none; }
+.content-table tr:nth-child(even) td { background:#F8FBFF; }
+
+/* DEFINITION BOX */
+.def-box { margin-top:16px; background:linear-gradient(135deg,#E8F1FE 0%,#F0F7FF 100%); border:1px solid rgba(21,101,192,0.2); border-radius:12px; padding:16px 20px; }
+.def-box .def-label { font-size:11px; font-weight:800; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+.def-box .def-text { font-family:'Lora',serif; font-size:15px; color:#1A3260; line-height:1.75; font-style:italic; }
+
+/* FONT SHOWCASE */
+.font-showcase { margin-top:14px; background:#FAFBFF; border:1px solid var(--border); border-radius:10px; padding:14px 18px; }
+.font-showcase .fs-label { font-size:11px; font-weight:800; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; }
+.font-row { display:flex; align-items:center; gap:14px; padding:6px 0; border-bottom:1px solid var(--border); }
+.font-row:last-child { border-bottom:none; }
+.font-name-col { width:160px; font-size:13px; color:var(--muted); font-weight:500; flex-shrink:0; }
+.font-sample { font-size:15px; color:var(--text); }
+.font-tag { margin-left:auto; background:var(--blue-pale); color:var(--blue); font-size:10px; padding:2px 8px; border-radius:10px; font-weight:700; white-space:nowrap; }
+
+/* FONT TYPE CARDS */
+.font-type-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+.font-type-card { background:#F8FAFE; border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+.font-type-card .ftc-type { font-size:11px; font-weight:800; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.font-type-card .ftc-examples { display:flex; flex-direction:column; gap:3px; margin-bottom:8px; }
+.font-type-card .ftc-desc { font-size:12.5px; color:var(--muted); line-height:1.5; }
+
+/* STEP LIST */
+.step-list { list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+.step-list li { display:flex; gap:12px; align-items:flex-start; }
+.step-list li .step-n { width:24px; height:24px; background:var(--blue); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; margin-top:1px; }
+.step-list li .step-text { font-size:14px; color:#2C3E60; line-height:1.6; }
+
+/* COMPARISON TABLE */
+.compare-table { width:100%; border-collapse:collapse; margin-top:14px; font-size:13.5px; border-radius:8px; overflow:hidden; }
+.compare-table th { padding:10px 14px; text-align:left; font-weight:700; color:#fff; }
+.compare-table th:nth-child(1) { background:#546E7A; }
+.compare-table th:nth-child(2) { background:#1565C0; }
+.compare-table th:nth-child(3) { background:#2E7D32; }
+.compare-table td { padding:9px 14px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text); font-size:13.5px; }
+.compare-table tr:last-child td { border-bottom:none; }
+.compare-table tr:nth-child(even) td { background:#F8FBFF; }
+
+/* SIGNAL VISUAL */
+.signal-box { display:flex; gap:16px; margin-top:14px; }
+.signal-card { flex:1; border-radius:10px; padding:14px; border:2px solid; text-align:center; }
+.signal-card.analog { border-color:#FF6B35; background:#FFF3EE; }
+.signal-card.digital { border-color:#1565C0; background:#E3F2FD; }
+.signal-card .sig-title { font-size:14px; font-weight:800; margin-bottom:6px; }
+.signal-card.analog .sig-title { color:#D84315; }
+.signal-card.digital .sig-title { color:var(--blue); }
+.signal-card p { font-size:12.5px; line-height:1.5; color:var(--muted); }
+.signal-wave { font-size:28px; margin-bottom:8px; }
+
+/* FORMAT BADGES */
+.format-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.format-tag { padding:5px 14px; border-radius:20px; font-size:12.5px; font-weight:700; letter-spacing:0.3px; }
+.format-tag.uncomp { background:#E8F5E9; color:#2E7D32; border:1px solid #A5D6A7; }
+.format-tag.lossy { background:#FFF3E0; color:#E65100; border:1px solid #FFCC80; }
+.format-tag.lossless { background:#E3F2FD; color:#1565C0; border:1px solid #90CAF9; }
+
+/* SOFTWARE CARDS */
+.software-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+.software-card { background:var(--blue-pale); border-radius:12px; padding:16px; border:1px solid rgba(21,101,192,0.15); }
+.software-card .sw-icon { font-size:28px; margin-bottom:8px; }
+.software-card .sw-name { font-size:14px; font-weight:800; color:var(--blue); margin-bottom:4px; }
+.software-card .sw-by { font-size:11px; color:var(--muted); margin-bottom:8px; }
+.software-card .sw-desc { font-size:13px; color:#2C3E60; line-height:1.6; }
+.software-card .sw-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+.software-card .sw-tag { background:rgba(21,101,192,0.1); color:var(--blue); padding:2px 8px; border-radius:8px; font-size:11px; font-weight:600; }
+
+/* KW HIGHLIGHT */
+.kw { background:linear-gradient(120deg,rgba(245,158,11,0.2),rgba(245,158,11,0.1)); color:#92400E; padding:1px 5px; border-radius:4px; font-weight:600; }
+.tech { color:var(--blue); font-weight:600; }
+.divider { height:1px; background:var(--border); margin:16px 0; }
+
+/* FOOTER */
+footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(255,255,255,0.85); padding:36px 24px 24px; }
+.footer-inner { max-width:1200px; margin:auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; }
+.footer-brand .brand-name { font-size:20px; font-weight:800; color:#fff; margin-bottom:6px; }
+.footer-brand p { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; }
+.footer-col h4 { font-size:13px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.5px; text-transform:uppercase; margin-bottom:12px; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.footer-col ul li a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:13px; transition:color 0.15s; }
+.footer-col ul li a:hover { color:#fff; }
+.footer-bottom { max-width:1200px; margin:24px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.15); text-align:center; font-size:12.5px; color:rgba(255,255,255,0.5); }
+
+/* SCROLL TOP */
+.scroll-top { position:fixed; bottom:28px; right:24px; width:44px; height:44px; background:var(--blue); color:#fff; border-radius:50%; border:none; font-size:18px; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(21,101,192,0.4); z-index:500; transition:transform 0.2s; }
+.scroll-top:hover { transform:translateY(-3px); }
+.scroll-top.visible { display:flex; }
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .layout { grid-template-columns:1fr; }
+  .toc-sidebar { position:static; display:none; }
+  .grid-2,.grid-3,.grid-4,.font-type-grid,.software-grid { grid-template-columns:1fr; }
+  .footer-inner { grid-template-columns:1fr; gap:20px; }
+  .signal-box { flex-direction:column; }
+}
+@media(max-width:600px) {
+  .hero h1 { font-size:20px; }
+  .nav-pill { display:none; }
+  .sec-title { font-size:14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">T</div>
+      <div class="brand-text">
+        <span class="brand-name">ThunderStudy</span>
+        <span class="brand-tagline">by Wondermayank</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <span class="nav-pill">2DCA1 – IT Trends</span>
+      <div class="unit-dropdown-wrap" id="unitDrop">
+        <button class="unit-btn" onclick="toggleDrop()">
+          📚 Unit 2 &nbsp;<span class="arrow">▾</span>
+        </button>
+        <div class="unit-menu">
+          <a href="https://thunderstudy.github.io/dca/2/unit1.html">Unit 1 – Multimedia</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit2.html" class="active">Unit 2 – Text &amp; Sound <span class="badge">Current</span></a>
+          <a href="https://thunderstudy.github.io/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit5.html">Unit 5 – AI, Cloud &amp; Google Apps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📖 Unit 2 Notes</div>
+  <h1>Text &amp; Sound in Multimedia</h1>
+  <p>Complete Unit 2 study notes for 2DCA1 IT Trends – translated from official course material</p>
+  <div class="hero-meta">
+    <span>🏫 MCU, Bhopal</span>
+    <span>📋 7 Major Topics</span>
+    <span>⚡ Full PDF Content</span>
+    <span>🌐 English Medium</span>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- TOC Sidebar -->
+  <aside class="toc-sidebar">
+    <div class="toc-head">📑 Contents</div>
+    <ul class="toc-list" id="tocList">
+      <li><a href="#s1"><span class="toc-num">2.1</span> Text as Multimedia Component</a></li>
+      <li><a href="#s2"><span class="toc-num">2.2</span> Plain &amp; Formatted Text</a></li>
+      <li><a href="#s3"><span class="toc-num">2.3</span> Font</a></li>
+      <li><a href="#s4"><span class="toc-num">2.4</span> Font Type Classification</a></li>
+      <li><a href="#s5"><span class="toc-num">3</span> Sound in Multimedia</a></li>
+      <li><a href="#s6"><span class="toc-num">4</span> Analog vs Digital Sound</a></li>
+      <li><a href="#s7"><span class="toc-num">5</span> Sound File Formats</a></li>
+      <li><a href="#s8"><span class="toc-num">6</span> MIDI</a></li>
+      <li><a href="#s9"><span class="toc-num">7</span> Sound Editing Software</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- S1: TEXT AS MULTIMEDIA COMPONENT -->
+    <div class="sec-card open" id="s1">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">2.1</div>
+          <div class="sec-title">Text as a Component of Multimedia</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Text is an important component of multimedia applications — it is the easiest multimedia element and is also effective in exchanging information. Text consists of characters that are used to form <span class="kw">words</span>, <span class="kw">sentences</span>, and <span class="kw">paragraphs</span>. It is possible to provide information only through text, but text is commonly used only for giving general information.</p>
+        <p>If proper and correct attention is not given to the use of text, the communication of a multimedia application cannot be done properly. The proper presentation of text refers to the type of text and its other properties such as <span class="kw">font, font size, text colour</span>, etc.</p>
+
+        <h3>2.1.1 Definition of Text</h3>
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">"Text is the most common system of communication in which communication can be done in written or oral form. Text is an important component used in most multimedia applications. With the help of multimedia technology, text can be combined with other media in a powerful and meaningful way, so that it can effectively present any information and express ideas."</div>
+        </div>
+
+        <p>Text is the easiest to change. Where very effective communication is happening in the form of text, the multimedia designer should not try to convert the text into an image or sound. Text is an important component used in many multimedia applications. They are characters used to form Words, Sentences, and Paragraphs.</p>
+        <p>Text in multimedia presentations can deliver a large amount of information using very little storage space. The main features of text include <span class="kw">paragraph styling, character styling, font family</span>, and <span class="kw">font size</span>.</p>
+
+        <div class="info-box blue">
+          <strong>📌 Types of Text</strong>
+          <ul style="margin-top:6px;">
+            <li><strong>Plain Text</strong> — Unformatted, same-looking characters throughout</li>
+            <li><strong>Formatted Text</strong> — Can be changed using font parameters (bold, italic, underline, size, colour)</li>
+            <li><strong>Hypertext</strong> — Text used in websites linked to other pages/files</li>
+          </ul>
+        </div>
+
+        <h3>2.1.2 Elements of Text</h3>
+        <p>The categories of text elements are as follows:</p>
+        <div class="grid-4">
+          <div class="mini-card">
+            <div class="mc-icon">🔤</div>
+            <div class="mc-title">Alphabets</div>
+            <div class="mc-text">A–Z, a–z</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🔢</div>
+            <div class="mc-title">Numbers</div>
+            <div class="mc-text">0–9</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">✏️</div>
+            <div class="mc-title">Special Characters</div>
+            <div class="mc-text">। ; : ' "</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🔣</div>
+            <div class="mc-title">Symbols</div>
+            <div class="mc-text">@ # $ &amp; *</div>
+          </div>
+        </div>
+        <p>All these categories are also used together in text — alphabets, numbers, and other characters can be written in mixed form. This mixed form is called <span class="kw">Alphanumeric Text</span>.</p>
+
+        <h3>2.1.3 Uses of Text in Multimedia</h3>
+        <p>Text is used in multimedia in various ways so that different types of work can be done:</p>
+        <ul>
+          <li>Heading / Title</li>
+          <li>Bullets / Lists</li>
+          <li>Paragraphs</li>
+          <li>Scrolling Text</li>
+          <li>Navigation</li>
+          <li>Text as Graphics</li>
+          <li>Text in Title Bar, Menu Bar, Status Bar</li>
+          <li>Text in Buttons</li>
+        </ul>
+
+        <h3>2.1.4 Hardware &amp; Software Requirements for Text</h3>
+        <p>The hardware required to process text using a computer in any multimedia medium:</p>
+        <ul>
+          <li><strong>Keyboard</strong> — used as an input device</li>
+          <li><strong>OCR (Optical Character Recognition)</strong> — another input device used to input pictures, graphics, typed text, or handwritten text into various documents</li>
+          <li><strong>Monitor</strong> — an output device used to display information on the computer screen</li>
+          <li><strong>Printer</strong> — an output device used to take hardcopy printouts</li>
+        </ul>
+        <p>Text processing software is used for better utilisation and presentation. Key features in these software:</p>
+        <ul>
+          <li><strong>Text Editing</strong> — writing text, modifying it, cut/copy/paste, margin, line spacing, etc.</li>
+          <li><strong>Text Styling</strong> — paragraph styling, character styling (bold, italic), font family (Mangal, Times New Roman), font size, etc.</li>
+          <li><strong>Text Searching</strong> — finding text in a document without reading the entire document</li>
+          <li><strong>Text Importing &amp; Exporting</strong> — bringing already-prepared files or databases into a text file without re-typing</li>
+        </ul>
+        <div class="info-box amber">
+          <strong>📝 Common Text Software</strong>
+          Microsoft Word (MS Word), WordPerfect, LibreOffice Writer — these are the main examples used for creating text and documents.
+        </div>
+      </div>
+    </div>
+
+    <!-- S2: PLAIN & FORMATTED TEXT -->
+    <div class="sec-card open" id="s2">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">2.2</div>
+          <div class="sec-title">Plain Text, Formatted Text, RTF, Hypertext &amp; HTML</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+
+        <h3>2.2.1 Plain Text</h3>
+        <p>Plain text is a text file or a collection of documents that contains only text. This text is written in the same way throughout — it does not have any special properties such as being written in different colours, being written differently, being bold or underlined, etc.</p>
+        <p>In other words, unlike a rich text document, a plain text file does not have <strong>bold text, fonts, larger font sizes, or any other special text formatting</strong>. On Microsoft Windows computers, most plain text files are available with the file extension <span class="tech">.txt</span>. To view a plain text file, a text editor like <span class="tech">Microsoft Notepad</span> is used.</p>
+        <p>Plain text is the most portable format because it supports almost every application on every machine.</p>
+
+        <h3>2.2.2 Formatted Text</h3>
+        <p>Formatted text is text that is displayed in a specific, designated style. In computer applications, formatting data is associated with text data to create formatted text. How formatted text is created and displayed depends on the operating system and application software used on the computer.</p>
+        <p>Formatted text can be any text that has special formatting, such as <span class="kw">font size, font colour, bold, italic</span>, etc. When copying text, formatted text is any text that retains its settings from where it was copied. Text formatting data can be <strong>qualitative</strong> (e.g., font family) or <strong>quantitative</strong> (e.g., font size, or colour). Styles of emphasis (bold, italic) or notation (strikethrough, superscript) can be used in text formatting. The purpose of formatted text is to enhance the presentation of information.</p>
+
+        <h3>2.2.3 Best Practices for Text in Multimedia Presentations</h3>
+        <ul>
+          <li>Using only uppercase or only lowercase is worse than using them in mixed form — mixed use makes any text easier to read.</li>
+          <li>Any kind of warning or special message should be written completely in uppercase.</li>
+          <li>While writing text, it is appropriate that no sentence is more than 60 characters long — text can be read at a fast pace. Using short sentences and ensuring a sentence is not split across two pages should be kept in mind.</li>
+          <li>Only one-third of the display should be filled with text — text can be made good for reading and writing through margin, line spacing, etc.</li>
+          <li>On a computer screen, a minimum of 12-point text is appropriate for reading. In other multimedia uses, the text size is determined by the display size.</li>
+        </ul>
+
+        <h3>2.2.5 Rich Text Format (RTF)</h3>
+        <p>RTF is a text file format used by all Microsoft products such as Word and Office. They can be read by almost all word processing software. Presented and documented by Microsoft, <span class="kw">Rich Text Format (RTF)</span> describes a method for encoding formatted text and graphics for use within applications.</p>
+        <p>RTF facilitates cross-platform document exchange with other Microsoft products, thus fulfilling the purpose of interoperability. This capability makes it the standard for transferring data between word processing software, so content can be transferred from one operating system to another without losing the formatting of documents — which is important for a diverse system where text document files are transferred from one user's desktop to another.</p>
+        <p>By saving a document in RTF format, you can open the file in many word processors and other software packages that support RTF, with no damage to the document's formatting. A standard RTF file contains ASCII which represents rich text, and non-ASCII characters are converted to ASCII with the help of appropriate code values.</p>
+
+        <h3>2.2.6 Hypertext</h3>
+        <p>Text on a computer display or other electronic devices that connects to other text via a <span class="kw">hyperlink</span> is called Hypertext. Clicking on the hyperlink, the reader immediately accesses the other text where the text is spread across several different locations. Hypertext is used as a cross-reference from one place or page to another. It is also called <span class="tech">Stretch text</span>. Hypertext pages are linked to each other by hyperlinks. Generally, a hyperlink is used by mouse click, key press, or touching the screen.</p>
+        <p>In addition to text, hypertext many times also uses tables, images, and other presentable content for hyperlinks. <strong>Hypertext defines the structure of the World Wide Web.</strong> Through the proper use of hypertext, detailed information can be obtained on the internet.</p>
+
+        <h3>2.2.7 HTML – HyperText Markup Language</h3>
+        <p>HTML stands for HyperText Markup Language, the most widely used language on the web for developing web pages. HTML was created by <span class="kw">Berners-Lee</span> at the end of 1991, but "HTML 2.0" was the first standard HTML specification published in <strong>1995</strong>.</p>
+        <p>HTML is the most basic building block of the web. It defines the meaning and structure of web content. "HyperText" refers to links that connect web pages to one another, either within a single website or between websites. Links are a fundamental aspect of the web.</p>
+        <p>HTML is a markup language that uses various <span class="tech">tags</span> to format content. These tags are enclosed within angle braces <span class="tech">&lt;Tag Name&gt;</span>. Most tags have their corresponding closing tags. For example, <span class="tech">&lt;html&gt;</span> has its closing tag <span class="tech">&lt;/html&gt;</span> and <span class="tech">&lt;body&gt;</span> has <span class="tech">&lt;/body&gt;</span>.</p>
+
+        <div class="info-box blue">
+          <strong>🏷️ Common HTML Elements</strong>
+          &lt;head&gt;, &lt;title&gt;, &lt;body&gt;, &lt;header&gt;, &lt;footer&gt;, &lt;article&gt;, &lt;section&gt;, &lt;p&gt;, &lt;div&gt;, &lt;span&gt;, &lt;img&gt;, &lt;aside&gt;, &lt;audio&gt;, &lt;canvas&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt; etc.
+        </div>
+
+        <h3>2.2.8 OLE – Object Linking &amp; Embedding</h3>
+        <p>Object Linking &amp; Embedding (OLE) is a <span class="kw">Microsoft technology</span> that facilitates sharing of application data and objects written in different formats from multiple sources. Linking establishes a connection between two objects, and embedding facilitates the insertion of application data. OLE is used for compound document management, as well as transferring application data through drag-and-drop and clipboard operations.</p>
+        <p>An OLE object can be displayed as an icon. Double-clicking the icon opens the related object application. An OLE object can also display actual content, such as a graph or chart. For example, an external application chart, like an Excel spreadsheet, can be inserted in a Word application.</p>
+
+        <p>OLE supported software applications include:</p>
+        <ul>
+          <li>Microsoft Windows applications like Excel, Word, and PowerPoint</li>
+          <li>Corel WordPerfect</li>
+          <li>Adobe Acrobat</li>
+          <li>AutoCAD</li>
+          <li>Multimedia applications such as photos, audio/video clips, and PowerPoint presentations</li>
+        </ul>
+
+        <div class="info-box amber">
+          <strong>⚠️ Disadvantages of OLE</strong>
+          <ul style="margin-top:6px;">
+            <li>Embedded objects increase the file size of the host document, resulting in possible storage or loading difficulties.</li>
+            <li>Linked objects can break links when a host document is moved to a location where the original object application is not present.</li>
+            <li>Interoperability is limited. If the embedded or linked object application is unavailable, the object cannot be changed or edited.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: FONT -->
+    <div class="sec-card" id="s3">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">2.3</div>
+          <div class="sec-title">Font</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>A font is a graphic representation of text that can include a different typeface, point size, weight, colour, or design. Software programs like <span class="tech">Microsoft Word, Microsoft Excel</span>, and <span class="tech">WordPad</span> allow users to change the font used when typing text in documents or spreadsheets.</p>
+
+        <div class="font-showcase">
+          <div class="fs-label">🔤 Common Computer Font Examples</div>
+          <div class="font-row">
+            <div class="font-name-col">Courier</div>
+            <div class="font-sample" style="font-family:Courier,monospace">The quick brown fox</div>
+            <div class="font-tag">Monospace</div>
+          </div>
+          <div class="font-row">
+            <div class="font-name-col">Georgia Bold</div>
+            <div class="font-sample" style="font-family:Georgia,serif;font-weight:700">The quick brown fox</div>
+            <div class="font-tag">Serif</div>
+          </div>
+          <div class="font-row">
+            <div class="font-name-col">Times New Roman</div>
+            <div class="font-sample" style="font-family:'Times New Roman',serif">The quick brown fox</div>
+            <div class="font-tag">Serif</div>
+          </div>
+          <div class="font-row">
+            <div class="font-name-col">Terminal / Consolas</div>
+            <div class="font-sample" style="font-family:Consolas,monospace">The quick brown fox</div>
+            <div class="font-tag">Monospace</div>
+          </div>
+        </div>
+
+        <p>Different fonts are used to add style to a web page or document. A font can be used to set or match the "tone" of the text based on the content. In addition, some fonts affect readability based on the medium.</p>
+
+        <h3>2.3.1 Default Font and Font Size</h3>
+        <p>Software that uses fonts is set with a default font and font size. The following are the default fonts and font sizes for common software:</p>
+
+        <table class="content-table">
+          <tr><th>Software</th><th>Default Font</th><th>Font Size</th></tr>
+          <tr><td>Google Docs</td><td>Arial</td><td>11</td></tr>
+          <tr><td>Google Sheets</td><td>Arial</td><td>10</td></tr>
+          <tr><td>Google Gmail</td><td>Sans Serif</td><td>Normal</td></tr>
+          <tr><td>Microsoft Excel</td><td>Calibri</td><td>11</td></tr>
+          <tr><td>Microsoft PowerPoint</td><td>Calibri</td><td>24</td></tr>
+          <tr><td>Microsoft Word</td><td>Calibri</td><td>11</td></tr>
+          <tr><td>Notepad</td><td>Consolas</td><td>11</td></tr>
+        </table>
+
+        <p>Font size or text size determines how large a character is displayed on screen or printed on a page. Font is often measured in <span class="kw">pt (points)</span>. Points determine the height of the letter. There are approximately <strong>72 points in one inch (2.54 cm)</strong>. Font size is also measured in <span class="tech">px (pixels)</span> and <span class="tech">pc (pica)</span> in computing.</p>
+
+        <h3>2.3.2 Font Scaling</h3>
+        <p>Scaling means changing the size of a font. <strong>Horizontal Scaling</strong> means changing the width of the font without changing its height. <strong>Vertical Scaling</strong> means changing the height of the font without changing its width.</p>
+
+        <h3>2.3.3 Tracking Font</h3>
+        <p>Tracking adjusts the space to the right of each character. <strong>Increasing tracking</strong> increases the amount of space between all text. <strong>Decreasing tracking</strong> reduces the space between all text and makes the page appear darker.</p>
+
+        <h3>2.3.4 Leading Font</h3>
+        <p>Leading means the spacing between lines. Generally, the space added between each line of body type should be <strong>20% of the type size</strong>. Leading is defined as the spacing above and below the continuous lines of text. Spacing can be of different types — Single, Double, 1.5 Spacing, etc.</p>
+      </div>
+    </div>
+
+    <!-- S4: FONT TYPE CLASSIFICATION -->
+    <div class="sec-card" id="s4">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">2.4</div>
+          <div class="sec-title">Font Type Classification</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Most typefaces can be classified in one of four basic groups: those with serifs, those without serifs (sans serif), script, and decorative styles. A classification system can help in identifying, selecting, and combining typefaces.</p>
+
+        <div class="info-box blue">
+          <strong>📌 Two Main Categories</strong>
+          <strong>Serif</strong> — typefaces with small strokes at the ends of letters (better readability in print)<br>
+          <strong>Sans Serif</strong> — typefaces without strokes (better readability on screen)
+        </div>
+
+        <!-- SERIF -->
+        <h3>Serif Type Styles</h3>
+        <p>Font typefaces that have a small line at the ends of strokes are known as <span class="kw">serifs</span>. Where fonts are needed in smaller sizes (documents, letters, etc.), serifs provide better readability. Common Serif typefaces: <span class="tech">Times New Roman, Georgia, Palatino</span>.</p>
+
+        <div class="font-type-grid">
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.1 Old Style</div>
+            <div class="ftc-examples">
+              <span style="font-family:Georgia,serif;font-size:13px;">Bembo, ITC Berkeley Oldstyle</span>
+              <span style="font-family:Georgia,serif;font-size:12px;color:#666;">Centaur, ITC Legacy Serif</span>
+            </div>
+            <div class="ftc-desc">First Roman types created between the 15th–18th centuries. The axis of curved strokes generally tilts to the left. Serifs are almost always bracketed; head serifs are often angled.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.2 Transitional Serif</div>
+            <div class="ftc-examples">
+              <span style="font-family:Georgia,serif;font-size:13px;">Americana, Baskerville</span>
+              <span style="font-family:Georgia,serif;font-size:12px;color:#666;">Bulmer, Perpetua</span>
+            </div>
+            <div class="ftc-desc">Established by English printer John Baskerville in the mid-18th century. Represents the transition between Old Style and Neo-Classical designs. Weight contrast is more pronounced. Head serifs are oblique.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.3 Neoclassical &amp; Didone</div>
+            <div class="ftc-examples">
+              <span style="font-family:Georgia,serif;font-size:13px;">Bodoni Classic, ITC Fenice</span>
+              <span style="font-family:Georgia,serif;font-size:12px;color:#666;">Marconi, Walbaum</span>
+            </div>
+            <div class="ftc-desc">Typefaces created in the late 18th century. Giambattista Bodoni's work exemplifies this style. The axis of curved strokes is vertical, with very little or no bracket. Highly formalised designs with clearly constructed letters.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.4 Slab Serif</div>
+            <div class="ftc-examples">
+              <span style="font-family:Georgia,serif;font-size:13px;">ITC Lubalin Graph, Rockwell</span>
+              <span style="font-family:Georgia,serif;font-size:12px;color:#666;">Egyptian Slate, Soho</span>
+            </div>
+            <div class="ftc-desc">Became popular in the 19th century for advertising display. These typefaces have very heavy serifs with minimal or no bracketing. Changes in stroke weight are generally imperceptible.</div>
+          </div>
+        </div>
+
+        <!-- SANS SERIF -->
+        <h3>Sans Serif Type Styles</h3>
+        <p>Sans Serif typefaces are mostly used in large titles. <span class="tech">Arial, Helvetica, Tahoma</span> are common sans-serif typefaces. On the web, all text is generally appropriate to be written in sans-serif because the quality of the screen being read must also be kept in mind.</p>
+        <ul>
+          <li>i. Grotesque &nbsp; ii. Square &nbsp; iii. Humanistic &nbsp; iv. Geometric</li>
+        </ul>
+
+        <div class="font-type-grid">
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.5 Grotesque Sans Serif</div>
+            <div class="ftc-examples">
+              <span style="font-family:Arial,sans-serif;font-size:13px;font-weight:600;">ITC Franklin Gothic</span>
+              <span style="font-family:Arial,sans-serif;font-size:12px;color:#666;">Helvetica, News Gothic, Univers</span>
+            </div>
+            <div class="ftc-desc">The first commercially popular sans serif typefaces. Stroke weight contrast is most apparent in these styles. Some have a "squarish" quality in curves. Some instances of R have a curved leg, and G usually has a spur.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.6 Square Sans Serif</div>
+            <div class="ftc-examples">
+              <span style="font-family:Arial,sans-serif;font-size:13px;font-weight:600;">Cachet, Eurostile</span>
+              <span style="font-family:Arial,sans-serif;font-size:12px;color:#666;">Felbridge, Neo Sans</span>
+            </div>
+            <div class="ftc-desc">These designs are generally based on Grotesque character traits and proportions, but have a definite squaring of normally curved strokes. They are limited to display designs.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.7 Humanistic Sans Serif</div>
+            <div class="ftc-examples">
+              <span style="font-family:Arial,sans-serif;font-size:13px;font-weight:600;">Frutiger, Gill Sans</span>
+              <span style="font-family:Arial,sans-serif;font-size:12px;color:#666;">ITC Goudy Sans, Mentor Sans</span>
+            </div>
+            <div class="ftc-desc">Based on the proportions of Roman inscriptional letters. Typographic experts claim these are the most legible and easiest-to-read sans-serif typefaces. They often closely match the design characteristics and proportions of serif type, with a strong calligraphic influence.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.8 Geometric Sans Serif</div>
+            <div class="ftc-examples">
+              <span style="font-family:Arial,sans-serif;font-size:13px;font-weight:600;">Avenir, ITC Bauhaus</span>
+              <span style="font-family:Arial,sans-serif;font-size:12px;color:#666;">Futura, Harmonia Sans</span>
+            </div>
+            <div class="ftc-desc">Simple geometric shapes influence the construction of these typefaces. Strokes appear to have strict monolines and character spaces are made from geometric forms. Geometric sans are less readable than Grotesque.</div>
+          </div>
+        </div>
+
+        <!-- SCRIPT -->
+        <h3>Script Type Styles</h3>
+
+        <div class="font-type-grid">
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.9 Formal Scripts</div>
+            <div class="ftc-examples">
+              <span style="font-family:cursive;font-size:14px;">Bickham Script, Elegy</span>
+            </div>
+            <div class="ftc-desc">These typefaces are derived from 17th-century formal writing styles. Many characters have strokes that connect them to other letters.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.10 Calligraphic Scripts</div>
+            <div class="ftc-examples">
+              <span style="font-family:cursive;font-size:14px;">Belltrap, Blaze, Mistral</span>
+            </div>
+            <div class="ftc-desc">These scripts imitate calligraphic writing. They can be connecting or non-connecting in design. Many appear to have been written with a flat-tipped writing instrument.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.11 Black Letters &amp; Lombardic</div>
+            <div class="ftc-examples">
+              <span style="font-size:14px;">Agincourt, Cresci Rotunda</span>
+            </div>
+            <div class="ftc-desc">These typefaces are patterned on manuscript lettering before the invention of movable type.</div>
+          </div>
+          <div class="font-type-card">
+            <div class="ftc-type">2.4.12 Casual Scripts</div>
+            <div class="ftc-examples">
+              <span style="font-family:cursive;font-size:14px;">Brush Script, Freestyle Script</span>
+            </div>
+            <div class="ftc-desc">These typefaces are designed to give an informal feel, as if they were written quickly. Many times they appear to have been drawn with a brush. Generally, character strokes connect to the next letter.</div>
+          </div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> 2.4.13 Decorative Styles</div>
+          <p>This is the largest and most diverse category. Rarely used for long stretches of text, decorative typefaces are popular for signage, headlines, and similar writing. They often reflect an aspect of culture — like tattoo or wall painting — or display a particular time period or theme. Examples: ITC Aftershock, ITC Airstream, WacWakOoops! Some appear three-dimensional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- S5: SOUND IN MULTIMEDIA -->
+    <div class="sec-card" id="s5">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">3</div>
+          <div class="sec-title">Importance of Sound in Multimedia</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Sound is used to make multimedia applications more effective. <span class="kw">Sound (Dhwani)</span> is the most important element of multimedia. Any meaningful sound in any language, from a very soft voice to a loud shout, is sound. This is what gives us pleasure in listening to music. Films, animation, etc. are made effective through sound.</p>
+
+        <div class="info-box blue">
+          <strong>🔊 Sound vs Audio</strong>
+          The word <strong>Sound</strong> is used for the analogue form of sound. In digital form, this same sound is called <strong>Audio</strong>.
+        </div>
+
+        <p>Nowadays there are many applications and programs designed to educate people using the internet. There are many educational videos and audio available on the internet that explain even the most difficult subjects very easily in simple language. Audio plays a very important role in understanding any subject.</p>
+        <p>The biggest impact or use of audio or sound is when people listen to music. Music is universal — there is music for everyone and it is a form of art that artists perform with the help of musical instruments. Poor sound can ruin a brilliant audio production. Films use three types of sound — <span class="kw">Human Voice, Music, and Sound Effects</span>. For a film to feel realistic to audiences, all three types of sound are important. Sound and dialogue should be fully synced with the actions happening in the film.</p>
+
+        <h3>3.1 Mono vs Stereo Audio Sound</h3>
+        <p>Mono and stereo audio provide quite different listening experiences. Stereo is the most common format for home audio systems and recorded music, while mono sound provides different benefits for users who want high-quality experiences with older recordings.</p>
+
+        <div class="signal-box">
+          <div class="signal-card analog" style="border-color:#1565C0;background:#E3F2FD;">
+            <div class="signal-wave">📻</div>
+            <div class="sig-title" style="color:#0D47A1;">Mono Sound</div>
+            <p>Audio signals are grouped together and played through a <strong>single channel</strong>. Used in: public address systems, radio talk shows, hearing aids, telephone, mobile communication, some AM radio stations.</p>
+          </div>
+          <div class="signal-card digital" style="border-color:#2E7D32;background:#E8F5E9;">
+            <div class="signal-wave">🔊</div>
+            <div class="sig-title" style="color:#1B5E20;">Stereo Sound</div>
+            <p>Uses <strong>two or more audio channels</strong> and two or more loudspeakers or stereo headphones. Used in: cinema, television, music players, FM radio stations. Provides richer audio quality and audio imaging experience.</p>
+          </div>
+        </div>
+
+        <h3>3.2 Mono Sound (Detail)</h3>
+        <p>Monophonic or "mono" sound is produced by routing a single signal channel in amplifiers to one or more speakers. Even if you use two speakers, a mono signal still produces the exact and same sound level in each speaker — therefore, unlike stereo speakers, the audio quality of a mono sound system is not very good. Through headphones, mono sound produces a "cluster" of music without experiencing audio imaging.</p>
+        <p>Recording and reproduction of mono sound is less expensive and easier to record, requiring only basic equipment. Mono sound system audio signals are routed through a single channel.</p>
+
+        <h3>3.3 Stereo Sound (Detail)</h3>
+        <p>Stereo sound is a process of sound production that simulates audible sound as if coming from different directions. Home or personal audio systems create stereophonic sound using two independent signals through two different channels using speakers. Stereo systems are best used to replicate the live performance experience of a band or orchestra.</p>
+        <p>As independent signals emphasise different instruments or sound importance in left and right channels, stereo sound is considered of higher quality — it helps hear each musical instrument's voice separately and provides an unparalleled music experience. For the best experience, the listener should place themselves between two speakers and experience "audio imaging".</p>
+        <p>Recording and reproduction costs for stereo sound are more expensive. Stereo sound systems are used in <span class="kw">cinema, television, music players, FM radio stations</span>.</p>
+
+        <h3>3.4 Sound Effects</h3>
+        <p>Sound effects are artificially created or enhanced sounds used in artistic works to emphasise or express an action, mood, or emotion. Initially, sound effects were used in radio plays, but nowadays they are extensively used in podcasts, theatres, films, and television shows.</p>
+        <p>Sound effects are often synchronised with actions, such as the sound of slamming a door. Sound effects are also used in the background of a scene to display anticipation or other emotions. Surprisingly, the most realistic sound effects are recordings of real sounds. These recorded real sounds can be edited or enhanced. Sounds can also be layered to create an entirely new effect.</p>
+
+        <div class="grid-2">
+          <div class="sub-sec">
+            <div class="sub-sec-title"><span class="dot"></span> 3.4.1 Isolated Sounds</div>
+            <p style="font-size:13.5px;margin-top:6px;">Isolated sounds include everyday objects' sounds like doorbell, car horn, telephone ring. Real and specific sounds you hear — dog barking, gun firing, loud door slamming, car tires screeching during a car chase.</p>
+          </div>
+          <div class="sub-sec">
+            <div class="sub-sec-title"><span class="dot"></span> 3.4.2 Specialty Effects</div>
+            <p style="font-size:13.5px;margin-top:6px;">Specialty effects are sounds designed for objects and places that exist only in our imagination. Used in cartoons, fantasy, and science fiction productions — like the sound of a space transporter, a genie's magic lamp, or cartoon monsters.</p>
+          </div>
+          <div class="sub-sec">
+            <div class="sub-sec-title"><span class="dot"></span> 3.4.3 Foley Sounds</div>
+            <p style="font-size:13.5px;margin-top:6px;">Foley sounds are synchronised with visuals in motion pictures or TV programs. This synchronisation process is also called Audio Sound Replacement. Examples: the rattling of a coffee cup being placed on a table, realistic rustling of clothes, the sound of a punch. Named after pioneer Jack Foley.</p>
+          </div>
+          <div class="sub-sec">
+            <div class="sub-sec-title"><span class="dot"></span> 3.4.4 Background Ambiances</div>
+            <p style="font-size:13.5px;margin-top:6px;">Background ambiance tracks provide the basic environment for a production — making the filmmaker or radio listener actually feel they are in a courtroom, railway station, storm, or jungle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S6: ANALOG VS DIGITAL SOUND -->
+    <div class="sec-card" id="s6">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">4</div>
+          <div class="sec-title">Analog vs Digital Sound</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Both analog and digital signals are used to transmit information, usually through electric signals. In both these technologies, information — such as any audio or video — is converted into electric signals. The difference between analog and digital technologies is that in analog technology, information is converted into electric pulses of varying amplitudes. In digital technology, information is translated into binary format (zero or one), where each bit represents two distinct amplitudes.</p>
+
+        <p>Both analog and digital are techniques of encoding information. Digital computers and other electronic devices use information in sequences of 1s and 0s — this data is then read by the electronic device and interpreted as words, images, or sounds. Analog, on the other hand, means a continuous chain of electrical waves, which provide different values with different parameters.</p>
+
+        <table class="compare-table">
+          <tr>
+            <th>Property</th>
+            <th>Analog Signal</th>
+            <th>Digital Signal</th>
+          </tr>
+          <tr>
+            <td><strong>Nature</strong></td>
+            <td>Continuous signal representing physical measurements</td>
+            <td>Discrete values (0 or 1) — not continuous</td>
+          </tr>
+          <tr>
+            <td><strong>Representation</strong></td>
+            <td>Sine waves; continuous range of values</td>
+            <td>Binary format; data represented only in bits</td>
+          </tr>
+          <tr>
+            <td><strong>Examples</strong></td>
+            <td>Human voice in air, analog electronic devices</td>
+            <td>Digital computers, digital communications</td>
+          </tr>
+          <tr>
+            <td><strong>Noise</strong></td>
+            <td>Data transmission can deteriorate due to noise</td>
+            <td>More resistant to noise; can withstand minor distortion</td>
+          </tr>
+          <tr>
+            <td><strong>Cost</strong></td>
+            <td>Less expensive, portable</td>
+            <td>More reliable; easier to transmit and store</td>
+          </tr>
+          <tr>
+            <td><strong>Bandwidth</strong></td>
+            <td>Less bandwidth consumption</td>
+            <td>Transmits data in binary; more reliable</td>
+          </tr>
+          <tr>
+            <td><strong>Storage</strong></td>
+            <td>Higher energy consumption in wave signal memory</td>
+            <td>Values between 0 and 1 (limited range)</td>
+          </tr>
+        </table>
+
+        <div class="info-box green">
+          <strong>🔁 Why Everything is Going Digital</strong>
+          All types of information over time are being converted to digital because creating, sending from one place to another, storing, and editing them is far easier than analog.
+        </div>
+
+        <h3>4.1 Analog Signal (Detail)</h3>
+        <p>An analog signal is a continuous signal that represents physical measurements. It is characterised by sine waves and uses a continuous range of values to describe information. The analog signal can only be used in analog devices and is most suited for audio and video transmission. Its bandwidth processing can be done in real time and consumes less bandwidth. Analog instruments generally have a scale and give observational errors.</p>
+
+        <h3>4.2 Digital Signal (Detail)</h3>
+        <p>A digital signal is a signal used to represent data in a sequence of discrete values. At any time it can take only one number from a limited number of values (0 or 1). Like analog, digital signals transfer data, although the way to transfer data is slightly different. These signals are discrete, not continuous. A digital signal transfers data as binary because a digital signal represents all information only in bits.</p>
+        <p>Every digital signal has <span class="kw">amplitude, frequency</span>, and <span class="kw">phase</span> like analog signals. This signal is also defined by <span class="kw">bit interval</span> and <span class="kw">bit rate</span>. Bit interval is the time it takes to transfer one bit; bit rate is the frequency of bit interval. Digital signals are more resistant to noise during transmission and are more reliable and simpler to transmit than analog signals.</p>
+      </div>
+    </div>
+
+    <!-- S7: SOUND FILE FORMATS -->
+    <div class="sec-card" id="s7">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">5</div>
+          <div class="sec-title">Sound File Formats</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Information or data on computers and electronic devices is stored as files. Text, audio, video — all store information in different file formats. A <span class="kw">sound file format</span> is a file format for storing audio on a computer. It defines the quality and characteristics of audio data. Different types of sound file formats are used based on the application.</p>
+
+        <p>Sound file formats are mainly divided into three parts:</p>
+
+        <div class="format-tags">
+          <span class="format-tag uncomp">i. Uncompressed Format</span>
+          <span class="format-tag lossy">ii. Lossy Compressed Format</span>
+          <span class="format-tag lossless">iii. Lossless Compressed Format</span>
+        </div>
+
+        <h3>5.1 Uncompressed Audio Formats</h3>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> PCM (.PCM) — Pulse Code Modulation</div>
+          <p>PCM describes an irregular (raw) analog audio signal in digital form. To convert an analog signal to a digital signal, it has to be recorded at a special interval. Therefore it has a <span class="kw">sampling rate</span> and <span class="kw">bit rate</span> (bits used to describe each sample). It is an accurate interpretation of analog sound and does not include file compression. It is the most common audio format used in CDs and DVDs.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> WAV (.WAV) — Waveform Audio File Format</div>
+          <p>WAV was developed in 1991 by <span class="tech">Microsoft and IBM</span>. It is simply a Windows container for audio formats, meaning a WAV file can contain compressed audio. Most WAV files contain uncompressed audio in PCM format. Compatible with both Windows and Mac.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> AIFF (.AIFF) — Audio Interchange File Format</div>
+          <p>AIFF was developed by <span class="tech">Apple</span> for Mac systems in <strong>1988</strong>. Like WAV files, AIFF files can contain many types of audio. They contain uncompressed audio in PCM format. Compatible with both Windows and Mac.</p>
+        </div>
+
+        <h3>5.2 Lossy Compressed Formats</h3>
+        <p>This is a form of compression — audio files can be stored in smaller form by compressing them. Smaller files are easy to send over the internet or through other mediums, and take less time. During the compression process, some data is lost. In lossy compression, the quality of data is compromised — but the difference in quality is generally not audible.</p>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> MP3 (.MP3) — MPEG-1 Audio Layer 3</div>
+          <p>MP3 is the most popular audio file format for music files, released in <strong>1993</strong>. The main purpose of MP3 is to remove all sounds that are more or less noticeable by human ears, so MP3 music file sizes are smaller. MP3 is like a universal format compatible with almost every device.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> AAC (.AAC) — Advanced Audio Coding</div>
+          <p>AAC was developed in <strong>1997</strong> after MP3. The compression algorithm used by AAC is much more complex and advanced than MP3. When a particular audio file in MP3 and AAC format is compared at the same bit rate, AAC generally gets better sound quality. It is the standard audio compression method used by <span class="tech">YouTube, Android, iOS, iTunes</span>, and PlayStations.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> WMA (.WMA) — Windows Media Audio</div>
+          <p>WMA was released in <strong>1999</strong>. It was designed to overcome some drawbacks of the MP3 compression method. In terms of quality it is better than MP3. However, WMA is not widely used.</p>
+        </div>
+
+        <h3>5.3 Lossless Compressed Formats</h3>
+        <p>This method reduces the file size without any loss in quality. However, lossless compression is not as good as lossy compression because the file size in lossless compression is 2 to 3 times larger than lossy compression, so it can be used less from the perspective of file transport.</p>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> FLAC — Free Lossless Audio Codec</div>
+          <p>FLAC can compress the source file up to <strong>50%</strong> without losing data. It is the most popular in its category and is open-source.</p>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-title"><span class="dot"></span> ALAC — Apple Lossless Audio Codec</div>
+          <p>ALAC was developed by Apple. It was launched in <strong>2004</strong>, but in <strong>2011</strong> Apple made the codec open source and royalty-free.</p>
+        </div>
+
+        <table class="content-table">
+          <tr><th>Format</th><th>Type</th><th>Key Fact</th><th>Common Use</th></tr>
+          <tr><td><strong>PCM</strong></td><td>Uncompressed</td><td>Raw analog signal digitised</td><td>CDs, DVDs</td></tr>
+          <tr><td><strong>WAV</strong></td><td>Uncompressed</td><td>Developed by Microsoft &amp; IBM, 1991</td><td>Windows audio</td></tr>
+          <tr><td><strong>AIFF</strong></td><td>Uncompressed</td><td>Developed by Apple, 1988</td><td>Mac audio</td></tr>
+          <tr><td><strong>MP3</strong></td><td>Lossy</td><td>Released 1993, universal format</td><td>Music streaming</td></tr>
+          <tr><td><strong>AAC</strong></td><td>Lossy</td><td>Better than MP3 at same bitrate</td><td>YouTube, iOS, iTunes</td></tr>
+          <tr><td><strong>WMA</strong></td><td>Lossy</td><td>Microsoft, released 1999</td><td>Windows Media</td></tr>
+          <tr><td><strong>FLAC</strong></td><td>Lossless</td><td>Up to 50% compression, open-source</td><td>Audiophile music</td></tr>
+          <tr><td><strong>ALAC</strong></td><td>Lossless</td><td>Apple, 2011 open-source</td><td>Apple devices</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- S8: MIDI -->
+    <div class="sec-card" id="s8">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">6</div>
+          <div class="sec-title">MIDI – Musical Instrument Digital Interface</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">"MIDI (Musical Instrument Digital Interface) is a connectivity standard for transferring digital instrument data. It is mainly used by computers, synthesizers, and electronic keyboards. It is a protocol used for electronic instruments and other digital musical tools to communicate with each other."</div>
+        </div>
+
+        <p>MIDI by itself does not produce any sound — it only sends messages. MIDI instruments understand these messages and produce sound. These instruments can be any hardware like an electronic keyboard or synthesizer, or any software of that environment like <span class="tech">GarageBand, Digital Performer</span>.</p>
+
+        <div class="info-box amber">
+          <strong>🎹 MIDI Also Supports</strong>
+          Electronic drums, beat boxes, and even digitally-stringed instruments such as guitar and violin — through MIDI.
+        </div>
+
+        <h3>What MIDI Data Contains</h3>
+        <p>MIDI data contains several types of information. For example, pressing a single key on a synthesizer transmits:</p>
+        <ul>
+          <li>The note played</li>
+          <li>Velocity (how hard the note is pressed)</li>
+          <li>How long the note was played</li>
+        </ul>
+        <p>If multiple notes are played simultaneously, MIDI data is transmitted for all notes at once. Other data that can be sent over a MIDI connection includes: <span class="kw">Instrument ID, sustain pedal timing, controller information</span> such as pitch bend and vibrato.</p>
+
+        <h3>MIDI Recording Process</h3>
+        <p>When a synthesizer is connected to a computer via a MIDI connection, the notes to be played can be recorded by DAW software in MIDI format. MIDI data can be played back by sending the recorded MIDI notes to the keyboard, which outputs them as audio samples such as piano or drums. Most DAW software supports MIDI editing, allowing you to adjust the timing and velocity of individual notes, change pitch, remove notes, or add new notes.</p>
+
+        <h3>MIDI Connectivity</h3>
+        <p>Originally, MIDI connections used a <span class="tech">MIDI cable</span> connected to a <span class="kw">5-pin MIDI port</span> on each device. Now most MIDI instruments have standard computer interfaces such as <span class="tech">USB or Thunderbolt ports</span>. These modern interfaces provide more bandwidth than traditional MIDI ports, allowing tracks with more data to be transmitted at once.</p>
+
+        <div class="info-box green">
+          <strong>🎵 MIDI vs Audio Recording</strong>
+          A MIDI recording contains only instrument information and notes to be played. The actual sound is played back using samples (individual recordings) from actual instruments. A MIDI track recorded as a piano song can be played back with a guitar sound by simply changing the output instrument.
+        </div>
+      </div>
+    </div>
+
+    <!-- S9: SOUND EDITING SOFTWARE -->
+    <div class="sec-card" id="s9">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap">
+          <div class="sec-num">7</div>
+          <div class="sec-title">Sound Editing &amp; Mixing Software</div>
+        </div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Audio editing software is software that provides the facility for editing and creating audio data. It can be implemented as an audio library, a computer application, a web application, or a loadable kernel module. Currently, multimedia is being used in every area of life — knowledge of multimedia's two main components Text and Sound provides the ability to understand the multimedia applications happening in the present time.</p>
+
+        <div class="software-grid">
+          <div class="software-card">
+            <div class="sw-icon">🎛️</div>
+            <div class="sw-name">Adobe Audition</div>
+            <div class="sw-by">By Adobe Systems · Windows &amp; Mac</div>
+            <div class="sw-desc">One of the best audio editing software available. Comes with multi-track editing and mixing features. Uses AI-based 'Adobe Sensei' technology for an 'Auto Ducking' feature that detects where you want to reduce the volume of a background track to make vocal/speech sound clearer. Also includes powerful clip editing features like mirror fades and maintaining layer stacks when moving a single piece.</div>
+            <div class="sw-tags">
+              <span class="sw-tag">Multi-track Editing</span>
+              <span class="sw-tag">AI Auto Ducking</span>
+              <span class="sw-tag">Professional</span>
+            </div>
+          </div>
+
+          <div class="software-card">
+            <div class="sw-icon">🍎</div>
+            <div class="sw-name">Logic Pro X</div>
+            <div class="sw-by">By Apple · Mac Only</div>
+            <div class="sw-desc">Apple's DAW (Digital Audio Workstation) for Mac operating systems. Famous for its creative applications. One of the best audio editing software, but only available on Mac OS, so its reach is limited to fewer users. Has basic features needed in an audio editor plus 'Smart Tempo' feature for automatically matching the timing of various tracks in a project.</div>
+            <div class="sw-tags">
+              <span class="sw-tag">Mac Only</span>
+              <span class="sw-tag">Smart Tempo</span>
+              <span class="sw-tag">DAW</span>
+            </div>
+          </div>
+
+          <div class="software-card">
+            <div class="sw-icon">🆓</div>
+            <div class="sw-name">Audacity</div>
+            <div class="sw-by">Free &amp; Open Source · Cross-Platform</div>
+            <div class="sw-desc">Free and open-source audio editing software. The most easily accessible software to start audio editing. Has almost all the features you will need in audio editing — many effects like bass, treble, distortion, noise removal, etc. Also has analysis tools like Beat Finder, Silence Finder, Sound Finder. Supports MP3, WAV, AIFF, PCM, OGG Vorbis, FLAC, AC3, AMR, WMA, MP4 and almost all audio file formats.</div>
+            <div class="sw-tags">
+              <span class="sw-tag">Free</span>
+              <span class="sw-tag">Open Source</span>
+              <span class="sw-tag">Beginner Friendly</span>
+            </div>
+          </div>
+
+          <div class="software-card">
+            <div class="sw-icon">🔧</div>
+            <div class="sw-name">Sound Forge</div>
+            <div class="sw-by">By Magix · Windows</div>
+            <div class="sw-desc">A powerful, full-featured, and easy-to-use digital sound editor used by many audio professionals. Although not a video editor, you can still open and edit video files like other files and edit the audio track with familiar Sound Forge tools. You can preview audio files using the play bar from the main Sound Forge window or from each window. Supports multi-channel recording. Data selection and cursor placement are the main tasks of most editing processes.</div>
+            <div class="sw-tags">
+              <span class="sw-tag">Professional</span>
+              <span class="sw-tag">Multi-channel</span>
+              <span class="sw-tag">Full-featured</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="text-align:center;color:var(--muted);font-size:13.5px;font-style:italic;">
+          📚 Source: 2DCA1 IT Trends – Unit 2 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
+          Authors: Dr. Sunita Dwivedi (HOD, New Media Technology) &amp; Prashant Parashar (Tutor, Management Dept.)
+        </p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">⚡ ThunderStudy</div>
+      <p>Your ultimate study companion for CUET, DCA, and competitive exams. Built with ❤️ by Wondermayank.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">StudyHub</a></li>
+        <li><a href="#">Mock Tests</a></li>
+        <li><a href="#">Leaderboard</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">@wondermayank (Instagram)</a></li>
+        <li><a href="#">@thunderstudy_official (Telegram)</a></li>
+        <li><a href="#">@wondermayank (YouTube)</a></li>
+        <li><a href="#">@mindmaster_robot (Support Bot)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 ThunderStudy by Wondermayank · All Rights Reserved · wondermayank.github.io
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggle(header) {
+  header.parentElement.classList.toggle('open');
+}
+function toggleDrop() {
+  document.getElementById('unitDrop').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const drop = document.getElementById('unitDrop');
+  if (!drop.contains(e.target)) drop.classList.remove('open');
+});
+window.addEventListener('scroll', function() {
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+});
+const sections = document.querySelectorAll('.sec-card');
+const tocLinks = document.querySelectorAll('.toc-list li a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocLinks.forEach(a => a.classList.remove('active'));
+      const link = document.querySelector(`.toc-list li a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin:'-20% 0px -60% 0px' });
+sections.forEach(sec => observer.observe(sec));
+</script>
+</body>
+</html>

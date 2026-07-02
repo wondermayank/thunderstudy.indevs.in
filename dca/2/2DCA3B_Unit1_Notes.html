@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2DCA3(B) – Unit 1 | DTP with PageMaker & Photoshop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410;
+  --ink-soft: #4a3f35;
+  --ink-muted: #7a6d63;
+  --page: #faf8f4;
+  --cream: #f0ece3;
+  --cream2: #e8e2d6;
+  --accent: #8b3a2a;
+  --accent2: #c46b3a;
+  --accent3: #2a5c8b;
+  --accent4: #2a7a4a;
+  --gold: #c4960a;
+  --border: #d4c9bc;
+  --shadow: rgba(26,20,16,0.08);
+  --r: 6px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--page);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--ink);
+  padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  color: #fff; font-family: 'Playfair Display', serif; font-size: 18px;
+  text-decoration: none;
+}
+.nav-tag {
+  background: var(--accent); color: #fff;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  padding: 3px 8px; border-radius: 3px; letter-spacing: 0.5px;
+}
+.nav-links { display: flex; gap: 8px; }
+.nav-links a {
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  padding: 6px 14px; border-radius: 3px;
+  transition: background 0.15s, color 0.15s;
+  border: 1px solid transparent;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.nav-links a.active {
+  background: var(--accent); color: #fff;
+  border-color: var(--accent);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: #fff;
+  padding: 60px 48px 48px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 40%; height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent, transparent 20px,
+    rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px
+  );
+}
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent2); margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.2; font-weight: 700;
+  margin-bottom: 16px;
+}
+.hero p { color: rgba(255,255,255,0.7); font-size: 16px; max-width: 560px; margin-bottom: 28px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero-chip {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.85);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  padding: 6px 14px; border-radius: 20px;
+}
+
+/* ── LAYOUT ── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; display: flex; gap: 32px; }
+.sidebar {
+  width: 240px; flex-shrink: 0;
+  position: sticky; top: 72px;
+  align-self: flex-start;
+}
+.toc-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.toc-head {
+  background: var(--ink);
+  color: #fff; padding: 12px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.toc-list { list-style: none; padding: 8px 0; }
+.toc-list li a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--ink-soft); font-size: 13px;
+  transition: background 0.12s, color 0.12s;
+  border-left: 3px solid transparent;
+}
+.toc-list li a:hover, .toc-list li a.active {
+  background: #fff; color: var(--accent);
+  border-left-color: var(--accent);
+}
+.toc-num {
+  width: 20px; height: 20px;
+  background: var(--cream2); border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-weight: 500; color: var(--ink-muted);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.toc-list li a.active .toc-num { background: var(--accent); color: #fff; }
+
+/* ── MAIN ── */
+.main { flex: 1; min-width: 0; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 32px; scroll-margin-top: 80px; }
+.sec-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r) var(--r) 0 0;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.sec-header:hover { background: var(--cream2); }
+.sec-num-badge {
+  width: 34px; height: 34px; border-radius: 5px;
+  background: var(--ink); color: #fff;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 600; color: var(--ink);
+  flex: 1;
+}
+.sec-arrow {
+  color: var(--ink-muted); font-size: 18px;
+  transition: transform 0.25s;
+}
+.section.open .sec-arrow { transform: rotate(180deg); }
+.sec-body {
+  display: none;
+  padding: 24px 24px 28px;
+  background: #fff;
+  border: 1px solid var(--border); border-top: none;
+  border-radius: 0 0 var(--r) var(--r);
+}
+.section.open .sec-body { display: block; }
+
+/* ── TYPOGRAPHY INSIDE SECTIONS ── */
+.sec-body p { margin: 14px 0; color: var(--ink-soft); font-size: 15.5px; line-height: 1.8; }
+.sec-body p:first-child { margin-top: 0; }
+.sec-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 600; color: var(--accent3);
+  margin: 24px 0 8px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent3);
+}
+.sec-body h4 {
+  font-size: 14.5px; font-weight: 600; color: var(--ink);
+  margin: 18px 0 6px;
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px;
+}
+.sec-body ul { padding-left: 0; list-style: none; margin: 12px 0; }
+.sec-body ul li {
+  padding: 5px 0 5px 22px;
+  position: relative; font-size: 15px; color: var(--ink-soft);
+  line-height: 1.7;
+}
+.sec-body ul li::before {
+  content: '▸'; position: absolute; left: 4px;
+  color: var(--accent2); font-size: 11px; top: 7px;
+}
+.sec-body ol { padding-left: 20px; margin: 12px 0; }
+.sec-body ol li { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 4px; }
+
+/* ── CALLOUT BOXES ── */
+.callout {
+  margin: 18px 0; padding: 14px 18px;
+  border-radius: var(--r); font-size: 14.5px; line-height: 1.7;
+}
+.callout.note { background: #eef4fb; border-left: 4px solid var(--accent3); color: #1a3a5c; }
+.callout.tip { background: #fdf5e0; border-left: 4px solid var(--gold); color: #5c3d00; }
+.callout.def { background: #f5f0e8; border-left: 4px solid var(--accent); color: #4a1e10; }
+.callout.green { background: #edf7ef; border-left: 4px solid var(--accent4); color: #1a4a28; }
+.callout strong { font-weight: 600; display: block; margin-bottom: 4px; }
+
+/* ── GRID CARDS ── */
+.grid2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 16px 0; }
+.grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 16px 0; }
+.gcard {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+}
+.gcard-icon { font-size: 22px; margin-bottom: 6px; }
+.gcard-title { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 4px;
+  font-family:'JetBrains Mono',monospace; }
+.gcard-text { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+/* ── DIVIDER ── */
+.div { height: 1px; background: var(--border); margin: 20px 0; }
+
+/* ── TABLE ── */
+.nice-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.nice-table th { background: var(--ink); color: #fff; padding: 10px 14px; text-align: left;
+  font-family:'JetBrains Mono',monospace; font-size: 12px; letter-spacing:0.5px; }
+.nice-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: var(--ink-soft); vertical-align:top; }
+.nice-table tr:last-child td { border-bottom: none; }
+.nice-table tr:nth-child(even) td { background: var(--cream); }
+
+/* ── SOFTWARE BADGES ── */
+.sw-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.sw-badge {
+  background: var(--ink); color: #fff;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  padding: 6px 14px; border-radius: 4px; letter-spacing: 0.3px;
+}
+.sw-badge.alt { background: var(--accent3); }
+.sw-badge.alt2 { background: var(--accent4); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); color: rgba(255,255,255,0.5);
+  text-align: center; padding: 28px 24px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  letter-spacing: 0.5px;
+}
+footer strong { color: rgba(255,255,255,0.8); }
+
+/* ── SCROLL TOP ── */
+.scroll-top {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 44px; height: 44px; background: var(--ink);
+  color: #fff; border: none; border-radius: 50%;
+  font-size: 18px; cursor: pointer; display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  z-index: 200; transition: transform 0.2s;
+}
+.scroll-top:hover { transform: translateY(-3px); }
+.scroll-top.show { display: flex; }
+
+@media (max-width: 860px) {
+  .wrap { flex-direction: column; padding: 24px 16px 60px; }
+  .sidebar { width: 100%; position: static; }
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+  .hero { padding: 40px 24px 36px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">
+    <span class="nav-tag">2DCA3(B)</span>
+    DTP with PageMaker &amp; Photoshop
+  </a>
+  <div class="nav-links">
+    <a href="2DCA3B_Unit1_Notes.html" class="active">Unit 1</a>
+    <a href="2DCA3B_Unit2_Notes.html">Unit 2</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-kicker">Unit 1 · Study Notes</div>
+  <h1>Desktop Publishing:<br>Introduction &amp; Concepts</h1>
+  <p>Complete notes on DTP fundamentals, software, text formatting, printing types, and laser printers — from the official MCU course material.</p>
+  <div class="hero-chips">
+    <span class="hero-chip">📖 MCU Bhopal</span>
+    <span class="hero-chip">🖨 Printing Processes</span>
+    <span class="hero-chip">🔤 Typography</span>
+    <span class="hero-chip">💻 DTP Software</span>
+    <span class="hero-chip">10 Topics</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="toc-card">
+      <div class="toc-head">Contents</div>
+      <ul class="toc-list" id="toc">
+        <li><a href="#s1"><span class="toc-num">1</span>DTP Introduction</a></li>
+        <li><a href="#s2"><span class="toc-num">2</span>DTP Definition &amp; History</a></li>
+        <li><a href="#s3"><span class="toc-num">3</span>DTP Utility &amp; Uses</a></li>
+        <li><a href="#s4"><span class="toc-num">4</span>DTP vs Word Processing</a></li>
+        <li><a href="#s5"><span class="toc-num">5</span>Newspaper Publishing</a></li>
+        <li><a href="#s6"><span class="toc-num">6</span>DTP Software Types</a></li>
+        <li><a href="#s7"><span class="toc-num">7</span>Text Formatting</a></li>
+        <li><a href="#s8"><span class="toc-num">8</span>Printing Types</a></li>
+        <li><a href="#s9"><span class="toc-num">9</span>Offset Printing Terms</a></li>
+        <li><a href="#s10"><span class="toc-num">10</span>Laser Printers</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- S1 -->
+    <div class="section open" id="s1">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">1</div>
+        <div class="sec-title">Introduction to DTP (Desktop Publishing)</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Desktop Publishing (DTP) refers to a publishing process that can be edited on a desk itself. That is, performing publishing work through equipment placed on a desk is called Desktop Publishing. This work is done through a computer and connected equipment such as printers and scanners.</p>
+        <p>In this system, the creation of text, arranging it on a page, and making images etc. is done on a computer. Finally, using a laser printer, printing is done on butter paper or master via the printer. This butter paper or master is then used in printing machines.</p>
+        <div class="callout note">
+          <strong>📌 Key Point</strong>
+          DTP is not only used for commercial publishing work but also extensively in office uses. Commercial publishing such as templates, posters, advertisements, house journals, magazines, books, etc., are all created using DTP.
+        </div>
+        <h3>Three Main Equipment Requirements for DTP</h3>
+        <div class="grid3">
+          <div class="gcard">
+            <div class="gcard-icon">🖥️</div>
+            <div class="gcard-title">Personal Computer</div>
+            <div class="gcard-text">Core processing unit for all DTP work</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-icon">🖨️</div>
+            <div class="gcard-title">Laser Printer</div>
+            <div class="gcard-text">For high-quality printing output</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-icon">📠</div>
+            <div class="gcard-title">Scanner</div>
+            <div class="gcard-text">To digitize images and documents</div>
+          </div>
+        </div>
+        <h3>Types of Publishing Using DTP</h3>
+        <ul>
+          <li><strong>Commercial Publishing:</strong> Newspapers, magazines, web pages and other visual documentation.</li>
+          <li><strong>Office Publishing:</strong> Brochures, flyers, posters, booklets, business cards, letterhead forms, financial documents, HR documents, invoices, inventory sheets, memos, and labels.</li>
+          <li><strong>Personal Publishing:</strong> Projects, postcards, greeting cards, invitation letters, resumes, cover letters, and portfolios.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S2 -->
+    <div class="section" id="s2">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">2</div>
+        <div class="sec-title">DTP Definition &amp; History</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="callout def">
+          <strong>📘 Definition</strong>
+          DTP (Desktop Publishing) is the process of performing publishing work using equipment placed on a desk. It requires a computer, printer, scanner, and software. Using these tools and software, digital documents are prepared which are converted to commercial or office publications using various printing machines.
+        </div>
+        <h3>History of DTP</h3>
+        <p>In the mid-1980s, Apple's PostScript desktop printer LaserWriter and the development of Aldus PageMaker for Apple Macintosh computers sparked the desktop publishing revolution.</p>
+        <p>The credit for DTP's invention goes to Apple Computer's Steve Jobs, while Paul Brainerd, founder of Aldus Corporation, is generally credited with coining the phrase "Desktop Publishing."</p>
+        <h3>Brief Timeline</h3>
+        <table class="nice-table">
+          <tr><th>Year</th><th>Event</th></tr>
+          <tr><td>1984</td><td>Apple Macintosh computers came to market</td></tr>
+          <tr><td>1984</td><td>Hewlett-Packard launched the first desktop laser printer — LaserJet</td></tr>
+          <tr><td>1985</td><td>Adobe launched PostScript — became industry standard for commercial typesetting</td></tr>
+          <tr><td>1985</td><td>Aldus developed the first "Desktop Publishing" application — PageMaker — for Macintosh</td></tr>
+          <tr><td>1985</td><td>Apple produced the first desktop laser printer with PostScript — LaserWriter</td></tr>
+          <tr><td>1987</td><td>PageMaker released for the Windows platform</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- S3 -->
+    <div class="section" id="s3">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">3</div>
+        <div class="sec-title">DTP Utility &amp; Uses</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Publishing technology is deeply connected to our daily lives. From newspapers, pamphlets, books, magazines, visiting cards, advertisements, hoardings, calendars, posters, to restaurant menu cards — the designing and printing of all these use DTP.</p>
+        <h3>Importance of Desktop Publishing</h3>
+        <ul>
+          <li>Documents look high quality and beautiful due to desktop publishing and graphic design.</li>
+          <li>If used properly, scattered data can be organized neatly.</li>
+          <li>It is a communication-enhancing tool that enables quick creation of written and electronic documents.</li>
+          <li>It allows the user to set text and graphics on screen, helping in the creation of effective and attractive documents.</li>
+        </ul>
+        <h3>Benefits of Desktop Publishing</h3>
+        <div class="grid2">
+          <div class="gcard">
+            <div class="gcard-title">📈 Increased Productivity</div>
+            <div class="gcard-text">Faster document creation with professional tools</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-title">💰 Reduced Production Cost</div>
+            <div class="gcard-text">Less dependency on large printing presses</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-title">🎨 Attractive Documents</div>
+            <div class="gcard-text">Professional designs without deep expertise</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-title">⚡ Less Time</div>
+            <div class="gcard-text">Reduces time taken in production cycle</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-title">✏️ More Creativity</div>
+            <div class="gcard-text">Increased creative control for designers</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-title">📦 Custom Output</div>
+            <div class="gcard-text">Ability to produce per customer demand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S4 -->
+    <div class="section" id="s4">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">4</div>
+        <div class="sec-title">DTP vs Word Processing Software</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Today there is not much difference between available desktop publishing and word processing software because word processing software keeps adding new page layouting facilities. However, there are some fundamental differences:</p>
+        <table class="nice-table">
+          <tr><th>Aspect</th><th>Word Processing</th><th>Desktop Publishing</th></tr>
+          <tr><td>Purpose</td><td>Creating, editing and printing text</td><td>Creating documents that combine text with graphics</td></tr>
+          <tr><td>Complexity</td><td>Simpler, for everyday documents</td><td>More complex — includes layout and design work</td></tr>
+          <tr><td>Use Cases</td><td>Memos, letters, manuscripts, resumes</td><td>Newspapers, magazines, ads, brochures</td></tr>
+          <tr><td>Document Start</td><td>Text entered directly on blank page</td><td>First page is blank; a frame is created to add text</td></tr>
+          <tr><td>Layout Focus</td><td>Minimal layout concern</td><td>Layout is central and critical</td></tr>
+        </table>
+        <div class="callout tip">
+          <strong>💡 Note</strong>
+          The line between both is now getting thinner — word processing software is adopting advanced page layout features. Examples of Word Processing: Microsoft Word, Google Docs, Corel WordPerfect.
+        </div>
+      </div>
+    </div>
+
+    <!-- S5 -->
+    <div class="section" id="s5">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">5</div>
+        <div class="sec-title">Use of DTP in Newspaper Publishing</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>DTP allows the computer user to combine text and image files into a single document. The user designs a page that looks like a page in a book or journal. It is arranged in several pieces as different news items on a page to give the form of a newspaper.</p>
+        <p>A newspaper is a classic use of desktop publishing. Professional newspaper editors use text and pictures made by journalists and photographers many miles away and combine them with diagrams and headlines made in the office to create a newspaper.</p>
+        <h3>How a Newspaper Page is Created via DTP</h3>
+        <ul>
+          <li>All news gathered from different sources</li>
+          <li>News combined with advertisements on newspaper pages</li>
+          <li>Uniform font used to maintain consistency in news presentation</li>
+          <li>Photos received from various sources combined with text</li>
+          <li>Multiple people's contributions create one newspaper page</li>
+        </ul>
+        <p>The user can choose various fonts, arrange text in multiple columns, or arrange text around images — all made possible by DTP.</p>
+      </div>
+    </div>
+
+    <!-- S6 -->
+    <div class="section" id="s6">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">6</div>
+        <div class="sec-title">Types of DTP Software</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Desktop publishers and graphic designers generally use four types of software:</p>
+
+        <h3>1. Word Processing Software</h3>
+        <p>Used for typing, editing text and checking spelling and grammar. Text prepared in word processing software is generally imported into page-layout software for formatting.</p>
+        <div class="sw-grid">
+          <span class="sw-badge">Microsoft Word</span>
+          <span class="sw-badge">Google Docs</span>
+          <span class="sw-badge">Corel WordPerfect</span>
+        </div>
+
+        <h3>2. Page Layout Software</h3>
+        <p>Closely associated with desktop publishing. Allows integration of text and images on the page, easy rearrangement of page elements, and creation of artistic layouts. Helpful for publications like newspapers and books.</p>
+        <div class="sw-grid">
+          <span class="sw-badge alt">Adobe InDesign</span>
+          <span class="sw-badge alt">Adobe PageMaker</span>
+          <span class="sw-badge alt">QuarkXPress</span>
+          <span class="sw-badge alt">Serif PagePlus</span>
+          <span class="sw-badge alt">Microsoft Publisher</span>
+        </div>
+
+        <h3>3. Graphics Software</h3>
+        <p>Graphic designing software uses vector graphics for creating artwork or making posters/brochures. Can be easily edited and the size can be increased or decreased.</p>
+        <div class="sw-grid">
+          <span class="sw-badge alt2">Adobe Illustrator</span>
+          <span class="sw-badge alt2">CorelDraw</span>
+        </div>
+
+        <h3>4. Photo Editing Software</h3>
+        <p>Also called paint programs or image editors. Works with bitmap images like scanned photos and digital images. Errors in existing photos can be corrected, and various effects can also be applied.</p>
+        <div class="sw-grid">
+          <span class="sw-badge">Adobe Photoshop</span>
+          <span class="sw-badge">Corel PaintShop Pro</span>
+          <span class="sw-badge">Photo Paint</span>
+        </div>
+
+        <h3>Key DTP Software Details</h3>
+        <table class="nice-table">
+          <tr><th>Software</th><th>Key Feature</th></tr>
+          <tr><td><strong>Adobe PageMaker</strong></td><td>First DTP software; originally by Aldus, acquired by Adobe in 1990s; development stopped at version 7. Good for most DTP tasks except book publishing. Works on Mac and Windows.</td></tr>
+          <tr><td><strong>Adobe InDesign</strong></td><td>Part of Adobe Creative Suite; upgrade from Aldus PageMaker. Used by large publishing houses and websites. Available for Windows and Mac.</td></tr>
+          <tr><td><strong>QuarkXPress</strong></td><td>Was most popular before InDesign arrived. Still available on Mac and Windows. Can convert Adobe Illustrator, PDF, EPS, and InDesign files. Supports HTML5 interactive publishing export.</td></tr>
+          <tr><td><strong>Microsoft Publisher</strong></td><td>Entry-level software for home and small businesses. Interface similar to other Microsoft Office software. Easy to import albums from Facebook, Flickr, and cloud services.</td></tr>
+          <tr><td><strong>Serif PagePlus</strong></td><td>One step ahead of Publisher. Supports CMYK color and OpenType fonts. Has an integrated photo editor called PhotoLab. Supports PDF and e-book creation for Amazon Kindle.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- S7 -->
+    <div class="section" id="s7">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">7</div>
+        <div class="sec-title">Text Formatting in DTP</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>The specific style of text presentation is called text formatting. DTP software has unique text formatting facilities — including the spacing between letters, between words, between lines and between paragraphs.</p>
+
+        <h3>Typography</h3>
+        <p>The word Typography comes from the Greek words 'typos' (sign, picture) and 'grapho' (I write). In Hindi, typography is called mudran kala (printing art). It is the art and technique of arranging printing to make written language legible, readable, and appealing when displayed.</p>
+        <p>Typography involves the selection of typeface, point size, line length, leading (line spacing), space between letter groups (tracking) and space between letter pairs (kerning).</p>
+
+        <h3>Font</h3>
+        <p>A font is a collection of letters of the same design. These include lowercase and uppercase letters, numbers, punctuation marks and symbols. Changing the font changes how text looks and feels.</p>
+
+        <h3>Serif vs Sans-Serif Fonts</h3>
+        <div class="grid2">
+          <div class="gcard">
+            <div class="gcard-title">Serif Fonts</div>
+            <div class="gcard-text">Have small extensions at the edges of characters (like horizontal line at bottom of capital "T"). Traditional appearance, commonly used in printed books and newspapers. Example: Times New Roman, Palatino.</div>
+          </div>
+          <div class="gcard">
+            <div class="gcard-title">Sans-Serif Fonts</div>
+            <div class="gcard-text">Do not have the extra lines. More modern appearance, commonly used on the web. "Sans" means "without" in French. Example: Arial, Helvetica.</div>
+          </div>
+        </div>
+
+        <h3>Font Size (Point Size)</h3>
+        <p>In typography, point is the smallest unit of measurement. Used to measure font size, leading, and other items on a printed page. In DTP, a point is defined as 1⁄72 of an international inch (approximately 0.353 mm). One inch = approximately 72 points.</p>
+
+        <h3>Text Formatting Controls</h3>
+        <table class="nice-table">
+          <tr><th>Control</th><th>Description</th></tr>
+          <tr><td><strong>Leading</strong></td><td>Adjusts the spacing between lines of text. Applied line by line. Can increase or decrease gap between lines without changing layout.</td></tr>
+          <tr><td><strong>Tracking</strong></td><td>Adjusts how closely characters follow each other across a section of text. Very tight tracking brings text closer; very loose spreads it out.</td></tr>
+          <tr><td><strong>Kerning</strong></td><td>Adjusts spacing between specific character pairs. Selective — can adjust one or two characters. Negative numbers move characters closer, positive numbers space them out.</td></tr>
+          <tr><td><strong>Width</strong></td><td>Adjusts character width without affecting height. Over 100% makes proportionately larger than standard; under 100% makes proportionately smaller.</td></tr>
+          <tr><td><strong>Position</strong></td><td>Adjusts text placement on a line. Positive numbers = superscript (above the line); negative numbers = subscript (below the line).</td></tr>
+          <tr><td><strong>Line Break</strong></td><td>End a line and start a new one without starting a new paragraph. Use Shift + Enter key combination.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- S8 -->
+    <div class="section" id="s8">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">8</div>
+        <div class="sec-title">Types of Printing</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Printing processes can be understood differently by the method of image transfer and the type of image carrier process. Based on the process, the printed image is transferred either directly or indirectly onto the printing surface.</p>
+
+        <h3>Lithography</h3>
+        <p>Lithography is a printing method whose theoretical basis is that oil and water do not mix. It uses oil-based ink on a stone (lithographic limestone) or a metal plate with a granular surface. The printer works on a different stone or plate for each color. Traditionally this surface was specially prepared limestone, but today granular aluminum printing plates and original stones are used.</p>
+
+        <h3>Flexography</h3>
+        <p>In flexography, the material to be printed is on the surface of a rubber printing plate. Ink is applied to this plate and that ink image is later transferred to the printing surface. The process can be used for printing on paper as well as plastic, metal, and other materials. Flexo is mainly used for packaging and labels and to some extent for newspapers also.</p>
+
+        <h3>Gravure Printing</h3>
+        <p>Also known as Rotogravure. This is a technique in which an image is engraved in a printing cylinder. Ink is applied to that cylinder and later this ink transfers to paper. Gravure is used for high volume work such as newspapers, magazines, and packaging. It is slowly losing market share due to popularity of offset in publication printing and flexo in packaging applications.</p>
+
+        <h3>Offset Printing</h3>
+        <p>The most widely used printing technique for a wide range of products like business cards, letterheads, catalogs, books/booklets, business forms, flyers, brochures, calendars, invitation letters, newspapers, stationery, and posters. It is not only the highest quality printing process, it also provides the best price per piece.</p>
+        <div class="callout note">
+          <strong>🔄 How Offset Works</strong>
+          An ink image is first transferred (offset) from a plate to a rubber blanket and then to paper. The offset process is a lithographic process. Before printing, the image is divided into primary colors: Cyan, Magenta, Yellow and Black (CMYK). Four separate plates are created. When these four colors are printed one after another, one on top of the other, the color image reappears.
+        </div>
+
+        <h3>Screen Printing</h3>
+        <p>As the name implies, this printing technique depends on a screen. Some areas of this screen are coated with non-permeable material. Ink can be pushed through the remaining open spaces of the screen onto the surface of cloth or paper. The advantage is that the printing surface doesn't need to be flat — printing can be done on paper, cloth, glass, ceramics, wood and metal surfaces.</p>
+      </div>
+    </div>
+
+    <!-- S9 -->
+    <div class="section" id="s9">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">9</div>
+        <div class="sec-title">Offset Printing Terminology</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <table class="nice-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td><strong>Bleed</strong></td><td>Printing that goes beyond the edge from where the sheet will be cut. Area that gets cut off. Ensures no unprinted gap at edges after trimming.</td></tr>
+          <tr><td><strong>Trim</strong></td><td>The place where the product will be cut.</td></tr>
+          <tr><td><strong>Margin</strong></td><td>Area inside the trim region.</td></tr>
+          <tr><td><strong>CMYK</strong></td><td>Cyan, Magenta, Yellow, Black — the four primary colors used for color printing. Unlike RGB (used on screens), CMYK colors are "subtractive" — combining them makes colors darker.</td></tr>
+          <tr><td><strong>Impressions</strong></td><td>The number of times a page or publication passes through the printing process to get the complete image. Monochrome needs only one pass; multi-color needs two or more.</td></tr>
+        </table>
+        <div class="callout tip">
+          <strong>💡 CMYK vs RGB</strong>
+          RGB (Red, Green, Blue) is used for computer screens. CMYK is used for printing. The "K" in CMYK stands for Key (Black) — using "K" avoids confusion with Blue in RGB. Theoretically, pure Cyan + Magenta + Yellow should produce black, but due to impurities in inks, Black (K) ink is added separately.
+        </div>
+      </div>
+    </div>
+
+    <!-- S10 -->
+    <div class="section" id="s10">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-num-badge">10</div>
+        <div class="sec-title">Laser Printers</div>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>A laser printer is a type of printer that uses a laser beam to create an image on a drum. Also known as a page printer because it prints the entire page at once. It uses toner powder instead of ink for printing. Laser printer was first developed in 1971 by Gary Starkweather at Xerox PARC.</p>
+
+        <h3>How a Laser Printer Prints (Step by Step)</h3>
+        <table class="nice-table">
+          <tr><th>Step</th><th>Process</th></tr>
+          <tr><td><strong>1. Cleaning</strong></td><td>Previous image information and toner removed from drum so printer is ready for new printing.</td></tr>
+          <tr><td><strong>2. Conditioning</strong></td><td>Corona wire applies a uniform positive charge on the photoreceptor drum.</td></tr>
+          <tr><td><strong>3. Writing</strong></td><td>Image to be printed is drawn on drum by laser beam. Area to be printed with ink gets negative charge; remaining area retains positive charge.</td></tr>
+          <tr><td><strong>4. Developing</strong></td><td>Toner in ink roller is ionized with positive charge, causing toner to be attracted toward negatively ionized areas on drum.</td></tr>
+          <tr><td><strong>5. Transfer</strong></td><td>Drum's toner is transferred to paper via positively ionized area (by transfer corona wire) or by transfer roller in newer printers. Note: toner is NOT yet permanently set on paper at this stage.</td></tr>
+          <tr><td><strong>6. Fusing</strong></td><td>Two fuser units apply heat and pressure to paper with toner. Heat melts toner which is then permanently bonded to paper by pressing.</td></tr>
+        </table>
+
+        <h3>Types of Laser Printers</h3>
+        <ul>
+          <li><strong>Personal Laser Printer:</strong> Very small, designed to fit on a desk with other computer equipment. Can be connected to computer for single-user use. Print on one side of paper only.</li>
+          <li><strong>Office Laser Printer:</strong> Slightly larger than personal printers but still fit comfortably on a desk. Can be used by one person or shared by a small group of users.</li>
+          <li><strong>Workgroup Laser Printer:</strong> Specifically designed for sharing among multiple users on a network. Often large enough to be placed on the floor. Designed to run continuously without operator intervention for long periods.</li>
+          <li><strong>Production Laser Printer:</strong> High-speed printers operated by an operator. Very large, floor-standing equipment, often requiring three-phase electricity. Sometimes requires air-conditioned "computer room" environment. Designed for round-the-clock use.</li>
+          <li><strong>Color Laser Printer:</strong> A relatively new development. Uses four colors (Cyan, Magenta, Yellow, Black) like offset printers. Separate cartridges for each of the four colors. Prints four times on paper — each time with a different color.</li>
+        </ul>
+
+        <h3>Advantages of Laser Printers</h3>
+        <div class="callout green">
+          <strong>✅ Key Benefits</strong>
+          <ul style="margin-top:8px">
+            <li>Speed — laser beam moves very fast, prints more pages per minute (PPM) than inkjet printers</li>
+            <li>Accuracy — laser beam has uniform diameter, writes more precisely, ink doesn't spread</li>
+            <li>High-resolution output — up to 1200 dpi</li>
+            <li>Lower running costs — toner is cheaper and lasts longer than inkjet cartridges</li>
+            <li>Less noise during printing</li>
+            <li>Less maintenance required</li>
+          </ul>
+        </div>
+
+        <h3>Uses of Laser Printers</h3>
+        <p>Laser printers are continuously used in commercial work as they are reliable and high-quality. Common commercial uses include company stationery, making labels, and printing company flyers and brochures. In the publishing industry they are used both for continuous low-quality proofs and for high-quality masters — for printing newspapers, magazines, books, posters, hoardings, etc.</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <strong>2DCA3(B) DTP with PageMaker &amp; Photoshop · Unit 1 Notes</strong><br>
+  Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggle(header){
+  const sec = header.parentElement;
+  sec.classList.toggle('open');
+}
+window.addEventListener('scroll',function(){
+  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+});
+const sections = document.querySelectorAll('.section');
+const tocLinks = document.querySelectorAll('.toc-list a');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      tocLinks.forEach(a=>a.classList.remove('active'));
+      const l = document.querySelector('.toc-list a[href="#'+e.target.id+'"]');
+      if(l) l.classList.add('active');
+    }
+  });
+},{rootMargin:'-10% 0px -70% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

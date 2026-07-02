@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderStudy | 2DCA1 IT Trends – Unit 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#1565C0;--blue-mid:#1976D2;--blue-light:#42A5F5;--blue-pale:#E3F2FD;
+  --amber:#F59E0B;--amber-light:#FEF3C7;--green:#22C55E;--red:#EF4444;
+  --bg:#F0F6FF;--card:#FFFFFF;--text:#0F1B35;--muted:#5A6885;
+  --border:#D0E3FF;--shadow:0 2px 16px rgba(21,101,192,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%);box-shadow:0 2px 24px rgba(13,71,161,0.4);}
+.header-inner{max-width:1200px;margin:auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand-icon{width:36px;height:36px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(245,158,11,0.5);}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.brand-tagline{font-size:10px;color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.5px;}
+.unit-dropdown-wrap{position:relative;}
+.unit-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:7px 16px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.unit-btn:hover{background:rgba(255,255,255,0.25);}
+.unit-btn .arrow{transition:transform 0.25s;font-size:12px;}
+.unit-dropdown-wrap.open .arrow{transform:rotate(180deg);}
+.unit-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(21,101,192,0.2);min-width:240px;overflow:hidden;border:1px solid var(--border);animation:dropIn 0.2s ease;}
+@keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.unit-dropdown-wrap.open .unit-menu{display:block;}
+.unit-menu a{display:flex;align-items:center;gap:10px;padding:11px 16px;text-decoration:none;color:var(--text);font-size:13.5px;font-weight:500;transition:background 0.15s;border-bottom:1px solid var(--border);}
+.unit-menu a:last-child{border-bottom:none;}
+.unit-menu a:hover{background:var(--blue-pale);}
+.unit-menu a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.unit-menu a .badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-pill{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 60%,#1E88E5 100%);padding:40px 24px 36px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,0.04);border-radius:50%;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;}
+.hero h1{font-size:clamp(22px,4vw,36px);font-weight:800;margin-bottom:8px;letter-spacing:-0.5px;}
+.hero p{font-size:14px;color:rgba(255,255,255,0.8);max-width:500px;margin:0 auto 20px;}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.hero-meta span{display:flex;align-items:center;gap:5px;font-size:12.5px;color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.1);padding:4px 12px;border-radius:20px;}
+
+/* LAYOUT */
+.layout{max-width:1200px;margin:0 auto;padding:28px 20px 60px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start;}
+.toc-sidebar{position:sticky;top:78px;background:var(--card);border-radius:16px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;}
+.toc-head{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);padding:14px 18px;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.toc-list{list-style:none;padding:8px 0;max-height:calc(100vh - 160px);overflow-y:auto;}
+.toc-list::-webkit-scrollbar{width:4px;}
+.toc-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.toc-list li a{display:flex;align-items:flex-start;gap:8px;padding:7px 16px;text-decoration:none;color:var(--muted);font-size:12.8px;font-weight:500;transition:all 0.15s;line-height:1.3;}
+.toc-list li a:hover,.toc-list li a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.toc-list li a .toc-num{flex-shrink:0;width:22px;height:20px;background:var(--blue-pale);color:var(--blue);border-radius:4px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.toc-list li a.active .toc-num{background:var(--blue);color:#fff;}
+
+/* MAIN */
+.main-content{display:flex;flex-direction:column;gap:20px;}
+.sec-card{background:var(--card);border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:80px;}
+.sec-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;gap:12px;transition:background 0.15s;}
+.sec-header:hover{background:var(--blue-pale);}
+.sec-title-wrap{display:flex;align-items:center;gap:12px;}
+.sec-num{width:36px;height:36px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-mid) 100%);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;box-shadow:0 2px 8px rgba(21,101,192,0.3);}
+.sec-title{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.2px;}
+.sec-toggle{font-size:18px;color:var(--blue);transition:transform 0.3s;flex-shrink:0;}
+.sec-card.open .sec-toggle{transform:rotate(180deg);}
+.sec-body{display:none;padding:0 22px 22px;border-top:1px solid var(--border);animation:fadeIn 0.2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.sec-card.open .sec-body{display:block;}
+
+/* TYPOGRAPHY */
+.sec-body p{margin-top:14px;color:#2C3E60;font-size:15px;line-height:1.8;}
+.sec-body h3{font-size:15px;font-weight:700;color:var(--blue);margin-top:22px;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.sec-body h3::before{content:'';width:4px;height:16px;background:var(--amber);border-radius:2px;flex-shrink:0;}
+.sec-body ul{margin-top:10px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+.sec-body ul li{padding-left:20px;position:relative;font-size:14.5px;color:#2C3E60;line-height:1.7;}
+.sec-body ul li::before{content:'▸';position:absolute;left:0;color:var(--blue-light);font-size:12px;top:3px;}
+.sec-body ol{margin-top:10px;padding-left:20px;}
+.sec-body ol li{font-size:14.5px;color:#2C3E60;line-height:1.7;margin-bottom:6px;}
+
+/* INFO BOXES */
+.info-box{margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;line-height:1.7;}
+.info-box.blue{background:var(--blue-pale);border-left:4px solid var(--blue);color:#1A3A6B;}
+.info-box.amber{background:var(--amber-light);border-left:4px solid var(--amber);color:#7C4A00;}
+.info-box.green{background:#F0FDF4;border-left:4px solid var(--green);color:#14532D;}
+.info-box.red{background:#FEF2F2;border-left:4px solid var(--red);color:#7F1D1D;}
+.info-box strong{font-weight:700;display:block;margin-bottom:4px;}
+
+/* SUB SECTIONS */
+.sub-sec{margin-top:20px;background:#F8FAFE;border-radius:10px;border:1px solid var(--border);padding:14px 18px;}
+.sub-sec-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.sub-sec-title .dot{width:8px;height:8px;background:var(--amber);border-radius:50%;flex-shrink:0;}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.mini-card{background:var(--blue-pale);border-radius:10px;padding:12px 14px;border:1px solid rgba(21,101,192,0.15);}
+.mini-card .mc-icon{font-size:22px;margin-bottom:6px;}
+.mini-card .mc-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.mini-card .mc-text{font-size:12.5px;color:var(--muted);line-height:1.5;}
+
+/* TABLE */
+.content-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13.5px;border-radius:8px;overflow:hidden;}
+.content-table th{background:var(--blue);color:#fff;padding:10px 14px;text-align:left;font-weight:700;}
+.content-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;}
+.content-table tr:last-child td{border-bottom:none;}
+.content-table tr:nth-child(even) td{background:#F8FBFF;}
+
+/* DEF BOX */
+.def-box{margin-top:16px;background:linear-gradient(135deg,#E8F1FE 0%,#F0F7FF 100%);border:1px solid rgba(21,101,192,0.2);border-radius:12px;padding:16px 20px;}
+.def-box .def-label{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.def-box .def-text{font-family:'Lora',serif;font-size:15px;color:#1A3260;line-height:1.75;font-style:italic;}
+
+/* PROS CONS */
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.pros-box,.cons-box{border-radius:10px;padding:14px 16px;}
+.pros-box{background:#F0FDF4;border:1px solid #BBF7D0;}
+.cons-box{background:#FEF2F2;border:1px solid #FECACA;}
+.pros-box .pc-title{font-size:13px;font-weight:800;color:#14532D;margin-bottom:8px;}
+.cons-box .pc-title{font-size:13px;font-weight:800;color:#991B1B;margin-bottom:8px;}
+.pros-box ul li{font-size:13px;color:#166534;line-height:1.5;padding-left:16px;}
+.pros-box ul li::before{color:#22C55E;}
+.cons-box ul li{font-size:13px;color:#991B1B;line-height:1.5;padding-left:16px;}
+.cons-box ul li::before{color:#EF4444;}
+
+/* AI USE CARDS */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.ai-card{background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:14px;}
+.ai-card .ai-icon{font-size:24px;margin-bottom:8px;}
+.ai-card .ai-title{font-size:13.5px;font-weight:700;color:var(--blue);margin-bottom:6px;}
+.ai-card p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
+
+/* CLOUD MODEL CARDS */
+.cloud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.cloud-card{border-radius:12px;padding:14px 12px;text-align:center;border:2px solid;}
+.cloud-card.pub{border-color:#1565C0;background:#EFF6FF;}
+.cloud-card.priv{border-color:#059669;background:#ECFDF5;}
+.cloud-card.comm{border-color:#D97706;background:#FFFBEB;}
+.cloud-card.hyb{border-color:#7C3AED;background:#F5F3FF;}
+.cloud-card .cc-icon{font-size:26px;margin-bottom:6px;}
+.cloud-card .cc-title{font-size:13px;font-weight:800;margin-bottom:4px;}
+.cloud-card.pub .cc-title{color:#1E3A8A;}
+.cloud-card.priv .cc-title{color:#065F46;}
+.cloud-card.comm .cc-title{color:#92400E;}
+.cloud-card.hyb .cc-title{color:#4C1D95;}
+.cloud-card .cc-text{font-size:11.5px;color:var(--muted);line-height:1.4;}
+
+/* SERVICE MODEL */
+.service-pyramid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px;}
+.svc-card{border-radius:12px;padding:16px;text-align:center;border:2px solid;}
+.svc-card.iaas{border-color:#1565C0;background:#EFF6FF;}
+.svc-card.paas{border-color:#D97706;background:#FFFBEB;}
+.svc-card.saas{border-color:#059669;background:#ECFDF5;}
+.svc-card .sv-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800;margin-bottom:8px;}
+.iaas .sv-badge{background:#1565C0;color:#fff;}
+.paas .sv-badge{background:#D97706;color:#fff;}
+.saas .sv-badge{background:#059669;color:#fff;}
+.svc-card .sv-title{font-size:13px;font-weight:700;margin-bottom:6px;}
+.iaas .sv-title{color:#1E3A8A;}
+.paas .sv-title{color:#92400E;}
+.saas .sv-title{color:#065F46;}
+.svc-card p{font-size:12px;color:var(--muted);line-height:1.4;margin-top:0!important;}
+.svc-card .sv-eg{font-size:10.5px;margin-top:8px;color:var(--muted);font-style:italic;}
+
+/* FEAT LIST */
+.feat-list{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.feat-item{display:flex;gap:12px;align-items:flex-start;background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.feat-item .fi-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.feat-item .fi-content .fi-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.feat-item .fi-content p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
+
+/* STEP LIST */
+.step-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.step-item{display:flex;gap:14px;align-items:flex-start;background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.step-item .step-num{width:28px;height:28px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
+.step-item .step-content .step-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.step-item .step-content p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
+
+/* KW */
+.kw{background:linear-gradient(120deg,rgba(245,158,11,0.2),rgba(245,158,11,0.1));color:#92400E;padding:1px 5px;border-radius:4px;font-weight:600;}
+.tech{color:var(--blue);font-weight:600;}
+.divider{height:1px;background:var(--border);margin:16px 0;}
+
+/* EXPERT SYSTEM COMPONENTS */
+.es-components{display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.es-comp{display:flex;gap:14px;align-items:flex-start;border-radius:12px;padding:16px;}
+.es-comp.ui{background:#EFF6FF;border:1px solid rgba(21,101,192,0.2);}
+.es-comp.ie{background:#FFF7ED;border:1px solid rgba(217,119,6,0.2);}
+.es-comp.kb{background:#F0FDF4;border:1px solid rgba(5,150,105,0.2);}
+.es-comp .ec-icon{font-size:28px;flex-shrink:0;}
+.es-comp .ec-title{font-size:15px;font-weight:800;margin-bottom:4px;}
+.es-comp.ui .ec-title{color:#1E3A8A;}
+.es-comp.ie .ec-title{color:#92400E;}
+.es-comp.kb .ec-title{color:#065F46;}
+.es-comp .ec-text{font-size:13px;line-height:1.6;}
+.es-comp.ui .ec-text{color:#1E3A8A;}
+.es-comp.ie .ec-text{color:#92400E;}
+.es-comp.kb .ec-text{color:#065F46;}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255,255,255,0.85);padding:36px 24px 24px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;}
+.footer-brand .brand-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.footer-col h4{font-size:13px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;transition:color 0.15s;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.15);text-align:center;font-size:12.5px;color:rgba(255,255,255,0.5);}
+
+.scroll-top{position:fixed;bottom:28px;right:24px;width:44px;height:44px;background:var(--blue);color:#fff;border-radius:50%;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(21,101,192,0.4);z-index:500;transition:transform 0.2s;}
+.scroll-top:hover{transform:translateY(-3px);}
+.scroll-top.visible{display:flex;}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .toc-sidebar{position:static;display:none;}
+  .grid-2,.grid-3,.grid-4,.pros-cons,.ai-grid,.cloud-grid,.service-pyramid{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;gap:20px;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:20px;}
+  .nav-pill{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">T</div>
+      <div class="brand-text">
+        <span class="brand-name">ThunderStudy</span>
+        <span class="brand-tagline">by Wondermayank</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <span class="nav-pill">2DCA1 – IT Trends</span>
+      <div class="unit-dropdown-wrap" id="unitDrop">
+        <button class="unit-btn" onclick="toggleDrop()">📚 Unit 5 &nbsp;<span class="arrow">▾</span></button>
+        <div class="unit-menu">
+          <a href="https://thunderstudy.github.io/dca/2/unit1.html">Unit 1 – Multimedia</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit2.html">Unit 2 – Text &amp; Sound</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
+          <a href="https://thunderstudy.github.io/dca/2/unit5.html" class="active">Unit 5 – AI, Cloud &amp; Google Apps <span class="badge">Current</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">📖 Unit 5 Notes</div>
+  <h1>AI, Cloud Computing &amp; Google Apps</h1>
+  <p>Complete Unit 5 study notes for 2DCA1 IT Trends – translated from official course material</p>
+  <div class="hero-meta">
+    <span>🏫 MCU, Bhopal</span>
+    <span>📋 6 Major Topics</span>
+    <span>⚡ Full PDF Content</span>
+    <span>🌐 English Medium</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc-sidebar">
+    <div class="toc-head">📑 Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">5.1</span> Artificial Intelligence</a></li>
+      <li><a href="#s2"><span class="toc-num">5.2</span> Expert System</a></li>
+      <li><a href="#s3"><span class="toc-num">5.3</span> Cloud Computing</a></li>
+      <li><a href="#s4"><span class="toc-num">5.4</span> Google Drive</a></li>
+      <li><a href="#s5"><span class="toc-num">5.5</span> Google Docs</a></li>
+      <li><a href="#s6"><span class="toc-num">5.6</span> Google Forms</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- S1: ARTIFICIAL INTELLIGENCE -->
+    <div class="sec-card open" id="s1">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">5.1</div><div class="sec-title">Artificial Intelligence (AI) – कृत्रिम बुद्धिमत्ता</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Of all living beings on earth, humans are the most intelligent. Most of civilization's development has been based on human intellectual skill. Through creativity and intelligence, humans have made many inventions — each giving life a new direction. Humans constantly learn from their surroundings: by seeing something, hearing a sound, or feeling a touch.</p>
+        <p>When you see a familiar person, you greet them — because your brain has stored that person's face and the learned response to greet acquaintances. When this same process is performed by a machine — storing all familiar faces, searching them when a person appears, and learning appropriate behaviour — that entire process of the machine is called its <span class="kw">Artificial Intelligence</span>.</p>
+
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Artificial Intelligence (AI) is a branch of computer science through which we can build intelligent machines — machines that can think, work, and behave like humans. Machines that can think like humans and are capable of making decisions. Examples: Speech Recognition, Problem Solving, Learning, and Planning.</div>
+        </div>
+
+        <p>AI exists when a machine can have human-based skills like learning, reasoning, and solving problems. In computer science, AI is also known as <span class="tech">Machine Intelligence</span> — intelligence displayed by machines, as opposed to the natural intelligence displayed by humans. AI is being continuously refined by training machines on past experiences to adapt to new inputs and perform human-like tasks.</p>
+
+        <h3>5.1.1 Goals of AI</h3>
+        <div class="grid-2">
+          <div class="mini-card">
+            <div class="mc-icon">🧠</div>
+            <div class="mc-title">Knowledge-Intensive Tasks</div>
+            <div class="mc-text">Make machines perform intelligent work like humans — with no visible difference — understanding, thinking, learning, and behaving like humans.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mc-icon">🏆</div>
+            <div class="mc-title">Expert Systems</div>
+            <div class="mc-text">Systems that display intelligent behaviour, learn new things on their own, demonstrate knowledge, explain it, and advise users.</div>
+          </div>
+        </div>
+
+        <h3>5.1.2 Applications of AI</h3>
+        <div class="ai-grid">
+          <div class="ai-card">
+            <div class="ai-icon">🎮</div>
+            <div class="ai-title">Gaming</div>
+            <p>Many video games are AI-based. AI machines can play strategic games like chess, analysing every possible move. With each move, the machine analyses and makes new moves — storing new patterns for future analysis. Categories: Board Games, Bots, Combat, Evolving Surroundings.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">👁️</div>
+            <div class="ai-title">Vision System / Image Recognition</div>
+            <p>These systems understand and interpret visual input. Examples: Face detection login on laptops/mobiles, fingerprint lock, police criminal face matching from stored sketches, Facebook auto photo tagging using AI face recognition.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🗣️</div>
+            <div class="ai-title">Speech Recognition</div>
+            <p>Intelligent systems listen to and understand language in the context of sentences and meanings when a human talks to the machine. Google Voice Search is a classic example.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">✍️</div>
+            <div class="ai-title">Handwriting Recognition</div>
+            <p>Software reads text written by a pen or stylus on a screen (like paper). It recognises the shape of letters and can convert them into editable text.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🤖</div>
+            <div class="ai-title">Robots</div>
+            <p>AI plays a notable role in robotics. AI helps build intelligent robots that can learn from mistakes and adapt to new environments. They have skilled processors, multiple sensors, and vast memory. Recent examples: humanoid robots Erica and Sophia, which can talk and behave like humans.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🚗</div>
+            <div class="ai-title">Self-Driving Cars</div>
+            <p>Self-driving (autonomous) cars that operate without a driver. Tesla's famous self-driving cars are a real-life AI application. These cars have many sensors monitoring the road and surroundings as they move.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🌐</div>
+            <div class="ai-title">Natural Language Processing (NLP)</div>
+            <p>Enables conversation with computers in human-spoken language. The computer is programmed to understand our language. ML technology converts sounds of speech/language into words and ideas. NLP handles multiple languages and dialects — even drawing conclusions from conversations on a topic by different people.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🎬</div>
+            <div class="ai-title">AI in Entertainment</div>
+            <p>Services like Netflix and Amazon use AI algorithms to show personalised programme recommendations. AI also tracks which locations/situations audiences like and even suggests story titles based on scripts.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🌾</div>
+            <div class="ai-title">AI in Agriculture</div>
+            <p>AI is mainly used for crop and soil monitoring. AI/ML tools advise when to plant which seeds. Microsoft India's AI-based Sowing App provides this facility in India. AI also alerts farmers about pest threats and manages supply chains between companies and agriculture.</p>
+          </div>
+          <div class="ai-card">
+            <div class="ai-icon">🏥</div>
+            <div class="ai-title">AI in Healthcare</div>
+            <p>AI handles and analyses medical records rapidly and without error. Fitness bands use AI for data analysis. AI enables online medical consultations by entering symptoms. Robots can perform delicate surgeries (like brain operations) with lower error probability. Drug testing, medical trial patient care — all benefit from AI.</p>
+          </div>
+        </div>
+
+        <h3>5.1.3 Advantages of AI</h3>
+        <ul>
+          <li>AI machines learn from prior experience, so AI systems have fewer errors and higher accuracy.</li>
+          <li>AI systems have multiple processors and sensors — very high-speed, fast decision-making. An AI system can beat a chess champion.</li>
+          <li>AI can work far faster than humans. As a machine, it never gets tired and never takes breaks like we do.</li>
+          <li>Repetitive jobs can be easily managed with AI algorithms. Machines can be programmed for long periods of work and can multitask.</li>
+          <li>AI machines can be used in hazardous tasks — defusing bombs, deep-sea exploration, situations where human life is at risk.</li>
+          <li>Useful as digital assistants — e-commerce websites use AI to show products tailored to customer needs.</li>
+          <li>Useful for public utilities — self-driving cars, facial recognition for security, NLP for human-machine dialogue.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S2: EXPERT SYSTEM -->
+    <div class="sec-card open" id="s2">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">5.2</div><div class="sec-title">Expert System – विशेषज्ञ प्रणाली</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">An Expert System is a part of AI. It is a computer application that simulates the decision-making ability of a human expert. Expert systems can solve problems that normally require human expertise — like diagnosing diseases, weather forecasting, and financial forecasting. It is an interactive, reliable, computer-based decision-making system that solves complex problems based on facts, logic, and presumptions according to user queries.</div>
+        </div>
+        <p>Expert systems are designed to solve complex issues of a specific knowledge domain. They can express domain knowledge, reason, and solve complex problems. They use high-level human intelligence and expertise, storing knowledge in a knowledge base. The system uses that stored knowledge to solve complex issues as an expert would — using both facts and inferences. A common example: Google's Search Box suggesting spelling corrections as you type.</p>
+
+        <h3>5.2.1 Examples of Expert Systems</h3>
+        <table class="content-table">
+          <tr><th>System</th><th>Purpose</th></tr>
+          <tr><td><strong>CADUCEUS &amp; MYCIN</strong></td><td>Medical diagnosis — user describes symptoms and the system recommends medicines and gives a diagnosis.</td></tr>
+          <tr><td><strong>DENDRAL</strong></td><td>Understanding molecular structure, making inferences, and chemical analysis.</td></tr>
+          <tr><td><strong>PXDES</strong></td><td>Recognising lung cancer and measuring its severity.</td></tr>
+          <tr><td><strong>CaDet</strong></td><td>Identifying cancer at an early stage.</td></tr>
+          <tr><td><strong>SMHPAL</strong></td><td>Evaluating students with multiple disabilities.</td></tr>
+          <tr><td><strong>HEARSAY</strong></td><td>An early attempt at voice/speech recognition.</td></tr>
+        </table>
+
+        <h3>5.2.2 Why Expert Systems are Needed</h3>
+        <ul>
+          <li>Humans have memory limitations; a machine can store as much data as needed.</li>
+          <li>If the knowledge base is updated properly, it works efficiently — human efficiency varies even with the same knowledge base.</li>
+          <li>Multiple experts in the same domain have different skills; an expert system consolidates all their knowledge for consistent final answers.</li>
+          <li>No human emotions, fatigue, anxiety, anger, or depression — expert systems work with greater capacity.</li>
+          <li>Provides complete security in problem resolution; humans can have doubts about confidentiality.</li>
+          <li>Storage capacity allows all facts to be used simultaneously — humans often can't gather all facts at once for a decision.</li>
+          <li>Expert systems can be continuously upgraded — their capability grows steadily, unlike humans with very limited such potential.</li>
+        </ul>
+
+        <h3>5.2.3 Components of an Expert System</h3>
+        <div class="es-components">
+          <div class="es-comp ui">
+            <div class="ec-icon">🖥️</div>
+            <div>
+              <div class="ec-title">1. User Interface</div>
+              <div class="ec-text">The expert system communicates with the user through this component. It takes questions in the user's language and sends them to the Inference Engine. After getting a response, it displays results to the user. Non-expert users need no knowledge of AI to use it.</div>
+            </div>
+          </div>
+          <div class="es-comp ie">
+            <div class="ec-icon">⚙️</div>
+            <div>
+              <div class="ec-title">2. Inference Engine (Brain of Expert System)</div>
+              <div class="ec-text">Contains rules for solving specific problems. Selects facts and rules to solve user queries. Uses two key strategies: <strong>Forward Chaining</strong> (answers "What can happen next?" — follows conditions sequentially to draw conclusions; e.g. forecasting stock market based on interest rate changes) and <strong>Backward Chaining</strong> (answers "Why did this happen?" — traces back from results to causes; e.g. investigating causes of cancer).</div>
+            </div>
+          </div>
+          <div class="es-comp kb">
+            <div class="ec-icon">📚</div>
+            <div>
+              <div class="ec-title">3. Knowledge Base (Store of Facts)</div>
+              <div class="ec-text">Intelligence requires knowledge. The knowledge base contains high-quality domain-specific knowledge. It collects and organises data and facts according to the problem domain, along with rules and procedures for solving problems. The success of an expert system mainly depends on its knowledge base — more knowledge means a more accurate system. Uses <strong>IF THEN ELSE</strong> rules for knowledge representation.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>5.2.4 Characteristics of Expert Systems</h3>
+        <ul>
+          <li>Built for a specific domain with high efficiency and accuracy; provides effective, precise, high performance for any complex problem.</li>
+          <li>Gives accurate solutions to complex problems in less time.</li>
+          <li>Responds in a way easily understood by users; takes input in human language and provides output the same way.</li>
+          <li>Must be reliable and produce accurate output.</li>
+          <li>Must be flexible — new information can be added at any time.</li>
+        </ul>
+
+        <h3>5.2.5 Advantages of Expert Systems</h3>
+        <div class="pros-cons">
+          <div class="pros-box">
+            <div class="pc-title">✅ Advantages</div>
+            <ul>
+              <li>Computer-based, not affected by emotions, stress, or fatigue — consistent stable performance; same situation always gives same decision.</li>
+              <li>Available to all users simultaneously — multiple users can use one expert system and get instant responses.</li>
+              <li>Stores all rules and conditions in memory — accessible equally to all and works fast.</li>
+              <li>Available 24×7 — a key advantage over human experts.</li>
+              <li>Can be used in risky locations where human presence is unsafe.</li>
+              <li>Lower error rate than humans.</li>
+              <li>Reduces the cost of consulting experts.</li>
+            </ul>
+          </div>
+          <div class="cons-box">
+            <div class="pc-title">⚠️ Limitations</div>
+            <ul>
+              <li>If errors or wrong information are stored in the knowledge base, decisions can be wrong.</li>
+              <li>Typically built for a specific knowledge domain — separate systems needed for different domains.</li>
+              <li>High time and cost to purchase, install, and acquire knowledge for the system.</li>
+              <li>Cannot produce creative solutions for various scenarios — unlike human experts who can think creatively.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>5.2.7 Participants in Expert System Development</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">🎓</div><div class="mc-title">Domain Expert</div><div class="mc-text">A person or group whose expertise and knowledge is taken to develop the expert system. The system's success depends on the knowledge experts provide.</div></div>
+          <div class="mini-card"><div class="mc-icon">🔧</div><div class="mc-title">Knowledge Engineer</div><div class="mc-text">A technical person who collects knowledge from domain experts and integrates it into the computer system.</div></div>
+          <div class="mini-card"><div class="mc-icon">👤</div><div class="mc-title">End-User</div><div class="mc-text">A person or group that uses the expert system to receive advice and guidance.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: CLOUD COMPUTING -->
+    <div class="sec-card open" id="s3">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">5.3</div><div class="sec-title">Cloud Computing</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Cloud Computing provides various services and resources through the internet — including data storage, servers, databases, networking, and software tools and applications. It is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be used with minimal management.</div>
+        </div>
+        <p>You know YouTube — you can watch videos using the internet and a smart device without the video being stored on your device. You don't know what kind of file it is or where it's stored, yet you can watch it. All of this is possible through cloud computing.</p>
+        <p>With cloud computing, computer-based services can be accessed anywhere, anytime on any smart device via the internet. People at physically different locations can work on the same file simultaneously, or share hardware. DigiLocker and Digital Library services you've already learned about are all cloud-based.</p>
+        <p>Unlike traditional computer setups where your data, storage, and related software must be on your device — cloud computing lets you use large programs, massive data, or programs beyond your computer's capacity via internet access. Cloud is cost-effective and provides on-demand resources — pay only for what you use, like paying only your electricity bill amount.</p>
+
+        <h3>5.3.1 Types of Cloud Computing – By Deployment</h3>
+        <div class="cloud-grid">
+          <div class="cloud-card pub">
+            <div class="cc-icon">🚌</div>
+            <div class="cc-title">Public Cloud</div>
+            <div class="cc-text">Available to general public. Data stored on third-party servers. No need to buy/maintain hardware. Pay-per-use. Examples: Amazon, Microsoft Azure, Google App Engine, IBM Cloud.</div>
+          </div>
+          <div class="cloud-card priv">
+            <div class="cc-icon">🔒</div>
+            <div class="cc-title">Private Cloud</div>
+            <div class="cc-text">Fully dedicated to one company. Hardware and software managed by the organisation itself. More secure but comparatively expensive. Examples: Amazon, IBM, Cisco, Dell, Red Hat.</div>
+          </div>
+          <div class="cloud-card comm">
+            <div class="cc-icon">🤝</div>
+            <div class="cc-title">Community Cloud</div>
+            <div class="cc-text">Multiple organisations doing similar work share infrastructure and resources. Lower cost, more security than public, less than private. Sharing of costs among companies. Less common.</div>
+          </div>
+          <div class="cloud-card hyb">
+            <div class="cc-icon">🔀</div>
+            <div class="cc-title">Hybrid Cloud</div>
+            <div class="cc-text">Combines the best of all models. Highly sensitive data on private cloud; less sensitive resources on public. Data and applications are portable between environments. Best of cost and security.</div>
+          </div>
+        </div>
+
+        <div class="info-box amber">
+          <strong>🚗 Analogy to Understand Cloud Deployment</strong>
+          Bus = Public Cloud (pay only for your seat/distance). Own car = Private Cloud (bear all costs). Carpooling = Community Cloud (share maintenance costs). Taxi = Hybrid Cloud (between public and private in cost and flexibility).
+        </div>
+
+        <h3>Cloud Computing – By Services (IaaS, PaaS, SaaS)</h3>
+        <div class="service-pyramid">
+          <div class="svc-card iaas">
+            <div class="sv-badge">IaaS</div>
+            <div class="sv-title">Infrastructure as a Service</div>
+            <p>Provider gives server, storage, networking, virtual machines, and other computing resources on pay-as-you-go basis. User installs, configures, and manages their own software on this infrastructure. Saves from buying hardware.</p>
+            <div class="sv-eg">Examples: Amazon EC2, Rackspace, Google Compute Engine<br>Main users: System Administrators</div>
+          </div>
+          <div class="svc-card paas">
+            <div class="sv-badge">PaaS</div>
+            <div class="sv-title">Platform as a Service</div>
+            <p>Provides a platform with computational resources on which applications and services can be developed and hosted. Users can build, test, run, and deploy applications. Developers focus on development — not infrastructure management.</p>
+            <div class="sv-eg">Examples: Google App Engine, SalesForce.com, Windows Azure, Openshift<br>Main users: App &amp; Web Developers</div>
+          </div>
+          <div class="svc-card saas">
+            <div class="sv-badge">SaaS</div>
+            <div class="sv-title">Software as a Service</div>
+            <p>A complete software product delivered via the web by subscription. Use cloud-available applications without installing them. App runs and is controlled/managed on the vendor's cloud. No OS dependency. No software installation needed.</p>
+            <div class="sv-eg">Examples: Microsoft Office 365, Google Apps, Salesforce, Dropbox, NetSuite<br>Main users: End Users</div>
+          </div>
+        </div>
+
+        <div class="info-box blue">
+          <strong>📊 SaaS Services Include</strong>
+          Business Services like ERP (Enterprise Resource Planning), CRM (Customer Relationship Management), billing and sales. Document management — creating, managing, and retrieving electronic documents. Social networks and email services also use this model.
+        </div>
+      </div>
+    </div>
+
+    <!-- S4: GOOGLE DRIVE -->
+    <div class="sec-card open" id="s4">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">5.4</div><div class="sec-title">Google Drive</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Google Drive is a cloud-based versatile storage service that allows you to upload and download files. Its main purpose is to expand your file storage capacity beyond your computer's hard disk. With Google Drive, users can share files from various locations and devices via the internet using simple drag and drop.</div>
+        </div>
+        <p>Google Drive is a secure place for any type of file — all data is encrypted. Others can access, edit, or view your files only with your permission. You can collaborate on your documents with others. Google Drive provides users <strong>15 GB of free cloud storage</strong> — shared across Google Drive, Google Photos, and Gmail. Additional storage can be purchased for a fixed fee.</p>
+        <p>You can store photos, videos, PDFs, and Microsoft Office files in Drive. Gmail attachments can also be sent directly to Google Drive.</p>
+
+        <h3>5.4.1 Ways to Use Google Drive</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">🌐</div><div class="mc-title">Google Drive Online</div><div class="mc-text">Access via any modern web browser at drive.google.com. Simple user interface for all operations.</div></div>
+          <div class="mini-card"><div class="mc-icon">💻</div><div class="mc-title">Computer Application</div><div class="mc-text">Desktop application for Windows/Mac allowing Drive to work like a local folder with automatic syncing.</div></div>
+          <div class="mini-card"><div class="mc-icon">📱</div><div class="mc-title">Mobile Application</div><div class="mc-text">Available on Android and iOS for accessing your Drive files from your smartphone or tablet.</div></div>
+        </div>
+
+        <h3>Dashboard Features</h3>
+        <ul>
+          <li>Click the <strong>Search Box</strong> to search your Drive content by keyword.</li>
+          <li>Click the <strong>Google Apps icon (9 squares)</strong> to access other Google services like Gmail or YouTube.</li>
+          <li>Click the <strong>Notification icon</strong> to see account notifications.</li>
+          <li>Click <strong>Google Account icon</strong> to sign in/out of your account.</li>
+          <li>Click <strong>NEW</strong> button to create a new file, create new folders, or upload files/folders to your cloud.</li>
+          <li>Click the <strong>Link icon</strong> to get a shareable link to your file.</li>
+          <li>Click the <strong>Share icon</strong> to email a shareable copy of your file directly.</li>
+          <li>Click the <strong>Remove icon</strong> to move a file/folder to trash.</li>
+          <li>Click the <strong>Action icon</strong> for more file management options (folder color, sort, download).</li>
+          <li>Click the <strong>View/Layout icon</strong> to switch between list and grid view.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- S5: GOOGLE DOCS -->
+    <div class="sec-card open" id="s5">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">5.5</div><div class="sec-title">Google Docs</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <p>Google provides a suite of apps designed for users who work online. Regular document-making apps work offline — files must be sent from one user to another via email or pen drive. Google Docs, integrated with Google Drive's cloud storage, lets you access, work on, and share your documents from anywhere.</p>
+
+        <div class="info-box blue">
+          <strong>💡 Key Advantage</strong>
+          Integration with Google Drive's cloud storage means you can access and collaborate on documents from any device, at any location — without emailing files back and forth.
+        </div>
+
+        <h3>How to Use Google Docs — Step by Step</h3>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-title">Set Up Your Google Account</div>
+              <p>To use Google Docs, sign up for a Google Account at www.google.com. Consumer accounts are free. Business/enterprise accounts may be provided by your employer. Your Google account gives access to the full Google Drive Suite including all Google Apps.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title">Launch Google Docs</div>
+              <p>Access from the Google homepage (top-right Application icon → 9 squares → Docs button), or from Google Drive via the Application icon or NEW button, or by searching "Google Docs" directly in Google Search and logging in.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-title">Create a Document</div>
+              <p>Click the Blank Page in the upper-left of the Google Docs main page. From Google Drive, click NEW → Google Docs. You can also use templates (resumes, business letters, third-party templates). Upload existing .doc or .docx files using "File Upload".</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-title">Share Documents</div>
+              <p>Click the blue Share button in the upper-right corner. Enter email addresses to invite other users. Shared users can edit, view, or comment on the document — depending on the permission you grant them (Edit / View / Comment).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S6: GOOGLE FORMS -->
+    <div class="sec-card open" id="s6">
+      <div class="sec-header" onclick="toggle(this)">
+        <div class="sec-title-wrap"><div class="sec-num">5.6</div><div class="sec-title">Google Forms</div></div>
+        <span class="sec-toggle">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="def-box">
+          <div class="def-label">📘 Definition</div>
+          <div class="def-text">Google Forms is a free Google online tool that allows users to create forms, conduct surveys and quizzes, and edit and share forms with others. It is part of Google's online app suite (along with Docs, Sheets, and Slides) that works in your browser using the cloud. It is one of the simplest ways to send data directly to a spreadsheet.</div>
+        </div>
+        <p>Teachers can use Google Forms to assess students at the start of a class and gauge prior knowledge. Forms can also collect feedback from students and parents. Students can use it to assess their own learning, set goals, and collect data for research projects.</p>
+
+        <h3>Question Types in Google Forms</h3>
+        <div class="grid-3">
+          <div class="mini-card"><div class="mc-icon">📝</div><div class="mc-title">Short Answer</div><div class="mc-text">For brief text responses — names, numbers, single-line answers.</div></div>
+          <div class="mini-card"><div class="mc-icon">📄</div><div class="mc-title">Paragraph</div><div class="mc-text">For longer text responses spanning multiple lines.</div></div>
+          <div class="mini-card"><div class="mc-icon">🔘</div><div class="mc-title">Multiple Choice</div><div class="mc-text">One answer from several options using radio buttons.</div></div>
+          <div class="mini-card"><div class="mc-icon">☑️</div><div class="mc-title">Checkboxes</div><div class="mc-text">Multiple answers can be selected from several options.</div></div>
+          <div class="mini-card"><div class="mc-icon">🔽</div><div class="mc-title">Dropdown</div><div class="mc-text">Select one answer from a dropdown list.</div></div>
+          <div class="mini-card"><div class="mc-icon">📊</div><div class="mc-title">Linear Scale / Grid</div><div class="mc-text">Rating scales and multiple-choice grid questions.</div></div>
+        </div>
+
+        <h3>5.6.1 How to Create a Google Form — Step by Step</h3>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-title">Open Google Forms</div>
+              <p>Sign in to Gmail or Google Drive. Go to <strong>docs.google.com/forms</strong>. Choose a template or click the large Plus (+) sign on the form start page to start a blank form.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title">Give Your Form a Title</div>
+              <p>Click "Untitled form" and enter a name. The title appears in the browser tab, top-left of the page, and is what respondents see when they open the form. You can also add a description below the title.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-title">Add a Question</div>
+              <p>Click "Untitled Question" and enter text. Click the Required slider button to make it required. Duplicate using the multiple-page icon or delete using the trash icon. Select the question type from the dropdown (Multiple Choice, Short Answer, etc.).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-title">Add Images to Questions / Responses</div>
+              <p>Click the image icon in the right panel bar to add an image to a question. You can drag an image to upload, manually upload, take a snapshot, add a URL, or search Google Drive/Google Image Search. Images can also be added to each response option in Multiple Choice and Checkbox question types.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-title">Add More Questions</div>
+              <p>Click the Plus (+) icon in the right panel bar. For questions with response options, click "Option 1" and enter the first option — pressing Enter adds the next. For a long list (states, flavors), paste the full list on the first option and the form creates separate options automatically.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <div class="step-title">Share the Form</div>
+              <p>Click the <strong>Send</strong> button (top-right of the form). Choose one of three methods: (a) Send directly to email addresses entered in the "To" field, (b) Copy and share the link, (c) Embed the form HTML in a blog post or landing page. Social media icons (Facebook, Twitter) are also available in the Send popup for sharing.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">7</div>
+            <div class="step-content">
+              <div class="step-title">Link Form to Spreadsheet &amp; View Responses</div>
+              <p>In Docs, Sheets, or Slides: File → New → Form. In Google Sheets: Tools → Create a new form (auto-linked to that spreadsheet). Click <strong>Responses</strong> tab to see how many people responded. Click <strong>"Create Spreadsheet"</strong> icon to download response data in spreadsheet format. Toggle <strong>"Accepting Responses"</strong> to open or close the form.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <p style="text-align:center;color:var(--muted);font-size:13.5px;font-style:italic;">
+          📚 Source: 2DCA1 IT Trends – Unit 5 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
+          Authors: Dr. Manish Maheshwari, Dr. Sunita Dwivedi &amp; Prashant Parashar
+        </p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">⚡ ThunderStudy</div>
+      <p>Your ultimate study companion for CUET, DCA, and competitive exams. Built with ❤️ by Wondermayank.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul><li><a href="#">Dashboard</a></li><li><a href="#">StudyHub</a></li><li><a href="#">Mock Tests</a></li><li><a href="#">Leaderboard</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">@wondermayank (Instagram)</a></li>
+        <li><a href="#">@thunderstudy_official (Telegram)</a></li>
+        <li><a href="#">@wondermayank (YouTube)</a></li>
+        <li><a href="#">@mindmaster_robot (Support Bot)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 ThunderStudy by Wondermayank · All Rights Reserved · wondermayank.github.io</div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggle(header){header.parentElement.classList.toggle('open');}
+function toggleDrop(){document.getElementById('unitDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){const d=document.getElementById('unitDrop');if(!d.contains(e.target))d.classList.remove('open');});
+window.addEventListener('scroll',function(){document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
+const sections=document.querySelectorAll('.sec-card');
+const tocLinks=document.querySelectorAll('.toc-list li a');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const link=document.querySelector(`.toc-list li a[href="#${entry.target.id}"]`);if(link)link.classList.add('active');}});},{rootMargin:'-20% 0px -60% 0px'});
+sections.forEach(sec=>observer.observe(sec));
+</script>
+</body>
+</html>
