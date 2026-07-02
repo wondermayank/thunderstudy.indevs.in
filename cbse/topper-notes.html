@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Topper Notes | CBSE Chapter-Wise Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f0f6ff;
+      --primary: #1565c0;
+      --primary-light: #1e88e5;
+      --primary-soft: #e3f2fd;
+      --accent: #0097a7;
+      --accent-soft: #e0f7fa;
+      --text: #0d2137;
+      --text2: #3d5a78;
+      --text3: #6b8cad;
+      --white: #ffffff;
+      --card-border: #cfe3fa;
+      --shadow-sm: 0 2px 8px rgba(21,101,192,0.08);
+      --shadow-md: 0 8px 24px rgba(21,101,192,0.12);
+      --shadow-lg: 0 20px 48px rgba(21,101,192,0.18);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content:''; position:fixed; top:-200px; right:-200px;
+      width:600px; height:600px; border-radius:50%; pointer-events:none; z-index:0;
+      background: radial-gradient(circle, rgba(30,136,229,0.12) 0%, transparent 70%);
+    }
+    body::after {
+      content:''; position:fixed; bottom:-150px; left:-150px;
+      width:500px; height:500px; border-radius:50%; pointer-events:none; z-index:0;
+      background: radial-gradient(circle, rgba(0,151,167,0.1) 0%, transparent 70%);
+    }
+
+    .container { max-width:1240px; margin:0 auto; padding:2.5rem 1.5rem 4rem; position:relative; z-index:1; }
+
+    /* ── HEADER ── */
+    header { text-align:center; margin-bottom:2.5rem; animation:fadeDown 0.6s ease-out both; }
+    .logo-wrap { display:inline-flex; align-items:center; gap:14px; margin-bottom:0.6rem; }
+    .logo-icon {
+      width:56px; height:56px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius:16px; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 8px 24px rgba(21,101,192,0.3);
+    }
+    .logo-text {
+      font-family:'Sora',sans-serif; font-size:2.6rem; font-weight:800; letter-spacing:-0.5px;
+      background:linear-gradient(135deg, var(--primary) 30%, var(--accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .tagline {
+      display:inline-flex; align-items:center; gap:10px; font-size:0.95rem; font-weight:600; color:var(--text2);
+      background:var(--white); border:1px solid var(--card-border); padding:0.4rem 1.4rem;
+      border-radius:40px; box-shadow:var(--shadow-sm); margin-top:0.4rem;
+    }
+    .tagline .dot { width:6px; height:6px; border-radius:50%; background:var(--primary-light); }
+
+    .request-btn {
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; margin-top:0.75rem;
+      background:linear-gradient(135deg, #ff6f00, #ffa000);
+      color:white; font-weight:700; font-size:0.9rem;
+      padding:0.55rem 1.4rem 0.55rem 0.9rem;
+      border-radius:50px;
+      box-shadow:0 6px 20px rgba(255,111,0,0.35);
+      transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      font-family:'Plus Jakarta Sans',sans-serif;
+    }
+    .request-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(255,111,0,0.45); }
+    .request-btn-icon {
+      width:28px; height:28px; background:rgba(255,255,255,0.25);
+      border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .request-btn-icon svg { width:14px; height:14px; fill:white; }
+    .request-btn-arrow svg { width:16px; height:16px; fill:white; margin-left:2px; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      display:flex; align-items:center; gap:8px; margin-bottom:1.5rem;
+      font-size:0.85rem; font-weight:600; color:var(--text3);
+      animation:fadeDown 0.5s ease-out both;
+    }
+    .breadcrumb .crumb {
+      cursor:pointer; padding:4px 12px; border-radius:20px; transition:all 0.2s;
+      color:var(--text2);
+    }
+    .breadcrumb .crumb:hover { background:var(--primary-soft); color:var(--primary); }
+    .breadcrumb .crumb.active { color:var(--primary); font-weight:700; cursor:default; }
+    .breadcrumb .sep { color:var(--text3); font-size:0.7rem; }
+
+    /* ── STEP VIEWS ── */
+    .step { display:none; animation:fadeUp 0.3s ease-out both; }
+    .step.visible { display:block; }
+
+    /* ── STEP 1: CLASS SELECTION ── */
+    .class-grid {
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1.4rem;
+      margin-top:0.5rem;
+    }
+    .class-card {
+      background:var(--white); border:2px solid var(--card-border); border-radius:var(--radius-lg);
+      padding:2.2rem 1.8rem; cursor:pointer; transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+      position:relative; overflow:hidden;
+    }
+    .class-card::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, var(--primary), var(--accent));
+      opacity:0; transition:opacity 0.25s ease; border-radius:inherit;
+    }
+    .class-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--primary-light); }
+    .class-card:hover::after { opacity:1; }
+    .class-card:hover .cc-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .class-card:hover .cc-icon svg { fill:white !important; }
+    .class-card:hover .cc-num { color:rgba(255,255,255,0.7) !important; }
+    .class-card:hover .cc-title { color:white !important; }
+    .class-card:hover .cc-meta { color:rgba(255,255,255,0.7) !important; background:rgba(255,255,255,0.15) !important; border-color:transparent !important; }
+    .class-card:hover .cc-arrow { color:white !important; }
+    .cc-icon-wrap {
+      width:58px; height:58px; border-radius:16px; background:var(--primary-soft);
+      display:flex; align-items:center; justify-content:center; transition:background 0.25s;
+      position:relative; z-index:1;
+    }
+    .cc-icon svg { width:28px; height:28px; fill:var(--primary); transition:fill 0.25s; }
+    .cc-num {
+      font-size:0.75rem; font-weight:700; color:var(--text3); letter-spacing:0.5px;
+      text-transform:uppercase; position:relative; z-index:1; transition:color 0.25s;
+    }
+    .cc-title {
+      font-family:'Sora',sans-serif; font-size:1.6rem; font-weight:800; color:var(--text);
+      position:relative; z-index:1; transition:color 0.25s; line-height:1.1;
+    }
+    .cc-meta {
+      font-size:0.78rem; font-weight:600; color:var(--text2);
+      background:var(--bg); border:1px solid var(--card-border);
+      padding:3px 12px; border-radius:20px; position:relative; z-index:1;
+      transition:all 0.25s; display:inline-flex; align-items:center; gap:6px;
+    }
+    .cc-arrow {
+      position:absolute; right:1.5rem; bottom:1.5rem; color:var(--text3);
+      font-size:1.1rem; transition:color 0.25s; z-index:1;
+    }
+
+    /* ── STEP 2: SUBJECTS ── */
+    .step-header {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:1.8rem; flex-wrap:wrap; gap:12px;
+    }
+    .step-title {
+      display:flex; align-items:center; gap:12px;
+      font-family:'Sora',sans-serif; font-size:1.35rem; font-weight:700; color:var(--text);
+    }
+    .step-title .title-icon {
+      width:40px; height:40px; background:var(--primary-soft); border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .step-title .title-icon svg { width:18px; height:18px; fill:var(--primary); }
+    .step-hint {
+      font-size:0.82rem; color:var(--text3); background:var(--bg);
+      border:1px solid var(--card-border); padding:0.3rem 0.9rem; border-radius:20px;
+      display:flex; align-items:center; gap:6px;
+    }
+
+    .subjects-section {
+      background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg);
+      padding:2rem; box-shadow:var(--shadow-md); margin-bottom:2rem;
+    }
+    .subjects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.1rem; }
+
+    .subject-card {
+      background:var(--bg); border:1.5px solid var(--card-border); border-radius:var(--radius-md);
+      padding:1.4rem 1rem; text-align:center; cursor:pointer;
+      transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      position:relative; overflow:hidden;
+    }
+    .subject-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      opacity:0; transition:opacity 0.22s ease; border-radius:inherit;
+    }
+    .subject-card:hover { transform:translateY(-8px) scale(1.02); border-color:var(--primary-light); box-shadow:var(--shadow-lg); }
+    .subject-card:hover::before { opacity:1; }
+    .subject-card:hover .sub-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .subject-card:hover .sub-icon svg { fill:white !important; }
+    .subject-card:hover .subject-name { color:white !important; }
+    .subject-card:hover .chapter-pill { color:white !important; background:rgba(255,255,255,0.2) !important; border-color:rgba(255,255,255,0.3) !important; }
+    .sub-icon-wrap {
+      width:54px; height:54px; background:var(--white); border-radius:14px;
+      display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm);
+      transition:background 0.22s; position:relative; z-index:1;
+    }
+    .sub-icon svg { width:24px; height:24px; fill:var(--primary); transition:fill 0.22s; }
+    .subject-name {
+      font-weight:700; font-size:0.95rem; color:var(--text);
+      transition:color 0.22s; position:relative; z-index:1; line-height:1.3;
+    }
+    .chapter-pill {
+      font-size:0.7rem; font-weight:600; background:var(--white); border:1px solid var(--card-border);
+      padding:3px 12px; border-radius:20px; color:var(--text2);
+      display:inline-flex; align-items:center; gap:5px; transition:all 0.22s; position:relative; z-index:1;
+    }
+
+    /* ── STEP 3: CHAPTERS ── */
+    .chapters-section {
+      background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg);
+      overflow:hidden; box-shadow:var(--shadow-md); margin-bottom:2rem;
+    }
+    .chapters-topbar {
+      background:linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding:1.4rem 1.6rem; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    }
+    .ch-subject-badge {
+      width:48px; height:48px; background:rgba(255,255,255,0.2); border-radius:13px;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .ch-subject-badge svg { width:22px; height:22px; fill:white; }
+    .ch-top-info { flex:1; }
+    .ch-top-title { font-family:'Sora',sans-serif; font-size:1.2rem; font-weight:700; color:white; }
+    .ch-top-sub { font-size:0.78rem; color:rgba(255,255,255,0.75); margin-top:2px; }
+    .chapters-search {
+      padding:1rem 1.4rem; border-bottom:1px solid var(--card-border);
+    }
+    .search-inner {
+      display:flex; align-items:center; gap:10px; background:var(--bg);
+      border:1.5px solid var(--card-border); border-radius:12px; padding:0.5rem 1rem;
+    }
+    .search-inner svg { width:16px; height:16px; fill:var(--text3); flex-shrink:0; }
+    .search-inner input {
+      border:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif;
+      font-size:0.88rem; color:var(--text); outline:none; width:100%;
+    }
+    .search-inner input::placeholder { color:var(--text3); }
+    .chapter-list { max-height:60vh; overflow-y:auto; padding:0.6rem 1rem 1.2rem; }
+    .chapter-list::-webkit-scrollbar { width:4px; }
+    .chapter-list::-webkit-scrollbar-thumb { background:var(--card-border); border-radius:2px; }
+    .chapter-item {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:0.75rem 0.9rem; border-radius:var(--radius-sm); transition:background 0.15s; gap:10px;
+    }
+    .chapter-item:hover { background:var(--bg); }
+    .ch-left { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
+    .ch-num {
+      width:28px; height:28px; background:var(--primary-soft); color:var(--primary);
+      border-radius:8px; font-size:0.72rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .chapter-name { font-weight:600; font-size:0.88rem; color:var(--text); line-height:1.4; }
+    .pdf-btn {
+      background:var(--primary-soft); border:none; padding:6px 14px; border-radius:20px;
+      font-size:0.72rem; font-weight:700; color:var(--primary); cursor:pointer;
+      transition:all 0.2s; display:flex; align-items:center; gap:5px;
+      font-family:'Plus Jakarta Sans',sans-serif; flex-shrink:0; white-space:nowrap;
+    }
+    .pdf-btn:hover { background:var(--primary); color:white; box-shadow:0 4px 12px rgba(21,101,192,0.3); transform:scale(0.97); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; animation:fadeUp 0.6s ease-out both; }
+    .stat-pill {
+      background:var(--white); border:1px solid var(--card-border); border-radius:12px;
+      padding:0.7rem 1.2rem; display:flex; align-items:center; gap:10px;
+      box-shadow:var(--shadow-sm); flex:1; min-width:130px;
+    }
+    .stat-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .stat-icon svg { width:16px; height:16px; }
+    .stat-icon.blue { background:var(--primary-soft); } .stat-icon.blue svg { fill:var(--primary); }
+    .stat-icon.teal { background:var(--accent-soft); } .stat-icon.teal svg { fill:var(--accent); }
+    .stat-icon.gold { background:#fff8e1; } .stat-icon.gold svg { fill:#f57f17; }
+    .stat-val { font-weight:800; font-size:1.1rem; color:var(--text); line-height:1; }
+    .stat-lbl { font-size:0.8rem; color:var(--text2); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg);
+      padding:1.8rem 1.5rem; box-shadow:var(--shadow-sm);
+    }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem 1.6rem; margin-bottom:1.2rem; }
+    .footer-links a {
+      text-decoration:none; color:var(--text2); font-weight:600; font-size:0.85rem;
+      display:inline-flex; align-items:center; gap:6px; transition:all 0.2s; padding:0.3rem 0;
+    }
+    .footer-links a svg { width:14px; height:14px; fill:currentColor; }
+    .footer-links a:hover { color:var(--primary); }
+    .donate-link { background:linear-gradient(135deg,#ff6f00,#ff8f00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700 !important; }
+    .footer-copy { text-align:center; font-size:0.75rem; color:var(--text3); border-top:1px solid var(--card-border); padding-top:1rem; }
+
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(20px)}  to{opacity:1;transform:translateY(0)} }
+
+    /* ── AD BLOCKER TOAST ── */
+    .adb-toast {
+      position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(100px);
+      background:#1a1a2e; color:white; border-radius:16px;
+      padding:14px 20px; display:flex; align-items:flex-start; gap:12px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.35); z-index:9999;
+      max-width:420px; width:calc(100% - 32px);
+      transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      border:1px solid rgba(255,255,255,0.1);
+    }
+    .adb-toast.show { transform:translateX(-50%) translateY(0); }
+    .adb-toast-icon {
+      width:36px; height:36px; border-radius:10px; background:#f57f17;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;
+    }
+    .adb-toast-icon svg { width:18px; height:18px; fill:white; }
+    .adb-toast-body { flex:1; }
+    .adb-toast-title { font-weight:700; font-size:0.88rem; margin-bottom:3px; }
+    .adb-toast-msg { font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.5; }
+    .adb-toast-close {
+      background:none; border:none; color:rgba(255,255,255,0.5); cursor:pointer;
+      font-size:1.1rem; padding:0; line-height:1; flex-shrink:0;
+    }
+    .adb-toast-close:hover { color:white; }
+
+    /* ── ADBLOCKER BANNER inside chapter list ── */
+    .adb-banner {
+      background:linear-gradient(135deg,#fff3e0,#ffe0b2);
+      border:1.5px solid #ffb74d; border-radius:12px;
+      padding:12px 14px; margin-bottom:10px;
+      display:flex; align-items:flex-start; gap:10px;
+    }
+    .adb-banner svg { width:18px; height:18px; fill:#e65100; flex-shrink:0; margin-top:1px; }
+    .adb-banner-text { font-size:0.8rem; color:#bf360c; line-height:1.5; }
+    .adb-banner-text strong { display:block; margin-bottom:2px; font-size:0.83rem; }
+
+    @media(max-width:600px){
+      .logo-text{font-size:2rem}
+      .class-grid{grid-template-columns:1fr 1fr}
+      .subjects-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.8rem}
+      .subjects-section,.chapters-section{padding:1.2rem}
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9zm0 2.24L19.23 9 12 12.76 4.77 9zm5 8.11l-5 2.73-5-2.73V13.5l5 2.73 5-2.73z"/></svg>
+      </div>
+      <div class="logo-text">Topper Notes</div>
+    </div><br>
+    <div class="tagline">
+      <div class="dot"></div>
+      CBSE Chapter-wise Notes &amp; PDF Downloads
+      <div class="dot"></div>
+    </div>
+    <br>
+    <a href="https://wondermayank.github.io/contact" target="_blank" class="request-btn">
+      <span class="request-btn-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg>
+      </span>
+      <span class="request-btn-text">Request Notes / Subject</span>
+      <span class="request-btn-arrow">
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </span>
+    </a>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="crumb active" id="bc0" onclick="goStep(0)">
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      Select Class
+    </span>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-pill">
+      <div class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9zm0 2.24L19.23 9 12 12.76 4.77 9zm5 8.11l-5 2.73-5-2.73V13.5l5 2.73 5-2.73z"/></svg></div>
+      <div><div class="stat-val">4</div><div class="stat-lbl">Classes</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon teal"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></div>
+      <div><div class="stat-val" id="statTotal">180+</div><div class="stat-lbl">Total Chapters</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon gold"><svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg></div>
+      <div><div class="stat-val">Free</div><div class="stat-lbl">All PDFs</div></div>
+    </div>
+  </div>
+
+  <!-- STEP 0: CLASS SELECTION -->
+  <div class="step visible" id="step0">
+    <div class="step-header">
+      <div class="step-title">
+        <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9zm0 2.24L19.23 9 12 12.76 4.77 9zm5 8.11l-5 2.73-5-2.73V13.5l5 2.73 5-2.73z"/></svg></div>
+        <span>Choose Your Class</span>
+      </div>
+    </div>
+    <div class="class-grid" id="classGrid"></div>
+  </div>
+
+  <!-- STEP 1: SUBJECTS -->
+  <div class="step" id="step1">
+    <div class="subjects-section">
+      <div class="step-header">
+        <div class="step-title">
+          <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+          <span id="subjectStepLabel">Select a Subject</span>
+        </div>
+        <div class="step-hint">
+          <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z"/></svg>
+          Click a subject
+        </div>
+      </div>
+      <div class="subjects-grid" id="subjectsGrid"></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: CHAPTERS -->
+  <div class="step" id="step2">
+    <div class="chapters-section">
+      <div class="chapters-topbar">
+        <div class="ch-subject-badge" id="chTopBadge">
+          <svg viewBox="0 0 24 24"><path d="M6 2v6l2 2-2 2v6l6-4 6 4v-6l-2-2 2-2V2l-6 4z" fill="white"/></svg>
+        </div>
+        <div class="ch-top-info">
+          <div class="ch-top-title" id="chTopTitle">Subject · Class X</div>
+          <div class="ch-top-sub" id="chTopSub">0 chapters · Click PDF to download</div>
+        </div>
+      </div>
+      <div class="chapters-search">
+        <div class="search-inner">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="chapterSearch" placeholder="Search chapter...">
+        </div>
+      </div>
+      <div class="chapter-list" id="chapterListEl"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="https://wondermayank.github.io" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        wondermayank.github.io
+      </a>
+      <a href="https://commercesehoga.github.io/dashboard" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+        CBT Mock Platform
+      </a>
+      <a href="https://wondermayank.github.io/terms" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        Terms
+      </a>
+      <a href="https://wondermayank.github.io/contact" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Contact
+      </a>
+      <a href="https://commercesehoga.github.io/help" target="_blank" class="donate-link">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Donate / Support
+      </a>
+    </div>
+    <div class="footer-copy">© 2025 Topper Notes by Wondermayank · Free CBSE Chapter-wise PDF Notes</div>
+  </div>
+
+</div>
+
+<!-- AD BLOCKER TOAST -->
+<div class="adb-toast" id="adbToast">
+  <div class="adb-toast-icon">
+    <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+  </div>
+  <div class="adb-toast-body">
+    <div class="adb-toast-title">PDF blocked by Ad Blocker</div>
+    <div class="adb-toast-msg">Please <strong>disable your ad blocker</strong> for this site, or open in <strong>Incognito mode</strong> to download the PDF.</div>
+  </div>
+  <button class="adb-toast-close" onclick="hideToast()">✕</button>
+</div>
+
+<script>
+// ─── SVG ICONS per subject key ───
+const subjectSVG = {
+  Maths:     `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5h-2v-2h2v-2h2v2h2v2h-2v2h-2v-2zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/></svg>`,
+  Science:   `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 8 0V4h1V2H7zm5 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1-6H11V4h2v8z"/></svg>`,
+  Civics:    `<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93C9.33 17.79 7 14.5 7 11V7.18L12 5z"/></svg>`,
+  History:   `<svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>`,
+  Geography: `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+  Economics: `<svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>`,
+  Phy:       `<svg viewBox="0 0 24 24"><path d="M12 11c1.33-.83 4-2.5 4-5 0-2.21-1.79-4-4-4S8 3.79 8 6c0 2.5 2.67 4.17 4 5zm0-7c1.1 0 2 .9 2 2 0 1.43-1.07 2.71-2 3.46C11.07 8.71 10 7.43 10 6c0-1.1.9-2 2-2zm8 14.5c0-3-6-5.5-8-5.5s-8 2.5-8 5.5V21h16v-2.5zM5.08 19c.65-1.07 3.5-2.5 6.92-2.5s6.27 1.43 6.92 2.5H5.08z"/></svg>`,
+  Che:       `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 8 0V4h1V2H7zm5 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1-6H11V4h2v8z"/></svg>`,
+  Bio:       `<svg viewBox="0 0 24 24"><path d="M17.5 4.5c-1.95 0-4.05.4-5.5 1.5C10.55 4.9 8.45 4.5 6.5 4.5 4.55 4.5 2.45 4.9 1 6v14.65c0 .65.73.45.75.45.15 0 .25-.05.35-.1C3.45 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.95 3.8-1.5 5.5-1.5 1.65 0 3.35.45 4.75 1.3.1.05.15.05.25.05.02 0 .75.2.75-.45V6C21.85 4.9 19.5 4.5 17.5 4.5zM21 18.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>`,
+  Eco:       `<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>`,
+  Bst:       `<svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.87.18-1.33C18 2.55 15.45 1 13 1c-1.32 0-2.6.5-3.54 1.41L8 3.83l-1.46-1.42C5.6 1.5 4.32 1 3 1 .55 1-2 2.55-2 4.67c0 .46.11.89.18 1.33H-2v14h22V6zm-7.79 11.37l-8.21-4.74V9.26L12 6.26l8 4.63v3.74l-7.79 4.74z"/></svg>`,
+  Eng:       `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`,
+  Poli:      `<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>`
+};
+
+// ─── CLASS ICONS ───
+const classIcons = {
+  9:  `<svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:var(--primary)"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>`,
+  10: `<svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:var(--primary)"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9zm0 2.24L19.23 9 12 12.76 4.77 9zm5 8.11l-5 2.73-5-2.73V13.5l5 2.73 5-2.73z"/></svg>`,
+  11: `<svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:var(--primary)"><path d="M7 2v2h1v14a4 4 0 0 0 8 0V4h1V2H7zm5 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1-6H11V4h2v8z"/></svg>`,
+  12: `<svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:var(--primary)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>`
+};
+
+// ─── SUBJECT META ───
+const subjectMeta = {
+  Maths:     { label:"Mathematics",       slug:"maths"           },
+  Science:   { label:"Science",           slug:"science"         },
+  Civics:    { label:"Civics (Pol.Sci)",  slug:"civics"          },
+  History:   { label:"History",           slug:"history"         },
+  Geography: { label:"Geography",         slug:"geography"       },
+  Economics: { label:"Economics",         slug:"economics"       },
+  Phy:       { label:"Physics",           slug:"physics"         },
+  Che:       { label:"Chemistry",         slug:"chemistry"       },
+  Bio:       { label:"Biology",           slug:"biology"         },
+  Eco:       { label:"Economics",         slug:"economics"       },
+  Bst:       { label:"Business Studies",  slug:"business-studies"},
+  Eng:       { label:"English",           slug:"english"         }
+};
+
+// ─── CHAPTER DATA ───
+const chapters9 = {
+  Maths:     ["Number System","Polynomials","Coordinate Geometry","Linear Equations In Two Variables","Introduction To Euclid's Geometry","Lines and Angles","Triangles","Quadrilaterals","Circles","Heron's Formula","Surface Areas and Volumes","Statistics"],
+  Science:   ["Matter In Our Surroundings","Is Matter Around Us Pure","Atoms And Molecules","Structure Of The Atom","The Fundamental Unit Of Life","Tissues","Motion","Force And Laws of Motion","Gravitation","Work and Energy","Sounds","Improvement In Food Resources"],
+  Civics:    ["What is Democracy? Why Democracy?","Constitutional Design","Electoral Politics","Working of Institutions","Democratic Rights"],
+  History:   ["The French Revolution","Socialism in Europe and the Russian Revolution","Nazism and the Rise of Hitler","Forest Society and Colonialism","Pastoralists in the Modern World"],
+  Geography: ["India - Size And Location","Physical Features Of India","Drainage","Climate","Natural Vegetation And Wildlife","Population"],
+  Economics: ["The Story of Village Palampur","People as Resource","Poverty as a Challenge","Food Security in India"]
+};
+const chapters10 = {
+  Maths:     ["Real Numbers","Polynomials","Pair Of Linear Equations In Two Variables","Quadratics Equations","Arithmetic Progressions","Triangles","Coordinate Geometry","Introduction to Trigonometry","Some Applications of Trigonometry","Circles","Areas Related to Circles","Surface Areas and Volumes","Statistics","Probability"],
+  Science:   ["Chemical Reactions and Equations","Acids, Bases and Salts","Metals and Non-Metals","Carbon and its Compounds","Life Processes","Control and Coordination","How do Organisms Reproduce","Heredity & Evolution","Light - Reflection and Refraction","The Human Eye and the Colourful World","Electricity","Magnetic Effects of Electric Current","Our Environment"],
+  Civics:    ["Power-Sharing","Federalism","Gender, Religion and Caste","Political Parties","Outcomes of Democracy"],
+  History:   ["The Rise of Nationalism in Europe","Nationalism in India","The Making of a Global World","The Age of Industrialisation","Print Culture and the Modern World"],
+  Geography: ["Resources And Development","Forest And Wildlife Resources","Water Resources","Agriculture","Minerals And Energy Resources","Manufacturing Industries","Lifelines of National Economy"],
+  Economics: ["Development","Sectors Of The Indian Economy","Money And Credit","Globalisation And The Indian Economy","Consumer Rights"]
+};
+const chapters11 = {
+  Phy:   ["Units and Measurements","Motion in a Straight Line","Motion in a Plane","Laws of Motion","Work, Energy and Power","Systems of Particles and Rotational Motion","Gravitation","Mechanical Properties of Solids","Mechanical Properties of Fluids","Thermal Properties of Matter","Thermodynamics","Kinetic Theory","Oscillations","Waves"],
+  Che:   ["Some Basic Concepts of Chemistry","Structure Of Atom","Classification of Elements and Periodicity in Properties","Chemical Bonding and Molecular Structure","Thermodynamics","Equilibrium","Redox Reactions","Organic Chemistry - Some Basic Principles & Techniques","Hydrocarbons"],
+  Maths: ["Sets","Relations and Functions","Trigonometric Functions","Complex Number and Quadratic Equations","Linear Inequalities","Permutations and Combinations","Binomial Theorem","Sequence and Series","Straight Lines","Conic Sections","Introduction to Three Dimensional Geometry","Limits and Derivatives","Statistics","Probability"],
+  Bio:   ["The Living World","Biological Classification","Plant Kingdom","Animal Kingdom","Morphology of Flowering Plants","Anatomy Of Flowering Plants","Structural Organisation in Animals","Cell The Unit of Life","Biomolecules","Cell Cycle And Cell Division","Photosynthesis in Higher Plants","Respiration In Plants","Plant Growth And Development","Breathing and Exchange of Gases","Body Fluids And Circulation","Excretory Products And Their Elimination","Locomotion And Movement","Neural Control And Coordination","Chemical Coordination And Integration"]
+};
+const chapters12 = {
+  Phy:   ["Electrostatic Potential And Capacitance","Current Electricity","Moving Charges And Magnetism","Magnetism And Matter","Electromagnetic Induction","Alternating Current","Electromagnetic Waves","Ray Optics and Optical Instruments","Wave Optics","Dual Nature of Radiation and Matter","Atoms","Nuclei","Semiconductor Electronics"],
+  Che:   ["Solutions","Electrochemistry","Chemical Kinetics","The d and f-Block Elements","Coordination Compounds","Haloalkanes and Haloarenes","Alcohols, Phenols and Ethers","Aldehydes, Ketones and Carboxylic Acids","Amines","Biomolecules"],
+  Maths: ["Relations and Functions","Inverse Trigonometric Functions","Matrices","Determinants","Continuity and Differentiability","Application of Derivatives","Integrals","Application of Integrals","Differential Equations","Vector Algebra","Three Dimensional Geometry","Linear Programming","Probability"],
+  Bio:   ["Sexual Reproduction in Flowering Plants","Human Reproduction","Reproductive Health","Principles Of Inheritance And Variation","Molecular Basis Of Inheritance","Evolution","Human Health And Disease","Microbes in Human Welfare","Biotechnology Principles And Processes","Biotechnology And Its Applications","Organisms And Populations","Ecosystem","Biodiversity And Conservation"],
+  Eco:   [
+    // Microeconomics (Part A)
+    "Introduction to Economics","Theory of Consumer Behaviour","Production and Costs","Theory of Firm Under Perfect Competition","Market Equilibrium","Non-Competitive Markets",
+    // Macroeconomics (Part B)
+    "Introduction to Macroeconomics and National Income Accounting","Money and Banking","Determination of Income and Employment","Government Budget and the Economy","Open Economy Macroeconomics"
+  ],
+  Bst:   ["Nature and Significance of Management","Principles of Management","Business Environment","Planning","Organising","Staffing","Directing","Controlling","Financial Management","Financial Markets","Marketing Management","Consumer Protection"],
+  Eng:   ["The Last Lesson","Lost Spring","Deep Water","The Rattrap","Indigo","Poets and Pancakes","The Interview","Going Places","My Mother at Sixty-six","Keeping Quiet","A Thing of Beauty","A Roadside Stand","Aunt Jennifer's Tigers"]
+};
+
+const subjectsDB = {
+  9:  ["Maths","Science","Civics","History","Geography","Economics"],
+  10: ["Maths","Science","Civics","History","Geography","Economics"],
+  11: ["Phy","Che","Maths","Bio"],
+  12: ["Phy","Che","Maths","Bio","Eco","Bst","Eng"]
+};
+
+const classInfo = {
+  9:  { label:"Class 9",  sub:"Foundation · 6 Subjects" },
+  10: { label:"Class 10", sub:"Board Year · 6 Subjects"  },
+  11: { label:"Class 11", sub:"Senior Secondary · 4 Subjects" },
+  12: { label:"Class 12", sub:"Board Year · 7 Subjects"  }
+};
+
+function getChapters(cls, sub) {
+  const m = {9:chapters9,10:chapters10,11:chapters11,12:chapters12};
+  return (m[cls]||{})[sub]||[];
+}
+function getPDFLink(cls, sub, idx) {
+  const slug = (subjectMeta[sub]||{}).slug || sub.toLowerCase();
+  return `https://thunderstudy.github.io/cbse/topper-notes/${slug}-${cls}-${idx}.pdf`;
+}
+
+// ─── STATE ───
+let currentClass = null, currentSubject = null, allChapters = [];
+
+// ─── STEPS ───
+function showStep(n) {
+  [0,1,2].forEach(i => {
+    document.getElementById(`step${i}`).classList.toggle('visible', i===n);
+  });
+}
+
+// ─── BREADCRUMB ───
+function updateBreadcrumb(step) {
+  const bc = document.getElementById('breadcrumb');
+  let html = `<span class="crumb${step===0?' active':''}" onclick="goStep(0)">
+    <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    Select Class
+  </span>`;
+  if (step >= 1) {
+    html += `<span class="sep">›</span>
+    <span class="crumb${step===1?' active':''}" onclick="goStep(1)">Class ${currentClass}</span>`;
+  }
+  if (step >= 2) {
+    const meta = subjectMeta[currentSubject]||{};
+    html += `<span class="sep">›</span>
+    <span class="crumb active">${meta.label||currentSubject}</span>`;
+  }
+  bc.innerHTML = html;
+}
+
+function goStep(n) {
+  if (n===0) { currentClass=null; currentSubject=null; showStep(0); updateBreadcrumb(0); }
+  else if (n===1 && currentClass) { showStep(1); updateBreadcrumb(1); }
+}
+
+// ─── STEP 0: RENDER CLASS CARDS ───
+function renderClassGrid() {
+  const grid = document.getElementById('classGrid');
+  grid.innerHTML = '';
+  [9,10,11,12].forEach(cls => {
+    const subs = subjectsDB[cls]||[];
+    const totalCh = subs.reduce((a,s)=>a+getChapters(cls,s).length,0);
+    const info = classInfo[cls];
+    const card = document.createElement('div');
+    card.className = 'class-card';
+    card.innerHTML = `
+      <div class="cc-icon-wrap">${classIcons[cls]}</div>
+      <div class="cc-num">CBSE · ${subs.length} Subjects</div>
+      <div class="cc-title">${info.label}</div>
+      <div class="cc-meta">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        ${totalCh} Chapters
+      </div>
+      <div class="cc-arrow">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+      </div>
+    `;
+    card.onclick = () => selectClass(cls);
+    grid.appendChild(card);
+  });
+}
+
+function selectClass(cls) {
+  currentClass = cls;
+  renderSubjects(cls);
+  document.getElementById('subjectStepLabel').textContent = `Class ${cls} · Select a Subject`;
+  showStep(1);
+  updateBreadcrumb(1);
+}
+
+// ─── STEP 1: RENDER SUBJECTS ───
+function renderSubjects(cls) {
+  const grid = document.getElementById('subjectsGrid');
+  grid.innerHTML = '';
+  const subs = subjectsDB[cls]||[];
+  subs.forEach(sub => {
+    const chs = getChapters(cls, sub);
+    const meta = subjectMeta[sub]||{};
+    const svgIcon = subjectSVG[sub] || subjectSVG['Maths'];
+    const card = document.createElement('div');
+    card.className = 'subject-card';
+    card.innerHTML = `
+      <div class="sub-icon-wrap"><div class="sub-icon">${svgIcon}</div></div>
+      <div class="subject-name">${meta.label||sub}</div>
+      <div class="chapter-pill">
+        <svg viewBox="0 0 24 24" style="width:10px;height:10px;fill:currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        ${chs.length} Chapters
+      </div>
+    `;
+    card.onclick = () => selectSubject(sub, cls);
+    grid.appendChild(card);
+  });
+}
+
+// ─── STEP 2: RENDER CHAPTERS ───
+function selectSubject(sub, cls) {
+  currentSubject = sub;
+  const chapters = getChapters(cls, sub);
+  allChapters = chapters;
+  const meta = subjectMeta[sub]||{};
+  const svgIcon = subjectSVG[sub] || '';
+
+  document.getElementById('chTopTitle').textContent = `${meta.label||sub} · Class ${cls}`;
+  document.getElementById('chTopSub').textContent   = `${chapters.length} chapters · Click PDF to download`;
+  document.getElementById('chTopBadge').innerHTML   = svgIcon;
+  document.getElementById('chapterSearch').value    = '';
+  renderChapterItems(chapters, sub, cls, '');
+  showStep(2);
+  updateBreadcrumb(2);
+}
+
+function renderChapterItems(chapters, sub, cls, filter) {
+  const el = document.getElementById('chapterListEl');
+  el.innerHTML = '';
+  const filtered = filter ? chapters.filter(c=>c.toLowerCase().includes(filter.toLowerCase())) : chapters;
+  if (!filtered.length) {
+    el.innerHTML = `<div style="text-align:center;padding:2rem;color:var(--text3);font-size:0.9rem;">No chapters found</div>`;
+    return;
+  }
+  addAdbBanner(el);
+  filtered.forEach(ch => {
+    const origIdx = chapters.indexOf(ch)+1;
+    const url = getPDFLink(cls, sub, origIdx);
+    const div = document.createElement('div');
+    div.className = 'chapter-item';
+    div.innerHTML = `
+      <div class="ch-left">
+        <div class="ch-num">${origIdx}</div>
+        <div class="chapter-name">${ch}</div>
+      </div>
+      <button class="pdf-btn">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+        PDF
+      </button>
+    `;
+    div.querySelector('.pdf-btn').onclick = () => openPDF(url);
+    el.appendChild(div);
+  });
+}
+
+// ─── AD BLOCKER DETECTION ───
+let toastTimer = null;
+function openPDF(url) {
+  const newTab = window.open(url, '_blank');
+  // If tab is blocked or null, show toast immediately
+  if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+    showToast(); return;
+  }
+  // After short delay check if tab navigated (blocked tabs stay blank)
+  toastTimer = setTimeout(() => {
+    try {
+      // If href is still 'about:blank' the tab was likely blocked
+      if (newTab.location && newTab.location.href === 'about:blank') showToast();
+    } catch(e) {
+      // Cross-origin = tab opened fine, do nothing
+    }
+  }, 1200);
+}
+
+function showToast() {
+  const t = document.getElementById('adbToast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(hideToast, 6000);
+}
+function hideToast() {
+  document.getElementById('adbToast').classList.remove('show');
+}
+
+// Add banner at top of chapter list every time it renders
+function addAdbBanner(el) {
+  const banner = document.createElement('div');
+  banner.className = 'adb-banner';
+  banner.innerHTML = `
+    <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+    <div class="adb-banner-text">
+      <strong>PDF not opening on PC?</strong>
+      Disable your ad blocker for this site, or use Incognito mode (Ctrl+Shift+N).
+    </div>
+  `;
+  el.insertBefore(banner, el.firstChild);
+}
+
+document.getElementById('chapterSearch').addEventListener('input', function(){
+  renderChapterItems(allChapters, currentSubject, currentClass, this.value);
+});
+
+// ─── INIT ───
+renderClassGrid();
+showStep(0);
+updateBreadcrumb(0);
+
+// Count total
+let total = 0;
+[9,10,11,12].forEach(cls=>{
+  (subjectsDB[cls]||[]).forEach(s=>{ total+=getChapters(cls,s).length; });
+});
+document.getElementById('statTotal').textContent = total;
+</script>
+</body>
+</html>
