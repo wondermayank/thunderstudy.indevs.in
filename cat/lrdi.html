@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAT Logical Reasoning & Data - ThunderStudy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-600: #3B82F6;
+            --blue-400: #60A5FA;
+            --blue-300: #93C5FD;
+            --blue-200: #DBEAFE;
+            --white: #FFFFFF;
+            --bg-light: #F0F9FF;
+            --glass-blur: 20px;
+            --transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            color: #1F2937;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(var(--glass-blur));
+            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Main Container */
+        .container {
+            width: 100%;
+            min-height: calc(100vh - 120px);
+            margin-top: 70px;
+            margin-bottom: 50px;
+            display: flex;
+            position: relative;
+            overflow: visible;
+        }
+
+        /* Screen Panels */
+        .screen {
+            width: 100%;
+            min-height: auto;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            opacity: 1;
+            visibility: visible;
+            top: 0;
+            left: 0;
+        }
+
+        .screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Topics Screen */
+        #topics-screen {
+            z-index: 1;
+        }
+
+        .screen-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #3B82F6;
+            letter-spacing: -1px;
+        }
+
+        /* Statistics Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(96, 165, 250, 0.08);
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #6B7280;
+            font-weight: 600;
+        }
+
+        .chapters-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .chapter-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-left: 4px solid #3B82F6;
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: left;
+            box-shadow: 0 8px 32px rgba(96, 165, 250, 0.08);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .chapter-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #E0E7FF;
+            background: rgba(59, 130, 246, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .chapter-content {
+            flex: 1;
+        }
+
+        .chapter-text {
+            font-weight: 600;
+            font-size: 15px;
+            color: #3B82F6;
+            display: block;
+        }
+
+        .chapter-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #DBEAFE 0%, #E0E7FF 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .chapter-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #3B82F6;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .chapter-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #60A5FA;
+            border-left: 4px solid #60A5FA;
+            transform: translateX(4px);
+            box-shadow: 0 12px 32px rgba(96, 165, 250, 0.15);
+        }
+
+        .chapter-item:active {
+            transform: translateX(2px);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(var(--glass-blur));
+            background: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(96, 165, 250, 0.2);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #3B82F6;
+            font-weight: 600;
+        }
+
+        footer span {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .screen {
+                padding: 60px 20px 70px 20px;
+            }
+
+            .screen-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .stat-card {
+                padding: 12px 8px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+                margin-bottom: 4px;
+            }
+
+            .stat-label {
+                font-size: 11px;
+            }
+
+            .chapters-list {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .chapter-item {
+                padding: 16px;
+            }
+
+            .chapter-number {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .chapter-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .screen-title {
+                font-size: 22px;
+                margin-bottom: 30px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 6px;
+                margin-bottom: 20px;
+            }
+
+            .stat-card {
+                padding: 10px 5px;
+            }
+
+            .stat-number {
+                font-size: 20px;
+                margin-bottom: 2px;
+            }
+
+            .stat-label {
+                font-size: 10px;
+            }
+
+            .chapters-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .chapter-item {
+                padding: 14px;
+                gap: 12px;
+            }
+
+            .chapter-number {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            .chapter-text {
+                font-size: 13px;
+            }
+
+            .chapter-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .chapter-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ ThunderStudy</div>
+    </header>
+
+    <div class="container">
+        <!-- Topics Screen -->
+        <div class="screen" id="topics-screen">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Chapters</div>
+                </div>
+            </div>
+            <h1 class="screen-title">CAT Logical Reasoning & Data</h1>
+            <div class="chapters-list" id="chapters-list"></div>
+        </div>
+    </div>
+
+    <footer>
+        <span>Made with 💜 by <strong>Wondermayank</strong></span>
+    </footer>
+
+    <script>
+        const chaptersData = [
+            'Introduction To Logical Reasoning',
+            'Developing The Skills',
+            'Logical Links',
+            'Sequencing And Arrangement',
+            'Series',
+            'Team Selection',
+            'Blood Relation',
+            'Direction Decision Making',
+            'Syllogism',
+            'Input - Output',
+            'Cubes',
+            'Boolean Logic',
+            'Foundation Exercises',
+            'Moderate Exercises',
+            'Advanced Exercises',
+            'Mastering Logical Reasoning',
+            'Introduction To Data Interpretation',
+            'Developing The Skills',
+            'Data Sufficiency',
+            'Foundation Exercises',
+            'Moderate Exercises',
+            'Advanced Exercises',
+            'Mastering Data Interpretation'
+        ];
+
+        // Initialize chapters on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const chaptersList = document.getElementById('chapters-list');
+            
+            chaptersData.forEach((chapter, index) => {
+                const chapterNum = index + 1;
+                const fileName = `lrd${chapterNum}.pdf`;
+                const url = `https://thunderstudy.github.io/clat2/notes/${fileName}`;
+
+                const chapterElement = document.createElement('div');
+                chapterElement.className = 'chapter-item';
+                
+                // Make the entire element clickable
+                chapterElement.style.cursor = 'pointer';
+                chapterElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                });
+                
+                const numberDiv = document.createElement('div');
+                numberDiv.className = 'chapter-number';
+                numberDiv.textContent = chapterNum;
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'chapter-content';
+                
+                const textElement = document.createElement('span');
+                textElement.className = 'chapter-text';
+                textElement.textContent = chapter;
+                
+                contentDiv.appendChild(textElement);
+                
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'chapter-icon';
+                iconDiv.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                        <path d="M13 2v7h7"/>
+                        <path d="M8 14h8M8 18h8"/>
+                    </svg>
+                `;
+                
+                chapterElement.appendChild(numberDiv);
+                chapterElement.appendChild(contentDiv);
+                chapterElement.appendChild(iconDiv);
+                chaptersList.appendChild(chapterElement);
+            });
+
+            // Update chapter count
+            const statNumber = document.querySelector('.stat-number');
+            if (statNumber) {
+                statNumber.textContent = chaptersData.length;
+            }
+        });
+    </script>
+</body>
+</html>

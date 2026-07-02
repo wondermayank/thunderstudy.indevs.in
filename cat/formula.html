@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderStudy - Formula Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+        
+        .header-subtitle {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            min-height: 500px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .formula-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid #bbdefb;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+        
+        .formula-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(25, 118, 210, 0.25);
+            border-color: #1976d2;
+        }
+        
+        .formula-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        .formula-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1976d2;
+        }
+        
+        .formula-desc {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+        }
+        
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .download-icon {
+            font-size: 1.3em;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .formula-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .formula-card {
+                min-height: 300px;
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                min-height: auto;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            
+            .formula-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .formula-card {
+                min-height: 280px;
+                padding: 25px;
+            }
+            
+            .formula-icon {
+                font-size: 3em;
+                margin-bottom: 15px;
+            }
+            
+            .formula-title {
+                font-size: 1.6em;
+            }
+            
+            .formula-desc {
+                font-size: 0.95em;
+            }
+            
+            .download-btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .download-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .download-btn.loading .download-icon {
+            display: none;
+        }
+        
+        .download-btn.loading .loading-spinner {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">⚡ ThunderStudy</div>
+        <div class="header-subtitle">Formula Sheet Collection</div>
+    </div>
+    
+    <div class="container">
+        <h1>📐 Formula Sheets</h1>
+        
+        <div class="formula-grid">
+            <!-- Box 1 -->
+            <div class="formula-card">
+                <div class="formula-icon">📊</div>
+                <div class="formula-title">Formula Sheet 1</div>
+                <div class="formula-desc">Complete Collection of Essential Formulas for CAT Preparation</div>
+                <button class="download-btn" onclick="downloadFile('box1')">
+                    <span class="download-icon">⬇️</span>
+                    <span class="btn-text">Download PDF</span>
+                    <span class="loading-spinner"></span>
+                </button>
+            </div>
+            
+            <!-- Box 2 -->
+            <div class="formula-card">
+                <div class="formula-icon">📈</div>
+                <div class="formula-title">Formula Sheet 2</div>
+                <div class="formula-desc">Advanced CAT Formula Sheet 2024 - All Topics Covered</div>
+                <button class="download-btn" onclick="downloadFile('box2')">
+                    <span class="download-icon">⬇️</span>
+                    <span class="btn-text">Download PDF</span>
+                    <span class="loading-spinner"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Made with ❤️ by <a href="#" onclick="event.preventDefault()">WonderMayank</a>
+    </div>
+
+    <script>
+        // Direct download links
+        const downloadLinks = {
+            box1: 'https://drive.google.com/uc?export=download&id=1OiWNj3SZl86fVz9wytFi6ELQ5UW-f5CE',
+            box2: 'https://static.collegedekho.com/media/uploads/2024/08/08/cat-formula-sheet-2024-pdf-2.pdf'
+        };
+        
+        function downloadFile(box) {
+            const button = event.target.closest('.download-btn');
+            const btnText = button.querySelector('.btn-text');
+            const originalText = btnText.textContent;
+            
+            // Add loading state
+            button.classList.add('loading');
+            btnText.textContent = 'Downloading...';
+            
+            const fileName = box === 'box1' ? 'Formula-Sheet-1.pdf' : 'CAT-Formula-Sheet-2024.pdf';
+            const url = downloadLinks[box];
+            
+            // Use fetch to download the file
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/pdf'
+                }
+            })
+            .then(response => {
+                // Check if response is ok
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.blob();
+            })
+            .then(blob => {
+                // Create blob URL
+                const blobUrl = window.URL.createObjectURL(blob);
+                
+                // Create temporary link and trigger download
+                const link = document.createElement('a');
+                link.href = blobUrl;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Clean up blob URL
+                window.URL.revokeObjectURL(blobUrl);
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    button.classList.remove('loading');
+                    btnText.textContent = originalText;
+                }, 1500);
+            })
+            .catch(error => {
+                console.error('Download error:', error);
+                // Fallback: open in new tab
+                window.open(url, '_blank');
+                
+                // Reset button
+                setTimeout(() => {
+                    button.classList.remove('loading');
+                    btnText.textContent = originalText;
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>

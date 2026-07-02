@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderStudy - MBA GK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+        
+        .header-subtitle {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            flex: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .gk-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .gk-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid #bbdefb;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gk-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .gk-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(25, 118, 210, 0.25);
+            border-color: #1976d2;
+        }
+        
+        .gk-card:hover::before {
+            opacity: 1;
+        }
+        
+        .gk-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+        
+        .gk-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1976d2;
+            z-index: 1;
+        }
+        
+        .gk-desc {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+        
+        .coming-soon-badge {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-top: auto;
+            transition: all 0.3s ease;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .gk-card:hover .coming-soon-badge {
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(255, 152, 0, 0.3);
+        }
+        
+        .badge-icon {
+            font-size: 1.2em;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (min-width: 1200px) {
+            .gk-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .gk-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+            
+            .gk-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .gk-card {
+                min-height: 240px;
+                padding: 20px;
+            }
+            
+            .gk-icon {
+                font-size: 3em;
+                margin-bottom: 12px;
+            }
+            
+            .gk-title {
+                font-size: 1.2em;
+            }
+            
+            .gk-desc {
+                font-size: 0.9em;
+            }
+            
+            .coming-soon-badge {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">⚡ ThunderStudy</div>
+        <div class="header-subtitle">MBA GK Collection</div>
+    </div>
+    
+    <div class="container">
+        <h1>🧠 MBA GK Topics</h1>
+        <p class="subtitle">Comprehensive General Knowledge for MBA Entrance</p>
+        
+        <!-- GK Grid -->
+        <div class="gk-grid" id="gk-list"></div>
+    </div>
+    
+    <div class="footer">
+        Made with ❤️ by <a href="#" onclick="event.preventDefault()">WonderMayank</a>
+    </div>
+
+    <script>
+        // MBA GK Topics
+        const gkTopics = [
+            { num: 1, name: 'Current Affairs (Weekly)', icon: '📰', desc: 'Latest News & Updates' },
+            { num: 2, name: 'Current Affairs (Monthly)', icon: '📅', desc: 'Monthly Overview' },
+            { num: 3, name: 'Static GK', icon: '📚', desc: 'General Knowledge' },
+            { num: 4, name: 'Physics', icon: '⚛️', desc: 'Physics Concepts' },
+            { num: 5, name: 'Chemistry', icon: '🧪', desc: 'Chemistry Fundamentals' },
+            { num: 6, name: 'Biology', icon: '🧬', desc: 'Life Sciences' },
+            { num: 7, name: 'Economics', icon: '💰', desc: 'Economic Systems' },
+            { num: 8, name: 'Geography (Indian)', icon: '🗺️', desc: 'India & Regions' },
+            { num: 9, name: 'Geography (World)', icon: '🌍', desc: 'World Geography' },
+            { num: 10, name: 'History (Ancient)', icon: '🏛️', desc: 'Ancient Civilizations' },
+            { num: 11, name: 'History (Medieval)', icon: '👑', desc: 'Medieval Period' },
+            { num: 12, name: 'History (Modern)', icon: '🎭', desc: 'Modern Era' },
+            { num: 13, name: 'Government & Politics', icon: '🏛️', desc: 'Political Systems' },
+            { num: 14, name: 'Culture', icon: '🎨', desc: 'Arts & Heritage' }
+        ];
+        
+        // Initialize GK grid
+        function initializeGK() {
+            const gkList = document.getElementById('gk-list');
+            gkList.innerHTML = '';
+            
+            gkTopics.forEach(topic => {
+                const card = document.createElement('div');
+                card.className = 'gk-card';
+                card.innerHTML = `
+                    <div class="gk-icon">${topic.icon}</div>
+                    <div class="gk-title">${topic.name}</div>
+                    <div class="gk-desc">${topic.desc}</div>
+                    <div class="coming-soon-badge">
+                        <span class="badge-icon">⏳</span>
+                        <span>MBA Coming Soon</span>
+                    </div>
+                `;
+                gkList.appendChild(card);
+            });
+        }
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', initializeGK);
+    </script>
+</body>
+</html>
