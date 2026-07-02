@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AILET PYQs 2016-2026 - Previous Year Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066cc;
+            --light-blue: #e8f2ff;
+            --lighter-blue: #f0f8ff;
+            --sky-blue: #87ceeb;
+            --white: #ffffff;
+            --dark-gray: #2c3e50;
+            --border-gray: #d0dae8;
+            --accent-teal: #00a8a8;
+            --hover-blue: #0052a3;
+            --accent-purple: #6c5ce7;
+            --success-green: #27ae60;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e8f2ff 100%);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            font-weight: 300;
+            margin-top: 0.3rem;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.08);
+            border: 2px solid var(--light-blue);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.8rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, var(--lighter-blue), var(--light-blue));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-blue);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-top: 0.5rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--dark-gray);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* PYQs Grid */
+        .pyqs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pyq-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 102, 204, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+
+        .pyq-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 35px rgba(0, 102, 204, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        /* PYQ Header */
+        .pyq-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+            color: var(--white);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pyq-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.5s ease;
+        }
+
+        .pyq-card:hover .pyq-header::before {
+            left: 100%;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
+        }
+
+        .year-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .year-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* PYQ Content */
+        .pyq-content {
+            padding: 2rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pyq-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .info-icon {
+            font-size: 1.3rem;
+            min-width: 25px;
+        }
+
+        .info-label {
+            color: var(--dark-gray);
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gray), transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .feature-icon {
+            color: var(--accent-teal);
+            font-weight: bold;
+            margin-top: 2px;
+            min-width: 20px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            color: var(--white);
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            width: 100%;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: var(--success-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Difficulty Badge */
+        .difficulty-badge {
+            display: inline-block;
+            margin-left: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .difficulty-easy {
+            background: rgba(39, 174, 96, 0.2);
+            color: var(--success-green);
+        }
+
+        .difficulty-medium {
+            background: rgba(241, 196, 15, 0.2);
+            color: #f39c12;
+        }
+
+        .difficulty-hard {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+
+        /* Timeline View Option */
+        .view-toggle {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            background: var(--accent-teal);
+            box-shadow: 0 4px 12px rgba(0, 168, 168, 0.3);
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #1a2634 100%);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+            margin-top: 3rem;
+            text-align: center;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .wondermayank-footer {
+            background: rgba(0, 102, 204, 0.1);
+            padding: 1.5rem;
+            border-top: 2px solid var(--primary-blue);
+            margin-top: 1.5rem;
+        }
+
+        .wondermayank-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .wondermayank-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent-teal);
+            letter-spacing: 0.5px;
+        }
+
+        .wondermayank-footer p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0.5rem 0;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            background: var(--hover-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .pyqs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .year-title {
+                font-size: 1.8rem;
+            }
+
+            .pyq-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .pyq-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero {
+                padding: 1.5rem;
+                border-radius: 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .year-title {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pyq-card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .pyq-card:nth-child(1) { animation-delay: 0.1s; }
+        .pyq-card:nth-child(2) { animation-delay: 0.15s; }
+        .pyq-card:nth-child(3) { animation-delay: 0.2s; }
+        .pyq-card:nth-child(4) { animation-delay: 0.25s; }
+        .pyq-card:nth-child(5) { animation-delay: 0.3s; }
+        .pyq-card:nth-child(6) { animation-delay: 0.35s; }
+        .pyq-card:nth-child(7) { animation-delay: 0.4s; }
+        .pyq-card:nth-child(8) { animation-delay: 0.45s; }
+        .pyq-card:nth-child(9) { animation-delay: 0.5s; }
+        .pyq-card:nth-child(10) { animation-delay: 0.55s; }
+        .pyq-card:nth-child(11) { animation-delay: 0.6s; }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div>
+                <div class="logo">⚖️ AILET PREP</div>
+                <div class="tagline">Master Previous Years • Perfect Your Preparation</div>
+            </div>
+            <nav class="header-nav">
+                <a href="#home">Home</a>
+                <a href="#pyqs">PYQs</a>
+                <a href="#about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1 class="gradient-text">AILET Previous Year Questions</h1>
+            <div class="hero-subtitle">2016 - 2026 | 11 Years of Complete Solutions</div>
+            <p>Access all authentic AILET papers from the past 11 years with detailed solutions and analysis</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Years of PYQs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150</div>
+                    <div class="stat-label">Questions/Year</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Authentic</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">With Solutions</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PYQs Section -->
+        <div style="margin-top: 3rem;">
+            <h2 class="section-title">Download AILET Papers</h2>
+            <p class="section-subtitle">Complete collection of previous year questions with detailed explanations and solutions</p>
+
+            <!-- PYQs Grid -->
+            <div class="pyqs-grid">
+                <!-- 2026 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">LATEST</div>
+                        <div class="year-title">2026</div>
+                        <div class="year-subtitle">Most Recent Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2026.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">RECENT</div>
+                        <div class="year-title">2025</div>
+                        <div class="year-subtitle">Previous Year</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2025.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2024</div>
+                        <div class="year-title">2024</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2024.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2023</div>
+                        <div class="year-title">2023</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2023.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2022</div>
+                        <div class="year-title">2022</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2022.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2021</div>
+                        <div class="year-title">2021</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2021.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2020 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2020</div>
+                        <div class="year-title">2020</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2020.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2019 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2019</div>
+                        <div class="year-title">2019</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2019.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2018 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2018</div>
+                        <div class="year-title">2018</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2018.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2017 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">2017</div>
+                        <div class="year-title">2017</div>
+                        <div class="year-subtitle">Full Length Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2017.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+
+                <!-- 2016 -->
+                <div class="pyq-card">
+                    <div class="pyq-header">
+                        <div class="year-badge">ARCHIVE</div>
+                        <div class="year-title">2016</div>
+                        <div class="year-subtitle">Foundational Paper</div>
+                    </div>
+                    <div class="pyq-content">
+                        <div class="pyq-info">
+                            <div class="info-item">
+                                <span class="info-icon">📝</span>
+                                <span class="info-label">Questions:</span>
+                                <span class="info-value">150</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏱️</span>
+                                <span class="info-label">Duration:</span>
+                                <span class="info-value">2 Hours</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📊</span>
+                                <span class="info-label">Type:</span>
+                                <span class="info-value">Full Paper</span>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Complete Examination Paper</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Detailed Answer Key</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Topic-wise Analysis</span>
+                            </div>
+                        </div>
+                        <a href="https://commercesehoga.github.io/pyqs/ailet/2016.pdf" class="download-btn" target="_blank">
+                            <span>📥</span>
+                            <span>Download Paper</span>
+                        </a>
+                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#pyqs">All PYQs</a>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms & Conditions</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                    📞 Support: support@ailetprep.com | 📧 Email: info@ailetprep.com
+                </p>
+            </div>
+        </div>
+
+        <!-- WonderMayank Footer -->
+        <div class="wondermayank-footer">
+            <div class="wondermayank-logo">
+                <span>✨</span>
+                <span class="wondermayank-text">WonderMayank</span>
+                <span>✨</span>
+            </div>
+            <p>Premium AILET Preparation Platform</p>
+            <p>Developed with dedication to help aspiring lawyers excel</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);">
+                © 2024 WonderMayank | All Rights Reserved | commercesehoga.github.io
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        });
+
+        // Add animation to cards on load
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.pyq-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+</html>
