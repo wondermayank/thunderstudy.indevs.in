@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Case-Based Questions | CBSE Class 9-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f0fcff;
+      --primary: #00838f;
+      --primary-light: #00acc1;
+      --primary-soft: #e0f7fa;
+      --accent: #0277bd;
+      --accent-soft: #e3f2fd;
+      --text: #002a33;
+      --text2: #2e6b78;
+      --text3: #6aacb8;
+      --white: #ffffff;
+      --card-border: #b2ebf2;
+      --shadow-sm: 0 2px 8px rgba(0,131,143,0.08);
+      --shadow-md: 0 8px 24px rgba(0,131,143,0.13);
+      --shadow-lg: 0 20px 48px rgba(0,131,143,0.2);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Plus Jakarta Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+    body::before { content:''; position:fixed; top:-200px; right:-200px; width:600px; height:600px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle,rgba(0,172,193,0.13) 0%,transparent 70%); }
+    body::after  { content:''; position:fixed; bottom:-150px; left:-150px; width:500px; height:500px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle,rgba(2,119,189,0.09) 0%,transparent 70%); }
+
+    .container { max-width:1240px; margin:0 auto; padding:2.5rem 1.5rem 4rem; position:relative; z-index:1; }
+
+    /* HEADER */
+    header { text-align:center; margin-bottom:2.5rem; animation:fadeDown 0.6s ease-out both; }
+    .logo-wrap { display:inline-flex; align-items:center; gap:14px; margin-bottom:0.6rem; }
+    .logo-icon { width:56px; height:56px; background:linear-gradient(135deg,#6a1b9a,#ab47bc); border-radius:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(106,27,154,0.35); }
+    .logo-text { font-family:'Sora',sans-serif; font-size:2.6rem; font-weight:800; letter-spacing:-0.5px; background:linear-gradient(135deg,#6a1b9a 30%,#0277bd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .tagline { display:inline-flex; align-items:center; gap:10px; font-size:0.95rem; font-weight:600; color:var(--text2); background:var(--white); border:1px solid var(--card-border); padding:0.4rem 1.4rem; border-radius:40px; box-shadow:var(--shadow-sm); margin-top:0.4rem; }
+    .tagline .dot { width:6px; height:6px; border-radius:50%; background:#ab47bc; }
+
+    .header-btns { display:inline-flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:0.75rem; }
+    .request-btn { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:linear-gradient(135deg,#ff6f00,#ffa000); color:white; font-weight:700; font-size:0.9rem; padding:0.55rem 1.4rem 0.55rem 0.9rem; border-radius:50px; box-shadow:0 6px 20px rgba(255,111,0,0.35); transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); font-family:'Plus Jakarta Sans',sans-serif; }
+    .request-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(255,111,0,0.45); }
+    .request-btn-icon { width:28px; height:28px; background:rgba(255,255,255,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .request-btn-icon svg { width:14px; height:14px; fill:white; }
+    .request-btn-arrow svg { width:16px; height:16px; fill:white; margin-left:2px; }
+    .telegram-btn { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:linear-gradient(135deg,#0088cc,#00aaff); color:white; font-weight:700; font-size:0.9rem; padding:0.55rem 1.4rem 0.55rem 0.9rem; border-radius:50px; box-shadow:0 6px 20px rgba(0,136,204,0.35); transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); font-family:'Plus Jakarta Sans',sans-serif; }
+    .telegram-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(0,136,204,0.45); }
+    .telegram-btn-icon { width:28px; height:28px; background:rgba(255,255,255,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .telegram-btn-icon svg { width:16px; height:16px; fill:white; }
+
+    /* BREADCRUMB */
+    .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:1.5rem; font-size:0.85rem; font-weight:600; color:var(--text3); flex-wrap:wrap; }
+    .crumb { cursor:pointer; padding:4px 12px; border-radius:20px; transition:all 0.2s; color:var(--text2); }
+    .crumb:hover { background:var(--primary-soft); color:var(--primary); }
+    .crumb.active { color:var(--primary); font-weight:700; cursor:default; }
+    .sep { color:var(--text3); font-size:0.7rem; }
+
+    /* STEPS */
+    .step { display:none; animation:fadeUp 0.3s ease-out both; }
+    .step.visible { display:block; }
+
+    /* STATS */
+    .stats-bar { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .stat-pill { background:var(--white); border:1px solid var(--card-border); border-radius:12px; padding:0.7rem 1.2rem; display:flex; align-items:center; gap:10px; box-shadow:var(--shadow-sm); flex:1; min-width:130px; }
+    .stat-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .stat-icon svg { width:16px; height:16px; }
+    .stat-icon.purple { background:#f3e5f5; } .stat-icon.purple svg { fill:#6a1b9a; }
+    .stat-icon.blue { background:var(--accent-soft); } .stat-icon.blue svg { fill:var(--accent); }
+    .stat-icon.gold { background:#fff8e1; }         .stat-icon.gold svg { fill:#f57f17; }
+    .stat-val { font-weight:800; font-size:1.1rem; color:var(--text); line-height:1; }
+    .stat-lbl { font-size:0.8rem; color:var(--text2); }
+
+    /* STEP HEADER */
+    .step-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.8rem; flex-wrap:wrap; gap:12px; }
+    .step-title { display:flex; align-items:center; gap:12px; font-family:'Sora',sans-serif; font-size:1.35rem; font-weight:700; color:var(--text); }
+    .step-title .title-icon { width:40px; height:40px; background:#f3e5f5; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .step-title .title-icon svg { width:18px; height:18px; fill:#6a1b9a; }
+    .step-hint { font-size:0.82rem; color:var(--text3); background:var(--bg); border:1px solid var(--card-border); padding:0.3rem 0.9rem; border-radius:20px; display:flex; align-items:center; gap:6px; }
+
+    /* CLASS CARDS */
+    .class-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:1.4rem; }
+    .class-card { background:var(--white); border:2px solid var(--card-border); border-radius:var(--radius-lg); padding:2rem 1.8rem; cursor:pointer; transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1); display:flex; flex-direction:column; align-items:flex-start; gap:12px; position:relative; overflow:hidden; }
+    .class-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,#6a1b9a,#0277bd); opacity:0; transition:opacity 0.25s; border-radius:inherit; }
+    .class-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:#ab47bc; }
+    .class-card:hover::after { opacity:1; }
+    .class-card:hover .cc-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .class-card:hover .cc-icon svg { fill:white !important; }
+    .class-card:hover .cc-num,.class-card:hover .cc-title,.class-card:hover .cc-arrow { color:rgba(255,255,255,0.85) !important; }
+    .class-card:hover .cc-meta { color:rgba(255,255,255,0.8) !important; background:rgba(255,255,255,0.15) !important; border-color:transparent !important; }
+    .cc-icon-wrap { width:54px; height:54px; border-radius:14px; background:#f3e5f5; display:flex; align-items:center; justify-content:center; transition:background 0.25s; position:relative; z-index:1; }
+    .cc-icon svg { width:26px; height:26px; fill:#6a1b9a; transition:fill 0.25s; }
+    .cc-num { font-size:0.72rem; font-weight:700; color:var(--text3); letter-spacing:0.5px; text-transform:uppercase; position:relative; z-index:1; transition:color 0.25s; }
+    .cc-title { font-family:'Sora',sans-serif; font-size:1.55rem; font-weight:800; color:var(--text); position:relative; z-index:1; transition:color 0.25s; }
+    .cc-meta { font-size:0.78rem; font-weight:600; color:var(--text2); background:var(--bg); border:1px solid var(--card-border); padding:3px 12px; border-radius:20px; position:relative; z-index:1; transition:all 0.25s; display:inline-flex; align-items:center; gap:6px; }
+    .cc-arrow { position:absolute; right:1.4rem; bottom:1.4rem; color:var(--text3); z-index:1; transition:color 0.25s; }
+    .cc-arrow svg { width:20px; height:20px; fill:currentColor; }
+
+    /* SUBJECT CARDS */
+    .section-box { background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-md); margin-bottom:2rem; }
+    .subjects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.1rem; }
+    .subject-card { background:var(--bg); border:1.5px solid var(--card-border); border-radius:var(--radius-md); padding:1.4rem 1rem; cursor:pointer; transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; position:relative; overflow:hidden; }
+    .subject-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,#6a1b9a,#0277bd); opacity:0; transition:opacity 0.22s; border-radius:inherit; }
+    .subject-card:hover { transform:translateY(-8px) scale(1.02); border-color:#ab47bc; box-shadow:var(--shadow-lg); }
+    .subject-card:hover::before { opacity:1; }
+    .subject-card:hover .sub-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .subject-card:hover .sub-icon svg { fill:white !important; }
+    .subject-card:hover .subject-name,.subject-card:hover .chapter-pill { color:white !important; }
+    .subject-card:hover .chapter-pill { background:rgba(255,255,255,0.2) !important; border-color:rgba(255,255,255,0.3) !important; }
+
+    /* Full-PDF subject card (commerce) */
+    .subject-card.full-pdf::after { content:'Full PDF'; position:absolute; top:8px; right:8px; background:linear-gradient(135deg,#ff6f00,#ffa000); color:white; font-size:0.6rem; font-weight:700; padding:2px 8px; border-radius:10px; z-index:2; letter-spacing:0.3px; }
+
+    .sub-icon-wrap { width:54px; height:54px; background:var(--white); border-radius:14px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm); transition:background 0.22s; position:relative; z-index:1; }
+    .sub-icon svg { width:24px; height:24px; fill:#6a1b9a; transition:fill 0.22s; }
+    .subject-name { font-weight:700; font-size:0.95rem; color:var(--text); transition:color 0.22s; position:relative; z-index:1; line-height:1.3; }
+    .chapter-pill { font-size:0.7rem; font-weight:600; background:var(--white); border:1px solid var(--card-border); padding:3px 12px; border-radius:20px; color:var(--text2); display:inline-flex; align-items:center; gap:5px; transition:all 0.22s; position:relative; z-index:1; }
+    .chapter-pill svg { width:10px; height:10px; fill:currentColor; }
+
+    /* CHAPTER LIST */
+    .chapters-topbar { background:linear-gradient(135deg,#6a1b9a,#0277bd); padding:1.4rem 1.6rem; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .ch-badge { width:48px; height:48px; background:rgba(255,255,255,0.2); border-radius:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .ch-badge svg { width:22px; height:22px; fill:white; }
+    .ch-top-title { font-family:'Sora',sans-serif; font-size:1.2rem; font-weight:700; color:white; }
+    .ch-top-sub { font-size:0.78rem; color:rgba(255,255,255,0.75); margin-top:2px; }
+    .ch-search { padding:1rem 1.4rem; border-bottom:1px solid var(--card-border); }
+    .search-inner { display:flex; align-items:center; gap:10px; background:var(--bg); border:1.5px solid var(--card-border); border-radius:12px; padding:0.5rem 1rem; }
+    .search-inner svg { width:16px; height:16px; fill:var(--text3); flex-shrink:0; }
+    .search-inner input { border:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.88rem; color:var(--text); outline:none; width:100%; }
+    .search-inner input::placeholder { color:var(--text3); }
+
+    .chapter-list { max-height:62vh; overflow-y:auto; padding:0.6rem 1rem 1.2rem; }
+    .chapter-list::-webkit-scrollbar { width:4px; }
+    .chapter-list::-webkit-scrollbar-thumb { background:var(--card-border); border-radius:2px; }
+    .chapter-item { display:flex; justify-content:space-between; align-items:center; padding:0.75rem 0.9rem; border-radius:var(--radius-sm); transition:background 0.15s; gap:10px; }
+    .chapter-item:hover { background:var(--bg); }
+    .ch-left { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
+    .ch-num { width:28px; height:28px; background:#f3e5f5; color:#6a1b9a; border-radius:8px; font-size:0.72rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .chapter-name { font-weight:600; font-size:0.88rem; color:var(--text); line-height:1.4; }
+    .map-btn { background:#f3e5f5; border:none; padding:6px 14px; border-radius:20px; font-size:0.72rem; font-weight:700; color:#6a1b9a; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:5px; font-family:'Plus Jakarta Sans',sans-serif; flex-shrink:0; white-space:nowrap; }
+    .map-btn:hover { background:#6a1b9a; color:white; box-shadow:0 4px 12px rgba(106,27,154,0.3); transform:scale(0.97); }
+    .map-btn svg { width:12px; height:12px; fill:currentColor; }
+
+    /* FULL PDF VIEW */
+    .full-pdf-box { padding:2rem; text-align:center; }
+    .full-pdf-icon { width:72px; height:72px; background:linear-gradient(135deg,#ff6f00,#ffa000); border-radius:20px; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; box-shadow:0 8px 24px rgba(255,111,0,0.3); }
+    .full-pdf-icon svg { width:34px; height:34px; fill:white; }
+    .full-pdf-title { font-family:'Sora',sans-serif; font-size:1.2rem; font-weight:700; color:var(--text); margin-bottom:0.4rem; }
+    .full-pdf-desc { font-size:0.88rem; color:var(--text2); margin-bottom:1.5rem; line-height:1.6; }
+    .full-pdf-btn { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:linear-gradient(135deg,#ff6f00,#ffa000); color:white; font-weight:700; font-size:1rem; padding:0.8rem 2rem; border-radius:50px; box-shadow:0 6px 20px rgba(255,111,0,0.4); transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); font-family:'Plus Jakarta Sans',sans-serif; }
+    .full-pdf-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(255,111,0,0.5); }
+    .full-pdf-btn svg { width:18px; height:18px; fill:white; }
+
+    /* ADBLOCKER */
+    .adb-banner { background:linear-gradient(135deg,#fff3e0,#ffe0b2); border:1.5px solid #ffb74d; border-radius:12px; padding:12px 14px; margin-bottom:10px; display:flex; align-items:flex-start; gap:10px; }
+    .adb-banner svg { width:18px; height:18px; fill:#e65100; flex-shrink:0; margin-top:1px; }
+    .adb-banner-text { font-size:0.8rem; color:#bf360c; line-height:1.5; }
+    .adb-banner-text strong { display:block; margin-bottom:2px; font-size:0.83rem; }
+    .adb-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(100px); background:#1a1a2e; color:white; border-radius:16px; padding:14px 20px; display:flex; align-items:flex-start; gap:12px; box-shadow:0 8px 32px rgba(0,0,0,0.35); z-index:9999; max-width:420px; width:calc(100% - 32px); transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); border:1px solid rgba(255,255,255,0.1); }
+    .adb-toast.show { transform:translateX(-50%) translateY(0); }
+    .adb-toast-icon { width:36px; height:36px; border-radius:10px; background:#f57f17; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .adb-toast-icon svg { width:18px; height:18px; fill:white; }
+    .adb-toast-body { flex:1; }
+    .adb-toast-title { font-weight:700; font-size:0.88rem; margin-bottom:3px; }
+    .adb-toast-msg { font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.5; }
+    .adb-toast-close { background:none; border:none; color:rgba(255,255,255,0.5); cursor:pointer; font-size:1.1rem; padding:0; }
+    .adb-toast-close:hover { color:white; }
+
+    /* FOOTER */
+    .footer { background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg); padding:1.8rem 1.5rem; box-shadow:var(--shadow-sm); }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem 1.6rem; margin-bottom:1.2rem; }
+    .footer-links a { text-decoration:none; color:var(--text2); font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px; transition:all 0.2s; }
+    .footer-links a svg { width:14px; height:14px; fill:currentColor; }
+    .footer-links a:hover { color:var(--primary); }
+    .donate-link { background:linear-gradient(135deg,#ff6f00,#ff8f00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700 !important; }
+    .footer-copy { text-align:center; font-size:0.75rem; color:var(--text3); border-top:1px solid var(--card-border); padding-top:1rem; }
+
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(20px)}  to{opacity:1;transform:translateY(0)} }
+    @media(max-width:600px){
+      .logo-text{font-size:2rem}
+      .class-grid{grid-template-columns:1fr 1fr}
+      .subjects-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:0.8rem}
+      .section-box{padding:1.2rem}
+      .header-btns{gap:8px}
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+      </div>
+      <div class="logo-text">Case-Based</div>
+    </div><br>
+    <div class="tagline">
+      <div class="dot"></div>
+      CBSE Case-Based Questions · Class 9 to 12
+      <div class="dot"></div>
+    </div>
+    <br>
+    <div class="header-btns">
+      <a href="https://wondermayank.github.io/contact" target="_blank" class="request-btn">
+        <span class="request-btn-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg></span>
+        <span>Request Subject</span>
+        <span class="request-btn-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></span>
+      </a>
+      <a href="https://t.me/thunderstudy_cbse" target="_blank" class="telegram-btn">
+        <span class="telegram-btn-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </span>
+        <span>Colour Mindmaps v2</span>
+        <span style="font-size:0.78rem;opacity:0.85">@thunderstudy_cbse</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb" id="breadcrumb"></div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-pill">
+      <div class="stat-icon purple"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+      <div><div class="stat-val">4</div><div class="stat-lbl">Classes</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></div>
+      <div><div class="stat-val" id="statTotal">0</div><div class="stat-lbl">Total PDFs</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon gold"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+      <div><div class="stat-val">Free</div><div class="stat-lbl">All PDFs</div></div>
+    </div>
+  </div>
+
+  <!-- STEP 0: CLASS -->
+  <div class="step visible" id="step0">
+    <div class="step-header">
+      <div class="step-title">
+        <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9z"/></svg></div>
+        <span>Choose Your Class</span>
+      </div>
+    </div>
+    <div class="class-grid" id="classGrid"></div>
+  </div>
+
+  <!-- STEP 1: SUBJECTS -->
+  <div class="step" id="step1">
+    <div class="section-box">
+      <div class="step-header">
+        <div class="step-title">
+          <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg></div>
+          <span id="subjectLabel">Select Subject</span>
+        </div>
+        <div class="step-hint">Click to view chapters</div>
+      </div>
+      <div class="subjects-grid" id="subjectsGrid"></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: CHAPTERS / FULL PDF -->
+  <div class="step" id="step2">
+    <div class="section-box" style="padding:0;overflow:hidden;" id="step2Box">
+      <div class="chapters-topbar">
+        <div class="ch-badge" id="chBadge"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+        <div>
+          <div class="ch-top-title" id="chTitle">Subject · Class X</div>
+          <div class="ch-top-sub" id="chSub">Click View PDF to open</div>
+        </div>
+      </div>
+      <!-- chapter-wise view -->
+      <div id="chapterView">
+        <div class="ch-search">
+          <div class="search-inner">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="chapterSearch" placeholder="Search chapter...">
+          </div>
+        </div>
+        <div class="chapter-list" id="chapterListEl"></div>
+      </div>
+      <!-- full-pdf view -->
+      <div id="fullPdfView" style="display:none;">
+        <div class="full-pdf-box">
+          <div class="full-pdf-icon"><svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg></div>
+          <div class="full-pdf-title" id="fullPdfTitle">Complete PDF</div>
+          <div class="full-pdf-desc" id="fullPdfDesc">This subject is available as a complete PDF covering all topics.</div>
+          <a href="#" id="fullPdfLink" target="_blank" class="full-pdf-btn" onclick="handleFullPdf(event)">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+            Download / Open PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="https://wondermayank.github.io" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>wondermayank.github.io</a>
+      <a href="https://thunderstudy.github.io/concept-map" target="_blank"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>Concept Maps</a>
+      <a href="https://wondermayank.github.io/terms" target="_blank"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Terms</a>
+      <a href="https://wondermayank.github.io/contact" target="_blank"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Contact</a>
+      <a href="https://commercesehoga.github.io/help" target="_blank" class="donate-link"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Donate / Support</a>
+    </div>
+    <div class="footer-copy">© 2025 Case-Based Questions by Wondermayank · Free CBSE PDFs</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="adb-toast" id="adbToast">
+  <div class="adb-toast-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
+  <div class="adb-toast-body">
+    <div class="adb-toast-title">PDF blocked by Ad Blocker</div>
+    <div class="adb-toast-msg">Disable your ad blocker for this site, or use <strong>Incognito mode</strong> (Ctrl+Shift+N).</div>
+  </div>
+  <button class="adb-toast-close" onclick="hideToast()">✕</button>
+</div>
+
+<script>
+// ─── SUBJECT SVG ICONS ───
+const subjectSVG = {
+  Maths:    `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5h-2v-2h2v-2h2v2h2v2h-2v2h-2v-2zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/></svg>`,
+  Science:  `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v7.27l-4.5 7.27C3.19 19.36 3.55 20 4.14 20h15.72c.59 0 .95-.64.64-1.46L16 11.27V4h1V2H7zm3 10.28L11.32 10h1.36L14 12.28V14h-4v-1.72z"/></svg>`,
+  SocialSci:`<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>`,
+  Phy:      `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  Che:      `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v7.27l-4.5 7.27C3.19 19.36 3.55 20 4.14 20h15.72c.59 0 .95-.64.64-1.46L16 11.27V4h1V2H7z"/></svg>`,
+  Bio:      `<svg viewBox="0 0 24 24"><path d="M17.5 4.5c-1.95 0-4.05.4-5.5 1.5C10.55 4.9 8.45 4.5 6.5 4.5 4.55 4.5 2.45 4.9 1 6v14.65c0 .65.73.45.75.45.15 0 .25-.05.35-.1C3.45 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.95 3.8-1.5 5.5-1.5 1.65 0 3.35.45 4.75 1.3.1.05.15.05.25.05.02 0 .75.2.75-.45V6C21.85 4.9 19.5 4.5 17.5 4.5z"/></svg>`,
+  Eng:      `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12z"/></svg>`,
+  Eco:      `<svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>`,
+  Bst:      `<svg viewBox="0 0 24 24"><path d="M10 16v-1H3.01L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-4h-7v1h-4zm10-9h-4.01V5l-2-2h-4l-2 2v2H4c-1.1 0-2 .9-2 2v3c0 1.1.9 2 2 2h6v-2h4v2h6c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V5h4v2z"/></svg>`
+};
+
+// ─── SUBJECT META ───
+// fullPdf:true means single full PDF (no chapter list), slug used for URL
+const subjectMeta = {
+  Maths:    { label:"Mathematics",      slug:"maths"          },
+  Science:  { label:"Science",          slug:"science"        },
+  SocialSci:{ label:"Social Science",   slug:"social-science" },
+  Eng:      { label:"English",          slug:"english"        },
+  Phy:      { label:"Physics",          slug:"physics"        },
+  Che:      { label:"Chemistry",        slug:"chemistry"      },
+  Bio:      { label:"Biology",          slug:"biology"        },
+  Eco:      { label:"Economics",        slug:"economics",     fullPdf:true },
+  Bst:      { label:"Business Studies", slug:"business-studies", fullPdf:true }
+};
+
+// ─── CHAPTER DATA ───
+// Chapter-wise subjects (class 9-12 PCMB + English + SST/Science)
+const chaptersDB = {
+  9: {
+    Maths:    ["Number Systems","Polynomials","Coordinate Geometry","Linear Equations in Two Variables","Introduction to Euclid's Geometry","Lines and Angles","Triangles","Quadrilaterals","Circles","Heron's Formula","Surface Areas and Volumes","Statistics"],
+    Science:  ["Matter in Our Surroundings","Is Matter Around Us Pure","Atoms and Molecules","Structure of the Atom","The Fundamental Unit of Life","Tissues","Motion","Force and Laws of Motion","Gravitation","Work and Energy","Sound","Improvement in Food Resources"],
+    SocialSci:["The French Revolution","Socialism in Europe and the Russian Revolution","Nazism and the Rise of Hitler","Forest Society and Colonialism","Pastoralists in the Modern World","What is Democracy? Why Democracy?","Constitutional Design","Electoral Politics","Working of Institutions","Democratic Rights","India – Size and Location","Physical Features of India","Drainage","Climate","Natural Vegetation and Wildlife","Population","The Story of Village Palampur","People as Resource","Poverty as a Challenge","Food Security in India"]
+  },
+  10: {
+    Maths:    ["Real Numbers","Polynomials","Pair of Linear Equations in Two Variables","Quadratic Equations","Arithmetic Progressions","Triangles","Coordinate Geometry","Introduction to Trigonometry","Some Applications of Trigonometry","Circles","Areas Related to Circles","Surface Areas and Volumes","Statistics","Probability"],
+    Science:  ["Chemical Reactions and Equations","Acids, Bases and Salts","Metals and Non-Metals","Carbon and its Compounds","Life Processes","Control and Coordination","How do Organisms Reproduce?","Heredity","Light – Reflection and Refraction","The Human Eye and the Colourful World","Electricity","Magnetic Effects of Electric Current","Our Environment","Management of Natural Resources","Sources of Energy","The Universe","Periodic Classification of Elements","Carbon Compounds – Extended","Food Production","Improvement in Food Resources"],
+    SocialSci:["The Rise of Nationalism in Europe","Nationalism in India","The Making of a Global World","The Age of Industrialisation","Print Culture and the Modern World","Resources and Development","Forest and Wildlife Resources","Water Resources","Agriculture","Minerals and Energy Resources","Manufacturing Industries","Lifelines of National Economy","Power Sharing","Federalism","Gender, Religion and Caste","Political Parties","Outcomes of Democracy","Development","Sectors of the Indian Economy","Money and Credit","Globalisation and the Indian Economy"],
+    Eng:      ["Reading Skills","Letter Writing and Analytical Paragraph","Grammar","First Flight – Prose","First Flight – Poetry","Footprints without Feet"]
+  },
+  11: {
+    Phy:      ["Units and Measurements","Motion in a Straight Line","Motion in a Plane","Laws of Motion","Work, Energy and Power","Systems of Particles and Rotational Motion","Gravitation","Mechanical Properties of Solids","Mechanical Properties of Fluids","Thermal Properties of Matter","Thermodynamics","Kinetic Theory","Oscillations","Waves"],
+    Che:      ["Some Basic Concepts of Chemistry","Structure of Atom","Classification of Elements and Periodicity in Properties","Chemical Bonding and Molecular Structure","Thermodynamics","Equilibrium","Redox Reactions","Organic Chemistry – Some Basic Principles and Techniques","Hydrocarbons"],
+    Maths:    ["Sets","Relations and Functions","Trigonometric Functions","Complex Numbers and Quadratic Equations","Linear Inequalities","Permutations and Combinations","Binomial Theorem","Sequences and Series","Straight Lines","Conic Sections","Introduction to Three Dimensional Geometry","Limits and Derivatives","Statistics","Probability"],
+    Bio:      ["The Living World","Biological Classification","Plant Kingdom","Animal Kingdom","Morphology of Flowering Plants","Anatomy of Flowering Plants","Structural Organisation in Animals","Cell: The Unit of Life","Biomolecules","Cell Cycle and Cell Division","Photosynthesis in Higher Plants","Respiration in Plants","Plant Growth and Development","Breathing and Exchange of Gases","Body Fluids and Circulation","Excretory Products and Their Elimination","Locomotion and Movement","Neural Control and Coordination","Chemical Coordination and Integration"],
+    Eng:      ["Reading Skills","Letter Writing and Analytical Paragraph","Grammar","Hornbill – Prose","Hornbill – Poetry","Snapshots"]
+  },
+  12: {
+    Phy:      ["Electric Charges and Fields","Electrostatic Potential and Capacitance","Current Electricity","Moving Charges and Magnetism","Magnetism and Matter","Electromagnetic Induction","Alternating Current","Electromagnetic Waves","Ray Optics and Optical Instruments","Wave Optics","Dual Nature of Radiation and Matter","Atoms","Nuclei","Semiconductor Electronics: Materials, Devices and Simple Circuits"],
+    Che:      ["Solutions","Electrochemistry","Chemical Kinetics","The d- and f-Block Elements","Coordination Compounds","Haloalkanes and Haloarenes","Alcohols, Phenols and Ethers","Aldehydes, Ketones and Carboxylic Acids","Amines","Biomolecules"],
+    Maths:    ["Relations and Functions","Inverse Trigonometric Functions","Matrices","Determinants","Continuity and Differentiability","Application of Derivatives","Integrals","Application of Integrals","Differential Equations","Vector Algebra","Three Dimensional Geometry","Linear Programming","Probability"],
+    Bio:      ["Sexual Reproduction in Flowering Plants","Human Reproduction","Reproductive Health","Principles of Inheritance and Variation","Molecular Basis of Inheritance","Evolution","Human Health and Disease","Microbes in Human Welfare","Biotechnology: Principles and Processes","Biotechnology and Its Applications","Organisms and Populations","Ecosystem","Biodiversity and Conservation"],
+    Eco:      [], // full PDF
+    Bst:      []  // full PDF
+  }
+};
+
+// ─── SUBJECTS PER CLASS ───
+const subjectsDB = {
+  9:  ["Maths","Science","SocialSci"],
+  10: ["Maths","Science","SocialSci","Eng"],
+  11: ["Phy","Che","Maths","Bio","Eng"],
+  12: ["Phy","Che","Maths","Bio","Eco","Bst"]
+};
+
+const classInfo = {
+  9:  { label:"Class 9",  note:"3 Subjects" },
+  10: { label:"Class 10", note:"4 Subjects" },
+  11: { label:"Class 11", note:"5 Subjects" },
+  12: { label:"Class 12", note:"6 Subjects" }
+};
+
+function getChapters(cls, sub) { return (chaptersDB[cls]||{})[sub]||[]; }
+
+function getPDFLink(cls, sub, idx) {
+  const slug = (subjectMeta[sub]||{}).slug || sub.toLowerCase();
+  return `https://thunderstudy.github.io/case-based/pdf/${cls}${slug}${idx}.pdf`;
+}
+function getFullPDFLink(cls, sub) {
+  const slug = (subjectMeta[sub]||{}).slug || sub.toLowerCase();
+  return `https://thunderstudy.github.io/case-based/pdf/${cls}${slug}.pdf`;
+}
+
+// ─── STATE ───
+let currentClass=null, currentSubject=null, allChapters=[];
+
+function showStep(n){ [0,1,2].forEach(i=>document.getElementById(`step${i}`).classList.toggle('visible',i===n)); }
+
+function updateBreadcrumb(step){
+  const bc=document.getElementById('breadcrumb');
+  let h=`<span class="crumb${step===0?' active':''}" onclick="goStep(0)"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Select Class</span>`;
+  if(step>=1) h+=`<span class="sep">›</span><span class="crumb${step===1?' active':''}" onclick="goStep(1)">Class ${currentClass}</span>`;
+  if(step>=2){ const m=subjectMeta[currentSubject]||{}; h+=`<span class="sep">›</span><span class="crumb active">${m.label||currentSubject}</span>`; }
+  bc.innerHTML=h;
+}
+
+function goStep(n){
+  if(n===0){currentClass=null;currentSubject=null;showStep(0);updateBreadcrumb(0);}
+  else if(n===1&&currentClass){showStep(1);updateBreadcrumb(1);}
+}
+
+// CLASS CARDS
+function renderClassGrid(){
+  const grid=document.getElementById('classGrid'); grid.innerHTML='';
+  [9,10,11,12].forEach(cls=>{
+    const subs=subjectsDB[cls]||[];
+    const info=classInfo[cls];
+    const card=document.createElement('div'); card.className='class-card';
+    card.innerHTML=`
+      <div class="cc-icon-wrap"><div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div></div>
+      <div class="cc-num">CBSE · ${subs.length} Subjects</div>
+      <div class="cc-title">${info.label}</div>
+      <div class="cc-meta"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>${info.note}</div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></div>`;
+    card.onclick=()=>selectClass(cls); grid.appendChild(card);
+  });
+}
+
+// SUBJECT CARDS
+function selectClass(cls){
+  currentClass=cls;
+  document.getElementById('subjectLabel').textContent=`Class ${cls} · Select Subject`;
+  const grid=document.getElementById('subjectsGrid'); grid.innerHTML='';
+  (subjectsDB[cls]||[]).forEach(sub=>{
+    const chs=getChapters(cls,sub); const meta=subjectMeta[sub]||{};
+    const isFullPdf=meta.fullPdf===true;
+    const card=document.createElement('div');
+    card.className='subject-card'+(isFullPdf?' full-pdf':'');
+    card.innerHTML=`
+      <div class="sub-icon-wrap"><div class="sub-icon">${subjectSVG[sub]||subjectSVG.Maths}</div></div>
+      <div class="subject-name">${meta.label||sub}</div>
+      <div class="chapter-pill">${isFullPdf?'<svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>Full PDF':'<svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>'+chs.length+' Chapters'}</div>`;
+    card.onclick=()=>selectSubject(sub,cls); grid.appendChild(card);
+  });
+  showStep(1); updateBreadcrumb(1);
+}
+
+// CHAPTER / FULL PDF VIEW
+function selectSubject(sub,cls){
+  currentSubject=sub; allChapters=getChapters(cls,sub);
+  const meta=subjectMeta[sub]||{};
+  document.getElementById('chTitle').textContent=`${meta.label||sub} · Class ${cls}`;
+  document.getElementById('chBadge').innerHTML=subjectSVG[sub]||'';
+
+  if(meta.fullPdf){
+    document.getElementById('chSub').textContent='Complete PDF – all topics';
+    document.getElementById('chapterView').style.display='none';
+    document.getElementById('fullPdfView').style.display='block';
+    document.getElementById('fullPdfTitle').textContent=`${meta.label} – Class ${cls} (Full PDF)`;
+    document.getElementById('fullPdfDesc').textContent=`${meta.label} for Class ${cls} is available as a complete PDF covering all topics in one file.`;
+    document.getElementById('fullPdfLink').href=getFullPDFLink(cls,sub);
+  } else {
+    document.getElementById('chSub').textContent=`${allChapters.length} chapters · Click View PDF to open`;
+    document.getElementById('chapterView').style.display='block';
+    document.getElementById('fullPdfView').style.display='none';
+    document.getElementById('chapterSearch').value='';
+    renderChapters(allChapters,sub,cls,'');
+  }
+  showStep(2); updateBreadcrumb(2);
+}
+
+function renderChapters(chapters,sub,cls,filter){
+  const el=document.getElementById('chapterListEl'); el.innerHTML='';
+  const filtered=filter?chapters.filter(c=>c.toLowerCase().includes(filter.toLowerCase())):chapters;
+
+  const banner=document.createElement('div'); banner.className='adb-banner';
+  banner.innerHTML=`<svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg><div class="adb-banner-text"><strong>PDF not opening on PC?</strong>Disable your ad blocker or use Incognito mode (Ctrl+Shift+N).</div>`;
+  el.appendChild(banner);
+
+  if(!filtered.length){ el.innerHTML+=`<div style="text-align:center;padding:2rem;color:var(--text3);font-size:0.9rem;">No chapters found</div>`; return; }
+  filtered.forEach(ch=>{
+    const idx=chapters.indexOf(ch)+1;
+    const url=getPDFLink(cls,sub,idx);
+    const div=document.createElement('div'); div.className='chapter-item';
+    div.innerHTML=`
+      <div class="ch-left">
+        <div class="ch-num">${idx}</div>
+        <div class="chapter-name">${ch}</div>
+      </div>
+      <button class="map-btn">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+        View PDF
+      </button>`;
+    div.querySelector('.map-btn').onclick=()=>openPDF(url);
+    el.appendChild(div);
+  });
+}
+
+document.getElementById('chapterSearch').addEventListener('input',function(){
+  renderChapters(allChapters,currentSubject,currentClass,this.value);
+});
+
+// AD BLOCKER
+let toastTimer=null;
+function openPDF(url){
+  const tab=window.open(url,'_blank');
+  if(!tab||tab.closed||typeof tab.closed==='undefined'){showToast();return;}
+  toastTimer=setTimeout(()=>{try{if(tab.location&&tab.location.href==='about:blank')showToast();}catch(e){}},1200);
+}
+function handleFullPdf(e){
+  e.preventDefault();
+  openPDF(document.getElementById('fullPdfLink').href);
+}
+function showToast(){document.getElementById('adbToast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(hideToast,6000);}
+function hideToast(){document.getElementById('adbToast').classList.remove('show');}
+
+// INIT
+renderClassGrid(); showStep(0); updateBreadcrumb(0);
+// count total PDFs
+let t=0;
+[9,10,11,12].forEach(c=>{
+  (subjectsDB[c]||[]).forEach(s=>{
+    const meta=subjectMeta[s]||{};
+    t += meta.fullPdf ? 1 : getChapters(c,s).length;
+  });
+});
+document.getElementById('statTotal').textContent=t;
+</script>
+</body>
+</html>

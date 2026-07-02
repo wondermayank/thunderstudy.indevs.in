@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>IMP Questions | CBSE Class 9-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdf4ff;
+      --primary: #7b1fa2;
+      --primary-light: #ab47bc;
+      --primary-soft: #f3e5f5;
+      --accent: #e91e8c;
+      --accent-soft: #fce4ec;
+      --text: #1a0a2e;
+      --text2: #5c3d7a;
+      --text3: #9e7ab5;
+      --white: #ffffff;
+      --card-border: #e8d5f5;
+      --shadow-sm: 0 2px 8px rgba(123,31,162,0.08);
+      --shadow-md: 0 8px 24px rgba(123,31,162,0.12);
+      --shadow-lg: 0 20px 48px rgba(123,31,162,0.18);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Plus Jakarta Sans',sans-serif;
+      background:var(--bg); color:var(--text);
+      min-height:100vh; overflow-x:hidden;
+    }
+    body::before {
+      content:''; position:fixed; top:-200px; right:-200px;
+      width:600px; height:600px; border-radius:50%; pointer-events:none; z-index:0;
+      background:radial-gradient(circle, rgba(171,71,188,0.12) 0%, transparent 70%);
+    }
+    body::after {
+      content:''; position:fixed; bottom:-150px; left:-150px;
+      width:500px; height:500px; border-radius:50%; pointer-events:none; z-index:0;
+      background:radial-gradient(circle, rgba(233,30,140,0.08) 0%, transparent 70%);
+    }
+
+    .container { max-width:1240px; margin:0 auto; padding:2.5rem 1.5rem 4rem; position:relative; z-index:1; }
+
+    /* HEADER */
+    header { text-align:center; margin-bottom:2.5rem; animation:fadeDown 0.6s ease-out both; }
+    .logo-wrap { display:inline-flex; align-items:center; gap:14px; margin-bottom:0.6rem; }
+    .logo-icon {
+      width:56px; height:56px;
+      background:linear-gradient(135deg, #7b1fa2, #ab47bc);
+      border-radius:16px; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 8px 24px rgba(123,31,162,0.35);
+    }
+    .logo-text {
+      font-family:'Sora',sans-serif; font-size:2.6rem; font-weight:800; letter-spacing:-0.5px;
+      background:linear-gradient(135deg, #7b1fa2 30%, #e91e8c);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .tagline {
+      display:inline-flex; align-items:center; gap:10px; font-size:0.95rem; font-weight:600; color:var(--text2);
+      background:var(--white); border:1px solid var(--card-border); padding:0.4rem 1.4rem;
+      border-radius:40px; box-shadow:var(--shadow-sm); margin-top:0.4rem;
+    }
+    .tagline .dot { width:6px; height:6px; border-radius:50%; background:var(--primary-light); }
+
+    .request-btn {
+      display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-top:0.75rem;
+      background:linear-gradient(135deg, #ff6f00, #ffa000);
+      color:white; font-weight:700; font-size:0.9rem;
+      padding:0.55rem 1.4rem 0.55rem 0.9rem; border-radius:50px;
+      box-shadow:0 6px 20px rgba(255,111,0,0.35);
+      transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      font-family:'Plus Jakarta Sans',sans-serif;
+    }
+    .request-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(255,111,0,0.45); }
+    .request-btn-icon { width:28px; height:28px; background:rgba(255,255,255,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .request-btn-icon svg { width:14px; height:14px; fill:white; }
+    .request-btn-arrow svg { width:16px; height:16px; fill:white; margin-left:2px; }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      display:flex; align-items:center; gap:8px; margin-bottom:1.5rem;
+      font-size:0.85rem; font-weight:600; color:var(--text3);
+    }
+    .breadcrumb .crumb { cursor:pointer; padding:4px 12px; border-radius:20px; transition:all 0.2s; color:var(--text2); }
+    .breadcrumb .crumb:hover { background:var(--primary-soft); color:var(--primary); }
+    .breadcrumb .crumb.active { color:var(--primary); font-weight:700; cursor:default; }
+    .breadcrumb .sep { color:var(--text3); font-size:0.7rem; }
+
+    /* STEPS */
+    .step { display:none; animation:fadeUp 0.3s ease-out both; }
+    .step.visible { display:block; }
+
+    /* STATS */
+    .stats-bar { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .stat-pill {
+      background:var(--white); border:1px solid var(--card-border); border-radius:12px;
+      padding:0.7rem 1.2rem; display:flex; align-items:center; gap:10px;
+      box-shadow:var(--shadow-sm); flex:1; min-width:130px;
+    }
+    .stat-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .stat-icon svg { width:16px; height:16px; }
+    .stat-icon.purple { background:var(--primary-soft); } .stat-icon.purple svg { fill:var(--primary); }
+    .stat-icon.pink   { background:var(--accent-soft);  } .stat-icon.pink svg   { fill:var(--accent);  }
+    .stat-icon.gold   { background:#fff8e1; }             .stat-icon.gold svg   { fill:#f57f17; }
+    .stat-val { font-weight:800; font-size:1.1rem; color:var(--text); line-height:1; }
+    .stat-lbl { font-size:0.8rem; color:var(--text2); }
+
+    /* CLASS CARDS */
+    .step-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.8rem; flex-wrap:wrap; gap:12px; }
+    .step-title { display:flex; align-items:center; gap:12px; font-family:'Sora',sans-serif; font-size:1.35rem; font-weight:700; color:var(--text); }
+    .step-title .title-icon { width:40px; height:40px; background:var(--primary-soft); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .step-title .title-icon svg { width:18px; height:18px; fill:var(--primary); }
+
+    .class-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:1.4rem; }
+    .class-card {
+      background:var(--white); border:2px solid var(--card-border); border-radius:var(--radius-lg);
+      padding:2rem 1.8rem; cursor:pointer; transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      display:flex; flex-direction:column; align-items:flex-start; gap:12px;
+      position:relative; overflow:hidden;
+    }
+    .class-card::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, #7b1fa2, #e91e8c);
+      opacity:0; transition:opacity 0.25s ease; border-radius:inherit;
+    }
+    .class-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--primary-light); }
+    .class-card:hover::after { opacity:1; }
+    .class-card:hover .cc-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .class-card:hover .cc-icon svg { fill:white !important; }
+    .class-card:hover .cc-num,
+    .class-card:hover .cc-title,
+    .class-card:hover .cc-arrow { color:rgba(255,255,255,0.85) !important; }
+    .class-card:hover .cc-meta { color:rgba(255,255,255,0.8) !important; background:rgba(255,255,255,0.15) !important; border-color:transparent !important; }
+    .cc-icon-wrap { width:54px; height:54px; border-radius:14px; background:var(--primary-soft); display:flex; align-items:center; justify-content:center; transition:background 0.25s; position:relative; z-index:1; }
+    .cc-icon svg { width:26px; height:26px; fill:var(--primary); transition:fill 0.25s; }
+    .cc-num { font-size:0.72rem; font-weight:700; color:var(--text3); letter-spacing:0.5px; text-transform:uppercase; position:relative; z-index:1; transition:color 0.25s; }
+    .cc-title { font-family:'Sora',sans-serif; font-size:1.55rem; font-weight:800; color:var(--text); position:relative; z-index:1; transition:color 0.25s; line-height:1.1; }
+    .cc-meta {
+      font-size:0.78rem; font-weight:600; color:var(--text2); background:var(--bg);
+      border:1px solid var(--card-border); padding:3px 12px; border-radius:20px;
+      position:relative; z-index:1; transition:all 0.25s; display:inline-flex; align-items:center; gap:6px;
+    }
+    .cc-arrow { position:absolute; right:1.4rem; bottom:1.4rem; color:var(--text3); transition:color 0.25s; z-index:1; }
+    .cc-arrow svg { width:20px; height:20px; fill:currentColor; }
+
+    /* SUBJECT CARDS */
+    .subjects-section {
+      background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg);
+      padding:2rem; box-shadow:var(--shadow-md); margin-bottom:2rem;
+    }
+    .subjects-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(185px,1fr)); gap:1.1rem; }
+
+    .subject-card {
+      background:var(--bg); border:1.5px solid var(--card-border); border-radius:var(--radius-md);
+      padding:1.5rem 1rem; cursor:pointer;
+      transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .subject-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, #7b1fa2, #e91e8c);
+      opacity:0; transition:opacity 0.22s ease; border-radius:inherit;
+    }
+    .subject-card:hover { transform:translateY(-8px) scale(1.02); border-color:var(--primary-light); box-shadow:var(--shadow-lg); }
+    .subject-card:hover::before { opacity:1; }
+    .subject-card:hover .sub-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .subject-card:hover .sub-icon svg { fill:white !important; }
+    .subject-card:hover .subject-name,
+    .subject-card:hover .dl-hint { color:white !important; }
+    .subject-card:hover .imp-badge { background:rgba(255,255,255,0.2) !important; color:white !important; border-color:rgba(255,255,255,0.3) !important; }
+
+    .sub-icon-wrap {
+      width:56px; height:56px; background:var(--white); border-radius:14px;
+      display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm);
+      transition:background 0.22s; position:relative; z-index:1;
+    }
+    .sub-icon svg { width:26px; height:26px; fill:var(--primary); transition:fill 0.22s; }
+    .subject-name { font-weight:700; font-size:0.95rem; color:var(--text); transition:color 0.22s; position:relative; z-index:1; line-height:1.3; }
+    .imp-badge {
+      font-size:0.68rem; font-weight:700; background:var(--accent-soft);
+      border:1px solid #f48fb1; color:var(--accent);
+      padding:3px 10px; border-radius:20px;
+      display:inline-flex; align-items:center; gap:4px;
+      transition:all 0.22s; position:relative; z-index:1;
+    }
+    .imp-badge svg { width:9px; height:9px; fill:currentColor; }
+    .dl-hint {
+      font-size:0.72rem; font-weight:600; color:var(--primary);
+      display:flex; align-items:center; gap:5px; position:relative; z-index:1; transition:color 0.22s;
+    }
+    .dl-hint svg { width:12px; height:12px; fill:currentColor; }
+
+    /* AD BLOCKER TOAST */
+    .adb-toast {
+      position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(100px);
+      background:#1a1a2e; color:white; border-radius:16px;
+      padding:14px 20px; display:flex; align-items:flex-start; gap:12px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.35); z-index:9999;
+      max-width:420px; width:calc(100% - 32px);
+      transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      border:1px solid rgba(255,255,255,0.1);
+    }
+    .adb-toast.show { transform:translateX(-50%) translateY(0); }
+    .adb-toast-icon { width:36px; height:36px; border-radius:10px; background:#f57f17; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+    .adb-toast-icon svg { width:18px; height:18px; fill:white; }
+    .adb-toast-body { flex:1; }
+    .adb-toast-title { font-weight:700; font-size:0.88rem; margin-bottom:3px; }
+    .adb-toast-msg { font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.5; }
+    .adb-toast-close { background:none; border:none; color:rgba(255,255,255,0.5); cursor:pointer; font-size:1.1rem; padding:0; line-height:1; }
+    .adb-toast-close:hover { color:white; }
+
+    /* FOOTER */
+    .footer { background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg); padding:1.8rem 1.5rem; box-shadow:var(--shadow-sm); }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem 1.6rem; margin-bottom:1.2rem; }
+    .footer-links a { text-decoration:none; color:var(--text2); font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px; transition:all 0.2s; }
+    .footer-links a svg { width:14px; height:14px; fill:currentColor; }
+    .footer-links a:hover { color:var(--primary); }
+    .donate-link { background:linear-gradient(135deg,#ff6f00,#ff8f00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700 !important; }
+    .footer-copy { text-align:center; font-size:0.75rem; color:var(--text3); border-top:1px solid var(--card-border); padding-top:1rem; }
+
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(20px)}  to{opacity:1;transform:translateY(0)} }
+
+    @media(max-width:600px){
+      .logo-text { font-size:2rem; }
+      .class-grid { grid-template-columns:1fr 1fr; }
+      .subjects-grid { grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:0.8rem; }
+      .subjects-section { padding:1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+      </div>
+      <div class="logo-text">IMP Questions</div>
+    </div><br>
+    <div class="tagline">
+      <div class="dot"></div>
+      CBSE Most Important Questions · Class 9 to 12
+      <div class="dot"></div>
+    </div>
+    <br>
+    <a href="https://wondermayank.github.io/contact" target="_blank" class="request-btn">
+      <span class="request-btn-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg>
+      </span>
+      <span>Request Questions / Subject</span>
+      <span class="request-btn-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></span>
+    </a>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="crumb active" onclick="goStep(0)">
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      Select Class
+    </span>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-pill">
+      <div class="stat-icon purple"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9zm0 2.24L19.23 9 12 12.76 4.77 9zm5 8.11l-5 2.73-5-2.73V13.5l5 2.73 5-2.73z"/></svg></div>
+      <div><div class="stat-val">4</div><div class="stat-lbl">Classes</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon pink"><svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div>
+      <div><div class="stat-val" id="statTotal">30+</div><div class="stat-lbl">IMP PDFs</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon gold"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+      <div><div class="stat-val">Free</div><div class="stat-lbl">All PDFs</div></div>
+    </div>
+  </div>
+
+  <!-- STEP 0: CLASS -->
+  <div class="step visible" id="step0">
+    <div class="step-header">
+      <div class="step-title">
+        <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9z"/></svg></div>
+        <span>Choose Your Class</span>
+      </div>
+    </div>
+    <div class="class-grid" id="classGrid"></div>
+  </div>
+
+  <!-- STEP 1: SUBJECTS -->
+  <div class="step" id="step1">
+    <div class="subjects-section">
+      <div class="step-header">
+        <div class="step-title">
+          <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div>
+          <span id="subjectLabel">Select Subject</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text3);background:var(--bg);border:1px solid var(--card-border);padding:0.3rem 0.9rem;border-radius:20px;display:flex;align-items:center;gap:6px;">
+          <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+          Click to download
+        </div>
+      </div>
+      <div class="subjects-grid" id="subjectsGrid"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="https://wondermayank.github.io" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        wondermayank.github.io
+      </a>
+      <a href="https://commercesehoga.github.io/dashboard" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+        CBT Mock Platform
+      </a>
+      <a href="https://wondermayank.github.io/terms" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        Terms
+      </a>
+      <a href="https://wondermayank.github.io/contact" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Contact
+      </a>
+      <a href="https://commercesehoga.github.io/help" target="_blank" class="donate-link">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Donate / Support
+      </a>
+    </div>
+    <div class="footer-copy">© 2025 IMP Questions by Wondermayank · Free CBSE Important Questions PDF</div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="adb-toast" id="adbToast">
+  <div class="adb-toast-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
+  <div class="adb-toast-body">
+    <div class="adb-toast-title">PDF blocked by Ad Blocker</div>
+    <div class="adb-toast-msg">Disable your ad blocker for this site, or use <strong>Incognito mode</strong> (Ctrl+Shift+N).</div>
+  </div>
+  <button class="adb-toast-close" onclick="hideToast()">✕</button>
+</div>
+
+<script>
+// ─── SUBJECT DATA ───
+// URL: thunderstudy.github.io/imp/{class}{slug}  e.g. /imp/9science  /imp/12physics
+const subjectsDB = {
+  9: [
+    { name:"Mathematics",  slug:"maths",     icon:"maths"    },
+    { name:"Science",      slug:"science",   icon:"science"  },
+    { name:"Civics",       slug:"civics",    icon:"civics"   },
+    { name:"History",      slug:"history",   icon:"history"  },
+    { name:"Geography",    slug:"geography", icon:"geo"      },
+    { name:"Economics",    slug:"economics", icon:"eco"      }
+  ],
+  10: [
+    { name:"Mathematics",  slug:"maths",     icon:"maths"    },
+    { name:"Science",      slug:"science",   icon:"science"  },
+    { name:"Civics",       slug:"civics",    icon:"civics"   },
+    { name:"History",      slug:"history",   icon:"history"  },
+    { name:"Geography",    slug:"geography", icon:"geo"      },
+    { name:"Economics",    slug:"economics", icon:"eco"      }
+  ],
+  11: [
+    { name:"Physics",           slug:"physics",    icon:"physics"   },
+    { name:"Chemistry",         slug:"chemistry",  icon:"chemistry" },
+    { name:"Mathematics",       slug:"maths",      icon:"maths"     },
+    { name:"Biology",           slug:"biology",    icon:"biology"   },
+    { name:"Economics",         slug:"economics",  icon:"eco"       },
+    { name:"Business Studies",  slug:"business",   icon:"business"  },
+    { name:"Accountancy",       slug:"accountancy",icon:"account"   },
+    { name:"English",           slug:"english",    icon:"english"   }
+  ],
+  12: [
+    { name:"Physics",           slug:"physics",    icon:"physics"   },
+    { name:"Chemistry",         slug:"chemistry",  icon:"chemistry" },
+    { name:"Mathematics",       slug:"maths",      icon:"maths"     },
+    { name:"Biology",           slug:"biology",    icon:"biology"   },
+    { name:"Economics",         slug:"economics",  icon:"eco"       },
+    { name:"Business Studies",  slug:"business",   icon:"business"  },
+    { name:"Accountancy",       slug:"accountancy",icon:"account"   },
+    { name:"English",           slug:"english",    icon:"english"   }
+  ]
+};
+
+const classInfo = {
+  9:  { label:"Class 9",  desc:"6 Subjects" },
+  10: { label:"Class 10", desc:"6 Subjects" },
+  11: { label:"Class 11", desc:"8 Subjects" },
+  12: { label:"Class 12", desc:"8 Subjects" }
+};
+
+// SVG icons
+const icons = {
+  maths:    `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5h-2v-2h2v-2h2v2h2v2h-2v2h-2v-2zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/></svg>`,
+  science:  `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 8 0V4h1V2H7zm5 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1-6H11V4h2v8z"/></svg>`,
+  physics:  `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  chemistry:`<svg viewBox="0 0 24 24"><path d="M7 2v2h1v7.27l-4.5 7.27C3.19 19.36 3.55 20 4.14 20h15.72c.59 0 .95-.64.64-1.46L16 11.27V4h1V2H7zm3 10.28L11.32 10h1.36L14 12.28V14h-4v-1.72z"/></svg>`,
+  biology:  `<svg viewBox="0 0 24 24"><path d="M17.5 4.5c-1.95 0-4.05.4-5.5 1.5C10.55 4.9 8.45 4.5 6.5 4.5 4.55 4.5 2.45 4.9 1 6v14.65c0 .65.73.45.75.45.15 0 .25-.05.35-.1C3.45 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.95 3.8-1.5 5.5-1.5 1.65 0 3.35.45 4.75 1.3.1.05.15.05.25.05.02 0 .75.2.75-.45V6C21.85 4.9 19.5 4.5 17.5 4.5z"/></svg>`,
+  civics:   `<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93C9.33 17.79 7 14.5 7 11V7.18L12 5z"/></svg>`,
+  history:  `<svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>`,
+  geo:      `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+  eco:      `<svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>`,
+  business: `<svg viewBox="0 0 24 24"><path d="M10 16v-1H3.01L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-4h-7v1h-4zm10-9h-4.01V5l-2-2h-4l-2 2v2H4c-1.1 0-2 .9-2 2v3c0 1.1.9 2 2 2h6v-2h4v2h6c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V5h4v2z"/></svg>`,
+  account:  `<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>`,
+  english:  `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`
+};
+
+function getPDFLink(cls, slug) {
+  return `https://thunderstudy.github.io/imp/${cls}${slug}`;
+}
+
+// ─── STATE ───
+let currentClass = null;
+
+function showStep(n) {
+  [0,1].forEach(i => document.getElementById(`step${i}`).classList.toggle('visible', i===n));
+}
+
+function updateBreadcrumb(step) {
+  const bc = document.getElementById('breadcrumb');
+  let html = `<span class="crumb${step===0?' active':''}" onclick="goStep(0)">
+    <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Select Class</span>`;
+  if (step >= 1) html += `<span class="sep">›</span><span class="crumb active">Class ${currentClass}</span>`;
+  bc.innerHTML = html;
+}
+
+function goStep(n) {
+  if (n===0) { currentClass=null; showStep(0); updateBreadcrumb(0); }
+}
+
+// CLASS CARDS
+function renderClassGrid() {
+  const grid = document.getElementById('classGrid');
+  grid.innerHTML = '';
+  [9,10,11,12].forEach(cls => {
+    const subs = subjectsDB[cls]||[];
+    const info = classInfo[cls];
+    const card = document.createElement('div');
+    card.className = 'class-card';
+    card.innerHTML = `
+      <div class="cc-icon-wrap">
+        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div>
+      </div>
+      <div class="cc-num">CBSE · ${subs.length} Subjects</div>
+      <div class="cc-title">${info.label}</div>
+      <div class="cc-meta">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        ${subs.length} IMP PDFs
+      </div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></div>
+    `;
+    card.onclick = () => selectClass(cls);
+    grid.appendChild(card);
+  });
+}
+
+// SUBJECT CARDS
+function selectClass(cls) {
+  currentClass = cls;
+  const subs = subjectsDB[cls]||[];
+  document.getElementById('subjectLabel').textContent = `Class ${cls} · Important Questions`;
+  const grid = document.getElementById('subjectsGrid');
+  grid.innerHTML = '';
+  subs.forEach(sub => {
+    const url = getPDFLink(cls, sub.slug);
+    const card = document.createElement('div');
+    card.className = 'subject-card';
+    card.innerHTML = `
+      <div class="sub-icon-wrap"><div class="sub-icon">${icons[sub.icon]||icons.maths}</div></div>
+      <div class="subject-name">${sub.name}</div>
+      <div class="imp-badge">
+        <svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        IMP Questions
+      </div>
+      <div class="dl-hint">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+        Download PDF
+      </div>
+    `;
+    card.onclick = () => openPDF(url);
+    grid.appendChild(card);
+  });
+  showStep(1);
+  updateBreadcrumb(1);
+}
+
+// AD BLOCKER
+let toastTimer = null;
+function openPDF(url) {
+  const tab = window.open(url, '_blank');
+  if (!tab || tab.closed || typeof tab.closed === 'undefined') { showToast(); return; }
+  toastTimer = setTimeout(() => {
+    try { if (tab.location && tab.location.href === 'about:blank') showToast(); } catch(e) {}
+  }, 1200);
+}
+function showToast() {
+  document.getElementById('adbToast').classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(hideToast, 6000);
+}
+function hideToast() { document.getElementById('adbToast').classList.remove('show'); }
+
+// INIT
+renderClassGrid();
+showStep(0);
+updateBreadcrumb(0);
+
+// total count
+let t = 0;
+[9,10,11,12].forEach(c => t += (subjectsDB[c]||[]).length);
+document.getElementById('statTotal').textContent = t;
+</script>
+</body>
+</html>

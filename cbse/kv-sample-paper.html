@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderStudy — Sample Papers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-50: #f0f8ff;
+  --blue-100: #dbeffe;
+  --blue-200: #bae3fd;
+  --blue-300: #7ccffa;
+  --blue-400: #38b6f6;
+  --blue-500: #0e9de8;
+  --blue-600: #027cc6;
+  --blue-700: #0360a0;
+  --blue-800: #075383;
+  --blue-900: #0c4570;
+  --white: #ffffff;
+  --text-primary: #0c2340;
+  --text-secondary: #3a6080;
+  --text-muted: #7ba3be;
+  --border: #cce8f9;
+  --border-strong: #93d0f5;
+  --surface: #f5fbff;
+  --shadow: 0 2px 16px rgba(14,157,232,0.08);
+  --shadow-hover: 0 6px 28px rgba(14,157,232,0.16);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--blue-50);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ── DECORATIVE BG ── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -120px; right: -120px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, var(--blue-200) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -80px; left: -80px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, var(--blue-200) 0%, transparent 70%);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center; gap: 14px;
+}
+
+.logo-box {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(14,157,232,0.3);
+}
+.logo-box svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--blue-700); letter-spacing: -0.3px; }
+.brand span { color: var(--blue-400); }
+
+/* ── BREADCRUMB ── */
+.breadcrumb {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.78rem; color: var(--text-muted);
+}
+.bc-seg { cursor: pointer; padding: 3px 10px; border-radius: 20px; transition: all 0.15s; font-weight: 500; }
+.bc-seg:hover { background: var(--blue-100); color: var(--blue-700); }
+.bc-seg.current { background: var(--blue-100); color: var(--blue-600); }
+.bc-arrow { color: var(--border-strong); font-size: 0.7rem; }
+
+/* ── MAIN ── */
+main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+/* ── SCREEN ── */
+.screen { display: none; animation: fadeUp 0.28s ease; }
+.screen.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── HERO TEXT ── */
+.hero { margin-bottom: 2rem; }
+.hero-label {
+  display: inline-block;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--blue-500); background: var(--blue-100);
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 10px;
+}
+.hero h1 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
+.hero h1 span { color: var(--blue-500); }
+.hero p { margin-top: 8px; font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; }
+
+/* ── CLASS CARDS ── */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.class-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative; overflow: hidden;
+}
+.class-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue-300), var(--blue-500));
+  opacity: 0; transition: opacity 0.2s;
+}
+.class-card:hover { border-color: var(--blue-300); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.class-card:hover::before { opacity: 1; }
+
+.class-num {
+  font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800;
+  color: var(--blue-200); line-height: 1;
+  margin-bottom: 8px;
+}
+.class-card:hover .class-num { color: var(--blue-300); }
+.class-name { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
+.class-desc { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+.class-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 14px; font-size: 0.72rem; font-weight: 500;
+  color: var(--blue-600); background: var(--blue-50); border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 20px;
+}
+.class-badge svg { width: 12px; height: 12px; stroke: var(--blue-500); fill: none; stroke-width: 2; }
+
+/* ── SUBJECT GRID ── */
+.section-header { margin-bottom: 1.5rem; }
+.section-header h2 { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--text-primary); }
+.section-header p { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; font-weight: 500; color: var(--text-muted);
+  cursor: pointer; margin-bottom: 1.5rem;
+  padding: 5px 12px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition: all 0.15s;
+}
+.back-btn:hover { color: var(--blue-600); border-color: var(--blue-300); background: var(--blue-50); }
+.back-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.85rem;
+}
+.subject-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+.subject-card:hover { border-color: var(--blue-400); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+.sub-icon {
+  width: 40px; height: 40px;
+  background: var(--blue-50); border: 1.5px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+.sub-icon svg { width: 20px; height: 20px; stroke: var(--blue-500); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.subject-card:hover .sub-icon { background: var(--blue-100); border-color: var(--blue-300); }
+
+.sub-name { font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
+.sub-count { font-size: 0.73rem; color: var(--text-muted); margin-top: 3px; }
+
+/* ── PAPER LIST ── */
+.papers-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.paper-row {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.1rem;
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+  transition: all 0.18s;
+}
+.paper-row:hover { border-color: var(--blue-400); box-shadow: var(--shadow-hover); transform: translateX(3px); }
+
+.file-icon {
+  width: 38px; height: 38px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px;
+}
+.fi-pdf { background: #fff1f1; color: #c0392b; border: 1px solid #ffc8c8; }
+.fi-doc { background: var(--blue-50); color: var(--blue-600); border: 1px solid var(--border); }
+.fi-ppt { background: #fff7ee; color: #c06b00; border: 1px solid #ffddb3; }
+.fi-file { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
+
+.paper-name { flex: 1; font-size: 0.9rem; font-weight: 500; color: var(--text-primary); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.paper-year { font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; }
+
+.open-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--blue-600); color: #fff;
+  font-size: 0.73rem; font-weight: 500;
+  padding: 5px 13px; border-radius: 20px; flex-shrink: 0;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+.open-chip:hover { background: var(--blue-700); }
+.open-chip svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+.empty-state {
+  text-align: center; padding: 3rem 1rem;
+  color: var(--text-muted); font-size: 0.88rem;
+}
+.empty-state svg { width: 40px; height: 40px; stroke: var(--border-strong); fill: none; stroke-width: 1.5; margin-bottom: 12px; }
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: flex; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap;
+}
+.stat-chip {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 0.78rem; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 6px;
+}
+.stat-chip strong { color: var(--blue-600); }
+.stat-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue-300); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 540px) {
+  header { padding: 0 1rem; }
+  .brand { font-size: 1rem; }
+  main { padding: 1.5rem 1rem 3rem; }
+  .hero h1 { font-size: 1.55rem; }
+  .class-grid { grid-template-columns: 1fr 1fr; }
+  .subject-grid { grid-template-columns: 1fr 1fr; }
+  .paper-year { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-box">
+    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+  </div>
+  <div class="brand">Thunder<span>Study</span></div>
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Navigation path">
+    <span class="bc-seg current" onclick="goTo(1)">Classes</span>
+  </nav>
+</header>
+
+<main>
+
+  <!-- SCREEN 1: CLASSES -->
+  <div class="screen active" id="screen1">
+    <div class="hero">
+      <div class="hero-label">&#9889; ThunderStudy</div>
+      <h1>Sample Papers<br><span>Class 9 to 12</span></h1>
+      <p>CBSE board sample papers — select your class to get started</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat-chip"><div class="stat-dot"></div>4 Classes</div>
+      <div class="stat-chip"><div class="stat-dot"></div>All Subjects</div>
+      <div class="stat-chip"><div class="stat-dot"></div>PDF &amp; DOC Files</div>
+      <div class="stat-chip"><div class="stat-dot"></div>Direct Drive Links</div>
+    </div>
+    <div class="class-grid" id="classGrid"></div>
+  </div>
+
+  <!-- SCREEN 2: SUBJECTS -->
+  <div class="screen" id="screen2">
+    <button class="back-btn" onclick="goTo(1)">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Classes
+    </button>
+    <div class="section-header">
+      <h2 id="s2Title">Class 9 — Subjects</h2>
+      <p id="s2Sub">Select a subject to browse sample papers</p>
+    </div>
+    <div class="subject-grid" id="subjectGrid"></div>
+  </div>
+
+  <!-- SCREEN 3: PAPERS -->
+  <div class="screen" id="screen3">
+    <button class="back-btn" id="s3Back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Subjects
+    </button>
+    <div class="section-header">
+      <h2 id="s3Title">Papers</h2>
+      <p id="s3Sub">Click a paper to open directly from Google Drive</p>
+    </div>
+    <div class="papers-list" id="papersList"></div>
+  </div>
+
+</main>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────────
+const ROOT = "https://drive.google.com/drive/folders/11YZQZhTCuSXx-6KVh7RxB80E9icFUhr9";
+
+const CLASSES = [
+  { num: 9,  label: "Class 9",  desc: "Foundation year",  subjects: 6  },
+  { num: 10, label: "Class 10", desc: "Board year",        subjects: 6  },
+  { num: 11, label: "Class 11", desc: "Senior secondary",  subjects: 8  },
+  { num: 12, label: "Class 12", desc: "Final board year",  subjects: 8  },
+];
+
+// Subject icons (inline SVG path data)
+const ICONS = {
+  math:   '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+  sci:    '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>',
+  soc:    '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  eng:    '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  hindi:  '<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>',
+  phy:    '<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>',
+  chem:   '<path d="M9 3h6l1 7H8L9 3z"/><path d="M8 10S5 15 5 17a7 7 0 0 0 14 0c0-2-3-7-3-7"/>',
+  bio:    '<path d="M12 22V12M12 12C12 7 17 5 17 5S12 2 12 2 7 5 7 5s5 2 5 7z"/><path d="M12 12c0 5-5 7-5 7s5 3 5 3 5-3 5-3-5-2-5-7z"/>',
+  acc:    '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2m2 0h2m2 0h2M7 12h2m2 0h6"/>',
+  eco:    '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+  hist:   '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  geo:    '<path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M3.6 9h16.8M3.6 15h16.8"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>',
+};
+
+const SUBJECTS = {
+  9:  [
+    { id:"m9",  name:"Mathematics",    icon:"math" },
+    { id:"s9",  name:"Science",         icon:"sci"  },
+    { id:"ss9", name:"Social Science",  icon:"soc"  },
+    { id:"e9",  name:"English",         icon:"eng"  },
+    { id:"h9",  name:"Hindi",           icon:"hindi"},
+    { id:"sk9", name:"Sanskrit",        icon:"eng"  },
+  ],
+  10: [
+    { id:"m10",  name:"Mathematics",    icon:"math" },
+    { id:"s10",  name:"Science",        icon:"sci"  },
+    { id:"ss10", name:"Social Science", icon:"soc"  },
+    { id:"e10",  name:"English",        icon:"eng"  },
+    { id:"h10",  name:"Hindi",          icon:"hindi"},
+    { id:"sk10", name:"Sanskrit",       icon:"eng"  },
+  ],
+  11: [
+    { id:"m11",  name:"Mathematics",   icon:"math" },
+    { id:"ph11", name:"Physics",        icon:"phy"  },
+    { id:"ch11", name:"Chemistry",      icon:"chem" },
+    { id:"b11",  name:"Biology",        icon:"bio"  },
+    { id:"ac11", name:"Accountancy",    icon:"acc"  },
+    { id:"ec11", name:"Economics",      icon:"eco"  },
+    { id:"hi11", name:"History",        icon:"hist" },
+    { id:"e11",  name:"English",        icon:"eng"  },
+  ],
+  12: [
+    { id:"m12",  name:"Mathematics",   icon:"math" },
+    { id:"ph12", name:"Physics",        icon:"phy"  },
+    { id:"ch12", name:"Chemistry",      icon:"chem" },
+    { id:"b12",  name:"Biology",        icon:"bio"  },
+    { id:"ac12", name:"Accountancy",    icon:"acc"  },
+    { id:"ec12", name:"Economics",      icon:"eco"  },
+    { id:"hi12", name:"History",        icon:"hist" },
+    { id:"e12",  name:"English",        icon:"eng"  },
+  ],
+};
+
+const PAPERS = {
+  m9:  [
+    { name:"Mathematics Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Mathematics Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  s9:  [
+    { name:"Science Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Science Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ss9: [
+    { name:"Social Science Sample Paper (2024-25)", type:"doc", url:ROOT },
+  ],
+  e9:  [
+    { name:"English Language & Literature Sample Paper", type:"pdf", url:ROOT },
+  ],
+  h9:  [
+    { name:"Hindi A Sample Paper (2024-25)", type:"pdf", url:ROOT },
+    { name:"Hindi B Sample Paper (2024-25)", type:"pdf", url:ROOT },
+  ],
+  sk9: [
+    { name:"Sanskrit Sample Paper (2024-25)", type:"doc", url:ROOT },
+  ],
+  m10: [
+    { name:"Mathematics Basic — Sample Paper 1",    type:"pdf", url:ROOT },
+    { name:"Mathematics Basic — Sample Paper 2",    type:"pdf", url:ROOT },
+    { name:"Mathematics Standard — Sample Paper 1", type:"pdf", url:ROOT },
+    { name:"Mathematics Standard — Sample Paper 2", type:"pdf", url:ROOT },
+  ],
+  s10: [
+    { name:"Science Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Science Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ss10:[
+    { name:"Social Science Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Social Science Sample Paper 2 (2024-25)", type:"doc", url:ROOT },
+  ],
+  e10: [
+    { name:"English L&L Sample Paper (2024-25)", type:"pdf", url:ROOT },
+  ],
+  h10: [
+    { name:"Hindi A Sample Paper (2024-25)", type:"pdf", url:ROOT },
+    { name:"Hindi B Sample Paper (2024-25)", type:"pdf", url:ROOT },
+  ],
+  sk10:[
+    { name:"Sanskrit Sample Paper (2024-25)", type:"doc", url:ROOT },
+  ],
+  m11: [
+    { name:"Mathematics Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Mathematics Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ph11:[
+    { name:"Physics Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Physics Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ch11:[
+    { name:"Chemistry Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  b11: [
+    { name:"Biology Sample Paper (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ac11:[
+    { name:"Accountancy Sample Paper (2024-25)", type:"doc", url:ROOT },
+  ],
+  ec11:[
+    { name:"Economics Sample Paper (2024-25)", type:"pdf", url:ROOT },
+  ],
+  hi11:[
+    { name:"History Sample Paper (2024-25)", type:"doc", url:ROOT },
+  ],
+  e11: [
+    { name:"English Core Sample Paper (2024-25)", type:"pdf", url:ROOT },
+  ],
+  m12: [
+    { name:"Mathematics Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Mathematics Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Mathematics Sample Paper 3 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ph12:[
+    { name:"Physics Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Physics Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ch12:[
+    { name:"Chemistry Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Chemistry Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  b12: [
+    { name:"Biology Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Biology Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  ac12:[
+    { name:"Accountancy Sample Paper 1 (2024-25)", type:"doc", url:ROOT },
+    { name:"Accountancy Sample Paper 2 (2024-25)", type:"doc", url:ROOT },
+  ],
+  ec12:[
+    { name:"Economics Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"Economics Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+  hi12:[
+    { name:"History Sample Paper (2024-25)", type:"doc", url:ROOT },
+  ],
+  e12: [
+    { name:"English Core Sample Paper 1 (2024-25)", type:"pdf", url:ROOT },
+    { name:"English Core Sample Paper 2 (2024-25)", type:"pdf", url:ROOT },
+  ],
+};
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let selClass = null;
+let selSubject = null;
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function icon(path){ return `<svg viewBox="0 0 24 24">${path}</svg>`; }
+
+function fileBadge(type){
+  const t = type.toLowerCase();
+  if(t==='pdf') return '<div class="file-icon fi-pdf">PDF</div>';
+  if(t==='doc'||t==='docx') return '<div class="file-icon fi-doc">DOC</div>';
+  if(t==='ppt'||t==='pptx') return '<div class="file-icon fi-ppt">PPT</div>';
+  return '<div class="file-icon fi-file">FILE</div>';
+}
+
+function totalPapers(cls){
+  let n = 0;
+  (SUBJECTS[cls]||[]).forEach(s => { n += (PAPERS[s.id]||[]).length; });
+  return n;
+}
+
+function subjectPaperCount(id){ return (PAPERS[id]||[]).length; }
+
+// ── BREADCRUMB ───────────────────────────────────────────────────────────────
+function updateBC(){
+  const bc = document.getElementById('breadcrumb');
+  let html = `<span class="bc-seg ${selClass===null?'current':''}" onclick="goTo(1)">Classes</span>`;
+  if(selClass !== null){
+    html += `<span class="bc-arrow">›</span>`;
+    html += `<span class="bc-seg ${selSubject===null?'current':''}" onclick="goTo(2)">Class ${selClass}</span>`;
+  }
+  if(selSubject !== null){
+    html += `<span class="bc-arrow">›</span>`;
+    html += `<span class="bc-seg current">${selSubject.name}</span>`;
+  }
+  bc.innerHTML = html;
+}
+
+function goTo(n){
+  if(n===1){ selClass=null; selSubject=null; }
+  if(n===2){ selSubject=null; }
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen'+n).classList.add('active');
+  updateBC();
+}
+
+// ── RENDER CLASSES ────────────────────────────────────────────────────────────
+function renderClasses(){
+  const g = document.getElementById('classGrid');
+  g.innerHTML = CLASSES.map(c => {
+    const total = totalPapers(c.num);
+    return `<div class="class-card" onclick="pickClass(${c.num})">
+      <div class="class-num">${c.num}</div>
+      <div class="class-name">${c.label}</div>
+      <div class="class-desc">${c.desc}</div>
+      <div class="class-badge">${icon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>')}&nbsp;${total} papers</div>
+    </div>`;
+  }).join('');
+}
+
+// ── PICK CLASS ────────────────────────────────────────────────────────────────
+function pickClass(cls){
+  selClass = cls;
+  selSubject = null;
+  const subs = SUBJECTS[cls];
+  document.getElementById('s2Title').textContent = `Class ${cls} — Select Subject`;
+  document.getElementById('s2Sub').textContent = `${subs.length} subjects available`;
+  const g = document.getElementById('subjectGrid');
+  g.innerHTML = subs.map(s => {
+    const count = subjectPaperCount(s.id);
+    return `<div class="subject-card" onclick="pickSubject('${s.id}','${s.name}')">
+      <div class="sub-icon">${icon(ICONS[s.icon]||ICONS.eng)}</div>
+      <div class="sub-name">${s.name}</div>
+      <div class="sub-count">${count} paper${count!==1?'s':''}</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen2').classList.add('active');
+  updateBC();
+}
+
+// ── PICK SUBJECT ──────────────────────────────────────────────────────────────
+function pickSubject(id, name){
+  selSubject = { id, name };
+  const papers = PAPERS[id] || [];
+  document.getElementById('s3Title').textContent = `Class ${selClass} — ${name}`;
+  document.getElementById('s3Sub').textContent = `${papers.length} sample paper${papers.length!==1?'s':''} • Click to open from Google Drive`;
+  document.getElementById('s3Back').onclick = () => goTo(2);
+
+  const list = document.getElementById('papersList');
+  if(papers.length === 0){
+    list.innerHTML = `<div class="empty-state">
+      <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+      <p>No papers yet — check back soon</p>
+    </div>`;
+  } else {
+    list.innerHTML = papers.map((p,i) => `
+      <a class="paper-row" href="${p.url}" target="_blank" rel="noopener noreferrer">
+        ${fileBadge(p.type)}
+        <span class="paper-name">${p.name}</span>
+        <span class="paper-year">2024-25</span>
+        <span class="open-chip">
+          ${icon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>')}
+          Open
+        </span>
+      </a>`).join('');
+  }
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen3').classList.add('active');
+  updateBC();
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+renderClasses();
+</script>
+</body>
+</html>

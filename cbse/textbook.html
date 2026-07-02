@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CBSE Textbooks | Classes IX–XII</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:    #0d1117;
+      --ink2:   #3a4250;
+      --ink3:   #7a8494;
+      --paper:  #f7f4ef;
+      --cream:  #ede9e1;
+      --rule:   #ddd8ce;
+      --amber:  #c8860a;
+      --amber-soft: #fdf3e0;
+      --teal:   #0a7c6e;
+      --teal-soft: #e2f5f2;
+      --rose:   #b5341a;
+      --rose-soft: #fdeee9;
+      --blue:   #1a4db5;
+      --blue-soft: #e8eefb;
+      --violet: #6b3fa0;
+      --violet-soft: #f0eaf8;
+      --shadow-sm: 0 2px 8px rgba(13,17,23,0.07);
+      --shadow-md: 0 6px 24px rgba(13,17,23,0.11);
+      --r: 14px;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 31px,
+        rgba(13,17,23,0.04) 31px, rgba(13,17,23,0.04) 32px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 72px; bottom: 0;
+      width: 2px;
+      background: rgba(180,60,30,0.15);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 3rem 0 2rem;
+      animation: riseIn 0.7s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-soft);
+      border: 1px solid #f0d090;
+      padding: 5px 14px;
+      border-radius: 40px;
+      margin-bottom: 1.1rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 0.6rem;
+    }
+    h1 em { font-style: italic; color: var(--amber); }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--ink2);
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+      line-height: 1.6;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+      border: none;
+      cursor: pointer;
+    }
+    .pill-btn.amber { background: var(--amber); color: #fff; box-shadow: 0 4px 14px rgba(200,134,10,0.36); }
+    .pill-btn.amber:hover { transform:translateY(-2px) scale(1.04); }
+    .pill-btn.tg { background: #229ed9; color: #fff; box-shadow: 0 4px 14px rgba(34,158,217,0.32); }
+    .pill-btn.tg:hover { transform:translateY(-2px) scale(1.04); }
+    .pill-btn svg { width:14px; height:14px; fill:currentColor; flex-shrink:0; }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      margin: 1.6rem 0 0;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 1.5px solid var(--rule);
+      border-radius: 50px;
+      padding: 0.55rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+      max-width: 480px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-box:focus-within {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(200,134,10,0.12);
+    }
+    .search-box svg { width:16px; height:16px; fill:var(--ink3); flex-shrink:0; }
+    .search-box input {
+      border:none; outline:none; background:transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: var(--ink); width:100%;
+    }
+    .search-box input::placeholder { color: var(--ink3); }
+
+    /* ── FILTER TABS ── */
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 1.2rem 0 0;
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.32rem 1rem;
+      border-radius: 40px;
+      border: 1.5px solid var(--rule);
+      background: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink2);
+      cursor: pointer;
+      transition: all 0.18s;
+      user-select: none;
+    }
+    .filter-chip:hover { border-color: var(--amber); color: var(--amber); }
+    .filter-chip.active { background: var(--amber); border-color: var(--amber); color: #fff; }
+    .filter-chip .count {
+      background: rgba(0,0,0,0.12);
+      border-radius: 20px;
+      padding: 1px 7px;
+      font-size: 0.68rem;
+    }
+    .filter-chip.active .count { background: rgba(255,255,255,0.25); }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 2.8rem 0 1.4rem;
+    }
+    .section-label-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--ink2);
+      white-space: nowrap;
+    }
+    .section-label-line {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-label-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      padding: 3px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── BOOK CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .book-card {
+      background: #fff;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--r);
+      padding: 1.4rem 1.2rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+
+    .book-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      border-radius: 4px 0 0 4px;
+      background: var(--accent, var(--amber));
+      transition: width 0.2s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent, var(--amber));
+    }
+    .book-card:hover::before { width: 6px; }
+
+    .book-card.hidden { display: none; }
+
+    .card-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--accent-soft, var(--amber-soft));
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon svg { width: 18px; height: 18px; fill: var(--accent, var(--amber)); }
+
+    .card-class {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent, var(--amber));
+    }
+
+    .card-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      width: 100%;
+    }
+    .card-sub {
+      font-size: 0.72rem;
+      color: var(--ink3);
+      font-weight: 500;
+    }
+    .card-lang {
+      font-size: 0.7rem;
+      color: var(--ink3);
+      background: var(--cream);
+      border-radius: 4px;
+      padding: 2px 8px;
+      align-self: flex-start;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--ink3);
+      margin-top: 2px;
+    }
+    .card-tag svg { width: 12px; height: 12px; fill: currentColor; }
+
+    .card-arrow {
+      position: absolute;
+      right: 12px; top: 50%;
+      transform: translateY(-50%);
+      width: 24px; height: 24px;
+      background: var(--accent-soft, var(--amber-soft));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .card-arrow svg { width: 14px; height: 14px; fill: var(--accent, var(--amber)); }
+    .book-card:hover .card-arrow { opacity: 1; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      grid-column: 1/-1;
+      padding: 3rem;
+      text-align: center;
+      color: var(--ink3);
+      font-size: 0.9rem;
+    }
+    .empty-state svg { width: 40px; height: 40px; fill: var(--rule); margin-bottom: 12px; display:block; margin-left:auto; margin-right:auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 3.5rem;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--r);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.4rem;
+    }
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink2);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-links a svg { width:13px; height:13px; fill:currentColor; }
+    .footer-copy { font-size: 0.73rem; color: var(--ink3); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.4rem;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--r);
+      box-shadow: var(--shadow-sm);
+      margin-top: 1.5rem;
+      animation: riseIn 0.5s ease 0.15s both;
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 2px; }
+    .stat-val {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.7rem; font-weight: 600; color: var(--ink3); text-transform: uppercase; letter-spacing: 1px; }
+    .stat-sep { width: 1px; background: var(--rule); align-self: stretch; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes riseIn {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .book-card {
+      opacity: 0;
+      animation: riseIn 0.4s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @media(max-width:600px) {
+      body::after { left: 44px; }
+      .wrap { padding: 0 1rem 4rem; }
+      h1 { font-size: 2rem; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .stats-bar { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="eyebrow">CBSE · ePub Textbooks</div>
+    <h1>Free CBSE<br><em>Textbooks</em></h1>
+    <p class="subtitle">Official ePub books from CBSE for Classes IX, X, XI &amp; XII.<br>Read online directly — no download needed.</p>
+    <div class="header-row">
+      <a href="https://t.me/thunderstudy_cbse" target="_blank" class="pill-btn tg">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        @thunderstudy_cbse
+      </a>
+      <a href="https://thunderstudy.github.io" target="_blank" class="pill-btn amber">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        ThunderStudy Home
+      </a>
+    </div>
+
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-item"><div class="stat-val" id="statTotal">—</div><div class="stat-label">Total Books</div></div>
+      <div class="stat-sep"></div>
+      <div class="stat-item"><div class="stat-val">4</div><div class="stat-label">Classes (IX–XII)</div></div>
+      <div class="stat-sep"></div>
+      <div class="stat-item"><div class="stat-val">Free</div><div class="stat-label">No Login Needed</div></div>
+    </div>
+
+    <div class="search-wrap">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="searchInput" placeholder="Search books, subjects, languages…">
+      </div>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <div class="filter-chip active" data-filter="all">All <span class="count" id="countAll">0</span></div>
+      <div class="filter-chip" data-filter="IX">Class IX <span class="count" id="countIX">0</span></div>
+      <div class="filter-chip" data-filter="X">Class X <span class="count" id="countX">0</span></div>
+      <div class="filter-chip" data-filter="XI">Class XI <span class="count" id="countXI">0</span></div>
+      <div class="filter-chip" data-filter="XII">Class XII <span class="count" id="countXII">0</span></div>
+    </div>
+  </header>
+
+  <!-- GRIDS -->
+  <div id="gridIX_X_wrap">
+    <div class="section-label">
+      <span class="section-label-text">Classes IX &amp; X</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-badge" id="badgeIX_X">Loading…</span>
+    </div>
+    <div class="cards-grid" id="gridIX_X"></div>
+  </div>
+
+  <div id="gridXI_wrap">
+    <div class="section-label">
+      <span class="section-label-text">Class XI</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-badge" id="badgeXI">Loading…</span>
+    </div>
+    <div class="cards-grid" id="gridXI"></div>
+  </div>
+
+  <div id="gridXII_wrap">
+    <div class="section-label">
+      <span class="section-label-text">Class XII</span>
+      <div class="section-label-line"></div>
+      <span class="section-label-badge" id="badgeXII">Loading…</span>
+    </div>
+    <div class="cards-grid" id="gridXII"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://thunderstudy.github.io" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>ThunderStudy Home
+      </a>
+      <a href="https://t.me/thunderstudy_cbse" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram Channel
+      </a>
+      <a href="https://www.cbse.gov.in/ePub/webcbse/webcbse/ab-cbse-book-4.html" target="_blank" style="color:var(--teal)">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>CBSE Official
+      </a>
+    </div>
+    <div class="footer-copy">© 2025 ThunderStudy · Official CBSE ePub Library</div>
+  </footer>
+</div>
+
+<script>
+// ── ICON MAP by subject ──
+const ICONS = {
+  default: `<svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 14H8v-2h8v2zm0-4H8v-2h8v2zm-3-4H8V6h5v2z"/></svg>`,
+  it: `<svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>`,
+  science: `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v7.27l-4.5 7.27C3.19 19.36 3.55 20 4.14 20h15.72c.59 0 .95-.64.64-1.46L16 11.27V4h1V2H7z"/></svg>`,
+  english: `<svg viewBox="0 0 24 24"><path d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"/></svg>`,
+  social: `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>`,
+  maths: `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>`,
+  food: `<svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-3.5-2.28-5.03-4.83-5.03-2.54 0-4.83 1.53-4.83 5.03h9.66z"/></svg>`,
+  fashion: `<svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7 7z"/></svg>`,
+  geo: `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  legal: `<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>`,
+  engineering: `<svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>`,
+  lib: `<svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>`,
+  ncc: `<svg viewBox="0 0 24 24"><path d="M12 1l-8 4v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-10-4z"/></svg>`,
+  philosophy: `<svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>`,
+  theatre: `<svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>`,
+  medical: `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>`,
+  finance: `<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>`,
+  arabic: `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`,
+  sanskrit: `<svg viewBox="0 0 24 24"><path d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"/></svg>`,
+  projectbook: `<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41 2.12-2.12-1.41-1.42-2.12 2.13zm4.7-2.83l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41z"/></svg>`,
+  teacher: `<svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>`,
+  biotech: `<svg viewBox="0 0 24 24"><path d="M19.5 11h-1.67L14 5.5H10L6.17 11H4.5C3.12 11 2 12.12 2 13.5S3.12 16 4.5 16h15c1.38 0 2.5-1.12 2.5-2.5S20.88 11 19.5 11zM11 13H9v2H7v-2H5v-2h2V9h2v2h2v2zm3 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>`,
+};
+
+function getIcon(sub) {
+  const s = (sub || '').toLowerCase();
+  if (s.includes('it') || s.includes('computer') || s.includes('informatics')) return ICONS.it;
+  if (s.includes('science') && !s.includes('social') && !s.includes('library')) return ICONS.science;
+  if (s.includes('english')) return ICONS.english;
+  if (s.includes('social') || s.includes('disaster') || s.includes('history') || s.includes('civics') || s.includes('geography') || s.includes('geo')) return ICONS.geo;
+  if (s.includes('food') || s.includes('bakery') || s.includes('beverage')) return ICONS.food;
+  if (s.includes('fashion') || s.includes('textile') || s.includes('beauty')) return ICONS.fashion;
+  if (s.includes('legal')) return ICONS.legal;
+  if (s.includes('engineering') || s.includes('foundry')) return ICONS.engineering;
+  if (s.includes('library')) return ICONS.lib;
+  if (s.includes('ncc')) return ICONS.ncc;
+  if (s.includes('philosophy')) return ICONS.philosophy;
+  if (s.includes('theatre')) return ICONS.theatre;
+  if (s.includes('medical') || s.includes('health') || s.includes('first aid')) return ICONS.medical;
+  if (s.includes('finance') || s.includes('capital') || s.includes('account')) return ICONS.finance;
+  if (s.includes('arabic')) return ICONS.arabic;
+  if (s.includes('sanskrit')) return ICONS.sanskrit;
+  if (s.includes('project')) return ICONS.projectbook;
+  if (s.includes('teacher') || s.includes('formative')) return ICONS.teacher;
+  if (s.includes('biotech') || s.includes('biology') || s.includes('horticulture') || s.includes('animal')) return ICONS.biotech;
+  return ICONS.default;
+}
+
+// Accent color cycling
+const ACCENTS = [
+  ['var(--teal)', 'var(--teal-soft)'],
+  ['var(--blue)', 'var(--blue-soft)'],
+  ['var(--amber)', 'var(--amber-soft)'],
+  ['var(--rose)', 'var(--rose-soft)'],
+  ['var(--violet)', 'var(--violet-soft)'],
+];
+
+// ── ALL BOOK DATA ──
+const BOOKS = [
+  // ── CLASS IX ──
+  { name:"Arabic", cls:"IX", lang:"Arabic", sub:"Arabic", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Arabic (Class IX)/index.html" },
+  { name:"Workbook - Communicative", cls:"IX", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Workbook - Communicative (Class IX)/index.html" },
+  { name:"Information & Communication Technology", cls:"IX", lang:"English", sub:"IT", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Information _ Communication Technology (Class IX)/index.html" },
+  { name:"Literature Reader - Communicative", cls:"IX", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Literature Reader - Communicative (Class IX)/index.html" },
+  { name:"Main Course Book - Communicative", cls:"IX", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Main Course Book - Communicative (Class IX)/index.html" },
+  { name:"Project Based Learning", cls:"IX & X", lang:"English", sub:"Project Book", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Project Based Learning (Class IX & X)/index.html" },
+  { name:"Teacher Book", cls:"IX", lang:"English", sub:"Teacher's Manual", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Teacher Book (Class IX)/index.html" },
+  { name:"Disaster Management (Hindi)", cls:"IX", lang:"Hindi", sub:"Social Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Disaster Management in Hindi (Class IX)/index.html" },
+  { name:"Formative Assessment - Hindi B", cls:"IX", lang:"Hindi", sub:"Teacher's Manual", url:"http://cbse.gov.in/ePub/Formative Assessment - Hindi B (Class IX).epub" },
+  // ── CLASS X ──
+  { name:"Arabic", cls:"X", lang:"Arabic", sub:"Arabic", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Arabic (CBSE - X)/index.html" },
+  { name:"Beauty & Wellness", cls:"X", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Beauty and Wellness - Class X/index.html" },
+  { name:"Disaster Management", cls:"X", lang:"English", sub:"Social Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Disaster Management in English (Class X)/index.html" },
+  { name:"Disaster Management (Hindi)", cls:"X", lang:"Hindi", sub:"Social Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Disaster Management in Hindi (Class X)/index.html" },
+  { name:"Formative Assessment - Hindi A", cls:"X", lang:"Hindi", sub:"Teacher's Manual", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Formative Assessment - Hindi A (Class X)/index.html" },
+  { name:"Formative Assessment - Hindi B", cls:"X", lang:"Hindi", sub:"Teacher's Manual", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Formative Assessment - Hindi B (Class X)/index.html" },
+  { name:"Workbook - Communicative", cls:"X", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Workbook - Communicative (Class X)/index.html" },
+  { name:"Information & Communication Technology", cls:"X", lang:"English", sub:"IT", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Information _ Communication Technology (Class X)/index.html" },
+  { name:"Literature Reader - Communicative", cls:"X", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Literature Reader - Communicative (Class X)/index.html" },
+  { name:"Main Course Book - Communicative", cls:"X", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Main Course Book - Communicative (Class X)/index.html" },
+  { name:"Teacher Book", cls:"X", lang:"English", sub:"Teacher's Manual", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Teacher Book (Class X)/index.html" },
+  // ── CLASS XI ──
+  { name:"A Text Book of Philosophy", cls:"XI", lang:"English", sub:"Philosophy", url:"http://cbse.gov.in/ePub/webcbse/webcbse/A Text Book of Philosophy (Class XI)/index.html" },
+  { name:"Animal Nutrition and Reproduction (PM)", cls:"XI", lang:"English", sub:"Biology", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Animal Nutrition and Reproduction (PM) - XI/index.html" },
+  { name:"Animal Nutrition and Reproduction (SM)", cls:"XI", lang:"English", sub:"Biology", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Animal Nutrition and Reproduction (SM) - XI/index.html" },
+  { name:"Arabic", cls:"XI", lang:"Arabic", sub:"Arabic", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Arabic (Class XI)/index.html" },
+  { name:"Beauty and Hair", cls:"XI", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Beauty and Hair (Class XI)/index.html" },
+  { name:"Beverage Service Practical Manual", cls:"XI", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Beverage Service Practical Manual (Class XI)/index.html" },
+  { name:"Beverage Service Text Book", cls:"XI", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Beverage Service Text Book (Class XI)/index.html" },
+  { name:"Biotech Book", cls:"XI", lang:"English", sub:"Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Biotech Book (Class XI)/index.html" },
+  { name:"Bakery - I", cls:"XI", lang:"English", sub:"Bakery & Confectionery", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Bakery - I/index.html" },
+  { name:"Basic Horticulture-I (PM)", cls:"XI", lang:"English", sub:"Biology", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Basic Horticulture-I (PM) - XI/index.html" },
+  { name:"Basic Horticulture-I (SH)", cls:"XI", lang:"English", sub:"Biology", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Basic Horticulture-I (SH) - XI/index.html" },
+  { name:"Basic Pattern Development", cls:"XI", lang:"English", sub:"Textile", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Basic Pattern Development/index.html" },
+  { name:"Basis of Front Office (Student Manuals)", cls:"XI", lang:"English", sub:"Office Management", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Basis of front office student mannuals Folder/index.html" },
+  { name:"CIT Art and Science of Makeup", cls:"XI", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/CIT Art and Science of Makeup - XI/index.html" },
+  { name:"Computer Science", cls:"XI", lang:"English", sub:"IT", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Computer Science  (Class-XI)/index.html" },
+  { name:"Creative Writing & Translation Studies", cls:"XI", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Creative Writing & Translation Studies (Class XI)/index.html" },
+  { name:"Disaster Management in English", cls:"XI", lang:"English", sub:"Social Science", url:"http://cbse.gov.in/ePub/Disaster Management in English (Class X).epub" },
+  { name:"Disaster Management in Hindi", cls:"XI", lang:"Hindi", sub:"Social Science", url:"http://cbse.gov.in/ePub/Disaster Management in Hindi (Class X).epub" },
+  { name:"Engineering Graphics", cls:"XI", lang:"English", sub:"Engineering", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Engineering Graphics (Class XI)/index.html" },
+  { name:"English Elective - Language Skill Book", cls:"XI", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/English Elective - Language Skill Book (Class XI)/index.html" },
+  { name:"English Elective - Literature Reader", cls:"XI", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/English Elective - Literature Reader (Class XI)/index.html" },
+  { name:"Entrepreneurship", cls:"XI", lang:"French", sub:"Entrepreneurship", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Entrepreneurship  (Class XI)/index.html" },
+  { name:"Fashion Studies - Practical Manual", cls:"XI", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Fashion Studies - Practical Manual (Class XI)/index.html" },
+  { name:"Fashion Studies - Teacher Resource Manual", cls:"XI & XII", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Fashion Studies - Teacher Resource Manual (Classes XI & XII)/index.html" },
+  { name:"Fashion Studies - Textbook", cls:"XI", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Fashion Studies - Textbook (Class XI)/index.html" },
+  { name:"Food Service-I Text Book", cls:"XI", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Food Service-I Text Book (Class XI)/index.html" },
+  { name:"Food Service-I Practical Manual", cls:"XI", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/Food Service-I Practical Manual (Class XI).epub" },
+  { name:"Food Production-I", cls:"XI", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/Food Production-I (PM)-XI.epub" },
+  { name:"Food Production-III Text Book", cls:"XI", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/Food Production-III Text Book-XII.epub" },
+  { name:"First Aid Practical Book", cls:"XI", lang:"English", sub:"Medical", url:"http://cbse.gov.in/ePub/First Aid Practical Book - XII.epub" },
+  { name:"Knowledge Trading Practises in India", cls:"XI", lang:"English", sub:"General Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Knowledge Trading Practises in India (Class XI)/index.html" },
+  { name:"Foundry Technology-I (SH)", cls:"XI", lang:"English", sub:"Foundry", url:"http://cbse.gov.in/ePub/Foundary Technology-I (SH) - XI.epub" },
+  { name:"Geospatial Technology", cls:"XI", lang:"English", sub:"Geography", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Geospatial Technology (Class XI)/index.html" },
+  { name:"Human Rights and Gender Studies", cls:"XI", lang:"English", sub:"General Studies", url:"http://cbse.gov.in/ePub/Human Rights and Gender Studies (Class XI).epub" },
+  { name:"Informatics Practices", cls:"XI", lang:"English", sub:"IT", url:"http://cbse.gov.in/ePub/Informatics Practices (Class XI).epub" },
+  { name:"Legal Studies Text Book", cls:"XI", lang:"English", sub:"Legal", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Legal Studies Text Book (Class XI)/index.html" },
+  { name:"Library & Information Science", cls:"XI", lang:"English", sub:"Library Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Library & Information Science (Class XI)/index.html" },
+  { name:"National Cadet Corps", cls:"XI", lang:"English", sub:"NCC", url:"http://cbse.gov.in/ePub/webcbse/webcbse/National Cadet Crops (Class XI)/index.html" },
+  { name:"Ritika Sanskrit", cls:"XI", lang:"Sanskrit", sub:"Sanskrit", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Ritika Sanskrit (Class XI)/index.html" },
+  { name:"Theatre Studies", cls:"XI", lang:"English", sub:"General Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Theatre Studies (Class-XI)/index.html" },
+  { name:"Formative Assessment - Hindi A", cls:"XI", lang:"Hindi", sub:"Teacher's Manual", url:"http://cbse.gov.in/ePub/Formative Assessment - Hindi A (Class IX).epub" },
+  { name:"Food Service-II Text Book", cls:"XI & XII", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/Food Service-II Text Book (Class XII).epub" },
+  // ── CLASS XII ──
+  { name:"Engineering Graphics", cls:"XII", lang:"English", sub:"Engineering", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Engineering Graphics (Class XII)/index.html" },
+  { name:"English Elective - Language Skill Book", cls:"XII", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/English Elective - Language Skill Book (Class XII)/index.html" },
+  { name:"English Elective - Literature Reader", cls:"XII", lang:"English", sub:"English", url:"http://cbse.gov.in/ePub/webcbse/webcbse/English Elective - Literature Reader (Class XII)/index.html" },
+  { name:"Entrepreneurship", cls:"XII", lang:"French", sub:"Entrepreneurship", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Entrepreneurship  (Class XII)/index.html" },
+  { name:"Fashion Studies - Practical Manual", cls:"XII", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Fashion Studies - Practical Manual (Class XII)/index.html" },
+  { name:"Fashion Studies - Textbook", cls:"XII", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Fashion Studies - Textbook (Class XII)/index.html" },
+  { name:"First Aid and Emergency Medi Care", cls:"XII", lang:"English", sub:"Medical", url:"http://cbse.gov.in/ePub/webcbse/webcbse/First Aid and Emergency Medi Care - XII/index.html" },
+  { name:"Food & Beverage Practical Manual", cls:"XII", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Food & Beverage Practical Manual (Class XII)/index.html" },
+  { name:"Food Production-IV Textbook", cls:"XII", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Food Production-IV Textbook - XII/index.html" },
+  { name:"Food Service-II Practical Manual", cls:"XII", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Food Service-II Practical Manual (Class XII)/index.html" },
+  { name:"Food & Beverage Text Book", cls:"XII", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Food & Beverage Text Book (Class XII)/index.html" },
+  { name:"Geospatial Technology", cls:"XII", lang:"English", sub:"Geography", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Geospatial Technology (Class XII)/index.html" },
+  { name:"Geospatial Technology (PM)", cls:"XII", lang:"English", sub:"Geography", url:"http://cbse.gov.in/ePub/Geospatial Technology (PM) - XII.epub" },
+  { name:"Guidelines for Practical Work in Accounting", cls:"XII", lang:"English", sub:"Accountancy", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Guidelines for Practical Work in Accounting and Practical Work in Computerized Accounting/index.html" },
+  { name:"Health Education, Public Relations and Public Health", cls:"XII", lang:"English", sub:"Medical", url:"http://cbse.gov.in/ePub/Health Education.epub" },
+  { name:"Human Rights and Gender Studies", cls:"XII", lang:"English", sub:"General Studies", url:"http://cbse.gov.in/ePub/Human Rights and Gender Studies (Class XII).epub" },
+  { name:"Informatics Practices", cls:"XII", lang:"English", sub:"IT", url:"http://cbse.gov.in/ePub/Informatics Practices (Class XII).epub" },
+  { name:"Knowledge Trading Practises in India", cls:"XII", lang:"English", sub:"General Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Knowledge Trading Practises in India (Class XII)/index.html" },
+  { name:"Legal Studies Text Book", cls:"XII", lang:"English", sub:"Legal", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Legal Studies Text Book (Class XII)/index.html" },
+  { name:"Library and Information Science", cls:"XII", lang:"English", sub:"Library Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Library and Information Science (Class XII)/index.html" },
+  { name:"National Cadet Corps", cls:"XII", lang:"English", sub:"NCC", url:"http://cbse.gov.in/ePub/webcbse/webcbse/National Cadet Corps (Class XII)/index.html" },
+  { name:"Theatre Studies", cls:"XII", lang:"English", sub:"General Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Theatre Studies (Class-XII)/index.html" },
+  { name:"Arabic", cls:"XII", lang:"Arabic", sub:"Arabic", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Arabic (Class XII)/index.html" },
+  { name:"Biotechnology", cls:"XII", lang:"English", sub:"Science", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Biotechnology (Class XII)/index.html" },
+  { name:"Capital Market Operations", cls:"XII", lang:"English", sub:"Finance", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Capital Market Operations/index.html" },
+  { name:"Basic Horticulture-II (SH)", cls:"XII", lang:"English", sub:"Biology", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Basic Horticulture-II (SH)-XII/index.html" },
+  { name:"CIT India Textile", cls:"XII", lang:"English", sub:"Textile", url:"http://cbse.gov.in/ePub/webcbse/webcbse/CIT India Textile - XII/index.html" },
+  { name:"Computer Science with Python", cls:"XII", lang:"English", sub:"IT", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Computer Science with Python (Class-XII)/index.html" },
+  { name:"Food Production-IV Practical Manual", cls:"XII", lang:"English", sub:"Food & Beverage", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Food Production-VI Practical Manual (Class XII)/index.html" },
+  { name:"Fashion Studies - Teacher Resource Manual", cls:"XII", lang:"English", sub:"Fashion Studies", url:"http://cbse.gov.in/ePub/webcbse/webcbse/Fashion Studies - Teacher Resource Manual (Classes XI & XII)/index.html" },
+];
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function classToKey(cls) {
+  if (cls.includes('IX') && !cls.includes('X')) return 'IX';
+  if (cls === 'X') return 'X';
+  if (cls.includes('XI') && !cls.includes('XII')) return 'XI';
+  if (cls.includes('XII')) return 'XII';
+  if (cls === 'IX & X') return 'IX';
+  return 'all';
+}
+
+function bookMatchesFilter(book) {
+  if (activeFilter === 'all') return true;
+  const c = book.cls;
+  if (activeFilter === 'IX') return c === 'IX' || c === 'IX & X';
+  if (activeFilter === 'X') return c === 'X' || c === 'IX & X';
+  if (activeFilter === 'XI') return c === 'XI' || c === 'XI & XII';
+  if (activeFilter === 'XII') return c === 'XII' || c === 'XI & XII';
+  return true;
+}
+
+function bookMatchesSearch(book) {
+  if (!searchQuery) return true;
+  const q = searchQuery.toLowerCase();
+  return book.name.toLowerCase().includes(q) ||
+         (book.sub || '').toLowerCase().includes(q) ||
+         (book.lang || '').toLowerCase().includes(q) ||
+         book.cls.toLowerCase().includes(q);
+}
+
+function renderAll() {
+  const grids = { 'IX_X': document.getElementById('gridIX_X'), 'XI': document.getElementById('gridXI'), 'XII': document.getElementById('gridXII') };
+  Object.values(grids).forEach(g => g.innerHTML = '');
+
+  let counts = { IX: 0, X: 0, XI: 0, XII: 0 };
+  let shownTotal = 0;
+
+  BOOKS.forEach((book, i) => {
+    const matchF = bookMatchesFilter(book);
+    const matchS = bookMatchesSearch(book);
+    const show = matchF && matchS;
+
+    if (!show) return;
+    shownTotal++;
+
+    // count per class
+    const c = book.cls;
+    if (c === 'IX') counts.IX++;
+    else if (c === 'X') counts.X++;
+    else if (c === 'XI') counts.XI++;
+    else if (c === 'XII') counts.XII++;
+    else if (c === 'IX & X') { counts.IX++; counts.X++; }
+    else if (c === 'XI & XII') { counts.XI++; counts.XII++; }
+
+    const accentIdx = i % ACCENTS.length;
+    const [accent, accentSoft] = ACCENTS[accentIdx];
+
+    const card = document.createElement('div');
+    card.className = 'book-card';
+    card.style.cssText = `--accent:${accent}; --accent-soft:${accentSoft}; animation-delay:${0.04 + (i % 20) * 0.035}s`;
+    card.innerHTML = `
+      <div class="card-icon">${getIcon(book.sub)}</div>
+      <div class="card-class">Class ${book.cls}</div>
+      <div class="card-name">${book.name}</div>
+      <div class="card-meta">
+        <div class="card-sub">${book.sub || ''}</div>
+        <div class="card-lang">${book.lang}</div>
+      </div>
+      <div class="card-tag">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        Read Online · ePub
+      </div>
+      <div class="card-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>`;
+    card.onclick = () => window.open(book.url, '_blank');
+
+    // Which section?
+    if (c === 'XII' || (c === 'XI & XII' && activeFilter === 'XII')) {
+      grids.XII.appendChild(card);
+    } else if (c === 'XI' || c === 'XI & XII') {
+      grids.XI.appendChild(card);
+    } else {
+      grids.IX_X.appendChild(card);
+    }
+  });
+
+  // Empty states
+  ['IX_X','XI','XII'].forEach(key => {
+    const g = grids[key];
+    if (!g.children.length) {
+      g.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>No books match your search.</div>`;
+    }
+  });
+
+  // Update badges
+  const ixXCount = BOOKS.filter(b => (b.cls==='IX'||b.cls==='X'||b.cls==='IX & X') && bookMatchesSearch(b) && bookMatchesFilter(b)).length;
+  const xiCount  = BOOKS.filter(b => (b.cls==='XI'||b.cls==='XI & XII') && bookMatchesSearch(b) && bookMatchesFilter(b)).length;
+  const xiiCount = BOOKS.filter(b => (b.cls==='XII'||b.cls==='XI & XII') && bookMatchesSearch(b) && bookMatchesFilter(b)).length;
+
+  document.getElementById('badgeIX_X').textContent = `${ixXCount} Books`;
+  document.getElementById('badgeXI').textContent = `${xiCount} Books`;
+  document.getElementById('badgeXII').textContent = `${xiiCount} Books`;
+
+  document.getElementById('statTotal').textContent = BOOKS.length;
+
+  // Update filter counts
+  const allIX = BOOKS.filter(b => b.cls==='IX'||b.cls==='IX & X').length;
+  const allX  = BOOKS.filter(b => b.cls==='X'||b.cls==='IX & X').length;
+  const allXI = BOOKS.filter(b => b.cls==='XI'||b.cls==='XI & XII').length;
+  const allXII= BOOKS.filter(b => b.cls==='XII'||b.cls==='XI & XII').length;
+  document.getElementById('countAll').textContent = BOOKS.length;
+  document.getElementById('countIX').textContent = allIX;
+  document.getElementById('countX').textContent = allX;
+  document.getElementById('countXI').textContent = allXI;
+  document.getElementById('countXII').textContent = allXII;
+}
+
+// ── FILTER CHIPS ──
+document.getElementById('filterRow').addEventListener('click', e => {
+  const chip = e.target.closest('.filter-chip');
+  if (!chip) return;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  activeFilter = chip.dataset.filter;
+  renderAll();
+});
+
+// ── SEARCH ──
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  renderAll();
+});
+
+renderAll();
+</script>
+</body>
+</html>

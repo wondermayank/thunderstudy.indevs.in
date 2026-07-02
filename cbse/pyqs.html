@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBSE PYQ Hub | Class 10 & 12 Question Papers 2023–2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0fcff;
+  --primary:#00838f;
+  --primary-light:#00acc1;
+  --primary-soft:#e0f7fa;
+  --accent:#0277bd;
+  --accent-soft:#e3f2fd;
+  --text:#002a33;
+  --text2:#2e6b78;
+  --text3:#6aacb8;
+  --white:#ffffff;
+  --card-border:#b2ebf2;
+  --shadow-sm:0 2px 8px rgba(0,131,143,.08);
+  --shadow-md:0 8px 24px rgba(0,131,143,.13);
+  --shadow-lg:0 20px 48px rgba(0,131,143,.2);
+  --radius-sm:12px;
+  --radius-md:20px;
+  --radius-lg:28px;
+  --y2025:#00838f;
+  --y2024:#0277bd;
+  --y2023:#6a1b9a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(0,172,193,.13) 0%,transparent 70%)}
+body::after{content:'';position:fixed;bottom:-150px;left:-150px;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(2,119,189,.09) 0%,transparent 70%)}
+
+.container{max-width:1280px;margin:0 auto;padding:2rem 1.5rem 4rem;position:relative;z-index:1}
+
+/* HEADER */
+header{text-align:center;margin-bottom:2.5rem;animation:fadeDown .6s ease-out both}
+.logo-wrap{display:inline-flex;align-items:center;gap:14px;margin-bottom:.5rem}
+.logo-icon{width:56px;height:56px;background:linear-gradient(135deg,#00838f,#00acc1);border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,131,143,.35)}
+.logo-icon svg{width:30px;height:30px;fill:white}
+.logo-text{font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#00838f 30%,#0277bd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tagline{display:inline-flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text2);background:var(--white);border:1px solid var(--card-border);padding:.4rem 1.4rem;border-radius:40px;box-shadow:var(--shadow-sm);margin-top:.4rem}
+.tagline .dot{width:6px;height:6px;border-radius:50%;background:var(--primary-light)}
+
+/* CONTROLS BAR */
+.controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;animation:fadeUp .5s ease-out .15s both}
+
+/* YEAR TABS */
+.year-tabs{display:flex;background:var(--white);border:1.5px solid var(--card-border);border-radius:14px;padding:4px;gap:4px;box-shadow:var(--shadow-sm);flex-wrap:wrap;max-width:700px;justify-content:center}
+.year-tab{padding:.4rem 1rem;border-radius:10px;font-weight:700;font-size:.8rem;cursor:pointer;transition:all .2s;color:var(--text2);border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.year-tab.active-2025-regular{background:linear-gradient(135deg,#00838f,#00acc1);color:#fff;box-shadow:0 4px 12px rgba(0,131,143,.3)}
+.year-tab.active-2025-comptt{background:linear-gradient(135deg,#00695c,#00897b);color:#fff;box-shadow:0 4px 12px rgba(0,105,92,.3)}
+.year-tab.active-2024-regular{background:linear-gradient(135deg,#0277bd,#0288d1);color:#fff;box-shadow:0 4px 12px rgba(2,119,189,.3)}
+.year-tab.active-2024-comptt{background:linear-gradient(135deg,#01579b,#0277bd);color:#fff;box-shadow:0 4px 12px rgba(1,87,155,.3)}
+.year-tab.active-2023-regular{background:linear-gradient(135deg,#6a1b9a,#ab47bc);color:#fff;box-shadow:0 4px 12px rgba(106,27,154,.3)}
+.year-tab.active-2023-comptt{background:linear-gradient(135deg,#4a148c,#7b1fa2);color:#fff;box-shadow:0 4px 12px rgba(74,20,140,.3)}
+.year-tab:not([class*="active"]):hover{background:var(--primary-soft);color:var(--primary)}
+
+/* CLASS TABS */
+.class-tabs{display:flex;background:var(--white);border:1.5px solid var(--card-border);border-radius:14px;padding:4px;gap:4px;box-shadow:var(--shadow-sm)}
+.class-tab{padding:.45rem 1.6rem;border-radius:10px;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s;color:var(--text2);border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif}
+.class-tab.active{background:linear-gradient(135deg,#00838f,#0277bd);color:#fff;box-shadow:0 4px 12px rgba(0,131,143,.3)}
+.class-tab:not(.active):hover{background:var(--primary-soft);color:var(--primary)}
+
+/* SEARCH */
+.search-wrap{flex:1;max-width:320px;display:flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--card-border);border-radius:12px;padding:.45rem 1rem;box-shadow:var(--shadow-sm)}
+.search-wrap svg{width:16px;height:16px;fill:var(--text3);flex-shrink:0}
+.search-wrap input{border:none;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:var(--text);outline:none;width:100%}
+.search-wrap input::placeholder{color:var(--text3)}
+
+/* STATS */
+.stats-bar{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;animation:fadeUp .5s ease-out .2s both}
+.stat-pill{background:var(--white);border:1px solid var(--card-border);border-radius:12px;padding:.7rem 1.2rem;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-sm);flex:1;min-width:120px}
+.stat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.stat-icon.teal{background:var(--primary-soft)} .stat-icon.teal svg{fill:var(--primary)}
+.stat-icon.blue{background:var(--accent-soft)} .stat-icon.blue svg{fill:var(--accent)}
+.stat-icon.purple{background:#f3e5f5} .stat-icon.purple svg{fill:#7b1fa2}
+.stat-icon svg{width:16px;height:16px}
+.stat-val{font-weight:800;font-size:1.1rem;color:var(--text);line-height:1}
+.stat-lbl{font-size:.78rem;color:var(--text2)}
+
+/* SECTION */
+.section-label{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1.2rem}
+.section-label .lbl-badge{padding:.2rem .9rem;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.badge-2025{background:#e0f7fa;color:#00838f}
+.badge-2024{background:#e3f2fd;color:#0277bd}
+.badge-2023{background:#f3e5f5;color:#6a1b9a}
+.badge-x{background:#fff8e1;color:#f57f17}
+.badge-xii{background:#fce4ec;color:#c62828}
+
+/* SUBJECT GRID */
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem;animation:fadeUp .4s ease-out both}
+
+/* SUBJECT CARD */
+.sub-card{background:var(--white);border:1.5px solid var(--card-border);border-radius:var(--radius-md);padding:1.4rem 1rem 1rem;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;position:relative;overflow:hidden;transition:all .22s cubic-bezier(.34,1.56,.64,1)}
+.sub-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .22s;border-radius:inherit}
+.sub-card:hover{transform:translateY(-7px) scale(1.02);box-shadow:var(--shadow-lg)}
+.sub-card:hover::before{opacity:1}
+.sub-card:hover .sub-icon-wrap{background:rgba(255,255,255,.2)!important}
+.sub-card:hover .sub-icon svg{fill:white!important}
+.sub-card:hover .sub-name,.sub-card:hover .year-chip{color:white!important}
+.sub-card:hover .year-chip{background:rgba(255,255,255,.2)!important;border-color:rgba(255,255,255,.3)!important}
+.sub-card:hover .dl-btns a{background:rgba(255,255,255,.25)!important;color:white!important;border-color:rgba(255,255,255,.3)!important}
+
+/* Year-based gradient for card hover */
+.card-2025-regular::before{background:linear-gradient(135deg,#00838f,#0277bd)}
+.card-2025-comptt::before{background:linear-gradient(135deg,#00695c,#00897b)}
+.card-2024-regular::before{background:linear-gradient(135deg,#0277bd,#0288d1)}
+.card-2024-comptt::before{background:linear-gradient(135deg,#01579b,#0277bd)}
+.card-2023-regular::before{background:linear-gradient(135deg,#6a1b9a,#ab47bc)}
+.card-2023-comptt::before{background:linear-gradient(135deg,#4a148c,#7b1fa2)}
+
+.sub-icon-wrap{width:52px;height:52px;background:var(--primary-soft);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:background .22s;position:relative;z-index:1;font-size:1.5rem}
+.sub-icon-wrap.blue-icon{background:var(--accent-soft)}
+.sub-icon-wrap.purple-icon{background:#f3e5f5}
+.sub-icon-wrap svg{width:24px;height:24px;fill:var(--primary);transition:fill .22s}
+.sub-name{font-weight:700;font-size:.9rem;color:var(--text);transition:color .22s;position:relative;z-index:1;line-height:1.35}
+.year-chip{font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid var(--card-border);color:var(--text2);background:var(--bg);display:inline-flex;align-items:center;gap:4px;transition:all .22s;position:relative;z-index:1}
+
+/* DOWNLOAD BUTTONS */
+.dl-btns{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;width:100%}
+.dl-btns a{text-decoration:none;font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:8px;border:1.5px solid var(--card-border);color:var(--text2);background:var(--bg);transition:all .18s;display:inline-flex;align-items:center;gap:4px;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.dl-btns a:hover{transform:scale(1.05)}
+.dl-btns a svg{width:11px;height:11px;fill:currentColor}
+.dl-btns a.dl-btn-active{background:var(--primary)!important;color:#fff!important;border-color:var(--primary)!important}
+.dl-btns .dl-btn-na{font-size:.7rem;font-weight:600;padding:5px 10px;border-radius:8px;border:1.5px dashed var(--card-border);color:var(--text3);background:transparent;display:inline-flex;align-items:center;opacity:.5;cursor:default}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--text3)}
+.empty-state svg{width:48px;height:48px;fill:var(--text3);margin-bottom:1rem}
+.empty-state p{font-size:.95rem;font-weight:600}
+
+/* CBSE LINK BANNER */
+.cbse-banner{background:var(--white);border:1.5px solid var(--card-border);border-radius:var(--radius-md);padding:1.2rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:var(--shadow-sm);margin-bottom:2rem;flex-wrap:wrap;animation:fadeUp .5s ease-out .25s both}
+.cbse-banner-text{display:flex;align-items:center;gap:12px}
+.cbse-banner-text svg{width:24px;height:24px;fill:var(--primary);flex-shrink:0}
+.cbse-banner-title{font-weight:700;font-size:.95rem;color:var(--text)}
+.cbse-banner-sub{font-size:.8rem;color:var(--text2);margin-top:1px}
+.cbse-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:linear-gradient(135deg,#00838f,#0277bd);color:white;font-weight:700;font-size:.82rem;padding:.5rem 1.2rem;border-radius:10px;box-shadow:0 4px 14px rgba(0,131,143,.3);transition:all .2s;white-space:nowrap}
+.cbse-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,131,143,.4)}
+.cbse-btn svg{width:14px;height:14px;fill:white}
+
+/* FOOTER */
+.footer{text-align:center;padding:2rem;color:var(--text3);font-size:.82rem;font-weight:600;margin-top:2rem;border-top:1px solid var(--card-border)}
+.footer a{color:var(--primary);text-decoration:none}
+
+/* ANIMATIONS */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* HIDDEN */
+.hidden{display:none!important}
+
+/* NO RESULTS */
+.no-results{grid-column:1/-1;text-align:center;padding:3rem;color:var(--text3);font-size:.9rem;font-weight:600}
+
+@media(max-width:600px){
+  .logo-text{font-size:1.8rem}
+  .controls{gap:.6rem}
+  .subjects-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.8rem}
+  .cbse-banner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+      </div>
+      <span class="logo-text">CBSE PYQ Hub</span>
+    </div>
+    <div>
+      <div class="tagline">
+        <span class="dot"></span>
+        Class 10 &amp; 12 · Previous Year Question Papers · 2023 – 2025
+        <span class="dot"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div class="class-tabs" id="classTabs">
+      <button class="class-tab active" onclick="setClass(10,this)">Class X</button>
+      <button class="class-tab" onclick="setClass(12,this)">Class XII</button>
+    </div>
+    <div class="year-tabs" id="yearTabs">
+      <button class="year-tab active-2025-regular" onclick="setMode('2025','regular',this)">2025 Regular</button>
+      <button class="year-tab" onclick="setMode('2025','comptt',this)">2025 Compartment</button>
+      <button class="year-tab" onclick="setMode('2024','regular',this)">2024 Regular</button>
+      <button class="year-tab" onclick="setMode('2024','comptt',this)">2024 Compartment</button>
+      <button class="year-tab" onclick="setMode('2023','regular',this)">2023 Regular</button>
+      <button class="year-tab" onclick="setMode('2023','comptt',this)">2023 Compartment</button>
+    </div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="searchInput" placeholder="Search subject…" oninput="renderCards()">
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-pill">
+      <div class="stat-icon teal"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+      <div><div class="stat-val">3</div><div class="stat-lbl">Years Covered</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
+      <div><div class="stat-val">2</div><div class="stat-lbl">Classes</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon purple"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+      <div><div class="stat-val" id="statCount">—</div><div class="stat-lbl">Subjects Shown</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon teal"><svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm0-10h4v6h6v-6h4l-7-7-7 7z"/></svg></div>
+      <div><div class="stat-val">CBSE</div><div class="stat-lbl">Official Source</div></div>
+    </div>
+  </div>
+
+  <!-- CBSE BANNER -->
+  <div class="cbse-banner">
+    <div class="cbse-banner-text">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      <div>
+        <div class="cbse-banner-title">Official CBSE Question Paper Portal</div>
+        <div class="cbse-banner-sub">All papers sourced directly from cbse.gov.in — click Download to get the official PDF/ZIP</div>
+      </div>
+    </div>
+    <a class="cbse-btn" href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+      Visit CBSE Portal
+    </a>
+  </div>
+
+  <!-- CARDS SECTION -->
+  <div id="sectionLabel" class="section-label">
+    <span id="labelText">Class X · 2025 Papers</span>
+    <span id="labelBadge1" class="lbl-badge badge-2025">2025</span>
+    <span id="labelBadge2" class="lbl-badge badge-x">Class X</span>
+  </div>
+  <div class="subjects-grid" id="subjectsGrid"></div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    All question papers are sourced from the official <a href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank">CBSE portal</a> ·
+    Concept Maps on <a href="#" onclick="return false">ThunderStudy</a> ·
+    Data updated May 2026
+  </div>
+</div>
+
+<script>
+// ─── ICONS ───────────────────────────────────────────────────────────────────
+const ICONS = {
+  math:     `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-3h-3v-2h3V9h2v3h3v2h-3v3z"/></svg>`,
+  phy:      `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>`,
+  chem:     `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v14c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V4h1V2H7zm4 14H9l2-4H9l3-6v4h2l-3 6z"/></svg>`,
+  bio:      `<svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20c6 0 6-4 12-4V8zM16 9.09c-3.31.76-5.47 2.4-6.86 4.41A11.58 11.58 0 0 0 8 18c-.54 0-1.05.07-1.55.18C7.47 14.5 9.6 10.92 16 9.09z"/></svg>`,
+  eng:      `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`,
+  hindi:    `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`,
+  soc:      `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  acc:      `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>`,
+  bst:      `<svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.53 15.59 1 13 1c-1.8 0-3.46.72-4.64 2.03L7 4.41 5.64 3.03C4.46 1.72 2.8 1 1 1v4c0 .55.45 1 1 1h1l1.87-1.87A5 5 0 0 1 9 3c1.47 0 2.88.62 3.89 1.7l.55.59L12 7h8c1.1 0 2 .9 2 2v11c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V9h2c1.1 0 2-.9 2-2z"/></svg>`,
+  eco:      `<svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99l1.5 1.5z"/></svg>`,
+  hist:     `<svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>`,
+  geo:      `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  poli:     `<svg viewBox="0 0 24 24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zM11.5 1L2 6v2h19V6l-9.5-5z"/></svg>`,
+  cs:       `<svg viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>`,
+  pe:       `<svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg>`,
+  psych:    `<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-14a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4zm0 6a2 2 0 0 1 0-4 2 2 0 0 1 0 4z"/></svg>`,
+  socio:    `<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>`,
+  appmath:  `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-3h-3v-2h3V9h2v3h3v2h-3v3z"/></svg>`,
+  skrt:     `<svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04z"/></svg>`,
+  it:       `<svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>`,
+  default:  `<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`
+};
+
+// ─── BASE URLS ────────────────────────────────────────────────────────────────
+const R  = "https://www.cbse.gov.in/cbsenew/question-paper/";   // Regular base
+// Compartment folders per year
+const C25 = `${R}2025-COMPTT/`;
+const C24 = `${R}2024-COMPTT/`;
+const C23 = `${R}2023-COMPTT/`;
+
+// Helper to build both regular + compartment links for a subject
+// reg: {2025:file,2024:file,2023:file}  comptt: {2025:file,2024:file,2023:file}
+function sub(name, icon, ic, rx, cx) {
+  // rx / cx are objects keyed by year: { 2025:'filename', 2024:'filename', 2023:'filename' }
+  return {
+    name, icon, ic,
+    links: {
+      '2025-regular': rx[2025] ? `${R}2025/${rx[2025]}` : null,
+      '2024-regular': rx[2024] ? `${R}2024/${rx[2024]}` : null,
+      '2023-regular': rx[2023] ? `${R}2023/${rx[2023]}` : null,
+      '2025-comptt':  cx[2025] ? `${C25}${cx[2025]}` : null,
+      '2024-comptt':  cx[2024] ? `${C24}${cx[2024]}` : null,
+      '2023-comptt':  cx[2023] ? `${C23}${cx[2023]}` : null,
+    }
+  };
+}
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
+const DATA = {
+  10: [
+    sub("Mathematics Standard","math","",
+      {2025:"X/041_Mathematics_Standard.zip",2024:"X/Mathematics_Standard.zip",2023:"X/Mathematics_Standard.zip"},
+      {2025:"X/Mathematics_Standard.zip",2024:"X/Mathematics_Standard.zip",2023:"X/Mathematics_Standard.zip"}),
+    sub("Mathematics Basic","math","blue-icon",
+      {2025:"X/241_Mathematics_Basic.zip",2024:"X/Mathematics_Basic.zip",2023:"X/Mathematics_Basic.zip"},
+      {2025:"X/Mathematics_Basic.zip",2024:"X/Mathematics_Basic.zip",2023:"X/Mathematics_Basic.zip"}),
+    sub("Science","bio","",
+      {2025:"X/086_Science.zip",2024:"X/Science.zip",2023:"X/Science.zip"},
+      {2025:"X/Science.zip",2024:"X/Science.zip",2023:"X/Science.zip"}),
+    sub("Social Science","soc","purple-icon",
+      {2025:"X/087_Social_Science.zip",2024:"X/Social_Science.zip",2023:"X/Social_Science.zip"},
+      {2025:"X/Social_Science.zip",2024:"X/Social_Science.zip",2023:"X/Social_Science.zip"}),
+    sub("English L&L","eng","blue-icon",
+      {2025:"X/184_English_Language_and_Literature.zip",2024:"X/English_Language_Literature.zip",2023:"X/English_Language_Literature.zip"},
+      {2025:"X/English_L&L.zip",2024:"X/English_L&L.zip",2023:"X/English_L&L.zip"}),
+    sub("English Communicative","eng","",
+      {2025:"X/1_eng_communicative.pdf",2024:"X/English_Communicative.zip",2023:"X/English_Communicative.zip"},
+      {2025:"X/English_Communicative.zip",2024:"X/English_Communicative.zip",2023:"X/English_Communicative.zip"}),
+    sub("Hindi A","hindi","",
+      {2025:"X/002_Hindi_Course_A.zip",2024:"X/Hindi_Course_A.zip",2023:"X/Hindi_Course_A.zip"},
+      {2025:"X/Hindi_Course_A.zip",2024:"X/Hindi_Course_A.zip",2023:"X/Hindi_Course_A.zip"}),
+    sub("Hindi B","hindi","blue-icon",
+      {2025:"X/085_Hindi_Course_B.zip",2024:"X/Hindi_Course_B.zip",2023:"X/Hindi_Course_B.zip"},
+      {2025:"X/Hindi_Course_B.zip",2024:"X/Hindi_Course_B.zip",2023:"X/Hindi_Course_B.zip"}),
+    sub("Sanskrit","skrt","purple-icon",
+      {2025:"X/52_Sanskrit.pdf",2024:"X/Sanskrit.zip",2023:"X/Sanskrit.zip"},
+      {2025:"X/Sanskrit.zip",2024:"X/Sanskrit.zip",2023:"X/Sanskrit.zip"}),
+    sub("Sanskrit Communicative","skrt","",
+      {2025:"X/65_Sanskrit_Communicative.pdf",2024:"X/Sanskrit_Communicative.zip",2023:"X/Sanskrit_Communicative.zip"},
+      {2025:"X/Sanskrit_Communicative.zip",2024:"X/Sanskrit_Communicative.zip",2023:"X/Sanskrit_Communicative.zip"}),
+    sub("Computer Application","cs","",
+      {2025:"X/53_Computer_Application.pdf",2024:"X/Computer_Application.zip",2023:"X/Computer_Application.zip"},
+      {2025:"X/Computer_Application.zip",2024:"X/Computer_Application.zip",2023:"X/Computer_Application.zip"}),
+    sub("Information Technology","it","blue-icon",
+      {2025:"X/89_Information_Technology.pdf",2024:"X/Information_Technology.zip",2023:"X/Information_Technology.zip"},
+      {2025:"X/Information_Technology.zip",2024:"X/Information_Technology.zip",2023:"X/Information_Technology.zip"}),
+    sub("Artificial Intelligence","cs","purple-icon",
+      {2025:"X/104_Artificial_Intelleigence_NEW.pdf",2024:"X/Artificial_Intelligence.zip",2023:"X/Artificial_Intelligence.zip"},
+      {2025:"X/Artificial_Intelligence.zip",2024:"X/Artificial_Intelligence.zip",2023:"X/Artificial_Intelligence.zip"}),
+    sub("Home Science","default","",
+      {2025:"X/37_Home_Science.pdf",2024:"X/Home_Science.zip",2023:"X/Home_Science.zip"},
+      {2025:"X/Home_Science.zip",2024:"X/Home_Science.zip",2023:"X/Home_Science.zip"}),
+    sub("Painting","default","blue-icon",
+      {2025:"X/38_Painting.pdf",2024:"X/Painting.zip",2023:"X/Painting.zip"},
+      {2025:"X/Painting.zip",2024:"X/Painting.zip",2023:"X/Painting.zip"}),
+    sub("Physical Education","pe","purple-icon",
+      {2025:"X/Physical_Education.zip",2024:"X/Physical_Education.zip",2023:"X/Physical_Education.zip"},
+      {2025:"X/Physical_Education.zip",2024:"X/Physical_Education.zip",2023:"X/Physical_Education.zip"}),
+    sub("NCC","default","",
+      {2025:"X/56_NCC.pdf",2024:"X/NCC.zip",2023:"X/NCC.zip"},
+      {2025:"X/NCC.zip",2024:"X/NCC.zip",2023:"X/NCC.zip"}),
+    sub("French","eng","",
+      {2025:"X/20_French.pdf",2024:"X/French.zip",2023:"X/French.zip"},
+      {2025:"X/French.zip",2024:"X/French.zip",2023:"X/French.zip"}),
+    sub("Elements of Business","bst","blue-icon",
+      {2025:"X/35_Elements_of_Business.pdf",2024:"X/Elements_of_Business.zip",2023:"X/Elements_of_Business.zip"},
+      {2025:"X/Elements_of_Business.zip",2024:"X/Elements_of_Business.zip",2023:"X/Elements_of_Business.zip"}),
+    sub("Elements of Bookkeeping","acc","purple-icon",
+      {2025:"X/135_Ele_Book_Keeping_and_Accountancy.pdf",2024:"X/Ele_Book_Keeping_Accountancy.zip",2023:"X/Ele_Book_Keeping_Accountancy.zip"},
+      {2025:"X/Ele_Book_Keeping_and_Accountancy.zip",2024:"X/Ele_Book_Keeping_Accountancy.zip",2023:"X/Ele_Book_Keeping_Accountancy.zip"}),
+    sub("Data Science","cs","",
+      {2025:"X/106_Data_Science.pdf",2024:"X/Data_Science.zip",2023:"X/Data_Science.zip"},
+      {2025:"X/Data_Science.zip",2024:"X/Data_Science.zip",2023:"X/Data_Science.zip"}),
+    sub("Retail","bst","blue-icon",
+      {2025:"X/88_Retail_NEW.pdf",2024:"X/Retail.zip",2023:"X/Retail.zip"},
+      {2025:"X/Retail.zip",2024:"X/Retail.zip",2023:"X/Retail.zip"}),
+    sub("Urdu A","default","purple-icon",
+      {2025:"X/Urdu_Course_A.zip",2024:"X/Urdu_Course_A.zip",2023:"X/Urdu_Course_A.zip"},
+      {2025:"X/Urdu_Course_A.zip",2024:"X/Urdu_Course_A.zip",2023:"X/Urdu_Course_A.zip"}),
+    sub("Urdu B","default","",
+      {2025:"X/Urdu_Course_B.zip",2024:"X/Urdu_Course_B.zip",2023:"X/Urdu_Course_B.zip"},
+      {2025:"X/Urdu_Course_B.zip",2024:"X/Urdu_Course_B.zip",2023:"X/Urdu_Course_B.zip"}),
+    sub("Punjabi","default","blue-icon",
+      {2025:"X/Punjabi.zip",2024:"X/Punjabi.zip",2023:"X/Punjabi.zip"},
+      {2025:"X/Punjabi.zip",2024:"X/Punjabi.zip",2023:"X/Punjabi.zip"}),
+    sub("Bengali","default","purple-icon",
+      {2025:"X/Bengali.zip",2024:"X/Bengali.zip",2023:"X/Bengali.zip"},
+      {2025:"X/Bengali.zip",2024:"X/Bengali.zip",2023:"X/Bengali.zip"}),
+    sub("Gujarati","default","",
+      {2025:"X/Gujarati.zip",2024:"X/Gujarati.zip",2023:"X/Gujarati.zip"},
+      {2025:"X/Gujarati.zip",2024:"X/Gujarati.zip",2023:"X/Gujarati.zip"}),
+    sub("Marathi","default","blue-icon",
+      {2025:"X/Marathi.zip",2024:"X/Marathi.zip",2023:"X/Marathi.zip"},
+      {2025:"X/Marathi.zip",2024:"X/Marathi.zip",2023:"X/Marathi.zip"}),
+    sub("Telugu","default","purple-icon",
+      {2025:"X/Telugu.zip",2024:"X/Telugu.zip",2023:"X/Telugu.zip"},
+      {2025:"X/Telugu.zip",2024:"X/Telugu.zip",2023:"X/Telugu.zip"}),
+    sub("Tamil","default","",
+      {2025:"X/Tamil.zip",2024:"X/Tamil.zip",2023:"X/Tamil.zip"},
+      {2025:"X/Tamil.zip",2024:"X/Tamil.zip",2023:"X/Tamil.zip"}),
+    sub("Kannada","default","blue-icon",
+      {2025:"X/Kannada.zip",2024:"X/Kannada.zip",2023:"X/Kannada.zip"},
+      {2025:"X/Kannada.zip",2024:"X/Kannada.zip",2023:"X/Kannada.zip"}),
+    sub("Malayalam","default","purple-icon",
+      {2025:"X/Malayalam.zip",2024:"X/Malayalam.zip",2023:"X/Malayalam.zip"},
+      {2025:"X/Malayalam.zip",2024:"X/Malayalam.zip",2023:"X/Malayalam.zip"}),
+  ],
+  12: [
+    sub("Mathematics","math","",
+      {2025:"XII/MATHEMATICS.zip",2024:"XII/MATHEMATICS.zip",2023:"XII/MATHEMATICS.zip"},
+      {2025:"XII/Mathematics.zip",2024:"XII/Mathematics.zip",2023:"XII/Mathematics.zip"}),
+    sub("Applied Mathematics","appmath","blue-icon",
+      {2025:"XII/465_Applied_Mathematics.pdf",2024:"XII/Applied_Mathematics.zip",2023:"XII/Applied_Mathematics.zip"},
+      {2025:"XII/Applied_Math.zip",2024:"XII/Applied_Math.zip",2023:"XII/Applied_Math.zip"}),
+    sub("Physics","phy","purple-icon",
+      {2025:"XII/PHYSICS.zip",2024:"XII/PHYSICS.zip",2023:"XII/PHYSICS.zip"},
+      {2025:"XII/Physics.zip",2024:"XII/Physics.zip",2023:"XII/Physics.zip"}),
+    sub("Chemistry","chem","",
+      {2025:"XII/CHEMISTRY.zip",2024:"XII/CHEMISTRY.zip",2023:"XII/CHEMISTRY.zip"},
+      {2025:"XII/Chemistry.zip",2024:"XII/Chemistry.zip",2023:"XII/Chemistry.zip"}),
+    sub("Biology","bio","blue-icon",
+      {2025:"XII/BIOLOGY.zip",2024:"XII/BIOLOGY.zip",2023:"XII/BIOLOGY.zip"},
+      {2025:"XII/Biology.zip",2024:"XII/Biology.zip",2023:"XII/Biology.zip"}),
+    sub("Biotechnology","bio","purple-icon",
+      {2025:"XII/99_Biotechnology.pdf",2024:"XII/Biotechnology.zip",2023:"XII/Biotechnology.zip"},
+      {2025:"XII/Biotechnology.zip",2024:"XII/Biotechnology.zip",2023:"XII/Biotechnology.zip"}),
+    sub("English Core","eng","",
+      {2025:"XII/ENGLISH_CORE.zip",2024:"XII/ENGLISH_CORE.zip",2023:"XII/ENGLISH_CORE.zip"},
+      {2025:"XII/English_Core.zip",2024:"XII/English_Core.zip",2023:"XII/English_Core.zip"}),
+    sub("English Elective","eng","blue-icon",
+      {2025:"XII/English_Elective.zip",2024:"XII/English_Elective.zip",2023:"XII/English_Elective.zip"},
+      {2025:"XII/English_Elective.zip",2024:"XII/English_Elective.zip",2023:"XII/English_Elective.zip"}),
+    sub("Hindi Core","hindi","purple-icon",
+      {2025:"XII/HINDI_CORE.zip",2024:"XII/HINDI_CORE.zip",2023:"XII/HINDI_CORE.zip"},
+      {2025:"XII/Hindi_Core.zip",2024:"XII/Hindi_Core.zip",2023:"XII/Hindi_Core.zip"}),
+    sub("Hindi Elective","hindi","",
+      {2025:"XII/HINDI_ELECTIVE.zip",2024:"XII/HINDI_ELECTIVE.zip",2023:"XII/HINDI_ELECTIVE.zip"},
+      {2025:"XII/Hindi_Elective.zip",2024:"XII/Hindi_Elective.zip",2023:"XII/Hindi_Elective.zip"}),
+    sub("Accountancy","acc","blue-icon",
+      {2025:"XII/ACCOUNTANCY.zip",2024:"XII/ACCOUNTANCY.zip",2023:"XII/ACCOUNTANCY.zip"},
+      {2025:"XII/Accountancy.zip",2024:"XII/Accountancy.zip",2023:"XII/Accountancy.zip"}),
+    sub("Business Studies","bst","purple-icon",
+      {2025:"XII/BUSINESS_STUDIES.zip",2024:"XII/BUSINESS_STUDIES.zip",2023:"XII/BUSINESS_STUDIES.zip"},
+      {2025:"XII/Business_Studies.zip",2024:"XII/Business_Studies.zip",2023:"XII/Business_Studies.zip"}),
+    sub("Economics","eco","",
+      {2025:"XII/ECONOMICS.zip",2024:"XII/ECONOMICS.zip",2023:"XII/ECONOMICS.zip"},
+      {2025:"XII/Economics.zip",2024:"XII/Economics.zip",2023:"XII/Economics.zip"}),
+    sub("History","hist","blue-icon",
+      {2025:"XII/HISTORY.zip",2024:"XII/HISTORY.zip",2023:"XII/HISTORY.zip"},
+      {2025:"XII/History.zip",2024:"XII/History.zip",2023:"XII/History.zip"}),
+    sub("Geography","geo","purple-icon",
+      {2025:"XII/GEOGRAPHY.zip",2024:"XII/GEOGRAPHY.zip",2023:"XII/GEOGRAPHY.zip"},
+      {2025:"XII/Geography.zip",2024:"XII/Geography.zip",2023:"XII/Geography.zip"}),
+    sub("Political Science","poli","",
+      {2025:"XII/POLITICAL_SCIENCE.zip",2024:"XII/POLITICAL_SCIENCE.zip",2023:"XII/POLITICAL_SCIENCE.zip"},
+      {2025:"XII/Poltical_Science.zip",2024:"XII/Poltical_Science.zip",2023:"XII/Poltical_Science.zip"}),
+    sub("Sociology","socio","blue-icon",
+      {2025:"XII/62_Sociology.pdf",2024:"XII/Sociology.zip",2023:"XII/Sociology.zip"},
+      {2025:"XII/Sociology.zip",2024:"XII/Sociology.zip",2023:"XII/Sociology.zip"}),
+    sub("Psychology","psych","purple-icon",
+      {2025:"XII/63_psychology.pdf",2024:"XII/Psychology.zip",2023:"XII/Psychology.zip"},
+      {2025:"XII/Psychology.zip",2024:"XII/Psychology.zip",2023:"XII/Psychology.zip"}),
+    sub("Computer Science","cs","",
+      {2025:"XII/91_COMPUTER_SCIENCE.pdf",2024:"XII/Computer_Science.zip",2023:"XII/Computer_Science.zip"},
+      {2025:"XII/Computer_Science.zip",2024:"XII/Computer_Science.zip",2023:"XII/Computer_Science.zip"}),
+    sub("Informatics Practices","cs","blue-icon",
+      {2025:"XII/90_INFORMATICS_PRACTICES.pdf",2024:"XII/Informatics_Practices.zip",2023:"XII/Informatics_Practices.zip"},
+      {2025:"XII/Informatics_Practices.zip",2024:"XII/Informatics_Practices.zip",2023:"XII/Informatics_Practices.zip"}),
+    sub("Information Technology","it","purple-icon",
+      {2025:"XII/326_INFORMATION_TECHNOLOGY.pdf",2024:"XII/Information_Technology.zip",2023:"XII/Information_Technology.zip"},
+      {2025:"XII/Information_Technology.zip",2024:"XII/Information_Technology.zip",2023:"XII/Information_Technology.zip"}),
+    sub("Artificial Intelligence","cs","",
+      {2025:"XII/367_Artificial_Intelligence.pdf",2024:"XII/Artificial_Intelligence.zip",2023:"XII/Artificial_Intelligence.zip"},
+      {2025:"XII/Artificial_Intelligence.zip",2024:"XII/Artificial_Intelligence.zip",2023:"XII/Artificial_Intelligence.zip"}),
+    sub("Data Science","cs","blue-icon",
+      {2025:"XII/368_Data_Science.pdf",2024:"XII/Data _Science.zip",2023:"XII/Data_Science.zip"},
+      {2025:"XII/Data_Science.zip",2024:"XII/Data_Science.zip",2023:"XII/Data_Science.zip"}),
+    sub("Physical Education","pe","purple-icon",
+      {2025:"XII/75_Physical Education.pdf",2024:"XII/Physical_Education.zip",2023:"XII/Physical_Education.zip"},
+      {2025:"XII/Physical_Education.zip",2024:"XII/Physical_Education.zip",2023:"XII/Physical_Education.zip"}),
+    sub("Sanskrit Core","skrt","",
+      {2025:"XII/22_Sanskrit_Core.pdf",2024:"XII/Sanskrit_Core.zip",2023:"XII/Sanskrit_Core.zip"},
+      {2025:"XII/Sanskrit_Core.zip",2024:"XII/Sanskrit_Core.zip",2023:"XII/Sanskrit_Core.zip"}),
+    sub("Sanskrit Elective","skrt","blue-icon",
+      {2025:"XII/49_Sanskrit_Elective_NEW.pdf",2024:"XII/sanskrit_Elective.zip",2023:"XII/Sanskrit_Elective.zip"},
+      {2025:"XII/Sanskrit_Elective.rar",2024:"XII/Sanskrit_Elective.zip",2023:"XII/Sanskrit_Elective.zip"}),
+    sub("Entrepreneurship","bst","purple-icon",
+      {2025:"XII/98_Entrepreneurship.pdf",2024:"XII/Entrepreneurship.zip",2023:"XII/Entrepreneurship.zip"},
+      {2025:"XII/Entrepreneurship.zip",2024:"XII/Entrepreneurship.zip",2023:"XII/Entrepreneurship.zip"}),
+    sub("Legal Studies","poli","",
+      {2025:"XII/40_Legal_Studies.pdf",2024:"XII/Legal_Studies.zip",2023:"XII/Legal_Studies.zip"},
+      {2025:"XII/Legal_Studies.zip",2024:"XII/Legal_Studies.zip",2023:"XII/Legal_Studies.zip"}),
+    sub("Home Science","default","blue-icon",
+      {2025:"XII/69_Home_Science.pdf",2024:"XII/Home_Science.zip",2023:"XII/Home_Science.zip"},
+      {2025:"XII/Home_Science.zip",2024:"XII/Home_Science.zip",2023:"XII/Home_Science.zip"}),
+    sub("Painting","default","purple-icon",
+      {2025:"XII/71_Painting.pdf",2024:"XII/Painting.zip",2023:"XII/Painting.zip"},
+      {2025:"XII/Painting.zip",2024:"XII/Painting.zip",2023:"XII/Painting.zip"}),
+    sub("NCC","default","",
+      {2025:"XII/42_NCC_NEW.pdf",2024:"XII/National_Cadet_Corps_NCC.zip",2023:"XII/NCC.zip"},
+      {2025:"XII/NCC.zip",2024:"XII/NCC.zip",2023:"XII/NCC.zip"}),
+    sub("French","eng","blue-icon",
+      {2025:"XII/18_French.pdf",2024:"XII/French.rar",2023:"XII/French.zip"},
+      {2025:"XII/French.zip",2024:"XII/French.zip",2023:"XII/French.zip"}),
+    sub("Engineering Graphics","default","purple-icon",
+      {2025:"XII/68_Engineering_Graphics.pdf",2024:"XII/Engineering_Graphics.zip",2023:"XII/Engineering_Graphics.zip"},
+      {2025:"XII/Engineering_Graphics.zip",2024:"XII/Engineering_Graphics.zip",2023:"XII/Engineering_Graphics.zip"}),
+    sub("Agriculture","default","",
+      {2025:"XII/Agriculture.zip",2024:"XII/Agriculture.zip",2023:"XII/Agriculture.zip"},
+      {2025:"XII/Agriculture.zip",2024:"XII/Agriculture.zip",2023:"XII/Agriculture.zip"}),
+    sub("Urdu Core","default","blue-icon",
+      {2025:"XII/Urdu_Core.zip",2024:"XII/Urdu_Core.zip",2023:"XII/Urdu_Core.zip"},
+      {2025:"XII/Urdu_Core.zip",2024:"XII/Urdu_Core.zip",2023:"XII/Urdu_Core.zip"}),
+    sub("Urdu Elective","default","purple-icon",
+      {2025:"XII/Urdu_Elective.zip",2024:"XII/Urdu_Elective.zip",2023:"XII/Urdu_Elective.zip"},
+      {2025:"XII/Urdu_Elective.zip",2024:"XII/Urdu_Elective.zip",2023:"XII/Urdu_Elective.zip"}),
+    sub("Punjabi","default","",
+      {2025:"XII/Punjabi.zip",2024:"XII/Punjabi.zip",2023:"XII/Punjabi.zip"},
+      {2025:"XII/Punjabi.zip",2024:"XII/Punjabi.zip",2023:"XII/Punjabi.zip"}),
+    sub("Bengali","default","blue-icon",
+      {2025:"XII/Bengali.zip",2024:"XII/Bengali.zip",2023:"XII/Bengali.zip"},
+      {2025:"XII/Bengali.zip",2024:"XII/Bengali.zip",2023:"XII/Bengali.zip"}),
+    sub("Fashion Studies","default","purple-icon",
+      {2025:"XII/Fashion_Studies.zip",2024:"XII/Fashion_Studies.zip",2023:"XII/Fashion_Studies.zip"},
+      {2025:"XII/FASHION_STUDIES.zip",2024:"XII/FASHION_STUDIES.zip",2023:"XII/FASHION_STUDIES.zip"}),
+    sub("Tourism","default","",
+      {2025:"XII/Tourism.zip",2024:"XII/Tourism.zip",2023:"XII/Tourism.zip"},
+      {2025:"XII/Tourism.zip",2024:"XII/Tourism.zip",2023:"XII/Tourism.zip"}),
+    sub("Marketing","bst","blue-icon",
+      {2025:"XII/Marketing.zip",2024:"XII/Marketing.zip",2023:"XII/Marketing.zip"},
+      {2025:"XII/Marketing.zip",2024:"XII/Marketing.zip",2023:"XII/Marketing.zip"}),
+    sub("Insurance","eco","purple-icon",
+      {2025:"XII/Insurance.zip",2024:"XII/Insurance.zip",2023:"XII/Insurance.zip"},
+      {2025:"XII/Insurance.zip",2024:"XII/Insurance.zip",2023:"XII/Insurance.zip"}),
+    sub("Banking","eco","",
+      {2025:"XII/Banking.zip",2024:"XII/Banking.zip",2023:"XII/Banking.zip"},
+      {2025:"XII/Banking.zip",2024:"XII/Banking.zip",2023:"XII/Banking.zip"}),
+    sub("Financial Markets Mgmt","eco","blue-icon",
+      {2025:"XII/Financial_Markets_Management.zip",2024:"XII/Financial_Markets_Management.zip",2023:"XII/Financial_Markets_Management.zip"},
+      {2025:"XII/Financial_Markets_Management.zip",2024:"XII/Financial_Markets_Management.zip",2023:"XII/Financial_Markets_Management.zip"}),
+    sub("Food Production","default","purple-icon",
+      {2025:"XII/Food_Production.zip",2024:"XII/Food_Production.zip",2023:"XII/Food_Production.zip"},
+      {2025:"XII/Food_Production.zip",2024:"XII/Food_Production.zip",2023:"XII/Food_Production.zip"}),
+    sub("Health Care","default","",
+      {2025:"XII/Health_Care.zip",2024:"XII/Health_Care.zip",2023:"XII/Health_Care.zip"},
+      {2025:"XII/Health_Care.zip",2024:"XII/Health_Care.zip",2023:"XII/Health_Care.zip"}),
+  ]
+};
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+let activeMode  = '2025-regular';   // e.g. '2025-regular' or '2024-comptt'
+let activeClass = 10;
+
+// ─── MODE COLORS (year + type) ────────────────────────────────────────────────
+const MODE_META = {
+  '2025-regular': {badge:'badge-2025', label:'2025 Regular',    activeClass:'active-2025-regular'},
+  '2025-comptt':  {badge:'badge-2025', label:'2025 Compartment',activeClass:'active-2025-comptt'},
+  '2024-regular': {badge:'badge-2024', label:'2024 Regular',    activeClass:'active-2024-regular'},
+  '2024-comptt':  {badge:'badge-2024', label:'2024 Compartment',activeClass:'active-2024-comptt'},
+  '2023-regular': {badge:'badge-2023', label:'2023 Regular',    activeClass:'active-2023-regular'},
+  '2023-comptt':  {badge:'badge-2023', label:'2023 Compartment',activeClass:'active-2023-comptt'},
+};
+
+// ─── SETTERS ─────────────────────────────────────────────────────────────────
+function setMode(year, type, btn) {
+  activeMode = `${year}-${type}`;
+  document.querySelectorAll('.year-tab').forEach(t=>{ t.className='year-tab'; });
+  btn.classList.add(MODE_META[activeMode].activeClass);
+  renderCards();
+}
+
+function setClass(c, btn) {
+  activeClass = c;
+  document.querySelectorAll('.class-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards();
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+function renderCards() {
+  const grid = document.getElementById('subjectsGrid');
+  const q    = document.getElementById('searchInput').value.trim().toLowerCase();
+  const subjects = DATA[activeClass] || [];
+  // Only show subjects that have a link for the active mode
+  const filtered = subjects
+    .filter(s => s.links[activeMode])
+    .filter(s => !q || s.name.toLowerCase().includes(q));
+
+  const meta = MODE_META[activeMode];
+  document.getElementById('labelText').textContent  = `Class ${activeClass===10?'X':'XII'} · ${meta.label}`;
+  document.getElementById('labelBadge1').className  = `lbl-badge ${meta.badge}`;
+  document.getElementById('labelBadge1').textContent = activeMode.split('-')[0];
+  document.getElementById('labelBadge2').className  = `lbl-badge ${activeClass===10?'badge-x':'badge-xii'}`;
+  document.getElementById('labelBadge2').textContent = `Class ${activeClass===10?'X':'XII'}`;
+  document.getElementById('statCount').textContent   = filtered.length;
+
+  grid.innerHTML = '';
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-results">No subjects found${q?' for "'+q+'"':' for this selection'}</div>`;
+    return;
+  }
+
+  // The 3 regular and 3 compartment buttons to show per card
+  const MODES = [
+    {key:'2025-regular', label:'2025 R'},
+    {key:'2025-comptt',  label:'2025 C'},
+    {key:'2024-regular', label:'2024 R'},
+    {key:'2024-comptt',  label:'2024 C'},
+    {key:'2023-regular', label:'2023 R'},
+    {key:'2023-comptt',  label:'2023 C'},
+  ];
+
+  filtered.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = `sub-card card-${activeMode}`;
+    card.style.animationDelay = `${i*0.04}s`;
+
+    const btns = MODES.map(m => {
+      const u = s.links[m.key];
+      if (!u) return `<span class="dl-btn-na">${m.label}</span>`;
+      const isActive = m.key === activeMode;
+      return `<a href="${u}" target="_blank" rel="noopener noreferrer" class="${isActive?'dl-btn-active':''}" title="${m.key.replace('-',' ')} paper">${m.label}</a>`;
+    }).join('');
+
+    card.innerHTML = `
+      <div class="sub-icon-wrap ${s.ic}">${ICONS[s.icon]||ICONS.default}</div>
+      <div class="sub-name">${s.name}</div>
+      <div class="year-chip">
+        <svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        Official CBSE
+      </div>
+      <div class="dl-btns">${btns}</div>`;
+
+    // NO click on card body — only the buttons are links
+    grid.appendChild(card);
+  });
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+renderCards();
+</script>
+</body>
+</html>

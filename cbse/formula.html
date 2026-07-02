@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Formula Sheets | CBSE Class 9-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f0fcff;
+      --primary: #00838f;
+      --primary-light: #00acc1;
+      --primary-soft: #e0f7fa;
+      --accent: #0277bd;
+      --accent-soft: #e3f2fd;
+      --text: #002a33;
+      --text2: #2e6b78;
+      --text3: #6aacb8;
+      --white: #ffffff;
+      --card-border: #b2ebf2;
+      --shadow-sm: 0 2px 8px rgba(0,131,143,0.08);
+      --shadow-md: 0 8px 24px rgba(0,131,143,0.13);
+      --shadow-lg: 0 20px 48px rgba(0,131,143,0.2);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Plus Jakarta Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+    body::before { content:''; position:fixed; top:-200px; right:-200px; width:600px; height:600px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle,rgba(0,172,193,0.13) 0%,transparent 70%); }
+    body::after  { content:''; position:fixed; bottom:-150px; left:-150px; width:500px; height:500px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle,rgba(2,119,189,0.09) 0%,transparent 70%); }
+
+    .container { max-width:1240px; margin:0 auto; padding:2.5rem 1.5rem 4rem; position:relative; z-index:1; }
+
+    /* HEADER */
+    header { text-align:center; margin-bottom:2.5rem; animation:fadeDown 0.6s ease-out both; }
+    .logo-wrap { display:inline-flex; align-items:center; gap:14px; margin-bottom:0.6rem; }
+    .logo-icon { width:56px; height:56px; background:linear-gradient(135deg,#00838f,#00acc1); border-radius:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,131,143,0.35); }
+    .logo-text { font-family:'Sora',sans-serif; font-size:2.6rem; font-weight:800; letter-spacing:-0.5px; background:linear-gradient(135deg,#00838f 30%,#0277bd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .tagline { display:inline-flex; align-items:center; gap:10px; font-size:0.95rem; font-weight:600; color:var(--text2); background:var(--white); border:1px solid var(--card-border); padding:0.4rem 1.4rem; border-radius:40px; box-shadow:var(--shadow-sm); margin-top:0.4rem; }
+    .tagline .dot { width:6px; height:6px; border-radius:50%; background:var(--primary-light); }
+
+    .request-btn { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:linear-gradient(135deg,#ff6f00,#ffa000); color:white; font-weight:700; font-size:0.9rem; padding:0.55rem 1.4rem 0.55rem 0.9rem; border-radius:50px; box-shadow:0 6px 20px rgba(255,111,0,0.35); transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); font-family:'Plus Jakarta Sans',sans-serif; }
+    .request-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(255,111,0,0.45); }
+    .request-btn-icon { width:28px; height:28px; background:rgba(255,255,255,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .request-btn-icon svg { width:14px; height:14px; fill:white; }
+    .request-btn-arrow svg { width:16px; height:16px; fill:white; margin-left:2px; }
+
+    .header-btns { display:inline-flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:0.75rem; }
+    .telegram-btn { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:linear-gradient(135deg,#0088cc,#00aaff); color:white; font-weight:700; font-size:0.9rem; padding:0.55rem 1.4rem 0.55rem 0.9rem; border-radius:50px; box-shadow:0 6px 20px rgba(0,136,204,0.35); transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); font-family:'Plus Jakarta Sans',sans-serif; flex-direction:row; }
+    .telegram-btn:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 10px 28px rgba(0,136,204,0.45); }
+    .telegram-btn-icon { width:28px; height:28px; background:rgba(255,255,255,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .telegram-btn-icon svg { width:16px; height:16px; fill:white; }
+
+    /* BREADCRUMB */
+    .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:1.5rem; font-size:0.85rem; font-weight:600; color:var(--text3); flex-wrap:wrap; }
+    .crumb { cursor:pointer; padding:4px 12px; border-radius:20px; transition:all 0.2s; color:var(--text2); }
+    .crumb:hover { background:var(--primary-soft); color:var(--primary); }
+    .crumb.active { color:var(--primary); font-weight:700; cursor:default; }
+    .sep { color:var(--text3); font-size:0.7rem; }
+
+    /* STEPS */
+    .step { display:none; animation:fadeUp 0.3s ease-out both; }
+    .step.visible { display:block; }
+
+    /* STATS */
+    .stats-bar { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .stat-pill { background:var(--white); border:1px solid var(--card-border); border-radius:12px; padding:0.7rem 1.2rem; display:flex; align-items:center; gap:10px; box-shadow:var(--shadow-sm); flex:1; min-width:130px; }
+    .stat-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .stat-icon svg { width:16px; height:16px; }
+    .stat-icon.teal { background:var(--primary-soft); } .stat-icon.teal svg { fill:var(--primary); }
+    .stat-icon.blue { background:var(--accent-soft);  } .stat-icon.blue svg { fill:var(--accent); }
+    .stat-icon.gold { background:#fff8e1; }             .stat-icon.gold svg { fill:#f57f17; }
+    .stat-val { font-weight:800; font-size:1.1rem; color:var(--text); line-height:1; }
+    .stat-lbl { font-size:0.8rem; color:var(--text2); }
+
+    /* STEP HEADER */
+    .step-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.8rem; flex-wrap:wrap; gap:12px; }
+    .step-title { display:flex; align-items:center; gap:12px; font-family:'Sora',sans-serif; font-size:1.35rem; font-weight:700; color:var(--text); }
+    .step-title .title-icon { width:40px; height:40px; background:var(--primary-soft); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .step-title .title-icon svg { width:18px; height:18px; fill:var(--primary); }
+    .step-hint { font-size:0.82rem; color:var(--text3); background:var(--bg); border:1px solid var(--card-border); padding:0.3rem 0.9rem; border-radius:20px; display:flex; align-items:center; gap:6px; }
+    .step-hint svg { width:12px; height:12px; fill:currentColor; }
+
+    /* CLASS CARDS */
+    .class-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:1.4rem; }
+    .class-card { background:var(--white); border:2px solid var(--card-border); border-radius:var(--radius-lg); padding:2rem 1.8rem; cursor:pointer; transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1); display:flex; flex-direction:column; align-items:flex-start; gap:12px; position:relative; overflow:hidden; }
+    .class-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,#00838f,#0277bd); opacity:0; transition:opacity 0.25s; border-radius:inherit; }
+    .class-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--primary-light); }
+    .class-card:hover::after { opacity:1; }
+    .class-card:hover .cc-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .class-card:hover .cc-icon svg { fill:white !important; }
+    .class-card:hover .cc-num,.class-card:hover .cc-title,.class-card:hover .cc-arrow { color:rgba(255,255,255,0.85) !important; }
+    .class-card:hover .cc-meta { color:rgba(255,255,255,0.8) !important; background:rgba(255,255,255,0.15) !important; border-color:transparent !important; }
+    .cc-icon-wrap { width:54px; height:54px; border-radius:14px; background:var(--primary-soft); display:flex; align-items:center; justify-content:center; transition:background 0.25s; position:relative; z-index:1; }
+    .cc-icon svg { width:26px; height:26px; fill:var(--primary); transition:fill 0.25s; }
+    .cc-num { font-size:0.72rem; font-weight:700; color:var(--text3); letter-spacing:0.5px; text-transform:uppercase; position:relative; z-index:1; transition:color 0.25s; }
+    .cc-title { font-family:'Sora',sans-serif; font-size:1.55rem; font-weight:800; color:var(--text); position:relative; z-index:1; transition:color 0.25s; }
+    .cc-meta { font-size:0.78rem; font-weight:600; color:var(--text2); background:var(--bg); border:1px solid var(--card-border); padding:3px 12px; border-radius:20px; position:relative; z-index:1; transition:all 0.25s; display:inline-flex; align-items:center; gap:6px; }
+    .cc-arrow { position:absolute; right:1.4rem; bottom:1.4rem; color:var(--text3); z-index:1; transition:color 0.25s; }
+    .cc-arrow svg { width:20px; height:20px; fill:currentColor; }
+
+    /* SUBJECT CARDS */
+    .section-box { background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-md); margin-bottom:2rem; }
+    .subjects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1.1rem; }
+    .subject-card { background:var(--bg); border:1.5px solid var(--card-border); border-radius:var(--radius-md); padding:1.4rem 1rem; cursor:pointer; transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1); display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; position:relative; overflow:hidden; }
+    .subject-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,#00838f,#0277bd); opacity:0; transition:opacity 0.22s; border-radius:inherit; }
+    .subject-card:hover { transform:translateY(-8px) scale(1.02); border-color:var(--primary-light); box-shadow:var(--shadow-lg); }
+    .subject-card:hover::before { opacity:1; }
+    .subject-card:hover .sub-icon-wrap { background:rgba(255,255,255,0.2) !important; }
+    .subject-card:hover .sub-icon svg { fill:white !important; }
+    .subject-card:hover .subject-name,.subject-card:hover .chapter-pill { color:white !important; }
+    .subject-card:hover .chapter-pill { background:rgba(255,255,255,0.2) !important; border-color:rgba(255,255,255,0.3) !important; }
+    .sub-icon-wrap { width:54px; height:54px; background:var(--white); border-radius:14px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm); transition:background 0.22s; position:relative; z-index:1; }
+    .sub-icon svg { width:24px; height:24px; fill:var(--primary); transition:fill 0.22s; }
+    .subject-name { font-weight:700; font-size:0.95rem; color:var(--text); transition:color 0.22s; position:relative; z-index:1; line-height:1.3; }
+    .chapter-pill { font-size:0.7rem; font-weight:600; background:var(--white); border:1px solid var(--card-border); padding:3px 12px; border-radius:20px; color:var(--text2); display:inline-flex; align-items:center; gap:5px; transition:all 0.22s; position:relative; z-index:1; }
+    .chapter-pill svg { width:10px; height:10px; fill:currentColor; }
+
+    /* FORMULA VIEW (single PDF open) */
+    .formula-topbar { background:linear-gradient(135deg,#00838f,#0277bd); padding:1.4rem 1.6rem; display:flex; align-items:center; gap:14px; flex-wrap:wrap; border-radius:var(--radius-lg) var(--radius-lg) 0 0; }
+    .ch-badge { width:48px; height:48px; background:rgba(255,255,255,0.2); border-radius:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .ch-badge svg { width:22px; height:22px; fill:white; }
+    .ch-top-title { font-family:'Sora',sans-serif; font-size:1.2rem; font-weight:700; color:white; }
+    .ch-top-sub { font-size:0.78rem; color:rgba(255,255,255,0.75); margin-top:2px; }
+
+    /* CHAPTER LIST */
+    .chapters-topbar { background:linear-gradient(135deg,#00838f,#0277bd); padding:1.4rem 1.6rem; display:flex; align-items:center; gap:14px; flex-wrap:wrap; border-radius:var(--radius-lg) var(--radius-lg) 0 0; }
+    .ch-search { padding:1rem 1.4rem; border-bottom:1px solid var(--card-border); }
+    .search-inner { display:flex; align-items:center; gap:10px; background:var(--bg); border:1.5px solid var(--card-border); border-radius:12px; padding:0.5rem 1rem; }
+    .search-inner svg { width:16px; height:16px; fill:var(--text3); flex-shrink:0; }
+    .search-inner input { border:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.88rem; color:var(--text); outline:none; width:100%; }
+    .search-inner input::placeholder { color:var(--text3); }
+
+    .chapter-list { max-height:62vh; overflow-y:auto; padding:0.6rem 1rem 1.2rem; }
+    .chapter-list::-webkit-scrollbar { width:4px; }
+    .chapter-list::-webkit-scrollbar-thumb { background:var(--card-border); border-radius:2px; }
+    .chapter-item { display:flex; justify-content:space-between; align-items:center; padding:0.75rem 0.9rem; border-radius:var(--radius-sm); transition:background 0.15s; gap:10px; }
+    .chapter-item:hover { background:var(--bg); }
+    .ch-left { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
+    .ch-num { width:28px; height:28px; background:var(--primary-soft); color:var(--primary); border-radius:8px; font-size:0.72rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .chapter-name { font-weight:600; font-size:0.88rem; color:var(--text); line-height:1.4; }
+    .map-btn { background:var(--primary-soft); border:none; padding:6px 14px; border-radius:20px; font-size:0.72rem; font-weight:700; color:var(--primary); cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:5px; font-family:'Plus Jakarta Sans',sans-serif; flex-shrink:0; white-space:nowrap; }
+    .map-btn:hover { background:var(--primary); color:white; box-shadow:0 4px 12px rgba(0,131,143,0.3); transform:scale(0.97); }
+    .map-btn svg { width:12px; height:12px; fill:currentColor; }
+
+    /* Single formula open btn */
+    .open-formula-btn { display:block; width:100%; background:linear-gradient(135deg,#00838f,#0277bd); color:white; border:none; border-radius:0 0 var(--radius-lg) var(--radius-lg); padding:1.2rem; font-family:'Sora',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px; }
+    .open-formula-btn:hover { opacity:0.92; transform:scale(0.99); }
+    .open-formula-btn svg { width:20px; height:20px; fill:white; }
+
+    /* ADBLOCKER */
+    .adb-banner { background:linear-gradient(135deg,#fff3e0,#ffe0b2); border:1.5px solid #ffb74d; border-radius:12px; padding:12px 14px; margin-bottom:10px; display:flex; align-items:flex-start; gap:10px; }
+    .adb-banner svg { width:18px; height:18px; fill:#e65100; flex-shrink:0; margin-top:1px; }
+    .adb-banner-text { font-size:0.8rem; color:#bf360c; line-height:1.5; }
+    .adb-banner-text strong { display:block; margin-bottom:2px; font-size:0.83rem; }
+    .adb-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(100px); background:#1a1a2e; color:white; border-radius:16px; padding:14px 20px; display:flex; align-items:flex-start; gap:12px; box-shadow:0 8px 32px rgba(0,0,0,0.35); z-index:9999; max-width:420px; width:calc(100% - 32px); transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); border:1px solid rgba(255,255,255,0.1); }
+    .adb-toast.show { transform:translateX(-50%) translateY(0); }
+    .adb-toast-icon { width:36px; height:36px; border-radius:10px; background:#f57f17; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .adb-toast-icon svg { width:18px; height:18px; fill:white; }
+    .adb-toast-body { flex:1; }
+    .adb-toast-title { font-weight:700; font-size:0.88rem; margin-bottom:3px; }
+    .adb-toast-msg { font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.5; }
+    .adb-toast-close { background:none; border:none; color:rgba(255,255,255,0.5); cursor:pointer; font-size:1.1rem; padding:0; }
+    .adb-toast-close:hover { color:white; }
+
+    /* FOOTER */
+    .footer { background:var(--white); border:1px solid var(--card-border); border-radius:var(--radius-lg); padding:1.8rem 1.5rem; box-shadow:var(--shadow-sm); }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem 1.6rem; margin-bottom:1.2rem; }
+    .footer-links a { text-decoration:none; color:var(--text2); font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px; transition:all 0.2s; }
+    .footer-links a svg { width:14px; height:14px; fill:currentColor; }
+    .footer-links a:hover { color:var(--primary); }
+    .donate-link { background:linear-gradient(135deg,#ff6f00,#ff8f00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700 !important; }
+    .footer-copy { text-align:center; font-size:0.75rem; color:var(--text3); border-top:1px solid var(--card-border); padding-top:1rem; }
+
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(20px)}  to{opacity:1;transform:translateY(0)} }
+    @media(max-width:600px){
+      .logo-text{font-size:2rem}
+      .class-grid{grid-template-columns:1fr 1fr}
+      .subjects-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:0.8rem}
+      .section-box{padding:1.2rem}
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+      </div>
+      <div class="logo-text">Formula Sheets</div>
+    </div><br>
+    <div class="tagline">
+      <div class="dot"></div>
+      CBSE Formula Sheets · Class 9 to 12
+      <div class="dot"></div>
+    </div>
+    <br>
+    <div class="header-btns">
+      <a href="https://wondermayank.github.io/contact" target="_blank" class="request-btn">
+        <span class="request-btn-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg></span>
+        <span>Request Formula Sheet</span>
+        <span class="request-btn-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></span>
+      </a>
+      <a href="https://t.me/thunderstudy_cbse" target="_blank" class="telegram-btn">
+        <span class="telegram-btn-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </span>
+        <span>Colour Mindmaps v2</span>
+        <span style="font-size:0.78rem;opacity:0.85">@thunderstudy_cbse</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="crumb active" onclick="goStep(0)">
+      <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Select Class
+    </span>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-pill">
+      <div class="stat-icon teal"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+      <div><div class="stat-val" id="statSheets">0</div><div class="stat-lbl">Formula Sheets</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+      <div><div class="stat-val">4</div><div class="stat-lbl">Classes (9–12)</div></div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-icon gold"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+      <div><div class="stat-val">Free</div><div class="stat-lbl">Always</div></div>
+    </div>
+  </div>
+
+  <!-- STEP 0: CLASS SELECT -->
+  <div class="step visible" id="step0">
+    <div class="step-header">
+      <div class="step-title">
+        <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+        Select Your Class
+      </div>
+      <div class="step-hint"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Tap a class to continue</div>
+    </div>
+    <div class="class-grid" id="classGrid"></div>
+  </div>
+
+  <!-- STEP 1: SUBJECT SELECT -->
+  <div class="step" id="step1">
+    <div class="step-header">
+      <div class="step-title">
+        <div class="title-icon"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .65.73.45.75.45.15 0 .25-.05.35-.1C3.45 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.95 3.8-1.5 5.5-1.5 1.65 0 3.35.45 4.75 1.3.1.05.15.05.25.05.02 0 .75.2.75-.45V6C21.85 4.9 19.5 4.5 17.5 4.5z"/></svg></div>
+        <span id="subjectLabel">Select Subject</span>
+      </div>
+      <div class="step-hint"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Choose a subject</div>
+    </div>
+    <div class="section-box">
+      <div class="subjects-grid" id="subjectsGrid"></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: FORMULA OPEN (chapter-wise or single) -->
+  <div class="step" id="step2">
+    <div class="section-box" style="padding:0;overflow:hidden;">
+      <div class="chapters-topbar">
+        <div class="ch-badge" id="chBadge"></div>
+        <div>
+          <div class="ch-top-title" id="chTitle"></div>
+          <div class="ch-top-sub" id="chSub"></div>
+        </div>
+      </div>
+      <div id="chapterSearchWrap" class="ch-search">
+        <div class="search-inner">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="chapterSearch" placeholder="Search chapters…">
+        </div>
+      </div>
+      <div class="chapter-list" id="chapterListEl"></div>
+      <!-- single open btn (shown when no chapters) -->
+      <div id="singleOpenWrap" style="display:none;">
+        <button class="open-formula-btn" id="singleOpenBtn">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+          Open Formula Sheet PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:2.5rem;">
+    <div class="footer">
+      <div class="footer-links">
+        <a href="https://thunderstudy.github.io" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>ThunderStudy Home
+        </a>
+        <a href="https://t.me/thunderstudy_cbse" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram Channel
+        </a>
+        <a href="https://wondermayank.github.io/contact" target="_blank" class="donate-link">
+          <svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>Support Us
+        </a>
+      </div>
+      <div class="footer-copy">© 2025 ThunderStudy · Free CBSE Resources · Not affiliated with CBSE</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- AD BLOCKER TOAST -->
+<div class="adb-toast" id="adbToast">
+  <div class="adb-toast-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
+  <div class="adb-toast-body">
+    <div class="adb-toast-title">PDF blocked by Ad Blocker</div>
+    <div class="adb-toast-msg">Disable your ad blocker or open in Incognito mode (Ctrl+Shift+N / ⌘+Shift+N) to view the formula sheet.</div>
+  </div>
+  <button class="adb-toast-close" onclick="hideToast()">✕</button>
+</div>
+
+<script>
+// ─── DATA ───
+
+const subjectSVG = {
+  Maths:   `<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5h-2v-2h2v-2h2v2h2v2h-2v2h-2v-2zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/></svg>`,
+  Science: `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v7.27l-4.5 7.27C3.19 19.36 3.55 20 4.14 20h15.72c.59 0 .95-.64.64-1.46L16 11.27V4h1V2H7zm3 10.28L11.32 10h1.36L14 12.28V14h-4v-1.72z"/></svg>`,
+  Phy:     `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  Che:     `<svg viewBox="0 0 24 24"><path d="M7 2v2h1v7.27l-4.5 7.27C3.19 19.36 3.55 20 4.14 20h15.72c.59 0 .95-.64.64-1.46L16 11.27V4h1V2H7z"/></svg>`,
+  Eco:     `<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>`
+};
+
+const subjectMeta = {
+  Maths:   { label:"Mathematics", slug:"maths"     },
+  Science: { label:"Science",     slug:"science"   },
+  Phy:     { label:"Physics",     slug:"physics"   },
+  Che:     { label:"Chemistry",   slug:"chemistry" },
+  Eco:     { label:"Economics",   slug:"economics" }
+};
+
+// Chapter data — chapter-wise formula sheets where applicable
+// Economics (class 12) has no chapter-wise split → single PDF
+const chaptersDB = {
+  9: {
+    Maths:   ["Number Systems","Polynomials","Coordinate Geometry","Linear Equations in Two Variables","Introduction to Euclid's Geometry","Lines and Angles","Triangles","Quadrilaterals","Circles","Heron's Formula","Surface Areas and Volumes","Statistics","Probability"],
+    Science: ["Matter in Our Surroundings","Is Matter Around Us Pure?","Atoms and Molecules","Structure of the Atom","The Fundamental Unit of Life","Tissues","Motion","Force and Laws of Motion","Gravitation","Work and Energy","Sound","Why Do We Fall Ill?","Natural Resources","Improvement in Food Resources"]
+  },
+  10: {
+    Maths:   ["Real Numbers","Polynomials","Pair of Linear Equations in Two Variables","Quadratic Equations","Arithmetic Progressions","Triangles","Coordinate Geometry","Introduction to Trigonometry","Some Applications of Trigonometry","Circles","Areas Related to Circles","Surface Areas and Volumes","Statistics","Probability"],
+    Science: ["Electricity","Heredity and Evolution","Human Eye and Colourful World","Light- Reflection and Refraction","Source of Energy","Acids, Bases and Salts","Carbon and its Compounds","Chemical Reactions and Equations","Metals and Non-Metals","Periodic Classification of Elements","Management of natural Resources","Life Processes","How Do Organisms Reproduce?","Control and Coordination"]
+  },
+  11: {
+    Maths: ["Sets","Relations And Functions","Trigonometry Functions","Principle Of Mathematical Induction","Complex Number And Quadratic Equations","Linear Inequalities","Permutations And Combinations","Binomial Theorem","Sequence And Series","Straight Lines","Conic Sections","Introduction to Three Dimensional Geometry","Limits And Derivatives","Mathematical Reasoning","Statistics","Probability"],
+    Phy:   ["Measurements Units and Dimensions","Work, Energy & Power","Transmission of Heat","Thermodynamics","Surface Tension","Simple Harmonic Motion","Rotatory Motion","Centre of Mass","Properties of Matter","Kinematics","Gravitation","Friction","Fluid Mechanics","Elasticity"],
+    Che:   ["Some Basic Concepts of Chemistry","Structure of Atom","Classification of elements & Periodicity in Properties","States of Matter","Thermodynamics","Equilibrium","Redox Reactions","Hydrogen","The s-Block Elements","The P-Block Elements","Organic Chemistry-Some Basic Principles"]
+  },
+  12: {
+    Maths: ["Continuity and Differentiability","Application of Derivatives","Integrals","Applications of Integrals","Three Dimensional Geometry","Sets, Relations, Functions & Binary Operation","Complex Number","Quadratic Equations","Sequence And Series","Permutation and Combination","Binomial Theorem","Exponential and Logarithmic Series","Trigonometric Functions","Inverse Trigonometric Functions","Solution of Triangles","Cartesian Functions of Rectangular Coordinates","The Straight Line","Family of Lines","Circles and Family of Circles","Conic Section","Frequency Tables","Linear Programming","Probability","Vector Algebra","Functions, Limits and Continuity","Differentiation of Their Application","Indefinite and Definite Integral","Differential Equations","Matrices and Determinants","Mensuration"],
+    Phy:   ["Measurements","Motion in One Dimension","Motion in Two and Three Dimensions","Newton's Laws of Motion","Work Power and Energy","Centre Of Mass","Gravitation, Gravity","Properties of Matter","Heat and Thermodynamics","Oscillations","Waves","Electrostatics","Electricity and Magnetism","Thermal Chemical and Magnetic Effects of Current","Wave Optics","Ray Optics"],
+    Che:   ["Introduction","Atomic Structure","Periodic Table","Chemical Bonding","States of Matter","Chemical Kinetics","Theory of Dilute Solutions","Thermochemistry","Ionic Equilibrium, pH and Hydrolysis","Redox Reactions","Electrochemistry","Surface Chemistry","Chemistry of Non-metals","Metallurgy","Chemistry of Metals","Some Important Alloys - Their Compositions & Uses","Important Compounds And Their Formula","Organic Compounds","Carbohydrates, Enzymes","Polymers","Chemistry In Action","Nano-Chemistry"],
+    Eco:   [] // single PDF — no chapter split
+  }
+};
+
+const subjectsDB = {
+  9:  ["Maths","Science"],
+  10: ["Maths","Science"],
+  11: ["Maths","Phy","Che"],
+  12: ["Maths","Phy","Che","Eco"]
+};
+
+const classInfo = {
+  9:  { label:"Class 9",  badge:"2 Subjects"  },
+  10: { label:"Class 10", badge:"2 Subjects"  },
+  11: { label:"Class 11", badge:"3 Subjects"  },
+  12: { label:"Class 12", badge:"4 Subjects"  }
+};
+
+// PDF link builder
+// thunderstudy.github.io/special/formula/pdf
+// pattern: /{cls}{slug}{chapterIndex}.pdf  (chapter-wise)
+//           /{cls}{slug}.pdf               (single, e.g. eco)
+function getPDFLink(cls, sub, idx) {
+  const slug = (subjectMeta[sub]||{}).slug || sub.toLowerCase();
+  if (idx === null) {
+    return `https://thunderstudy.github.io/special/formula/pdf/${cls}${slug}.pdf`;
+  }
+  return `https://thunderstudy.github.io/special/formula/pdf/${cls}${slug}${idx}.pdf`;
+}
+
+// ─── STATE ───
+let currentClass = null, currentSubject = null, allChapters = [];
+
+function showStep(n){ [0,1,2].forEach(i=>document.getElementById(`step${i}`).classList.toggle('visible',i===n)); }
+
+function updateBreadcrumb(step){
+  const bc = document.getElementById('breadcrumb');
+  let h = `<span class="crumb${step===0?' active':''}" onclick="goStep(0)"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;vertical-align:-2px"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Select Class</span>`;
+  if(step>=1) h+=`<span class="sep">›</span><span class="crumb${step===1?' active':''}" onclick="goStep(1)">Class ${currentClass}</span>`;
+  if(step>=2){ const m=subjectMeta[currentSubject]||{}; h+=`<span class="sep">›</span><span class="crumb active">${m.label||currentSubject}</span>`; }
+  bc.innerHTML = h;
+}
+
+function goStep(n){
+  if(n===0){currentClass=null;currentSubject=null;showStep(0);updateBreadcrumb(0);}
+  else if(n===1&&currentClass){showStep(1);updateBreadcrumb(1);}
+}
+
+// CLASS CARDS
+function renderClassGrid(){
+  const grid = document.getElementById('classGrid'); grid.innerHTML='';
+  [9,10,11,12].forEach(cls=>{
+    const subs = subjectsDB[cls]||[];
+    const info = classInfo[cls];
+    const card = document.createElement('div'); card.className='class-card';
+    card.innerHTML=`
+      <div class="cc-icon-wrap"><div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div></div>
+      <div class="cc-num">CBSE · ${subs.length} Subjects</div>
+      <div class="cc-title">${info.label}</div>
+      <div class="cc-meta"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>${info.badge}</div>
+      <div class="cc-arrow"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></div>`;
+    card.onclick=()=>selectClass(cls); grid.appendChild(card);
+  });
+}
+
+// SUBJECT CARDS
+function selectClass(cls){
+  currentClass=cls;
+  document.getElementById('subjectLabel').textContent=`Class ${cls} · Select Subject`;
+  const grid=document.getElementById('subjectsGrid'); grid.innerHTML='';
+  (subjectsDB[cls]||[]).forEach(sub=>{
+    const chs=chaptersDB[cls]?.[sub]||[]; const meta=subjectMeta[sub]||{};
+    const isChapterWise = chs.length > 0;
+    const card=document.createElement('div'); card.className='subject-card';
+    card.innerHTML=`
+      <div class="sub-icon-wrap"><div class="sub-icon">${subjectSVG[sub]||subjectSVG.Maths}</div></div>
+      <div class="subject-name">${meta.label||sub}</div>
+      <div class="chapter-pill"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>${isChapterWise ? chs.length+' Chapters' : 'Full Sheet'}</div>`;
+    card.onclick=()=>selectSubject(sub,cls); grid.appendChild(card);
+  });
+  showStep(1); updateBreadcrumb(1);
+}
+
+// CHAPTER LIST / SINGLE OPEN
+function selectSubject(sub,cls){
+  currentSubject=sub;
+  allChapters=chaptersDB[cls]?.[sub]||[];
+  const meta=subjectMeta[sub]||{};
+  const isChapterWise = allChapters.length > 0;
+
+  document.getElementById('chTitle').textContent=`${meta.label||sub} · Class ${cls}`;
+  document.getElementById('chSub').textContent=isChapterWise
+    ? `${allChapters.length} chapters · Click View PDF to open`
+    : `Complete formula sheet · Click below to open`;
+  document.getElementById('chBadge').innerHTML=subjectSVG[sub]||'';
+  document.getElementById('chapterSearch').value='';
+
+  const searchWrap = document.getElementById('chapterSearchWrap');
+  const singleWrap = document.getElementById('singleOpenWrap');
+
+  if(isChapterWise){
+    searchWrap.style.display='';
+    singleWrap.style.display='none';
+    renderChapters(allChapters,sub,cls,'');
+  } else {
+    searchWrap.style.display='none';
+    document.getElementById('chapterListEl').innerHTML='';
+    singleWrap.style.display='';
+    document.getElementById('singleOpenBtn').onclick=()=>openPDF(getPDFLink(cls,sub,null));
+  }
+
+  showStep(2); updateBreadcrumb(2);
+}
+
+function renderChapters(chapters,sub,cls,filter){
+  const el=document.getElementById('chapterListEl'); el.innerHTML='';
+  const filtered=filter?chapters.filter(c=>c.toLowerCase().includes(filter.toLowerCase())):chapters;
+
+  const banner=document.createElement('div'); banner.className='adb-banner';
+  banner.innerHTML=`<svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg><div class="adb-banner-text"><strong>PDF not opening on PC?</strong>Disable your ad blocker or use Incognito mode (Ctrl+Shift+N).</div>`;
+  el.appendChild(banner);
+
+  if(!filtered.length){ el.innerHTML+=`<div style="text-align:center;padding:2rem;color:var(--text3);font-size:0.9rem;">No chapters found</div>`; return; }
+  filtered.forEach(ch=>{
+    const idx=chapters.indexOf(ch)+1;
+    const url=getPDFLink(cls,sub,idx);
+    const div=document.createElement('div'); div.className='chapter-item';
+    div.innerHTML=`
+      <div class="ch-left">
+        <div class="ch-num">${idx}</div>
+        <div class="chapter-name">${ch}</div>
+      </div>
+      <button class="map-btn">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+        View PDF
+      </button>`;
+    div.querySelector('.map-btn').onclick=()=>openPDF(url);
+    el.appendChild(div);
+  });
+}
+
+document.getElementById('chapterSearch').addEventListener('input',function(){
+  renderChapters(allChapters,currentSubject,currentClass,this.value);
+});
+
+// AD BLOCKER
+let toastTimer=null;
+function openPDF(url){
+  const tab=window.open(url,'_blank');
+  if(!tab||tab.closed||typeof tab.closed==='undefined'){showToast();return;}
+  toastTimer=setTimeout(()=>{try{if(tab.location&&tab.location.href==='about:blank')showToast();}catch(e){}},1200);
+}
+function showToast(){document.getElementById('adbToast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(hideToast,6000);}
+function hideToast(){document.getElementById('adbToast').classList.remove('show');}
+
+// INIT
+renderClassGrid(); showStep(0); updateBreadcrumb(0);
+
+// Count total sheets
+let total=0;
+[9,10,11,12].forEach(c=>(subjectsDB[c]||[]).forEach(s=>{
+  const chs=chaptersDB[c]?.[s]||[];
+  total += chs.length>0 ? chs.length : 1;
+}));
+document.getElementById('statSheets').textContent=total;
+</script>
+</body>
+</html>
