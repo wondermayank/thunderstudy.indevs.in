@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderStudy - NDA Formula Sheets</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header-logo { font-size: 2.2em; font-weight: bold; color: #1976d2; margin-bottom: 5px; }
+        .header-subtitle { color: #666; font-size: 0.95em; }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            flex: 1;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h1 { text-align: center; color: #1976d2; margin-bottom: 8px; font-size: 2.2em; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 40px; font-size: 0.95em; }
+
+        /* ── SCREENS ── */
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── BACK BUTTON ── */
+        .back-btn {
+            background: #1976d2; color: white; border: none;
+            padding: 10px 20px; border-radius: 8px; cursor: pointer;
+            font-size: 1em; margin-bottom: 28px;
+            transition: all 0.25s ease; display: inline-block;
+        }
+        .back-btn:hover { background: #1565c0; transform: translateX(-4px); }
+
+        /* ── SCREEN 1: subject cards ── */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .subject-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            border: 3px solid #bbdefb;
+            border-radius: 14px;
+            padding: 36px 24px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        }
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(25,118,210,0.18);
+            border-color: #1976d2;
+        }
+        .subject-icon { font-size: 3em; margin-bottom: 14px; }
+        .subject-name { font-size: 1.6em; font-weight: 700; color: #1976d2; margin-bottom: 8px; }
+        .subject-count { color: #888; font-size: 0.9em; }
+
+        /* ── SCREEN 2: chapter cards ── */
+        .screen-title {
+            font-size: 1.5em; font-weight: 700; color: #555;
+            margin-bottom: 24px; text-align: center;
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        /* Live */
+        a.chapter-card {
+            display: flex; align-items: center; gap: 13px;
+            padding: 14px 16px; border-radius: 11px;
+            border: 2px solid #bbdefb;
+            background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+            text-decoration: none; color: #333;
+            transition: all 0.22s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        a.chapter-card:hover {
+            border-color: #1976d2;
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(25,118,210,0.14);
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5faff 100%);
+        }
+
+        /* Coming soon */
+        div.chapter-card {
+            display: flex; align-items: center; gap: 13px;
+            padding: 14px 16px; border-radius: 11px;
+            border: 2px dashed #d0dde8;
+            background: #fafbfc;
+            opacity: 0.65; cursor: default;
+        }
+
+        .ch-num {
+            width: 34px; height: 34px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8em; font-weight: 700; flex-shrink: 0;
+        }
+        a.chapter-card .ch-num { background: #1976d2; color: white; box-shadow: 0 3px 7px rgba(25,118,210,0.28); }
+        div.chapter-card .ch-num { background: #dce5ed; color: #9ab; }
+
+        .ch-info { flex: 1; min-width: 0; }
+        .ch-name {
+            font-size: 0.88em; font-weight: 700; color: #1a1a1a;
+            margin-bottom: 3px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        div.chapter-card .ch-name { color: #9ab; }
+
+        .ch-badge {
+            display: inline-block; font-size: 0.65em; font-weight: 700;
+            padding: 2px 7px; border-radius: 9px;
+        }
+        .badge-pdf  { background: #1976d2; color: white; }
+        .badge-soon { background: #e0eaf2; color: #9ab; }
+
+        .ch-arrow { font-size: 1em; color: #1976d2; opacity: 0.4; transition: all 0.2s; flex-shrink: 0; }
+        a.chapter-card:hover .ch-arrow { opacity: 1; }
+
+        .footer {
+            text-align: center; margin-top: 30px; padding: 20px;
+            color: #666; font-size: 0.9em;
+        }
+        .footer a { color: #1976d2; text-decoration: none; font-weight: 600; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 620px) {
+            .container { padding: 20px 14px; }
+            h1 { font-size: 1.6em; }
+            .subject-grid { grid-template-columns: 1fr; gap: 16px; }
+            .chapter-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-logo">⚡ ThunderStudy</div>
+    <div class="header-subtitle">NDA Formula Sheets</div>
+</div>
+
+<div class="container">
+    <h1>📐 Formula Sheets</h1>
+    <p class="subtitle">Select a subject to view chapter-wise formula sheets</p>
+
+    <!-- SCREEN 1: Subject Selection -->
+    <div class="screen active" id="screen-subjects">
+        <div class="subject-grid">
+            <div class="subject-card" onclick="openSubject('maths')">
+                <div class="subject-icon">🔢</div>
+                <div class="subject-name">Mathematics</div>
+                <div class="subject-count">25 Chapters</div>
+            </div>
+            <div class="subject-card" onclick="openSubject('gat')">
+                <div class="subject-icon">📚</div>
+                <div class="subject-name">General Ability Test</div>
+                <div class="subject-count">54 Chapters</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: Chapters -->
+    <div class="screen" id="screen-chapters">
+        <button class="back-btn" onclick="goBack()">← Back</button>
+        <div class="screen-title" id="chapter-title"></div>
+        <div class="chapter-grid" id="chapter-grid"></div>
+    </div>
+</div>
+
+<div class="footer">
+    Made with ❤️ by <a href="#" onclick="event.preventDefault()">WonderMayank</a>
+</div>
+
+<script>
+    const data = {
+        maths: {
+            label: '🔢 Mathematics — All Chapters',
+            chapters: [
+                { n: 1,  name: 'Sets, Relations and Functions',             url: '#' },
+                { n: 2,  name: 'Equations, Inequations and Expressions',    url: '#' },
+                { n: 3,  name: 'Complex Numbers',                           url: '#' },
+                { n: 4,  name: 'Progressions — AP, GP and HP',              url: '#' },
+                { n: 5,  name: 'Mathematical Induction & Binomial Theorem', url: '#' },
+                { n: 6,  name: 'Exponential and Logarithm Series',          url: '#' },
+                { n: 7,  name: 'Permutation and Combination',               url: '#' },
+                { n: 8,  name: 'Boolean Algebra',                           url: '#' },
+                { n: 9,  name: 'Matrices and Determinants',                 url: '#' },
+                { n: 10, name: 'Trigonometric Ratios and Identities',       url: '#' },
+                { n: 11, name: 'Inverse Trigonometric Functions',           url: '#' },
+                { n: 12, name: 'Height and Distance',                       url: '#' },
+                { n: 13, name: 'Coordinates and Straight Lines',            url: '#' },
+                { n: 14, name: 'Conic Section',                             url: '#' },
+                { n: 15, name: '3 Dimensional Geometry',                    url: '#' },
+                { n: 16, name: 'Limits, Continuity and Differentiability',  url: '#' },
+                { n: 17, name: 'Differentiation',                           url: '#' },
+                { n: 18, name: 'Application of Derivatives',                url: '#' },
+                { n: 19, name: 'Indefinite Integration',                    url: '#' },
+                { n: 20, name: 'Definite Integral and Area',                url: '#' },
+                { n: 21, name: 'Calculus',                                  url: 'https://www.leeward.hawaii.edu/files/mathlab/handouts/Calculus_Formulas.pdf' },
+                { n: 22, name: 'Differential Equation',                     url: '#' },
+                { n: 23, name: 'Vector Algebra',                            url: '#' },
+                { n: 24, name: 'Statistics',                                url: '#' },
+                { n: 25, name: 'Probability',                               url: '#' },
+            ]
+        },
+        gat: {
+            label: '📚 General Ability Test — All Chapters',
+            chapters: [
+                { n: 1,  name: 'Essential Grammar',                         url: '#' },
+                { n: 2,  name: 'Essential Grammar — Tenses',                url: '#' },
+                { n: 3,  name: 'Sentences and Connectors',                  url: '#' },
+                { n: 4,  name: 'Active Voice and Passive Voice',            url: '#' },
+                { n: 5,  name: 'Reported Speech',                           url: '#' },
+                { n: 6,  name: 'Ordering of Sentences',                     url: '#' },
+                { n: 7,  name: 'Sentence Completion',                       url: '#' },
+                { n: 8,  name: 'Improving Sentences',                       url: '#' },
+                { n: 9,  name: 'Spotting Errors',                           url: '#' },
+                { n: 10, name: 'Reading Comprehension',                     url: '#' },
+                { n: 11, name: 'Antonyms and Synonyms',                     url: '#' },
+                { n: 12, name: 'One Word Substitution',                     url: '#' },
+                { n: 13, name: 'Idioms and Phrases',                        url: '#' },
+                { n: 14, name: 'Mechanics',                                 url: '#' },
+                { n: 15, name: 'Fluid Mechanics and Properties of Matter',  url: '#' },
+                { n: 16, name: 'Heat and Thermodynamics',                   url: '#' },
+                { n: 17, name: 'Sound Waves',                               url: '#' },
+                { n: 18, name: 'Ray Optics',                                url: '#' },
+                { n: 19, name: 'Current Electricity',                       url: '#' },
+                { n: 20, name: 'Magnetism',                                 url: '#' },
+                { n: 21, name: 'Modern Physics',                            url: '#' },
+                { n: 22, name: 'General Appliances',                        url: '#' },
+                { n: 23, name: 'Physical and Chemical Changes',             url: '#' },
+                { n: 24, name: 'Matter',                                    url: '#' },
+                { n: 25, name: 'Laws of Chemical Combination',              url: '#' },
+                { n: 26, name: 'Atomic Structure',                          url: '#' },
+                { n: 27, name: 'Oxidation and Reduction',                   url: '#' },
+                { n: 28, name: 'Acids, Bases and Salts',                    url: '#' },
+                { n: 29, name: 'Metals and Non-metals',                     url: '#' },
+                { n: 30, name: 'Periodic Properties',                       url: '#' },
+                { n: 31, name: 'Important Chemical Compounds',              url: '#' },
+                { n: 32, name: 'Carbon and its Different Forms',            url: '#' },
+                { n: 33, name: 'Air, Water and Carbon Dioxide',             url: '#' },
+                { n: 34, name: 'The Living and Non-living',                 url: '#' },
+                { n: 35, name: 'Basis of Life',                             url: '#' },
+                { n: 36, name: 'Cell and Cell Organelles',                  url: '#' },
+                { n: 37, name: 'Biological Classification',                 url: '#' },
+                { n: 38, name: 'Growth and Development in Plants',          url: '#' },
+                { n: 39, name: 'Animal Kingdom',                            url: '#' },
+                { n: 40, name: 'Reproduction in Animals',                   url: '#' },
+                { n: 41, name: 'Human Food and Nutrition',                  url: '#' },
+                { n: 42, name: 'Human Body and Important Organs',           url: '#' },
+                { n: 43, name: 'Heredity and Evolution',                    url: '#' },
+                { n: 44, name: 'Space Science',                             url: '#' },
+                { n: 45, name: 'The Indian History and Culture',            url: '#' },
+                { n: 46, name: 'Medieval India',                            url: '#' },
+                { n: 47, name: 'Indian National Movement',                  url: '#' },
+                { n: 48, name: 'Indian Constitution',                       url: '#' },
+                { n: 49, name: 'Indian Economy',                            url: '#' },
+                { n: 50, name: 'American, French and Russian Revolutions',  url: '#' },
+                { n: 51, name: 'United Nations',                            url: '#' },
+                { n: 52, name: 'Our Earth and the World',                   url: '#' },
+                { n: 53, name: 'India',                                     url: '#' },
+                { n: 54, name: 'Resources in India',                        url: '#' },
+            ]
+        }
+    };
+
+    function openSubject(key) {
+        const { label, chapters } = data[key];
+        document.getElementById('chapter-title').textContent = label;
+
+        const grid = document.getElementById('chapter-grid');
+        grid.innerHTML = '';
+
+        chapters.forEach(({ n, name, url }) => {
+            const isLive = url && url !== '#';
+            if (isLive) {
+                const a = document.createElement('a');
+                a.className = 'chapter-card';
+                a.href = url;
+                a.target = '_blank';
+                a.innerHTML = `
+                    <div class="ch-num">${n}</div>
+                    <div class="ch-info">
+                        <div class="ch-name">${name}</div>
+                        <span class="ch-badge badge-pdf">PDF</span>
+                    </div>
+                    <div class="ch-arrow">→</div>`;
+                grid.appendChild(a);
+            } else {
+                const d = document.createElement('div');
+                d.className = 'chapter-card';
+                d.innerHTML = `
+                    <div class="ch-num">${n}</div>
+                    <div class="ch-info">
+                        <div class="ch-name">${name}</div>
+                        <span class="ch-badge badge-soon">Coming Soon</span>
+                    </div>`;
+                grid.appendChild(d);
+            }
+        });
+
+        document.getElementById('screen-subjects').classList.remove('active');
+        document.getElementById('screen-chapters').classList.add('active');
+    }
+
+    function goBack() {
+        document.getElementById('screen-chapters').classList.remove('active');
+        document.getElementById('screen-subjects').classList.add('active');
+    }
+</script>
+
+</body>
+</html>

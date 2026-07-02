@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderStudy - NDA Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+        
+        .header-subtitle {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            flex: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        
+        .screen {
+            display: none;
+        }
+        
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .section-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid #bbdefb;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(25, 118, 210, 0.2);
+            border-color: #1976d2;
+        }
+        
+        .section-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .section-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1976d2;
+        }
+        
+        .section-desc {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .back-button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #1565c0;
+            transform: translateX(-5px);
+        }
+        
+        .subtopics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .subtopic-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #bbdefb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .subtopic-card:hover {
+            transform: translateX(6px);
+            box-shadow: 0 6px 16px rgba(25, 118, 210, 0.15);
+            border-color: #1976d2;
+            background: #f5f5f5;
+        }
+        
+        .subtopic-info {
+            flex: 1;
+        }
+        
+        .subtopic-meta {
+            font-size: 0.8em;
+            color: #1976d2;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .subtopic-name {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .subtopic-icon {
+            font-size: 1.5em;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        
+        .topic-card {
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #bbdefb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .topic-card:hover {
+            transform: translateX(6px);
+            box-shadow: 0 6px 16px rgba(25, 118, 210, 0.15);
+            border-color: #1976d2;
+            background: #f5f5f5;
+        }
+        
+        .topic-info {
+            flex: 1;
+        }
+        
+        .topic-meta {
+            font-size: 0.8em;
+            color: #1976d2;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .topic-name {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .topic-icon {
+            font-size: 1.3em;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (min-width: 1200px) {
+            .subtopics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .topics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            
+            .sections-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .section-card {
+                padding: 20px;
+            }
+            
+            .subtopics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .topics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">⚡ ThunderStudy</div>
+        <div class="header-subtitle">NDA Notes Collection</div>
+    </div>
+    
+    <div class="container">
+        <div class="screen active" id="screen-sections">
+            <h1>📖 Select Your Section</h1>
+            <div class="sections-grid">
+                <div class="section-card" onclick="selectSection('mathematics')">
+                    <div class="section-icon">🔢</div>
+                    <div class="section-name">Mathematics</div>
+                    <div class="section-desc">Complete Math Notes</div>
+                </div>
+                
+                <div class="section-card" onclick="selectSection('gat')">
+                    <div class="section-icon">📚</div>
+                    <div class="section-name">General Ability Test</div>
+                    <div class="section-desc">English, Physics, Chemistry & More</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="screen" id="screen-subtopics">
+            <button class="back-button" onclick="goBackToSections()">← Back to Sections</button>
+            <h2 id="subtopic-title"></h2>
+            <div class="subtopics-grid" id="subtopics-list"></div>
+        </div>
+        
+        <div class="screen" id="screen-topics">
+            <button class="back-button" onclick="goBackToSubtopics()">← Back to Subtopics</button>
+            <h2 id="topics-title"></h2>
+            <div class="topics-grid" id="topics-list"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Made with ❤️ by <a href="#" onclick="event.preventDefault()">WonderMayank</a>
+    </div>
+
+    <script>
+        const mathTopicsList = [
+            'Sets, Relations and Functions',
+            'Equations, Inequations and Expressions',
+            'Complex Numbers',
+            'Progressions - AP, GP and HP',
+            'Mathematical Induction and Binomial Theorem',
+            'Exponential and Logarithm Series',
+            'Permutation and Combination',
+            'Boolean Algebra',
+            'Matrices and Determinants',
+            'Trigonometric Ratios and Identities',
+            'Inverse Trigonometric Functions',
+            'Height and Distance',
+            'Coordinates and Straight Lines',
+            'Conic Section',
+            '3 Dimensional Geometry',
+            'Limits, Continuity and Differentiability',
+            'Differentiation',
+            'Application of Derivatives',
+            'Indefinite Integration',
+            'Definite Integral and Area',
+            'Differential Equation',
+            'Vector Algebra',
+            'Statistics',
+            'Probability'
+        ];
+
+        const gatSubtopics = ['English', 'Physics', 'Chemistry', 'General Science', 'History & Freedom Movement', 'Geography'];
+        
+        const gatTopics = {
+            english: ['Essential Grammar', 'Essential Grammar - Tenses', 'Sentences and Connectors', 'Active Voice and Passive Voice', 'Reported Speech', 'Ordering of Sentences', 'Sentence Completion', 'Improving Sentences', 'Spotting Errors', 'Reading Comprehension', 'Word Power - Antonyms and Synonyms', 'One Word Substitution', 'Idioms and Phrases'],
+            physics: ['Mechanics', 'Fluid Mechanics and Properties of Matter', 'Heat and Thermodynamics', 'Sound Waves', 'Ray Optics', 'Current Electricity', 'Magnetism', 'Modern Physics', 'General Appliances'],
+            chemistry: ['Physical and Chemical Changes', 'Matter', 'Laws of Chemical Combination', 'Atomic Structure', 'Oxidation and Reduction', 'Acids, Bases and Salts', 'Metals and Non-metals', 'Periodic Properties', 'Some Important Chemical Compounds', 'Carbon and its Different Forms', 'Air, Water and Carbon Dioxide'],
+            science: ['The Living and Non-living', 'Basis of Life', 'Cell and Cell Organelles', 'Biological Classification', 'Growth and Development in Plants', 'Animal Kingdom', 'Reproduction in Animals', 'Human Food and Nutrition', 'Human Body and Important Organs', 'Heredity and Evolution', 'Space Science', 'Miscellaneous'],
+            history: ['The Indian History and Culture', 'Medieval India', 'Indian National Movement', 'Indian Constitution', 'Indian Economy', 'The American, French and Russian Revolutions', 'United Nations'],
+            geography: ['Our Earth and the World', 'India', 'Resources in India']
+        };
+        
+        function selectSection(section) {
+            currentSection = section;
+
+            if (section === 'mathematics') {
+                // Math: go straight to topics, no subtopics step
+                document.getElementById('screen-sections').classList.remove('active');
+                document.getElementById('screen-topics').classList.add('active');
+                document.getElementById('topics-title').textContent = 'Mathematics - All Chapters';
+                document.getElementById('screen-topics').querySelector('.back-button').onclick = goBackToSections;
+
+                const topicsList = document.getElementById('topics-list');
+                topicsList.innerHTML = '';
+                mathTopicsList.forEach((topic, i) => {
+                    const link = document.createElement('a');
+                    link.href = `https://thunderstudy.github.io/nda/notes/mathematics/topic${i + 1}.pdf`;
+                    link.target = '_blank';
+                    link.className = 'topic-card';
+                    link.innerHTML = `
+                        <div class="topic-icon">📄</div>
+                        <div class="topic-info">
+                            <div class="topic-meta">Chapter ${i + 1}</div>
+                            <div class="topic-name">${topic}</div>
+                        </div>
+                    `;
+                    topicsList.appendChild(link);
+                });
+            } else {
+                // GAT: show subtopics first
+                document.getElementById('screen-sections').classList.remove('active');
+                document.getElementById('screen-subtopics').classList.add('active');
+                document.getElementById('subtopic-title').textContent = 'General Ability Test - Select Subject';
+
+                const subtopicsList = document.getElementById('subtopics-list');
+                subtopicsList.innerHTML = '';
+                gatSubtopics.forEach((subtopic, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'subtopic-card';
+                    card.onclick = () => selectSubtopic(index, subtopic);
+                    card.innerHTML = `
+                        <div class="subtopic-icon">📚</div>
+                        <div class="subtopic-info">
+                            <div class="subtopic-meta">Subject ${index + 1}</div>
+                            <div class="subtopic-name">${subtopic}</div>
+                        </div>
+                    `;
+                    subtopicsList.appendChild(card);
+                });
+            }
+        }
+        
+        function selectSubtopic(index, subtopicName) {
+            currentSubtopic = index;
+            document.getElementById('screen-subtopics').classList.remove('active');
+            document.getElementById('screen-topics').classList.add('active');
+            document.getElementById('screen-topics').querySelector('.back-button').onclick = goBackToSubtopics;
+            
+            document.getElementById('topics-title').textContent = subtopicName + ' - All Chapters';
+            
+            const topicsList = document.getElementById('topics-list');
+            topicsList.innerHTML = '';
+            
+            const gatKeys = ['english', 'physics', 'chemistry', 'science', 'history', 'geography'];
+            const topics = gatTopics[gatKeys[index]] || [];
+            
+            topics.forEach((topic, i) => {
+                const link = document.createElement('a');
+                link.href = `https://thunderstudy.github.io/nda/notes/gat/${gatKeys[index]}/topic${i + 1}.pdf`;
+                link.target = '_blank';
+                link.className = 'topic-card';
+                link.innerHTML = `
+                    <div class="topic-icon">📄</div>
+                    <div class="topic-info">
+                        <div class="topic-meta">Chapter ${i + 1}</div>
+                        <div class="topic-name">${topic}</div>
+                    </div>
+                `;
+                topicsList.appendChild(link);
+            });
+        }
+        
+        function goBackToSections() {
+            document.getElementById('screen-subtopics').classList.remove('active');
+            document.getElementById('screen-topics').classList.remove('active');
+            document.getElementById('screen-sections').classList.add('active');
+        }
+        
+        function goBackToSubtopics() {
+            document.getElementById('screen-topics').classList.remove('active');
+            document.getElementById('screen-subtopics').classList.add('active');
+        }
+    </script>
+</body>
+</html>

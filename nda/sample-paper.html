@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderStudy - NDA Sample Papers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+
+        .header-subtitle {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            flex: 1;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1em;
+        }
+
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .paper-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            border: 2px solid #bbdefb;
+            border-radius: 12px;
+            padding: 22px 24px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .paper-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(25, 118, 210, 0.18);
+            border-color: #1976d2;
+            background: linear-gradient(135deg, #dbeeff 0%, #f5faff 100%);
+        }
+
+        .paper-number {
+            width: 52px;
+            height: 52px;
+            background: #1976d2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(25,118,210,0.3);
+        }
+
+        .paper-info {
+            flex: 1;
+        }
+
+        .paper-label {
+            font-size: 0.78em;
+            color: #1976d2;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .paper-name {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .paper-meta {
+            font-size: 0.82em;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        .paper-arrow {
+            font-size: 1.3em;
+            color: #1976d2;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .paper-card:hover .paper-arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .papers-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">⚡ ThunderStudy</div>
+        <div class="header-subtitle">NDA Sample Papers</div>
+    </div>
+
+    <div class="container">
+        <h1>📝 NDA Sample Papers</h1>
+        <p class="subtitle">10 Full Sets · Click to open PDF</p>
+
+        <div class="papers-grid" id="papers-grid"></div>
+    </div>
+
+    <div class="footer">
+        Made with ❤️ by <a href="#" onclick="event.preventDefault()">WonderMayank</a>
+    </div>
+
+    <script>
+        const grid = document.getElementById('papers-grid');
+
+        for (let i = 1; i <= 10; i++) {
+            const a = document.createElement('a');
+            a.href = `https://thunderstudy.github.io/sample-paper/nda/${i}.pdf`;
+            a.target = '_blank';
+            a.className = 'paper-card';
+            a.innerHTML = `
+                <div class="paper-number">${i}</div>
+                <div class="paper-info">
+                    <div class="paper-label">Set ${i}</div>
+                    <div class="paper-name">NDA Sample Paper ${i}</div>
+                    <div class="paper-meta">Full Paper · PDF</div>
+                </div>
+                <div class="paper-arrow">→</div>
+            `;
+            grid.appendChild(a);
+        }
+    </script>
+</body>
+</html>
