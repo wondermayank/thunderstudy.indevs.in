@@ -1,0 +1,84 @@
+# Cloudflare Pages clean-URL fix
+# Fixes: page works at /path/file.html but not at the clean /path/file URL
+# 200 = rewrite (URL bar stays clean), not a redirect.
+#
+# NOTE on "not found" behavior: the top-level 404.html was renamed to
+# 404.html.disabled. With no top-level 404.html present, Cloudflare Pages
+# automatically falls back to serving index.html (200) for any request
+# that doesn't match a real file — so any broken/unknown link opens the
+# main page instead of an error. Real files (favicons, PDFs, sitemaps,
+# every page below) are still served normally; this only affects requests
+# that don't match anything. To restore a real 404 page later, rename
+# 404.html.disabled back to 404.html.
+
+/about	/about.html	200
+/banking/epfo	/banking/epfo/index.html	200
+/banking/ibps_clerk	/banking/ibps_clerk/index.html	200
+/banking/ibps_po	/banking/ibps_po/index.html	200
+/banking/ibps_po/notes	/banking/ibps_po/notes.html	200
+/banking/ibps_rrb	/banking/ibps_rrb/index.html	200
+/banking/ibps_rrb_clerk	/banking/ibps_rrb_clerk/index.html	200
+/banking/lic_aao	/banking/lic_aao/index.html	200
+/banking/lic_ado	/banking/lic_ado/index.html	200
+/banking/rbi_assistant	/banking/rbi_assistant/index.html	200
+/banking/rbi_grade_b	/banking/rbi_grade_b/index.html	200
+/banking/sbi_clerk	/banking/sbi_clerk/index.html	200
+/banking/sbi_po	/banking/sbi_po/index.html	200
+/banking/sbi_po/notes	/banking/sbi_po/notes.html	200
+/ca/final	/ca/final/index.html	200
+/ca/foundation	/ca/foundation/index.html	200
+/ca/foundation/notes	/ca/foundation/notes.html	200
+/ca	/ca/index.html	200
+/ca/inter	/ca/inter/index.html	200
+/ca/notes	/ca/notes.html	200
+/ca/special	/ca/special/index.html	200
+/cat/english-grammar	/cat/english-grammar.html	200
+/cat/formula	/cat/formula.html	200
+/cat/gk	/cat/gk.html	200
+/cat/lrdi	/cat/lrdi.html	200
+/cat/mindmap	/cat/mindmap.html	200
+/cat/pyqs	/cat/pyqs.html	200
+/cat/quantitative-aptitude	/cat/quantitative-aptitude.html	200
+/cat/sample-paper	/cat/sample-paper.html	200
+/cat/verbal	/cat/verbal.html	200
+/cat/vocabulary	/cat/vocabulary.html	200
+/cbse/assertion-reason	/cbse/assertion-reason.html	200
+/cbse/case-based	/cbse/case-based.html	200
+/cbse/concept-map	/cbse/concept-map.html	200
+/cbse/design-based	/cbse/design-based.html	200
+/cbse/formula	/cbse/formula.html	200
+/cbse/imp-question	/cbse/imp-question.html	200
+/cbse/kv-sample-paper	/cbse/kv-sample-paper.html	200
+/cbse/pyqs	/cbse/pyqs.html	200
+/cbse/textbook	/cbse/textbook.html	200
+/cbse/topper-answersheet	/cbse/topper-answersheet.html	200
+/cbse/topper-notes	/cbse/topper-notes.html	200
+/clat/ailet-pyqs	/clat/ailet-pyqs.html	200
+/clat/notes	/clat/notes.html	200
+/clat/pyqs	/clat/pyqs.html	200
+/clat/sample-paper	/clat/sample-paper.html	200
+/dca/2/2DCA3B_Unit1_Notes	/dca/2/2DCA3B_Unit1_Notes.html	200
+/dca/2/2DCA3B_Unit2_Notes	/dca/2/2DCA3B_Unit2_Notes.html	200
+/dca/2/unit1	/dca/2/unit1.html	200
+/dca/2/unit2	/dca/2/unit2.html	200
+/dca/2/unit3	/dca/2/unit3.html	200
+/dca/2/unit4	/dca/2/unit4.html	200
+/dca/2/unit5	/dca/2/unit5.html	200
+/nda/formula	/nda/formula.html	200
+/nda/notes	/nda/notes.html	200
+/nda/pyqs	/nda/pyqs.html	200
+/nda/sample-paper	/nda/sample-paper.html	200
+/ssc/cgl	/ssc/cgl/index.html	200
+/ssc/cgl/notes	/ssc/cgl/notes.html	200
+/ssc/chsl	/ssc/chsl/index.html	200
+/ssc/chsl/notes	/ssc/chsl/notes.html	200
+/ssc/cpo	/ssc/cpo/index.html	200
+/ssc/cpo/notes	/ssc/cpo/notes.html	200
+/ssc/gd	/ssc/gd/index.html	200
+/ssc/gd/notes	/ssc/gd/notes.html	200
+/ssc/je	/ssc/je/index.html	200
+/ssc/mts	/ssc/mts/index.html	200
+/ssc/mts/notes	/ssc/mts/notes.html	200
+/ssc/steno	/ssc/steno/index.html	200
+/ssc/steno/notes	/ssc/steno/notes.html	200
+/upsc/pyqs	/upsc/pyqs.html	200
