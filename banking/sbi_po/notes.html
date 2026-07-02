@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBI PO Notes — ThunderStudy</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p1: #0EA5E9;
+    --p2: #38BDF8;
+    --p3: #BAE6FD;
+    --b1: #60A5FA;
+    --b2: #B9D9DC;
+    --bg: #F0F9FF;
+    --card: rgba(255,255,255,0.85);
+    --border: rgba(14,165,233,0.15);
+    --text: #0C2340;
+    --muted: #6B7280;
+    --shadow: 0 4px 24px rgba(14,165,233,0.10);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* Background blobs */
+  body::before {
+    content:'';
+    position:fixed; top:-120px; right:-80px;
+    width:400px; height:400px;
+    background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+    border-radius:50%; pointer-events:none; z-index:0;
+  }
+  body::after {
+    content:'';
+    position:fixed; bottom:-100px; left:-60px;
+    width:350px; height:350px;
+    background: radial-gradient(circle, rgba(96,165,250,0.18) 0%, transparent 70%);
+    border-radius:50%; pointer-events:none; z-index:0;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky; top:0; z-index:100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+  }
+  .header-inner {
+    max-width: 520px; margin: 0 auto;
+    display: flex; align-items: center; gap:12px;
+    height: 58px;
+  }
+  .back-btn {
+    display: none;
+    width:36px; height:36px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    align-items:center; justify-content:center;
+    transition: all .2s;
+    flex-shrink:0;
+  }
+  .back-btn:hover { background: var(--p3); }
+  .back-btn svg { width:18px; height:18px; }
+  .header-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--text);
+    flex:1;
+  }
+  .header-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    color: var(--p1);
+    letter-spacing: 0.05em;
+    background: rgba(14,165,233,0.10);
+    padding: 3px 8px; border-radius: 6px;
+  }
+
+  /* SCREEN WRAPPER */
+  .screen {
+    display: none;
+    max-width: 520px; margin: 0 auto;
+    padding: 20px 16px 32px;
+    position: relative; z-index:1;
+  }
+  .screen.active { display: block; }
+
+  /* SUBJECT SCREEN */
+  .page-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.45rem; font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .page-sub {
+    font-size: 0.82rem; color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .stats-row {
+    display: flex; gap:10px; margin-bottom:22px;
+  }
+  .stat-chip {
+    flex:1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+  }
+  .stat-chip .num {
+    font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800;
+    background: linear-gradient(135deg, var(--p1), var(--b1));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .stat-chip .lbl { font-size:0.72rem; color:var(--muted); margin-top:2px; }
+
+  .section-label {
+    font-family:'Syne',sans-serif; font-size:0.7rem; font-weight:700;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--p1); margin-bottom:12px;
+  }
+
+  /* SUBJECT CARDS */
+  .subject-grid {
+    display: flex; flex-direction:column; gap:10px;
+  }
+  .subject-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px 18px;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+    display: flex; align-items: center; gap:14px;
+    transition: all .22s cubic-bezier(.4,0,.2,1);
+    position: relative; overflow:hidden;
+  }
+  .subject-card::before {
+    content:'';
+    position:absolute; left:0; top:0; bottom:0; width:3px;
+    border-radius:3px 0 0 3px;
+    background: var(--accent, var(--p1));
+    opacity:0.7;
+  }
+  .subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(124,58,237,0.18);
+    border-color: var(--p2);
+  }
+  .subject-card:active { transform: scale(0.98); }
+
+  .subj-icon {
+    width:48px; height:48px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .subj-info { flex:1; min-width:0; }
+  .subj-name {
+    font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700;
+    color: var(--text); margin-bottom:3px;
+  }
+  .subj-meta {
+    font-size:0.75rem; color: var(--muted);
+    display:flex; gap:10px;
+  }
+  .subj-meta span { display:flex; align-items:center; gap:3px; }
+  .subj-arrow {
+    width:28px; height:28px; border-radius:8px;
+    background: rgba(124,58,237,0.08);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    transition: background .2s;
+  }
+  .subject-card:hover .subj-arrow { background: var(--p3); }
+
+  /* CHAPTER SCREEN */
+  .chapter-hero {
+    background: linear-gradient(135deg, var(--p1) 0%, #5B21B6 50%, var(--b1) 100%);
+    border-radius: 20px;
+    padding: 20px 18px;
+    margin-bottom: 18px;
+    position: relative; overflow:hidden;
+  }
+  .chapter-hero::after {
+    content:'';
+    position:absolute; top:-30px; right:-30px;
+    width:120px; height:120px;
+    background: rgba(255,255,255,0.08);
+    border-radius:50%;
+  }
+  .chapter-hero-title {
+    font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800;
+    color:#fff; margin-bottom:4px;
+  }
+  .chapter-hero-sub { font-size:0.78rem; color:rgba(255,255,255,0.75); }
+  .chapter-hero-count {
+    margin-top:10px;
+    display:inline-block;
+    background:rgba(255,255,255,0.2);
+    padding:4px 10px; border-radius:8px;
+    font-size:0.75rem; color:#fff; font-weight:600;
+  }
+
+  /* TABS */
+  .tabs {
+    display:flex; gap:0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding:4px;
+    margin-bottom:16px;
+    backdrop-filter:blur(10px);
+  }
+  .tab {
+    flex:1; padding:8px; border-radius:9px;
+    font-family:'Syne',sans-serif; font-size:0.78rem; font-weight:700;
+    text-align:center; cursor:pointer;
+    color: var(--muted); transition: all .2s;
+    letter-spacing:0.04em;
+  }
+  .tab.active {
+    background: linear-gradient(135deg, var(--p1), var(--b1));
+    color:#fff;
+    box-shadow: 0 2px 10px rgba(124,58,237,0.3);
+  }
+
+  /* CHAPTER LIST */
+  .chapter-list { display:flex; flex-direction:column; gap:8px; }
+  .chapter-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 13px 14px;
+    display:flex; align-items:center; gap:12px;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    box-shadow: 0 2px 12px rgba(124,58,237,0.06);
+    transition: all .2s;
+    text-decoration:none;
+  }
+  .chapter-item:hover {
+    transform:translateY(-1px);
+    box-shadow: 0 6px 20px rgba(124,58,237,0.14);
+    border-color: var(--p2);
+  }
+  .ch-num {
+    width:34px; height:34px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Syne',sans-serif; font-size:0.78rem; font-weight:700;
+    flex-shrink:0;
+  }
+  .ch-info { flex:1; min-width:0; display:flex; align-items:center; }
+  .ch-name {
+    font-size:0.88rem; font-weight:500; color:var(--text);
+    line-height:1.3;
+  }
+  .ch-action {
+    width:28px; height:28px; border-radius:8px;
+    background: rgba(96,165,250,0.12);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+
+  /* FAV tab placeholder */
+  .fav-empty {
+    text-align:center; padding:48px 20px;
+    color: var(--muted);
+  }
+  .fav-empty svg { margin-bottom:12px; }
+  .fav-empty p { font-size:0.85rem; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width:4px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:var(--p3); border-radius:4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <button class="back-btn" id="backBtn" onclick="showSubjects()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+    </button>
+    <div class="header-title" id="headerTitle">SBI PO Notes</div>
+    <div class="header-brand">ThunderStudy</div>
+  </div>
+</header>
+
+<div class="screen active" id="subjectScreen">
+  <div class="page-headline">Study Notes</div>
+  <div class="page-sub">SBI PO 2025 — All Subjects</div>
+
+  <div class="stats-row">
+    <div class="stat-chip">
+      <div class="num">8</div>
+      <div class="lbl">Subjects</div>
+    </div>
+    <div class="stat-chip">
+      <div class="num">203</div>
+      <div class="lbl">Chapters</div>
+    </div>
+    <div class="stat-chip">
+      <div class="num">PDF</div>
+      <div class="lbl">Format</div>
+    </div>
+  </div>
+
+  <div class="section-label">All Subjects</div>
+  <div class="subject-grid" id="subjectGrid"></div>
+</div>
+
+<div class="screen" id="chapterScreen">
+  <div class="chapter-hero" id="chapterHero">
+    <div class="chapter-hero-title" id="heroTitle">Subject</div>
+    <div class="chapter-hero-sub" id="heroSub">SBI PO Notes</div>
+    <div class="chapter-hero-count" id="heroCount">0 Chapters</div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" id="tabLatest" onclick="switchTab('latest')">LATEST</div>
+    <div class="tab" id="tabFav" onclick="switchTab('fav')">FAV</div>
+  </div>
+
+  <div id="chapterContent"></div>
+</div>
+
+<script>
+const BASE = 'https://thunderstudy.github.io/sbi_po/notes';
+
+const subjects = [
+  {
+    id:'aptitude', name:'Quantitative Ability', subjectNo: 1,
+    color:'#F97316', bg:'rgba(249,115,22,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+    accent:'#F97316',
+    chapters:[
+      'Data Interpretation','Mensuration (2D)','Alligation & Mixtures',
+      'Simplification–Approximation','Average','Compound Interest',
+      'Profit, Loss and Discount','Mensuration 3D','Partnership','Percentage',
+      'Permutation & Combination','Probability','Profit and Loss',
+      'Quadratic Equations','Ratio and Proportion','Number Series',
+      'Series','Simple Interest','Time and Distance','Time and Work'
+    ]
+  },
+  {
+    id:'reasoning', name:'Reasoning', subjectNo: 2,
+    color:'#3B82F6', bg:'rgba(59,130,246,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
+    accent:'#3B82F6',
+    chapters:[
+      'Computer Data Representation','Coding–Decoding','Distance and Direction Test',
+      'Blood Relations','Input–Output','Data Sufficiency',
+      'Inequality','Seating Arrangement','Syllogism','Puzzles','Logical Reasoning'
+    ]
+  },
+  {
+    id:'datainterpretation', name:'Data Analysis & Interpretation', subjectNo: 3,
+    color:'#10B981', bg:'rgba(16,185,129,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+    accent:'#10B981',
+    chapters:[
+      'Tabular Graph','Line Graph','Bar Graph','Radar Graph','Caselet','Missing Case DI'
+    ]
+  },
+  {
+    id:'english', name:'English Language', subjectNo: 4,
+    color:'#EC4899', bg:'rgba(236,72,153,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>`,
+    accent:'#EC4899',
+    chapters:[
+      'Articles','Verb Agreement','Adverb','Verb','Pronoun','Noun','Tenses',
+      'Prepositions (Part I)','Prepositions (Part II)','Conditional Sentences',
+      'Adjectives','Conjunction','Parts of Speech','Double Fillers','Multiple Fillers',
+      'Cloze Test','Para Jumbles','Grammar Error','Odd Man Out Sentence',
+      'Passage With Missing Lines','Phrase Replacement',
+      'Reading Comprehension – Part 1','Reading Comprehension – Part 2',
+      'Reading Comprehension – Part 3','Grammatically Correct Sentences'
+    ]
+  },
+  {
+    id:'banking', name:'Banking Awareness', subjectNo: 5,
+    color:'#0EA5E9', bg:'rgba(14,165,233,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    accent:'#0EA5E9',
+    chapters:[
+      'History of Banking in India','Organizations','RBI – Role in Indian Banking System',
+      'NPA & SARFAESI','FERA','Types of Bank Accounts',
+      'Non-Banking Financial Companies','Taglines of Different Banks & Headquarters',
+      'BASEL Norms','Banking and Money Instruments','Abbreviations Related to Banking',
+      'Schemes and Policies Introduced by Government','Global Banking Regulation',
+      'History of RBI','Major Provisions of RBI Act, 1934','Banking Regulation Act, 1949',
+      'Nationalization of Banks – 1969 & 1980','Banking Sector Reforms',
+      'Major Banking Reforms of 21st Century','Types of Banking','Types of Banks',
+      'Public Sector Banks in India','Private Sector Banks in India',
+      'Foreign Banks in India','Cooperative Banks in India','Regional Rural Banks',
+      'Local Area Banks','Development Financial Institutions',
+      'History & Structure of RBI','RBI Monetary Policy',
+      'RBI Functions – Regulation of Banks','RBI Functions – Currency Administration',
+      'RBI as Banker & Debt Manager','RBI Functions – Banker to Other Banks',
+      'RBI as Custodian of Foreign Exchange Reserves','Bank Deposits & Accounts',
+      'Current Accounts vs Saving Accounts','Punch Lines of Major Banks'
+    ]
+  },
+  {
+    id:'staticgk', name:'Static GK', subjectNo: 6,
+    color:'#6B5B95', bg:'rgba(107,91,149,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6B5B95" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
+    accent:'#6B5B95',
+    chapters:[
+      'National Park & Wildlife Sanctuaries','Important Dams','List of Awards',
+      'Nuclear & Thermal Power Plants in India','List of Airports','Dance & Festival',
+      'International Stadiums in India','Sports, Trophies & Terminology',
+      'Cabinet Ministers & Constituency','Important Dates','Capital & Currency',
+      'International Organizations & Headquarters','Important Cities on River',
+      'World Organizations & Headquarters','International Decades',
+      'Superlatives – India','International Years','Superlatives – World',
+      'Designated SAARC Years','Political Parties of Countries',
+      'Defence Training Institutions of India','National Emblems',
+      'Parliaments of Different Countries','Firsts in the World',
+      'Foundation Day of States','Important Signs & Symbols',
+      'Defence Institutes in India',"India's World Heritage Sites",
+      'Health & Medicinal Research Centres','International Boundaries',
+      'Nuclear & Space Research Centres','Intelligence Agencies of World',
+      'Internal Security of India','Great Works of Famous Persons',
+      'Awards & Honours','Government Industrial Undertakings',
+      'National Animals','National Awards','Gallantry Awards',
+      'Research Centres of India','Musical Instruments & Exponents',
+      'Bharatiya Jnanpith Award Recipients','Tourist Spots of India',
+      'Dada Saheb Phalke Award Recipients','Important Books & Authors',
+      'Famous Places with Eminent Persons','Firsts in India (Female)',
+      'Important Monuments','Defence of India','Important Official Books',
+      'Firsts in India (Male)','Games and Sports',
+      'Important National & International Days','News Agencies of Countries',
+      'Newspapers & Publication Places','Crematorium of Famous Persons',
+      'Famous Nicknames of Eminent Persons','International U.N. Weeks',
+      'Miscellaneous Static GK'
+    ]
+  },
+  {
+    id:'economy', name:'Economy', subjectNo: 7,
+    color:'#F59E0B', bg:'rgba(245,158,11,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>`,
+    accent:'#F59E0B',
+    chapters:[
+      'National Income','International Financial Institutions','Inflation',
+      'Money Market','Capital Market','Public Finance',
+      'Economic Growth & Human Development','Economic Reforms','Indian Agriculture',
+      'Taxation','Electoral Bonds','FRDI Bill 2017',
+      'Fugitive Economic Offenders Bill 2018','NFRA','Make in India',
+      'PM Gramin Awaas Yojana','MGNREGA','AMRUT Mission',
+      'Atal Pension Yojana','PM Jan Dhan Yojana','PM Fasal Bima Yojana',
+      'Start Up India','Stand Up India','PMSBY','PMJJBY',
+      'MUDRA Yojana','Sukanya Samriddhi Yojana','Skill India',
+      'OROP','Sovereign Gold Bond','Gold Monetisation Scheme','Miscellaneous Topics'
+    ]
+  },
+  {
+    id:'computer', name:'Computer', subjectNo: 8,
+    color:'#7C3AED', bg:'rgba(124,58,237,0.12)',
+    icon:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    accent:'#7C3AED',
+    chapters:[
+      'Computer Abbreviations','Computer Fundamental & Terminology','Computer Hardware',
+      'Computer Software','Internet','Keyboard Shortcuts',
+      'Memory','Microsoft Office','Networking',
+      'Operating System','Basic of Logic Gates','Number System'
+    ]
+  }
+];
+
+let currentSubject = null;
+let activeTab = 'latest';
+let favs = JSON.parse(localStorage.getItem('sbi_favs') || '{}');
+
+function renderSubjects() {
+  const grid = document.getElementById('subjectGrid');
+  grid.innerHTML = subjects.map(s => `
+    <div class="subject-card" style="--accent:${s.accent}" onclick="showChapters('${s.id}')">
+      <div class="subj-icon" style="background:${s.bg}">${s.icon}</div>
+      <div class="subj-info">
+        <div class="subj-name">${s.name}</div>
+        <div class="subj-meta">
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            ${s.chapters.length} chapters
+          </span>
+          <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+            PDF
+          </span>
+        </div>
+      </div>
+      <div class="subj-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </div>
+  `).join('');
+}
+
+function showChapters(id) {
+  currentSubject = subjects.find(s => s.id === id);
+  if(!currentSubject) return;
+
+  document.getElementById('heroTitle').textContent = currentSubject.name + ' Notes';
+  document.getElementById('heroSub').textContent = 'SBI PO 2025 — PDF Notes';
+  document.getElementById('heroCount').textContent = currentSubject.chapters.length + ' Chapters';
+  document.getElementById('headerTitle').textContent = currentSubject.name;
+  document.getElementById('backBtn').style.display = 'flex';
+
+  activeTab = 'latest';
+  document.getElementById('tabLatest').classList.add('active');
+  document.getElementById('tabFav').classList.remove('active');
+
+  renderChapters();
+
+  document.getElementById('subjectScreen').classList.remove('active');
+  document.getElementById('chapterScreen').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function showSubjects() {
+  document.getElementById('chapterScreen').classList.remove('active');
+  document.getElementById('subjectScreen').classList.add('active');
+  document.getElementById('headerTitle').textContent = 'SBI PO Notes';
+  document.getElementById('backBtn').style.display = 'none';
+  window.scrollTo(0,0);
+}
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.getElementById('tabLatest').classList.toggle('active', tab==='latest');
+  document.getElementById('tabFav').classList.toggle('active', tab==='fav');
+  renderChapters();
+}
+
+function toggleFav(subjectId, idx, e) {
+  e.preventDefault(); e.stopPropagation();
+  const key = subjectId + '_' + idx;
+  favs[key] = !favs[key];
+  localStorage.setItem('sbi_favs', JSON.stringify(favs));
+  renderChapters();
+}
+
+function renderChapters() {
+  if(!currentSubject) return;
+  const s = currentSubject;
+  const container = document.getElementById('chapterContent');
+
+  const chapterHero = document.getElementById('chapterHero');
+  chapterHero.style.background = `linear-gradient(135deg, ${s.accent} 0%, ${s.accent}99 50%, #60A5FA 100%)`;
+
+  if(activeTab === 'fav') {
+    const favItems = s.chapters.filter((_,i) => favs[s.id+'_'+i]);
+    if(favItems.length === 0) {
+      container.innerHTML = `<div class="fav-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        <p>No favourites yet.<br>Tap the bookmark on any chapter.</p>
+      </div>`;
+      return;
+    }
+    container.innerHTML = `<div class="chapter-list">${favItems.map((ch,_) => {
+      const origIdx = s.chapters.indexOf(ch);
+      const key = s.id+'_'+origIdx;
+      const url = `${BASE}/${s.subjectNo}_${origIdx+1}.pdf`;
+      return `<a class="chapter-item" href="${url}" target="_blank">
+        <div class="ch-num" style="background:${s.bg};color:${s.accent}">${origIdx+1}</div>
+        <div class="ch-info">
+          <div class="ch-name">${ch}</div>
+        </div>
+        <div class="ch-action" onclick="toggleFav('${s.id}',${origIdx},event)" style="background:${favs[key]?'rgba(251,191,36,0.2)':'rgba(124,58,237,0.08)'}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="${favs[key]?'#F59E0B':'none'}" stroke="${favs[key]?'#F59E0B':'#7C3AED'}" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </div>
+      </a>`;
+    }).join('')}</div>`;
+    return;
+  }
+
+  container.innerHTML = `<div class="chapter-list">${s.chapters.map((ch, i) => {
+    const key = s.id+'_'+i;
+    const url = `${BASE}/${s.subjectNo}_${i+1}.pdf`;
+    return `<a class="chapter-item" href="${url}" target="_blank">
+      <div class="ch-num" style="background:${s.bg};color:${s.accent}">${i+1}</div>
+      <div class="ch-info">
+        <div class="ch-name">${ch}</div>
+      </div>
+      <div class="ch-action" onclick="toggleFav('${s.id}',${i},event)" style="background:${favs[key]?'rgba(251,191,36,0.2)':'rgba(124,58,237,0.08)'}">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="${favs[key]?'#F59E0B':'none'}" stroke="${favs[key]?'#F59E0B':'#7C3AED'}" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+      </div>
+    </a>`;
+  }).join('')}</div>`;
+}
+
+renderSubjects();
+</script>
+</body>
+</html>

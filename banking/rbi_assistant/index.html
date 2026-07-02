@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RBI Assistant — ThunderStudy by Wondermayank</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #573AFC;
+  --primary-active: #4527E0;
+  --primary-focus: #6B4FFF;
+  --primary-tint: rgba(87,58,252,.08);
+  --ink: #1d1d1f;
+  --body-c: #3c3c3c;
+  --muted: #6b6b6b;
+  --muted-soft: #9a9a9a;
+  --hairline: #e6e6e6;
+  --hairline-strong: #cccccc;
+  --canvas: #ffffff;
+  --parchment: #f5f5f7;
+  --on-primary: #ffffff;
+  --r-lg: 18px;
+  --r-md: 11px;
+  --r-pill: 9999px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background: var(--parchment);
+  color: var(--body-c);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--hairline);
+  padding: 0 24px;
+  height: 64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-weight:700;font-size:1.05rem;
+  color:var(--ink);letter-spacing:-.01em;
+  text-decoration:none;
+}
+.nav-logo span{font-weight:400;font-size:.78rem;color:var(--muted);}
+.nav-tag{
+  font-size:.7rem;font-weight:700;
+  background: var(--primary-tint);
+  color:var(--primary);padding:5px 14px;border-radius:var(--r-pill);
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.nav-back{
+  display:flex;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;
+  color:var(--ink);font-family:inherit;
+  font-size:.85rem;font-weight:600;text-decoration:none;
+}
+.nav-back svg{width:16px;height:16px;}
+.nav-back:active{transform:scale(0.95);}
+
+/* ── HERO ── */
+.hero{
+  text-align:center;
+  padding: 64px 24px 48px;
+  background: var(--canvas);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background: var(--canvas);
+  border: 1px solid var(--hairline-strong);
+  padding:7px 16px;border-radius:var(--r-pill);
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--primary);
+  margin-bottom:20px;
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.2rem);
+  font-weight:700;line-height:1.1;letter-spacing:-.02em;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+.hero h1 .hl{ color:var(--primary); }
+.hero p{color:var(--muted);font-size:1.05rem;font-weight:400;max-width:480px;margin:0 auto;}
+
+/* ── HOME QUICK LINKS ── */
+.quick-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap:12px;
+  max-width:900px;margin:0 auto;
+  padding:40px 20px 64px;
+  animation: fadeUp .3s ease both;
+}
+.quick-card{
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  padding: 24px 16px 20px;
+  text-align:center;
+  cursor:pointer;
+  text-decoration:none;
+  display:block;
+  transition: transform .15s, border-color .15s;
+}
+.quick-card:hover{
+  transform:translateY(-2px);
+  border-color: var(--primary-focus);
+}
+.quick-card:active{ transform:scale(0.97); }
+.quick-card .qc-icon{
+  width:46px;height:46px;border-radius:var(--r-md);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;
+  background: var(--primary-tint);
+}
+.quick-card .qc-label{
+  font-size:.92rem;font-weight:700;color:var(--ink);
+  line-height:1.3;
+}
+.quick-card .qc-sub{font-size:.74rem;color:var(--muted);margin-top:4px;font-weight:400;}
+
+/* ── REQUEST BUTTON ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background: var(--primary);
+  color:var(--on-primary);padding:14px 28px;border-radius:var(--r-pill);
+  font-size:.92rem;font-weight:600;
+  text-decoration:none;transition: background .15s, transform .15s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{ background: var(--primary-active); }
+.btn-primary:active{ transform: scale(0.95); }
+
+/* ── FOOTER ── */
+footer{
+  padding:56px 28px 28px;
+  border-top:1px solid var(--hairline);
+  background: var(--parchment);
+}
+.footer-brand{
+  text-align:center;margin-bottom:32px;
+}
+.footer-brand strong{
+  font-size:1.1rem;font-weight:700;color:var(--ink);
+}
+.footer-brand span{
+  font-size:.85rem;color:var(--muted);margin-left:6px;font-weight:400;
+}
+.footer-brand span a{color:var(--primary);text-decoration:none;font-weight:600;}
+.footer-brand span a:hover{text-decoration:underline;}
+.footer-tagline{font-size:.8rem;color:var(--muted);margin-top:8px;font-weight:400;}
+.footer-links{
+  display:flex;justify-content:center;gap:56px;flex-wrap:wrap;
+  max-width:760px;margin:0 auto 28px;
+}
+.footer-col{
+  display:flex;flex-direction:column;gap:10px;
+  min-width:130px;
+}
+.footer-col-title{
+  font-size:.7rem;font-weight:700;
+  letter-spacing:.12em;color:var(--primary);text-transform:uppercase;
+  margin-bottom:2px;
+}
+.footer-col a{
+  font-size:.85rem;color:var(--muted);text-decoration:none;
+  transition:color .15s;font-weight:400;
+}
+.footer-col a:hover{color:var(--primary);}
+.footer-bottom{
+  text-align:center;font-size:.74rem;color:var(--muted-soft);
+  border-top:1px solid var(--hairline);padding-top:20px;
+  margin-top:4px;font-weight:400;
+}
+
+/* ── ENTRY ANIMATION ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero h1{font-size:1.9rem;}
+  .quick-grid{grid-template-columns:repeat(2,1fr); padding:32px 16px 48px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a class="nav-back" href="https://thunderstudy.indevs.in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </a>
+    <a class="nav-logo" href="https://thunderstudy.indevs.in">
+      ThunderStudy
+      <span> by Wondermayank</span>
+    </a>
+  </div>
+  <div class="nav-tag">RBI Assistant</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    Free Study Material Platform
+  </div>
+  <h1>RBI Assistant<br/><span class="hl">Complete Prep Hub</span></h1>
+  <p>Notes · PYQs · Exam Pattern · Analytics — All in one place</p>
+</div>
+
+<!-- HOME VIEW -->
+<div id="home-view">
+  <div style="text-align:center;padding:0 20px 8px;">
+    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSePwlvdMzRLYoYuXNbKlamargjazyRiedg0rE0JfAzyKPyHEA/viewform" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      Request Notes / PYQs
+    </a>
+  </div>
+  <div class="quick-grid">
+    <a class="quick-card" href="exam">
+      <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div>
+      <div class="qc-label">Exam Pattern</div>
+      <div class="qc-sub">Pre + Mains</div>
+    </a>
+    <a class="quick-card" href="pyqs">
+      <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+      <div class="qc-label">PYQs</div>
+      <div class="qc-sub">Previous Papers</div>
+    </a>
+    <a class="quick-card" href="notes">
+      <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div class="qc-label">Notes</div>
+      <div class="qc-sub">All Subjects</div>
+    </a>
+    <a class="quick-card" href="chapter_pyqs/box">
+      <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+      <div class="qc-label">Chapter PYQ</div>
+      <div class="qc-sub">Coming Soon</div>
+    </a>
+    <a class="quick-card" href="analytics">
+      <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="qc-label">Analytics</div>
+      <div class="qc-sub">ThunderStudy</div>
+    </a>
+    <a class="quick-card" href="https://commercesehoga.github.io/banking">
+      <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#573AFC" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="qc-label">Mock Test</div>
+      <div class="qc-sub">Practice</div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <strong>ThunderStudy</strong>
+    <span>by <a href="https://wondermayank.github.io" target="_blank">Wondermayank</a></span>
+    <p class="footer-tagline">Free study material for all banking &amp; govt exam aspirants</p>
+  </div>
+  <div class="footer-links">
+    <div class="footer-col">
+      <div class="footer-col-title">Platform</div>
+      <a href="https://wondermayank.github.io" target="_blank">Wondermayank</a>
+      <a href="https://commercesehoga.github.io/dashboard" target="_blank">CBT Mock Platform</a>
+      <a href="https://thunderstudyofficial.blogspot.com" target="_blank">Analytics Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Legal</div>
+      <a href="https://wondermayank.github.io/terms" target="_blank">Terms of Service</a>
+      <a href="https://wondermayank.github.io/privacy" target="_blank">Privacy Policy</a>
+      <a href="https://wondermayank.github.io/disclaimer" target="_blank">Disclaimer</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Support</div>
+      <a href="https://wondermayank.github.io/contact" target="_blank">Contact Owner</a>
+      <a href="https://commercesehoga.github.io/help" target="_blank">Donation / Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 ThunderStudy · Commerce Se Hoga · All rights reserved
+  </div>
+</footer>
+
+</body>
+</html>

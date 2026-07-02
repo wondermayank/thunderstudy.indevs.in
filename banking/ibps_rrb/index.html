@@ -1,0 +1,1170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IBPS RRB PO — ThunderStudy by Wondermayank</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #f0f6ff;
+  --surface: rgba(255,255,255,0.85);
+  --glass: rgba(255,255,255,0.6);
+  --border: rgba(96,165,250,0.2);
+  --blue1: #60A5FA;
+  --blue2: #B9D9DC;
+  --blue3: #3B82F6;
+  --purple1: #7C3AED;
+  --purple2: #A78BFA;
+  --purple3: #C4B5FD;
+  --text: #1e293b;
+  --muted: #64748b;
+  --white: #ffffff;
+  --shadow: 0 4px 24px rgba(96,165,250,0.12);
+  --shadow-lg: 0 8px 40px rgba(96,165,250,0.18);
+  --radius: 18px;
+  --radius-sm: 10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(167,139,250,0.13) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(96,165,250,0.13) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(185,217,220,0.08) 0%, transparent 70%);
+  color: var(--text);
+  min-height:100vh;
+}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background: rgba(240,246,255,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;font-size:1.15rem;
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.nav-logo span{font-weight:400;font-size:.8rem;color:var(--muted);-webkit-text-fill-color:var(--muted);}
+.nav-tag{
+  font-size:.72rem;font-weight:600;
+  background: linear-gradient(135deg, var(--blue3), var(--purple2));
+  color:#fff;padding:4px 12px;border-radius:20px;letter-spacing:.04em;
+}
+.nav-back{
+  display:none;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;
+  color:var(--blue3);font-family:'DM Sans',sans-serif;
+  font-size:.9rem;font-weight:500;
+}
+.nav-back svg{width:16px;height:16px;}
+
+/* ── HERO ── */
+.hero{
+  text-align:center;
+  padding: 56px 24px 40px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding:6px 16px;border-radius:20px;
+  font-size:.78rem;font-weight:600;color:var(--blue3);
+  margin-bottom:16px;backdrop-filter:blur(10px);
+}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,5vw,3rem);
+  font-weight:800;line-height:1.15;
+  margin-bottom:8px;
+}
+.hero h1 .hl{
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 32px;}
+
+/* ── BREADCRUMB ── */
+#breadcrumb{
+  display:none;
+  align-items:center;gap:6px;flex-wrap:wrap;
+  padding:12px 28px;font-size:.82rem;color:var(--muted);
+}
+#breadcrumb .bc-item{cursor:pointer;color:var(--blue3);font-weight:500;}
+#breadcrumb .bc-item:hover{text-decoration:underline;}
+#breadcrumb .bc-sep{color:var(--muted);}
+#breadcrumb .bc-cur{color:var(--text);font-weight:600;}
+
+/* ── SECTION VIEWS ── */
+.view{display:none;padding:0 20px 60px;}
+.view.active{display:block;}
+#home-view{display:block;}
+
+/* ── HOME QUICK LINKS ── */
+.quick-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap:14px;
+  max-width:860px;margin:0 auto;
+  padding:0 4px 48px;
+}
+.quick-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 14px 18px;
+  text-align:center;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+  box-shadow: var(--shadow);
+}
+.quick-card:hover{
+  transform:translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--blue1);
+}
+.quick-card .qc-icon{
+  width:46px;height:46px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;
+}
+.quick-card .qc-label{
+  font-family:'Syne',sans-serif;
+  font-size:.85rem;font-weight:700;color:var(--text);
+  line-height:1.3;
+}
+.quick-card .qc-sub{font-size:.72rem;color:var(--muted);margin-top:3px;}
+
+/* ── EXAM PATTERN ── */
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:1.45rem;font-weight:800;
+  margin-bottom:20px;
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin-bottom:32px;}
+@media(max-width:600px){.pattern-grid{grid-template-columns:1fr;}}
+.pattern-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  backdrop-filter:blur(12px);box-shadow:var(--shadow);
+}
+.pattern-card h3{
+  font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.badge{
+  display:inline-block;padding:3px 10px;border-radius:20px;
+  font-size:.7rem;font-weight:700;letter-spacing:.04em;
+}
+.badge-pre{background:rgba(96,165,250,.15);color:var(--blue3);}
+.badge-main{background:rgba(124,58,237,.15);color:var(--purple1);}
+table{width:100%;border-collapse:collapse;font-size:.83rem;}
+th{
+  background: linear-gradient(135deg, rgba(96,165,250,.12), rgba(167,139,250,.12));
+  padding:8px 10px;text-align:left;font-weight:600;
+  border-bottom:1px solid var(--border);color:var(--text);
+}
+td{padding:7px 10px;border-bottom:1px solid rgba(96,165,250,.08);color:var(--muted);}
+td:first-child{color:var(--text);font-weight:500;}
+tr:last-child td{border-bottom:none;}
+
+/* ── SUBJECT GRID (Notes/PYQ - degain.md style) ── */
+.subj-list{
+  display:flex;flex-direction:column;gap:10px;max-width:560px;
+}
+.subj-row{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px 18px;
+  cursor:pointer;
+  display:flex;align-items:center;gap:14px;
+  backdrop-filter:blur(12px);box-shadow:var(--shadow);
+  transition:transform .22s cubic-bezier(.4,0,.2,1), box-shadow .22s, border-color .22s;
+  position:relative;overflow:hidden;
+}
+.subj-row::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:4px;
+  background: var(--accent, var(--blue3));
+  border-radius:4px 0 0 4px;
+}
+.subj-row:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px color-mix(in srgb, var(--accent, var(--blue3)) 22%, transparent);
+  border-color: var(--accent, var(--blue1));
+}
+.subj-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.subj-meta{flex:1;}
+.subj-name{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);}
+.subj-count{font-size:.78rem;color:var(--muted);margin-top:2px;}
+.subj-arrow{
+  width:28px;height:28px;border-radius:8px;
+  background:rgba(96,165,250,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue1);flex-shrink:0;
+}
+
+/* ── CHAPTER HERO ── */
+.chapter-hero{
+  border-radius:var(--radius);padding:28px 24px;margin-bottom:20px;
+  background: linear-gradient(135deg, var(--accent,var(--blue3)), color-mix(in srgb, var(--accent,var(--blue3)) 60%, transparent), #60A5FA);
+  position:relative;overflow:hidden;color:#fff;
+}
+.chapter-hero::after{
+  content:'';position:absolute;right:-30px;top:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,.1);pointer-events:none;
+}
+.chapter-hero h2{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;
+  color:#fff;margin-bottom:4px;position:relative;
+}
+.chapter-hero p{font-size:.83rem;color:rgba(255,255,255,.85);position:relative;}
+
+/* ── TABS ── */
+.tabs-row{
+  display:flex;gap:8px;margin-bottom:16px;
+}
+.tab-pill{
+  padding:7px 20px;border-radius:20px;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;
+  background:rgba(96,165,250,.1);color:var(--muted);
+  transition: background .18s, color .18s, box-shadow .18s;
+}
+.tab-pill.active{
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  color:#fff;
+  box-shadow:0 4px 16px rgba(124,58,237,.22);
+}
+
+/* ── CHAPTER ITEMS (degain style) ── */
+.chapter-item{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px 18px;
+  margin-bottom:8px;cursor:pointer;
+  backdrop-filter:blur(10px);box-shadow:var(--shadow);
+  transition:transform .15s, box-shadow .15s, border-color .15s;
+  text-decoration:none;color:inherit;
+}
+.chapter-item:hover{
+  transform:translateX(4px);box-shadow:var(--shadow-lg);
+  border-color:var(--blue1);
+}
+.chapter-item .ci-left{display:flex;align-items:center;gap:12px;}
+.chapter-item .ci-num{
+  width:34px;height:34px;border-radius:10px;
+  background: linear-gradient(135deg, var(--blue1), var(--purple2));
+  color:#fff;font-size:.75rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.chapter-item .ci-name{font-size:.9rem;font-weight:500;color:var(--text);}
+.chapter-item .ci-right{display:flex;align-items:center;gap:8px;}
+.chapter-item .ci-arrow{
+  width:18px;height:18px;color:var(--blue1);flex-shrink:0;
+}
+.bm-btn{
+  width:28px;height:28px;border:none;background:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:8px;transition:background .15s;
+  flex-shrink:0;
+}
+.bm-btn:hover{background:rgba(245,158,11,.12);}
+.bm-btn svg{width:16px;height:16px;}
+.bm-btn.active svg{stroke:#F59E0B;fill:#F59E0B;}
+
+/* ── EMPTY STATE ── */
+.empty-state{
+  text-align:center;padding:50px 20px;
+  color:var(--muted);font-size:.88rem;
+}
+.empty-state svg{margin-bottom:16px;opacity:.4;}
+
+/* ── SUBJECT GRID (old home cards) ── */
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(170px,1fr));
+  gap:14px;max-width:900px;
+}
+.subject-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 16px;
+  cursor:pointer;text-align:center;
+  backdrop-filter:blur(12px);box-shadow:var(--shadow);
+  transition:transform .18s, box-shadow .18s, border-color .18s;
+}
+.subject-card:hover{
+  transform:translateY(-4px);box-shadow:var(--shadow-lg);
+  border-color:var(--blue1);
+}
+.subject-card .sc-icon{
+  width:50px;height:50px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;
+}
+.subject-card h3{
+  font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;
+  margin-bottom:4px;
+}
+.subject-card p{font-size:.72rem;color:var(--muted);}
+
+/* ── PYQ YEAR GRID ── */
+.year-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:12px;max-width:700px;
+}
+.year-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 14px;text-align:center;
+  backdrop-filter:blur(12px);box-shadow:var(--shadow);
+  transition:transform .18s, box-shadow .18s, border-color .18s;
+}
+.year-card:hover{
+  transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--blue1);
+}
+.year-card .yr-label{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.year-card .yr-sub{font-size:.72rem;color:var(--muted);margin-top:4px;}
+.year-card .yr-links{
+  display:flex;gap:6px;margin-top:10px;justify-content:center;flex-wrap:wrap;
+}
+.yr-btn{
+  display:inline-block;padding:4px 10px;border-radius:8px;
+  font-size:.72rem;font-weight:600;text-decoration:none;
+  background: linear-gradient(135deg, var(--blue1), var(--purple2));
+  color:#fff;transition:opacity .15s;
+}
+.yr-btn:hover{opacity:.85;}
+
+/* ── COMING SOON ── */
+.coming-soon{
+  text-align:center;padding:60px 20px;
+  max-width:500px;margin:0 auto;
+}
+.coming-soon svg{margin-bottom:20px;opacity:.5;}
+.coming-soon h3{
+  font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;
+  margin-bottom:8px;
+}
+.coming-soon p{color:var(--muted);font-size:.9rem;}
+
+/* ── ANALYTICS REDIRECT ── */
+.analytics-card{
+  max-width:520px;margin:0 auto;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:36px 28px;text-align:center;
+  backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);
+}
+.analytics-card h3{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px;
+}
+.analytics-card p{color:var(--muted);font-size:.9rem;margin-bottom:24px;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  color:#fff;padding:12px 28px;border-radius:12px;
+  font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;
+  text-decoration:none;transition:opacity .15s, transform .15s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px);}
+
+/* ── MOCK SECTION ── */
+.mock-card{
+  max-width:520px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+  backdrop-filter:blur(12px);box-shadow:var(--shadow);
+  margin-bottom:14px;
+}
+.mock-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:8px;}
+.mock-card p{color:var(--muted);font-size:.85rem;margin-bottom:14px;}
+
+/* ── FOOTER ── */
+footer{
+  padding:40px 28px 24px;
+  border-top:1px solid var(--border);
+  background: rgba(255,255,255,.6);backdrop-filter:blur(10px);
+}
+.footer-brand{
+  text-align:center;margin-bottom:28px;
+}
+.footer-brand strong{
+  font-family:'Syne',sans-serif;font-size:1.1rem;
+  background: linear-gradient(135deg, var(--blue3), var(--purple1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.footer-brand span{
+  font-size:.82rem;color:var(--muted);margin-left:6px;
+}
+.footer-brand span a{color:var(--purple1);text-decoration:none;}
+.footer-brand span a:hover{text-decoration:underline;}
+.footer-tagline{font-size:.78rem;color:var(--muted);margin-top:6px;}
+.footer-links{
+  display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
+  max-width:700px;margin:0 auto 24px;
+}
+.footer-col{
+  display:flex;flex-direction:column;gap:8px;
+  min-width:120px;
+}
+.footer-col-title{
+  font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;
+  letter-spacing:.08em;color:var(--blue3);text-transform:uppercase;
+  margin-bottom:2px;
+}
+.footer-col a{
+  font-size:.8rem;color:var(--muted);text-decoration:none;
+  transition:color .15s;
+}
+.footer-col a:hover{color:var(--purple1);}
+.footer-bottom{
+  text-align:center;font-size:.72rem;color:var(--muted);
+  border-top:1px solid var(--border);padding-top:16px;
+  margin-top:4px;
+}
+
+
+/* ── CHIPS ── */
+.chip{
+  display:inline-block;padding:4px 12px;border-radius:20px;
+  background:rgba(96,165,250,.12);color:var(--blue3);
+  font-size:.72rem;font-weight:600;margin:3px;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero h1{font-size:1.7rem;}
+  .quick-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+/* ── PULSE ANIMATION ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.view.active .quick-grid,
+.view.active .subject-grid,
+.view.active .chapter-list,
+.view.active .year-grid,
+.view.active .pattern-grid{animation:fadeUp .3s ease both;}
+
+.cs-tag{
+  display:inline-block;padding:3px 10px;border-radius:20px;
+  background:rgba(167,139,250,.15);color:var(--purple1);
+  font-size:.68rem;font-weight:700;margin-left:6px;vertical-align:middle;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="nav-back" id="navBack" onclick="goBack()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </button>
+    <div class="nav-logo">
+      ThunderStudy
+      <span> by Wondermayank</span>
+    </div>
+  </div>
+  <div class="nav-tag">IBPS RRB PO</div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb"></div>
+
+<!-- HERO (home only) -->
+<div class="hero" id="heroSection">
+  <div class="hero-badge">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    Free Study Material Platform
+  </div>
+  <h1>IBPS RRB PO<br/><span class="hl">Complete Prep Hub</span></h1>
+  <p>Notes · PYQs · Exam Pattern · Analytics — All in one place</p>
+</div>
+
+<!-- HOME VIEW -->
+<div id="home-view" class="view active" style="padding:0 20px 60px;">
+  <div class="quick-grid">
+    <div class="quick-card" onclick="openSection('pattern')">
+      <div class="qc-icon" style="background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(167,139,250,.15));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+      </div>
+      <div class="qc-label">Exam Pattern</div>
+      <div class="qc-sub">Pre + Mains</div>
+    </div>
+    <div class="quick-card" onclick="openSection('pyq')">
+      <div class="qc-icon" style="background:linear-gradient(135deg,rgba(96,165,250,.15),rgba(196,181,253,.15));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="qc-label">PYQs</div>
+      <div class="qc-sub">2018 – 2025</div>
+    </div>
+    <div class="quick-card" onclick="openSection('notes')">
+      <div class="qc-icon" style="background:linear-gradient(135deg,rgba(185,217,220,.3),rgba(96,165,250,.15));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div class="qc-label">Notes</div>
+      <div class="qc-sub">All Subjects</div>
+    </div>
+    <div class="quick-card" onclick="openSection('chapterPYQ')">
+      <div class="qc-icon" style="background:linear-gradient(135deg,rgba(167,139,250,.15),rgba(96,165,250,.15));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      </div>
+      <div class="qc-label">Chapter PYQ</div>
+      <div class="qc-sub">Coming Soon</div>
+    </div>
+    <div class="quick-card" onclick="openSection('analytics')">
+      <div class="qc-icon" style="background:linear-gradient(135deg,rgba(96,165,250,.15),rgba(124,58,237,.12));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="qc-label">Analytics</div>
+      <div class="qc-sub">ThunderStudy</div>
+    </div>
+    <div class="quick-card" onclick="openSection('mock')">
+      <div class="qc-icon" style="background:linear-gradient(135deg,rgba(185,217,220,.3),rgba(167,139,250,.15));">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="qc-label">Mock Test</div>
+      <div class="qc-sub">Practice</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXAM PATTERN VIEW -->
+<div id="pattern-view" class="view">
+  <div class="section-title">Exam Pattern</div>
+  <div class="pattern-grid">
+    <div class="pattern-card">
+      <h3><span class="badge badge-pre">Prelims</span> Officer Scale-I</h3>
+      <table>
+        <tr><th>Section</th><th>Qs</th><th>Marks</th><th>Time</th></tr>
+        <tr><td>Reasoning</td><td>40</td><td>40</td><td>—</td></tr>
+        <tr><td>Quantitative Aptitude</td><td>40</td><td>40</td><td>—</td></tr>
+        <tr><td colspan="2"><strong>Total</strong></td><td><strong>80</strong></td><td><strong>45 min</strong></td></tr>
+      </table>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:10px;">⚡ Negative marking: 0.25 per wrong answer</p>
+    </div>
+    <div class="pattern-card">
+      <h3><span class="badge badge-main">Mains</span> Officer Scale-I</h3>
+      <table>
+        <tr><th>Section</th><th>Qs</th><th>Marks</th></tr>
+        <tr><td>Reasoning</td><td>40</td><td>50</td></tr>
+        <tr><td>General Awareness</td><td>40</td><td>40</td></tr>
+        <tr><td>Quantitative Aptitude</td><td>40</td><td>50</td></tr>
+        <tr><td>English / Hindi</td><td>40</td><td>40</td></tr>
+        <tr><td>Computer Knowledge</td><td>40</td><td>20</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>200</strong></td><td><strong>200</strong></td></tr>
+      </table>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:10px;">⏱ Time: 2 Hours · Composite</p>
+    </div>
+    <div class="pattern-card">
+      <h3><span class="badge badge-pre">Prelims</span> Office Assistant</h3>
+      <table>
+        <tr><th>Section</th><th>Qs</th><th>Marks</th><th>Time</th></tr>
+        <tr><td>Reasoning</td><td>40</td><td>40</td><td>—</td></tr>
+        <tr><td>Numerical Ability</td><td>40</td><td>40</td><td>—</td></tr>
+        <tr><td colspan="2"><strong>Total</strong></td><td><strong>80</strong></td><td><strong>45 min</strong></td></tr>
+      </table>
+    </div>
+    <div class="pattern-card">
+      <h3><span class="badge badge-main">Mains</span> Office Assistant</h3>
+      <table>
+        <tr><th>Section</th><th>Qs</th><th>Marks</th></tr>
+        <tr><td>Reasoning</td><td>40</td><td>50</td></tr>
+        <tr><td>General / Fin. Awareness</td><td>40</td><td>40</td></tr>
+        <tr><td>Numerical Ability</td><td>40</td><td>50</td></tr>
+        <tr><td>English / Hindi</td><td>40</td><td>40</td></tr>
+        <tr><td>Computer Knowledge</td><td>40</td><td>20</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>200</strong></td><td><strong>200</strong></td></tr>
+      </table>
+    </div>
+  </div>
+  <div style="max-width:700px;">
+    <div style="background:rgba(96,165,250,.08);border:1px solid var(--border);border-radius:14px;padding:18px 20px;font-size:.85rem;">
+      <strong style="color:var(--blue3);">Important Points</strong>
+      <ul style="margin-top:10px;padding-left:18px;color:var(--muted);line-height:1.8;">
+        <li>Prelims is qualifying; Mains marks count for merit</li>
+        <li>Language option: English <strong>or</strong> Hindi in Mains</li>
+        <li>Interview round after Mains for Officer Scale-I</li>
+        <li>No interview for Office Assistant post</li>
+        <li>Final merit = Mains score (+ Interview for Officers)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PYQ VIEW -->
+<div id="pyq-view" class="view">
+  <div class="section-title">Previous Year Questions</div>
+  <p style="color:var(--muted);font-size:.88rem;margin-bottom:24px;">Click on any year to access Pre + Mains papers</p>
+  <div class="year-grid">
+    <div class="year-card">
+      <div class="yr-label">2025</div>
+      <div class="yr-sub">Latest</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2025/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2025/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2024</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2024/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2024/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2023</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2023/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2023/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2022</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2022/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2022/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2021</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2021/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2021/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2020</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2020/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2020/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2019</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2019/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2019/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+    <div class="year-card">
+      <div class="yr-label">2018</div>
+      <div class="yr-sub">PO + Clerk</div>
+      <div class="yr-links">
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2018/pre.pdf" target="_blank">Pre</a>
+        <a class="yr-btn" href="https://thunderstudy.github.io/pyqs/ibps_rrb/2018/mains.pdf" target="_blank">Mains</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTES VIEW — Subject Selection (degain.md style) -->
+<div id="notes-view" class="view">
+  <div class="section-title">Study Notes</div>
+  <p style="color:var(--muted);font-size:.88rem;margin-bottom:24px;">Select a subject to explore chapter-wise notes</p>
+  <div class="subj-list">
+    <div class="subj-row" style="--accent:#3B82F6;" onclick="openChapters('aptitude')">
+      <div class="subj-icon" style="background:rgba(59,130,246,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">Aptitude</div>
+        <div class="subj-count">16 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#7C3AED;" onclick="openChapters('di')">
+      <div class="subj-icon" style="background:rgba(124,58,237,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><rect x="2" y="2" width="20" height="20" rx="3"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">Data Interpretation</div>
+        <div class="subj-count">13 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#0EA5E9;" onclick="openChapters('reasoning')">
+      <div class="subj-icon" style="background:rgba(14,165,233,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">Reasoning</div>
+        <div class="subj-count">14 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#EC4899;" onclick="openChapters('english')">
+      <div class="subj-icon" style="background:rgba(236,72,153,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">English</div>
+        <div class="subj-count">29 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#F97316;" onclick="openChapters('hindi')">
+      <div class="subj-icon" style="background:rgba(249,115,22,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">Hindi</div>
+        <div class="subj-count">31 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#10B981;" onclick="openChapters('finance')">
+      <div class="subj-icon" style="background:rgba(16,185,129,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">Financial Awareness</div>
+        <div class="subj-count">18 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#F59E0B;" onclick="openChapters('general')">
+      <div class="subj-icon" style="background:rgba(245,158,11,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">General Awareness</div>
+        <div class="subj-count">22 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div class="subj-row" style="--accent:#6366F1;" onclick="openChapters('computer')">
+      <div class="subj-icon" style="background:rgba(99,102,241,.12);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="subj-meta">
+        <div class="subj-name">Computer</div>
+        <div class="subj-count">13 chapters</div>
+      </div>
+      <div class="subj-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CHAPTER VIEWS (degain.md style — hero + tabs + bookmarks) -->
+<div id="chapters-aptitude" class="view" style="--accent:#3B82F6;">
+  <span id="tab-aptitude" data-tab="latest" style="display:none;"></span>
+  <div class="chapter-hero">
+    <h2>📐 Aptitude</h2>
+    <p>16 chapters · Quantitative Mathematics</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('aptitude','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('aptitude','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-aptitude"></div>
+</div>
+<div id="chapters-di" class="view" style="--accent:#7C3AED;">
+  <span id="tab-di" data-tab="latest" style="display:none;"></span>
+  <div class="chapter-hero">
+    <h2>📊 Data Interpretation</h2>
+    <p>13 chapters · Charts · Tables · Caselets</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('di','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('di','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-di"></div>
+</div>
+<div id="chapters-reasoning" class="view" style="--accent:#0EA5E9;">
+  <span id="tab-reasoning" data-tab="latest" style="display:none;"></span>
+  <div class="chapter-hero">
+    <h2>🧩 Reasoning</h2>
+    <p>14 chapters · Puzzles · Series · Seating</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('reasoning','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('reasoning','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-reasoning"></div>
+</div>
+<div id="chapters-english" class="view" style="--accent:#EC4899;">
+  <span id="tab-english" data-tab="latest" style="display:none;"></span>
+  <div class="chapter-hero">
+    <h2>📖 English</h2>
+    <p>29 chapters · Grammar · Comprehension</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('english','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('english','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-english"></div>
+</div>
+<div id="chapters-hindi" class="view" style="--accent:#F97316;">
+  <span id="tab-hindi" data-tab="latest" style="display:none;"></span>
+  <div class="chapter-hero">
+    <h2>🗣️ Hindi</h2>
+    <p>31 chapters · व्याकरण · शब्द भंडार</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('hindi','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('hindi','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-hindi"></div>
+</div>
+<div id="chapters-finance" class="view" style="--accent:#10B981;">
+  <span id="tab-finance" data-tab="latest" style="display:none;"></span>
+  <div class="chapter-hero">
+    <h2>💰 Financial Awareness</h2>
+    <p>18 chapters · Banking · RBI · Economy</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('finance','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('finance','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-finance"></div>
+</div>
+<div id="chapters-general" class="view" style="--accent:#F59E0B;">
+  <div class="chapter-hero">
+    <h2>🌏 General Awareness</h2>
+    <p>22 chapters · Current Affairs · GK</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('general','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('general','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-general"></div>
+</div>
+<div id="chapters-computer" class="view" style="--accent:#6366F1;">
+  <div class="chapter-hero">
+    <h2>💻 Computer</h2>
+    <p>13 chapters · Fundamentals · Networking</p>
+  </div>
+  <div class="tabs-row">
+    <button class="tab-pill active" onclick="switchTab('computer','latest',this)">LATEST</button>
+    <button class="tab-pill" onclick="switchTab('computer','fav',this)">⭐ SAVED</button>
+  </div>
+  <div class="chapter-list" id="cl-computer"></div>
+</div>
+
+
+<!-- CHAPTER PYQ VIEW -->
+<div id="chapterPYQ-view" class="view">
+  <div class="coming-soon">
+    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="url(#cs-grad)" stroke-width="1.5">
+      <defs><linearGradient id="cs-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </svg>
+    <h3>Chapter-wise PYQ</h3>
+    <p>Coming Soon! We're curating chapter-wise PYQs for Aptitude, Reasoning, and English. Stay tuned.</p>
+    <br/>
+    <div>
+      <span class="chip">Aptitude</span>
+      <span class="chip">Reasoning</span>
+      <span class="chip">English</span>
+      <span class="chip">Banking Awareness</span>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYTICS VIEW -->
+<div id="analytics-view" class="view">
+  <div class="section-title">Exam Analytics</div>
+  <div class="analytics-card">
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="url(#an-grad)" stroke-width="1.5" style="margin-bottom:16px;">
+      <defs><linearGradient id="an-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+    </svg>
+    <h3>Deep Exam Analytics</h3>
+    <p>Topic-wise weightage, cut-off trends, year-wise analysis — all on our analytics blog powered by ThunderStudy.</p>
+    <a class="btn-primary" href="https://thunderstudyofficial.blogspot.com" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></a>
+      View Analytics
+    </a>
+  </div>
+</div>
+
+<!-- MOCK VIEW -->
+<div id="mock-view" class="view">
+  <div class="section-title">Mock Tests</div>
+  <div class="mock-card">
+    <h3>IBPS RRB PO Mock Tests</h3>
+    <p>Full-length Prelims &amp; Mains mocks · All subjects · Section-wise practice</p>
+    <a class="btn-primary" href="https://commercesehoga.github.io/banking" target="_blank" style="font-size:.85rem;padding:10px 22px;">Start Mock</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <strong>ThunderStudy</strong>
+    <span>by <a href="https://wondermayank.github.io" target="_blank">Wondermayank</a></span>
+    <p class="footer-tagline">Free study material for all banking aspirants</p>
+  </div>
+  <div class="footer-links">
+    <div class="footer-col">
+      <div class="footer-col-title">Platform</div>
+      <a href="https://wondermayank.github.io" target="_blank">Wondermayank</a>
+      <a href="https://commercesehoga.github.io/dashboard" target="_blank">CBT Mock Platform</a>
+      <a href="https://thunderstudyofficial.blogspot.com" target="_blank">Analytics Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Legal</div>
+      <a href="https://wondermayank.github.io/terms" target="_blank">Terms of Service</a>
+      <a href="https://wondermayank.github.io/privacy" target="_blank">Privacy Policy</a>
+      <a href="https://wondermayank.github.io/disclaimer" target="_blank">Disclaimer</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Support</div>
+      <a href="https://wondermayank.github.io/contact" target="_blank">Contact Owner</a>
+      <a href="https://commercesehoga.github.io/help" target="_blank">Donation / Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 ThunderStudy · Commerce Se Hoga · All rights reserved
+  </div>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────────────────
+const BASE_NOTES = 'https://thunderstudy.indevs.in/ibps_rrb_po';
+
+const subjectSlug = {
+  aptitude: 'Aptitude', di: 'Data', reasoning: 'Reasoning',
+  english: 'English', hindi: 'Hindi', finance: 'Financial',
+  general: 'Awareness', computer: 'Computer'
+};
+
+const subjects = {
+  aptitude: { label:'Aptitude', chapters:['Percentage','Profit and Loss','Simple Interest','Compound Interest','Number System','LCM and HCF','Average','Ratio and Proportion','Partnership','Simplification','Surds and Indices','Time and Work','Time Speed Distance','Permutations & Combination','Probability','Quadratic Equations'] },
+  di: { label:'Data Interpretation', chapters:['Data Interpretation','Tabular DI Questions','Missing Tabular DI Questions','Line Bar Graph Questions','Line Tabular DI Questions','Pie Tabular DI Questions','Pie Bar Graph DI Questions','Bar Graph DI Questions','Bar Table DI Questions','Pie DI Questions','Caselet DI Questions','Radar DI Questions','Bubble Chart DI Questions'] },
+  reasoning: { label:'Reasoning', chapters:['Puzzle','Number Series','Coding and Decoding','Blood Relations','Analogy','Syllogism','Order and Ranking','Distance and Direction','Logical Reasoning','Sitting Arrangement','Statement and Assumptions','Alphabet Series','Cause Effect','Inequality'] },
+  english: { label:'English', chapters:['Articles','Verb Agreement','Adverbs','Verb','Pronoun','Noun','Tenses','Preposition 1','Preposition 2','Conditional Sentence','Adjective','Conjunction','Parts of Speech','Double Filler','Multiple Filler','Cloze Test','Para Jumbles','Grammar Error','Odd Man Out Sentence','Passage with Missing Line','Phrase Replacement','Reading Comprehension Part 1','Reading Comprehension Part 2','Reading Comprehension Part 3','Grammatically Correct Sentence','Antonyms','Synonyms','One Word Substitution','Idioms and Phrases'] },
+  hindi: { label:'Hindi', chapters:['संधि विच्छेद','अलंकार','पर्यायवाची शब्द','संज्ञा','समास','हिंदी मुहावरे और अर्थ','हिंदी वर्णमाला','उपसर्ग','प्रत्यय','लिंग','भाषा, लिपि और व्याकरण','वचन','सर्वनाम','क्रिया','विशेषण','कारक','काल','क्रिया विशेषण','विलोम शब्द हिन्दी','समुच्चयबोधक','संबंधबोधक','विस्मयादिबोधक','वाक्यांश के लिए एक शब्द','हिंदी गिनती','भिन्नार्थक शब्द','अव्यय','भाववाचक संज्ञा','तत्सम और तद्भव शब्द','रस','छंद','विराम चिन्ह'] },
+  finance: { label:'Finance Awareness', chapters:['Banking Awareness','Banking And Finance Related Terms','Fiscal And Monetary Policy','Banking Sector Reforms','RBI Governors List','Banking Abbreviations','BASEL Norms','Economic Survey 2020-21 Vol-1','Economic Survey 2020-21 Vol-2','Summary of Union Budget','Government Schemes','List of Public & Private Sector Banks','Risk Management','Nonperforming Asset (NPA)','Reserve Bank Of India (RBI) - Role in Indian Banking','Types Of Bank Accounts','Types of Banking','Regional Rural Banks'] },
+  general: { label:'General Awareness', chapters:['Awards and Awardees','Book and Authors','Cabinet Ministers','Chief Minister','Governors','Sports Terminology','Nuclear Power Station','Space & Nuclear Program of India','Country and Currency','Dance Forms','Important Days and Events','International Organization Headquarters','National Parks and Sanctuaries','Tiger Reserve','UNESCO World Heritage Sites in India','Research Institute of India','Important Monuments & Places of India','Sustainable Development Goals','Important Temples of India','Memorial Places of Indian Leader','Sports Trophy','Padma Award 2021'] },
+  computer: { label:'Computer', chapters:['Computer Abbreviations','Computer Fundamental & Terminology','Computer Hardware','Computer Software','Internet','Keyboard Shortcuts','Memory','Microsoft Office','Networking','Operating System','Basic of Logic Gates','Number System','Computer Knowledge Full Book'] }
+};
+
+// ── BOOKMARKS (localStorage) ──────────────────────
+function bmKey(subjectKey){ return 'bm_' + subjectKey; }
+function getSaved(subjectKey){ try{ return JSON.parse(localStorage.getItem(bmKey(subjectKey))||'[]'); }catch(e){ return []; } }
+function setSaved(subjectKey, arr){ localStorage.setItem(bmKey(subjectKey), JSON.stringify(arr)); }
+function toggleSave(subjectKey, idx, btnEl){
+  let saved = getSaved(subjectKey);
+  if(saved.includes(idx)){
+    saved = saved.filter(i=>i!==idx);
+    btnEl.classList.remove('active');
+    btnEl.title='Save';
+  } else {
+    saved.push(idx);
+    btnEl.classList.add('active');
+    btnEl.title='Saved';
+  }
+  setSaved(subjectKey, saved);
+}
+
+// ── BUILD CHAPTER LIST ────────────────────────────
+function buildChapterList(subjectKey){
+  const subj = subjects[subjectKey];
+  const saved = getSaved(subjectKey);
+  return subj.chapters.map((ch,i)=>`
+    <div class="chapter-item" style="cursor:default;">
+      <div class="ci-left">
+        <div class="ci-num">${i+1}</div>
+        <div class="ci-name">${ch}</div>
+      </div>
+      <div class="ci-right">
+        <button class="bm-btn ${saved.includes(i)?'active':''}" title="${saved.includes(i)?'Saved':'Save'}"
+          onclick="event.stopPropagation();toggleSave('${subjectKey}',${i},this);if(document.getElementById('tab-${subjectKey}').dataset.tab==='fav')renderChapters('${subjectKey}','fav');"
+          aria-label="Save chapter">
+          <svg viewBox="0 0 24 24" fill="${saved.includes(i)?'#F59E0B':'none'}" stroke="#F59E0B" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <a href="${BASE_NOTES}/${subjectSlug[subjectKey]}_n${i+1}.pdf" target="_blank" onclick="event.stopPropagation();" style="display:flex;align-items:center;">
+          <svg class="ci-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </div>`).join('');
+}
+
+function buildFavList(subjectKey){
+  const subj = subjects[subjectKey];
+  const saved = getSaved(subjectKey);
+  if(!saved.length) return `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><p>No saved chapters yet.<br/>Tap ⭐ on any chapter to save it here.</p></div>`;
+  return saved.map(i=>{
+    const ch = subj.chapters[i];
+    return `<div class="chapter-item" style="cursor:default;">
+      <div class="ci-left">
+        <div class="ci-num">${i+1}</div>
+        <div class="ci-name">${ch}</div>
+      </div>
+      <div class="ci-right">
+        <button class="bm-btn active" title="Saved"
+          onclick="event.stopPropagation();toggleSave('${subjectKey}',${i},this);renderChapters('${subjectKey}','fav');"
+          aria-label="Remove save">
+          <svg viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <a href="${BASE_NOTES}/${subjectSlug[subjectKey]}_n${i+1}.pdf" target="_blank" onclick="event.stopPropagation();" style="display:flex;align-items:center;">
+          <svg class="ci-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderChapters(subjectKey, tab){
+  const listEl = document.getElementById('cl-'+subjectKey);
+  listEl.innerHTML = (tab==='fav') ? buildFavList(subjectKey) : buildChapterList(subjectKey);
+}
+
+// ── TAB SWITCH ────────────────────────────────────
+function switchTab(subjectKey, tab, btnEl){
+  const container = btnEl.closest('.view') || document.getElementById('chapters-'+subjectKey);
+  container.querySelectorAll('.tab-pill').forEach(b=>b.classList.remove('active'));
+  btnEl.classList.add('active');
+  const tracker = document.getElementById('tab-'+subjectKey);
+  if(tracker) tracker.dataset.tab = tab;
+  renderChapters(subjectKey, tab);
+}
+
+// ── NAVIGATION STATE ──────────────────────────────
+let navHistory = ['home'];
+
+// ── OPEN SECTION IN NEW TAB ───────────────────────
+function openSection(id){
+  // Open the same page with a hash so the new tab loads directly into that view
+  const url = window.location.href.split('#')[0] + '#' + id;
+  window.open(url, '_blank');
+}
+
+function openChapters(subjectKey){
+  const url = window.location.href.split('#')[0] + '#chapters-' + subjectKey;
+  window.open(url, '_blank');
+}
+
+// ── INTERNAL showView (used inside a tab after hash-load) ─────────────────
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const el = document.getElementById(id+'-view');
+  if(el){ el.classList.add('active'); navHistory.push(id); }
+  updateNav(id);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showChapters(subjectKey){
+  const subj = subjects[subjectKey];
+  renderChapters(subjectKey, 'latest');
+  // reset tab tracker
+  const tracker = document.getElementById('tab-'+subjectKey);
+  if(tracker) tracker.dataset.tab='latest';
+  // reset tab pills
+  const view = document.getElementById('chapters-'+subjectKey);
+  if(view) view.querySelectorAll('.tab-pill').forEach((b,i)=>{ b.classList.toggle('active',i===0); });
+
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  view.classList.add('active');
+  navHistory.push('chapters-'+subjectKey);
+  updateNav('chapters-'+subjectKey, subj.label);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goBack(){
+  if(navHistory.length<=1){ return; }
+  navHistory.pop();
+  const prev = navHistory[navHistory.length-1];
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  if(prev==='home'){
+    document.getElementById('home-view').classList.add('active');
+    updateNav('home');
+  } else {
+    const el = document.getElementById(prev+'-view') || document.getElementById(prev);
+    if(el) el.classList.add('active');
+    const subjectKey = prev.replace('chapters-','');
+    const lbl = subjects[subjectKey]?subjects[subjectKey].label:'';
+    updateNav(prev, lbl);
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const viewLabels = {
+  home:'Home', pattern:'Exam Pattern', pyq:'PYQs', notes:'Notes',
+  chapterPYQ:'Chapter PYQ', analytics:'Analytics', mock:'Mock Tests'
+};
+
+function updateNav(id, extra){
+  const heroSection = document.getElementById('heroSection');
+  const navBack = document.getElementById('navBack');
+  const bc = document.getElementById('breadcrumb');
+  if(id==='home'){
+    heroSection.style.display='';
+    navBack.style.display='none';
+    bc.style.display='none';
+    bc.innerHTML='';
+    return;
+  }
+  heroSection.style.display='none';
+  navBack.style.display='flex';
+  let crumbs = [{ label:'Home', action:"goHome()" }];
+  if(id.startsWith('chapters-')){
+    crumbs.push({ label:'Notes', action:"showView('notes')" });
+    crumbs.push({ label: extra||id, action:null });
+  } else {
+    crumbs.push({ label: viewLabels[id]||extra||id, action:null });
+  }
+  bc.style.display='flex';
+  bc.innerHTML = crumbs.map((c,i)=>{
+    if(i===crumbs.length-1) return `<span class="bc-cur">${c.label}</span>`;
+    return `<span class="bc-item" onclick="${c.action}">${c.label}</span><span class="bc-sep">›</span>`;
+  }).join('');
+}
+
+function goHome(){
+  window.location.hash='';
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('home-view').classList.add('active');
+  navHistory=['home'];
+  updateNav('home');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── HASH-BASED ROUTING ────────────────────────────
+function routeFromHash(){
+  const hash = window.location.hash.replace('#','').trim();
+  if(!hash || hash==='home'){ return; }
+  if(hash.startsWith('chapters-')){
+    const key = hash.replace('chapters-','');
+    if(subjects[key]) showChapters(key);
+  } else {
+    showView(hash);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', routeFromHash);
+window.addEventListener('hashchange', routeFromHash);
+</script>
+</body>
+</html>
