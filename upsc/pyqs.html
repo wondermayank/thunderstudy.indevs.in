@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderStudy — UPSC PYQs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #dff1fb;
+  --sky-mid: #b3ddf5;
+  --sky-deep: #5bb8f5;
+  --navy: #1a3d5c;
+  --navy-light: #2a5278;
+  --white: #ffffff;
+  --offwhite: #f4faff;
+  --accent: #0a7abf;
+  --accent2: #f5a623;
+  --text: #1a2e3b;
+  --muted: #6b8ea6;
+  --green: #22c55e;
+  --radius: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--offwhite);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #2181b8 100%);
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content:'';
+  position:absolute;
+  top:-70px; right:-90px;
+  width:360px; height:360px;
+  background:radial-gradient(circle,rgba(91,184,245,.2) 0%,transparent 70%);
+  border-radius:50%;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 24px 26px;
+  position: relative; z-index: 1;
+}
+.brand-row { display:flex; align-items:center; gap:14px; margin-bottom:4px; }
+.brand-icon {
+  width:50px; height:50px;
+  background: linear-gradient(135deg, var(--sky-deep), var(--accent2));
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px;
+  box-shadow:0 4px 16px rgba(10,122,191,.35);
+  flex-shrink:0;
+}
+.brand-name { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:900; color:#fff; }
+.brand-sub  { font-size:.7rem; font-weight:600; color:var(--sky-mid); letter-spacing:3px; text-transform:uppercase; }
+.header-tagline { font-size:.88rem; color:rgba(255,255,255,.6); font-weight:300; margin-top:2px; }
+.made-by { margin-top:8px; font-size:.72rem; color:rgba(255,255,255,.4); }
+.made-by span { color:var(--accent2); font-weight:700; }
+
+/* STEPPER BAR */
+.stepper-bar {
+  background: var(--white);
+  border-bottom: 2px solid var(--sky-mid);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(26,61,92,.08);
+}
+.stepper-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.step-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all .2s;
+  user-select: none;
+  position: relative;
+}
+.step-tab.done   { border-bottom-color: var(--green); }
+.step-tab.active { border-bottom-color: var(--accent); background: var(--sky); }
+.step-tab.locked { opacity: .45; cursor: not-allowed; }
+
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--sky-mid);
+  color: var(--navy);
+  font-size: .8rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.step-tab.done   .step-num { background: var(--green); color: #fff; }
+.step-tab.active .step-num { background: var(--accent); color: #fff; }
+
+.step-info { display: flex; flex-direction: column; }
+.step-label { font-size: .7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; line-height: 1; }
+.step-value { font-size: .88rem; font-weight: 600; color: var(--navy); margin-top: 2px; line-height: 1.2; max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.step-value.placeholder { color: var(--muted); font-weight: 400; }
+
+.step-arrow { color: var(--sky-mid); font-size: 1rem; padding: 0 4px; }
+.reset-btn {
+  margin-left: auto;
+  padding: 8px 16px;
+  align-self: center;
+  background: var(--sky);
+  border: 1.5px solid var(--sky-mid);
+  border-radius: 8px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background .15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.reset-btn:hover { background: var(--sky-mid); }
+
+/* MAIN */
+.main-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+/* STEP PANELS */
+.step-panel {
+  display: none;
+  animation: fadeUp .3s ease both;
+}
+.step-panel.visible { display: block; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.panel-hint { font-size: .83rem; color: var(--muted); margin-top: 2px; }
+.panel-count {
+  margin-left: auto;
+  background: var(--accent);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* SEARCH */
+.panel-search-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+.panel-search-wrap input {
+  width: 100%;
+  padding: 11px 16px 11px 40px;
+  border: 2px solid var(--sky-mid);
+  border-radius: 12px;
+  font-size: .9rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  transition: border-color .2s;
+}
+.panel-search-wrap input:focus { border-color: var(--accent); }
+.search-icon {
+  position: absolute;
+  left: 13px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+/* EXAM GRID */
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.exam-card {
+  background: var(--white);
+  border: 2px solid var(--sky-mid);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 2px 12px rgba(26,61,92,.07);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.exam-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 24px rgba(10,122,191,.18);
+  transform: translateY(-2px);
+}
+.exam-card.selected {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #e8f4fd, #dff1fb);
+  box-shadow: 0 6px 24px rgba(10,122,191,.2);
+}
+.exam-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.exam-info .exam-name {
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.exam-info .exam-count {
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.exam-check {
+  margin-left: auto;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--sky-mid);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: .75rem;
+  transition: all .2s;
+}
+.exam-card.selected .exam-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* YEAR GRID */
+.year-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.year-card {
+  background: var(--white);
+  border: 2px solid var(--sky-mid);
+  border-radius: 14px;
+  padding: 20px 32px;
+  cursor: pointer;
+  transition: all .2s;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(26,61,92,.07);
+  min-width: 120px;
+}
+.year-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(10,122,191,.18);
+  transform: translateY(-2px);
+}
+.year-card.selected {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #e8f4fd, #dff1fb);
+}
+.year-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--navy);
+}
+.year-sub { font-size: .72rem; color: var(--muted); margin-top: 2px; font-weight: 500; }
+.year-card.selected .year-num { color: var(--accent); }
+
+/* SUBJECT LIST */
+.subject-list { display: flex; flex-direction: column; gap: 10px; }
+.subject-card {
+  background: var(--white);
+  border: 2px solid var(--sky-mid);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 10px rgba(26,61,92,.06);
+}
+.subject-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px rgba(10,122,191,.15);
+  transform: translateX(4px);
+}
+.subject-card.selected {
+  border-color: var(--accent);
+  background: linear-gradient(90deg, #e8f4fd, #f4faff);
+}
+.subj-cat {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--sky);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.subj-name { font-weight: 600; font-size: .9rem; color: var(--navy); flex: 1; }
+.subj-size { font-size: .75rem; color: var(--muted); flex-shrink: 0; }
+.subj-arrow {
+  font-size: 1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+.subject-card:hover .subj-arrow { transform: translateX(4px); }
+
+/* PDF RESULT */
+.result-box {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border-radius: var(--radius);
+  padding: 28px 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-shadow: 0 8px 32px rgba(26,61,92,.25);
+  animation: fadeUp .35s ease both;
+}
+.result-pdf-icon { font-size: 3rem; flex-shrink: 0; }
+.result-info { flex: 1; min-width: 0; }
+.result-exam { font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--sky-mid); margin-bottom: 4px; }
+.result-subject { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.25; }
+.result-meta { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
+.result-meta span { font-size: .78rem; color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 4px; }
+.result-meta strong { color: var(--sky-mid); }
+.download-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--accent2), #e8920a);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .95rem;
+  padding: 14px 28px;
+  border-radius: 12px;
+  transition: transform .15s, box-shadow .15s;
+  font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(245,166,35,.4);
+  border: none;
+  cursor: pointer;
+}
+.download-big:hover { transform: scale(1.04); box-shadow: 0 8px 24px rgba(245,166,35,.5); }
+
+/* EMPTY */
+.empty { text-align:center; padding:50px 20px; color:var(--muted); }
+.empty .ei { font-size:2.8rem; margin-bottom:12px; }
+.empty h3 { font-size:1.05rem; color:var(--navy); margin-bottom:6px; }
+.empty p { font-size:.83rem; }
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.45);
+  text-align: center;
+  padding: 16px 24px;
+  font-size: .78rem;
+}
+footer strong { color: var(--accent2); }
+footer a { color: var(--sky-mid); text-decoration: none; }
+
+@media(max-width:640px) {
+  .step-tab { padding: 12px 14px; gap: 7px; }
+  .step-value { max-width: 90px; font-size: .78rem; }
+  .exam-grid { grid-template-columns: 1fr; }
+  .result-box { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="brand-row">
+      <div class="brand-icon">⚡</div>
+      <div>
+        <div class="brand-name">ThunderStudy</div>
+        <div class="brand-sub">UPSC Question Bank</div>
+      </div>
+    </div>
+    <div class="header-tagline">Previous Year Question Papers — Step-by-step access to all exams</div>
+    <div class="made-by">Made by <span>WonderMayank</span></div>
+  </div>
+</header>
+
+<!-- STEPPER BAR -->
+<div class="stepper-bar">
+  <div class="stepper-inner">
+    <div class="step-tab" id="tab1" onclick="goStep(1)">
+      <div class="step-num" id="snum1">1</div>
+      <div class="step-info">
+        <div class="step-label">Step 1</div>
+        <div class="step-value placeholder" id="sval1">Choose Exam</div>
+      </div>
+    </div>
+    <div class="step-arrow">›</div>
+    <div class="step-tab locked" id="tab2" onclick="goStep(2)">
+      <div class="step-num" id="snum2">2</div>
+      <div class="step-info">
+        <div class="step-label">Step 2</div>
+        <div class="step-value placeholder" id="sval2">Choose Year</div>
+      </div>
+    </div>
+    <div class="step-arrow">›</div>
+    <div class="step-tab locked" id="tab3" onclick="goStep(3)">
+      <div class="step-num" id="snum3">3</div>
+      <div class="step-info">
+        <div class="step-label">Step 3</div>
+        <div class="step-value placeholder" id="sval3">Choose Subject</div>
+      </div>
+    </div>
+    <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- STEP 1: EXAM -->
+  <div class="step-panel visible" id="panel1">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">🎓 Select an Exam</div>
+        <div class="panel-hint">Choose the UPSC examination you want papers for</div>
+      </div>
+      <div class="panel-count" id="examCount">0 exams</div>
+    </div>
+    <div class="panel-search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="examSearch" placeholder="Search exams…" oninput="renderExams(this.value)">
+    </div>
+    <div class="exam-grid" id="examGrid"></div>
+  </div>
+
+  <!-- STEP 2: YEAR -->
+  <div class="step-panel" id="panel2">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">📅 Select Year</div>
+        <div class="panel-hint" id="yearHint">Papers available for selected exam</div>
+      </div>
+      <div class="panel-count" id="yearCount">0 years</div>
+    </div>
+    <div class="year-grid" id="yearGrid"></div>
+  </div>
+
+  <!-- STEP 3: SUBJECT -->
+  <div class="step-panel" id="panel3">
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">📖 Select Subject / Paper</div>
+        <div class="panel-hint" id="subjectHint">Pick a paper to download</div>
+      </div>
+      <div class="panel-count" id="subjectCount">0 papers</div>
+    </div>
+    <div class="panel-search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="subjectSearch" placeholder="Search subjects…" oninput="renderSubjects(this.value)">
+    </div>
+    <div class="subject-list" id="subjectList"></div>
+  </div>
+
+  <!-- RESULT (PDF download) -->
+  <div id="resultArea"></div>
+
+</div>
+
+<footer>
+  <p>⚡ <strong>ThunderStudy</strong> — UPSC PYQs Portal &nbsp;|&nbsp; Made with ❤️ by <strong>WonderMayank</strong> &nbsp;|&nbsp; Data from <a href="https://upsc.gov.in" target="_blank">upsc.gov.in</a></p>
+</footer>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────────
+const papers = [
+  // 2026
+  {exam:"Combined Defence Services Examination (I)", year:"2026", subject:"English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDS-I-26-ENGLISH-130426.pdf", size:"14.65 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2026", subject:"General Knowledge", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDS-I-26-GENERAL-KNOWLEDGE-130426.pdf", size:"30.87 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2026", subject:"Elementary Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDS-I-26-ELEMENTARY-MATHEMATICS-130426.pdf", size:"30.05 MB"},
+  {exam:"NDA & NA Examination (I)", year:"2026", subject:"Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDA-NA-I-26-MATHEMATICS-130426.pdf", size:"30.43 MB"},
+  {exam:"NDA & NA Examination (I)", year:"2026", subject:"General Ability Test", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDA-NA-I-26-GENERAL-ABILITY-TEST-130426.pdf", size:"25.98 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2026", subject:"General Ability, Intelligence & Professional Skill", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CISF2026_GenAbili_Intellig_ProfessSkill_09032026.pdf", size:"20.63 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2026", subject:"Essay, Precis Writing and Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CISF2026_EssayPrecisWritCompre_09032026.pdf", size:"3.83 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2026", subject:"Paper I — General Studies & Engineering Aptitude", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP_ESPE26_GenStud_EnggAptit_I_09022026.pdf", size:"17.53 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2026", subject:"Paper II — Electrical Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP_ESPE26_ElecEngg_II_09022026.pdf", size:"18.5 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2026", subject:"Paper II — Electronics & Telecom Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP_ESPE26_ElecTelecomEngg_II_09022026.pdf", size:"18.91 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2026", subject:"Paper II — Mechanical Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP_ESPE26_MechEngg_II_09022026.pdf", size:"16.73 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2026", subject:"Paper II — Civil Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP_ESPE26_CivilEngg_II_09022026.pdf", size:"16.58 MB"},
+  {exam:"Combined Geo-Scientist (Preliminary)", year:"2026", subject:"Paper I — General Studies", category:"Science", url:"https://upsc.gov.in/sites/default/files/QP_CGSPE26_GenStud_I_09022026.pdf", size:"12.67 MB"},
+  {exam:"Combined Geo-Scientist (Preliminary)", year:"2026", subject:"Paper II — Chemistry", category:"Science", url:"https://upsc.gov.in/sites/default/files/QP_CGSPE26_Chem_II_09022026.pdf", size:"18.07 MB"},
+  {exam:"Combined Geo-Scientist (Preliminary)", year:"2026", subject:"Paper II — Geology-Hydrogeology", category:"Science", url:"https://upsc.gov.in/sites/default/files/QP_CGSPE26_Geol-Hydrogeo_II_09022026.pdf", size:"18.32 MB"},
+  {exam:"Combined Geo-Scientist (Preliminary)", year:"2026", subject:"Paper II — Geophysics", category:"Science", url:"https://upsc.gov.in/sites/default/files/QP_CGSPE26_Geophy_II_09022026.pdf", size:"11.67 MB"},
+  // 2025
+  {exam:"Civil Services (Preliminary)", year:"2025", subject:"General Studies Paper I", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSP-25-GENERAL-STUDIES-PAPER-I-26052025.pdf", size:"27.8 MB"},
+  {exam:"Civil Services (Preliminary)", year:"2025", subject:"General Studies Paper II (CSAT)", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSP-25-GENERAL-STUDIES-PAPER-II-26052025.pdf", size:"30.58 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Essay", category:"General", url:"https://upsc.gov.in/sites/default/files/ESSAY-QP-CSM-25-010925.pdf", size:"977 KB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"General Studies Paper I", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/GENERAL-STUDIES-PAPER%20I-QP-CSM-25-010925.pdf", size:"1.75 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"General Studies Paper II", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/GENERAL-STUDIES-PAPER-II-QP-CSM-25-010925.pdf", size:"2.36 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"General Studies Paper III", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/GENERAL-STUDIES-PAPER-III-QP-CSM-25-010925.pdf", size:"2.72 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"General Studies Paper IV", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/GENERAL-STUDIES-PAPER-IV-QP-CSM-25-010925.pdf", size:"6.84 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"History Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/HISTORY-PAPER%20I-QP-CSM-25-010925.pdf", size:"2.83 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"History Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/HISTORY-PAPER-II-QP-CSM-25-010925.pdf", size:"2.37 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Geography Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/GEOGRAPHY-PAPER-I-QP-CSM-25-010925.pdf", size:"1.77 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Geography Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/GEOGRAPHY-PAPER%20II-QP-CSM-25-010925.pdf", size:"3.05 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Political Science & IR Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/POLITICAL-SCIENCE-INTERANATIONAL-RELATIONS-PAPER-I-QP-CSM-25-010925.pdf", size:"2.03 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Political Science & IR Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/POLITICAL-SCIENCE-INTERANATIONAL-RELATIONS-PAPER-II-QP-CSM-25-010925.pdf", size:"2.3 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Sociology Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/SOCIOLOGY-PAPER-I-QP-CSM-25-010925.pdf", size:"2.21 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Sociology Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/SOCIOLOGY-PAPER-II-QP-CSM-25-010925.pdf", size:"1.95 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Economics Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/ECONOMICS-PAPER%20I-QP-CSM-25-010925.pdf", size:"2.78 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Economics Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/ECONOMICS-PAPER%20II-QP-CSM-25-010925.pdf", size:"1.96 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Mathematics Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/MATHEMATICS-PAPER%20I-QP-CSM-25-010925.pdf", size:"4.23 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Mathematics Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/MATHEMATICS-PAPER-II-QP-CSM-25-010925.pdf", size:"3.72 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Physics Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/PHYSICS-PAPER-I-QP-CSM-25-010925.pdf", size:"3.78 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Physics Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/PHYSICS-PAPER-II-QP-CSM-25-010925.pdf", size:"2.52 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Chemistry Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/CHEMISTRY-PAPER-I-QP-CSM-25-010925.pdf", size:"6.34 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Chemistry Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/CHEMISTRY-PAPER-II-QP-CSM-25-010925.pdf", size:"4.8 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Law Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/LAW-PAPER%20I-QP-CSM-25-010925.pdf", size:"2.99 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Law Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/LAW-PAPER-II-QP-CSM-25-010925.pdf", size:"2.53 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Philosophy Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/PHILOSOPHY-PAPER-I-QP-CSM-25-010925.pdf", size:"2.19 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Philosophy Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/PHILOSOPHY-PAPER-II-QP-CSM-25-010925.pdf", size:"1.93 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Medical Science Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/MEDICAL-SCIENCE-PAPER-I-QP-CSM-25-010925.pdf", size:"4.41 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Medical Science Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/MEDICAL-SCIENCE-PAPER-II-QP-CSM-25-010925.pdf", size:"2.67 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"English Compulsory", category:"Compulsory", url:"https://upsc.gov.in/sites/default/files/ENGLISH-COMPULSORY-QP-CSM-25-010925.pdf", size:"5.67 MB"},
+  {exam:"Civil Services (Main)", year:"2025", subject:"Hindi Compulsory", category:"Compulsory", url:"https://upsc.gov.in/sites/default/files/HINDI-COMPULSORY-QP-CSM-25-010925.pdf", size:"4.81 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2025", subject:"English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-I-25-ENGLISH-150425.pdf", size:"19.96 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2025", subject:"General Knowledge", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-I-25-GENERAL-KNOWLEDGE-150425.pdf", size:"25.52 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2025", subject:"Elementary Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-I-25-ELEMENTARY-MATHEMATICS-150425.pdf", size:"19.37 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2025", subject:"English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-25-ENGLISH-150925.pdf", size:"14.53 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2025", subject:"General Knowledge", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-25-GENERAL-KNOWLEDGE-150925.pdf", size:"24.23 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2025", subject:"Elementary Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-25-ELEMENTARY-MATHEMATICS-150925.pdf", size:"22.37 MB"},
+  {exam:"NDA & NA Examination (I)", year:"2025", subject:"Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDA-NA-I-25-MATHEMATICS-150425.pdf", size:"19.7 MB"},
+  {exam:"NDA & NA Examination (I)", year:"2025", subject:"General Ability Test", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDA-NA-I-25-GENERAL-ABILITY-TEST-150425.pdf", size:"29.23 MB"},
+  {exam:"NDA & NA Examination (II)", year:"2025", subject:"Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDANA-II-25-MATHEMATICS-150925.pdf", size:"19.87 MB"},
+  {exam:"NDA & NA Examination (II)", year:"2025", subject:"General Ability Test", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDANA-II-25-GENERAL-ABILITY-TEST-150925.pdf", size:"31.49 MB"},
+  {exam:"CAPF (ACs) Examination", year:"2025", subject:"General Ability & Intelligence", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CAPF-25-GENERAL-ABILITY-INTELLIGENCE-040825.pdf", size:"31.76 MB"},
+  {exam:"CAPF (ACs) Examination", year:"2025", subject:"General Studies, Essay & Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CAPF-25-GENERAL-STUDIES-ESSAY-COMPREHENSION-040825.pdf", size:"2.86 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2025", subject:"Paper I — General Studies & Engineering Aptitude", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEP-25-GENERAL-STUDIES-AND-ENGINEERING-APTITUDE-P-I-090625.pdf", size:"14.9 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2025", subject:"Paper II — Electrical Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEP-25-ELECTRICAL-ENGINEERING-P-II-090625.pdf", size:"17.66 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2025", subject:"Paper II — Mechanical Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEP-25-MECHANICAL-ENGINEERING-P-II-090625.pdf", size:"22.74 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2025", subject:"Paper II — Civil Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEP-25-CIVIL-ENGINEERING-P-II-090625.pdf", size:"18.3 MB"},
+  {exam:"Engineering Services (Main)", year:"2025", subject:"Civil Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/CIVIL-ENGINEERING-PAPER-I-QP-ESEM-25-110825.pdf", size:"12.38 MB"},
+  {exam:"Engineering Services (Main)", year:"2025", subject:"Civil Engineering Paper II", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/CIVIL-ENGINEERING-PAPER-II-QP-ESEM-25-110825.pdf", size:"5.69 MB"},
+  {exam:"Engineering Services (Main)", year:"2025", subject:"Mechanical Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/MECHANICAL-ENGINEERING-PAPER-I-QP-ESEM-25-110825.pdf", size:"5.21 MB"},
+  {exam:"Engineering Services (Main)", year:"2025", subject:"Electrical Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/ELECTRICAL-ENGINEERING-PAPER-I-QP-ESEM-25-110825.pdf", size:"4.51 MB"},
+  {exam:"Combined Medical Services", year:"2025", subject:"General Medicine & Pediatrics", category:"Medical", url:"https://upsc.gov.in/sites/default/files/QP-CMS_2025_PAPER_01-210725.pdf", size:"20.19 MB"},
+  {exam:"Combined Medical Services", year:"2025", subject:"Surgery, Gynaecology, Obstetrics & Social Medicine", category:"Medical", url:"https://upsc.gov.in/sites/default/files/QP-CMS_2025_PAPER_02-210725.pdf", size:"16.69 MB"},
+  {exam:"IES-ISS Examination", year:"2025", subject:"General Studies", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-25-GENERAL-STUDIES-230625.pdf", size:"1.4 MB"},
+  {exam:"IES-ISS Examination", year:"2025", subject:"General English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-25-GENERAL-ENGLISH-230625.pdf", size:"2.7 MB"},
+  {exam:"IES-ISS Examination", year:"2025", subject:"Indian Economics", category:"Economics", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-25-INDIAN-ECONOMICS-230625.pdf", size:"1.25 MB"},
+  {exam:"IES-ISS Examination", year:"2025", subject:"Statistics Paper I", category:"Statistics", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-25-STATISTICS-PAPER-I-230625.pdf", size:"11.03 MB"},
+  {exam:"IES-ISS Examination", year:"2025", subject:"Statistics Paper II", category:"Statistics", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-25-STATISTICS-PAPER-II-230625.pdf", size:"11.29 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2025", subject:"General Ability, Intelligence & Professional Skill", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CISF-25-GENERAL-ABLITY-INTELLIGENCE-PROFESSIONAL-SKILL-280425.pdf", size:"31.45 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2025", subject:"Essay, Precis Writing and Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CISF-25-ESSAY-PRECIS-WRITING-COMPREHENSION-280425.pdf", size:"4.32 MB"},
+  // 2024
+  {exam:"Civil Services (Preliminary)", year:"2024", subject:"General Studies Paper I", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSP-24-GENERAL-STUDIES-PAPER-I-180624.pdf", size:"29.11 MB"},
+  {exam:"Civil Services (Preliminary)", year:"2024", subject:"General Studies Paper II (CSAT)", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSP-24-GENERAL-STUDIES-PAPER-II-180624.pdf", size:"29.85 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Essay", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_ESSAY_03102024.pdf", size:"988 KB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"General Studies Paper I", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_GenStud_I_03102024.pdf", size:"1.74 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"General Studies Paper II", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_GenStud_II_03102024.pdf", size:"2.02 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"General Studies Paper III", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_GenStud_III_03102024.pdf", size:"2.13 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"General Studies Paper IV", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_GenStud_IV_03102024.pdf", size:"9.74 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"History Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-HISTORY-PAPER-I-031024.pdf", size:"2.6 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"History Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-HISTORY-PAPER-II-031024.pdf", size:"1.86 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Geography Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-GEOGRAPHY-PAPER-I-031024.pdf", size:"3.13 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Geography Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-GEOGRAPHY-PAPER-II-031024.pdf", size:"2.6 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Sociology Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-SOCIOLOGY-PAPER-I-031024.pdf", size:"3.27 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Sociology Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-SOCIOLOGY-PAPER-II-031024.pdf", size:"1.82 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"English Compulsory", category:"Compulsory", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_Eng_Comp_03102024.pdf", size:"5.75 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Hindi Compulsory", category:"Compulsory", url:"https://upsc.gov.in/sites/default/files/QP_CSM_2024_Hn_Comp_03102024.pdf", size:"3.65 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Law Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-LAW-PAPER-I-031024.pdf", size:"2.64 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Law Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-LAW-PAPER-II-031024.pdf", size:"2.96 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Mathematics Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-MATHEMATICS-PAPER-I-031024.pdf", size:"3.14 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Mathematics Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-MATHEMATICS-PAPER-II-031024.pdf", size:"4.75 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Physics Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-PHYSICS-PAPER-I-031024.pdf", size:"4.43 MB"},
+  {exam:"Civil Services (Main)", year:"2024", subject:"Physics Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-24-PHYSICS-PAPER-II-031024.pdf", size:"4.21 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2024", subject:"English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CDSI2024_ENGLISH_22042024.pdf", size:"16.25 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2024", subject:"General Knowledge", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CDSI2024_GENERAL-KNOWLEDGE_22042024.pdf", size:"26.56 MB"},
+  {exam:"Combined Defence Services Examination (I)", year:"2024", subject:"Elementary Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CDSI2024_ELEMENTARY-MATHEMATICS_22042024.pdf", size:"22.47 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2024", subject:"English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-24-ENGLISH-020924.pdf", size:"15 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2024", subject:"General Knowledge", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-24-GENERAL-KNOWLEDGE-020924.pdf", size:"26.73 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2024", subject:"Elementary Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-24-ELEMENTARY-MATHEMATICS-020924.pdf", size:"28.54 MB"},
+  {exam:"NDA & NA Examination (I)", year:"2024", subject:"Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_NDANAI2024_MATHEMATICS_22042024.pdf", size:"29.25 MB"},
+  {exam:"NDA & NA Examination (I)", year:"2024", subject:"General Ability Test", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_NDANAI2024_GENERAL-ABILITY-TEST_22042024.pdf", size:"30.18 MB"},
+  {exam:"NDA & NA Examination (II)", year:"2024", subject:"Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDA-NA-II-24-MATHEMATICS-020924.pdf", size:"27.69 MB"},
+  {exam:"NDA & NA Examination (II)", year:"2024", subject:"General Ability Test", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDA-NA-II-24-GENERAL-ABILITY-TEST-020924.pdf", size:"29.05 MB"},
+  {exam:"CAPF (ACs) Examination", year:"2024", subject:"General Ability & Intelligence", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CAPF_2024_GEN-ABILITY-AND-INTELLI_05082024.pdf", size:"65.81 MB"},
+  {exam:"CAPF (ACs) Examination", year:"2024", subject:"General Studies, Essay & Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CAPF_2024_GS-ESSAY-AND-COMP_05082024.pdf", size:"4.87 MB"},
+  {exam:"Combined Medical Services", year:"2024", subject:"General Medicine & Pediatrics", category:"Medical", url:"https://upsc.gov.in/sites/default/files/QP-CMSE-24-PAPER-I-GENERAL-MEDICINE-AND-PEDIATRICS-150724.pdf", size:"17.21 MB"},
+  {exam:"Combined Medical Services", year:"2024", subject:"Surgery, Gynaecology, Obstetrics & Social Medicine", category:"Medical", url:"https://upsc.gov.in/sites/default/files/QP-CMSE-24-PAPER-II-SURGERY-GYAE-OBST-PREVENT-SOCIAL-MEDCN-150724.pdf", size:"17.01 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2024", subject:"Paper I — General Studies & Engineering Aptitude", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-EnggServcPrelExam-24-GENERAL-STUDIES-AND-ENGINEERING-APTITUDE-190224.pdf", size:"20.43 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2024", subject:"Paper II — Electrical Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-EnggServcPrelExam-24-ELECTRICAL-ENGINEERING-190224.pdf", size:"23.77 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2024", subject:"Paper II — Mechanical Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-EnggServcPrelExam-24-MECHANICAL-ENGINEERING-190224.pdf", size:"25.08 MB"},
+  {exam:"Engineering Services (Preliminary)", year:"2024", subject:"Paper II — Civil Engineering", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-EnggServcPrelExam-24-CIVIL-ENGINEERING-190224.pdf", size:"25.63 MB"},
+  {exam:"Engineering Services (Main)", year:"2024", subject:"Civil Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEM-24-CIVIL-ENGINEERING-PAPER-I-240624.pdf", size:"8.55 MB"},
+  {exam:"Engineering Services (Main)", year:"2024", subject:"Mechanical Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEM-24-MECHANICAL-ENGINEERING-PAPER-I-240624.pdf", size:"8.14 MB"},
+  {exam:"Engineering Services (Main)", year:"2024", subject:"Electrical Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEM-24-ELECTRICAL-ENGINEERING-PAPER-I-240624.pdf", size:"6.7 MB"},
+  {exam:"IES-ISS Examination", year:"2024", subject:"General Studies", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-24-GENERAL-STUDIES-240624.pdf", size:"1.38 MB"},
+  {exam:"IES-ISS Examination", year:"2024", subject:"General English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-24-GENERAL-ENGLISH-240624.pdf", size:"1.63 MB"},
+  {exam:"IES-ISS Examination", year:"2024", subject:"Indian Economics", category:"Economics", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-24-INDIAN-ECONOMICS-240624.pdf", size:"1.32 MB"},
+  {exam:"IES-ISS Examination", year:"2024", subject:"Statistics Paper I", category:"Statistics", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-24-STATISTICS-PAPER-I-240624.pdf", size:"11.47 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2024", subject:"General Ability, Intelligence & Professional Skill", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CISF-AC-EXE-LDCE-24-GENERAL-ABILITY-INTELLIGENCE-PROFESSIONAL-SKILL-110324_0.pdf", size:"23.94 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2024", subject:"Essay, Precis Writing and Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CISF-AC-EXE-LDCE-24-ESSAY-PRECIS-WRITING-COMPREHENSION-110324.pdf", size:"3.29 MB"},
+  // 2023
+  {exam:"Civil Services (Preliminary)", year:"2023", subject:"General Studies Paper I", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP_CS_Pre_Exam_2023_280523.pdf", size:"6.63 MB"},
+  {exam:"Civil Services (Preliminary)", year:"2023", subject:"General Studies Paper II (CSAT)", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP_CS_Pre_Exam_2023_GENERAL_STUDIES_PAPER_II_280523.pdf", size:"28.84 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"Essay", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-ESSAY-180923.pdf", size:"1.76 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"General Studies Paper I", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-GENERAL-STUDIES-PAPER-I-180923.pdf", size:"1.64 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"General Studies Paper II", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-GENERAL-STUDIES-PAPER-II-180923.pdf", size:"3.16 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"General Studies Paper III", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-GENERAL-STUDIES-PAPER-III-180923.pdf", size:"2.04 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"General Studies Paper IV", category:"General Studies", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-GENERAL-STUDIES-PAPER-IV-180923.pdf", size:"10.66 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"History Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-HISTORY-PAPER-I-29092023.pdf", size:"2.3 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"History Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-HISTORY-PAPER-II-29092023.pdf", size:"4.3 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"Geography Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-GEOGRAPHY-PAPER-I-29092023.pdf", size:"2.37 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"Geography Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-GEOGRAPHY-PAPER-II-29092023.pdf", size:"2.54 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"Sociology Paper I", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-SOCIOLOGY-PAPER-I-29092023.pdf", size:"1.85 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"Sociology Paper II", category:"Optional", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-SOCIOLOGY-PAPER-II-29092023.pdf", size:"3.7 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"English Compulsory", category:"Compulsory", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-ENGLISH-COMPULSORY-290923.pdf", size:"5.92 MB"},
+  {exam:"Civil Services (Main)", year:"2023", subject:"Hindi Compulsory", category:"Compulsory", url:"https://upsc.gov.in/sites/default/files/QP-CSM-23-HINDI-COMPULSORY-290923.pdf", size:"4.22 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2023", subject:"English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-2023-Eng-04092023.pdf", size:"20.49 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2023", subject:"General Knowledge", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-2023-GK-04092023.pdf", size:"29.22 MB"},
+  {exam:"Combined Defence Services Examination (II)", year:"2023", subject:"Elementary Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CDSE-II-2023-EleMath-04092023.pdf", size:"18.18 MB"},
+  {exam:"NDA & NA Examination (II)", year:"2023", subject:"Mathematics", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDANA-II-2023-Maths-04092023.pdf", size:"21.61 MB"},
+  {exam:"NDA & NA Examination (II)", year:"2023", subject:"General Ability Test", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-NDANA-II-2023-GAT-04092023.pdf", size:"31.62 MB"},
+  {exam:"CAPF (ACs) Examination", year:"2023", subject:"General Ability & Intelligence", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CAPF_2023_GAI_07082023.pdf", size:"27.12 MB"},
+  {exam:"CAPF (ACs) Examination", year:"2023", subject:"General Studies, Essay & Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP_CAPF_2023_GS-Essay-Compre_07082023.pdf", size:"3.63 MB"},
+  {exam:"Combined Medical Services", year:"2023", subject:"General Medicine & Pediatrics", category:"Medical", url:"https://upsc.gov.in/sites/default/files/QP-CMSE-23-GENERAL-MEDICINE-AND-PEDIATRICS-PAPER-I-190723.pdf", size:"15.13 MB"},
+  {exam:"Combined Medical Services", year:"2023", subject:"Surgery, Gynaecology, Obstetrics & Social Medicine", category:"Medical", url:"https://upsc.gov.in/sites/default/files/QP-CMSE-23-SURG-GYNAE-OBST-PREVEN-SOCIAL-MEDCN-PAPER-%20II-190723.pdf", size:"12.81 MB"},
+  {exam:"Engineering Services (Main)", year:"2023", subject:"Civil Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEM-23-CIVIL-ENGINEERING-PAPER-I-250623.pdf", size:"5.11 MB"},
+  {exam:"Engineering Services (Main)", year:"2023", subject:"Mechanical Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEM-23-MECHANICAL-ENGINEERING-PAPER-I-250623.pdf", size:"7.87 MB"},
+  {exam:"Engineering Services (Main)", year:"2023", subject:"Electrical Engineering Paper I", category:"Engineering", url:"https://upsc.gov.in/sites/default/files/QP-ESEM-23-ELECTRICAL-ENGINEERING-PAPER-I-250623.pdf", size:"2.84 MB"},
+  {exam:"IES-ISS Examination", year:"2023", subject:"General English", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-GENERAL-ENGLISH-240623.pdf", size:"2.51 MB"},
+  {exam:"IES-ISS Examination", year:"2023", subject:"Indian Economics", category:"Economics", url:"https://upsc.gov.in/sites/default/files/QP-IESISS-23-INDIAN-ECONOMICS-260623.pdf", size:"2.16 MB"},
+  {exam:"IES-ISS Examination", year:"2023", subject:"Statistics Paper I", category:"Statistics", url:"https://upsc.gov.in/sites/default/files/QP-IES-ISS-STATISTICS-PAPER-I-240623.pdf", size:"9.73 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2023", subject:"General Ability, Intelligence & Professional Skill", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CISF-AC-EXE-LDCE-23-GENERAL-ABILITY-INTELLIGENCE-PROFESSIONAL-031023.pdf", size:"27.31 MB"},
+  {exam:"CISF AC(EXE) LDCE", year:"2023", subject:"Essay, Precis Writing and Comprehension", category:"General", url:"https://upsc.gov.in/sites/default/files/QP-CISF-AC-EXE-LDCE-23-ESSAY-PRECIS-WRITING-COMPREHENSION-031023.pdf", size:"5.22 MB"},
+];
+
+// ── EXAM ICONS ────────────────────────────────────────────────────────────
+const examIcons = {
+  "Civil Services (Preliminary)": "🏛️",
+  "Civil Services (Main)": "📝",
+  "Combined Defence Services Examination (I)": "🎖️",
+  "Combined Defence Services Examination (II)": "🎖️",
+  "NDA & NA Examination (I)": "⚔️",
+  "NDA & NA Examination (II)": "⚔️",
+  "CAPF (ACs) Examination": "🛡️",
+  "Engineering Services (Preliminary)": "⚙️",
+  "Engineering Services (Main)": "🔧",
+  "Combined Medical Services": "🏥",
+  "IES-ISS Examination": "📊",
+  "CISF AC(EXE) LDCE": "👮",
+  "Combined Geo-Scientist (Preliminary)": "🌍",
+};
+function examIcon(e) { return examIcons[e] || "📋"; }
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let sel = { exam: '', year: '', subject: '' };
+let curStep = 1;
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+function unique(arr, key) {
+  return [...new Set(arr.map(p => p[key]))];
+}
+function papersFor(e, y) {
+  return papers.filter(p => p.exam === e && p.year === y);
+}
+
+// ── STEP NAVIGATION ───────────────────────────────────────────────────────
+function showStep(n) {
+  curStep = n;
+  [1,2,3].forEach(i => {
+    document.getElementById('panel'+i).classList.toggle('visible', i === n);
+    const tab = document.getElementById('tab'+i);
+    tab.classList.remove('active','done','locked');
+    if (i < n) tab.classList.add('done');
+    else if (i === n) tab.classList.add('active');
+    else tab.classList.add('locked');
+  });
+  document.getElementById('resultArea').innerHTML = '';
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+
+function goStep(n) {
+  if (n === 1) { showStep(1); renderExams(''); document.getElementById('examSearch').value = ''; }
+  else if (n === 2 && sel.exam) { showStep(2); renderYears(); }
+  else if (n === 3 && sel.exam && sel.year) { showStep(3); renderSubjects(''); document.getElementById('subjectSearch').value = ''; }
+}
+
+function resetAll() {
+  sel = { exam:'', year:'', subject:'' };
+  ['sval1','sval2','sval3'].forEach((id,i) => {
+    const el = document.getElementById(id);
+    el.textContent = ['Choose Exam','Choose Year','Choose Subject'][i];
+    el.className = 'step-value placeholder';
+  });
+  document.getElementById('examSearch').value = '';
+  showStep(1);
+  renderExams('');
+}
+
+// ── TAB VALUE HELPERS ─────────────────────────────────────────────────────
+function setTabVal(id, val) {
+  const el = document.getElementById(id);
+  el.textContent = val;
+  el.className = 'step-value';
+}
+
+// ── STEP 1: EXAMS ─────────────────────────────────────────────────────────
+function renderExams(q) {
+  const allExams = unique(papers, 'exam').sort();
+  const shown = q ? allExams.filter(e => e.toLowerCase().includes(q.toLowerCase())) : allExams;
+  document.getElementById('examCount').textContent = shown.length + ' exams';
+  const grid = document.getElementById('examGrid');
+  grid.innerHTML = '';
+  if (!shown.length) { grid.innerHTML = '<div class="empty"><div class="ei">🔍</div><h3>No exams found</h3></div>'; return; }
+  shown.forEach(function(e) {
+    const cnt = papers.filter(function(p) { return p.exam === e; }).length;
+    const card = document.createElement('div');
+    card.className = 'exam-card' + (sel.exam === e ? ' selected' : '');
+    card.innerHTML = '<div class="exam-icon">' + examIcon(e) + '</div>'
+      + '<div class="exam-info"><div class="exam-name">' + e + '</div><div class="exam-count">' + cnt + ' papers</div></div>'
+      + '<div class="exam-check">' + (sel.exam === e ? '✓' : '') + '</div>';
+    card.addEventListener('click', function() { selectExam(e); });
+    grid.appendChild(card);
+  });
+}
+
+function selectExam(e) {
+  sel.exam = e; sel.year = ''; sel.subject = '';
+  setTabVal('sval1', e.length > 30 ? e.slice(0,28)+'…' : e);
+  document.getElementById('sval2').textContent = 'Choose Year';
+  document.getElementById('sval2').className = 'step-value placeholder';
+  document.getElementById('sval3').textContent = 'Choose Subject';
+  document.getElementById('sval3').className = 'step-value placeholder';
+  renderExams(document.getElementById('examSearch').value);
+  setTimeout(function() { showStep(2); renderYears(); }, 180);
+}
+
+// ── STEP 2: YEARS ─────────────────────────────────────────────────────────
+function renderYears() {
+  const years = unique(papers.filter(function(p) { return p.exam === sel.exam; }), 'year').sort(function(a,b){return b-a;});
+  document.getElementById('yearHint').textContent = 'Papers available for ' + sel.exam;
+  document.getElementById('yearCount').textContent = years.length + ' year' + (years.length===1?'':'s');
+  const grid = document.getElementById('yearGrid');
+  grid.innerHTML = '';
+  if (!years.length) { grid.innerHTML = '<div class="empty"><div class="ei">📭</div><h3>No years found</h3></div>'; return; }
+  years.forEach(function(y) {
+    const cnt = papersFor(sel.exam, y).length;
+    const card = document.createElement('div');
+    card.className = 'year-card' + (sel.year === y ? ' selected' : '');
+    card.innerHTML = '<div class="year-num">' + y + '</div><div class="year-sub">' + cnt + ' paper' + (cnt===1?'':'s') + '</div>';
+    card.addEventListener('click', function() { selectYear(y); });
+    grid.appendChild(card);
+  });
+}
+
+function selectYear(y) {
+  sel.year = y; sel.subject = '';
+  setTabVal('sval2', y);
+  document.getElementById('sval3').textContent = 'Choose Subject';
+  document.getElementById('sval3').className = 'step-value placeholder';
+  renderYears();
+  setTimeout(function() { showStep(3); renderSubjects(''); }, 180);
+}
+
+// ── STEP 3: SUBJECTS ──────────────────────────────────────────────────────
+function renderSubjects(q) {
+  const list = papersFor(sel.exam, sel.year);
+  const shown = q ? list.filter(function(p) { return p.subject.toLowerCase().includes(q.toLowerCase()); }) : list;
+  document.getElementById('subjectHint').textContent = sel.exam + ' · ' + sel.year;
+  document.getElementById('subjectCount').textContent = shown.length + ' paper' + (shown.length===1?'':'s');
+  const container = document.getElementById('subjectList');
+  container.innerHTML = '';
+  if (!shown.length) { container.innerHTML = '<div class="empty"><div class="ei">📭</div><h3>No papers found</h3></div>'; return; }
+  shown.forEach(function(p) {
+    const card = document.createElement('div');
+    card.className = 'subject-card' + (sel.subject === p.subject ? ' selected' : '');
+    card.innerHTML = '<div class="subj-cat">' + p.category + '</div>'
+      + '<div class="subj-name">' + p.subject + '</div>'
+      + '<div class="subj-size">' + p.size + '</div>'
+      + '<div class="subj-arrow">→</div>';
+    card.addEventListener('click', function() { selectSubject(p); });
+    container.appendChild(card);
+  });
+}
+
+function selectSubject(p) {
+  sel.subject = p.subject;
+  setTabVal('sval3', p.subject.length>28 ? p.subject.slice(0,26)+'…' : p.subject);
+  renderSubjects(document.getElementById('subjectSearch').value);
+  showResult(p);
+}
+
+// ── RESULT ────────────────────────────────────────────────────────────────
+function showResult(p) {
+  const area = document.getElementById('resultArea');
+  area.innerHTML = '';
+
+  const wrap = document.createElement('div');
+  wrap.style.marginTop = '28px';
+
+  const box = document.createElement('div');
+  box.className = 'result-box';
+
+  const icon = document.createElement('div');
+  icon.className = 'result-pdf-icon';
+  icon.textContent = '📄';
+
+  const info = document.createElement('div');
+  info.className = 'result-info';
+  info.innerHTML = '<div class="result-exam">' + p.category + ' · ' + p.year + '</div>'
+    + '<div class="result-subject">' + p.subject + '</div>'
+    + '<div class="result-meta">'
+    + '<span>🎓 <strong>' + p.exam + '</strong></span>'
+    + '<span>📦 <strong>' + p.size + '</strong></span>'
+    + '</div>';
+
+  const btn = document.createElement('button');
+  btn.className = 'download-big';
+  btn.textContent = '⬇ Download PDF';
+  btn.addEventListener('click', function() {
+    window.open(p.url, '_blank', 'noreferrer');
+  });
+
+  box.appendChild(icon);
+  box.appendChild(info);
+  box.appendChild(btn);
+  wrap.appendChild(box);
+  area.appendChild(wrap);
+
+  setTimeout(function() {
+    area.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 100);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+renderExams('');
+</script>
+</body>
+</html>
