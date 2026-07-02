@@ -1,0 +1,2503 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CA Aspirants 2026 · CA Foundation Planner</title>
+
+    <!-- html2canvas + jsPDF for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --purple-600: #7C3AED;
+            --purple-400: #A78BFA;
+            --purple-200: #C4B5FD;
+            --purple-50:  #F5F3FF;
+            --blue-400:   #60A5FA;
+            --blue-200:   #B9D9DC;
+            --white:      #FFFFFF;
+            --gray-900:   #1E1B4B;
+            --gray-700:   #374151;
+            --gray-500:   #6B7280;
+            --gray-300:   #D1D5DB;
+            --gray-100:   #F3F4F6;
+            --success:    #059669;
+            --error:      #DC2626;
+            --warning:    #D97706;
+            --shadow-sm:  0 2px 8px rgba(124,58,237,0.08);
+            --shadow-md:  0 4px 20px rgba(124,58,237,0.12);
+            --shadow-lg:  0 8px 40px rgba(124,58,237,0.16);
+            --radius:     16px;
+            --radius-sm:  10px;
+            --radius-xs:  6px;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            background: linear-gradient(135deg, #F5F3FF 0%, #EFF6FF 50%, #F0FAFE 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 28px 16px;
+            color: var(--gray-900);
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        /* ====== BRAND ====== */
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            background: linear-gradient(135deg, var(--purple-600) 0%, #5B21B6 60%, #4338CA 100%);
+            padding: 20px 30px;
+            border-radius: 20px;
+            color: #fff;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(124,58,237,0.30);
+            position: relative;
+            overflow: hidden;
+        }
+        .brand::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 50%;
+        }
+        .brand::after {
+            content: '';
+            position: absolute;
+            bottom: -50px; left: 30%;
+            width: 220px; height: 220px;
+            background: rgba(167,139,250,0.12);
+            border-radius: 50%;
+        }
+        .brand h1 {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.3px;
+        }
+        .brand h1 small {
+            font-size: 13px;
+            font-weight: 400;
+            opacity: 0.75;
+            background: rgba(255,255,255,0.15);
+            padding: 3px 12px;
+            border-radius: 30px;
+            backdrop-filter: blur(6px);
+        }
+        .brand-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+        .brand .telegram {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            padding: 9px 20px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+            pointer-events: all;
+        }
+        .brand .telegram:hover {
+            background: rgba(255,255,255,0.28);
+            transform: scale(1.03);
+        }
+        .btn-admin-toggle {
+            background: rgba(255,255,255,0.15);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 9px 22px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-admin-toggle:hover { background: rgba(255,255,255,0.28); }
+        .btn-admin-toggle.active {
+            background: #FCD34D;
+            color: #1E1B4B;
+            border-color: #FCD34D;
+        }
+
+        /* ====== GLASS CARD ====== */
+        .glass-card {
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(196,181,253,0.35);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ====== CONTROLS PANEL ====== */
+        .controls-panel {
+            padding: 28px 30px;
+            margin-bottom: 22px;
+        }
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+            gap: 18px 24px;
+            align-items: end;
+        }
+        .controls-grid .field { display: flex; flex-direction: column; gap: 6px; }
+        .controls-grid label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--purple-600);
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+        .controls-grid input,
+        .controls-grid select {
+            padding: 10px 14px;
+            border: 1.5px solid var(--purple-200);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(245,243,255,0.6);
+            color: var(--gray-900);
+            transition: all 0.2s;
+            width: 100%;
+        }
+        .controls-grid input:focus,
+        .controls-grid select:focus {
+            border-color: var(--purple-600);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+            background: #fff;
+        }
+
+        /* ====== WEEKDAYS ====== */
+        .weekdays {
+            display: flex; flex-wrap: wrap; gap: 8px 14px;
+            align-items: center; padding-top: 4px;
+        }
+        .weekdays label {
+            display: flex; align-items: center; gap: 5px;
+            font-weight: 500; font-size: 13px; color: var(--gray-700); cursor: pointer;
+        }
+        .weekdays input[type="checkbox"] {
+            width: 16px; height: 16px; accent-color: var(--purple-600); cursor: pointer;
+        }
+
+        /* ====== EXEMPTIONS ====== */
+        .exemptions {
+            display: flex; flex-wrap: wrap; gap: 8px 14px;
+            align-items: center; padding-top: 6px;
+        }
+        .exemptions label {
+            display: flex; align-items: center; gap: 6px;
+            font-weight: 500; font-size: 13px; color: var(--gray-700); cursor: pointer;
+            background: rgba(167,139,250,0.12);
+            padding: 5px 14px 5px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--purple-200);
+            transition: all 0.15s;
+        }
+        .exemptions label:hover { background: rgba(124,58,237,0.12); }
+        .exemptions input[type="checkbox"] {
+            width: 16px; height: 16px; accent-color: var(--purple-600); cursor: pointer;
+        }
+        .exemptions .clear-exempt {
+            background: var(--gray-100);
+            border: none; padding: 5px 16px;
+            border-radius: 30px; font-size: 12px;
+            font-weight: 600; color: var(--gray-700);
+            cursor: pointer; transition: all 0.15s;
+        }
+        .exemptions .clear-exempt:hover { background: var(--gray-300); }
+        .exempt-note { font-size: 12px; color: var(--gray-500); margin-left: 4px; }
+
+        /* ====== USER DETAILS ====== */
+        .user-details {
+            margin-top: 18px;
+            border-top: 1px solid rgba(196,181,253,0.4);
+            padding-top: 18px;
+        }
+        .user-details label.section-label {
+            font-weight: 600; font-size: 12px; color: var(--purple-600);
+            display: block; margin-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 0.4px;
+        }
+        .user-details .detail-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+        .user-details .detail-grid input {
+            padding: 10px 14px;
+            border: 1.5px solid var(--purple-200);
+            border-radius: var(--radius-sm);
+            font-size: 14px; font-family: inherit;
+            background: rgba(245,243,255,0.6);
+            transition: all 0.2s; width: 100%;
+        }
+        .user-details .detail-grid input:focus {
+            border-color: var(--purple-600);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+            background: #fff;
+        }
+
+        /* ====== BUTTONS ====== */
+        .btn-group {
+            display: flex; flex-wrap: wrap; gap: 12px;
+            margin-top: 20px; align-items: center;
+        }
+        .btn-generate {
+            background: linear-gradient(135deg, var(--purple-600), #4338CA);
+            color: #fff; border: none;
+            padding: 12px 36px; border-radius: 40px;
+            font-size: 15px; font-weight: 700; font-family: inherit;
+            cursor: pointer; transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(124,58,237,0.35);
+            letter-spacing: 0.2px;
+        }
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(124,58,237,0.45);
+        }
+        .btn-reset {
+            background: rgba(167,139,250,0.14);
+            color: var(--purple-600);
+            border: 1.5px solid var(--purple-200);
+            padding: 12px 26px; border-radius: 40px;
+            font-size: 14px; font-weight: 600; font-family: inherit;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .btn-reset:hover { background: rgba(124,58,237,0.12); }
+
+        /* ====== SUMMARY STATS ====== */
+        .summary-stats {
+            display: flex; flex-wrap: wrap; gap: 14px 32px;
+            background: rgba(167,139,250,0.1);
+            border: 1px solid rgba(196,181,253,0.5);
+            border-radius: var(--radius-sm);
+            padding: 12px 20px; margin-top: 16px;
+            font-size: 13px; color: var(--gray-700);
+        }
+        .summary-stats span { font-weight: 600; color: var(--purple-600); }
+        .summary-stats .warning { color: var(--error); font-weight: 700; }
+
+        /* ====== PLANNER WRAP ====== */
+        .planner-wrap {
+            padding: 26px 28px;
+            margin-bottom: 22px;
+            overflow-x: auto;
+            position: relative;
+        }
+        .planner-wrap .watermark-bg {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 64px; font-weight: 900;
+            color: rgba(124,58,237,0.04);
+            pointer-events: none; white-space: nowrap;
+            letter-spacing: 8px; z-index: 0;
+        }
+        .planner-wrap .watermark-bg span {
+            display: block; font-size: 22px;
+            letter-spacing: 4px; margin-top: 4px; font-weight: 600;
+        }
+        .planner-content { position: relative; z-index: 1; }
+
+        .planner-title {
+            font-size: 18px; font-weight: 800; color: var(--gray-900);
+            margin-bottom: 6px;
+            display: flex; justify-content: space-between;
+            flex-wrap: wrap; align-items: center; gap: 10px;
+        }
+        .planner-sub {
+            color: var(--gray-500); font-size: 13px;
+            margin-bottom: 18px;
+            border-bottom: 2px solid rgba(196,181,253,0.4);
+            padding-bottom: 14px;
+            display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+        }
+        .planner-user-info {
+            font-size: 13px; color: var(--gray-700); font-weight: 600;
+            padding: 4px 12px;
+            background: rgba(167,139,250,0.14);
+            border-radius: 30px; display: inline-block;
+        }
+
+        /* ====== TABLE ====== */
+        .planner-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+        .planner-table th {
+            background: linear-gradient(135deg, var(--purple-600), #4338CA);
+            color: #fff; padding: 11px 14px; text-align: left;
+            font-weight: 600; font-size: 12px; letter-spacing: 0.5px;
+        }
+        .planner-table th:first-child { border-radius: 10px 0 0 10px; }
+        .planner-table th:last-child  { border-radius: 0 10px 10px 0; }
+        .planner-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(196,181,253,0.2);
+            vertical-align: top;
+        }
+        .planner-table tr:hover td { background: rgba(245,243,255,0.6); }
+        .planner-table .day-num { font-weight: 700; color: var(--purple-600); white-space: nowrap; }
+        .planner-table .date-col { color: var(--gray-500); font-size: 12px; white-space: nowrap; }
+        .planner-table .editable-cell {
+            min-width: 80px; cursor: text;
+            padding: 2px 4px; border-radius: 4px; transition: 0.15s;
+        }
+        .planner-table .editable-cell:focus {
+            outline: 2px solid var(--purple-400);
+            outline-offset: -2px; background: #fff;
+        }
+
+        /* ====== SUBJECT TAGS ====== */
+        .subject-tag {
+            display: inline-block; padding: 3px 12px;
+            border-radius: 40px; font-size: 12px; font-weight: 600;
+            background: var(--gray-100); color: var(--gray-700);
+        }
+        .subject-tag.qa       { background: #DBEAFE; color: #1D4ED8; }
+        .subject-tag.law      { background: #FCE7F3; color: #9D174D; }
+        .subject-tag.accounts { background: #D1FAE5; color: #065F46; }
+        .subject-tag.economics{ background: #FEF3C7; color: #92400E; }
+        .subject-tag.both     { background: rgba(167,139,250,0.2); color: var(--purple-600); }
+
+        .test-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: #fff; padding: 0 10px;
+            border-radius: 40px; font-size: 11px;
+            font-weight: 700; line-height: 20px; margin-right: 4px;
+        }
+        .cumulative { font-size: 12px; color: var(--gray-500); }
+        .revision-row td { color: var(--gray-500); font-style: italic; }
+        .revision-row { background: rgba(243,244,246,0.5); }
+        .no-data {
+            text-align: center; padding: 48px 20px;
+            color: var(--gray-500); font-size: 15px;
+        }
+
+        /* ====== DARK MODE ====== */
+        [data-theme="dark"] {
+            --purple-600: #9A7AFB;
+            --purple-400: #B9A3FF;
+            --purple-200: #7C5FDB;
+            --purple-50:  #1a1630;
+            --gray-900:   #f0eeff;
+            --gray-700:   #c9c5e0;
+            --gray-500:   #8c88aa;
+            --gray-300:   #3a3660;
+            --gray-100:   #1e1b35;
+            --white:      #ffffff;
+            --shadow-sm:  0 2px 8px rgba(0,0,0,0.4);
+            --shadow-md:  0 4px 20px rgba(0,0,0,0.45);
+            --shadow-lg:  0 8px 40px rgba(0,0,0,0.5);
+        }
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #0f0d1f 0%, #0a0d1a 50%, #080d1c 100%);
+            color: #f0eeff;
+        }
+        [data-theme="dark"] .glass-card {
+            background: rgba(20,18,40,0.88);
+            border-color: rgba(130,100,220,0.3);
+        }
+        [data-theme="dark"] .controls-grid input,
+        [data-theme="dark"] .controls-grid select,
+        [data-theme="dark"] .user-details .detail-grid input {
+            background: rgba(30,25,55,0.8);
+            color: #f0eeff;
+            border-color: rgba(130,100,220,0.5);
+        }
+        [data-theme="dark"] .planner-table td {
+            border-bottom-color: rgba(130,100,220,0.15);
+            color: #e0dcf8;
+        }
+        [data-theme="dark"] .planner-table tr:hover td { background: rgba(100,80,200,0.1); }
+        [data-theme="dark"] .summary-stats {
+            background: rgba(80,50,180,0.12);
+            border-color: rgba(130,100,220,0.3);
+        }
+        [data-theme="dark"] .planner-table .date-col { color: #8c88aa; }
+        [data-theme="dark"] .download-bar { background: rgba(15,13,35,0.96); border-color: rgba(130,100,220,0.3); }
+        [data-theme="dark"] .brand-actions .btn-dark-toggle .icon-sun { display:none !important; }
+        [data-theme="dark"] .brand-actions .btn-dark-toggle .icon-moon { display:inline-block !important; }
+        [data-theme="dark"] .checkbox-cell input[type="checkbox"] { accent-color: #9A7AFB; }
+        [data-theme="dark"] .notes-cell { background: rgba(30,25,55,0.6); color: #e0dcf8; border-color: rgba(130,100,220,0.4); }
+        [data-theme="dark"] .notes-cell:focus { background: rgba(20,15,45,0.9); border-color: #9A7AFB; }
+        [data-theme="dark"] .pomo-mode-btn { background: rgba(30,25,55,0.8); color: #c0b8f0; border-color: rgba(130,100,220,0.4); }
+        [data-theme="dark"] .pomo-mode-btn.active { background: rgba(90,60,200,0.4); color: #fff; border-color: #9A7AFB; }
+        [data-theme="dark"] .admin-table td, [data-theme="dark"] .admin-table th { border-bottom-color: rgba(130,100,220,0.15); }
+
+        /* ====== DARK MODE TOGGLE BTN ====== */
+        .btn-dark-toggle {
+            background: rgba(255,255,255,0.15);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 9px 14px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-dark-toggle:hover { background: rgba(255,255,255,0.28); }
+
+        /* ====== CHECKBOX / PROGRESS ====== */
+        .checkbox-cell {
+            text-align: center;
+            width: 40px;
+        }
+        .checkbox-cell input[type="checkbox"] {
+            width: 18px; height: 18px;
+            accent-color: var(--purple-600);
+            cursor: pointer;
+        }
+        .day-done td { opacity: 0.55; }
+        .day-done .day-num { text-decoration: line-through; }
+
+        /* ====== NOTES COLUMN ====== */
+        .notes-cell {
+            min-width: 140px;
+            max-width: 220px;
+            font-size: 12px;
+            background: rgba(245,243,255,0.5);
+            border: 1px solid rgba(196,181,253,0.35);
+            border-radius: 6px;
+            padding: 5px 8px;
+            resize: none;
+            font-family: inherit;
+            color: var(--gray-700);
+            transition: all 0.2s;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .notes-cell:focus {
+            border-color: var(--purple-600);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+        }
+
+        /* ====== STICKY TABLE HEADER ====== */
+        .planner-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* ====== POMODORO MODE BTNS ====== */
+        .pomo-mode-btn {
+            padding: 6px 14px;
+            border-radius: 40px;
+            border: 1.5px solid rgba(196,181,253,0.6);
+            background: rgba(245,243,255,0.6);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            color: var(--gray-700);
+        }
+        .pomo-mode-btn.active {
+            background: rgba(124,58,237,0.15);
+            border-color: var(--purple-600);
+            color: var(--purple-600);
+        }
+        .pomo-mode-btn:hover:not(.active) { background: rgba(124,58,237,0.08); }
+
+        /* ====== DOWNLOAD BAR ====== */
+        .download-bar {
+            display: flex; flex-wrap: wrap; gap: 12px;
+            margin-top: 18px; justify-content: flex-end;
+        }
+        .btn-pdf {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: #fff; border: none;
+            padding: 10px 26px; border-radius: 40px;
+            font-size: 14px; font-weight: 600; font-family: inherit;
+            cursor: pointer; transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 7px;
+        }
+        .btn-pdf:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .btn-pdf.secondary {
+            background: linear-gradient(135deg, var(--purple-600), #4338CA);
+        }
+        .btn-edit {
+            background: linear-gradient(135deg, #F59E0B, var(--warning));
+            color: #fff; border: none;
+            padding: 10px 26px; border-radius: 40px;
+            font-size: 14px; font-weight: 600; font-family: inherit;
+            cursor: pointer; transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 7px;
+        }
+        .btn-edit:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .btn-edit.active { background: linear-gradient(135deg, #EF4444, #DC2626); }
+        .btn-save-edit {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #fff; border: none;
+            padding: 10px 26px; border-radius: 40px;
+            font-size: 14px; font-weight: 600; font-family: inherit;
+            cursor: pointer; transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 7px;
+        }
+        .btn-save-edit:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .toggle-cum {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 500; color: var(--gray-700); cursor: pointer;
+        }
+        .toggle-cum input { width: 16px; height: 16px; accent-color: var(--purple-600); }
+
+        /* ====== ADMIN PANEL ====== */
+        .admin-panel {
+            display: none; padding: 28px 30px; margin-bottom: 22px;
+        }
+        .admin-panel.visible { display: block; }
+        .admin-header {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 22px;
+        }
+        .admin-header h2 {
+            font-size: 20px; font-weight: 800; color: var(--gray-900);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .admin-header h2 small { font-size: 13px; font-weight: 400; color: var(--gray-500); }
+        .admin-actions {
+            display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+        }
+        .admin-actions .lock-status {
+            font-size: 12px; color: var(--gray-500);
+            background: var(--gray-100); padding: 4px 14px;
+            border-radius: 30px; display: flex; align-items: center; gap: 5px;
+        }
+        .admin-stats {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px; margin-bottom: 24px;
+        }
+        .stat-card {
+            background: rgba(167,139,250,0.10);
+            border: 1px solid rgba(196,181,253,0.45);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px; text-align: center;
+        }
+        .stat-card .stat-value {
+            font-size: 28px; font-weight: 800; color: var(--purple-600);
+        }
+        .stat-card .stat-label {
+            font-size: 12px; color: var(--gray-500); margin-top: 3px;
+        }
+        .admin-toolbar {
+            display: flex; flex-wrap: wrap; gap: 10px 14px;
+            margin-bottom: 18px; align-items: center;
+        }
+        .admin-toolbar input,
+        .admin-toolbar select {
+            padding: 8px 14px;
+            border: 1.5px solid var(--purple-200);
+            border-radius: var(--radius-sm);
+            font-size: 13px; font-family: inherit;
+            background: rgba(245,243,255,0.6); transition: 0.2s;
+        }
+        .admin-toolbar input:focus,
+        .admin-toolbar select:focus {
+            border-color: var(--purple-600);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+        }
+        .admin-toolbar .search-wrap { flex: 1; min-width: 180px; }
+        .admin-toolbar .search-wrap input { width: 100%; }
+
+        .admin-table-wrap { overflow-x: auto; }
+        .admin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .admin-table th {
+            background: linear-gradient(135deg, var(--purple-600), #4338CA);
+            color: #fff; padding: 10px 13px; text-align: left;
+            font-weight: 600; font-size: 11px; letter-spacing: 0.5px; white-space: nowrap;
+        }
+        .admin-table th:first-child { border-radius: 8px 0 0 8px; }
+        .admin-table th:last-child  { border-radius: 0 8px 8px 0; }
+        .admin-table td {
+            padding: 9px 13px;
+            border-bottom: 1px solid rgba(196,181,253,0.2);
+            vertical-align: middle; font-size: 12px;
+        }
+        .admin-table tr:hover td { background: rgba(245,243,255,0.6); }
+        .admin-table .badge {
+            display: inline-block; padding: 2px 10px;
+            border-radius: 40px; font-size: 11px; font-weight: 600;
+            background: rgba(167,139,250,0.15); color: var(--purple-600);
+        }
+        .btn-sm {
+            padding: 4px 12px; border: none; border-radius: 30px;
+            font-size: 11px; font-weight: 600; cursor: pointer; transition: 0.15s;
+        }
+        .btn-sm.danger { background: #FEE2E2; color: var(--error); }
+        .btn-sm.danger:hover { background: #FECACA; }
+        .admin-empty { text-align: center; padding: 40px 20px; color: var(--gray-500); }
+
+        .admin-actions .btn-export {
+            background: linear-gradient(135deg, var(--purple-600), #4338CA);
+            color: #fff; border: none; padding: 8px 20px;
+            border-radius: 40px; font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .admin-actions .btn-export:hover { transform: translateY(-1px); filter: brightness(1.1); }
+        .admin-actions .btn-export.danger {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+        }
+        .admin-actions .btn-export.success {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+        .admin-actions .btn-export.secondary {
+            background: linear-gradient(135deg, #6B7280, #4B5563);
+        }
+        .file-input-wrapper { position: relative; display: inline-block; }
+        .file-input-wrapper input[type="file"] {
+            position: absolute; left: 0; top: 0;
+            opacity: 0; width: 100%; height: 100%; cursor: pointer;
+        }
+        .file-input-wrapper .btn-export { pointer-events: none; }
+
+        .password-settings {
+            background: rgba(167,139,250,0.08);
+            border: 1px solid rgba(196,181,253,0.4);
+            border-radius: var(--radius-sm);
+            padding: 14px 20px; margin-bottom: 20px;
+            display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+        }
+        .password-settings label { font-weight: 600; font-size: 13px; color: var(--gray-700); }
+        .password-settings input {
+            padding: 8px 14px;
+            border: 1.5px solid var(--purple-200);
+            border-radius: var(--radius-sm);
+            font-size: 13px; font-family: inherit;
+            background: #fff; transition: 0.2s; flex: 1; min-width: 160px;
+        }
+        .password-settings input:focus {
+            border-color: var(--purple-600); outline: none;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+        }
+        .password-settings .btn-update {
+            background: linear-gradient(135deg, var(--purple-600), #4338CA);
+            color: #fff; border: none; padding: 8px 20px;
+            border-radius: 40px; font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .password-settings .btn-update:hover { transform: translateY(-1px); filter: brightness(1.1); }
+
+        .edit-indicator {
+            font-size: 12px;
+            background: #FEF3C7; color: #92400E;
+            padding: 2px 12px; border-radius: 30px; display: inline-block;
+        }
+
+        /* ====== INFO TIP ====== */
+        .info-tip {
+            font-size: 12px; color: var(--gray-500);
+            background: rgba(167,139,250,0.1);
+            border: 1px solid rgba(196,181,253,0.4);
+            padding: 5px 16px; border-radius: 40px;
+            display: inline-block; margin-top: 4px;
+        }
+
+        /* ====== TOAST ====== */
+        .toast {
+            position: fixed; bottom: 28px; right: 24px;
+            background: var(--gray-900);
+            color: #fff; padding: 13px 24px;
+            border-radius: var(--radius-sm);
+            font-size: 14px; font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(100px); opacity: 0;
+            transition: all 0.4s ease; z-index: 999;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.success { background: linear-gradient(135deg, #059669, #047857); }
+        .toast.error   { background: linear-gradient(135deg, #DC2626, #B91C1C); }
+        .toast.info    { background: linear-gradient(135deg, var(--purple-600), #4338CA); }
+
+        /* ====== SPINNER ====== */
+        .spinner {
+            display: inline-block; width: 18px; height: 18px;
+            border: 2.5px solid rgba(255,255,255,0.3);
+            border-radius: 50%; border-top-color: #fff;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle; margin-right: 6px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ====== SECTION LABELS ====== */
+        .section-label-outer {
+            font-weight: 600; font-size: 12px; color: var(--purple-600);
+            letter-spacing: 0.4px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 8px; margin-top: 16px;
+        }
+
+        /* ====== PRINT ====== */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .controls-panel, .download-bar, .brand .telegram,
+            .btn-group, .admin-panel, .btn-admin-toggle, .btn-dark-toggle,
+            .btn-edit, .btn-save-edit, #progressBarWrap, #pomodoroPanel,
+            .checkbox-cell, .notes-cell { display: none !important; }
+            .planner-wrap {
+                box-shadow: none !important;
+                border: 1px solid #ddd; border-radius: 0; padding: 16px;
+            }
+            .planner-table th {
+                background: var(--purple-600) !important; color: #fff !important;
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+                position: static !important;
+            }
+            .subject-tag, .test-badge {
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 640px) {
+            body { padding: 14px 10px; }
+            .brand { padding: 16px 18px; }
+            .brand h1 { font-size: 18px; }
+            .brand-actions { width: 100%; justify-content: flex-start; margin-top: 6px; }
+            .controls-panel { padding: 18px 14px; }
+            .controls-grid { grid-template-columns: 1fr; }
+            .user-details .detail-grid { grid-template-columns: 1fr; }
+            .planner-wrap { padding: 14px; }
+            .planner-table { font-size: 12px; }
+            .planner-table th, .planner-table td { padding: 7px 9px; }
+            .admin-stats { grid-template-columns: 1fr 1fr; }
+            .admin-header h2 { font-size: 16px; }
+            .password-settings { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="appContainer">
+
+        <!-- ====== BRAND ====== -->
+        <header class="brand">
+            <h1>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="vertical-align:middle" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="3" fill="#A78BFA"/><path d="M7 8h10M7 12h10M7 16h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+                CA Aspirants 2026
+                <small>CA Foundation · Study Planner</small>
+            </h1>
+            <div id="countdownBadge" style="display:none;position:relative;z-index:1;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,0.3);padding:8px 18px;border-radius:40px;font-size:13px;font-weight:700;color:#fff;text-align:center;min-width:110px;">
+                <div style="font-size:10px;opacity:0.75;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1px;">Exam in</div>
+                <div id="countdownDays" style="font-size:22px;font-weight:800;line-height:1;">—</div>
+                <div style="font-size:10px;opacity:0.7;">days</div>
+            </div>
+            <div class="brand-actions">
+                <a class="telegram" href="https://wondermayank.in" target="_blank">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+                    wondermayank.in
+                </a>
+                <a class="telegram" href="https://thunderstudy.github.io/ca" target="_blank" rel="noopener">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                    Notes
+                </a>
+                <button class="btn-dark-toggle" id="darkToggleBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="display:none" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- ====== PLANNER CONTROLS ====== -->
+        <div class="controls-panel glass-card" id="controlsPanel">
+            <div class="controls-grid">
+                <div class="field">
+                    <label for="groupSelect">Group</label>
+                    <select id="groupSelect" disabled style="background:#e9edf2; cursor:not-allowed;">
+                        <option value="FOUNDATION" selected>Foundation (All Subjects)</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" />
+                </div>
+                <div class="field">
+                    <label for="examDate">Exam Date</label>
+                    <input type="date" id="examDate" />
+                </div>
+                <div class="field">
+                    <label for="bufferDays">Buffer / Revision Days</label>
+                    <input type="number" id="bufferDays" min="0" max="30" value="2" />
+                </div>
+            </div>
+
+            <div style="margin-top:16px;">
+                <div class="section-label-outer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="3" stroke="#7C3AED" stroke-width="2"/><path d="M3 9h18M8 2v4M16 2v4" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg> Weekly Off Days</div>
+                <div class="weekdays" id="weekdaysContainer">
+                    <label><input type="checkbox" value="0" /> Mon</label>
+                    <label><input type="checkbox" value="1" /> Tue</label>
+                    <label><input type="checkbox" value="2" /> Wed</label>
+                    <label><input type="checkbox" value="3" /> Thu</label>
+                    <label><input type="checkbox" value="4" /> Fri</label>
+                    <label><input type="checkbox" value="5" /> Sat</label>
+                    <label><input type="checkbox" value="6" checked /> Sun</label>
+                </div>
+            </div>
+
+            <div style="margin-top:16px;">
+                <div class="section-label-outer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#7C3AED" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Exempt Subjects <span class="exempt-note">(already cleared)</span></div>
+                <div class="exemptions" id="exemptionsContainer"></div>
+            </div>
+
+            <!-- User Details Section (Simplified) -->
+            <div class="user-details">
+                <label class="section-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:4px"><circle cx="12" cy="8" r="4" stroke="#7C3AED" stroke-width="2"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>Your Details</label>
+                <div class="detail-grid">
+                    <input type="text" id="userName" placeholder="Full Name" />
+                    <input type="text" id="userCity" placeholder="City" />
+                </div>
+            </div>
+
+            <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+                <label class="toggle-cum">
+                    <input type="checkbox" id="showCumulative" checked /> Show Cumulative Coverage
+                </label>
+                <span class="info-tip">Planner auto-adjusts to your available study days</span>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn-generate" id="generateBtn">Generate Planner</button>
+                <button class="btn-reset" id="resetBtn">Reset Defaults</button>
+            </div>
+
+            <div class="summary-stats" id="summaryStats">
+                <span>Calendar days: <span id="calDays">-</span></span>
+                <span>Study days: <span id="studyDays">-</span></span>
+                <span>Content days: <span id="contentDays">-</span></span>
+                <span>Buffer/Revision days: <span id="bufferDisplay">-</span></span>
+                <span id="warningMsg" class="warning"></span>
+            </div>
+        </div>
+
+        <!-- ====== PLANNER OUTPUT ====== -->
+        <div class="planner-wrap glass-card" id="plannerWrap">
+            <div class="watermark-bg">
+                Wondermayank
+                <span>wondermayank.in</span>
+            </div>
+            <div class="planner-content" id="plannerContent">
+                <div class="no-data">
+                    Set your dates above and click <strong>Generate Planner</strong>.
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== ADMIN DASHBOARD ====== -->
+        <div class="admin-panel glass-card" id="adminPanel">
+            <div class="admin-header">
+                <h2>Admin Dashboard <small>— all user sessions</small></h2>
+                <div class="admin-actions">
+                    <span class="lock-status">Access: Authorized</span>
+                    <button class="btn-export success" id="exportJsonBtn">Export JSON</button>
+                    <span class="file-input-wrapper">
+                        <button class="btn-export secondary">Import JSON</button>
+                        <input type="file" id="importJsonInput" accept=".json" />
+                    </span>
+                    <button class="btn-export" id="exportCsvBtn">Export CSV</button>
+                    <button class="btn-export danger" id="clearAllBtn">Clear All</button>
+                </div>
+            </div>
+
+            <div class="password-settings">
+                <label for="newPasswordInput">Change Admin Password</label>
+                <input type="password" id="newPasswordInput" placeholder="Enter new password" />
+                <button class="btn-update" id="updatePasswordBtn">Update</button>
+                <span style="font-size:12px;color:#64748b;">(current: ********)</span>
+            </div>
+
+            <div class="admin-stats" id="adminStats">
+                <div class="stat-card">
+                    <div class="stat-value" id="statTotal">0</div>
+                    <div class="stat-label">Total Sessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statUsers">0</div>
+                    <div class="stat-label">Unique Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statAvgDays">0</div>
+                    <div class="stat-label">Avg Study Days</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statExempt">0</div>
+                    <div class="stat-label">Most Exempted Subject</div>
+                </div>
+            </div>
+
+            <div class="admin-toolbar">
+                <div class="search-wrap">
+                    <input type="text" id="adminSearch" placeholder="🔍 Search by name, date, exemptions..." />
+                </div>
+                <select id="adminFilterGroup">
+                    <option value="all">All Groups</option>
+                    <option value="FOUNDATION">Foundation</option>
+                </select>
+                <button class="btn-export" id="refreshAdminBtn">Refresh</button>
+            </div>
+
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Created</th>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Group</th>
+                            <th>Start → Exam</th>
+                            <th>Buffer</th>
+                            <th>Off Days</th>
+                            <th>Exemptions</th>
+                            <th>Study Days</th>
+                            <th>Content</th>
+                            <th>Revision</th>
+                            <th>Edited</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody">
+                        <tr><td colspan="14" class="admin-empty">No sessions found. Generate a planner first!</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top:12px;font-size:12px;color:#9CA3AF;text-align:right;">
+                Data stored locally in your browser.
+            </div>
+        </div>
+
+        <!-- ====== DOWNLOAD BAR ====== -->
+        <div class="download-bar" id="downloadBar" style="display:none;">
+            <button class="btn-pdf secondary" id="printBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="6" y="15" width="12" height="7" rx="1" stroke="white" stroke-width="2"/><path d="M6 15V4a1 1 0 011-1h10a1 1 0 011 1v11M4 11h16v8H4z" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg> Print / PDF</button>
+            <button class="btn-pdf" id="downloadPdfBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="white" stroke-width="2" stroke-linecap="round"/></svg> Download PDF</button>
+            <button class="btn-edit" id="editToggleBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Edit Planner</button>
+            <button class="btn-save-edit" id="saveEditsBtn" style="display:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="M17 21v-8H7v8M7 3v5h8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Save Changes</button>
+        </div>
+
+        <!-- ====== PROGRESS BAR ====== -->
+        <div id="progressBarWrap" style="display:none;padding:14px 24px;margin-bottom:14px;" class="glass-card">
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                <div style="flex:1;min-width:200px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                        <span style="font-size:13px;font-weight:700;color:var(--purple-600);">Study Progress</span>
+                        <span id="progressPct" style="font-size:13px;font-weight:700;color:var(--purple-600);">0%</span>
+                    </div>
+                    <div style="background:rgba(196,181,253,0.25);border-radius:99px;height:10px;overflow:hidden;">
+                        <div id="progressFill" style="height:100%;background:linear-gradient(90deg,var(--purple-600),#4338CA);border-radius:99px;transition:width 0.4s ease;width:0%;"></div>
+                    </div>
+                    <div id="progressLabel" style="font-size:11px;color:var(--gray-500);margin-top:4px;">0 of 0 days completed</div>
+                </div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                    <button class="btn-pdf secondary" id="whatsappShareBtn" style="background:linear-gradient(135deg,#25D366,#128C7E);font-size:13px;padding:8px 18px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Share on WhatsApp
+                    </button>
+                    <button class="btn-pdf secondary" id="copyTextBtn" style="background:linear-gradient(135deg,var(--purple-600),#4338CA);font-size:13px;padding:8px 18px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        Copy as Text
+                    </button>
+                    <button class="btn-pdf secondary" id="exportIcalBtn" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);font-size:13px;padding:8px 18px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        Export to Calendar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== POMODORO TIMER ====== -->
+        <div id="pomodoroPanel" style="display:none;padding:16px 24px;margin-bottom:14px;" class="glass-card">
+            <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple-600)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <span style="font-weight:700;font-size:14px;color:var(--purple-600);">Focus Timer</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div id="pomodoroDisplay" style="font-size:28px;font-weight:800;color:var(--gray-900);font-variant-numeric:tabular-nums;min-width:72px;text-align:center;">25:00</div>
+                    <div style="display:flex;flex-direction:column;gap:4px;">
+                        <div style="font-size:11px;color:var(--gray-500);" id="pomodoroLabel">Pomodoro</div>
+                        <div id="pomodoroCount" style="font-size:11px;font-weight:700;color:var(--purple-600);">🍅 ×0</div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                    <button id="pomodoroStartBtn" class="btn-generate" style="padding:9px 22px;font-size:13px;">Start</button>
+                    <button id="pomodoroResetBtn" class="btn-reset" style="padding:9px 18px;font-size:13px;">Reset</button>
+                    <div style="display:flex;gap:6px;">
+                        <button class="pomo-mode-btn active" data-mins="25" title="25 min Pomodoro">🎯 25m</button>
+                        <button class="pomo-mode-btn" data-mins="5" title="5 min short break">☕ 5m</button>
+                        <button class="pomo-mode-btn" data-mins="15" title="15 min long break">🌿 15m</button>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:10px;background:rgba(196,181,253,0.2);border-radius:99px;height:6px;overflow:hidden;">
+                <div id="pomodoroProgressFill" style="height:100%;background:linear-gradient(90deg,var(--purple-600),#4338CA);border-radius:99px;transition:width 1s linear;width:100%;"></div>
+            </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  DATA — CA Foundation with Economics (NEW syllabus)
+        //  Subjects: Quantitative Aptitude, Business Laws, Accounting, Economics
+        //  Total 42 days, each subject gets ~10-11 days with tests
+        // ============================================================
+
+        const FOUNDATION_DATA = {
+            subjects: ['Quantitative Aptitude', 'Business Laws', 'Accounting', 'Economics'],
+            days: [
+                // ---- 1-3: QA ----
+                { day: 1, subject: 'Quantitative Aptitude', work: 'Number Series, Coding-Decoding, Odd Man Out, Blood Relations',
+                    cum: '' },
+                { day: 2, subject: 'Quantitative Aptitude', work: 'Statistical Description of Data, Sampling, Index Numbers',
+                    cum: '' },
+                { day: 3, subject: 'Quantitative Aptitude', work: '🧪 Test 1', cum: 'QA Day 1 + Day 2' },
+
+                // ---- 4-6: Business Laws ----
+                { day: 4, subject: 'Business Laws', work: 'LLP Act, 2008 + ICA Units 1 & 2', cum: '' },
+                { day: 5, subject: 'Business Laws', work: 'Companies Act, 2013 + ICA Unit 3', cum: '' },
+                { day: 6, subject: 'Business Laws', work: '🧪 Test 1', cum: 'Law Day 4 + Day 5' },
+
+                // ---- 7-9: Accounting ----
+                { day: 7, subject: 'Accounting', work: 'Accounting Process, Rectification of Errors', cum: '' },
+                { day: 8, subject: 'Accounting', work: 'Depreciation, BRS, Goodwill', cum: '' },
+                { day: 9, subject: 'Accounting', work: '🧪 Test 1', cum: 'Accounts Day 7 + Day 8' },
+
+                // ---- 10-12: Economics ----
+                { day: 10, subject: 'Economics', work: 'Nature & Scope of Business Economics, Basic Concepts', cum: '' },
+                { day: 11, subject: 'Economics', work: 'Demand & Supply Analysis, Elasticity', cum: '' },
+                { day: 12, subject: 'Economics', work: '🧪 Test 1', cum: 'Eco Day 10 + Day 11' },
+
+                // ---- 13-15: QA ----
+                { day: 13, subject: 'Quantitative Aptitude', work: 'Measures of Central Tendency, Direction Sense Test',
+                    cum: '' },
+                { day: 14, subject: 'Quantitative Aptitude', work: 'Measures of Central Dispersion, Seating Arrangement',
+                    cum: '' },
+                { day: 15, subject: 'Quantitative Aptitude', work: '🧪 Test 2',
+                    cum: 'QA Day 1 + Day 2 + Day 13 + Day 14' },
+
+                // ---- 16-18: Business Laws ----
+                { day: 16, subject: 'Business Laws', work: 'Sale of Goods Act (Units 1 & 2)', cum: '' },
+                { day: 17, subject: 'Business Laws', work: 'Partnership Act + NIA (Half)', cum: '' },
+                { day: 18, subject: 'Business Laws', work: '🧪 Test 2', cum: 'Law Day 4 + Day 5 + Day 16 + Day 17' },
+
+                // ---- 19-21: Accounting ----
+                { day: 19, subject: 'Accounting', work: 'Inventories, Bills of Exchange', cum: '' },
+                { day: 20, subject: 'Accounting', work: 'Final Accounts (Manufacturing & Non-Manufacturing)', cum: '' },
+                { day: 21, subject: 'Accounting', work: '🧪 Test 2',
+                    cum: 'Accounts Day 7 + Day 8 + Day 19 + Day 20' },
+
+                // ---- 22-24: Economics ----
+                { day: 22, subject: 'Economics', work: 'Production & Cost: Laws of Production, Cost Concepts', cum: '' },
+                { day: 23, subject: 'Economics', work: 'Market Structures: Perfect Competition, Monopoly', cum: '' },
+                { day: 24, subject: 'Economics', work: '🧪 Test 2', cum: 'Eco Day 10 + Day 11 + Day 22 + Day 23' },
+
+                // ---- 25-27: QA ----
+                { day: 25, subject: 'Quantitative Aptitude', work: 'Mathematics of Finance (SI & CI)', cum: '' },
+                { day: 26, subject: 'Quantitative Aptitude', work: 'Mathematics of Finance (Annuity), Ratio & Proportion',
+                    cum: '' },
+                { day: 27, subject: 'Quantitative Aptitude', work: '🧪 Test 3',
+                    cum: 'QA Day 1–2 + Day 13–14 + Day 25–26' },
+
+                // ---- 28-30: Business Laws ----
+                { day: 28, subject: 'Business Laws', work: 'NIA + ICA Units 4, 5 & 6', cum: '' },
+                { day: 29, subject: 'Business Laws', work: 'ICA Units 7, 8 & 9', cum: '' },
+                { day: 30, subject: 'Business Laws', work: '🧪 Test 3',
+                    cum: 'Law Day 4–5 + Day 16–17 + Day 28–29' },
+
+                // ---- 31-33: Accounting ----
+                { day: 31, subject: 'Accounting', work: 'Shares, Forfeiture, Reissue, NPO', cum: '' },
+                { day: 32, subject: 'Accounting', work: 'Bonus Issue, Right Issue, Admission & Retirement', cum: '' },
+                { day: 33, subject: 'Accounting', work: '🧪 Test 3',
+                    cum: 'Accounts Day 7-8 + Day 19-20 + Day 31-32' },
+
+                // ---- 34-36: Economics ----
+                { day: 34, subject: 'Economics', work: 'Business Cycles, Economic Growth, Inflation', cum: '' },
+                { day: 35, subject: 'Economics', work: 'Money & Banking, Fiscal Policy, Budget', cum: '' },
+                { day: 36, subject: 'Economics', work: '🧪 Test 3',
+                    cum: 'Eco Day 10-11 + Day 22-23 + Day 34-35' },
+
+                // ---- 37-39: QA (Full syllabus coverage) ----
+                { day: 37, subject: 'Quantitative Aptitude', work: 'Equations, Indices, Logarithms', cum: '' },
+                { day: 38, subject: 'Quantitative Aptitude', work: 'AP, GP, Permutations & Combinations', cum: '' },
+                { day: 39, subject: 'Quantitative Aptitude', work: '🧪 Test 4',
+                    cum: 'QA Day 1-2 + Day 13-14 + Day 25-26 + Day 37-38' },
+
+                // ---- 40-42: Accounting (Full syllabus) & Economics ----
+                { day: 40, subject: 'Accounting', work: 'Complete Accounting Coverage Revision Reading', cum: '' },
+                { day: 41, subject: 'Economics', work: 'International Trade & Balance of Payments', cum: '' },
+                { day: 42, subject: 'Both', work: '🧪 Final Test (Accounts + Economics)', cum: 'Full Syllabus' },
+            ]
+        };
+
+        // ============================================================
+        //  STATE
+        // ============================================================
+        let exemptSubjects = [];
+        let generatedPlan = [];
+        let showAdmin = false;
+        let sessions = [];
+        let isAdminUnlocked = false;
+        let editMode = false;
+        let plannerChecks = {};   // { dayNum: true/false }
+        let plannerNotes  = {};   // { dayNum: 'text' }
+
+        // Pomodoro state
+        let pomodoroInterval = null;
+        let pomodoroSecondsLeft = 25 * 60;
+        let pomodoroTotalSeconds = 25 * 60;
+        let pomodoroRunning = false;
+        let pomodoroCount = 0;
+
+        function escapeHtml(str) {
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function loadChecksAndNotes() {
+            try {
+                plannerChecks = JSON.parse(localStorage.getItem('ca_planner_checks') || '{}');
+                plannerNotes  = JSON.parse(localStorage.getItem('ca_planner_notes')  || '{}');
+            } catch { plannerChecks = {}; plannerNotes = {}; }
+        }
+
+        function saveChecksAndNotes() {
+            localStorage.setItem('ca_planner_checks', JSON.stringify(plannerChecks));
+            localStorage.setItem('ca_planner_notes',  JSON.stringify(plannerNotes));
+        }
+
+        function updateProgress() {
+            if (!generatedPlan || generatedPlan.length === 0) return;
+            const total = generatedPlan.length;
+            const done  = Object.values(plannerChecks).filter(Boolean).length;
+            const pct   = Math.round((done / total) * 100);
+            const fill  = document.getElementById('progressFill');
+            const pctEl = document.getElementById('progressPct');
+            const label = document.getElementById('progressLabel');
+            if (fill)  fill.style.width  = pct + '%';
+            if (pctEl) pctEl.textContent = pct + '%';
+            if (label) label.textContent = `${done} of ${total} days completed`;
+        }
+
+        // ============================================================
+        //  DOM REFS
+        // ============================================================
+        const startDateInput = document.getElementById('startDate');
+        const examDateInput = document.getElementById('examDate');
+        const bufferDaysInput = document.getElementById('bufferDays');
+        const weekdaysCheckboxes = document.querySelectorAll('#weekdaysContainer input[type="checkbox"]');
+        const exemptionsContainer = document.getElementById('exemptionsContainer');
+        const showCumulativeCheck = document.getElementById('showCumulative');
+        const generateBtn = document.getElementById('generateBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const plannerContent = document.getElementById('plannerContent');
+        const downloadBar = document.getElementById('downloadBar');
+        const printBtn = document.getElementById('printBtn');
+        const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+        const editToggleBtn = document.getElementById('editToggleBtn');
+        const saveEditsBtn = document.getElementById('saveEditsBtn');
+        const adminToggleBtn = { classList: { remove: ()=>{}, add: ()=>{} }, innerHTML: '' }; // stub (button removed)
+        const adminPanel = document.getElementById('adminPanel');
+        const adminTableBody = document.getElementById('adminTableBody');
+        const adminSearch = document.getElementById('adminSearch');
+        const adminFilterGroup = document.getElementById('adminFilterGroup');
+        const refreshAdminBtn = document.getElementById('refreshAdminBtn');
+        const exportCsvBtn = document.getElementById('exportCsvBtn');
+        const exportJsonBtn = document.getElementById('exportJsonBtn');
+        const importJsonInput = document.getElementById('importJsonInput');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+        const newPasswordInput = document.getElementById('newPasswordInput');
+        const updatePasswordBtn = document.getElementById('updatePasswordBtn');
+        const toast = document.getElementById('toast');
+
+        const userNameInput = document.getElementById('userName');
+        const userCityInput = document.getElementById('userCity');
+
+        const calDaysSpan = document.getElementById('calDays');
+        const studyDaysSpan = document.getElementById('studyDays');
+        const contentDaysSpan = document.getElementById('contentDays');
+        const bufferDisplaySpan = document.getElementById('bufferDisplay');
+        const warningMsg = document.getElementById('warningMsg');
+
+        // ============================================================
+        //  PASSWORD
+        // ============================================================
+        const ADMIN_PASSWORD_KEY = 'ca_aspirants_2026_admin_password';
+
+        function getAdminPassword() {
+            return localStorage.getItem(ADMIN_PASSWORD_KEY) || 'admin123';
+        }
+
+        function setAdminPassword(pwd) {
+            localStorage.setItem(ADMIN_PASSWORD_KEY, pwd);
+        }
+
+        function verifyPassword(input) {
+            return input === getAdminPassword();
+        }
+
+        // ============================================================
+        //  HELPERS
+        // ============================================================
+        function getSubjectColor(subject) {
+            const map = {
+                'Quantitative Aptitude': 'qa',
+                'Business Laws': 'law',
+                'Accounting': 'accounts',
+                'Economics': 'economics',
+                'Both': 'both',
+            };
+            return map[subject] || 'both';
+        }
+
+        function getSubjectList() {
+            return FOUNDATION_DATA.subjects.slice();
+        }
+
+        function formatDate(date) {
+            const d = new Date(date);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        }
+
+        function formatDateShort(date) {
+            const d = new Date(date);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
+        }
+
+        function formatDateTime(date) {
+            const d = new Date(date);
+            return d.toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit',
+                minute: '2-digit' });
+        }
+
+        function getOffDaysLabels(values) {
+            const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            return values.map(v => labels[v]).join(', ');
+        }
+
+        function showToast(message, type = 'success') {
+            toast.textContent = message;
+            toast.className = 'toast ' + type;
+            setTimeout(() => toast.classList.add('show'), 50);
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ============================================================
+        //  STORAGE
+        // ============================================================
+        function loadSessions() {
+            try {
+                const data = localStorage.getItem('ca_aspirants_2026_sessions');
+                sessions = data ? JSON.parse(data) : [];
+            } catch {
+                sessions = [];
+            }
+        }
+
+        function saveSession(sessionData) {
+            loadSessions();
+            sessionData.id = Date.now();
+            sessionData.createdAt = new Date().toISOString();
+            sessions.push(sessionData);
+            localStorage.setItem('ca_aspirants_2026_sessions', JSON.stringify(sessions));
+            if (showAdmin && isAdminUnlocked) renderAdmin();
+        }
+
+        function updateSessionInStorage(updatedSession) {
+            loadSessions();
+            const index = sessions.findIndex(s => s.id === updatedSession.id);
+            if (index !== -1) {
+                sessions[index] = updatedSession;
+                localStorage.setItem('ca_aspirants_2026_sessions', JSON.stringify(sessions));
+                if (showAdmin && isAdminUnlocked) renderAdmin();
+            }
+        }
+
+        function deleteSession(id) {
+            loadSessions();
+            sessions = sessions.filter(s => s.id !== id);
+            localStorage.setItem('ca_aspirants_2026_sessions', JSON.stringify(sessions));
+            if (showAdmin && isAdminUnlocked) renderAdmin();
+        }
+
+        function clearAllSessions() {
+            if (confirm('⚠️ Delete ALL sessions? This cannot be undone.')) {
+                sessions = [];
+                localStorage.setItem('ca_aspirants_2026_sessions', JSON.stringify(sessions));
+                if (showAdmin && isAdminUnlocked) renderAdmin();
+                showToast('All sessions cleared', 'error');
+            }
+        }
+
+        function exportJson() {
+            loadSessions();
+            if (sessions.length === 0) {
+                showToast('No sessions to export', 'error');
+                return;
+            }
+            const data = JSON.stringify(sessions, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `CA_Aspirants_2026_Sessions_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('JSON exported successfully!', 'success');
+        }
+
+        function importJson(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (!Array.isArray(imported)) {
+                        showToast('Invalid JSON: expected array of sessions', 'error');
+                        return;
+                    }
+                    loadSessions();
+                    const existingIds = new Set(sessions.map(s => s.id));
+                    let added = 0;
+                    imported.forEach(s => {
+                        if (!s.id) s.id = Date.now() + Math.random() * 1000;
+                        if (!existingIds.has(s.id)) {
+                            sessions.push(s);
+                            existingIds.add(s.id);
+                            added++;
+                        }
+                    });
+                    localStorage.setItem('ca_aspirants_2026_sessions', JSON.stringify(sessions));
+                    if (showAdmin && isAdminUnlocked) renderAdmin();
+                    showToast(`✅ Imported ${added} new sessions`, 'success');
+                } catch (err) {
+                    showToast('❌ Error parsing JSON file', 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // ============================================================
+        //  RENDER EXEMPTIONS
+        // ============================================================
+        function renderExemptions() {
+            const subjects = getSubjectList();
+            let html = '';
+            subjects.forEach(s => {
+                const checked = exemptSubjects.includes(s) ? 'checked' : '';
+                html += `
+                    <label>
+                        <input type="checkbox" class="exemption-chk" value="${s}" ${checked} />
+                        ${s}
+                    </label>
+                `;
+            });
+            html += `<button class="clear-exempt" id="clearExemptBtn">✖ Clear All</button>`;
+            exemptionsContainer.innerHTML = html;
+
+            document.querySelectorAll('.exemption-chk').forEach(chk => {
+                chk.addEventListener('change', function() {
+                    const val = this.value;
+                    if (this.checked) {
+                        if (!exemptSubjects.includes(val)) exemptSubjects.push(val);
+                    } else {
+                        exemptSubjects = exemptSubjects.filter(s => s !== val);
+                    }
+                });
+            });
+
+            const clearBtn = document.getElementById('clearExemptBtn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function() {
+                    exemptSubjects = [];
+                    document.querySelectorAll('.exemption-chk').forEach(chk => chk.checked = false);
+                });
+            }
+        }
+
+        // ============================================================
+        //  GET STUDY DATES
+        // ============================================================
+        function getStudyDates(startDate, examDate, offDays) {
+            const dates = [];
+            let current = new Date(startDate);
+            const end = new Date(examDate);
+            while (current <= end) {
+                const dayOfWeek = current.getDay();
+                if (!offDays.includes(dayOfWeek)) {
+                    dates.push(new Date(current));
+                }
+                current.setDate(current.getDate() + 1);
+            }
+            return dates;
+        }
+
+        // ============================================================
+        //  PLANNER ENGINE
+        // ============================================================
+        function generatePlanner(saveToStorage = true) {
+            const startDate = new Date(startDateInput.value);
+            const examDate = new Date(examDateInput.value);
+            const bufferDays = parseInt(bufferDaysInput.value) || 0;
+            const offDays = [];
+            weekdaysCheckboxes.forEach(chk => {
+                if (chk.checked) offDays.push(parseInt(chk.value));
+            });
+
+            const userName = userNameInput.value.trim() || 'Guest';
+            const userCity = userCityInput.value.trim() || 'N/A';
+
+            if (!userName || !userCity) {
+                showToast('⚠️ Please fill in Name and City.', 'error');
+                return null;
+            }
+
+            if (isNaN(startDate.getTime()) || isNaN(examDate.getTime())) {
+                plannerContent.innerHTML = `<div class="no-data">⚠️ Please select both Start Date and Exam Date.</div>`;
+                downloadBar.style.display = 'none';
+                updateSummary(0, 0, 0, 0);
+                return null;
+            }
+            if (startDate > examDate) {
+                plannerContent.innerHTML = `<div class="no-data">⚠️ Start Date must be before Exam Date.</div>`;
+                downloadBar.style.display = 'none';
+                updateSummary(0, 0, 0, 0);
+                return null;
+            }
+
+            const studyDates = getStudyDates(startDate, examDate, offDays);
+            const studyDays = studyDates.length;
+            if (studyDays === 0) {
+                plannerContent.innerHTML = `<div class="no-data">⚠️ No study days available. Please adjust off days or dates.</div>`;
+                downloadBar.style.display = 'none';
+                updateSummary(0, 0, 0, 0);
+                return null;
+            }
+
+            // Filter out exempted subjects
+            let originalItems = FOUNDATION_DATA.days.filter(d => {
+                // If subject is "Both", we treat it as included only if none of the subjects are exempted?
+                // We'll include "Both" only if no subject is exempted? Or always include? We'll include if neither of the main subjects are exempted.
+                if (d.subject === 'Both') {
+                    // Include only if no subjects are exempted
+                    return exemptSubjects.length === 0;
+                }
+                return !exemptSubjects.includes(d.subject);
+            });
+
+            const totalContentItems = originalItems.length;
+            if (totalContentItems === 0) {
+                plannerContent.innerHTML = `<div class="no-data">😕 All subjects exempted. Uncheck some.</div>`;
+                downloadBar.style.display = 'none';
+                updateSummary(studyDays, studyDays, 0, bufferDays);
+                return null;
+            }
+
+            let daysForContent = studyDays - bufferDays;
+            if (daysForContent < 1) daysForContent = 1;
+
+            let finalContentDays = daysForContent;
+            let revisionDays = studyDays - daysForContent;
+            if (revisionDays < 0) revisionDays = 0;
+
+            let scheduledItems = [];
+            if (finalContentDays >= totalContentItems) {
+                for (let i = 0; i < totalContentItems; i++) {
+                    scheduledItems.push({ ...originalItems[i], isRevision: false });
+                }
+                for (let i = totalContentItems; i < studyDays; i++) {
+                    scheduledItems.push({
+                        day: i + 1,
+                        subject: 'Revision',
+                        work: '📖 Self-study / Revision',
+                        cum: '',
+                        isRevision: true
+                    });
+                }
+            } else {
+                const itemsPerDay = Math.ceil(totalContentItems / finalContentDays);
+                let index = 0;
+                for (let d = 0; d < finalContentDays; d++) {
+                    const items = [];
+                    for (let i = 0; i < itemsPerDay && index < totalContentItems; i++) {
+                        items.push(originalItems[index]);
+                        index++;
+                    }
+                    const subjects = items.map(it => it.subject);
+                    const works = items.map(it => it.work);
+                    const cums = items.map(it => it.cum).filter(c => c);
+                    const subjectStr = subjects.length === 1 ? subjects[0] : subjects.join(' + ');
+                    const workStr = works.length === 1 ? works[0] : works.join(' · ');
+                    const cumStr = cums.length ? cums.join(' · ') : '';
+                    scheduledItems.push({
+                        day: d + 1,
+                        subject: subjectStr,
+                        work: workStr,
+                        cum: cumStr,
+                        isRevision: false,
+                        rawSubjects: subjects,
+                    });
+                }
+                for (let i = finalContentDays; i < studyDays; i++) {
+                    scheduledItems.push({
+                        day: i + 1,
+                        subject: 'Revision',
+                        work: '📖 Self-study / Revision',
+                        cum: '',
+                        isRevision: true
+                    });
+                }
+            }
+
+            const plan = scheduledItems.map((item, idx) => {
+                const dateObj = studyDates[idx];
+                return { ...item, date: dateObj, dateStr: formatDate(dateObj) };
+            });
+
+            generatedPlan = plan;
+            loadChecksAndNotes();
+            renderPlan(plan, studyDates, userName, userCity);
+            downloadBar.style.display = 'flex';
+            document.getElementById('progressBarWrap').style.display = 'block';
+            document.getElementById('pomodoroPanel').style.display = 'block';
+            updateCountdown();
+            if (editMode) toggleEditMode();
+
+            const contentDaysUsed = plan.filter(p => !p.isRevision).length;
+            const revisionDaysUsed = plan.filter(p => p.isRevision).length;
+            updateSummary(studyDates.length, studyDays, contentDaysUsed, revisionDaysUsed);
+
+            if (saveToStorage) {
+                const sessionData = {
+                    group: 'FOUNDATION',
+                    userName: userName,
+                    userCity: userCity,
+                    startDate: startDateInput.value,
+                    examDate: examDateInput.value,
+                    bufferDays: bufferDays,
+                    offDays: offDays,
+                    exemptSubjects: [...exemptSubjects],
+                    studyDays: studyDays,
+                    contentDays: contentDaysUsed,
+                    revisionDays: revisionDaysUsed,
+                    calendarDays: studyDates.length,
+                    isEdited: false,
+                    planSummary: plan.map(p => ({
+                        day: p.day,
+                        subject: p.subject,
+                        work: p.work,
+                        isRevision: p.isRevision,
+                        cum: p.cum
+                    }))
+                };
+                saveSession(sessionData);
+            }
+
+            return plan;
+        }
+
+        // ============================================================
+        //  RENDER PLAN
+        // ============================================================
+        function renderPlan(plan, studyDates, userName, userCity) {
+            if (!plan || plan.length === 0) {
+                plannerContent.innerHTML = `<div class="no-data">📭 No schedule generated.</div>`;
+                return;
+            }
+
+            const showCum = showCumulativeCheck.checked;
+            const groupLabel = 'CA Foundation · All Subjects';
+
+            let html = `
+                <div class="planner-title">
+                    <span>📋 ${groupLabel}</span>
+                    <span style="font-size:14px;font-weight:400;color:#475569;">${plan.length} study days · ${studyDates.length} calendar days</span>
+                    ${editMode ? '<span class="edit-indicator">✏️ Edit Mode ON</span>' : ''}
+                </div>
+                <div class="planner-sub">
+                    <span class="planner-user-info">👤 ${userName} (📍 ${userCity})</span>
+                    <span>📅 ${formatDate(studyDates[0])} – ${formatDate(studyDates[studyDates.length-1])}</span>
+                    <span>⏭️ ${exemptSubjects.length ? 'Exempted: ' + exemptSubjects.join(', ') : 'All subjects included'}</span>
+                </div>
+                <table class="planner-table" id="plannerTable">
+                    <thead>
+                        <tr>
+                            <th style="width:44px;">Done</th>
+                            <th># Day</th>
+                            <th>Date</th>
+                            <th>Subject</th>
+                            <th>Study / Test Work</th>
+                            ${showCum ? '<th>Cumulative Coverage</th>' : ''}
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            for (const item of plan) {
+                const isRevision = item.isRevision;
+                const isTest = !isRevision && item.work.includes('🧪');
+                const rowClass = isRevision ? 'revision-row' : '';
+
+                let subjectDisplay = item.subject;
+                if (!isRevision) {
+                    const subjects = item.rawSubjects || [item.subject];
+                    if (subjects.length > 1) {
+                        const tags = subjects.map(s =>
+                            `<span class="subject-tag ${getSubjectColor(s)}">${s}</span>`
+                        ).join(' ');
+                        subjectDisplay = tags;
+                    } else {
+                        subjectDisplay =
+                            `<span class="subject-tag ${getSubjectColor(item.subject)}">${item.subject}</span>`;
+                    }
+                } else {
+                    subjectDisplay = `<span class="subject-tag" style="background:#e9edf2;">Revision</span>`;
+                }
+
+                const testBadge = isTest ? `<span class="test-badge">TEST</span> ` : '';
+                const workDisplay = isRevision ? item.work : `${testBadge}${item.work}`;
+
+                const savedChecked = plannerChecks[item.day] ? 'checked' : '';
+                const savedNote = plannerNotes[item.day] || '';
+                html += `
+                    <tr class="${rowClass}${plannerChecks[item.day] ? ' day-done' : ''}" data-day="${item.day}">
+                        <td class="checkbox-cell"><input type="checkbox" aria-label="Mark day ${item.day} done" data-check-day="${item.day}" ${savedChecked} /></td>
+                        <td class="day-num">Day ${item.day}</td>
+                        <td class="date-col">${item.dateStr}</td>
+                        <td><span class="editable-cell" contenteditable="${editMode}">${subjectDisplay}</span></td>
+                        <td><span class="editable-cell" contenteditable="${editMode}">${workDisplay}</span></td>
+                        ${showCum ? `<td class="cumulative">${item.cum || '—'}</td>` : ''}
+                        <td><textarea class="notes-cell" rows="2" placeholder="Add a note…" data-note-day="${item.day}">${escapeHtml(savedNote)}</textarea></td>
+                    </tr>
+                `;
+            }
+
+            html += `
+                    </tbody>
+                </table>
+                <div style="margin-top:12px;font-size:12px;color:#9CA3AF;text-align:right;">
+                    Generated by Wondermayank · wondermayank.in
+                </div>
+            `;
+
+            plannerContent.innerHTML = html;
+
+            // Bind checkbox events
+            document.querySelectorAll('#plannerTable input[data-check-day]').forEach(chk => {
+                chk.addEventListener('change', function() {
+                    const day = parseInt(this.dataset.checkDay);
+                    plannerChecks[day] = this.checked;
+                    const row = this.closest('tr');
+                    if (this.checked) row.classList.add('day-done');
+                    else row.classList.remove('day-done');
+                    saveChecksAndNotes();
+                    updateProgress();
+                });
+            });
+
+            // Bind notes events
+            document.querySelectorAll('#plannerTable textarea[data-note-day]').forEach(ta => {
+                ta.addEventListener('input', function() {
+                    plannerNotes[parseInt(this.dataset.noteDay)] = this.value;
+                    saveChecksAndNotes();
+                });
+            });
+
+            updateProgress();
+        }
+
+        // ============================================================
+        //  EDIT MODE
+        // ============================================================
+        function toggleEditMode() {
+            editMode = !editMode;
+            editToggleBtn.innerHTML = editMode ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2" stroke="white" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg> Lock Planner' : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:5px"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Edit Planner';
+            editToggleBtn.classList.toggle('active', editMode);
+            saveEditsBtn.style.display = editMode ? 'inline-flex' : 'none';
+
+            const cells = document.querySelectorAll('#plannerTable .editable-cell');
+            cells.forEach(el => {
+                el.contentEditable = editMode;
+            });
+
+            showToast(editMode ? '🖊️ Edit mode enabled.' : '🔒 Edit mode disabled.', 'info');
+        }
+
+        function savePlanEdits() {
+            if (!generatedPlan || generatedPlan.length === 0) {
+                showToast('No planner to save.', 'error');
+                return;
+            }
+
+            const rows = document.querySelectorAll('#plannerTable tbody tr');
+            const updatedPlan = [];
+            let hasChanges = false;
+
+            rows.forEach((row, index) => {
+                const day = parseInt(row.dataset.day) || index + 1;
+                const subjectCell = row.querySelectorAll('td')[2];
+                const workCell = row.querySelectorAll('td')[3];
+
+                let subjectText = subjectCell?.textContent?.trim() || generatedPlan[index]?.subject || '';
+                let workText = workCell?.textContent?.trim() || generatedPlan[index]?.work || '';
+
+                const originalItem = generatedPlan[index];
+                if (originalItem) {
+                    const newItem = { ...originalItem };
+                    if (newItem.subject !== subjectText) {
+                        newItem.subject = subjectText;
+                        hasChanges = true;
+                    }
+                    if (newItem.work !== workText) {
+                        newItem.work = workText;
+                        hasChanges = true;
+                    }
+                    updatedPlan.push(newItem);
+                } else {
+                    updatedPlan.push({
+                        day: day,
+                        subject: subjectText,
+                        work: workText,
+                        isRevision: false,
+                        cum: '',
+                        date: new Date(),
+                        dateStr: 'N/A'
+                    });
+                    hasChanges = true;
+                }
+            });
+
+            if (!hasChanges) {
+                showToast('No changes detected.', 'info');
+                return;
+            }
+
+            generatedPlan = updatedPlan;
+
+            loadSessions();
+            const userName = userNameInput.value.trim() || 'Guest';
+            const startDate = startDateInput.value;
+            const examDate = examDateInput.value;
+
+            let targetSession = null;
+            for (let i = sessions.length - 1; i >= 0; i--) {
+                const s = sessions[i];
+                if (s.userName === userName && s.startDate === startDate && s.examDate === examDate) {
+                    targetSession = s;
+                    break;
+                }
+            }
+
+            if (targetSession) {
+                targetSession.planSummary = generatedPlan.map(p => ({
+                    day: p.day,
+                    subject: p.subject,
+                    work: p.work,
+                    isRevision: p.isRevision,
+                    cum: p.cum
+                }));
+                targetSession.isEdited = true;
+                updateSessionInStorage(targetSession);
+                showToast('✅ Planner changes saved!', 'success');
+            } else {
+                const newSession = {
+                    group: 'FOUNDATION',
+                    userName: userName,
+                    userCity: userCityInput.value.trim() || 'N/A',
+                    startDate: startDate,
+                    examDate: examDate,
+                    bufferDays: parseInt(bufferDaysInput.value) || 0,
+                    offDays: [],
+                    exemptSubjects: exemptSubjects,
+                    studyDays: generatedPlan.length,
+                    contentDays: generatedPlan.filter(p => !p.isRevision).length,
+                    revisionDays: generatedPlan.filter(p => p.isRevision).length,
+                    calendarDays: generatedPlan.length,
+                    isEdited: true,
+                    planSummary: generatedPlan.map(p => ({
+                        day: p.day,
+                        subject: p.subject,
+                        work: p.work,
+                        isRevision: p.isRevision,
+                        cum: p.cum
+                    }))
+                };
+                saveSession(newSession);
+                showToast('✅ Changes saved as a new session!', 'success');
+            }
+
+            const studyDates = generatedPlan.map(p => p.date).filter(d => d);
+            if (studyDates.length === 0) {
+                const start = new Date(startDateInput.value);
+                const dates = [];
+                for (let i = 0; i < generatedPlan.length; i++) {
+                    const d = new Date(start);
+                    d.setDate(d.getDate() + i);
+                    dates.push(d);
+                }
+                renderPlan(generatedPlan, dates, userName, userCityInput.value.trim() || 'N/A');
+            } else {
+                renderPlan(generatedPlan, studyDates, userName, userCityInput.value.trim() || 'N/A');
+            }
+
+            if (editMode) {
+                document.querySelectorAll('#plannerTable .editable-cell').forEach(el => {
+                    el.contentEditable = true;
+                });
+            }
+
+            if (showAdmin && isAdminUnlocked) renderAdmin();
+        }
+
+        // ============================================================
+        //  UPDATE SUMMARY
+        // ============================================================
+        function updateSummary(calDays, studyDays, contentDays, revisionDays) {
+            calDaysSpan.textContent = calDays;
+            studyDaysSpan.textContent = studyDays;
+            contentDaysSpan.textContent = contentDays;
+            bufferDisplaySpan.textContent = revisionDays;
+            if (studyDays > 0 && contentDays === 0) {
+                warningMsg.textContent = '⚠️ No content days (all subjects exempted?)';
+            } else if (studyDays < contentDays) {
+                warningMsg.textContent = '⚠️ Study days less than content days — schedule compressed.';
+            } else {
+                warningMsg.textContent = '';
+            }
+        }
+
+        // ============================================================
+        //  ADMIN DASHBOARD
+        // ============================================================
+        function renderAdmin() {
+            if (!isAdminUnlocked) return;
+            loadSessions();
+            const searchTerm = adminSearch.value.toLowerCase();
+            const filterGroup = adminFilterGroup.value;
+
+            let filtered = sessions;
+            if (searchTerm) {
+                filtered = filtered.filter(s =>
+                    s.userName?.toLowerCase().includes(searchTerm) ||
+                    s.userCity?.toLowerCase().includes(searchTerm) ||
+                    s.startDate?.includes(searchTerm) ||
+                    s.examDate?.includes(searchTerm) ||
+                    s.exemptSubjects?.join(',').toLowerCase().includes(searchTerm) ||
+                    s.group?.toLowerCase().includes(searchTerm)
+                );
+            }
+            if (filterGroup !== 'all') {
+                filtered = filtered.filter(s => s.group === filterGroup);
+            }
+
+            document.getElementById('statTotal').textContent = sessions.length;
+            const uniqueUsers = new Set(sessions.map(s => s.userName).filter(Boolean));
+            document.getElementById('statUsers').textContent = uniqueUsers.size;
+            const avgDays = sessions.length > 0 ? Math.round(sessions.reduce((a, s) => a + (s.studyDays || 0), 0) / sessions
+                .length) : 0;
+            document.getElementById('statAvgDays').textContent = avgDays;
+
+            const exemptCount = {};
+            sessions.forEach(s => {
+                (s.exemptSubjects || []).forEach(sub => {
+                    exemptCount[sub] = (exemptCount[sub] || 0) + 1;
+                });
+            });
+            let mostExempt = 'None';
+            let maxCount = 0;
+            for (const [sub, count] of Object.entries(exemptCount)) {
+                if (count > maxCount) { maxCount = count;
+                    mostExempt = sub; }
+            }
+            document.getElementById('statExempt').textContent = mostExempt;
+
+            if (filtered.length === 0) {
+                adminTableBody.innerHTML =
+                    `<tr><td colspan="14" class="admin-empty">${sessions.length === 0 ? 'No sessions found. Generate a planner first!' : 'No matches found.'}</td></tr>`;
+                return;
+            }
+
+            let html = '';
+            filtered.forEach((s, idx) => {
+                const offDaysStr = s.offDays ? getOffDaysLabels(s.offDays) : '—';
+                const exemptStr = s.exemptSubjects?.length ? s.exemptSubjects.join(', ') : 'None';
+                const editBadge = s.isEdited ? '✅' : '—';
+                html += `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td style="font-size:12px;">${formatDateTime(s.createdAt)}</td>
+                        <td><strong>${s.userName || 'N/A'}</strong></td>
+                        <td>${s.userCity || 'N/A'}</td>
+                        <td><span class="badge">${s.group || 'FOUNDATION'}</span></td>
+                        <td>${s.startDate ? formatDateShort(s.startDate) : '—'} → ${s.examDate ? formatDateShort(s.examDate) : '—'}</td>
+                        <td>${s.bufferDays ?? 0}</td>
+                        <td style="font-size:12px;">${offDaysStr}</td>
+                        <td style="font-size:12px;">${exemptStr}</td>
+                        <td>${s.studyDays ?? 0}</td>
+                        <td>${s.contentDays ?? 0}</td>
+                        <td>${s.revisionDays ?? 0}</td>
+                        <td>${editBadge}</td>
+                        <td>
+                            <button class="btn-sm danger" onclick="deleteSession(${s.id})">🗑️</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            adminTableBody.innerHTML = html;
+        }
+
+        // ============================================================
+        //  EXPORT CSV
+        // ============================================================
+        function exportCsv() {
+            loadSessions();
+            if (sessions.length === 0) {
+                showToast('No sessions to export', 'error');
+                return;
+            }
+
+            const headers = ['ID', 'Created', 'Name', 'City', 'Group', 'Start Date', 'Exam Date', 'Buffer Days',
+                'Off Days', 'Exemptions', 'Study Days', 'Content Days', 'Revision Days', 'Edited'
+            ];
+            const rows = sessions.map(s => [
+                s.id,
+                s.createdAt,
+                s.userName || '',
+                s.userCity || '',
+                s.group || '',
+                s.startDate || '',
+                s.examDate || '',
+                s.bufferDays ?? 0,
+                s.offDays ? getOffDaysLabels(s.offDays) : '',
+                (s.exemptSubjects || []).join('; '),
+                s.studyDays ?? 0,
+                s.contentDays ?? 0,
+                s.revisionDays ?? 0,
+                s.isEdited ? 'Yes' : 'No'
+            ]);
+
+            let csv = headers.join(',') + '\n';
+            rows.forEach(row => {
+                csv += row.map(v => `"${v}"`).join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `CA_Aspirants_2026_Sessions_${new Date().toISOString().slice(0,10)}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('CSV exported successfully!', 'success');
+        }
+
+        // ============================================================
+        //  PDF EXPORT
+        // ============================================================
+        function exportPdf() {
+            if (editMode) toggleEditMode();
+
+            const element = document.getElementById('plannerWrap');
+            const btn = downloadPdfBtn;
+            const origText = btn.innerHTML;
+            btn.innerHTML = '<span class="spinner"></span> Generating PDF…';
+            btn.disabled = true;
+
+            const wm = element.querySelector('.watermark-bg');
+            if (wm) wm.style.display = 'none';
+
+            const clone = element.cloneNode(true);
+            const cloneWm = clone.querySelector('.watermark-bg');
+            if (cloneWm) cloneWm.style.display = 'none';
+            clone.style.position = 'absolute';
+            clone.style.left = '-9999px';
+            clone.style.top = '0';
+            clone.style.width = element.offsetWidth + 'px';
+            clone.style.background = '#ffffff';
+            clone.querySelectorAll('.editable-cell').forEach(el => el.contentEditable = 'false');
+            document.body.appendChild(clone);
+
+            html2canvas(clone, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#ffffff',
+                height: clone.scrollHeight,
+                width: clone.scrollWidth,
+                windowHeight: clone.scrollHeight,
+                windowWidth: clone.scrollWidth,
+                scrollY: 0,
+                scrollX: 0,
+                logging: false,
+            }).then(canvas => {
+                document.body.removeChild(clone);
+                if (wm) wm.style.display = '';
+
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+
+                const imgWidth = canvas.width;
+                const imgHeight = canvas.height;
+                const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                const scaledWidth = imgWidth * ratio;
+                const scaledHeight = imgHeight * ratio;
+
+                if (scaledHeight <= pdfHeight) {
+                    const xOffset = (pdfWidth - scaledWidth) / 2;
+                    const yOffset = (pdfHeight - scaledHeight) / 2;
+                    pdf.addImage(imgData, 'PNG', xOffset, yOffset, scaledWidth, scaledHeight);
+                } else {
+                    const pageHeightPx = imgWidth * (pdfHeight / pdfWidth);
+                    let totalPages = Math.ceil(imgHeight / pageHeightPx);
+
+                    for (let page = 0; page < totalPages; page++) {
+                        if (page > 0) pdf.addPage();
+                        const srcY = page * pageHeightPx;
+                        const srcH = Math.min(pageHeightPx, imgHeight - srcY);
+
+                        const sliceCanvas = document.createElement('canvas');
+                        sliceCanvas.width = imgWidth;
+                        sliceCanvas.height = srcH;
+                        const ctx = sliceCanvas.getContext('2d');
+                        ctx.drawImage(canvas, 0, srcY, imgWidth, srcH, 0, 0, imgWidth, srcH);
+
+                        const sliceData = sliceCanvas.toDataURL('image/png');
+                        const sliceRatio = Math.min(pdfWidth / imgWidth, pdfHeight / srcH);
+                        const sliceWidth = imgWidth * sliceRatio;
+                        const sliceHeight = srcH * sliceRatio;
+                        const xOff = (pdfWidth - sliceWidth) / 2;
+                        const yOff = (pdfHeight - sliceHeight) / 2;
+                        pdf.addImage(sliceData, 'PNG', xOff, yOff, sliceWidth, sliceHeight);
+                    }
+                }
+
+                const totalPagesFinal = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= totalPagesFinal; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(50);
+                    pdf.setTextColor(200, 200, 200);
+                    pdf.text('Wondermayank', pdfWidth / 2, pdfHeight / 2 - 10, { align: 'center', angle: -25 });
+                    pdf.setFontSize(18);
+                    pdf.text('wondermayank.in', pdfWidth / 2, pdfHeight / 2 + 20, { align: 'center', angle: -25 });
+                }
+
+                pdf.save('CA_Aspirants_2026_Foundation_Planner.pdf');
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            }).catch(err => {
+                console.error('PDF export error:', err);
+                if (wm) wm.style.display = '';
+                document.body.removeChild(clone);
+                alert('Error generating PDF. Please try again or use Print option.');
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            });
+        }
+
+        // ============================================================
+        //  DARK MODE
+        // ============================================================
+        function initDarkMode() {
+            const saved = localStorage.getItem('ca_planner_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', saved);
+            updateDarkIcon(saved);
+        }
+
+        function toggleDarkMode() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('ca_planner_theme', next);
+            updateDarkIcon(next);
+        }
+
+        function updateDarkIcon(theme) {
+            const sun  = document.querySelector('.btn-dark-toggle .icon-sun');
+            const moon = document.querySelector('.btn-dark-toggle .icon-moon');
+            if (!sun || !moon) return;
+            if (theme === 'dark') {
+                sun.style.display  = 'none';
+                moon.style.display = 'inline-block';
+            } else {
+                sun.style.display  = 'inline-block';
+                moon.style.display = 'none';
+            }
+        }
+
+        // ============================================================
+        //  COUNTDOWN TIMER
+        // ============================================================
+        function updateCountdown() {
+            const examDateStr = examDateInput.value;
+            if (!examDateStr) return;
+            const exam = new Date(examDateStr);
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            exam.setHours(0,0,0,0);
+            const diff = Math.ceil((exam - today) / (1000 * 60 * 60 * 24));
+            const badge = document.getElementById('countdownBadge');
+            const daysEl = document.getElementById('countdownDays');
+            if (!badge || !daysEl) return;
+            badge.style.display = 'block';
+            if (diff > 0) {
+                daysEl.textContent = diff;
+                badge.style.borderColor = diff <= 7 ? 'rgba(220,38,38,0.7)' : 'rgba(255,255,255,0.3)';
+            } else if (diff === 0) {
+                daysEl.textContent = '0';
+                badge.querySelector('div:first-child').textContent = 'Exam';
+                badge.querySelector('div:last-child').textContent  = 'Today!';
+            } else {
+                daysEl.textContent = Math.abs(diff);
+                badge.querySelector('div:first-child').textContent = 'Exam was';
+                badge.querySelector('div:last-child').textContent  = 'days ago';
+            }
+        }
+
+        // ============================================================
+        //  POMODORO TIMER
+        // ============================================================
+        function formatPomodoroTime(s) {
+            const m = Math.floor(s / 60).toString().padStart(2,'0');
+            const sec = (s % 60).toString().padStart(2,'0');
+            return `${m}:${sec}`;
+        }
+
+        function updatePomodoroUI() {
+            const disp  = document.getElementById('pomodoroDisplay');
+            const fill  = document.getElementById('pomodoroProgressFill');
+            const label = document.getElementById('pomodoroLabel');
+            const count = document.getElementById('pomodoroCount');
+            if (!disp) return;
+            disp.textContent = formatPomodoroTime(pomodoroSecondsLeft);
+            const pct = (pomodoroSecondsLeft / pomodoroTotalSeconds) * 100;
+            if (fill) fill.style.width = pct + '%';
+            if (count) count.textContent = `🍅 ×${pomodoroCount}`;
+        }
+
+        function pomodoroTick() {
+            pomodoroSecondsLeft--;
+            updatePomodoroUI();
+            if (pomodoroSecondsLeft <= 0) {
+                clearInterval(pomodoroInterval);
+                pomodoroRunning = false;
+                pomodoroCount++;
+                const startBtn = document.getElementById('pomodoroStartBtn');
+                if (startBtn) startBtn.textContent = 'Start';
+                updatePomodoroUI();
+                showToast('🍅 Pomodoro complete! Take a break.', 'success');
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    new Notification('Pomodoro Complete!', { body: 'Time for a break — great work!' });
+                }
+            }
+        }
+
+        function togglePomodoro() {
+            const btn = document.getElementById('pomodoroStartBtn');
+            if (!btn) return;
+            if (pomodoroRunning) {
+                clearInterval(pomodoroInterval);
+                pomodoroRunning = false;
+                btn.textContent = 'Resume';
+            } else {
+                pomodoroInterval = setInterval(pomodoroTick, 1000);
+                pomodoroRunning = true;
+                btn.textContent = 'Pause';
+                if ('Notification' in window && Notification.permission !== 'granted') {
+                    Notification.requestPermission();
+                }
+            }
+        }
+
+        function resetPomodoro() {
+            clearInterval(pomodoroInterval);
+            pomodoroRunning = false;
+            const activeBtn = document.querySelector('.pomo-mode-btn.active');
+            pomodoroTotalSeconds = activeBtn ? parseInt(activeBtn.dataset.mins) * 60 : 25 * 60;
+            pomodoroSecondsLeft = pomodoroTotalSeconds;
+            const startBtn = document.getElementById('pomodoroStartBtn');
+            if (startBtn) startBtn.textContent = 'Start';
+            updatePomodoroUI();
+        }
+
+        // ============================================================
+        //  WHATSAPP SHARE
+        // ============================================================
+        function shareWhatsApp() {
+            const name  = userNameInput.value.trim() || 'Student';
+            const exam  = examDateInput.value ? formatDate(new Date(examDateInput.value)) : '—';
+            const days  = generatedPlan.length;
+            const done  = Object.values(plannerChecks).filter(Boolean).length;
+            const pct   = days > 0 ? Math.round((done/days)*100) : 0;
+            const url   = window.location.href.split('?')[0];
+            const msg   = `📚 *CA Foundation Study Planner*\n👤 ${name}\n📅 Exam: ${exam}\n📋 Plan: ${days} study days\n✅ Progress: ${done}/${days} days (${pct}%)\n\n🔗 Plan it free: ${url}`;
+            window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+        }
+
+        // ============================================================
+        //  COPY AS TEXT
+        // ============================================================
+        function copyPlanAsText() {
+            if (!generatedPlan || generatedPlan.length === 0) {
+                showToast('No planner to copy', 'error');
+                return;
+            }
+            const name = userNameInput.value.trim() || 'Student';
+            const city = userCityInput.value.trim() || '';
+            let lines = [`CA Foundation Study Planner – ${name}${city ? ' (' + city + ')' : ''}`];
+            lines.push('='.repeat(60));
+            for (const item of generatedPlan) {
+                const check = plannerChecks[item.day] ? '[✓]' : '[ ]';
+                const note  = plannerNotes[item.day]  ? `  | Note: ${plannerNotes[item.day]}` : '';
+                lines.push(`${check} Day ${String(item.day).padStart(2,'0')} | ${item.dateStr} | ${item.subject.padEnd(22)} | ${item.work}${note}`);
+            }
+            lines.push('');
+            lines.push('Generated by Wondermayank · wondermayank.in');
+            const text = lines.join('\n');
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('✅ Planner copied to clipboard!', 'success');
+            }).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('✅ Planner copied!', 'success');
+            });
+        }
+
+        // ============================================================
+        //  ICAL / GOOGLE CALENDAR EXPORT
+        // ============================================================
+        function exportIcal() {
+            if (!generatedPlan || generatedPlan.length === 0) {
+                showToast('No planner to export', 'error');
+                return;
+            }
+            function icsDate(d) {
+                const y = d.getFullYear();
+                const m = String(d.getMonth()+1).padStart(2,'0');
+                const day = String(d.getDate()).padStart(2,'0');
+                return `${y}${m}${day}`;
+            }
+            function icsStamp() {
+                return new Date().toISOString().replace(/[-:.]/g,'').slice(0,15)+'Z';
+            }
+
+            const name = userNameInput.value.trim() || 'Student';
+            let ics = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//CA Aspirants 2026//CA Foundation Planner//EN',
+                'CALSCALE:GREGORIAN',
+                'METHOD:PUBLISH',
+                'X-WR-CALNAME:CA Foundation – ' + name,
+                'X-WR-TIMEZONE:Asia/Kolkata',
+            ];
+
+            for (const item of generatedPlan) {
+                if (!item.date) continue;
+                const d = new Date(item.date);
+                const uid = `ca-foundation-day${item.day}-${icsDate(d)}@wondermayank`;
+                ics.push('BEGIN:VEVENT');
+                ics.push('DTSTART;VALUE=DATE:' + icsDate(d));
+                ics.push('DTEND;VALUE=DATE:' + icsDate(new Date(d.getTime() + 86400000)));
+                ics.push('DTSTAMP:' + icsStamp());
+                ics.push('UID:' + uid);
+                ics.push('SUMMARY:CA Day ' + item.day + ' – ' + item.subject);
+                ics.push('DESCRIPTION:' + item.work.replace(/,/g,'\\,') + (item.cum ? '\\nCumulative: ' + item.cum : ''));
+                ics.push('CATEGORIES:Study,CA Foundation');
+                ics.push('STATUS:CONFIRMED');
+                ics.push('END:VEVENT');
+            }
+            ics.push('END:VCALENDAR');
+
+            const blob = new Blob([ics.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+            const url  = URL.createObjectURL(blob);
+            const a    = document.createElement('a');
+            a.href     = url;
+            a.download = `CA_Foundation_Planner_${name.replace(/\s+/g,'_')}.ics`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('✅ Calendar file downloaded! Import to Google Calendar.', 'success');
+        }
+
+        // ============================================================
+        //  MOBILE SWIPE GESTURES (week navigation)
+        // ============================================================
+        let swipeStartX = 0;
+        let swipeStartY = 0;
+
+        function initSwipeGestures() {
+            const wrap = document.getElementById('plannerWrap');
+            if (!wrap) return;
+            wrap.addEventListener('touchstart', e => {
+                swipeStartX = e.touches[0].clientX;
+                swipeStartY = e.touches[0].clientY;
+            }, { passive: true });
+            wrap.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - swipeStartX;
+                const dy = e.changedTouches[0].clientY - swipeStartY;
+                if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+                    scrollPlannerByWeek(dx < 0 ? 1 : -1);
+                }
+            }, { passive: true });
+        }
+
+        function scrollPlannerByWeek(direction) {
+            // Find next/prev week boundary and scroll to that row
+            const rows = document.querySelectorAll('#plannerTable tbody tr');
+            if (!rows.length) return;
+            const wrap = document.getElementById('plannerWrap');
+            const wrapTop = wrap.getBoundingClientRect().top;
+            const currentScroll = wrap.scrollTop;
+            const targetDelta = direction * wrap.clientHeight * 0.85;
+            wrap.scrollBy({ top: targetDelta, behavior: 'smooth' });
+            showToast(direction > 0 ? '→ Next section' : '← Previous section', 'info');
+        }
+
+        // ============================================================
+        //  TOGGLE ADMIN (hidden — admin button removed from header)
+        // ============================================================
+        function toggleAdmin() {
+            // Admin button removed — no-op stub kept for compatibility
+        }
+
+        // ============================================================
+        //  UPDATE PASSWORD
+        // ============================================================
+        function updatePassword() {
+            const newPwd = newPasswordInput.value.trim();
+            if (!newPwd) {
+                showToast('Password cannot be empty', 'error');
+                return;
+            }
+            setAdminPassword(newPwd);
+            newPasswordInput.value = '';
+            showToast('✅ Admin password updated successfully!', 'success');
+        }
+
+        // ============================================================
+        //  RESET DEFAULTS
+        // ============================================================
+        function resetDefaults() {
+            startDateInput.value = '2026-07-04';
+            examDateInput.value = '2026-08-25';
+            bufferDaysInput.value = 2;
+            weekdaysCheckboxes.forEach(chk => {
+                chk.checked = (chk.value === '6');
+            });
+            exemptSubjects = [];
+            renderExemptions();
+            showCumulativeCheck.checked = true;
+            generatePlanner(true);
+        }
+
+        // ============================================================
+        //  EVENT BINDING
+        // ============================================================
+        generateBtn.addEventListener('click', () => generatePlanner(true));
+        resetBtn.addEventListener('click', resetDefaults);
+        printBtn.addEventListener('click', () => window.print());
+        downloadPdfBtn.addEventListener('click', exportPdf);
+        editToggleBtn.addEventListener('click', toggleEditMode);
+        saveEditsBtn.addEventListener('click', savePlanEdits);
+        refreshAdminBtn.addEventListener('click', renderAdmin);
+        exportCsvBtn.addEventListener('click', exportCsv);
+        exportJsonBtn.addEventListener('click', exportJson);
+        importJsonInput.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                importJson(this.files[0]);
+                this.value = '';
+            }
+        });
+        clearAllBtn.addEventListener('click', clearAllSessions);
+        updatePasswordBtn.addEventListener('click', updatePassword);
+
+        adminSearch.addEventListener('input', renderAdmin);
+        adminFilterGroup.addEventListener('change', renderAdmin);
+
+        // New feature bindings
+        document.getElementById('darkToggleBtn').addEventListener('click', toggleDarkMode);
+        document.getElementById('whatsappShareBtn').addEventListener('click', shareWhatsApp);
+        document.getElementById('copyTextBtn').addEventListener('click', copyPlanAsText);
+        document.getElementById('exportIcalBtn').addEventListener('click', exportIcal);
+        document.getElementById('pomodoroStartBtn').addEventListener('click', togglePomodoro);
+        document.getElementById('pomodoroResetBtn').addEventListener('click', resetPomodoro);
+        document.querySelectorAll('.pomo-mode-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.pomo-mode-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                resetPomodoro();
+            });
+        });
+
+        examDateInput.addEventListener('change', updateCountdown);
+
+        // ============================================================
+        //  INIT
+        // ============================================================
+        const today = new Date();
+        startDateInput.value = '2026-07-04';
+        examDateInput.value = '2026-08-25';
+        bufferDaysInput.value = 2;
+        weekdaysCheckboxes.forEach(chk => {
+            chk.checked = (chk.value === '6');
+        });
+        renderExemptions();
+        showCumulativeCheck.checked = true;
+        loadSessions();
+        loadChecksAndNotes();
+        initDarkMode();
+        updatePomodoroUI();
+        updateCountdown();
+
+        setTimeout(() => {
+            generatePlanner(true);
+            initSwipeGestures();
+        }, 200);
+
+        window.deleteSession = deleteSession;
+    </script>
+
+</body>
+</html>

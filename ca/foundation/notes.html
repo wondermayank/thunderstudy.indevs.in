@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CA Foundation Notes – Free Study Material | ThunderStudy</title>
+  <meta name="description" content="Free CA Foundation notes for all 4 subjects — Accounts, Business Law, Quantitative Aptitude, and Business Economics. Chapter-wise PDF download by ThunderStudy." />
+  <meta property="og:title" content="CA Foundation Notes – Free Study Material | ThunderStudy" />
+  <meta property="og:description" content="Chapter-wise PDF notes for CA Foundation — Accounts, Business Law, QA, and Business Economics. Free, no login." />
+  <meta property="og:url" content="https://thunderstudy.github.io/ca-notes" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://commercesehoga.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CA Foundation Notes | ThunderStudy" />
+  <meta name="twitter:description" content="Free chapter-wise PDF notes for CA Foundation exams." />
+  <meta name="twitter:image" content="https://commercesehoga.github.io/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="https://commercesehoga.github.io/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "ThunderStudy",
+    "url": "https://thunderstudy.github.io",
+    "description": "Free CA Foundation notes and study material",
+    "offers": [
+      {"@type": "Offer", "name": "CA Foundation Accounts Notes", "price": "0"},
+      {"@type": "Offer", "name": "CA Foundation Business Law Notes", "price": "0"},
+      {"@type": "Offer", "name": "CA Foundation Quantitative Aptitude Notes", "price": "0"},
+      {"@type": "Offer", "name": "CA Foundation Business Economics Notes", "price": "0"}
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────────────── */
+    :root {
+      --primary:        #6699FB;
+      --primary-active: #4A7DE8;
+      --primary-light:  #B7D8FB;
+      --primary-xlight: #F5F5FF;
+      --ink:            #1d1d1f;
+      --body:           #3c3c3c;
+      --muted:          #6b6b6b;
+      --hairline:       #e6e6e6;
+      --canvas:         #ffffff;
+      --parchment:      #f5f5f7;
+      --surface-card:   #fafafa;
+      --on-primary:     #ffffff;
+      --success:        #22c55e;
+      --font:           'Inter', system-ui, -apple-system, sans-serif;
+    }
+    [data-theme="dark"] {
+      --primary:        #89B4FF;
+      --primary-active: #6B9BE0;
+      --primary-light:  #1e2d4a;
+      --primary-xlight: #0e1520;
+      --ink:            #f5f5f7;
+      --body:           #d1d1d6;
+      --muted:          #8e8e93;
+      --hairline:       #2c2c2e;
+      --canvas:         #0e0e10;
+      --parchment:      #161618;
+      --surface-card:   #1c1c1e;
+    }
+
+    /* ── RESET ───────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--canvas);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.5;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+
+    /* ── LOADING SCREEN ─────────────────────────────────────────────── */
+    #loader {
+      position: fixed; inset: 0;
+      background: var(--canvas);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    .loader-inner {
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .loader-ring {
+      width: 52px; height: 52px;
+    }
+    .loader-ring circle {
+      stroke: var(--primary);
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      transform-origin: center;
+      animation: ringDraw 1.2s cubic-bezier(0.4,0,0.2,1) forwards,
+                 ringRotate 1.4s linear 1.2s infinite;
+    }
+    @keyframes ringDraw {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes ringRotate {
+      to { transform: rotate(360deg); }
+    }
+    .loader-label {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 64px;
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hairline);
+      display: flex; align-items: center;
+      padding: 0 24px;
+      gap: 12px;
+      backdrop-filter: blur(20px) saturate(180%);
+      transition: background 0.25s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 17px; font-weight: 700; color: var(--ink);
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-badge {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--on-primary);
+      background: var(--primary); border-radius: 9999px;
+      padding: 2px 8px; margin-left: 4px;
+    }
+    .nav-spacer { flex: 1; }
+    .nav-theme-btn {
+      width: 44px; height: 44px; border-radius: 9999px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+    .nav-theme-btn:hover { background: var(--parchment); }
+
+    /* ── SCREENS ─────────────────────────────────────────────────────── */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    /* ── SCREEN 1 — SUBJECTS ─────────────────────────────────────────── */
+    .hero {
+      background: var(--primary-xlight);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 5vw, 48px); font-weight: 700;
+      line-height: 1.1; letter-spacing: -0.2px; color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .hero-sub {
+      font-size: 17px; font-weight: 400; color: var(--muted);
+      max-width: 480px; margin: 0 auto;
+    }
+
+    .subjects-section {
+      padding: 56px 24px 72px;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .section-label {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 28px; text-align: center;
+    }
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .subject-card {
+      background: var(--surface-card);
+      border: 1px solid var(--hairline);
+      border-radius: 18px;
+      padding: 28px 24px 24px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: flex; flex-direction: column; gap: 12px;
+      text-align: left;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .subject-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .subject-card:active { transform: scale(0.97); }
+    .subject-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .subject-code {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--primary);
+    }
+    .subject-name {
+      font-size: 18px; font-weight: 700; color: var(--ink);
+      line-height: 1.25;
+    }
+    .subject-count {
+      font-size: 14px; color: var(--muted);
+    }
+    .subject-cta {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--primary);
+      margin-top: 4px;
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    /* Card accent colors */
+    .card-ac .subject-icon  { background: #EEF2FF; }
+    .card-bl .subject-icon  { background: #FFF7ED; }
+    .card-qa .subject-icon  { background: #F0FDF4; }
+    .card-be .subject-icon  { background: #FFF1F2; }
+    [data-theme="dark"] .card-ac .subject-icon { background: #1e2340; }
+    [data-theme="dark"] .card-bl .subject-icon { background: #2a1f10; }
+    [data-theme="dark"] .card-qa .subject-icon { background: #0f2a18; }
+    [data-theme="dark"] .card-be .subject-icon { background: #2a0f14; }
+
+    /* ── SCREEN 2 — CHAPTERS ─────────────────────────────────────────── */
+    .chapters-page { min-height: 100vh; }
+
+    .chapters-header {
+      background: var(--parchment);
+      border-bottom: 1px solid var(--hairline);
+      padding: 24px 24px 20px;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600; color: var(--primary);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      background: var(--canvas);
+      border: 1px solid var(--hairline);
+      transition: background 0.15s, border-color 0.15s;
+      margin-bottom: 20px;
+    }
+    .back-btn:hover { background: var(--primary-xlight); border-color: var(--primary-light); }
+    .back-btn:active { transform: scale(0.96); }
+
+    .subject-hero-row {
+      display: flex; align-items: center; gap: 16px;
+      flex-wrap: wrap;
+    }
+    .subject-hero-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .subject-hero-text {}
+    .subject-hero-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .subject-hero-name {
+      font-size: 26px; font-weight: 700; color: var(--ink);
+      line-height: 1.2;
+    }
+    .subject-hero-sub {
+      font-size: 14px; color: var(--muted); margin-top: 4px;
+    }
+
+    .chapters-body {
+      max-width: 760px; margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .chapters-list-label {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .chapter-item {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--surface-card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.2s, transform 0.15s, background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .chapter-item:hover {
+      border-color: var(--primary-light);
+      background: var(--primary-xlight);
+    }
+    .chapter-item:active { transform: scale(0.98); }
+    .chapter-num {
+      width: 36px; height: 36px; border-radius: 9999px;
+      background: var(--primary-xlight);
+      color: var(--primary);
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .chapter-item:hover .chapter-num {
+      background: var(--primary);
+      color: #fff;
+    }
+    .chapter-title {
+      flex: 1;
+      font-size: 15px; font-weight: 600; color: var(--ink);
+      line-height: 1.4;
+    }
+    .chapter-dl {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--primary);
+      flex-shrink: 0;
+    }
+    .chapter-dl svg { flex-shrink: 0; }
+
+    /* ── FOOTER ─────────────────────────────────────────────────────── */
+    footer {
+      background: var(--parchment);
+      border-top: 1px solid var(--hairline);
+      padding: 48px 24px 32px;
+    }
+    .footer-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      margin-bottom: 32px;
+    }
+    .footer-col-title {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block; font-size: 14px; color: var(--muted);
+      margin-bottom: 8px; transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-copy {
+      max-width: 900px; margin: 0 auto;
+      text-align: center; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--hairline); padding-top: 24px;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .subjects-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .subject-card  { padding: 20px 16px 18px; }
+      .footer-grid   { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 420px) {
+      .subjects-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader" role="status" aria-label="Loading">
+  <div class="loader-inner">
+    <svg class="loader-ring" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="22" />
+    </svg>
+    <span class="loader-label">ThunderStudy</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <rect width="28" height="28" rx="8" fill="var(--primary)"/>
+      <path d="M8 7h8l-3 6h5l-8 8 2-7H8l2-7z" fill="#fff"/>
+    </svg>
+    ThunderStudy
+    <span class="nav-badge">CA Foundation</span>
+  </div>
+  <div class="nav-spacer"></div>
+  <button class="nav-theme-btn" id="themeToggle" aria-label="Toggle dark mode">
+    <svg id="iconSun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg id="iconMoon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- ── SCREEN 1: SUBJECTS ──────────────────────────────────────────── -->
+<main id="screen-subjects" class="screen active" aria-label="Subject selection">
+
+  <section class="hero">
+    <p class="hero-eyebrow">Free PDF Notes</p>
+    <h1 class="hero-title">CA Foundation Notes</h1>
+    <p class="hero-sub">Chapter-wise PDF notes for all 4 subjects. Free to download, no login required.</p>
+  </section>
+
+  <section class="subjects-section">
+    <p class="section-label">Choose a Subject</p>
+    <div class="subjects-grid" role="list">
+
+      <!-- Accounts -->
+      <div class="subject-card card-ac" role="listitem" tabindex="0"
+           onclick="openSubject('ac')" onkeydown="if(event.key==='Enter')openSubject('ac')"
+           aria-label="Accounts - 10 chapters">
+        <div class="subject-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            <line x1="6" y1="8" x2="10" y2="8"/><line x1="6" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <span class="subject-code">AC</span>
+        <span class="subject-name">Accounts</span>
+        <span class="subject-count">10 Chapters</span>
+        <span class="subject-cta">View Chapters ›</span>
+      </div>
+
+      <!-- Business Law -->
+      <div class="subject-card card-bl" role="listitem" tabindex="0"
+           onclick="openSubject('bl')" onkeydown="if(event.key==='Enter')openSubject('bl')"
+           aria-label="Business Law - 5 chapters">
+        <div class="subject-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z"/>
+          </svg>
+        </div>
+        <span class="subject-code">BL</span>
+        <span class="subject-name">Business Law</span>
+        <span class="subject-count">5 Chapters</span>
+        <span class="subject-cta">View Chapters ›</span>
+      </div>
+
+      <!-- Quantitative Aptitude -->
+      <div class="subject-card card-qa" role="listitem" tabindex="0"
+           onclick="openSubject('qa')" onkeydown="if(event.key==='Enter')openSubject('qa')"
+           aria-label="Quantitative Aptitude - 24 chapters">
+        <div class="subject-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <span class="subject-code">QA</span>
+        <span class="subject-name">Quantitative Aptitude</span>
+        <span class="subject-count">24 Chapters</span>
+        <span class="subject-cta">View Chapters ›</span>
+      </div>
+
+      <!-- Business Economics -->
+      <div class="subject-card card-be" role="listitem" tabindex="0"
+           onclick="openSubject('be')" onkeydown="if(event.key==='Enter')openSubject('be')"
+           aria-label="Business Economics - 10 chapters">
+        <div class="subject-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <span class="subject-code">BE</span>
+        <span class="subject-name">Business Economics</span>
+        <span class="subject-count">10 Chapters</span>
+        <span class="subject-cta">View Chapters ›</span>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-col-title">Thunder</p>
+        <a href="https://commercesehoga.github.io/">ThunderStudy</a>
+        <a href="https://commercesehoga.github.io/dashboard">CBT Mock Platform</a>
+        <a href="https://thunderstudy.github.io">Free Study Material</a>
+        <a href="https://commercesehoga.github.io/help">Help / Donate</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">wondermayank</p>
+        <a href="https://wondermayank.github.io">Portfolio</a>
+        <a href="https://wondermayank.github.io/">wondermayank.github.io</a>
+        <a href="https://wondermayank.github.io/mail">Mail</a>
+        <a href="https://wondermayank.github.io/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Legal</p>
+        <a href="https://wondermayank.github.io/terms">Terms</a>
+        <a href="https://wondermayank.github.io/privacy">Privacy</a>
+        <a href="https://wondermayank.github.io/disclaimer">Disclaimer</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 Thunder · by wondermayank</p>
+  </footer>
+
+</main>
+
+<!-- ── SCREEN 2: CHAPTERS ──────────────────────────────────────────── -->
+<div id="screen-chapters" class="screen" aria-label="Chapter list" role="main">
+  <div class="chapters-page">
+    <div class="chapters-header">
+      <button class="back-btn" onclick="goBack()" aria-label="Back to subjects">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        All Subjects
+      </button>
+      <div class="subject-hero-row">
+        <div class="subject-hero-icon" id="chapSubjectIcon"></div>
+        <div class="subject-hero-text">
+          <p class="subject-hero-label" id="chapSubjectCode"></p>
+          <h1 class="subject-hero-name" id="chapSubjectName"></h1>
+          <p class="subject-hero-sub" id="chapSubjectSub"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapters-body">
+      <p class="chapters-list-label">All Chapters</p>
+      <div id="chaptersList" role="list"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── DATA ─────────────────────────────────────────────────── */
+  const SUBJECTS = {
+    ac: {
+      code: 'AC',
+      name: 'Accounts',
+      color: '#6366F1',
+      bg: '#EEF2FF',
+      bgDark: '#1e2340',
+      icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="6" y1="8" x2="10" y2="8"/><line x1="6" y1="11" x2="14" y2="11"/></svg>`,
+      chapters: [
+        'Theoretical Framework',
+        'Accounting Process',
+        'Bank Reconciliation Statement',
+        'Inventories',
+        'Concept & Accounting of Depreciation',
+        'Bills of Exchange and Promissory Notes',
+        'Preparation of Final Accounts of Sole Proprietors',
+        'Financial Statements of Not For-Profit Organizations',
+        'Partnership Accounts',
+        'Company Accounts',
+      ]
+    },
+    bl: {
+      code: 'BL',
+      name: 'Business Law',
+      color: '#F97316',
+      bg: '#FFF7ED',
+      bgDark: '#2a1f10',
+      icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z"/></svg>`,
+      chapters: [
+        'The Indian Contract Act, 1872',
+        'The Sale Of Goods Act, 1930',
+        'The Indian Partnership Act, 1932',
+        'The Limited Liability Partnership Act, 2008',
+        'The Companies Act, 2013',
+      ]
+    },
+    qa: {
+      code: 'QA',
+      name: 'Quantitative Aptitude',
+      color: '#16A34A',
+      bg: '#F0FDF4',
+      bgDark: '#0f2a18',
+      icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+      chapters: [
+        'Ratio, Proportion & Partnership',
+        'Indices, Surds And Logarithms',
+        'Equations',
+        'Time Value Of Money',
+        'Permutation And Combination',
+        'Sequences And Series',
+        'Set Theory, Relations And Functions',
+        'Limits & Continuity',
+        'Differential Calculus',
+        'Number Series, Coding And Decoding And Odd Man Out',
+        'Direction Sense Test',
+        'Seating Arrangement',
+        'Blood Relation',
+        'Statistical Description Of Data (Introduction To Statistics)',
+        'Sampling Theory',
+        'Measures Of Central Tendency (Averages Of First Order)',
+        'Measures Of Dispersion (Average Of Second Order)',
+        'Correlation Analysis',
+        'Regression Analysis',
+        'Index Numbers',
+        'Probability Theory Of Chance',
+        'Random Variable Theory Of Expectation',
+        'Theoretical Distribution',
+      ]
+    },
+    be: {
+      code: 'BE',
+      name: 'Business Economics',
+      color: '#E11D48',
+      bg: '#FFF1F2',
+      bgDark: '#2a0f14',
+      icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+      chapters: [
+        'Nature & Scope of Business Economics',
+        'Theory of Demand and Supply',
+        'Theory of Production and Cost',
+        'Price Determination in Different Markets',
+        'Business Cycles',
+        'Determination of National Income',
+        'Public Finance',
+        'Money Market',
+        'International Trade',
+        'Indian Economy',
+      ]
+    }
+  };
+
+  const BASE_URL = 'https://thunderstudy.github.io/ca_notes/';
+
+  /* ── THEME ────────────────────────────────────────────────── */
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('thunder-theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('thunder-theme', next);
+    updateThemeIcon(next);
+  });
+
+  function updateThemeIcon(theme) {
+    document.getElementById('iconSun').style.display  = theme === 'dark'  ? 'block' : 'none';
+    document.getElementById('iconMoon').style.display = theme === 'light' ? 'block' : 'none';
+  }
+
+  /* ── LOADER ───────────────────────────────────────────────── */
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 450);
+    }, 600);
+  });
+
+  /* ── NAVIGATION ───────────────────────────────────────────── */
+  function openSubject(key) {
+    const s = SUBJECTS[key];
+    if (!s) return;
+
+    // Populate header
+    const icon = document.getElementById('chapSubjectIcon');
+    icon.innerHTML = s.icon;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    icon.style.background = isDark ? s.bgDark : s.bg;
+
+    document.getElementById('chapSubjectCode').textContent = s.code;
+    document.getElementById('chapSubjectName').textContent = s.name;
+    document.getElementById('chapSubjectSub').textContent =
+      `${s.chapters.length} chapters · PDF notes · Free download`;
+
+    // Build chapter list
+    const list = document.getElementById('chaptersList');
+    list.innerHTML = '';
+    s.chapters.forEach((title, i) => {
+      const num = i + 1;
+      const url = `${BASE_URL}${key}${num}.pdf`;
+
+      const item = document.createElement('a');
+      item.href = url;
+      item.target = '_blank';
+      item.rel = 'noopener noreferrer';
+      item.className = 'chapter-item';
+      item.setAttribute('role', 'listitem');
+      item.setAttribute('aria-label', `Chapter ${num}: ${title} — Download PDF`);
+
+      item.innerHTML = `
+        <div class="chapter-num">${num}</div>
+        <span class="chapter-title">${title}</span>
+        <span class="chapter-dl">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          PDF
+        </span>
+      `;
+      list.appendChild(item);
+    });
+
+    // Switch screens
+    document.getElementById('screen-subjects').classList.remove('active');
+    document.getElementById('screen-chapters').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function goBack() {
+    document.getElementById('screen-chapters').classList.remove('active');
+    document.getElementById('screen-subjects').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  // Update icon bg on theme change for open chapter screen
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const icon = document.getElementById('chapSubjectIcon');
+    // re-read current subject from DOM if visible
+    if (document.getElementById('screen-chapters').classList.contains('active')) {
+      const code = document.getElementById('chapSubjectCode').textContent.toLowerCase();
+      const s = SUBJECTS[code];
+      if (s) {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        icon.style.background = isDark ? s.bgDark : s.bg;
+      }
+    }
+  });
+</script>
+</body>
+</html>

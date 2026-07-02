@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CA Inter – Notes & PYQs | ThunderStudy</title>
+  <meta name="description" content="Free CA Inter study material — chapter-wise notes and previous year questions (PYQs). No login required. By ThunderStudy." />
+  <meta property="og:title" content="CA Inter – Notes & PYQs | ThunderStudy" />
+  <meta property="og:description" content="Free CA Inter notes and PYQs. Chapter-wise PDFs, no login needed." />
+  <meta property="og:url" content="https://thunderstudy.github.io/ca/inter" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://commercesehoga.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CA Inter – Notes & PYQs | ThunderStudy" />
+  <meta name="twitter:description" content="Free CA Inter notes and PYQs. No login." />
+  <meta name="twitter:image" content="https://commercesehoga.github.io/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="https://commercesehoga.github.io/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"EducationalOrganization","name":"ThunderStudy","url":"https://thunderstudy.github.io","description":"Free CA Inter notes and PYQs"}
+  </script>
+  <style>
+    :root {
+      --primary:        #6699FB;
+      --primary-active: #4A7DE8;
+      --primary-light:  #B7D8FB;
+      --primary-xlight: #F0F4FF;
+      --ink:            #1d1d1f;
+      --body:           #3c3c3c;
+      --muted:          #6b6b6b;
+      --hairline:       #e6e6e6;
+      --canvas:         #ffffff;
+      --parchment:      #f5f5f7;
+      --surface-card:   #fafafa;
+      --on-primary:     #ffffff;
+      --font:           'Inter', system-ui, -apple-system, sans-serif;
+    }
+    [data-theme="dark"] {
+      --primary:        #89B4FF;
+      --primary-active: #6B9BE0;
+      --primary-light:  #1e2d4a;
+      --primary-xlight: #0e1520;
+      --ink:            #f5f5f7;
+      --body:           #d1d1d6;
+      --muted:          #8e8e93;
+      --hairline:       #2c2c2e;
+      --canvas:         #0e0e10;
+      --parchment:      #161618;
+      --surface-card:   #1c1c1e;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font); background: var(--canvas); color: var(--ink);
+      min-height: 100vh; display: flex; flex-direction: column;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+
+    /* LOADER */
+    #loader {
+      position: fixed; inset: 0; background: var(--canvas);
+      display: flex; align-items: center; justify-content: center; z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    .loader-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .loader-ring { width: 48px; height: 48px; }
+    .loader-ring circle {
+      stroke: var(--primary); stroke-width: 3; fill: none; stroke-linecap: round;
+      stroke-dasharray: 120; stroke-dashoffset: 120; transform-origin: center;
+      animation: ringDraw 1.1s cubic-bezier(0.4,0,0.2,1) forwards, ringRotate 1.4s linear 1.1s infinite;
+    }
+    @keyframes ringDraw { to { stroke-dashoffset: 0; } }
+    @keyframes ringRotate { to { transform: rotate(360deg); } }
+    .loader-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+    /* NAV */
+    nav {
+      height: 64px; background: var(--canvas); border-bottom: 1px solid var(--hairline);
+      display: flex; align-items: center; padding: 0 24px; gap: 12px; position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(20px) saturate(180%);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--ink); }
+    .nav-spacer { flex: 1; }
+    .nav-theme-btn {
+      width: 44px; height: 44px; border-radius: 9999px;
+      display: flex; align-items: center; justify-content: center; color: var(--ink);
+      transition: background 0.2s;
+    }
+    .nav-theme-btn:hover { background: var(--parchment); }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: 14px 24px; font-size: 13px; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+      border-bottom: 1px solid var(--hairline); background: var(--parchment);
+    }
+    .breadcrumb a { color: var(--primary); font-weight: 600; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { color: var(--muted); }
+
+    /* HERO */
+    .hero {
+      background: var(--primary-xlight);
+      padding: 56px 24px 48px; text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(26px, 5vw, 44px); font-weight: 700;
+      line-height: 1.1; letter-spacing: -0.2px; color: var(--ink); margin-bottom: 12px;
+    }
+    .hero-title span { color: var(--primary); }
+    .hero-sub { font-size: 16px; color: var(--muted); max-width: 440px; margin: 0 auto; }
+
+    /* CARDS SECTION */
+    .cards-section {
+      flex: 1; padding: 56px 24px 72px;
+      display: flex; flex-direction: column; align-items: center; gap: 40px;
+    }
+    .cards-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+    }
+    .cards-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      width: 100%; max-width: 640px;
+    }
+    .resource-card {
+      background: var(--surface-card); border: 1px solid var(--hairline); border-radius: 20px;
+      padding: 36px 28px 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+      text-decoration: none; color: var(--ink);
+      transition: border-color 0.2s, transform 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .resource-card:hover { border-color: var(--primary-light); transform: translateY(-3px); }
+    .resource-card:active { transform: scale(0.97); }
+    .rc-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .rc-icon-notes { background: #EEF2FF; }
+    .rc-icon-pyq   { background: #FFF7ED; }
+    [data-theme="dark"] .rc-icon-notes { background: #1e2340; }
+    [data-theme="dark"] .rc-icon-pyq   { background: #2a1f10; }
+    .rc-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--primary);
+    }
+    .rc-title { font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .rc-desc  { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .rc-cta {
+      margin-top: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1.3px;
+      text-transform: uppercase; color: var(--primary);
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    /* FOOTER */
+    footer { background: var(--parchment); border-top: 1px solid var(--hairline); padding: 44px 24px 28px; }
+    .footer-grid {
+      max-width: 860px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-bottom: 28px;
+    }
+    .footer-col-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+    .footer-col a { display: block; font-size: 13px; color: var(--muted); margin-bottom: 7px; transition: color 0.15s; }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-copy { max-width: 860px; margin: 0 auto; text-align: center; font-size: 11px; color: var(--muted); border-top: 1px solid var(--hairline); padding-top: 20px; }
+
+    @media (max-width: 520px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loader" role="status" aria-label="Loading">
+  <div class="loader-inner">
+    <svg class="loader-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"/></svg>
+    <span class="loader-label">ThunderStudy</span>
+  </div>
+</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <rect width="28" height="28" rx="8" fill="var(--primary)"/>
+      <path d="M8 7h8l-3 6h5l-8 8 2-7H8l2-7z" fill="#fff"/>
+    </svg>
+    ThunderStudy
+  </div>
+  <div class="nav-spacer"></div>
+  <button class="nav-theme-btn" id="themeToggle" aria-label="Toggle dark mode">
+    <svg id="iconSun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg id="iconMoon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+</nav>
+
+<div class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://thunderstudy.github.io/ca">CA</a>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+  <span>Inter</span>
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">CA Exam Prep</p>
+  <h1 class="hero-title">CA <span>Inter</span></h1>
+  <p class="hero-sub">Free notes and previous year questions. Chapter-wise PDFs, no login required.</p>
+</section>
+
+<main class="cards-section">
+  <p class="cards-label">Study Material</p>
+  <div class="cards-grid">
+
+    <a class="resource-card" href="https://thunderstudy.github.io/ca/inter/notes" aria-label="CA Inter Notes">
+      <div class="rc-icon rc-icon-notes">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <span class="rc-label">Study Notes</span>
+      <span class="rc-title">Notes</span>
+      <span class="rc-desc">Chapter-wise PDF notes for all 4 subjects — Accounts, Law, QA &amp; Economics.</span>
+      <span class="rc-cta">Open Notes ›</span>
+    </a>
+
+    <a class="resource-card" href="https://thunderstudy.github.io/ca/inter/pyqs" aria-label="CA Inter PYQs">
+      <div class="rc-icon rc-icon-pyq">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+      <span class="rc-label">Past Papers</span>
+      <span class="rc-title">PYQs</span>
+      <span class="rc-desc">Previous year question papers to practise exam patterns and boost your score.</span>
+      <span class="rc-cta">Open PYQs ›</span>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <p class="footer-col-title">Thunder</p>
+      <a href="https://commercesehoga.github.io/">ThunderStudy</a>
+      <a href="https://commercesehoga.github.io/dashboard">CBT Mock Platform</a>
+      <a href="https://thunderstudy.github.io">Free Study Material</a>
+      <a href="https://commercesehoga.github.io/help">Help / Donate</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">wondermayank</p>
+      <a href="https://wondermayank.indevs.in">Portfolio</a>
+      <a href="https://wondermayank.github.io/">wondermayank.github.io</a>
+      <a href="https://wondermayank.github.io/mail">Mail</a>
+      <a href="https://wondermayank.github.io/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Legal</p>
+      <a href="https://wondermayank.github.io/terms">Terms</a>
+      <a href="https://wondermayank.github.io/privacy">Privacy</a>
+      <a href="https://wondermayank.github.io/disclaimer">Disclaimer</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 Thunder · by wondermayank</p>
+</footer>
+
+<script>
+  const html = document.documentElement;
+  const saved = localStorage.getItem('thunder-theme') || 'light';
+  html.setAttribute('data-theme', saved);
+  updateIcon(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('thunder-theme', next);
+    updateIcon(next);
+  });
+  function updateIcon(t) {
+    document.getElementById('iconSun').style.display  = t === 'dark'  ? 'block' : 'none';
+    document.getElementById('iconMoon').style.display = t === 'light' ? 'block' : 'none';
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const l = document.getElementById('loader');
+      l.classList.add('hidden');
+      setTimeout(() => l.remove(), 450);
+    }, 550);
+  });
+</script>
+</body>
+</html>

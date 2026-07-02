@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Page Not Found | ThunderStudy</title>
+  <meta name="description" content="This page doesn't exist. Head back to ThunderStudy CA prep." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="https://commercesehoga.github.io/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:        #6699FB;
+      --primary-active: #4A7DE8;
+      --primary-light:  #B7D8FB;
+      --primary-xlight: #F0F4FF;
+      --ink:            #1d1d1f;
+      --body:           #3c3c3c;
+      --muted:          #6b6b6b;
+      --hairline:       #e6e6e6;
+      --canvas:         #ffffff;
+      --parchment:      #f5f5f7;
+      --surface-card:   #fafafa;
+      --on-primary:     #ffffff;
+      --font:           'Inter', system-ui, -apple-system, sans-serif;
+    }
+    [data-theme="dark"] {
+      --primary:        #89B4FF;
+      --primary-active: #6B9BE0;
+      --primary-light:  #1e2d4a;
+      --primary-xlight: #0e1520;
+      --ink:            #f5f5f7;
+      --body:           #d1d1d6;
+      --muted:          #8e8e93;
+      --hairline:       #2c2c2e;
+      --canvas:         #0e0e10;
+      --parchment:      #161618;
+      --surface-card:   #1c1c1e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font); background: var(--canvas); color: var(--ink);
+      min-height: 100vh; display: flex; flex-direction: column;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+
+    /* NAV */
+    nav {
+      height: 64px; background: var(--canvas); border-bottom: 1px solid var(--hairline);
+      display: flex; align-items: center; padding: 0 28px; gap: 14px;
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(20px) saturate(180%);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--ink); }
+    .nav-spacer { flex: 1; }
+    .theme-btn {
+      width: 44px; height: 44px; border-radius: 9999px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink); transition: background 0.2s;
+    }
+    .theme-btn:hover { background: var(--parchment); }
+
+    /* MAIN */
+    main {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 48px 24px;
+    }
+    .error-wrap { text-align: center; max-width: 520px; }
+
+    /* Animated 404 SVG illustration */
+    .illus {
+      width: 220px; height: 160px; margin: 0 auto 40px;
+    }
+    /* big 404 text */
+    .n4 {
+      font-family: var(--font); font-size: 96px; font-weight: 700;
+      fill: var(--primary-xlight); stroke: var(--primary-light);
+      stroke-width: 2; letter-spacing: -4px;
+      animation: floatY 3s ease-in-out infinite;
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    .dot-ring {
+      animation: spin 8s linear infinite;
+      transform-origin: 110px 80px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .dash-line {
+      stroke-dasharray: 6 5; stroke-dashoffset: 0;
+      animation: dash 1.4s linear infinite;
+    }
+    @keyframes dash { to { stroke-dashoffset: -22; } }
+
+    /* headings */
+    .err-code {
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--primary); margin-bottom: 14px;
+    }
+    .err-title {
+      font-size: clamp(24px, 5vw, 36px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.2px; color: var(--ink); margin-bottom: 12px;
+    }
+    .err-sub {
+      font-size: 16px; color: var(--muted); line-height: 1.6; margin-bottom: 36px;
+    }
+    .err-sub code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      background: var(--parchment); border: 1px solid var(--hairline);
+      border-radius: 6px; padding: 1px 7px; font-size: 13px; color: var(--ink);
+      word-break: break-all;
+    }
+
+    /* buttons */
+    .btn-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: var(--on-primary);
+      font-size: 15px; font-weight: 600; border-radius: 9999px;
+      padding: 13px 28px; transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover   { background: var(--primary-active); }
+    .btn-primary:active  { transform: scale(0.95); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--canvas); color: var(--ink);
+      font-size: 15px; font-weight: 600; border-radius: 9999px;
+      padding: 13px 28px; border: 1px solid var(--hairline);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover  { border-color: var(--primary-light); }
+    .btn-secondary:active { transform: scale(0.95); }
+
+    /* quick links */
+    .quick-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+    }
+    .quick-grid {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+    }
+    .quick-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface-card); border: 1px solid var(--hairline);
+      border-radius: 9999px; padding: 8px 18px;
+      font-size: 13px; font-weight: 600; color: var(--body);
+      text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    }
+    .quick-chip:hover { border-color: var(--primary-light); color: var(--primary); }
+
+    /* FOOTER */
+    footer { background: var(--parchment); border-top: 1px solid var(--hairline); padding: 40px 24px 26px; }
+    .footer-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 24px;
+    }
+    .fcol-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink); margin-bottom: 10px; }
+    .fcol a { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; transition: color 0.15s; }
+    .fcol a:hover { color: var(--primary); }
+    .fcopy { max-width: 900px; margin: 0 auto; text-align: center; font-size: 11px; color: var(--muted); border-top: 1px solid var(--hairline); padding-top: 18px; }
+
+    @media (max-width: 480px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 18px; }
+      nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <rect width="28" height="28" rx="8" fill="var(--primary)"/>
+      <path d="M8 7h8l-3 6h5l-8 8 2-7H8l2-7z" fill="#fff"/>
+    </svg>
+    ThunderStudy
+  </div>
+  <div class="nav-spacer"></div>
+  <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">
+    <svg id="iSun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg id="iMoon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- MAIN ERROR CONTENT -->
+<main>
+  <div class="error-wrap" role="main">
+
+    <!-- Illustration -->
+    <svg class="illus" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- dashed orbit ring -->
+      <circle class="dash-line" cx="110" cy="80" r="66" stroke="var(--primary-light)" stroke-width="1.5"/>
+
+      <!-- orbiting dot -->
+      <g class="dot-ring">
+        <circle cx="110" cy="14" r="5" fill="var(--primary)" opacity="0.7"/>
+      </g>
+
+      <!-- 404 text -->
+      <text class="n4" x="50%" y="105" text-anchor="middle">404</text>
+
+      <!-- small floating dots decoration -->
+      <circle cx="30"  cy="30"  r="3" fill="var(--primary)" opacity="0.25"/>
+      <circle cx="190" cy="50"  r="4" fill="var(--primary)" opacity="0.2"/>
+      <circle cx="20"  cy="130" r="2" fill="var(--primary)" opacity="0.3"/>
+      <circle cx="200" cy="130" r="3" fill="var(--primary)" opacity="0.2"/>
+    </svg>
+
+    <p class="err-code">Error 404</p>
+    <h1 class="err-title">This page doesn't exist</h1>
+    <p class="err-sub">
+      The URL <code id="badUrl"></code> wasn't found.<br/>
+      It may have moved, been renamed, or never existed.
+    </p>
+
+    <div class="btn-row">
+      <a class="btn-primary" href="https://thunderstudy.github.io/ca">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 0 0 1 1h3m10-11l2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0h6"/>
+        </svg>
+        CA Home
+      </a>
+      <button class="btn-secondary" onclick="history.back()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Go Back
+      </button>
+    </div>
+
+    <p class="quick-label">Or jump to</p>
+    <div class="quick-grid">
+      <a class="quick-chip" href="https://thunderstudy.github.io/ca/foundation">Foundation</a>
+      <a class="quick-chip" href="https://thunderstudy.github.io/ca/inter">Inter</a>
+      <a class="quick-chip" href="https://thunderstudy.github.io/ca/final">Final</a>
+      <a class="quick-chip" href="https://thunderstudy.github.io/ca/notes">Notes</a>
+      <a class="quick-chip" href="https://thunderstudy.github.io/ca/special">Special Notes</a>
+      <a class="quick-chip" href="https://thunderstudy.github.io/ca/formula">Formula</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="fcol">
+      <p class="fcol-title">Thunder</p>
+      <a href="https://commercesehoga.github.io/">ThunderStudy</a>
+      <a href="https://commercesehoga.github.io/dashboard">CBT Mock Platform</a>
+      <a href="https://thunderstudy.github.io">Free Study Material</a>
+      <a href="https://commercesehoga.github.io/help">Help / Donate</a>
+    </div>
+    <div class="fcol">
+      <p class="fcol-title">wondermayank</p>
+      <a href="https://wondermayank.indevs.in">Portfolio</a>
+      <a href="https://wondermayank.github.io/">wondermayank.github.io</a>
+      <a href="https://wondermayank.github.io/mail">Mail</a>
+      <a href="https://wondermayank.github.io/contact">Contact</a>
+    </div>
+    <div class="fcol">
+      <p class="fcol-title">Legal</p>
+      <a href="https://wondermayank.github.io/terms">Terms</a>
+      <a href="https://wondermayank.github.io/privacy">Privacy</a>
+      <a href="https://wondermayank.github.io/disclaimer">Disclaimer</a>
+    </div>
+  </div>
+  <p class="fcopy">© 2025 Thunder · by wondermayank</p>
+</footer>
+
+<script>
+  // show the bad URL
+  try {
+    document.getElementById('badUrl').textContent = window.location.pathname;
+  } catch(e) {}
+
+  // theme
+  const html = document.documentElement;
+  const saved = localStorage.getItem('thunder-theme') || 'light';
+  html.setAttribute('data-theme', saved);
+  syncIcon(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('thunder-theme', next);
+    syncIcon(next);
+  });
+  function syncIcon(t) {
+    document.getElementById('iSun').style.display  = t === 'dark'  ? 'block' : 'none';
+    document.getElementById('iMoon').style.display = t === 'light' ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>
