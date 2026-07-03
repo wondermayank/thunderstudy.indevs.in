@@ -1,5 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/((?!sitemap\\.xml|robots\\.txt).*)", "destination": "/index.html" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
