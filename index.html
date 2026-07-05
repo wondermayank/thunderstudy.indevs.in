@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
@@ -879,7 +880,7 @@
     overflow-x: hidden;
   }
 
-  /* ========== BOOT SCREEN ========== */
+  /* ========== BOOT SCREEN — BOOK THEME ========== */
   #boot {
     position: fixed;
     inset: 0;
@@ -893,15 +894,105 @@
   }
   #boot.hidden { opacity: 0; visibility: hidden; }
 
-  .boot-logo {
-    width: 80px; height: 80px;
-    margin-bottom: 24px;
-    animation: bootPulse 1.5s ease infinite;
+  /* Open book with a fluttering stack of pages */
+  .boot-book {
+    position: relative;
+    width: 136px;
+    height: 100px;
+    margin-bottom: 30px;
   }
-  @keyframes bootPulse {
-    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(124,58,237,0.35)); }
-    50% { transform: scale(1.08); filter: drop-shadow(0 0 28px rgba(30,136,229,0.5)); }
+  .boot-book-glow {
+    position: absolute;
+    inset: -34px;
+    background: radial-gradient(circle, rgba(124,58,237,0.30) 0%, rgba(30,136,229,0.14) 45%, transparent 72%);
+    filter: blur(2px);
+    animation: bookGlow 2.6s ease-in-out infinite;
+    z-index: 0;
   }
+  @keyframes bookGlow {
+    0%, 100% { opacity: 0.55; transform: scale(0.92); }
+    50%      { opacity: 1;    transform: scale(1.06); }
+  }
+  .boot-pages-left, .boot-pages-right {
+    position: absolute;
+    top: 8px;
+    width: 62px;
+    height: 88px;
+    z-index: 1;
+    box-shadow: inset 0 0 0 1px rgba(87,58,252,0.12), 0 6px 16px rgba(30,41,80,0.10);
+  }
+  .boot-pages-left {
+    left: 6px;
+    border-radius: 10px 3px 3px 10px;
+    background: linear-gradient(200deg, #ffffff, #e9f1ff);
+    transform: rotateY(6deg);
+    transform-origin: right center;
+  }
+  .boot-pages-right {
+    right: 6px;
+    border-radius: 3px 10px 10px 3px;
+    background: linear-gradient(160deg, #f4efff, #e3d9ff);
+    transform: rotateY(-6deg);
+    transform-origin: left center;
+  }
+  /* faint ruled lines so the "pages" read as a book, not a blank card */
+  .boot-pages-left::before, .boot-pages-right::before {
+    content: '';
+    position: absolute;
+    left: 10px; right: 10px; top: 14px; bottom: 14px;
+    background-image: repeating-linear-gradient(180deg, rgba(30,41,80,0.07) 0, rgba(30,41,80,0.07) 1px, transparent 1px, transparent 10px);
+  }
+  .boot-spine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 9px;
+    height: 100px;
+    margin-left: -4.5px;
+    background: linear-gradient(180deg, #1e88e5, #7c3aed);
+    border-radius: 3px;
+    z-index: 3;
+    box-shadow: 0 0 12px rgba(124,58,237,0.55);
+  }
+  /* the fluttering pages that flip between the two covers */
+  .boot-flip-page {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 62px;
+    height: 88px;
+    border-radius: 3px 10px 10px 3px;
+    background: linear-gradient(135deg, #ffffff, #dce8ff);
+    box-shadow: 1px 0 6px rgba(30,41,80,0.14);
+    transform-origin: left center;
+    backface-visibility: hidden;
+    z-index: 2;
+    animation: pageFlip 2.2s cubic-bezier(.45,0,.2,1) infinite;
+  }
+  .boot-flip-page.bfp-2 { animation-delay: 0.5s; }
+  .boot-flip-page.bfp-3 { animation-delay: 1s; }
+  @keyframes pageFlip {
+    0%, 100% { transform: rotateY(0deg); }
+    50%      { transform: rotateY(-158deg); }
+  }
+  /* small bookmark ribbon with the Thunder bolt, hanging off the spine */
+  .boot-bolt-mark {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 32px;
+    background: linear-gradient(180deg, #1e88e5, #7c3aed);
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(124,58,237,0.45);
+  }
+  .boot-bolt-mark svg { width: 11px; height: 11px; }
+
   .boot-title {
     font-family: var(--font-display);
     font-size: 2.4rem;
@@ -917,7 +1008,7 @@
     font-size: 0.95rem;
     color: var(--gray-600);
     font-weight: 400;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
   .boot-bar-wrap {
     width: 220px;
@@ -936,21 +1027,6 @@
     0% { width: 0%; }
     40% { width: 55%; }
     100% { width: 100%; }
-  }
-  .boot-dots {
-    display: flex; gap: 6px; margin-top: 20px;
-  }
-  .boot-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--purple-300);
-    animation: dotBounce 1.2s ease infinite;
-  }
-  .boot-dot:nth-child(2) { animation-delay: 0.2s; background: var(--blue-300); }
-  .boot-dot:nth-child(3) { animation-delay: 0.4s; background: var(--purple-300); }
-  @keyframes dotBounce {
-    0%, 100% { transform: translateY(0); opacity: 0.5; }
-    50% { transform: translateY(-6px); opacity: 1; }
   }
 
   /* ========== MAIN LAYOUT ========== */
@@ -1797,7 +1873,8 @@
     border-radius: 16px;
     box-shadow: 0 16px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.06);
     z-index: 200;
-    overflow: hidden;
+    overflow-y: auto;
+    max-height: min(70vh, 520px);
     display: none;
   }
   #search-results.active { display: block; }
@@ -1831,6 +1908,13 @@
     color: var(--gray-400);
     font-size: 0.85rem;
     text-align: center;
+  }
+  .search-result-item mark {
+    background: rgba(0,119,245,0.18);
+    color: var(--blue-500);
+    border-radius: 3px;
+    padding: 0 1px;
+    font-weight: 700;
   }
 
   /* ========== IMPROVED CARD HOVER ========== */
@@ -2010,24 +2094,21 @@
 
 <!-- BOOT SCREEN -->
 <div id="boot" role="status" aria-label="Loading ThunderStudy">
-  <svg class="boot-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="bg" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#1e88e5"/>
-        <stop offset="100%" stop-color="#7c3aed"/>
-      </linearGradient>
-    </defs>
-    <rect width="80" height="80" rx="20" fill="url(#bg)"/>
-    <polygon points="44,12 22,44 40,44 36,68 58,36 40,36" fill="white" opacity="0.95"/>
-  </svg>
-  <div class="boot-title">ThunderStudy</div>
-  <div class="boot-sub">Free Education For All</div>
-  <div class="boot-bar-wrap"><div class="boot-bar"></div></div>
-  <div class="boot-dots">
-    <div class="boot-dot"></div>
-    <div class="boot-dot"></div>
-    <div class="boot-dot"></div>
+  <div class="boot-book">
+    <div class="boot-book-glow"></div>
+    <div class="boot-pages-left"></div>
+    <div class="boot-pages-right"></div>
+    <div class="boot-flip-page bfp-1"></div>
+    <div class="boot-flip-page bfp-2"></div>
+    <div class="boot-flip-page bfp-3"></div>
+    <div class="boot-spine"></div>
+    <div class="boot-bolt-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="white"><polygon points="13,2 4,14 11,14 10,22 20,10 13,10"/></svg>
+    </div>
   </div>
+  <div class="boot-title">ThunderStudy</div>
+  <div class="boot-sub">Turning the page on free education</div>
+  <div class="boot-bar-wrap"><div class="boot-bar"></div></div>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -2271,15 +2352,36 @@
   border-radius: 9999px;
   background: #573AFC;
   border: none;
-  cursor: default;
+  padding: 0;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  pointer-events: auto;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(87, 58, 252, 0.35);
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
 }
+
+.hero-search-wrap .search-icon-btn:hover { background: #4527d9; }
+.hero-search-wrap .search-icon-btn:active { transform: translateY(-50%) scale(0.94); }
+
+.search-see-all-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 18px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.82rem;
+  color: #573AFC;
+  font-weight: 600;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  cursor: pointer;
+}
+.search-see-all-btn:hover { background: var(--blue-100); }
 
 .hero-search-wrap .search-icon-btn svg {
   width: 16px;
@@ -2423,10 +2525,10 @@
         <!-- Search -->
     <div class="hero-search-wrap" style="position:relative;z-index:10;">
       <div class="search-field-row">
-        <input type="text" id="search-input" placeholder="Search any subject, exam or topic..." autocomplete="off" oninput="doSearch(this.value)" onblur="setTimeout(()=>closeSearch(),200)" onfocus="doSearch(this.value)">
-        <span class="search-icon-btn" aria-hidden="true">
+        <input type="text" id="search-input" placeholder="Search any subject, exam or topic..." autocomplete="off" oninput="doSearch(this.value)" onblur="setTimeout(()=>closeSearch(),200)" onfocus="doSearch(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();submitSearch();}">
+        <button type="button" class="search-icon-btn" aria-label="Search all matching results" onmousedown="event.preventDefault()" onclick="submitSearch()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        </span>
+        </button>
       </div>
       <div id="search-results"></div>
       <div class="search-request-row">
@@ -5811,26 +5913,126 @@
     return (typeof THUNDER_SEARCH_DATA !== 'undefined') ? THUNDER_SEARCH_DATA : [];
   }
 
-  function doSearch(q) {
+  // ── Advanced Search Engine ──────────────────────────────
+  // Weighted relevance scoring + lightweight fuzzy (typo-tolerant)
+  // matching + match highlighting. Falls back gracefully if a
+  // word isn't found verbatim anywhere (small edit-distance check).
+
+  function _escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  // Small edit-distance (Levenshtein) capped at 2 for perf — only used
+  // on words of length >= 4 to avoid noisy short-word fuzzy matches.
+  function _editDistance(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    var dp = [];
+    for (var i = 0; i <= a.length; i++) dp.push([i]);
+    for (var j = 0; j <= b.length; j++) dp[0][j] = j;
+    for (i = 1; i <= a.length; i++) {
+      for (j = 1; j <= b.length; j++) {
+        dp[i][j] = a[i - 1] === b[j - 1]
+          ? dp[i - 1][j - 1]
+          : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+    return dp[a.length][b.length];
+  }
+
+  function _fuzzyIncludes(haystackWords, word) {
+    if (word.length < 4) return false;
+    for (var i = 0; i < haystackWords.length; i++) {
+      var hw = haystackWords[i];
+      if (hw.length < 4) continue;
+      if (_editDistance(hw, word, 1) <= 1) return true;
+    }
+    return false;
+  }
+
+  function _highlight(text, words) {
+    var out = text;
+    words.forEach(function(w) {
+      if (!w) return;
+      var re = new RegExp('(' + _escRe(w) + ')', 'ig');
+      out = out.replace(re, '<mark>$1</mark>');
+    });
+    return out;
+  }
+
+  function rankedSearch(q) {
+    var data = getSearchData();
+    var qWords = q.split(/\s+/).filter(Boolean);
+    var results = [];
+
+    for (var k = 0; k < data.length; k++) {
+      var d = data[k];
+      var nameL = d.name.toLowerCase();
+      var streamL = (d.stream || '').toLowerCase();
+      var badgeL = (d.badge || '').toLowerCase();
+      var tagsL = (d.tags || '').toLowerCase();
+      var fullHay = nameL + ' ' + streamL + ' ' + badgeL + ' ' + tagsL;
+      var hayWords = fullHay.split(/\s+/).filter(Boolean);
+
+      var score = 0;
+      var matchedAll = true;
+
+      // Whole-phrase bonuses (multi-word queries matching contiguously)
+      if (nameL === q) score += 120;
+      else if (nameL.indexOf(q) === 0) score += 60;
+      else if (nameL.includes(q)) score += 35;
+
+      for (var w = 0; w < qWords.length; w++) {
+        var word = qWords[w];
+        var wordMatched = false;
+        if (nameL.includes(word)) { score += 12; wordMatched = true; }
+        if (tagsL.includes(word)) { score += 6; wordMatched = true; }
+        if (streamL.includes(word)) { score += 4; wordMatched = true; }
+        if (badgeL.includes(word)) { score += 3; wordMatched = true; }
+        if (!wordMatched && _fuzzyIncludes(hayWords, word)) { score += 2; wordMatched = true; }
+        if (!wordMatched) { matchedAll = false; break; }
+      }
+
+      if (matchedAll && score > 0) results.push({ d: d, score: score });
+    }
+
+    results.sort(function(a, b) { return b.score - a.score; });
+    return { list: results.map(function(r) { return r.d; }), words: qWords };
+  }
+
+  // doSearch(q, showAll) — showAll=false (default): live type-ahead, capped at
+  // 20 results with a "See all N results" button. showAll=true: every matching
+  // result is rendered (used when the search button / Enter key is pressed).
+  function doSearch(q, showAll) {
     var box = document.getElementById('search-results');
     q = q.trim().toLowerCase();
     if (!q || q.length < 1) { box.classList.remove('active'); box.innerHTML = ''; return; }
-    var data = getSearchData();
-    var results = data.filter(function(d) {
-      var haystack = (d.name + ' ' + d.stream + ' ' + d.badge + ' ' + (d.tags || '')).toLowerCase();
-      // All words must match (AND logic for multi-word queries)
-      return q.split(/\s+/).every(function(word) { return haystack.includes(word); });
-    });
+
+    var ranked = rankedSearch(q);
+    var results = ranked.list;
+    var qWords = ranked.words;
     var total = results.length;
-    var shown = results.slice(0, 14);
+    var limit = showAll ? total : 20;
+    var shown = results.slice(0, limit);
+
     if (shown.length === 0) {
       box.innerHTML = '<div class="search-no-result">No results for \"' + q + '\" — try a subject, chapter or exam name</div>';
     } else {
       box.innerHTML = shown.map(function(r) {
-        return '<a class="search-result-item" href="' + r.url + '"><span class="sri-badge">' + r.badge + '</span><span>' + r.name + ' <span style="color:#94a3b8;font-weight:400;font-size:0.8em">— ' + r.stream + '</span></span></a>';
-      }).join('') + (total > 14 ? '<div style="text-align:center;padding:10px 18px;border-top:1px solid #f1f5f9;font-size:0.82rem;color:#0077f5;font-weight:600;">' + (total - 14) + ' more results — keep typing to narrow down</div>' : '');
+        var nameHtml = _highlight(r.name, qWords);
+        return '<a class="search-result-item" href="' + r.url + '"><span class="sri-badge">' + r.badge + '</span><span>' + nameHtml + ' <span style="color:#94a3b8;font-weight:400;font-size:0.8em">— ' + r.stream + '</span></span></a>';
+      }).join('') + (!showAll && total > 20 ? '<button type="button" class="search-see-all-btn" onmousedown="event.preventDefault()" onclick="submitSearch()">See all ' + total + ' results \u2192</button>' : '');
     }
     box.classList.add('active');
+  }
+
+  // submitSearch() — fired by the search button (click) or Enter key inside
+  // the search box. Unlike live typing, this opens up every matching result
+  // instead of the capped preview list, so the person can browse the full
+  // set of matches for their query in one go.
+  function submitSearch() {
+    var input = document.getElementById('search-input');
+    var q = (input.value || '').trim();
+    if (!q) { input.focus(); return; }
+    doSearch(q, true);
+    input.focus();
   }
 
   function closeSearch() {
