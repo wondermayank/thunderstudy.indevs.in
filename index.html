@@ -2108,11 +2108,6 @@
 .home-quick, .home-popular, .home-notices { padding: 56px 20px; background: #fff; }
   .home-popular { background: #f8fafc; }
   .section-inner { width: min(1160px, 100%); margin: 0 auto; }
-  .home-quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .home-quick-card { display: block; padding: 18px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; color: #0f172a; text-decoration: none; box-shadow: 0 8px 24px rgba(15,23,42,0.05); }
-  .home-quick-card:hover { border-color: #bfdbfe; background: #eff6ff; }
-  .home-quick-card strong { display: block; font-size: 1rem; margin-bottom: 5px; }
-  .home-quick-card span { color: #64748b; font-size: 0.9rem; }
   .home-popular-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 22px; align-items: center; }
   .home-popular-tags { display: flex; flex-wrap: wrap; gap: 10px; }
   .home-popular-tags a { padding: 10px 13px; border-radius: 999px; background: #eef2ff; border: 1px solid #c7d2fe; color: #4338ca; font-weight: 800; text-decoration: none; font-size: 0.9rem; }
@@ -2120,11 +2115,40 @@
   .home-trust-grid div { padding: 14px; border-radius: 12px; background: #fff; border: 1px solid #e2e8f0; text-align: center; }
   .home-trust-grid strong { display: block; color: #0f172a; }
   .home-trust-grid span { color: #64748b; font-size: 0.84rem; }
-  .notice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .notice-card { padding: 16px; border-radius: 12px; border: 1px solid #dbeafe; background: #eff6ff; color: #0f172a; box-shadow: 0 8px 22px rgba(15,23,42,0.04); }
-  .notice-card strong { display: block; margin: 7px 0; font-size: 1rem; }
-  .notice-card span, .notice-card p { color: #475569; margin: 0; font-size: 0.9rem; }
-  .notice-type { display: inline-block; padding: 3px 8px; border-radius: 999px; background: #573AFC; color: #fff; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; }
+
+  /* ===== Bento panel shell — shared by Quick Access + Notices ===== */
+  .bento-panel { background: #f5f5f7; border-radius: 12px; padding: 28px 24px; }
+  .bento-head { margin-bottom: 16px; }
+  .bento-head.center { text-align: center; margin-bottom: 20px; }
+  .bento-eyebrow { display: block; font-size: 11px; font-weight: 500; letter-spacing: 1px; color: #573AFC; text-transform: uppercase; }
+  .bento-title { font-size: 20px; font-weight: 500; color: #1d1d1f; margin-top: 4px; }
+  .bento-sub { font-size: 12.5px; color: #6b6b6b; margin-top: 6px; }
+
+  /* ===== Quick Access — bento grid ===== */
+  .qa-bento-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto auto; gap: 10px; }
+  .qa-hero-card { grid-row: span 2; text-decoration: none; background: #573AFC; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 150px; color: #fff; transition: background 0.15s ease; }
+  .qa-hero-card:hover { background: #4a2fe0; }
+  .qa-hero-title { font-size: 15px; font-weight: 500; color: #fff; }
+  .qa-hero-sub { font-size: 12px; color: #CECBF6; margin-top: 2px; }
+  .qa-mini-card { text-decoration: none; background: #fff; border-radius: 14px; padding: 14px; border: 0.5px solid #e6e6e6; display: block; color: #573AFC; transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease; }
+  .qa-mini-card:hover { border-color: #c9c2fb; background: #faf9ff; transform: translateY(-2px); }
+  .qa-mini-title { font-size: 13px; font-weight: 500; color: #1d1d1f; margin-top: 6px; }
+  .qa-row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+
+  /* ===== Notices — tagged grid (colors keyed by exam type, see noticeTagClass in JS) ===== */
+  .notice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .notice-card { padding: 14px; border-radius: 14px; border: 0.5px solid #e6e6e6; background: #fff; color: #1d1d1f; box-shadow: none; }
+  .notice-card strong { display: block; margin: 8px 0 0; font-size: 13px; font-weight: 500; }
+  .notice-card span, .notice-card p { color: #6b6b6b; margin: 2px 0 0; font-size: 11px; }
+  .notice-type { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 500; text-transform: uppercase; background: #EEEDFE; color: #3C3489; }
+  .notice-type.tag-purple { background: #EEEDFE; color: #3C3489; }
+  .notice-type.tag-green  { background: #E1F5EE; color: #085041; }
+  .notice-type.tag-orange { background: #FAECE7; color: #712B13; }
+  .notice-type.tag-pink   { background: #FBEAF0; color: #72243E; }
+  .notice-type.tag-blue   { background: #E7F1FE; color: #123E72; }
+  .notice-type.tag-amber  { background: #FDF3E1; color: #6B4F08; }
+  .notice-type.tag-gray   { background: #eef0f2; color: #475569; }
+  .notice-grid > .notice-card:only-child { grid-column: 1 / -1; }
   .notice-popup { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: rgba(15,23,42,0.55); padding: 18px; }
   .notice-popup[hidden] { display: none; }
   .notice-popup-panel { width: min(520px, 100%); position: relative; padding: 22px; border-radius: 14px; background: #fff; box-shadow: 0 24px 80px rgba(0,0,0,0.28); }
@@ -2138,10 +2162,18 @@
     .hero p { font-size: 0.96rem; margin-bottom: 18px; }
     .quick-answer-new { display: none; }
     .home-quick, .home-popular, .home-notices { padding: 38px 16px; }
-    .home-quick-grid, .home-popular-layout, .notice-grid { grid-template-columns: 1fr; }
+    .home-popular-layout { grid-template-columns: 1fr; }
+    .notice-grid { grid-template-columns: repeat(2, 1fr); }
     .home-trust-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr; gap: 20px; }
     .footer-col a:nth-of-type(n+7) { display: none; }
+    .bento-panel { padding: 20px 16px; }
+  }
+  @media (max-width: 480px) {
+    .notice-grid { grid-template-columns: 1fr; }
+    .qa-bento-grid, .qa-row-3 { gap: 8px; }
+    .qa-hero-card { min-height: 130px; padding: 16px; }
+    .qa-mini-card { padding: 12px; }
   }
 
 .hero {
@@ -3790,18 +3822,42 @@
 
 <section class="home-quick" aria-labelledby="home-quick-heading">
   <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Start Here</span>
-      <h2 class="section-title" id="home-quick-heading">Quick Access</h2>
-      <p class="section-sub">Jump straight to the most used free resources.</p>
-    </div>
-    <div class="home-quick-grid">
-      <a href="/search?q=Class%2012%20Notes" class="home-quick-card"><strong>Class 12 Notes</strong><span>Chapter-wise notes and PDFs</span></a>
-      <a href="/search?q=CBSE%20Sample%20Paper" class="home-quick-card"><strong>CBSE Sample Papers</strong><span>Practice papers and PYQs</span></a>
-      <a href="/search?q=SSC%20CGL" class="home-quick-card"><strong>SSC CGL</strong><span>Notes, GK and mock tests</span></a>
-      <a href="/search?q=Banking%20PDF" class="home-quick-card"><strong>Banking Exams</strong><span>IBPS, SBI, RBI and RRB</span></a>
-      <a href="/search?q=CA%20Foundation" class="home-quick-card"><strong>CA Foundation</strong><span>Accounts, Law and Economics</span></a>
-      <a href="/search?q=Current%20Affairs" class="home-quick-card"><strong>Current Affairs</strong><span>Daily GK and updates</span></a>
+    <div class="bento-panel">
+      <div class="bento-head">
+        <span class="bento-eyebrow">Start here</span>
+        <h2 class="bento-title" id="home-quick-heading">Quick access</h2>
+      </div>
+      <div class="qa-bento-grid">
+        <a href="/search?q=Class%2012%20Notes" class="qa-hero-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="15" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="13" y1="8" x2="17" y2="8"/><line x1="13" y1="12" x2="17" y2="12"/><line x1="13" y1="16" x2="15" y2="16"/></svg>
+          <div>
+            <div class="qa-hero-title">Class 12 notes</div>
+            <div class="qa-hero-sub">Chapter-wise notes and PDFs</div>
+          </div>
+        </a>
+        <a href="/search?q=CBSE%20Sample%20Paper" class="qa-mini-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+          <div class="qa-mini-title">CBSE sample papers</div>
+        </a>
+        <a href="/search?q=SSC%20CGL" class="qa-mini-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="21" x2="21" y2="21"/><line x1="5" y1="21" x2="5" y2="10"/><line x1="9" y1="21" x2="9" y2="10"/><line x1="15" y1="21" x2="15" y2="10"/><line x1="19" y1="21" x2="19" y2="10"/><path d="M3 10l9-6 9 6z"/></svg>
+          <div class="qa-mini-title">SSC CGL</div>
+        </a>
+      </div>
+      <div class="qa-row-3">
+        <a href="/search?q=Banking%20PDF" class="qa-mini-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="12" rx="2"/><circle cx="12" cy="13" r="2.5"/><line x1="6" y1="11" x2="6" y2="11.01"/><line x1="18" y1="15" x2="18" y2="15.01"/></svg>
+          <div class="qa-mini-title">Banking</div>
+        </a>
+        <a href="/search?q=CA%20Foundation" class="qa-mini-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/><line x1="8" y1="19" x2="8" y2="19.01"/><line x1="12" y1="19" x2="12" y2="19.01"/></svg>
+          <div class="qa-mini-title">CA foundation</div>
+        </a>
+        <a href="/search?q=Current%20Affairs" class="qa-mini-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg>
+          <div class="qa-mini-title">Current affairs</div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -4014,13 +4070,15 @@
 <div class="divider"></div>
 <section id="notices" class="home-notices" aria-labelledby="notices-heading">
   <div class="section-inner">
-    <div class="section-head center">
-      <span class="section-label">Latest Notices</span>
-      <h2 class="section-title" id="notices-heading">Updates & Exam Alerts</h2>
-      <p class="section-sub">Live notices from ThunderStudy. Important popup notices open automatically once.</p>
-    </div>
-    <div id="notice-list" class="notice-grid" aria-live="polite">
-      <div class="notice-card notice-loading"><strong>Loading notices...</strong><span>Please wait while we fetch the latest updates.</span></div>
+    <div class="bento-panel">
+      <div class="bento-head center">
+        <span class="bento-eyebrow">Latest notices</span>
+        <h2 class="bento-title" id="notices-heading">Updates & exam alerts</h2>
+        <p class="bento-sub">Live notices from ThunderStudy. Important popup notices open automatically once.</p>
+      </div>
+      <div id="notice-list" class="notice-grid" aria-live="polite">
+        <div class="notice-card notice-loading"><strong>Loading notices...</strong><span>Please wait while we fetch the latest updates.</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -6681,16 +6739,39 @@
     return isNaN(end.getTime()) || end >= new Date();
   }
 
+  // Maps a notice's exam/type label to one of the tag color classes defined in CSS
+  // (.notice-type.tag-*). Known exam categories get a fixed color; anything
+  // unrecognized still gets a consistent color via a simple string hash, so a
+  // new type from the notices API always renders a colored pill instead of falling
+  // back to plain/uncolored styling.
+  var NOTICE_TAG_MAP = {
+    cuet: 'purple', cbse: 'purple', class12: 'purple', class10: 'purple',
+    ssc: 'green', gk: 'green', currentaffairs: 'green',
+    banking: 'orange', ibps: 'orange', sbi: 'orange', rbi: 'orange',
+    upsc: 'pink',
+    jee: 'blue', neet: 'blue', cat: 'blue', nda: 'blue', clat: 'blue',
+    ca: 'amber', ncert: 'amber', diploma: 'amber', tet: 'amber'
+  };
+  var NOTICE_TAG_FALLBACK = ['purple', 'green', 'orange', 'pink', 'blue', 'amber'];
+  function noticeTagClass(type) {
+    var key = String(type || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (NOTICE_TAG_MAP[key]) return 'tag-' + NOTICE_TAG_MAP[key];
+    var hash = 0;
+    for (var i = 0; i < key.length; i++) hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+    return 'tag-' + NOTICE_TAG_FALLBACK[hash % NOTICE_TAG_FALLBACK.length];
+  }
+
   function renderNotices(rows) {
     var box = document.getElementById('notice-list');
     if (!box) return;
     var notices = (Array.isArray(rows) ? rows : []).filter(noticeActive).slice(0, 6);
     if (!notices.length) {
-      box.innerHTML = '<div class="notice-card"><span class="notice-type">Clear</span><strong>No active notices</strong><p>New exam alerts and updates will appear here.</p></div>';
+      box.innerHTML = '<div class="notice-card"><span class="notice-type tag-green">Clear</span><strong>No active notices</strong><p>New exam alerts and updates will appear here.</p></div>';
       return;
     }
     box.innerHTML = notices.map(function(n) {
-      return '<article class="notice-card"><span class="notice-type">' + noticeEsc(n.type || n.noticeType || 'Notice') + '</span><strong>' + noticeEsc(n.title || 'ThunderStudy Notice') + '</strong><p>' + noticeEsc(n.message || '') + '</p></article>';
+      var typeLabel = n.type || n.noticeType || 'Notice';
+      return '<article class="notice-card"><span class="notice-type ' + noticeTagClass(typeLabel) + '">' + noticeEsc(typeLabel) + '</span><strong>' + noticeEsc(n.title || 'ThunderStudy Notice') + '</strong><p>' + noticeEsc(n.message || '') + '</p></article>';
     }).join('');
     var popupNotice = notices.find(function(n) { return n.popup; });
     if (popupNotice) showNoticePopup(popupNotice);
@@ -6704,7 +6785,10 @@
       if (sessionStorage.getItem(key)) return;
       sessionStorage.setItem(key, '1');
     } catch(e) {}
-    document.getElementById('notice-popup-type').textContent = n.type || n.noticeType || 'Notice';
+    var typeLabel = n.type || n.noticeType || 'Notice';
+    var typeEl = document.getElementById('notice-popup-type');
+    typeEl.className = 'notice-type ' + noticeTagClass(typeLabel);
+    typeEl.textContent = typeLabel;
     document.getElementById('notice-popup-title').textContent = n.title || 'ThunderStudy Notice';
     document.getElementById('notice-popup-message').textContent = n.message || '';
     popup.hidden = false;
@@ -6717,7 +6801,7 @@
       .then(function(res) { return res.json(); })
       .then(renderNotices)
       .catch(function() {
-        box.innerHTML = '<div class="notice-card"><span class="notice-type">Offline</span><strong>Could not load notices</strong><p>Please check again soon.</p></div>';
+        box.innerHTML = '<div class="notice-card"><span class="notice-type tag-gray">Offline</span><strong>Could not load notices</strong><p>Please check again soon.</p></div>';
       });
   }
 
