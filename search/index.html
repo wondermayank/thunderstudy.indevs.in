@@ -114,6 +114,27 @@
       display: grid;
       gap: 10px;
     }
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 2px;
+    }
+    .chip, .did-you-mean button, .load-more {
+      border: 1px solid #c7d2fe;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      min-height: 36px;
+      padding: 0 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .did-you-mean {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
     .item {
       display: flex;
       align-items: center;
@@ -144,6 +165,30 @@
       color: #94a3b8;
       font-size: 0.86em;
       font-weight: 500;
+    }
+    .meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 7px;
+    }
+    .meta span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .load-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 14px;
+    }
+    .load-more {
+      border-radius: 12px;
+      min-height: 44px;
+      padding: 0 18px;
     }
     mark {
       background: rgba(0,119,245,0.16);
@@ -206,8 +251,11 @@
           </select>
         </div>
       </section>
+      <div id="suggestions" class="suggestions" aria-label="Popular searches"></div>
       <div id="summary" class="summary">Loading search data...</div>
+      <div id="didYouMean" class="did-you-mean"></div>
       <div id="results" class="results"></div>
+      <div class="load-row"><button type="button" id="loadMore" class="load-more" hidden>Load more results</button></div>
       <div class="end">
         <div>
           <strong id="endTitle">Need a resource added?</strong>
@@ -224,13 +272,26 @@
     var STOP = { a:1, an:1, and:1, are:1, all:1, any:1, for:1, from:1, in:1, me:1, of:1, on:1, please:1, show:1, the:1, to:1, with:1 };
     var ALIASES = {
       '12th':'class 12', '11th':'class 11', '10th':'class 10', '9th':'class 9',
+      '12vi':'class 12', '11vi':'class 11', '10vi':'class 10',
       class12:'class 12', class11:'class 11', class10:'class 10', class9:'class 9',
       fountion:'foundation', bower:'browser', maths:'mathematics', math:'mathematics',
       accounts:'accountancy', acc:'accountancy', eco:'economics', phy:'physics',
       chem:'chemistry', bio:'biology', gk:'general knowledge', pyq:'previous year question',
-      imp:'important'
+      imp:'important', spl:'special',
+      itihas:'history', itihaas:'history', vigyan:'science', ganit:'mathematics',
+      arthshastra:'economics', arthashastra:'economics',
+      rajniti:'political science', rajneeti:'political science',
+      bhugol:'geography', lekha:'accountancy', hisab:'accountancy',
+      notespdf:'notes pdf', samplepaper:'sample paper', questionpaper:'question paper'
     };
     var index = null;
+    var PAGE_SIZE = 50;
+    var visibleCount = PAGE_SIZE;
+    var SUGGESTIONS = [
+      'Class 12 Notes', 'Class 12 All Chapter Notes', 'History Notes',
+      'Physics Important Notes', 'CA Foundation', 'SSC CGL PYQ',
+      'CBSE Sample Paper', 'Economics Notes', 'NDA Notes', 'Banking PDF'
+    ];
 
     function data() { return Array.isArray(window.THUNDER_SEARCH_DATA) ? window.THUNDER_SEARCH_DATA : []; }
     function escRe(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -285,6 +346,39 @@
         return part.length <= 4 ? part.toUpperCase() : part.charAt(0).toUpperCase() + part.slice(1);
       }).join(' ');
     }
+    function didYouMean(query) {
+      var raw = String(query || '').toLowerCase().trim();
+      var normalized = norm(raw);
+      if (raw && normalized && raw !== normalized) return normalized;
+      var parts = raw.split(/\s+/);
+      for (var i = 0; i < parts.length; i++) {
+        if (ALIASES[parts[i]]) {
+          parts[i] = ALIASES[parts[i]];
+          return parts.join(' ');
+        }
+      }
+      return '';
+    }
+    function itemMeta(item) {
+      return [
+        label(detectExam(item)),
+        label(detectSubExam(item)),
+        itemType(item) === 'file' ? 'PDF / File' : 'Browser / Data'
+      ];
+    }
+    function renderSuggestions() {
+      var box = document.getElementById('suggestions');
+      box.innerHTML = SUGGESTIONS.map(function(text) {
+        return '<button type="button" class="chip" data-query="' + escHtml(text) + '">' + escHtml(text) + '</button>';
+      }).join('');
+      box.querySelectorAll('button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.getElementById('q').value = btn.getAttribute('data-query');
+          visibleCount = PAGE_SIZE;
+          render();
+        });
+      });
+    }
     function buildIndex() {
       var list = data();
       for (var i = 0; i < list.length; i++) {
@@ -307,21 +401,25 @@
       idx.list.forEach(function(item) {
         var score = 0;
         var matchedAll = true;
+        var titleMatches = 0;
         if (item._name === q) score += 120;
         else if (item._name.indexOf(q) === 0) score += 60;
         else if (item._name.indexOf(q) !== -1) score += 35;
         if (item._hay.indexOf(q) !== -1) score += 18;
         if (qWords.indexOf('notes') !== -1 && (/chapter| ch [0-9]/.test(item._name) || item._hay.indexOf('chapter notes') !== -1)) score += 8;
+        if (qWords.indexOf('chapter') !== -1 && (/chapter| ch [0-9]/.test(item._name) || item._hay.indexOf('chapter') !== -1)) score += 8;
         if (qWords.indexOf('important') !== -1 && item._hay.indexOf('important') !== -1) score += 6;
         if (qWords.indexOf('special') !== -1 && item._hay.indexOf('special') !== -1) score += 6;
         qWords.forEach(function(word) {
           var matched = false;
-          if (contains(item._name, word)) { score += 12; matched = true; }
+          if (contains(item._name, word)) { score += 16; matched = true; titleMatches++; }
           if (contains(item._hay, word)) { score += 6; matched = true; }
           if (contains(item._stream, word)) { score += 4; matched = true; }
           if (contains(item._badge, word)) { score += 3; matched = true; }
           if (!matched) matchedAll = false;
         });
+        if (titleMatches === qWords.length) score += 28;
+        if (itemType(item) === 'file' && (qWords.indexOf('pdf') !== -1 || qWords.indexOf('file') !== -1 || qWords.indexOf('download') !== -1)) score += 12;
         if (matchedAll && score > 0) out.push({ item: item, score: score });
       });
       out.sort(function(a, b) { return b.score - a.score; });
@@ -355,13 +453,27 @@
       var found = filteredResults();
       var box = document.getElementById('results');
       var summary = document.getElementById('summary');
+      var q = document.getElementById('q').value.trim();
       summary.textContent = found.list.length + ' result' + (found.list.length === 1 ? '' : 's') + ' found.';
       document.getElementById('endTitle').textContent = found.list.length ? 'Need a different resource?' : 'No result found?';
-      box.innerHTML = found.list.slice(0, 500).map(function(item) {
-        return '<a class="item" href="' + escHtml(item.url || '#') + '"><span class="badge">' + escHtml(item.badge || itemType(item)) + '</span><span>' + highlight(item.name, found.words) + '<span class="stream">' + escHtml(item.stream || '') + '</span></span></a>';
+      var suggestion = didYouMean(q);
+      document.getElementById('didYouMean').innerHTML = suggestion && suggestion !== q.toLowerCase()
+        ? 'Did you mean <button type="button" id="dymBtn">' + escHtml(suggestion) + '</button>?'
+        : '';
+      var dym = document.getElementById('dymBtn');
+      if (dym) dym.addEventListener('click', function() {
+        document.getElementById('q').value = suggestion;
+        visibleCount = PAGE_SIZE;
+        render();
+      });
+      box.innerHTML = found.list.slice(0, visibleCount).map(function(item) {
+        var meta = itemMeta(item).map(function(value) { return '<span>' + escHtml(value) + '</span>'; }).join('');
+        return '<a class="item" href="' + escHtml(item.url || '#') + '"><span class="badge">' + escHtml(item.badge || itemType(item)) + '</span><span>' + highlight(item.name, found.words) + '<span class="stream">' + escHtml(item.stream || '') + '</span><span class="meta">' + meta + '</span></span></a>';
       }).join('') || '<div class="panel">No matching result found. Try another word or use the request button below.</div>';
+      var load = document.getElementById('loadMore');
+      load.hidden = found.list.length <= visibleCount;
+      load.textContent = 'Load more results (' + Math.max(0, found.list.length - visibleCount) + ' left)';
       var params = new URLSearchParams();
-      var q = document.getElementById('q').value.trim();
       if (q) params.set('q', q);
       ['exam','subexam','type'].forEach(function(id) {
         var value = document.getElementById(id).value;
@@ -391,7 +503,17 @@
       document.getElementById('type').value = params.get('type') || '';
       document.getElementById('searchBtn').addEventListener('click', render);
       document.getElementById('q').addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); render(); } });
-      ['q','exam','subexam','type'].forEach(function(id) { document.getElementById(id).addEventListener(id === 'q' ? 'input' : 'change', render); });
+      document.getElementById('loadMore').addEventListener('click', function() {
+        visibleCount += PAGE_SIZE;
+        render();
+      });
+      ['q','exam','subexam','type'].forEach(function(id) {
+        document.getElementById(id).addEventListener(id === 'q' ? 'input' : 'change', function() {
+          visibleCount = PAGE_SIZE;
+          render();
+        });
+      });
+      renderSuggestions();
       render();
       console.log('[ThunderStudy Search] ready in ' + (Date.now() - started) + 'ms');
     }

@@ -1909,6 +1909,23 @@
     font-size: 0.85rem;
     text-align: center;
   }
+  .search-loading {
+    padding: 14px 18px;
+  }
+  .search-skeleton-line {
+    height: 12px;
+    border-radius: 999px;
+    margin: 8px 0;
+    background: linear-gradient(90deg, #eef2ff, #dbeafe, #eef2ff);
+    background-size: 200% 100%;
+    animation: searchSkeleton 1s linear infinite;
+  }
+  .search-skeleton-line:nth-child(2) { width: 78%; }
+  .search-skeleton-line:nth-child(3) { width: 62%; }
+  @keyframes searchSkeleton {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
   .search-result-item mark {
     background: rgba(0,119,245,0.18);
     color: var(--blue-500);
@@ -6197,12 +6214,18 @@
 
   var SEARCH_WORD_ALIASES = {
     '12th': 'class 12', '11th': 'class 11', '10th': 'class 10', '9th': 'class 9',
+    '12vi': 'class 12', '11vi': 'class 11', '10vi': 'class 10',
     class12: 'class 12', class11: 'class 11', class10: 'class 10', class9: 'class 9',
-    fountion: 'foundation', bower: 'browser',
+    fountion: 'foundation', bower: 'browser', spl: 'special',
     maths: 'mathematics', math: 'mathematics',
     accounts: 'accountancy', acc: 'accountancy',
     eco: 'economics', phy: 'physics', chem: 'chemistry', bio: 'biology',
-    gk: 'general knowledge', pyq: 'previous year question'
+    gk: 'general knowledge', pyq: 'previous year question', imp: 'important',
+    itihas: 'history', itihaas: 'history', vigyan: 'science', ganit: 'mathematics',
+    arthshastra: 'economics', arthashastra: 'economics',
+    rajniti: 'political science', rajneeti: 'political science',
+    bhugol: 'geography', lekha: 'accountancy', hisab: 'accountancy',
+    notespdf: 'notes pdf', samplepaper: 'sample paper', questionpaper: 'question paper'
   };
 
   function normalizeSearchQuery(q) {
@@ -6292,25 +6315,24 @@
   }
 
   function rankedSearch(q) {
-    var index = getSearchIndex();
-    var data = index.data;
+    var data = getSearchData();
     q = normalizeSearchQuery(q);
     var qWords = searchWords(q);
     var results = [];
     if (!qWords.length) return { list: data.slice(), words: [] };
-    var candidates = candidateIndexes(qWords, index);
 
-    for (var k = 0; k < candidates.length; k++) {
-      var d = data[candidates[k]];
-      var nameL = d._nameL;
-      var streamL = d._streamL;
-      var badgeL = d._badgeL;
-      var tagsL = d._tagsL;
-      var fullHay = d._searchTextL;
-      var hayWords = d._hayWords;
+    for (var k = 0; k < data.length; k++) {
+      var d = data[k];
+      var richText = d.searchText || [d.name, d.stream, d.badge, d.tags, d.url, (d.keywords || []).join(' ')].join(' ');
+      var nameL = d._nameL || (d._nameL = String(d.name || '').toLowerCase());
+      var streamL = d._streamL || (d._streamL = String(d.stream || '').toLowerCase());
+      var badgeL = d._badgeL || (d._badgeL = String(d.badge || '').toLowerCase());
+      var fullHay = d._searchTextL || (d._searchTextL = String(richText || '').toLowerCase());
+      var hayWords = d._hayWords || (d._hayWords = d.searchTokens || fullHay.split(/\s+/).filter(Boolean));
 
       var score = 0;
       var matchedAll = true;
+      var titleMatches = 0;
 
       // Whole-phrase bonuses (multi-word queries matching contiguously)
       if (nameL === q) score += 120;
@@ -6326,7 +6348,7 @@
       for (var w = 0; w < qWords.length; w++) {
         var word = qWords[w];
         var wordMatched = false;
-        if (_containsQueryTerm(nameL, word)) { score += 12; wordMatched = true; }
+        if (_containsQueryTerm(nameL, word)) { score += 16; wordMatched = true; titleMatches++; }
         if (_containsQueryTerm(fullHay, word)) { score += 6; wordMatched = true; }
         if (_containsQueryTerm(streamL, word)) { score += 4; wordMatched = true; }
         if (_containsQueryTerm(badgeL, word)) { score += 3; wordMatched = true; }
@@ -6334,6 +6356,8 @@
         if (!wordMatched) { matchedAll = false; break; }
       }
 
+      if (titleMatches === qWords.length) score += 28;
+      if (resultType(d) === 'file' && (qWords.indexOf('pdf') !== -1 || qWords.indexOf('file') !== -1 || qWords.indexOf('download') !== -1)) score += 12;
       if (matchedAll && score > 0) results.push({ d: d, score: score });
     }
 
@@ -6442,6 +6466,15 @@
     var box = document.getElementById('search-results');
     q = q.trim().toLowerCase();
     if (!q || q.length < 1) { box.classList.remove('active'); box.innerHTML = ''; return; }
+    if (!getSearchData().length) {
+      box.innerHTML = '<div class="search-loading" aria-live="polite"><div class="search-skeleton-line"></div><div class="search-skeleton-line"></div><div class="search-skeleton-line"></div></div>';
+      box.classList.add('active');
+      setTimeout(function() {
+        var input = document.getElementById('search-input');
+        if (input && input.value.trim().toLowerCase() === q && getSearchData().length) doSearch(input.value);
+      }, 250);
+      return;
+    }
 
     var ranked = rankedSearch(q);
     var results = ranked.list;
