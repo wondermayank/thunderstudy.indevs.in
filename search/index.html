@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThunderStudy Search</title>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thunderstudy.indevs.in/search">
+  <script src="../search-index.js" defer></script>
+  <style>
+    :root {
+      --brand: #573AFC;
+      --blue: #0077f5;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand, .home {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+    }
+    .home { color: var(--brand); }
+    main { padding: 34px 0 44px; }
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .panel {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 0 18px 48px rgba(15,23,42,0.08);
+    }
+    .form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+    input, select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 0 13px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+    }
+    button, .request {
+      min-height: 46px;
+      border: 0;
+      border-radius: 12px;
+      padding: 0 18px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .summary {
+      min-height: 28px;
+      margin: 18px 0 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .results {
+      display: grid;
+      gap: 10px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.04);
+    }
+    .item:hover { border-color: #bfdbfe; background: #eff6ff; }
+    .badge {
+      flex: 0 0 auto;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .stream {
+      display: inline-block;
+      margin-left: 6px;
+      color: #94a3b8;
+      font-size: 0.86em;
+      font-weight: 500;
+    }
+    mark {
+      background: rgba(0,119,245,0.16);
+      color: #075985;
+      border-radius: 3px;
+      padding: 0 1px;
+    }
+    .end {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .end strong { display: block; margin-bottom: 4px; }
+    .end p { margin: 0; color: var(--muted); }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      background: #fff;
+      color: var(--muted);
+    }
+    footer a { color: var(--brand); font-weight: 800; text-decoration: none; }
+    @media (max-width: 720px) {
+      .form, .filters { grid-template-columns: 1fr; }
+      .item { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">
+        <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="80" height="80" rx="18" fill="#573AFC"/><path d="M22 24h36M40 24v32M28 56h24" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="56" r="5" fill="#60a5fa"/></svg>
+        ThunderStudy Search
+      </a>
+      <a class="home" href="/">Home</a>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <h1>Find notes, PDFs and exam resources</h1>
+      <section class="panel" aria-label="Advanced search">
+        <div class="form">
+          <input type="search" id="q" placeholder="Search class 12 notes, chapter name, exam, subject..." autocomplete="off">
+          <button type="button" id="searchBtn">Search</button>
+        </div>
+        <div class="filters">
+          <select id="exam" aria-label="Exam filter"><option value="">All exams</option></select>
+          <select id="subexam" aria-label="Sub exam filter"><option value="">All sub exams</option></select>
+          <select id="type" aria-label="Type filter">
+            <option value="">All types</option>
+            <option value="file">File / PDF</option>
+            <option value="browser">Browser / Data</option>
+          </select>
+        </div>
+      </section>
+      <div id="summary" class="summary">Loading search data...</div>
+      <div id="results" class="results"></div>
+      <div class="end">
+        <div>
+          <strong id="endTitle">Need a resource added?</strong>
+          <p>Contact us or request notes, PDFs and new exam material.</p>
+        </div>
+        <a class="request" href="https://docs.google.com/forms/d/e/1FAIpQLSePwlvdMzRLYoYuXNbKlamargjazyRiedg0rE0JfAzyKPyHEA/viewform" target="_blank" rel="noopener">Contact and request</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">Made by <a href="https://wondermayank.in" target="_blank" rel="noopener">wondermayank.in</a></div>
+  </footer>
+  <script>
+    var STOP = { a:1, an:1, and:1, are:1, all:1, any:1, for:1, from:1, in:1, me:1, of:1, on:1, please:1, show:1, the:1, to:1, with:1 };
+    var ALIASES = {
+      '12th':'class 12', '11th':'class 11', '10th':'class 10', '9th':'class 9',
+      class12:'class 12', class11:'class 11', class10:'class 10', class9:'class 9',
+      fountion:'foundation', bower:'browser', maths:'mathematics', math:'mathematics',
+      accounts:'accountancy', acc:'accountancy', eco:'economics', phy:'physics',
+      chem:'chemistry', bio:'biology', gk:'general knowledge', pyq:'previous year question',
+      imp:'important'
+    };
+    var index = null;
+
+    function data() { return Array.isArray(window.THUNDER_SEARCH_DATA) ? window.THUNDER_SEARCH_DATA : []; }
+    function escRe(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+    function escHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, function(ch) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+      });
+    }
+    function norm(q) {
+      q = String(q || '').toLowerCase().replace(/[^\w.+#&/-]+/g, ' ').replace(/\s+/g, ' ').trim();
+      Object.keys(ALIASES).forEach(function(key) {
+        q = q.replace(new RegExp('(^|\\s)' + escRe(key) + '(?=\\s|$)', 'g'), '$1' + ALIASES[key]);
+      });
+      return q.replace(/\s+/g, ' ').trim();
+    }
+    function words(q) {
+      return norm(q).split(/\s+/).filter(function(w) { return w && !STOP[w]; });
+    }
+    function contains(hay, word) {
+      if (word.length <= 3) return new RegExp('(^|[^a-z0-9])' + escRe(word) + '([^a-z0-9]|$)', 'i').test(hay);
+      return hay.indexOf(word) !== -1;
+    }
+    function itemType(item) {
+      var url = String(item.url || '').toLowerCase();
+      var text = [item.name, item.tags, item.searchText, url].join(' ').toLowerCase();
+      return (/\.pdf(\?|#|$)/.test(url) || /\bpdf\b/.test(text) || /\bdownload\b/.test(text)) ? 'file' : 'browser';
+    }
+    function detectExam(item) {
+      var text = [item.badge, item.stream, item.tags, item.name, item.searchText].join(' ').toLowerCase();
+      var exams = ['cbse','ssc','banking','ca','cuet','jee','neet','upsc','nda','clat','cat','ncert','tet','ctet','dca','pgdca','bed'];
+      for (var i = 0; i < exams.length; i++) {
+        if (contains(text, exams[i])) return exams[i];
+      }
+      return String(item.badge || 'other').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'other';
+    }
+    function detectSubExam(item) {
+      var text = [item.name, item.stream, item.tags, item.searchText].join(' ').toLowerCase();
+      var subs = [
+        ['cbse-class-12', ['class 12','class12','12th']], ['cbse-class-11', ['class 11','class11','11th']],
+        ['cbse-class-10', ['class 10','class10','10th']], ['ca-foundation', ['ca foundation','foundation','fountion']],
+        ['ca-inter', ['ca inter','intermediate']], ['ca-final', ['ca final']], ['ssc-cgl', ['ssc cgl','cgl']],
+        ['ssc-chsl', ['ssc chsl','chsl']], ['ssc-mts', ['ssc mts','mts']], ['ibps', ['ibps']], ['sbi', ['sbi']],
+        ['rbi', ['rbi']], ['neet-ug', ['neet']], ['jee-main', ['jee main','jee']], ['cuet-ug', ['cuet']]
+      ];
+      for (var i = 0; i < subs.length; i++) {
+        for (var j = 0; j < subs[i][1].length; j++) if (text.indexOf(subs[i][1][j]) !== -1) return subs[i][0];
+      }
+      return String(item.stream || item.badge || 'other').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 44) || 'other';
+    }
+    function label(slug) {
+      return String(slug || '').split('-').filter(Boolean).map(function(part) {
+        return part.length <= 4 ? part.toUpperCase() : part.charAt(0).toUpperCase() + part.slice(1);
+      }).join(' ');
+    }
+    function buildIndex() {
+      var list = data();
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        var rich = item.searchText || [item.name, item.stream, item.badge, item.tags, item.url, (item.keywords || []).join(' ')].join(' ');
+        item._name = String(item.name || '').toLowerCase();
+        item._stream = String(item.stream || '').toLowerCase();
+        item._badge = String(item.badge || '').toLowerCase();
+        item._hay = norm(rich);
+      }
+      index = { list: list };
+      return index;
+    }
+    function rankedSearch(query) {
+      var idx = index || buildIndex();
+      var q = norm(query);
+      var qWords = words(q);
+      if (!qWords.length) return { list: idx.list.slice(), words: [] };
+      var out = [];
+      idx.list.forEach(function(item) {
+        var score = 0;
+        var matchedAll = true;
+        if (item._name === q) score += 120;
+        else if (item._name.indexOf(q) === 0) score += 60;
+        else if (item._name.indexOf(q) !== -1) score += 35;
+        if (item._hay.indexOf(q) !== -1) score += 18;
+        if (qWords.indexOf('notes') !== -1 && (/chapter| ch [0-9]/.test(item._name) || item._hay.indexOf('chapter notes') !== -1)) score += 8;
+        if (qWords.indexOf('important') !== -1 && item._hay.indexOf('important') !== -1) score += 6;
+        if (qWords.indexOf('special') !== -1 && item._hay.indexOf('special') !== -1) score += 6;
+        qWords.forEach(function(word) {
+          var matched = false;
+          if (contains(item._name, word)) { score += 12; matched = true; }
+          if (contains(item._hay, word)) { score += 6; matched = true; }
+          if (contains(item._stream, word)) { score += 4; matched = true; }
+          if (contains(item._badge, word)) { score += 3; matched = true; }
+          if (!matched) matchedAll = false;
+        });
+        if (matchedAll && score > 0) out.push({ item: item, score: score });
+      });
+      out.sort(function(a, b) { return b.score - a.score; });
+      return { list: out.map(function(x) { return x.item; }), words: qWords };
+    }
+    function filteredResults() {
+      var query = document.getElementById('q').value.trim();
+      var exam = document.getElementById('exam').value;
+      var subexam = document.getElementById('subexam').value;
+      var type = document.getElementById('type').value;
+      var ranked = query ? rankedSearch(query) : { list: (index || buildIndex()).list.slice(), words: [] };
+      return {
+        words: ranked.words,
+        list: ranked.list.filter(function(item) {
+          if (exam && detectExam(item) !== exam) return false;
+          if (subexam && detectSubExam(item) !== subexam) return false;
+          if (type && itemType(item) !== type) return false;
+          return true;
+        })
+      };
+    }
+    function highlight(text, qWords) {
+      var out = escHtml(text || '');
+      qWords.forEach(function(word) {
+        if (!word || word.length < 2) return;
+        out = out.replace(new RegExp('(' + escRe(escHtml(word)) + ')', 'ig'), '<mark>$1</mark>');
+      });
+      return out;
+    }
+    function render() {
+      var found = filteredResults();
+      var box = document.getElementById('results');
+      var summary = document.getElementById('summary');
+      summary.textContent = found.list.length + ' result' + (found.list.length === 1 ? '' : 's') + ' found.';
+      document.getElementById('endTitle').textContent = found.list.length ? 'Need a different resource?' : 'No result found?';
+      box.innerHTML = found.list.slice(0, 500).map(function(item) {
+        return '<a class="item" href="' + escHtml(item.url || '#') + '"><span class="badge">' + escHtml(item.badge || itemType(item)) + '</span><span>' + highlight(item.name, found.words) + '<span class="stream">' + escHtml(item.stream || '') + '</span></span></a>';
+      }).join('') || '<div class="panel">No matching result found. Try another word or use the request button below.</div>';
+      var params = new URLSearchParams();
+      var q = document.getElementById('q').value.trim();
+      if (q) params.set('q', q);
+      ['exam','subexam','type'].forEach(function(id) {
+        var value = document.getElementById(id).value;
+        if (value) params.set(id, value);
+      });
+      history.replaceState(null, '', '/search' + (params.toString() ? '?' + params.toString() : ''));
+    }
+    function fillSelect(id, values) {
+      var select = document.getElementById(id);
+      values.forEach(function(value) {
+        if (!value) return;
+        var opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = label(value);
+        select.appendChild(opt);
+      });
+    }
+    function boot() {
+      var started = Date.now();
+      buildIndex();
+      var params = new URLSearchParams(location.search);
+      fillSelect('exam', Array.from(new Set(data().map(detectExam))).sort());
+      fillSelect('subexam', Array.from(new Set(data().map(detectSubExam))).sort());
+      document.getElementById('q').value = params.get('q') || '';
+      document.getElementById('exam').value = params.get('exam') || '';
+      document.getElementById('subexam').value = params.get('subexam') || '';
+      document.getElementById('type').value = params.get('type') || '';
+      document.getElementById('searchBtn').addEventListener('click', render);
+      document.getElementById('q').addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); render(); } });
+      ['q','exam','subexam','type'].forEach(function(id) { document.getElementById(id).addEventListener(id === 'q' ? 'input' : 'change', render); });
+      render();
+      console.log('[ThunderStudy Search] ready in ' + (Date.now() - started) + 'ms');
+    }
+    window.addEventListener('load', function() {
+      if (data().length) boot();
+      else document.getElementById('summary').textContent = 'Search data failed to load. Check search-index.js path.';
+    });
+  </script>
+</body>
+</html>

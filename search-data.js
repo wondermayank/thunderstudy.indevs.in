@@ -12197,8 +12197,9 @@ var THUNDER_SEARCH_DATA = [
     });
   }
 
-  function addNgrams(list, tokens, size) {
-    for (var i = 0; i <= tokens.length - size; i++) add(list, tokens.slice(i, i + size).join(' '));
+  function addNgrams(list, tokens, size, limit) {
+    var max = Math.min(tokens.length, limit || tokens.length);
+    for (var i = 0; i <= max - size; i++) add(list, tokens.slice(i, i + size).join(' '));
   }
 
   function containsTerm(text, term) {
@@ -12345,7 +12346,7 @@ var THUNDER_SEARCH_DATA = [
     addMany(bag, COMMON_INTENTS);
     addMany(bag, tokenList);
     addNgrams(bag, tokenList, 2);
-    addNgrams(bag, tokenList, 3);
+    addNgrams(bag, tokenList, 3, 40);
     addNaturalPhrases(bag, item, text);
 
     tokenList.forEach(function(token) {
@@ -12397,7 +12398,10 @@ var THUNDER_SEARCH_DATA = [
     item.keywords = Object.keys(bag);
     item.searchText = [item.name, item.stream, item.badge, item.tags, item.url, item.keywords.join(' ')].join(' ').replace(/\s+/g, ' ').trim();
     var tokenBag = {};
-    words(item.searchText).forEach(function(token) { tokenBag[token] = true; });
+    tokenList.forEach(function(token) { tokenBag[token] = true; });
+    item.keywords.forEach(function(keyword) {
+      words(keyword).forEach(function(token) { tokenBag[token] = true; });
+    });
     item.searchTokens = Object.keys(tokenBag);
   }
 
