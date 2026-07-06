@@ -120,10 +120,8 @@ function staleWhileRevalidate(request) {
         return response;
       });
       if (cached) {
-        // Suppress unhandled promise rejection for background fetch
-        networkFetch.catch(function(err) {
-          console.warn('[ThunderStudy SW] Background fetch failed for:', request.url, err);
-        });
+        // Suppress unhandled promise rejection for background fetch (expected when offline/flaky network)
+        networkFetch.catch(function() {});
         return cached;
       }
       return networkFetch.catch(function() {

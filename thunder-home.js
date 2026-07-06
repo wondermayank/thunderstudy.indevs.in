@@ -287,28 +287,52 @@
   }
 
   // Boot screen
-  window.addEventListener('load', function() {
-    if (isAdvancedSearchRoute()) {
-      document.getElementById('boot').classList.add('hidden');
-      document.getElementById('main').style.display = 'none';
-      document.getElementById('search-page').hidden = false;
-      initAdvancedSearchPage();
-      return;
-    }
+  var bootRevealed = false;
+  function revealApp() {
+    if (bootRevealed) return;
+    bootRevealed = true;
+    try {
+      if (isAdvancedSearchRoute()) {
+        document.getElementById('boot').classList.add('hidden');
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('search-page').hidden = false;
+        initAdvancedSearchPage();
+        return;
+      }
 
-    var alreadyBooted = sessionStorage.getItem('thunderstudy_booted');
-    if (alreadyBooted) {
-      document.getElementById('boot').classList.add('hidden');
-      document.getElementById('main').classList.add('visible');
-    } else {
-      setTimeout(function() {
+      var alreadyBooted;
+      try { alreadyBooted = sessionStorage.getItem('thunderstudy_booted'); } catch (e) { alreadyBooted = null; }
+
+      if (alreadyBooted) {
         document.getElementById('boot').classList.add('hidden');
         document.getElementById('main').classList.add('visible');
-        sessionStorage.setItem('thunderstudy_booted', '1');
-      }, 900);
+      } else {
+        setTimeout(function() {
+          document.getElementById('boot').classList.add('hidden');
+          document.getElementById('main').classList.add('visible');
+          try { sessionStorage.setItem('thunderstudy_booted', '1'); } catch (e) {}
+        }, 900);
+      }
+      loadThunderNotices();
+    } catch (err) {
+      // Never let an unexpected error leave the boot screen stuck on screen
+      var bootEl = document.getElementById('boot');
+      var mainEl = document.getElementById('main');
+      if (bootEl) bootEl.classList.add('hidden');
+      if (mainEl) mainEl.classList.add('visible');
+      console.warn('[ThunderStudy] revealApp recovered from error:', err);
     }
-    loadThunderNotices();
-  });
+  }
+
+  // Reveal as soon as the DOM is ready — don't wait on every image/font on the page
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    revealApp();
+  } else {
+    document.addEventListener('DOMContentLoaded', revealApp);
+  }
+  // Hard failsafe: no matter what happens with resources or errors, never stay stuck
+  window.addEventListener('load', revealApp);
+  setTimeout(revealApp, 4000);
 
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('img').forEach(function(img) {

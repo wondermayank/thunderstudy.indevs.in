@@ -27,48 +27,32 @@
     { "src": "/apple-touch-icon.svg",  "sizes": "180x180", "type": "image/svg+xml" },
     { "src": "/favicon-32x32.svg",     "sizes": "32x32",   "type": "image/svg+xml" }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "ThunderStudy on mobile — free study material"
-    },
-    {
-      "src": "/screenshot-desktop.png",
-      "sizes": "1280x800",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "ThunderStudy on desktop — CBSE, CUET, SSC, Banking mocks"
-    }
-  ],
   "shortcuts": [
     {
       "name": "CUET Mock Tests 2026",
       "short_name": "CUET",
-      "url": "https://commercesehoga.github.io/cuet",
+      "url": "/#streams",
       "description": "Free full-length CUET 2026 mock tests",
       "icons": [{ "src": "/favicon-192x192.svg", "sizes": "192x192", "type": "image/svg+xml" }]
     },
     {
       "name": "CBSE Class 12",
       "short_name": "CBSE",
-      "url": "https://thunderstudy.indevs.in/#streams",
+      "url": "/#streams",
       "description": "CBSE Class 12 notes — Commerce, Science, Humanities",
       "icons": [{ "src": "/favicon-192x192.svg", "sizes": "192x192", "type": "image/svg+xml" }]
     },
     {
       "name": "SSC Mock Tests",
       "short_name": "SSC",
-      "url": "https://commercesehoga.github.io/ssc",
+      "url": "/ssc/cgl",
       "description": "Free SSC CGL CBT-style mock tests",
       "icons": [{ "src": "/favicon-192x192.svg", "sizes": "192x192", "type": "image/svg+xml" }]
     },
     {
       "name": "Banking Mocks",
       "short_name": "Banking",
-      "url": "https://commercesehoga.github.io/banking",
+      "url": "/banking/ibps_po",
       "description": "Free IBPS PO, SBI PO, Clerk mock tests",
       "icons": [{ "src": "/favicon-192x192.svg", "sizes": "192x192", "type": "image/svg+xml" }]
     }
@@ -78,6 +62,7 @@
   "share_target": {
     "action": "/",
     "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
     "params": {
       "title": "title",
       "text": "text",
