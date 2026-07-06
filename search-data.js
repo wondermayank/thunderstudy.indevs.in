@@ -12075,3 +12075,334 @@ var THUNDER_SEARCH_DATA = [
   {name:'CBSE KV Sample Paper — Class 12 History (Browse Page)', stream:'CBSE Resources · Class 12', url:'https://thunderstudy.indevs.in/cbse/kv-sample-paper.html', badge:'CBSE', tags:'kendriya vidyalaya kv sample paper class 12 history history sample paper (2024-25) sample papers pdf free download browse all chapters subjects files page'},
   {name:'CBSE KV Sample Paper — Class 12 English (Browse Page)', stream:'CBSE Resources · Class 12', url:'https://thunderstudy.indevs.in/cbse/kv-sample-paper.html', badge:'CBSE', tags:'kendriya vidyalaya kv sample paper class 12 english english core sample paper 1 (2024-25), english core sample paper 2 (2024-25) sample papers pdf free download browse all chapters subjects files page'},
 ];
+
+/*
+ * Search keyword enrichment
+ * Adds generated aliases to every item so search catches abbreviations,
+ * spelling variants, exam shortcuts, file intents and class-style queries.
+ */
+(function enhanceThunderSearchKeywords() {
+  if (!Array.isArray(THUNDER_SEARCH_DATA)) return;
+
+  var COMMON_INTENTS = [
+    'all', 'all data', 'all search', 'all result', 'all results',
+    'free', 'study', 'study material', 'notes', 'note', 'book', 'books',
+    'pdf', 'file', 'files', 'download', 'direct link', 'drive link',
+    'chapter', 'chapter wise', 'topic', 'topic wise', 'subject',
+    'subject wise', 'all subject', 'all subjects', 'subject notes',
+    'special', 'special notes', 'special file', 'special pdf',
+    'imp', 'imp notes', 'imp questions', 'important', 'important notes',
+    'chapter notes', 'notes chapter', 'notes of chapter', 'chapter pdf',
+    'chapter file', 'chapter data', 'all chapter', 'all chapters',
+    'all chapter pdf', 'all chapter notes', 'all notes', 'all pdf',
+    'all files', 'complete notes', 'complete chapter notes',
+    'exam', 'paper', 'question paper', 'previous year', 'previous year paper',
+    'pyq', 'pyp', 'sample paper', 'model paper', 'practice paper',
+    'mock test', 'test series', 'online test', 'mcq', 'important questions',
+    'solution', 'solutions', 'answer key', 'syllabus', 'revision',
+    'formula', 'mind map', 'summary', 'one shot', 'short notes',
+    'complete course', 'preparation', 'material', 'resource', 'resources'
+  ];
+
+  var EXAM_ALIASES = {
+    cbse: ['cbse board', 'central board', 'board exam', 'boards', 'class board', 'cbse notes', 'cbse pdf'],
+    ncert: ['ncert book', 'ncert solution', 'ncert solutions', 'ncert exemplar', 'textbook'],
+    cuet: ['cuet ug', 'cuet 2026', 'common university entrance test', 'domain subject', 'general test', 'gat'],
+    ssc: ['staff selection commission', 'ssc cgl', 'ssc chsl', 'ssc mts', 'ssc gd', 'ssc stenographer', 'ssc exam'],
+    banking: ['bank exam', 'banking exam', 'ibps', 'sbi', 'rbi', 'lic', 'po', 'clerk', 'rrb', 'bank po'],
+    ca: ['chartered accountancy', 'ca foundation', 'ca inter', 'ca intermediate', 'ca final', 'icai', 'fountion'],
+    jee: ['jee main', 'jee advanced', 'iit jee', 'engineering entrance'],
+    neet: ['neet ug', 'medical entrance', 'biology entrance'],
+    upsc: ['ias', 'civil services', 'cse', 'prelims', 'mains', 'gs paper'],
+    nda: ['defence exam', 'national defence academy', 'maths gat'],
+    clat: ['law entrance', 'ailet', 'legal aptitude'],
+    cat: ['mba entrance', 'management entrance', 'varc', 'dilr', 'quant'],
+    tet: ['teacher eligibility test', 'ctet', 'teaching exam'],
+    ctet: ['central teacher eligibility test', 'teacher exam'],
+    dca: ['computer diploma', 'diploma in computer application'],
+    pgdca: ['post graduate diploma computer application'],
+    bed: ['b ed', 'b.ed', 'education degree', 'teaching course']
+  };
+
+  var SUBJECT_ALIASES = {
+    accountancy: ['accounts', 'accounting', 'acc', 'accountancy class 12'],
+    business: ['bst', 'business studies', 'management'],
+    economics: ['eco', 'economy', 'microeconomics', 'macroeconomics'],
+    mathematics: ['math', 'maths', 'applied maths', 'standard maths', 'basic maths'],
+    physics: ['phy', 'physic'],
+    chemistry: ['chem', 'chemical science'],
+    biology: ['bio', 'life science', 'zoology', 'botany'],
+    english: ['english core', 'english language', 'literature'],
+    hindi: ['hindi a', 'hindi b'],
+    sanskrit: ['sanskrit paper'],
+    history: ['his', 'ancient history', 'medieval history', 'modern history'],
+    geography: ['geo', 'physical geography', 'indian geography', 'world geography'],
+    polity: ['civics', 'constitution', 'political science'],
+    science: ['sci', 'general science'],
+    reasoning: ['logical reasoning', 'mental ability'],
+    aptitude: ['quantitative aptitude', 'quant', 'math aptitude'],
+    computer: ['computer science', 'informatics practices', 'ip', 'cs'],
+    current: ['current affairs', 'daily current affairs', 'gk current'],
+    general: ['general knowledge', 'gk', 'general awareness', 'general studies', 'gs'],
+    finance: ['financial markets', 'banking finance'],
+    marketing: ['market', 'marketing management']
+  };
+
+  var SPELLING_ALIASES = {
+    foundation: ['fountion', 'foundtion', 'ca fountion'],
+    browser: ['bower', 'browse', 'web page', 'online page'],
+    download: ['downlod', 'dwld', 'dl'],
+    previous: ['prev', 'previus'],
+    question: ['ques', 'qs', 'questions'],
+    mathematics: ['mathmatics', 'maths', 'math'],
+    accountancy: ['accontancy', 'accounts', 'accounting'],
+    business: ['buisness', 'bst'],
+    economics: ['econimics', 'eco'],
+    chemistry: ['chemisty', 'chem'],
+    physics: ['physic', 'phy'],
+    biology: ['biologie', 'bio'],
+    geography: ['geograpy', 'geo'],
+    syllabus: ['syllbus', 'syllabus pdf'],
+    sample: ['smaple', 'samplepaper'],
+    paper: ['papers', 'papper'],
+    class: ['cls', 'std', 'standard'],
+    notes: ['note', 'notess'],
+    material: ['materials', 'study material']
+  };
+
+  var CLASS_ALIASES = {
+    'class 6': ['6th', 'sixth', 'standard 6', 'std 6', 'class6'],
+    'class 7': ['7th', 'seventh', 'standard 7', 'std 7', 'class7'],
+    'class 8': ['8th', 'eighth', 'standard 8', 'std 8', 'class8'],
+    'class 9': ['9th', 'ninth', 'standard 9', 'std 9', 'class9'],
+    'class 10': ['10th', 'tenth', 'standard 10', 'std 10', 'class10'],
+    'class 11': ['11th', 'eleventh', 'standard 11', 'std 11', 'class11'],
+    'class 12': ['12th', 'twelfth', 'standard 12', 'std 12', 'class12', 'board class 12']
+  };
+
+  function add(list, value) {
+    value = String(value || '').toLowerCase().trim();
+    if (!value) return;
+    value = value.replace(/[^\w.+#&/-]+/g, ' ').replace(/\s+/g, ' ').trim();
+    if (value.length > 1) list[value] = true;
+  }
+
+  function addMany(list, values) {
+    for (var i = 0; i < values.length; i++) add(list, values[i]);
+  }
+
+  function words(text) {
+    return String(text || '').toLowerCase().replace(/https?:\/\/\S+/g, ' ').split(/[^a-z0-9.+#&]+/).filter(function(w) {
+      return w.length > 1;
+    });
+  }
+
+  function addNgrams(list, tokens, size) {
+    for (var i = 0; i <= tokens.length - size; i++) add(list, tokens.slice(i, i + size).join(' '));
+  }
+
+  function containsTerm(text, term) {
+    term = String(term || '').toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+    return new RegExp('(^|[^a-z0-9])' + term + '([^a-z0-9]|$)').test(text);
+  }
+
+  function uniqueWords(text) {
+    var seen = {};
+    return words(text).filter(function(word) {
+      if (seen[word]) return false;
+      seen[word] = true;
+      return true;
+    });
+  }
+
+  function getClassKey(text) {
+    var found = '';
+    Object.keys(CLASS_ALIASES).forEach(function(key) {
+      if (!found && (text.indexOf(key) !== -1 || text.indexOf(key.replace(' ', '')) !== -1)) found = key;
+    });
+    return found;
+  }
+
+  function getPrimaryExam(text, item) {
+    var found = '';
+    Object.keys(EXAM_ALIASES).forEach(function(key) {
+      if (!found && containsTerm(text, key)) found = key;
+    });
+    return found || String(item.badge || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+
+  function getPrimarySubject(text) {
+    var found = '';
+    Object.keys(SUBJECT_ALIASES).forEach(function(key) {
+      if (!found && containsTerm(text, key)) found = key;
+    });
+    return found;
+  }
+
+  function addNaturalPhrases(bag, item, text) {
+    var name = String(item.name || '').toLowerCase();
+    var classKey = getClassKey(text);
+    var exam = getPrimaryExam(text, item);
+    var subject = getPrimarySubject(text);
+    var titleWords = uniqueWords(name).filter(function(word) {
+      return !/^(and|the|for|with|page|browse|chapter|class|notes|paper|sample|pdf|free|download|ch)$/.test(word);
+    }).slice(0, 10);
+    var chapterMatch = name.match(/(?:chapter|ch)\s*([0-9]+)\s*[:\-]?\s*(.*)$/i);
+    var chapterTitle = chapterMatch ? chapterMatch[2].replace(/\(browse page\)/i, '').trim() : '';
+
+    if (classKey) {
+      add(bag, classKey + ' notes');
+      add(bag, classKey + ' all notes');
+      add(bag, classKey + ' chapter notes');
+      add(bag, classKey + ' all chapter notes');
+      add(bag, classKey + ' all chapters');
+      add(bag, classKey + ' subject wise notes');
+      add(bag, classKey + ' all subjects');
+      add(bag, classKey + ' important notes');
+      add(bag, classKey + ' imp notes');
+      add(bag, classKey + ' special notes');
+      add(bag, classKey + ' pdf notes');
+      add(bag, classKey + ' study material');
+      add(bag, classKey + ' all data');
+    }
+
+    if (exam) {
+      add(bag, exam + ' all data');
+      add(bag, exam + ' all notes');
+      add(bag, exam + ' chapter notes');
+      add(bag, exam + ' all chapter');
+      add(bag, exam + ' all chapters');
+      add(bag, exam + ' subject wise');
+      add(bag, exam + ' important notes');
+      add(bag, exam + ' imp questions');
+      add(bag, exam + ' special material');
+      add(bag, exam + ' complete material');
+      add(bag, exam + ' search data');
+    }
+
+    if (subject) {
+      add(bag, subject + ' notes');
+      add(bag, subject + ' all notes');
+      add(bag, subject + ' chapter notes');
+      add(bag, subject + ' all chapters');
+      add(bag, subject + ' all chapter notes');
+      add(bag, subject + ' subject wise');
+      add(bag, subject + ' important notes');
+      add(bag, subject + ' imp notes');
+      add(bag, subject + ' special notes');
+      add(bag, subject + ' pdf notes');
+      if (classKey) {
+        add(bag, classKey + ' ' + subject + ' notes');
+        add(bag, classKey + ' ' + subject + ' chapter notes');
+        add(bag, classKey + ' ' + subject + ' all notes');
+        add(bag, classKey + ' ' + subject + ' all chapters');
+        add(bag, classKey + ' ' + subject + ' important notes');
+        add(bag, classKey + ' ' + subject + ' imp notes');
+        add(bag, classKey + ' ' + subject + ' special notes');
+        add(bag, subject + ' ' + classKey + ' notes');
+      }
+      if (exam) {
+        add(bag, exam + ' ' + subject + ' notes');
+        add(bag, exam + ' ' + subject + ' chapter notes');
+      }
+    }
+
+    if (chapterTitle) {
+      add(bag, chapterTitle);
+      add(bag, chapterTitle + ' notes');
+      add(bag, chapterTitle + ' pdf');
+      add(bag, chapterTitle + ' chapter notes');
+      add(bag, chapterTitle + ' important notes');
+      add(bag, chapterTitle + ' imp notes');
+      add(bag, chapterTitle + ' special notes');
+      add(bag, 'chapter ' + chapterMatch[1] + ' notes');
+      add(bag, 'chapter ' + chapterMatch[1] + ' important notes');
+      add(bag, 'chapter ' + chapterMatch[1] + ' imp notes');
+      add(bag, 'ch ' + chapterMatch[1] + ' notes');
+      if (subject) add(bag, subject + ' ' + chapterTitle);
+      if (classKey) add(bag, classKey + ' ' + chapterTitle);
+      addNgrams(bag, words(chapterTitle), 2);
+      addNgrams(bag, words(chapterTitle), 3);
+    }
+
+    titleWords.forEach(function(word) {
+      add(bag, word + ' notes');
+      add(bag, word + ' pdf');
+      add(bag, word + ' chapter');
+      add(bag, word + ' important');
+      add(bag, word + ' imp');
+      add(bag, word + ' special');
+      if (classKey) add(bag, classKey + ' ' + word);
+      if (subject) add(bag, subject + ' ' + word);
+    });
+  }
+
+  function enrichItem(item) {
+    var bag = {};
+    var text = [item.name, item.stream, item.badge, item.tags, item.url].join(' ').toLowerCase();
+    var tokenList = words(text);
+
+    addMany(bag, COMMON_INTENTS);
+    addMany(bag, tokenList);
+    addNgrams(bag, tokenList, 2);
+    addNgrams(bag, tokenList, 3);
+    addNaturalPhrases(bag, item, text);
+
+    tokenList.forEach(function(token) {
+      if (token.length > 3) add(bag, token.replace(/s$/, ''));
+      if (token.indexOf('-') !== -1) add(bag, token.replace(/-/g, ' '));
+      if (token.indexOf('.') !== -1) add(bag, token.replace(/\./g, ''));
+    });
+
+    Object.keys(CLASS_ALIASES).forEach(function(key) {
+      if (text.indexOf(key) !== -1 || text.indexOf(key.replace(' ', '')) !== -1) {
+        addMany(bag, CLASS_ALIASES[key]);
+        add(bag, key + ' notes');
+        add(bag, key + ' pdf');
+        add(bag, key + ' sample paper');
+        add(bag, key + ' question paper');
+      }
+    });
+
+    Object.keys(EXAM_ALIASES).forEach(function(key) {
+      if (containsTerm(text, key)) {
+        addMany(bag, EXAM_ALIASES[key]);
+        add(bag, key + ' notes');
+        add(bag, key + ' pdf');
+        add(bag, key + ' mock test');
+        add(bag, key + ' previous year paper');
+      }
+    });
+
+    Object.keys(SUBJECT_ALIASES).forEach(function(key) {
+      if (text.indexOf(key) !== -1) {
+        addMany(bag, SUBJECT_ALIASES[key]);
+        add(bag, key + ' notes');
+        add(bag, key + ' pdf');
+        add(bag, key + ' question bank');
+        add(bag, key + ' important questions');
+      }
+    });
+
+    Object.keys(SPELLING_ALIASES).forEach(function(key) {
+      if (text.indexOf(key) !== -1) addMany(bag, SPELLING_ALIASES[key]);
+    });
+
+    if (/\.pdf(\?|#|$)|\bpdf\b|download|drive\.google/i.test(text)) {
+      addMany(bag, ['file pdf', 'pdf file', 'download pdf', 'open pdf', 'study pdf']);
+    } else {
+      addMany(bag, ['browser', 'browse page', 'data page', 'online data', 'web resource', 'bower']);
+    }
+
+    item.keywords = Object.keys(bag);
+    item.searchText = [item.name, item.stream, item.badge, item.tags, item.url, item.keywords.join(' ')].join(' ').replace(/\s+/g, ' ').trim();
+    var tokenBag = {};
+    words(item.searchText).forEach(function(token) { tokenBag[token] = true; });
+    item.searchTokens = Object.keys(tokenBag);
+  }
+
+  for (var i = 0; i < THUNDER_SEARCH_DATA.length; i++) enrichItem(THUNDER_SEARCH_DATA[i]);
+  THUNDER_SEARCH_KEYWORD_COUNT = THUNDER_SEARCH_DATA.reduce(function(total, item) {
+    return total + (item.keywords ? item.keywords.length : 0);
+  }, 0);
+})();

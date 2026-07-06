@@ -8,6 +8,7 @@
 <!-- ===== FONT PRECONNECT (Core Web Vitals) ===== -->
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script src="search-data.js" defer></script>
+<script src="search-data%20(12).js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap">
@@ -2112,6 +2113,59 @@
 </div>
 
 <!-- MAIN CONTENT -->
+<div id="search-page" hidden>
+  <header class="search-page-header">
+    <div class="search-page-inner search-page-nav">
+      <a class="search-page-brand" href="/">
+        <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="80" height="80" rx="18" fill="#573AFC"/><path d="M22 24h36M40 24v32M28 56h24" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="56" r="5" fill="#60a5fa"/></svg>
+        ThunderStudy Search
+      </a>
+      <a class="search-page-back" href="/">Home</a>
+    </div>
+  </header>
+
+  <main class="search-page-main">
+    <div class="search-page-inner">
+      <h1 class="search-page-title">Find notes, PDFs and exam resources</h1>
+      <section class="search-panel" aria-label="Advanced search">
+        <div class="search-page-form">
+          <input type="search" id="advanced-search-input" placeholder="Search any file, exam, chapter or topic..." autocomplete="off">
+          <button type="button" id="advanced-search-button">Search</button>
+        </div>
+        <div class="search-page-filters" aria-label="Search filters">
+          <select id="filter-exam" aria-label="Exam filter">
+            <option value="">All exams</option>
+          </select>
+          <select id="filter-subexam" aria-label="Sub exam filter">
+            <option value="">All sub exams</option>
+          </select>
+          <select id="filter-type" aria-label="Type filter">
+            <option value="">All types</option>
+            <option value="file">File / PDF</option>
+            <option value="browser">Browser / Data</option>
+          </select>
+        </div>
+      </section>
+
+      <div id="advanced-search-summary" class="search-summary"></div>
+      <div id="advanced-search-results" class="search-full-results"></div>
+      <div class="search-end-card">
+        <div>
+          <strong id="search-end-title">Need a resource added?</strong>
+          <p>Contact us or request notes, PDFs and new exam material.</p>
+        </div>
+        <a class="search-contact-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSePwlvdMzRLYoYuXNbKlamargjazyRiedg0rE0JfAzyKPyHEA/viewform" target="_blank" rel="noopener">Contact and request</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="search-page-footer">
+    <div class="search-page-inner">
+      Made by <a href="https://wondermayank.in" target="_blank" rel="noopener">wondermayank.in</a>
+    </div>
+  </footer>
+</div>
+
 <div id="main">
 
 
@@ -2382,6 +2436,180 @@
   cursor: pointer;
 }
 .search-see-all-btn:hover { background: var(--blue-100); }
+
+.search-advanced-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #573AFC;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+#search-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.search-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.94);
+  border-bottom: 1px solid #e2e8f0;
+  backdrop-filter: blur(14px);
+}
+
+.search-page-inner {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.search-page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.search-page-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.search-page-back {
+  color: #573AFC;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.search-page-main {
+  padding: 34px 0 44px;
+}
+
+.search-page-title {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: 0;
+}
+
+.search-panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 18px 48px rgba(15,23,42,0.08);
+}
+
+.search-page-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.search-page-form input,
+.search-page-filters select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0 13px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.search-page-form button,
+.search-clear-btn,
+.search-contact-btn {
+  min-height: 46px;
+  border: 0;
+  border-radius: 12px;
+  padding: 0 18px;
+  background: #573AFC;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-page-filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.search-summary {
+  margin: 18px 0 12px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.search-full-results {
+  display: grid;
+  gap: 10px;
+}
+
+.search-full-results .search-result-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(15,23,42,0.04);
+}
+
+.search-end-card {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.search-end-card strong { display: block; margin-bottom: 4px; }
+.search-end-card p { margin: 0; color: #475569; }
+
+.search-page-footer {
+  border-top: 1px solid #e2e8f0;
+  background: #fff;
+  padding: 24px 0;
+  color: #64748b;
+}
+
+.search-page-footer a {
+  color: #573AFC;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 720px) {
+  .search-page-form,
+  .search-page-filters {
+    grid-template-columns: 1fr;
+  }
+}
 
 .hero-search-wrap .search-icon-btn svg {
   width: 16px;
@@ -5852,6 +6080,14 @@
 
   // Boot screen
   window.addEventListener('load', function() {
+    if (isAdvancedSearchRoute()) {
+      document.getElementById('boot').classList.add('hidden');
+      document.getElementById('main').style.display = 'none';
+      document.getElementById('search-page').hidden = false;
+      initAdvancedSearchPage();
+      return;
+    }
+
     var alreadyBooted = sessionStorage.getItem('thunderstudy_booted');
     if (alreadyBooted) {
       document.getElementById('boot').classList.add('hidden');
@@ -5947,6 +6183,43 @@
     return false;
   }
 
+  function _containsQueryTerm(haystack, word) {
+    if (word.length <= 3) {
+      return new RegExp('(^|[^a-z0-9])' + _escRe(word) + '([^a-z0-9]|$)', 'i').test(haystack);
+    }
+    return haystack.includes(word);
+  }
+
+  var SEARCH_STOP_WORDS = {
+    a: true, an: true, and: true, are: true, all: true, any: true,
+    for: true, from: true, in: true, me: true, of: true, on: true,
+    please: true, show: true, the: true, to: true, with: true
+  };
+
+  var SEARCH_WORD_ALIASES = {
+    '12th': 'class 12', '11th': 'class 11', '10th': 'class 10', '9th': 'class 9',
+    class12: 'class 12', class11: 'class 11', class10: 'class 10', class9: 'class 9',
+    fountion: 'foundation', bower: 'browser',
+    maths: 'mathematics', math: 'mathematics',
+    accounts: 'accountancy', acc: 'accountancy',
+    eco: 'economics', phy: 'physics', chem: 'chemistry', bio: 'biology',
+    gk: 'general knowledge', pyq: 'previous year question'
+  };
+
+  function normalizeSearchQuery(q) {
+    q = String(q || '').toLowerCase().replace(/[^\w.+#&/-]+/g, ' ').replace(/\s+/g, ' ').trim();
+    Object.keys(SEARCH_WORD_ALIASES).forEach(function(key) {
+      q = q.replace(new RegExp('(^|\\s)' + _escRe(key) + '(?=\\s|$)', 'g'), '$1' + SEARCH_WORD_ALIASES[key]);
+    });
+    return q.replace(/\s+/g, ' ').trim();
+  }
+
+  function searchWords(q) {
+    return normalizeSearchQuery(q).split(/\s+/).filter(function(word) {
+      return word && !SEARCH_STOP_WORDS[word];
+    });
+  }
+
   function _highlight(text, words) {
     var out = text;
     words.forEach(function(w) {
@@ -5957,19 +6230,85 @@
     return out;
   }
 
-  function rankedSearch(q) {
-    var data = getSearchData();
-    var qWords = q.split(/\s+/).filter(Boolean);
-    var results = [];
+  var THUNDER_SEARCH_INDEX = null;
 
-    for (var k = 0; k < data.length; k++) {
-      var d = data[k];
-      var nameL = d.name.toLowerCase();
-      var streamL = (d.stream || '').toLowerCase();
-      var badgeL = (d.badge || '').toLowerCase();
-      var tagsL = (d.tags || '').toLowerCase();
-      var fullHay = nameL + ' ' + streamL + ' ' + badgeL + ' ' + tagsL;
-      var hayWords = fullHay.split(/\s+/).filter(Boolean);
+  function indexTokens(text) {
+    var seen = {};
+    return normalizeSearchQuery(text).split(/\s+/).filter(function(word) {
+      if (!word || SEARCH_STOP_WORDS[word] || seen[word]) return false;
+      seen[word] = true;
+      return true;
+    });
+  }
+
+  function buildSearchIndex() {
+    var data = getSearchData();
+    var tokenMap = {};
+    for (var i = 0; i < data.length; i++) {
+      var d = data[i];
+      var richText = d.searchText || [d.name, d.stream, d.badge, d.tags, d.url, (d.keywords || []).join(' ')].join(' ');
+      d._nameL = String(d.name || '').toLowerCase();
+      d._streamL = String(d.stream || '').toLowerCase();
+      d._badgeL = String(d.badge || '').toLowerCase();
+      d._tagsL = String(d.tags || '').toLowerCase();
+      d._searchTextL = String(richText || '').toLowerCase();
+      d._hayWords = d.searchTokens || indexTokens(richText);
+      d._hayWords.forEach(function(token) {
+        token = normalizeSearchQuery(token);
+        if (!token || SEARCH_STOP_WORDS[token]) return;
+        if (!tokenMap[token]) tokenMap[token] = [];
+        tokenMap[token].push(i);
+      });
+    }
+    THUNDER_SEARCH_INDEX = { data: data, tokenMap: tokenMap };
+    return THUNDER_SEARCH_INDEX;
+  }
+
+  function getSearchIndex() {
+    var data = getSearchData();
+    if (THUNDER_SEARCH_INDEX && THUNDER_SEARCH_INDEX.data === data) return THUNDER_SEARCH_INDEX;
+    return buildSearchIndex();
+  }
+
+  function candidateIndexes(qWords, index) {
+    var counts = {};
+    var required = 0;
+    for (var w = 0; w < qWords.length; w++) {
+      var word = qWords[w];
+      var postings = index.tokenMap[word] || [];
+      if (!postings.length && word.length > 3) {
+        for (var token in index.tokenMap) {
+          if (token.indexOf(word) !== -1 || word.indexOf(token) !== -1) {
+            postings = postings.concat(index.tokenMap[token]);
+          }
+        }
+      }
+      if (!postings.length) return [];
+      required++;
+      for (var p = 0; p < postings.length; p++) counts[postings[p]] = (counts[postings[p]] || 0) + 1;
+    }
+    return Object.keys(counts).filter(function(idx) {
+      return counts[idx] === required;
+    }).map(function(idx) { return Number(idx); });
+  }
+
+  function rankedSearch(q) {
+    var index = getSearchIndex();
+    var data = index.data;
+    q = normalizeSearchQuery(q);
+    var qWords = searchWords(q);
+    var results = [];
+    if (!qWords.length) return { list: data.slice(), words: [] };
+    var candidates = candidateIndexes(qWords, index);
+
+    for (var k = 0; k < candidates.length; k++) {
+      var d = data[candidates[k]];
+      var nameL = d._nameL;
+      var streamL = d._streamL;
+      var badgeL = d._badgeL;
+      var tagsL = d._tagsL;
+      var fullHay = d._searchTextL;
+      var hayWords = d._hayWords;
 
       var score = 0;
       var matchedAll = true;
@@ -5978,14 +6317,20 @@
       if (nameL === q) score += 120;
       else if (nameL.indexOf(q) === 0) score += 60;
       else if (nameL.includes(q)) score += 35;
+      if (fullHay.includes(q)) score += 18;
+      if (qWords.indexOf('notes') !== -1 && (/chapter| ch [0-9]/.test(nameL) || fullHay.includes('chapter notes'))) score += 8;
+      if (qWords.indexOf('chapter') !== -1 && (/chapter| ch [0-9]/.test(nameL) || fullHay.includes('chapter'))) score += 8;
+      if ((qWords.indexOf('important') !== -1 || qWords.indexOf('imp') !== -1) && fullHay.includes('important')) score += 6;
+      if (qWords.indexOf('special') !== -1 && fullHay.includes('special')) score += 6;
+      if ((q.indexOf('class 12') !== -1 || qWords.indexOf('12') !== -1) && fullHay.includes('class 12')) score += 8;
 
       for (var w = 0; w < qWords.length; w++) {
         var word = qWords[w];
         var wordMatched = false;
-        if (nameL.includes(word)) { score += 12; wordMatched = true; }
-        if (tagsL.includes(word)) { score += 6; wordMatched = true; }
-        if (streamL.includes(word)) { score += 4; wordMatched = true; }
-        if (badgeL.includes(word)) { score += 3; wordMatched = true; }
+        if (_containsQueryTerm(nameL, word)) { score += 12; wordMatched = true; }
+        if (_containsQueryTerm(fullHay, word)) { score += 6; wordMatched = true; }
+        if (_containsQueryTerm(streamL, word)) { score += 4; wordMatched = true; }
+        if (_containsQueryTerm(badgeL, word)) { score += 3; wordMatched = true; }
         if (!wordMatched && _fuzzyIncludes(hayWords, word)) { score += 2; wordMatched = true; }
         if (!wordMatched) { matchedAll = false; break; }
       }
@@ -5997,10 +6342,104 @@
     return { list: results.map(function(r) { return r.d; }), words: qWords };
   }
 
-  // doSearch(q, showAll) — showAll=false (default): live type-ahead, capped at
-  // 20 results with a "See all N results" button. showAll=true: every matching
-  // result is rendered (used when the search button / Enter key is pressed).
-  function doSearch(q, showAll) {
+  function escapeHtml(text) {
+    return String(text || '').replace(/[&<>"']/g, function(ch) {
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+    });
+  }
+
+  function makeSearchUrl(q, filters) {
+    var params = new URLSearchParams();
+    q = (q || '').trim();
+    filters = filters || {};
+    if (q) params.set('q', q);
+    if (filters.exam) params.set('exam', filters.exam);
+    if (filters.subexam) params.set('subexam', filters.subexam);
+    if (filters.type) params.set('type', filters.type);
+    var query = params.toString();
+    return '/search' + (query ? '?' + query : '');
+  }
+
+  function goAdvancedSearch(q, filters) {
+    window.location.href = makeSearchUrl(q, filters);
+  }
+
+  function isAdvancedSearchRoute() {
+    return /\/search\/?$/i.test(window.location.pathname);
+  }
+
+  function resultType(item) {
+    var url = String(item.url || '').toLowerCase();
+    var text = (String(item.name || '') + ' ' + String(item.tags || '') + ' ' + url).toLowerCase();
+    return (/\.pdf(\?|#|$)/.test(url) || /\bpdf\b/.test(text) || /\bdownload\b/.test(text)) ? 'file' : 'browser';
+  }
+
+  function detectExam(item) {
+    var text = (String(item.badge || '') + ' ' + String(item.stream || '') + ' ' + String(item.tags || '') + ' ' + String(item.name || '')).toLowerCase();
+    var exams = ['cbse','ssc','banking','ca','cuet','jee','neet','upsc','nda','clat','cat','ncert','tet','ctet','dca','pgdca','bed'];
+    for (var i = 0; i < exams.length; i++) {
+      if (text.indexOf(exams[i]) !== -1) return exams[i];
+    }
+    return String(item.badge || 'other').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'other';
+  }
+
+  function detectSubExam(item) {
+    var text = (String(item.name || '') + ' ' + String(item.stream || '') + ' ' + String(item.tags || '')).toLowerCase();
+    var subs = [
+      ['cbse-class-12', ['class 12','class12']],
+      ['cbse-class-11', ['class 11','class11']],
+      ['cbse-class-10', ['class 10','class10']],
+      ['ca-foundation', ['ca foundation','foundation']],
+      ['ca-inter', ['ca inter','intermediate']],
+      ['ca-final', ['ca final']],
+      ['ssc-cgl', ['ssc cgl','cgl']],
+      ['ssc-chsl', ['ssc chsl','chsl']],
+      ['ssc-mts', ['ssc mts','mts']],
+      ['ibps', ['ibps']],
+      ['sbi', ['sbi']],
+      ['rbi', ['rbi']],
+      ['neet-ug', ['neet']],
+      ['jee-main', ['jee main','jee']],
+      ['cuet-ug', ['cuet']]
+    ];
+    for (var i = 0; i < subs.length; i++) {
+      for (var j = 0; j < subs[i][1].length; j++) {
+        if (text.indexOf(subs[i][1][j]) !== -1) return subs[i][0];
+      }
+    }
+    return (String(item.stream || item.badge || 'other').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40)) || 'other';
+  }
+
+  function labelFromSlug(slug) {
+    return String(slug || '').split('-').filter(Boolean).map(function(part) {
+      if (part.length <= 4) return part.toUpperCase();
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    }).join(' ');
+  }
+
+  function filterResults(q, filters) {
+    q = (q || '').trim().toLowerCase();
+    filters = filters || {};
+    var source = q ? rankedSearch(q).list : getSearchData().slice();
+    return source.filter(function(item) {
+      if (filters.exam && detectExam(item) !== filters.exam) return false;
+      if (filters.subexam && detectSubExam(item) !== filters.subexam) return false;
+      if (filters.type && resultType(item) !== filters.type) return false;
+      return true;
+    });
+  }
+
+  function renderResultItem(r, words) {
+    var safeName = escapeHtml(r.name || '');
+    var nameHtml = words && words.length ? _highlight(safeName, words.map(escapeHtml)) : safeName;
+    var badge = escapeHtml(r.badge || resultType(r));
+    var stream = escapeHtml(r.stream || '');
+    var url = escapeHtml(r.url || '#');
+    return '<a class="search-result-item" href="' + url + '" onpointerdown="window.location.href=this.href"><span class="sri-badge">' + badge + '</span><span>' + nameHtml + (stream ? ' <span style="color:#94a3b8;font-weight:400;font-size:0.8em">- ' + stream + '</span>' : '') + '</span></a>';
+  }
+
+  // Home search: show only 3 results, then send people to the full search screen.
+  function doSearch(q) {
     var box = document.getElementById('search-results');
     q = q.trim().toLowerCase();
     if (!q || q.length < 1) { box.classList.remove('active'); box.innerHTML = ''; return; }
@@ -6009,34 +6448,103 @@
     var results = ranked.list;
     var qWords = ranked.words;
     var total = results.length;
-    var limit = showAll ? total : 20;
+    var limit = 3;
     var shown = results.slice(0, limit);
 
     if (shown.length === 0) {
-      box.innerHTML = '<div class="search-no-result">No results for \"' + q + '\" — try a subject, chapter or exam name</div>';
+      box.innerHTML = '<div class="search-no-result">No results for "' + escapeHtml(q) + '".<br><a class="search-advanced-btn" href="' + makeSearchUrl(q) + '">Advanced search</a></div>';
     } else {
       box.innerHTML = shown.map(function(r) {
-        var nameHtml = _highlight(r.name, qWords);
-        return '<a class="search-result-item" href="' + r.url + '"><span class="sri-badge">' + r.badge + '</span><span>' + nameHtml + ' <span style="color:#94a3b8;font-weight:400;font-size:0.8em">— ' + r.stream + '</span></span></a>';
-      }).join('') + (!showAll && total > 20 ? '<button type="button" class="search-see-all-btn" onmousedown="event.preventDefault()" onclick="submitSearch()">See all ' + total + ' results \u2192</button>' : '');
+        return renderResultItem(r, qWords);
+      }).join('') + '<button type="button" class="search-see-all-btn" onmousedown="event.preventDefault()" onclick="submitSearch()">More results on advanced search (' + total + ') \u2192</button>';
     }
     box.classList.add('active');
   }
 
-  // submitSearch() — fired by the search button (click) or Enter key inside
-  // the search box. Unlike live typing, this opens up every matching result
-  // instead of the capped preview list, so the person can browse the full
-  // set of matches for their query in one go.
+  // Search button, Enter key and More all open the full search screen.
   function submitSearch() {
     var input = document.getElementById('search-input');
     var q = (input.value || '').trim();
-    if (!q) { input.focus(); return; }
-    doSearch(q, true);
-    input.focus();
+    goAdvancedSearch(q);
   }
 
   function closeSearch() {
     document.getElementById('search-results').classList.remove('active');
+  }
+
+  function populateFilterOptions(select, values) {
+    values.forEach(function(value) {
+      if (!value) return;
+      var opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = labelFromSlug(value);
+      select.appendChild(opt);
+    });
+  }
+
+  function initAdvancedSearchPage() {
+    var params = new URLSearchParams(window.location.search);
+    var input = document.getElementById('advanced-search-input');
+    var exam = document.getElementById('filter-exam');
+    var subexam = document.getElementById('filter-subexam');
+    var type = document.getElementById('filter-type');
+    var button = document.getElementById('advanced-search-button');
+    var data = getSearchData();
+    var exams = Array.from(new Set(data.map(detectExam))).sort();
+    var subexams = Array.from(new Set(data.map(detectSubExam))).sort();
+
+    populateFilterOptions(exam, exams);
+    populateFilterOptions(subexam, subexams);
+
+    var legacyQuery = '';
+    if (!params.has('q') && window.location.search && window.location.search.indexOf('=') === -1) {
+      legacyQuery = decodeURIComponent(window.location.search.slice(1).split('?')[0].replace(/\+/g, ' '));
+    }
+
+    input.value = params.get('q') || legacyQuery;
+    exam.value = params.get('exam') || '';
+    subexam.value = params.get('subexam') || '';
+    type.value = params.get('type') || '';
+
+    function currentFilters() {
+      return { exam: exam.value, subexam: subexam.value, type: type.value };
+    }
+
+    function syncUrl() {
+      history.replaceState(null, '', makeSearchUrl(input.value, currentFilters()));
+    }
+
+    function renderAdvanced() {
+      var q = (input.value || '').trim();
+      var filters = currentFilters();
+      var qWords = searchWords(q);
+      var results = filterResults(q, filters);
+      var resultBox = document.getElementById('advanced-search-results');
+      var summary = document.getElementById('advanced-search-summary');
+      var hasFilter = !!(filters.exam || filters.subexam || filters.type);
+      var mode = q && hasFilter ? 'search and filters' : q ? 'search' : hasFilter ? 'filters' : 'all resources';
+
+      summary.textContent = results.length + ' result' + (results.length === 1 ? '' : 's') + ' found for ' + mode + '.';
+      document.getElementById('search-end-title').textContent = results.length ? 'Need a different resource?' : 'No result found?';
+      resultBox.innerHTML = results.length
+        ? results.map(function(r) { return renderResultItem(r, qWords); }).join('')
+        : '<div class="search-no-result">No matching result found. Try removing a filter or request the file below.</div>';
+      syncUrl();
+    }
+
+    button.addEventListener('click', renderAdvanced);
+    input.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        renderAdvanced();
+      }
+    });
+    input.addEventListener('input', renderAdvanced);
+    [exam, subexam, type].forEach(function(select) {
+      select.addEventListener('change', renderAdvanced);
+    });
+
+    renderAdvanced();
   }
 
   // ── Service Worker registration (PWA) ──────────────────────
