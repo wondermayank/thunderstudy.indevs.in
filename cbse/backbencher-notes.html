@@ -407,7 +407,7 @@ function openGroup(g){
 }
 
 function pdfUrl(itemName, groupName, idx){
-  return PDF_BASE + PAGE_SLUG + '/' + slugify(groupName) + '/' + slugify(itemName) + '-' + idx + '.pdf';
+  return PDF_BASE + PAGE_SLUG + '/' + slugify(itemName) + '-' + idx + '.pdf';
 }
 
 function renderRows(items, filter){
