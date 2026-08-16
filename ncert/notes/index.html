@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCERT Notes | Chapter-wise PDF Downloads - ThunderStudy</title>
+<meta name="description" content="Free NCERT chapter-wise notes for Class 6 and Class 7 - Maths, Science, Social Science, Physics, Chemistry and Biology. Download PDF notes for every chapter, free, on ThunderStudy.">
+<meta property="og:title" content="NCERT Notes - ThunderStudy">
+<meta property="og:description" content="Free NCERT chapter-wise PDF notes for Class 6 and Class 7.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#6699FB; --primary-active:#5486e8; --primary-focus:#89B4FF;
+    --ink:#1d1d1f; --body:#3c3c3c; --body-strong:#1a1a1a;
+    --muted:#6b6b6b; --muted-soft:#9a9a9a;
+    --hairline:#e6e6e6; --hairline-strong:#cccccc;
+    --canvas:#ffffff; --canvas-parchment:#f5f5f7;
+    --surface-soft:#f7f7f7; --surface-card:#fafafa; --surface-pearl:#fafafc; --surface-strong:#ebebeb;
+    --on-primary:#ffffff;
+    --radius-sm:8px; --radius-lg:18px; --radius-pill:9999px;
+  }
+  html[data-theme="dark"]{
+    --primary:#89B4FF; --primary-active:#6699FB; --primary-focus:#a9c8ff;
+    --ink:#f5f5f7; --body:#d1d1d6; --body-strong:#ffffff;
+    --muted:#8e8e93; --muted-soft:#636366;
+    --hairline:#2c2c2e; --hairline-strong:#3a3a3c;
+    --canvas:#0e0e10; --canvas-parchment:#161618;
+    --surface-soft:#1a1a1c; --surface-card:#1c1c1e; --surface-pearl:#1e1e20; --surface-strong:#2c2c2e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--canvas);color:var(--body);transition:background .2s,color .2s;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--hairline);height:64px;}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:0 1.25rem;height:100%;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;color:var(--ink);text-decoration:none;cursor:pointer;}
+  .brand-mark{width:32px;height:32px;border-radius:9px;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .brand-mark svg{width:17px;height:17px;fill:var(--on-primary);}
+  .theme-btn{width:38px;height:38px;border-radius:var(--radius-pill);border:1px solid var(--hairline-strong);background:var(--canvas);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .theme-btn svg{width:17px;height:17px;fill:var(--ink);}
+  .theme-btn:active{transform:scale(.95);}
+
+  /* HERO */
+  .hero{padding:2.4rem 0 1.6rem;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--primary);margin-bottom:.6rem;}
+  h1{font-size:32px;font-weight:700;letter-spacing:-.2px;color:var(--ink);line-height:1.15;margin-bottom:.5rem;}
+  .hero p{font-size:16px;font-weight:400;color:var(--muted);max-width:560px;}
+
+  /* BREADCRUMB */
+  .breadcrumb{display:none;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);padding:1rem 0 0;flex-wrap:wrap;}
+  .breadcrumb.show{display:flex;}
+  .crumb{cursor:pointer;padding:4px 10px;border-radius:var(--radius-pill);}
+  .crumb:hover{background:var(--surface-soft);color:var(--ink);}
+  .crumb.active{color:var(--ink);cursor:default;}
+  .crumb.active:hover{background:none;}
+
+  /* GRID (classes + subjects share this) */
+  .view{padding:1.4rem 0 3rem;display:none;}
+  .view.show{display:block;}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+  .pick-card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:1.5rem;cursor:pointer;display:flex;flex-direction:column;gap:14px;transition:border-color .15s,transform .15s;}
+  .pick-card:hover{border-color:var(--primary);transform:translateY(-3px);}
+  .pick-card:active{transform:scale(.98);}
+  .pc-icon{width:46px;height:46px;border-radius:12px;background:var(--canvas);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;}
+  .pc-icon svg{width:22px;height:22px;fill:var(--primary);}
+  .pick-name{font-size:18px;font-weight:700;color:var(--ink);}
+  .pick-meta{font-size:13px;font-weight:400;color:var(--muted);display:flex;align-items:center;gap:6px;}
+  .pick-meta svg{width:12px;height:12px;fill:var(--muted-soft);}
+  .pick-link{margin-top:auto;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);}
+
+  /* CHAPTERS VIEW */
+  .ch-top{display:flex;align-items:center;gap:14px;margin-bottom:1.2rem;flex-wrap:wrap;}
+  .ch-badge{width:46px;height:46px;border-radius:12px;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .ch-badge svg{width:22px;height:22px;fill:var(--on-primary);}
+  .ch-title{font-size:22px;font-weight:700;color:var(--ink);}
+  .ch-sub{font-size:13px;font-weight:400;color:var(--muted);margin-top:2px;}
+  .back-btn{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--ink);background:var(--canvas);border:1px solid var(--hairline-strong);border-radius:var(--radius-pill);padding:8px 16px;cursor:pointer;}
+  .back-btn:active{transform:scale(.95);}
+  .back-btn svg{width:14px;height:14px;fill:currentColor;}
+
+  .search-box{display:flex;align-items:center;gap:10px;background:var(--surface-soft);border:1px solid var(--hairline);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:1rem;}
+  .search-box svg{width:16px;height:16px;fill:var(--muted-soft);flex-shrink:0;}
+  .search-box input{border:none;background:transparent;outline:none;font-family:inherit;font-size:14px;color:var(--ink);width:100%;}
+  .search-box input::placeholder{color:var(--muted-soft);}
+
+  .chapter-list{border:1px solid var(--hairline);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface-card);}
+  .chapter-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:1rem 1.2rem;border-bottom:1px solid var(--hairline);}
+  .chapter-item:last-child{border-bottom:none;}
+  .ch-left{display:flex;align-items:center;gap:14px;min-width:0;}
+  .ch-num{width:30px;height:30px;border-radius:9px;background:var(--canvas);border:1px solid var(--hairline);color:var(--primary);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .chapter-name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;}
+  .pdf-btn{display:inline-flex;align-items:center;gap:6px;background:var(--primary);color:var(--on-primary);text-decoration:none;font-size:13px;font-weight:600;padding:9px 16px;border-radius:var(--radius-pill);flex-shrink:0;white-space:nowrap;}
+  .pdf-btn:active{transform:scale(.95);background:var(--primary-active);}
+  .pdf-btn svg{width:13px;height:13px;fill:currentColor;}
+  .no-results{padding:2rem;text-align:center;color:var(--muted);font-size:14px;}
+
+  /* FOOTER */
+  footer{background:var(--canvas-parchment);border-top:1px solid var(--hairline);padding:2.4rem 0 1.4rem;margin-top:2rem;}
+  .footer-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-bottom:1.6rem;}
+  .footer-col h4{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:.8rem;}
+  .footer-col a{display:block;font-size:14px;font-weight:400;color:var(--muted);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:var(--primary);}
+  .footer-copy{text-align:center;font-size:12px;color:var(--muted-soft);border-top:1px solid var(--hairline);padding-top:1rem;}
+
+  @media(max-width:640px){
+    h1{font-size:26px;}
+    .footer-cols{grid-template-columns:1fr 1fr;}
+    .ch-top{gap:10px;}
+    .back-btn{margin-left:0;order:3;width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" onclick="goClasses()">
+      <span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9zm0 2.24L19.23 9 12 12.76 4.77 9zm5 8.11l-5 2.73-5-2.73V13.5l5 2.73 5-2.73z"/></svg></span>
+      ThunderStudy
+    </a>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" onclick="toggleTheme()"></button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">NCERT · Free Notes</div>
+    <h1 id="heroTitle">NCERT Notes</h1>
+    <p id="heroSub">Pick your class to see all subjects and chapter-wise PDF notes.</p>
+  </div>
+
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="crumb" onclick="goClasses()">NCERT</span>
+  </div>
+
+  <!-- CLASS VIEW -->
+  <div class="view show" id="classView">
+    <div class="card-grid" id="classGrid"></div>
+  </div>
+
+  <!-- SUBJECT VIEW -->
+  <div class="view" id="subjectView">
+    <div class="card-grid" id="subjectGrid"></div>
+  </div>
+
+  <!-- CHAPTERS VIEW -->
+  <div class="view" id="chaptersView">
+    <div class="ch-top">
+      <div class="ch-badge" id="chBadge"></div>
+      <div>
+        <div class="ch-title" id="chTitle">Subject</div>
+        <div class="ch-sub" id="chSub">0 chapters</div>
+      </div>
+      <button class="back-btn" onclick="goSubjects()">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        All subjects
+      </button>
+    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="chapterSearch" placeholder="Search chapter...">
+    </div>
+    <div class="chapter-list" id="chapterList"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Thunder</h4>
+        <a href="https://commercesehoga.github.io/" target="_blank">ThunderStudy</a>
+        <a href="https://commercesehoga.github.io/dashboard" target="_blank">CBT Mock Platform</a>
+        <a href="https://thunderstudy.github.io" target="_blank">Free Study Material</a>
+        <a href="https://commercesehoga.github.io/help" target="_blank">Help / Donate</a>
+      </div>
+      <div class="footer-col">
+        <h4>wondermayank</h4>
+        <a href="https://wondermayank.indevs.in" target="_blank">Portfolio</a>
+        <a href="https://wondermayank.github.io/" target="_blank">wondermayank.github.io</a>
+        <a href="https://wondermayank.github.io/contact" target="_blank">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="https://wondermayank.github.io/terms" target="_blank">Terms</a>
+        <a href="https://wondermayank.github.io/privacy" target="_blank">Privacy</a>
+        <a href="https://wondermayank.github.io/disclaimer" target="_blank">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2025 Thunder &middot; by wondermayank</div>
+  </div>
+</footer>
+
+<script>
+/* ── THEME ── */
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeBtn').innerHTML = t==='dark'
+    ? '<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0 .996.996 0 0 0 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 0 0 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 0 0 0-1.41.996.996 0 0 0-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/></svg>'
+    : '<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>';
+}
+let savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+function toggleTheme(){
+  const t = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', t);
+  applyTheme(t);
+}
+
+/* ── ICONS ── */
+const icons = {
+  maths:     '<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5h-2v-2h2v-2h2v2h2v2h-2v2h-2v-2zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/></svg>',
+  science:   '<svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 8 0V4h1V2H7zm5 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1-6H11V4h2v8z"/></svg>',
+  social:    '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',
+  physics:   '<svg viewBox="0 0 24 24"><path d="M12 11c1.33-.83 4-2.5 4-5 0-2.21-1.79-4-4-4S8 3.79 8 6c0 2.5 2.67 4.17 4 5zm0-7c1.1 0 2 .9 2 2 0 1.43-1.07 2.71-2 3.46C11.07 8.71 10 7.43 10 6c0-1.1.9-2 2-2zm8 14.5c0-3-6-5.5-8-5.5s-8 2.5-8 5.5V21h16v-2.5zM5.08 19c.65-1.07 3.5-2.5 6.92-2.5s6.27 1.43 6.92 2.5H5.08z"/></svg>',
+  chemistry: '<svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 8 0V4h1V2H7zm5 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1-6H11V4h2v8z"/></svg>',
+  biology:   '<svg viewBox="0 0 24 24"><path d="M17.5 4.5c-1.95 0-4.05.4-5.5 1.5C10.55 4.9 8.45 4.5 6.5 4.5 4.55 4.5 2.45 4.9 1 6v14.65c0 .65.73.45.75.45.15 0 .25-.05.35-.1C3.45 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.95 3.8-1.5 5.5-1.5 1.65 0 3.35.45 4.75 1.3.1.05.15.05.25.05.02 0 .75.2.75-.45V6C21.85 4.9 19.5 4.5 17.5 4.5z"/></svg>',
+  classCap:  '<svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.72L4.7 8 12 4.27 19.3 8 12 11.72zM5 13.18v4.79c0 .81.61 1.53 1.73 2.03C7.94 20.51 9.87 21 12 21s4.06-.49 5.27-1c1.12-.5 1.73-1.22 1.73-2.03v-4.79l-7 3.82-7-3.82z"/></svg>'
+};
+
+/* ── DATA ── */
+const classes = {
+  class6: {
+    label: "Class 6",
+    baseUrl: (slug, n) => `https://thunderstudy.indevs.in/ncert/books/class6/${slug}ch${n}.pdf`,
+    subjects: {
+      maths: { label:"Maths", slug:"maths", icon:icons.maths, chapters:[
+        "Knowing Our Numbers","Whole Numbers","Playing with Numbers","Basic Geometrical Ideas",
+        "Understanding Elementary Shapes","Integers","Fractions","Decimals","Data Handling",
+        "Mensuration","Algebra","Ratios and Proportions","Symmetry","Practical Geometry"
+      ]},
+      science: { label:"Science", slug:"science", icon:icons.science, chapters:[
+        "Food Where Does it Come From","Components of Food","Fibre to Fabric","Sorting Material into Group",
+        "Separation of Substances","Changes Around Us","Getting to Know Plants","Body Movements",
+        "The Living Organisms Characteristics and Habitats","Motion and Measurement of Distance",
+        "Light Shadow and Reflections","Electricity and Circuits","Fun With Magnets","Water",
+        "Air around us","Garbage in Garbage out"
+      ]},
+      sst: { label:"Social Science", slug:"sst", icon:icons.social, chapters:[
+        "The Earth in the Solar System","Globe","Motions of the Earth","Maps","Major Domains of the Earth",
+        "Major Landforms of Earth","Our Country","India Climate Vegetation and Wildlife","What Where How and When",
+        "On the Trail of the Earliest People","From Gathering to Grow Food","In the Earliest Cities",
+        "What Books and Burials Tell Us","Kingdoms Kings and an Early Republic","New Questions and Ideas",
+        "Ashoka the Emperor Who Gave up War","Vital Villages Thriving Towns","Traders Pilgrims and Kings",
+        "New Empires and Kingdoms","Buildings, Paintings and Books","Understanding Diversity",
+        "Diversity and Discrimination","What is Government","Key Element of a Democratic Government",
+        "Panchayati Raj","Rural Administration","Urban Administration","Rural Livelihoods","Urban Livelihoods"
+      ]},
+      physics: { label:"Physics", slug:"physics", icon:icons.physics, chapters:[
+        "Light Shadow & reflection","Electricity & Circuits","Fun with Magnets","Motion & Measurement of Distance"
+      ]},
+      chemistry: { label:"Chemistry", slug:"chemistry", icon:icons.chemistry, chapters:[
+        "Fibre to Fabric","Sorting of Materials","Separation of Substance"
+      ]},
+      biology: { label:"Biology", slug:"biology", icon:icons.biology, chapters:[
+        "Body Movement","Getting to know Plants","Component of Food","Food Where does it come from","Garbage in, Garbage out"
+      ]}
+    }
+  },
+  class7: {
+    label: "Class 7",
+    baseUrl: (slug, n) => `https://thunderstudy.github.io/ncert/notes/class7/${slug}ch${n}.pdf`,
+    subjects: {
+      maths: { label:"Maths", slug:"maths", icon:icons.maths, chapters:[
+        "Integers","Fractions and Decimals","Data Handling","Simple Equations","Lines and Angles",
+        "The Triangle and its Properties","Congruence of Triangles","Comparing Quantities","Rational Numbers",
+        "Practical Geometry","Perimeter and Area","Algebraic Expressions","Exponents and Powers",
+        "Symmetry","Visualizing Solid Shapes"
+      ]},
+      science: { label:"Science", slug:"science", icon:icons.science, chapters:[
+        "Nutrients in Plants","Nutrients in Animals","Fibre to Fabric","Heat","Acids Bases and Salts",
+        "Physical and Chemical Changes","Weather, Climate and Adaptations of Animals To Climate",
+        "Winds Storms and Cyclones","Soil","Respiration in Organisms","Transportation in Animals and Plants",
+        "Reproduction in Plants","Motion and Times","Electric Current and its Effect","Light",
+        "Water a Precious Resources","Forests Our Lifeline","Wastewater Story"
+      ]},
+      sst: { label:"Social Science", slug:"sst", icon:icons.social, chapters:[
+        "Environment","Inside Our Earth","Our Changing Earth","Air","Water","Natural Vegetation and Wildlife",
+        "Human Environment Settlement","Human Environment Interactions","Life in the Temperate Grassland",
+        "Life in the Deserts","Tracing Changes Through a Thousand Years","New Kings and Kingdoms",
+        "The Delhi Sultan","The Mughal Empire","Rulers and Buildings","Town Traders and Craftperson",
+        "Tribal Nomads and Settled Communities","Devotional Paths to the Divine","The Making of Religion Culture",
+        "Eighteenth Century Political Formation","On Equality","Role of the Government in Health",
+        "How the State Government Works","Growing up as Boys and Girls","Women Change the World",
+        "Understanding Media","Understanding Advertising","Market Around Us","A Shirt in the Market",
+        "Struggles for Equality"
+      ]},
+      physics: { label:"Physics", slug:"physics", icon:icons.physics, chapters:[
+        "Wind Storms & cyclones","Motion & Time","Electric Current & Its Effects","Light"
+      ]},
+      chemistry: { label:"Chemistry", slug:"chemistry", icon:icons.chemistry, chapters:[
+        "Fibres to Fabric","Physical & Chemical Changes","Heat","Acid Base & Salts"
+      ]},
+      biology: { label:"Biology", slug:"biology", icon:icons.biology, chapters:[
+        "Nutrition in Plants","Nutrition in Animals","Respiration in Organisms",
+        "Transportation in Animals & Plants","Reproduction in Plants","Waste Water Story"
+      ]}
+    }
+  },
+  class8: {
+    label: "Class 8",
+    baseUrl: (slug, n) => `https://thunderstudy.github.io/ncert/notes/class8/${slug}ch${n}.pdf`,
+    subjects: {
+      maths: { label:"Maths", slug:"maths", icon:icons.maths, chapters:[
+        "Rational Numbers","Linear Equations in One Variable","Understanding Quadrilaterals",
+        "Practical Geometry","Data Handling","Squares and Square Roots","Cubes and Cube Roots",
+        "Comparing Quantities","Algebraic Expressions and Identities","Visualising Solid Shapes",
+        "Mensuration","Exponents and Powers","Direct and Inverse Proportions","Factorisation",
+        "Introduction to Graphs","Playing with Numbers"
+      ]},
+      science: { label:"Science", slug:"science", icon:icons.science, chapters:[
+        "Crop Production and Management","Microorganisms - Friend and Foe","Synthetic Fibres and Plastics",
+        "Materials - Metals and Non-Metals","Coal and Petroleum","Combustion and Flame",
+        "Conservation of Plants and Animals","Cell - Structure and Functions","Reproduction in Animals",
+        "Reaching the Age of Adolescence","Force and Pressure","Friction","Sound",
+        "Chemical Effects of Electric Current","Some Natural Phenomena","Light",
+        "Star and the Solar System","Pollution of Air and Water"
+      ]},
+      sst: { label:"Social Science", slug:"sst", icon:icons.social, chapters:[
+        "Resources and Development","Natural Resources and Wildlife Resources","Mineral Power Resources",
+        "Agriculture","Industries","Human Resources","How When and Where","From Trade to Territory",
+        "Ruling the Countryside","Tribal Dukas","When People Rebel 1857 and After","Colonialism and the City",
+        "Weavers Iron Smelters and Factory Owners","Civilising the Native","Women Caste and Reform",
+        "The Changing World of Visual Art","Making of National Movement","India After Independence",
+        "The Indian Constitution","Understanding Secularism","Why Do We Need A Parliament",
+        "Understanding Law","Judiciary","Understanding Our Criminal Justice System",
+        "Understanding Marginalisation","Confronting Marginalisation","Public Facilities","Law and Social Justice"
+      ]},
+      physics: { label:"Physics", slug:"physics", icon:icons.physics, chapters:[
+        "Force & Pressure","Friction","Sound","Chemical Effects of Electric Current",
+        "Some Natural Phenomena","Light","Stars & the Solar System"
+      ]},
+      chemistry: { label:"Chemistry", slug:"chemistry", icon:icons.chemistry, chapters:[
+        "Synthetic Fibres & Plastics","Metals & Non-metals","Coal & Petroleum","Combustion & Flame"
+      ]},
+      biology: { label:"Biology", slug:"biology", icon:icons.biology, chapters:[
+        "Crop Production & Management","Micro-organisms Friend & Foe","Conservation of Plants & Animals",
+        "Cell","Reproduction in Animals"
+      ]}
+    }
+  }
+};
+
+let currentClass = null;
+let currentSubject = null;
+
+/* ── RENDER CLASSES ── */
+function renderClasses(){
+  const grid = document.getElementById('classGrid');
+  grid.innerHTML = '';
+  Object.keys(classes).forEach(key=>{
+    const c = classes[key];
+    const subjCount = Object.keys(c.subjects).length;
+    const card = document.createElement('div');
+    card.className = 'pick-card';
+    card.innerHTML = `
+      <div class="pc-icon">${icons.classCap}</div>
+      <div>
+        <div class="pick-name">${c.label}</div>
+        <div class="pick-meta">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          ${subjCount} subjects
+        </div>
+      </div>
+      <div class="pick-link">View subjects &rsaquo;</div>
+    `;
+    card.onclick = () => selectClass(key);
+    grid.appendChild(card);
+  });
+}
+
+function selectClass(key){
+  currentClass = key;
+  const c = classes[key];
+  document.getElementById('heroTitle').textContent = `${c.label} NCERT Notes`;
+  document.getElementById('heroSub').textContent = `Pick a subject to see all chapter-wise PDF notes for ${c.label}.`;
+  renderSubjects(c);
+  document.getElementById('classView').classList.remove('show');
+  document.getElementById('chaptersView').classList.remove('show');
+  document.getElementById('subjectView').classList.add('show');
+  const bc = document.getElementById('breadcrumb');
+  bc.classList.add('show');
+  bc.innerHTML = `<span class="crumb" onclick="goClasses()">NCERT</span><span>&rsaquo;</span><span class="crumb active">${c.label}</span>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderSubjects(c){
+  const grid = document.getElementById('subjectGrid');
+  grid.innerHTML = '';
+  Object.keys(c.subjects).forEach(key=>{
+    const s = c.subjects[key];
+    const card = document.createElement('div');
+    card.className = 'pick-card';
+    card.innerHTML = `
+      <div class="pc-icon">${s.icon}</div>
+      <div>
+        <div class="pick-name">${s.label}</div>
+        <div class="pick-meta">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          ${s.chapters.length} chapters
+        </div>
+      </div>
+      <div class="pick-link">View chapters &rsaquo;</div>
+    `;
+    card.onclick = () => selectSubject(key);
+    grid.appendChild(card);
+  });
+}
+
+function selectSubject(key){
+  currentSubject = key;
+  const c = classes[currentClass];
+  const s = c.subjects[key];
+  document.getElementById('chBadge').innerHTML = s.icon.replace('fill="currentColor"','');
+  document.getElementById('chTitle').textContent = s.label;
+  document.getElementById('chSub').textContent = `${s.chapters.length} chapters · ${c.label} NCERT`;
+  document.getElementById('chapterSearch').value = '';
+  renderChapters(c, s, '');
+  document.getElementById('subjectView').classList.remove('show');
+  document.getElementById('chaptersView').classList.add('show');
+  const bc = document.getElementById('breadcrumb');
+  bc.innerHTML = `<span class="crumb" onclick="goClasses()">NCERT</span><span>&rsaquo;</span><span class="crumb" onclick="goSubjects()">${c.label}</span><span>&rsaquo;</span><span class="crumb active">${s.label}</span>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderChapters(c, s, filter){
+  const list = document.getElementById('chapterList');
+  list.innerHTML = '';
+  const items = s.chapters.map((name,i)=>({name, idx:i+1}))
+    .filter(ch => !filter || ch.name.toLowerCase().includes(filter.toLowerCase()));
+  if(!items.length){
+    list.innerHTML = '<div class="no-results">No chapters found</div>';
+    return;
+  }
+  items.forEach(ch=>{
+    const url = c.baseUrl(s.slug, ch.idx);
+    const row = document.createElement('div');
+    row.className = 'chapter-item';
+    row.innerHTML = `
+      <div class="ch-left">
+        <div class="ch-num">${ch.idx}</div>
+        <div class="chapter-name">${ch.name}</div>
+      </div>
+      <a class="pdf-btn" href="${url}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+        PDF
+      </a>
+    `;
+    list.appendChild(row);
+  });
+}
+
+document.getElementById('chapterSearch').addEventListener('input', function(){
+  if(currentClass && currentSubject) renderChapters(classes[currentClass], classes[currentClass].subjects[currentSubject], this.value);
+});
+
+function goSubjects(){
+  currentSubject = null;
+  document.getElementById('chaptersView').classList.remove('show');
+  document.getElementById('subjectView').classList.add('show');
+  const c = classes[currentClass];
+  const bc = document.getElementById('breadcrumb');
+  bc.innerHTML = `<span class="crumb" onclick="goClasses()">NCERT</span><span>&rsaquo;</span><span class="crumb active">${c.label}</span>`;
+  window.scrollTo({top:0});
+}
+
+function goClasses(){
+  currentClass = null;
+  currentSubject = null;
+  document.getElementById('heroTitle').textContent = 'NCERT Notes';
+  document.getElementById('heroSub').textContent = 'Pick your class to see all subjects and chapter-wise PDF notes.';
+  document.getElementById('subjectView').classList.remove('show');
+  document.getElementById('chaptersView').classList.remove('show');
+  document.getElementById('classView').classList.add('show');
+  document.getElementById('breadcrumb').classList.remove('show');
+  window.scrollTo({top:0});
+}
+
+renderClasses();
+</script>
+</body>
+</html>
