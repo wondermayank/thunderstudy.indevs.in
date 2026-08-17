@@ -335,7 +335,7 @@ function toggleTheme(){
 
 const MODE = "grouped"; // "flat" or "grouped"
 const PAGE_SLUG = "mock-test";
-const DATA = [{"name": "Physics", "items": ["Chapterwise Mock 1", "Chapterwise Mock 2", "Chapterwise Mock 3", "Chapterwise Mock 4", "Chapterwise Mock 5", "Chapterwise Mock 6", "Chapterwise Mock 7", "Chapterwise Mock 8", "Chapterwise Mock 9", "Chapterwise Mock 10", "Chapterwise Mock 11", "Chapterwise Mock 12", "Chapterwise Mock 13", "Full Mock 1", "Full Mock 2", "Full Mock 3"]}, {"name": "Physical Education", "items": ["Chapterwise Mock - Unit 1", "Chapterwise Mock - Unit 2", "Chapterwise Mock - Unit 3", "Chapterwise Mock - Unit 4", "Chapterwise Mock - Unit 5", "Chapterwise Mock - Unit 6", "Chapterwise Mock - Unit 7", "Chapterwise Mock - Unit 8", "Chapterwise Mock - Unit 9", "Chapterwise Mock - Unit 10", "Full Mock 1"]}, {"name": "Accountancy", "items": ["Chapterwise Mock 1", "Chapterwise Mock 2", "Chapterwise Mock 3", "Chapterwise Mock 4", "Chapterwise Mock 5", "Chapterwise Mock 6", "Chapterwise Mock 7", "Full Mock 1", "Full Mock 2", "Full Mock 3"]}, {"name": "Macro Economics", "items": ["Chapterwise Mock 1", "Chapterwise Mock 2", "Chapterwise Mock 3", "Chapterwise Mock 4", "Chapterwise Mock 5"]}, {"name": "Indian Economics", "items": ["Chapterwise Mock 1", "Chapterwise Mock 2", "Chapterwise Mock 3", "Chapterwise Mock 4", "Chapterwise Mock 5", "Chapterwise Mock 6", "Chapterwise Mock 7", "Chapterwise Mock 8"]}, {"name": "Entrepreneurship", "items": ["Full Mock 1"]}, {"name": "Chemistry", "items": ["Full Mock 1", "Full Mock 2", "Full Mock 3"]}, {"name": "Biology", "items": ["Full Mock 1", "Full Mock 2", "Full Mock 3"]}, {"name": "Maths", "items": ["Full Mock 1", "Full Mock 2", "Full Mock 3"]}];
+const DATA = [{"name": "Physics", "by": "Dr Pragya", "items": [{"t": "Electric Charges and Fields", "f": "Electric Charges and Fields Mock By Dr Pragya.pdf"}, {"t": "Electrostatic Potential and Capacitance", "f": "Electrostatic Potential And Capacitance Mock by Dr Pragya.pdf"}, {"t": "Current Electricity", "f": "Current Electricity Mock by Dr Pragya.pdf"}, {"t": "Moving Charges and Magnetism", "f": "Moving Charges And Magnetism Mock By Dr Pragya.pdf"}, {"t": "Magnetism and Matter", "f": "Magnetism And Matter Mock By Dr Pragya.pdf"}, {"t": "Electromagnetic Induction", "f": "Electromagnetic Induction Mock By Dr Pragya.pdf"}, {"t": "Alternating Current", "f": "Alternating Current Mock By Dr Pragya.pdf"}, {"t": "Electromagnetic Waves", "f": "Electromagnetic Waves Mock By Dr Pragya.pdf"}, {"t": "Ray Optics and Optical Instruments", "f": "Ray Optics And Optical Instruments Mock By Dr Pragya.pdf"}, {"t": "Wave Optics", "f": "Wave Optics Mock By Dr Pragya.pdf"}, {"t": "Dual Nature of Radiation and Matter", "f": "Dual Nature Of Radiation And Matter Mock By Dr Pragya.pdf"}, {"t": "Atoms", "f": "Atoms Mock By Dr Pragya.pdf"}, {"t": "Nuclei", "f": "Nuclei Mock By Dr Pragya.pdf"}, {"t": "Full Mock 1", "f": "Physics Mock Test 1_3 By Pragya.pdf"}, {"t": "Full Mock 2", "f": "Physics Mock Test 2_3 By Pragya.pdf"}, {"t": "Full Mock 3", "f": "Physics Mock Test 3_3 By Pragya.pdf"}]}, {"name": "Physical Education", "by": "Mindmaster ThunderStudy", "items": [{"t": "Chapter 1", "f": "Chapter 1 Mock Test PE By Mindmaster Thunderstudy.pdf"}, {"t": "Chapter 2", "f": "Mock Test Chapter 2 By Mindmaster Physical Education.pdf"}, {"t": "Chapter 3", "f": "Mock Test Chapter 3 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 4", "f": "Mock Test Chapter 4 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 5", "f": "Mock Test Chapter 5 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 6", "f": "Mock Test Chapter 6 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 7", "f": "Mock Test Chapter 7 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 8", "f": "Mock Test Chapter 8 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 9", "f": "Mock Test Chapter 9 By Mindmaster Physical Education .pdf"}, {"t": "Chapter 10", "f": "Mock Test Chapter 10 By Mindmaster Physical Education .pdf"}, {"t": "Full Mock 1", "f": "Be A Topper Mock 1_3 @Thunderstudy.pdf"}]}, {"name": "Accountancy", "by": "ThunderStudy", "items": [{"t": "Admission of a Partner", "f": "ADMISSION OF A PARTNER Mock Test By Thunderstudy.pdf"}, {"t": "Accounting for Share Capital", "f": "Accounting for Share Capital Mock Test By Thunderstudy.pdf"}, {"t": "Death of a Partner", "f": "Death Of Partner Mock Test By Thunderstudy.pdf"}, {"t": "Dissolution of Firm", "f": "Dissolution of Firm Mock Test By Thunderstudy.pdf"}, {"t": "Fundamentals of Partnership", "f": "fundamentals of partnership Mock Test By Luffy Thunderstudy.pdf"}, {"t": "Issue of Debentures", "f": "Issue of Debentures Mock Test By Thunderstudy.pdf"}, {"t": "Retirement of a Partner", "f": "Retirement of a Partner Mock Test By Thunderstudy.pdf"}, {"t": "Full Mock 1", "f": "Accounts Mock Test 1 By Thunderstudy.pdf"}, {"t": "Full Mock 2", "f": "Accounts Mock Test 2 By Thunderstudy.pdf"}, {"t": "Full Mock 3", "f": "Accounts Mock Test 3 By Thunderstudy.pdf.pdf"}]}, {"name": "Macro Economics", "by": "ThunderStudy", "items": [{"t": "Balance of Payments", "f": "Balance_of_Payments_Mock_Test.pdf"}, {"t": "Determination of Income", "f": "Determination_of_Income_Mock_Test.pdf"}, {"t": "Government Budget", "f": "Government_Budget_Mock_Test.pdf"}, {"t": "Money and Banking", "f": "Money_and_Banking_Mock_Test.pdf"}, {"t": "National Income", "f": "National_Income_Mock_Test.pdf"}]}, {"name": "Indian Economics", "by": "ThunderStudy", "items": [{"t": "Chapter 1", "f": "Chapter 1 Indian Economics Mock By Thunderstudy.pdf"}, {"t": "Chapter 1 Answer Key", "f": "Ans Chapter 1 Indian Economics Mock By Thunderstudy.pdf"}, {"t": "Chapter 2", "f": "Chapter 2 Indian Economics Mock By Thunderstudy.pdf"}, {"t": "Chapter 3", "f": "Chapter 3 Indian Economics Mock By Thunderstudy.pdf"}, {"t": "Chapter 4", "f": "Chapter 4 Indian Economics Mock By Thunderstudy.pdf"}, {"t": "Chapter 5", "f": "Chapter 5 Indian Economics Mock By Thunderstudy.pdf.pdf"}, {"t": "Chapter 6", "f": "Chapter 6 Indian Economics Mock By Thunderstudy.pdf.pdf"}, {"t": "Chapter 7", "f": "Chapter 7 Indian Economics Mock By Thunderstudy.pdf.pdf"}, {"t": "Chapter 8", "f": "Chapter 8 Indian Economics Mock By Thunderstudy.pdf.pdf"}]}, {"name": "Entrepreneurship", "by": "Luffy", "items": [{"t": "Full Mock 1", "f": "Entrepreneurship Mock Test By Luffy.pdf"}]}, {"name": "Chemistry", "by": "Pragya", "items": [{"t": "Full Mock 1", "f": "Chemistry Mock 1 By Pragya.pdf"}, {"t": "Full Mock 2", "f": "Chemistry Mock 2 By Pragya.pdf"}, {"t": "Full Mock 3", "f": "Chemistry Mock 3 By Pragya.pdf"}]}, {"name": "Biology", "by": "Pragya", "items": [{"t": "Full Mock 1", "f": "Biology Mock 1 By Pragya.pdf"}, {"t": "Full Mock 2", "f": "Biology Mock 2 By Pragya.pdf"}, {"t": "Full Mock 3", "f": "Biology Mock 3 By Pragya.pdf"}]}, {"name": "Maths", "by": "Aashi", "items": [{"t": "Full Mock 1", "f": "Mathematics Mock Test Set 1 By Aashi.pdf"}, {"t": "Full Mock 2", "f": "Mathematics Mock Test Set 2 By Aashi.pdf"}, {"t": "Full Mock 3", "f": "Mathematics Mock Test Set 3 By Aashi.pdf"}]}];
 const PDF_BASE = "https://thunderstudy.github.io/sp/";
 
 let currentGroup = null, currentItems = [];
@@ -384,12 +384,12 @@ function renderGrid(){
     card.innerHTML = `
       <div class="ic-icon">${iconSVG()}</div>
       <div class="ic-title">${g.name}</div>
-      <div class="ic-meta">${count} ${count===1?'item':'items'}</div>
+      <div class="ic-meta">${count} ${count===1?'item':'items'}${g.by ? ' &middot; by '+g.by : ''}</div>
       <div class="ic-link">${MODE==='grouped' ? 'VIEW ITEMS' : 'OPEN'} &rsaquo;</div>
     `;
     card.onclick = () => {
       if(MODE==='grouped'){ openGroup(g); }
-      else { openPDF(pdfUrl(g.items[0], g.name, 1)); }
+      else { openPDF(pdfUrl(g.items[0], g.name)); }
     };
     grid.appendChild(card);
   });
@@ -399,21 +399,21 @@ function openGroup(g){
   currentGroup = g;
   currentItems = g.items;
   document.getElementById('listTitle').textContent = g.name;
-  document.getElementById('listSub').textContent = `${g.items.length} items \u00b7 Click PDF to download`;
+  document.getElementById('listSub').textContent = `${g.items.length} items${g.by ? ' \u00b7 by '+g.by : ''} \u00b7 Click PDF to download`;
   document.getElementById('searchInput').value = '';
   renderRows(g.items, '');
   showStep(1);
   updateBreadcrumb(1);
 }
 
-function pdfUrl(itemName, groupName, idx){
-  return PDF_BASE + PAGE_SLUG + '/' + slugify(groupName) + '/' + slugify(itemName) + '-' + idx + '.pdf';
+function pdfUrl(item, groupName){
+  return PDF_BASE + PAGE_SLUG + '/' + slugify(groupName) + '/' + encodeURIComponent(item.f);
 }
 
 function renderRows(items, filter){
   const el = document.getElementById('rows');
   el.innerHTML = '';
-  const filtered = filter ? items.filter(i => i.toLowerCase().includes(filter.toLowerCase())) : items;
+  const filtered = filter ? items.filter(i => i.t.toLowerCase().includes(filter.toLowerCase())) : items;
   addAdbBanner(el);
   if(!filtered.length){
     el.innerHTML += `<div style="text-align:center;padding:2rem;color:var(--muted);font-size:14px;">No items found</div>`;
@@ -421,13 +421,13 @@ function renderRows(items, filter){
   }
   filtered.forEach(item => {
     const idx = items.indexOf(item)+1;
-    const url = pdfUrl(item, currentGroup ? currentGroup.name : '', idx);
+    const url = pdfUrl(item, currentGroup ? currentGroup.name : '');
     const row = document.createElement('div');
     row.className = 'row';
     row.innerHTML = `
       <div class="row-left">
         <div class="row-num">${idx}</div>
-        <div class="row-name">${item}</div>
+        <div class="row-name">${item.t}</div>
       </div>
       <button class="pdf-btn"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18h14v2H5z"/></svg>PDF</button>
     `;
