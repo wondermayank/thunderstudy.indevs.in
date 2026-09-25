@@ -3578,6 +3578,30 @@
   .fb-card.fb-center { width: 150px; height: 210px; }
   .fb-arrow { width: 34px; height: 34px; font-size: 15px; }
 }
+
+/* ── Hero side illustrations (book stack + laptop mockup PNGs) ── */
+.hero-side-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  display: none;
+  filter: drop-shadow(0 24px 36px rgba(15, 23, 42, 0.14));
+}
+.hero-books-img {
+  left: clamp(8px, 3vw, 56px);
+  width: clamp(140px, 12vw, 220px);
+  height: auto;
+}
+.hero-laptop-img {
+  right: clamp(8px, 3vw, 56px);
+  width: clamp(200px, 17vw, 320px);
+  height: auto;
+}
+@media (min-width: 1360px) {
+  .hero-side-img { display: block; }
+}
 </style>
 </head>
 <noscript><style>#boot{display:none!important}</style></noscript>
@@ -3698,6 +3722,10 @@
 
 
 <section class="hero" aria-labelledby="hero-heading">
+
+  <!-- Side illustrations -->
+  <img src="./img/hero-books.png" alt="" class="hero-side-img hero-books-img" loading="lazy" decoding="async" width="440" height="640">
+  <img src="./img/hero-laptop.png" alt="" class="hero-side-img hero-laptop-img" loading="lazy" decoding="async" width="640" height="560">
 
   <!-- SVG decorative background -->
   <svg class="hero-svg-deco" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
