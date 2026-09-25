@@ -3599,9 +3599,66 @@
   width: clamp(200px, 17vw, 320px);
   height: auto;
 }
-@media (min-width: 1360px) {
+@media (min-width: 1180px) {
   .hero-side-img { display: block; }
 }
+
+/* ── Hero floating info cards + arrow accents ── */
+.hero-float {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (min-width: 1180px) {
+  .hero-float { display: flex; }
+}
+.hero-float-card {
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px 16px 10px 12px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+}
+.hero-float-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hfi-blue   { background: #e6f0ff; color: #0077f5; }
+.hfi-purple { background: #f0ecff; color: #6d28d9; }
+.hfi-red    { background: #fee2e2; color: #dc2626; }
+.hfi-amber  { background: #fef3c7; color: #b45309; }
+.hero-float-title {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.hero-float-sub {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+.hero-float-arrow { color: #0077f5; opacity: 0.75; }
+
+.hf-files   { top: 10%;  left: clamp(4px, 2.2vw, 44px); }
+.hf-exams   { top: 34%;  left: clamp(-6px, 0.4vw, 14px); }
+.hf-ads     { top: 10%;  right: clamp(4px, 2.2vw, 44px); }
+.hf-smarter { top: 34%;  right: clamp(-2px, 1vw, 30px); }
+
+.hf-tick-left  { top: 4%;   left: clamp(155px, 15.5vw, 250px); color: #0077f5; }
+.hf-tick-right { top: 4%;   right: clamp(155px, 15.5vw, 250px); color: #0077f5; }
+.hf-up-arrow   { top: 24%;  left: clamp(78px, 7.5vw, 130px); color: #0077f5; }
 </style>
 </head>
 <noscript><style>#boot{display:none!important}</style></noscript>
@@ -3726,6 +3783,53 @@
   <!-- Side illustrations -->
   <img src="./img/hero-books.png" alt="" class="hero-side-img hero-books-img" loading="lazy" decoding="async" width="440" height="640">
   <img src="./img/hero-laptop.png" alt="" class="hero-side-img hero-laptop-img" loading="lazy" decoding="async" width="640" height="560">
+
+  <!-- Floating info cards + arrow accents (desktop only) -->
+  <div class="hero-float hero-float-card hf-files" aria-hidden="true">
+    <span class="hero-float-icon hfi-blue">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+    </span>
+    <span>
+      <span class="hero-float-title" style="display:block;">100,000+</span>
+      <span class="hero-float-sub">Study Files</span>
+    </span>
+  </div>
+
+  <div class="hero-float hero-float-card hf-exams" aria-hidden="true">
+    <span class="hero-float-icon hfi-blue">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"/></svg>
+    </span>
+    <span>
+      <span class="hero-float-title" style="display:block;">All Exams</span>
+      <span class="hero-float-sub">One Platform</span>
+    </span>
+  </div>
+
+  <div class="hero-float hero-float-card hf-ads" aria-hidden="true">
+    <span class="hero-float-icon hfi-red">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="5" y1="5" x2="19" y2="19"/></svg>
+    </span>
+    <span>
+      <span class="hero-float-title" style="display:block;">Zero Ads</span>
+      <span class="hero-float-sub">Distraction Free</span>
+    </span>
+  </div>
+
+  <div class="hero-float hero-float-card hf-smarter" aria-hidden="true">
+    <span class="hero-float-icon hfi-purple">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></svg>
+    </span>
+    <span>
+      <span class="hero-float-title" style="display:block;">Study Smarter</span>
+      <span class="hero-float-sub">Always Free</span>
+    </span>
+  </div>
+
+  <svg class="hero-float hf-tick-left" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 19l4-5"/><path d="M9 15l4-5"/><path d="M15 11l4-5"/></svg>
+
+  <svg class="hero-float hf-tick-right" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 19l-4-5"/><path d="M15 15l-4-5"/><path d="M9 11l-4-5"/></svg>
+
+  <svg class="hero-float hf-up-arrow" aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V9"/><path d="M2 13l4-6 4 6"/></svg>
 
   <!-- SVG decorative background -->
   <svg class="hero-svg-deco" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
