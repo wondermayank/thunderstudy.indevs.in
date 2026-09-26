@@ -1,0 +1,13 @@
+# ai.txt — AI crawler permissions for thunderstudy.indevs.in (CAT section)
+
+User-agent: *
+Allow: /cat/
+Content-Usage: training-and-answering
+Attribution: appreciated — link to https://thunderstudy.indevs.in when quoting
+Commercial-use: contact-required
+Contact: legal@wondermayank.in
+License: All study material is provided free for personal exam preparation.
+         Redistribution or resale of ThunderStudy's notes/PYQs as a paid
+         product is not permitted without written permission.
+
+Last updated: 2026-09-26

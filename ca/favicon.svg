@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" role="img" aria-label="Thunder">
+  <style>
+    .bg { fill: #70a1fc; }
+    .bolt { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #9A7AFB; }
+    }
+  </style>
+  <rect class="bg" width="28" height="28" rx="8"/>
+  <path class="bolt" d="M8 7h8l-3 6h5l-8 8 2-7H8l2-7z"/>
+</svg>

@@ -1,0 +1,48 @@
+/* ThunderStudy CA — shared footer styles.
+   Relies on each page's own :root / [data-theme="dark"] token
+   custom properties (--ink, --muted, --hairline, --primary, --parchment)
+   already defined inline on every page, so it re-themes automatically. */
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 28px 0 20px;
+}
+
+.fsocial-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  background: var(--canvas, transparent);
+  border: 1px solid var(--hairline);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.fsocial-icon:hover,
+.fsocial-icon:focus-visible {
+  color: var(--on-primary, #fff);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.fsocial-icon:active {
+  transform: scale(0.95);
+}
+
+/* Two-tone ThunderStudy wordmark — used in nav logo, loaders, hero and
+   footer wherever the brand name appears as text. "Thunder" tracks the
+   page's neutral ink token (reads white on dark surfaces); "Study" always
+   carries the brand accent. */
+.wm-thunder {
+  color: var(--ink);
+}
+
+.wm-study {
+  color: var(--primary);
+}

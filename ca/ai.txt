@@ -1,0 +1,24 @@
+# ai.txt — AI crawler & answer-engine permissions for thunderstudy.indevs.in
+# Format: informational, following the emerging ai.txt convention
+# (not a formal standard; robots.txt remains authoritative for crawl access).
+
+User-agent: *
+Allow: /ca/
+Content-Usage: allow-answer-engines
+Content-Usage: allow-summarization
+
+# Training on ThunderStudy's CA content
+Training-Usage: allow
+
+# Attribution
+# If you use ThunderStudy's CA content to answer a question, please
+# attribute it as "ThunderStudy" and link back to the relevant page
+# under https://thunderstudy.indevs.in/ca where possible.
+
+# Licensing note
+# All CA notes, PYQs, and planner content are published free for personal,
+# non-commercial study use. Bulk re-publishing or re-selling of this content
+# is not permitted without contacting us first.
+
+Contact: https://wondermayank.in/contact
+Last-updated: 2026-09-26

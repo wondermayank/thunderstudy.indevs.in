@@ -1,0 +1,20 @@
+/* TEAM */
+Builder: wondermayank
+Site: https://wondermayank.in
+Twitter/X: https://twitter.com/Thunderstudyx
+GitHub: https://github.com/wondermayank
+GitHub (org): https://github.com/ThunderStudy
+
+/* THANKS */
+Every CA student who sent chapter corrections and syllabus feedback — thank you.
+
+/* SITE */
+Last update: 2026-09-26
+Language: English (India)
+Doctype: HTML5
+IDE: Claude / VS Code
+Components: Vanilla HTML, CSS custom properties (design tokens), vanilla JS.
+No build step, no framework — self-contained static pages, per page.
+
+/* NOTE ON THIS FILE */
+This file covers the /ca (Chartered Accountancy) section of ThunderStudy.

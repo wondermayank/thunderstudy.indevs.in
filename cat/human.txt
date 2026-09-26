@@ -1,0 +1,14 @@
+/* TEAM */
+Built by: Wondermayank (Aashi Shrivastava)
+Site: https://wondermayank.in
+Contact: contact@wondermayank.indevs.in
+
+/* SITE */
+Section: CAT & MBA Entrance Preparation (/cat/)
+Last update: 2026-09-26
+Standards: HTML5, JSON-LD, WCAG-aware color tokens
+Design system: ThunderStudy design system (blue/purple accent,
+  light: #70a1fc, dark: #9A7AFB)
+Pages: QA, LRDI, Verbal, Vocabulary, Grammar, Formula Sheet, GK, PYQs,
+  Sample Papers, Mindmap
+Software: static HTML/CSS/vanilla JS, no build step

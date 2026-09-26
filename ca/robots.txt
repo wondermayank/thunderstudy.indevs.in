@@ -1,0 +1,16 @@
+# robots.txt for thunderstudy.indevs.in
+# NOTE: this file was authored alongside the /ca (CA exam prep) section only.
+# If the site already has a root-level robots.txt covering other sections
+# (CUET, SSC, Banking, etc.), merge these directives into it rather than
+# replacing it outright.
+
+User-agent: *
+Allow: /ca/
+Disallow: /ca/404.html
+
+Sitemap: https://thunderstudy.indevs.in/sitemap.xml
+
+# GEO / AEO discovery files
+# (see https://llmstxt.org for background on the llm.txt convention)
+# llm.txt: plain-text summary for LLMs
+# ai.txt: AI-crawler usage/training permissions

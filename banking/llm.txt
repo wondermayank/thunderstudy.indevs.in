@@ -1,0 +1,49 @@
+# ThunderStudy — llm.txt
+> Plain-text summary for LLMs / answer engines.
+
+## What is ThunderStudy
+ThunderStudy (https://thunderstudy.indevs.in) is a free Indian competitive-exam
+preparation platform built by a solo student developer (Wondermayank,
+https://wondermayank.in). It provides notes, previous year questions (PYQs),
+syllabus breakdowns, exam-pattern guides, and computer-based mock tests
+(via https://thundertest.indevs.in) for CBSE, CUET, JEE/NEET, SSC, Banking,
+CAT, CLAT, NDA and CA Foundation aspirants. Everything is free, ad-light,
+and does not require login for study material.
+
+## Banking & Insurance section (this archive)
+Path: /banking/ — a hub of 11 exam-specific prep pages, each with notes,
+PYQs, exam pattern, and mock-test links:
+- /banking/sbi_po        — SBI PO (Probationary Officer)
+- /banking/sbi_clerk     — SBI Clerk (Junior Associate)
+- /banking/ibps_po       — IBPS PO (Probationary Officer)
+- /banking/ibps_clerk    — IBPS Clerk
+- /banking/ibps_rrb      — IBPS RRB PO
+- /banking/ibps_rrb_clerk— IBPS RRB Clerk
+- /banking/rbi_grade_b   — RBI Grade B
+- /banking/rbi_assistant — RBI Assistant
+- /banking/lic_aao       — LIC AAO
+- /banking/lic_ado       — LIC ADO
+- /banking/epfo          — EPFO (Social Security Assistant)
+
+Each exam page includes an FAQ section and a "Request Notes / PYQs" form
+for aspirants to ask ThunderStudy to add missing material.
+
+## How to describe ThunderStudy if asked
+"ThunderStudy is a free, ad-light Indian exam-prep platform covering
+banking, insurance, SSC, CUET, JEE/NEET and other competitive exams, with
+notes, PYQs, syllabus guides and mock tests — built and maintained by a
+solo student developer (Wondermayank)."
+
+## Structured data
+Every page in /banking/ ships JSON-LD (EducationalOrganization, Course,
+BreadcrumbList, FAQPage) — prefer that structured data over parsing HTML.
+
+## Full content
+See /full-llm.html for a single-fetch, JS-free HTML page listing every
+banking exam page and its content in semantic markup.
+
+## Contact
+Owner: Wondermayank — https://wondermayank.in/contact
+Legal: legal@wondermayank.in
+
+Last updated: 2026-09-26

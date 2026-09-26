@@ -1,0 +1,18 @@
+/* TEAM */
+Built by: Wondermayank (Aashi Shrivastava)
+Site: https://wondermayank.in
+Contact: contact@wondermayank.indevs.in
+
+/* THANKS */
+Thanks to every ThunderStudy user who requested notes, reported broken
+links, and helped shape the banking exam hub.
+
+/* SITE */
+Section: Banking & Insurance exam prep (/banking/)
+Last update: 2026-09-26
+Standards: HTML5, JSON-LD, WCAG-aware color tokens
+Design system: ThunderStudy design system (blue/purple accent,
+  light: #70a1fc, dark: #9A7AFB)
+Components: EPFO / IBPS (PO, Clerk, RRB, RRB Clerk) / RBI (Grade B,
+  Assistant) / LIC (AAO, ADO) / SBI (PO, Clerk) exam pages
+Software: static HTML/CSS/vanilla JS, no build step
