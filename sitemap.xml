@@ -1,867 +1,663 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
+  <url>
     <loc>https://thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/topper-notes</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/404.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/formula</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/about.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/kv-sample-paper</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/topper-answersheet</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/sample-paper</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/imp-question</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/question-bank</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/textbook</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/concept-map</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/design-based</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/assertion-reason</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/case-based</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/backbencher-notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cbse/mindmap</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/physics</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/chemistry</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/maths</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/sample-paper</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/topper-notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/imp-question</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/mindmap</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/integer-numerical</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/jee/flashcard</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/epfo/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/physics</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/chemistry</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/biology</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/ncert-book</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/ncert-short-notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/most-repeated</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/imp-question</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/topper-notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/matching-based</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/flashcard</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/neet/diagram-based</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cuet/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cuet/mindmap</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cuet/hindi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/ibps_clerk/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/quantitative-aptitude</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/mindmap</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/lrdi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/verbal</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/imp-question</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/sample-paper</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/vocabulary</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/english-grammar</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/gk</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/cat/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/nda/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/ibps_po/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/nda/notes</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/ibps_po/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/nda/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/nda/imp-question</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/nda/sample-paper</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/nda/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/clat/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/ibps_rrb_clerk/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/clat/notes</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/ibps_rrb/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/lic_aao/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/lic_ado/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/rbi_assistant/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/rbi_grade_b/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/sbi_clerk/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/sbi_po/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/banking/sbi_po/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/clat/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/clat/sample-paper</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/clat/ailet-pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/clat/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
+  <url>
     <loc>https://thunderstudy.indevs.in/ca/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ca/foundation</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ca/inter</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ca/final</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ca/notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ca/special</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ca/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-6</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-7</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-8</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-9</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-10</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-11</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/book/class-12</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/solutions</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/exemplar-book</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/exemplar-solutions</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ncert/hindi-medium</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/diploma</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/diploma/dca</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/diploma/pgdca</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/diploma/d-ed</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/diploma/d-el-ed</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/diploma/b-ed</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/tet/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/tet/ctet</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/tet/all</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/tet/notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/prelims</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/mains</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/gs-paper-1</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/gs-paper-2</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/essay</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/upsc/ncert-foundation</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/notes</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/pyqs</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/imp-question</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/formula</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/cut-off</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/cgl</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/chsl</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/mts</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/gd</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/cpo</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/ssc/je</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/steno</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/exam.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/ibps_rrb</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/ibps_rrb_clerk</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/ibps_po</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/ibps_clerk</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/rbi_grade_b</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/rbi_assistant</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/sbi_po</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/sbi_clerk</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/lic_aao</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/lic_ado</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://thunderstudy.indevs.in/banking/epfo</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://ai.thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-<url>
-    <loc>https://english.thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-<url>
-    <loc>https://ai.thunderstudy.indevs.in/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
-    <loc>https://chat.thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-<url>
-    <loc>https://aimock.thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/404.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/final/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-<url>
-    <loc>https://aimock.thunderstudy.indevs.in/app.html</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/foundation/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/foundation/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/inter/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ca/special/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/english-grammar.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/formula.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/gk.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/lrdi.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/mindmap.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/pyqs.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/quantitative-aptitude.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/sample-paper.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/verbal.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cat/vocabulary.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://aimock.thunderstudy.indevs.in/fertures.html</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/assertion-reason.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://aimock.thunderstudy.indevs.in/performance.html</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/backbencher-notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://aimock.thunderstudy.indevs.in/pricing.html</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/case-based.html</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
-<url>
-    <loc>https://flashcard.thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/cheat-sheet.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/concept-map.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/design-based.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/digital-notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/explain-shortcut.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/formula.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/imp-question.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/imp-special.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/kv-sample-paper.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/mindmap.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/mock-test.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/pyqs.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/question-bank.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/sample-paper.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/special-notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/textbook.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/tips.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/topper-answersheet.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/cbse/topper-notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/clat/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-<url>
-    <loc>https://mindmap.thunderstudy.indevs.in/</loc>
-    <lastmod>2026-07-02</lastmod>
+  <url>
+    <loc>https://thunderstudy.indevs.in/clat/ailet-pyqs.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/clat/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/clat/pyqs.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/clat/sample-paper.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/2DCA3B_Unit1_Notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/2DCA3B_Unit2_Notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/unit1.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/unit2.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/unit3.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/unit4.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/dca/2/unit5.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/full-llm.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/google05ad5deed8d7f7bf.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-10.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-11.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-12.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-6.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-7.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-8.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/book/class-9.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/hindi-medium.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ncert/notes/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/nda/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/nda/formula.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/nda/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/nda/pyqs.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/nda/sample-paper.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/search.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/search/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/cgl/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/cgl/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/chsl/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/chsl/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/cpo/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/cpo/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/gd/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/gd/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/je/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/mts/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/mts/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/steno/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/ssc/steno/notes.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/tet/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/tet/notes/cdp.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/upsc/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thunderstudy.indevs.in/upsc/pyqs.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

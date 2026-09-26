@@ -1,0 +1,213 @@
+﻿[
+  {
+    "dir": "banking",
+    "slug": "banking",
+    "name": "Banking & Insurance Exam Preparation",
+    "badge": "Banking Portal",
+    "headline": "Free Banking & Insurance Exam Notes, PYQs & CBT Mocks",
+    "subheadline": "Complete, 100% free preparation hub for IBPS PO, IBPS Clerk, SBI PO, SBI Clerk, RBI Grade B, RBI Assistant, LIC AAO, and EPFO examinations.",
+    "description": "Free Banking mock tests, study material, and formulas for IBPS PO, IBPS Clerk, SBI PO, SBI Clerk, RRB, RBI Grade B, LIC AAO, and EPFO with real exam pattern.",
+    "quickAnswer": "ThunderStudy provides 100% free Banking exam preparation with CBT-style mock tests, notes, and previous year papers for SBI PO, IBPS PO, RRB, RBI Grade B, and LIC AAO with zero registration.",
+    "items": [
+      {"title": "IBPS PO Portal", "desc": "Prelims & Mains study notes, Quantitative Aptitude, Reasoning, and full CBT mocks.", "url": "/banking/ibps_po/", "icon": "award"},
+      {"title": "IBPS Clerk Portal", "desc": "Speed math shortcuts, English comprehension, clerical aptitude, and sectional tests.", "url": "/banking/ibps_clerk/", "icon": "book"},
+      {"title": "SBI PO Portal", "desc": "High-level puzzle tricks, Data Interpretation, General Economy awareness, and PYQs.", "url": "/banking/sbi_po/", "icon": "award"},
+      {"title": "SBI Clerk Portal", "desc": "Comprehensive practice tests, banking awareness sheets, and memory-based papers.", "url": "/banking/sbi_clerk/", "icon": "book"},
+      {"title": "IBPS RRB Officer & Clerk", "desc": "Regional Rural Banks PO and Clerk notes, computer awareness & Hindi/English prep.", "url": "/banking/ibps_rrb/", "icon": "shield"},
+      {"title": "RBI Grade B & Assistant", "desc": "Phase 1 & Phase 2 economic notes, finance management concepts, and practice papers.", "url": "/banking/rbi_grade_b/", "icon": "award"},
+      {"title": "LIC AAO & ADO", "desc": "Insurance awareness, financial market concepts, reasoning, and mock exams.", "url": "/banking/lic_aao/", "icon": "shield"},
+      {"title": "EPFO SSA & EO/AO", "desc": "Social security legislation, industrial relations, accounting principles, and tests.", "url": "/banking/epfo/", "icon": "fileText"}
+    ],
+    "faqs": [
+      {"q": "Where can I practice free Banking CBT mock tests?", "a": "ThunderStudy offers full-length CBT mock tests for IBPS PO, SBI PO, and Clerk exams at thunderstudy.indevs.in/banking/ with instant client-side scoring and zero login."},
+      {"q": "Are Banking notes on ThunderStudy updated for 2026 exams?", "a": "Yes, all Banking notes, puzzles, and General Financial Awareness questions follow the latest exam patterns."},
+      {"q": "What exams are covered under ThunderStudy Banking Hub?", "a": "We cover IBPS PO, IBPS Clerk, IBPS RRB, SBI PO, SBI Clerk, RBI Grade B, RBI Assistant, LIC AAO, LIC ADO, and EPFO."}
+    ]
+  },
+  {
+    "dir": "cat",
+    "slug": "cat",
+    "name": "CAT & MBA Entrance Preparation",
+    "badge": "MBA Entrance",
+    "headline": "Free CAT & MBA Entrance Study Notes, QA Formulas & Mocks",
+    "subheadline": "Ace CAT, XAT, SNAP, NMAT, and CMAT with free Quantitative Aptitude cheat sheets, LRDI caselets, Verbal Ability guides, and full-length mocks.",
+    "description": "Free CAT preparation resources: QA formulas, LRDI strategy, VARC vocabulary, grammar rules, General Knowledge, and previous year question sets.",
+    "quickAnswer": "ThunderStudy offers free CAT and MBA entrance preparation materials covering Quantitative Aptitude, LRDI, Verbal Ability, Vocabulary, and PYQs without subscriptions or paywalls.",
+    "items": [
+      {"title": "Quantitative Aptitude", "desc": "Arithmetic, Algebra, Geometry, Number Systems, and Modern Math formula cheat sheets.", "url": "/cat/quantitative-aptitude.html", "icon": "fileText"},
+      {"title": "LRDI Mastery", "desc": "Logical Reasoning arrangements, matrix puzzles, Data Interpretation sets, and caselets.", "url": "/cat/lrdi.html", "icon": "award"},
+      {"title": "Verbal Ability & Reading Comprehension", "desc": "RC strategies, Para Jumbles, Odd Sentence Out, and Critical Reasoning guides.", "url": "/cat/verbal.html", "icon": "book"},
+      {"title": "CAT Vocabulary & Flashcards", "desc": "High-frequency CAT/XAT words with contextual usage, mnemonics, and synonyms.", "url": "/cat/vocabulary.html", "icon": "book"},
+      {"title": "English Grammar Rules", "desc": "Essential grammar rules, modifiers, parallelism, and sentence correction notes.", "url": "/cat/english-grammar.html", "icon": "fileText"},
+      {"title": "CAT Mind Maps", "desc": "Visual summaries for fast revision of all math theorems and LR concepts.", "url": "/cat/mindmap.html", "icon": "checkCircle"},
+      {"title": "CAT Formula Book", "desc": "All formulas across Algebra, Geometry, Arithmetic, and Mensuration in one sheet.", "url": "/cat/formula.html", "icon": "fileText"},
+      {"title": "CAT PYQs & Sample Papers", "desc": "Previous years actual CAT question papers with step-by-step detailed explanations.", "url": "/cat/pyqs.html", "icon": "award"}
+    ],
+    "faqs": [
+      {"q": "How can I prepare for CAT QA without coaching?", "a": "ThunderStudy provides comprehensive Quantitative Aptitude formula books, shortcuts, and topic-wise solved questions free of cost."},
+      {"q": "Where can I find free LRDI sets for CAT practice?", "a": "ThunderStudy CAT LRDI portal contains structured arrangement, matrix, games, and DI sets with detailed video-level text solutions."}
+    ]
+  },
+  {
+    "dir": "cbse",
+    "slug": "cbse",
+    "name": "CBSE Board Exam Preparation (Classes 10 & 12)",
+    "badge": "CBSE Boards Hub",
+    "headline": "CBSE Class 10 & 12 Free Notes, Sample Papers, Topper Sheets & PYQs",
+    "subheadline": "India's largest free repository for CBSE Class 12 (Commerce, Science, Humanities) and Class 10 boards with Chapter Notes, Formula Sheets, Case-Based Qs, and Free Books.",
+    "description": "Complete CBSE Class 12 & 10 study material: Topper notes, mind maps, formula sheets, sample papers, case-based questions, and Boards Dominator & Boards Killer books.",
+    "quickAnswer": "ThunderStudy offers 100% free CBSE Class 10 & 12 notes, sample papers, topper answer sheets, and formulas for Science, Commerce, and Humanities streams with zero ads.",
+    "items": [
+      {"title": "Topper Notes & Revision Sheets", "desc": "Handwritten and digital toppers notes for Physics, Chemistry, Accountancy, Economics, History & more.", "url": "/cbse/topper-notes.html", "icon": "award"},
+      {"title": "Formula Sheets & Cheat Sheets", "desc": "High-yield formula compilations for Maths, Physics, Chemistry, and Applied Mathematics.", "url": "/cbse/formula.html", "icon": "fileText"},
+      {"title": "10-Year PYQs & Solved Papers", "desc": "Chapter-wise previous year questions with step marking schemes.", "url": "/cbse/pyqs.html", "icon": "book"},
+      {"title": "Latest CBSE Sample Papers", "desc": "CBSE board pattern sample question papers with marking scheme solutions.", "url": "/cbse/sample-paper.html", "icon": "fileText"},
+      {"title": "Case-Based & Competency Questions", "desc": "Assertion-reason and case study question banks aligned with the latest CBSE guidelines.", "url": "/cbse/case-based.html", "icon": "checkCircle"},
+      {"title": "Mind Maps & Concept Maps", "desc": "One-page visual summary mind maps for quick revision before exam morning.", "url": "/cbse/mindmap.html", "icon": "book"},
+      {"title": "Backbencher Passing Packages", "desc": "Ultra-condensed passing guides highlighting high-weightage topics.", "url": "/cbse/backbencher-notes.html", "icon": "shield"},
+      {"title": "Topper Answer Sheets", "desc": "Actual CBSE official topper answer sheets demonstrating ideal presentation techniques.", "url": "/cbse/topper-answersheet.html", "icon": "award"}
+    ],
+    "faqs": [
+      {"q": "Where can I download free CBSE Class 12 notes PDF?", "a": "ThunderStudy cbse hub at thunderstudy.indevs.in/cbse/ provides free downloadable notes and sample papers for all streams."},
+      {"q": "What free books are available for CBSE Class 12 boards?", "a": "ThunderStudy publishes Boards Dominator (Science), Boards Killer (Humanities), and 20+ Sample Papers (Commerce) completely free."}
+    ]
+  },
+  {
+    "dir": "clat",
+    "slug": "clat",
+    "name": "CLAT & AILET Law Entrance Preparation",
+    "badge": "Law Entrance",
+    "headline": "Free CLAT & AILET Study Notes, Legal Reasoning & Mocks",
+    "subheadline": "Ace Common Law Admission Test (CLAT) and AILET with free legal aptitude notes, logical reasoning techniques, English comprehension, and sample papers.",
+    "description": "Free CLAT and AILET preparation: Legal reasoning notes, constitution principles, current affairs, logical aptitude, and previous year question papers.",
+    "quickAnswer": "ThunderStudy provides free CLAT and AILET entrance study notes, legal aptitude primers, passage-based reasoning practice, and solved past papers for law aspirants.",
+    "items": [
+      {"title": "CLAT Core Study Notes", "desc": "Comprehensive coverage of Legal Reasoning, Logical Reasoning, English, and Quantitative Techniques.", "url": "/clat/notes.html", "icon": "book"},
+      {"title": "CLAT 10-Year Solved PYQs", "desc": "Passage-based previous year questions with thorough analytical explanations.", "url": "/clat/pyqs.html", "icon": "award"},
+      {"title": "AILET Solved Papers & Notes", "desc": "Dedicated AILET question papers and critical reasoning guides for NLU Delhi aspirants.", "url": "/clat/ailet-pyqs.html", "icon": "shield"},
+      {"title": "CLAT Sample Question Papers", "desc": "Full-length passage-based sample tests mirroring the latest Consortium exam design.", "url": "/clat/sample-paper.html", "icon": "fileText"}
+    ],
+    "faqs": [
+      {"q": "How to prepare for CLAT Legal Reasoning for free?", "a": "ThunderStudy provides free Legal Reasoning conceptual notes, landmark judgments, and passage-based practice at thunderstudy.indevs.in/clat/notes.html."},
+      {"q": "Are AILET previous papers available on ThunderStudy?", "a": "Yes, full AILET previous year solved question papers are freely available at thunderstudy.indevs.in/clat/ailet-pyqs.html."}
+    ]
+  },
+  {
+    "dir": "dca",
+    "slug": "dca",
+    "name": "DCA & PGDCA Diploma in Computer Applications",
+    "badge": "Diploma Courses",
+    "headline": "DCA & PGDCA Semester Notes, Question Banks & Units",
+    "subheadline": "Complete semester-wise study material, notes, and solved questions for Diploma in Computer Applications (DCA) and PGDCA courses.",
+    "description": "Free DCA and PGDCA semester units: Computer fundamentals, PC package (Word, Excel, PowerPoint), MS Access, IT trends, and programming notes.",
+    "quickAnswer": "ThunderStudy provides free unit-wise study notes for DCA Semester 1 & 2 covering IT trends, computer fundamentals, database management, and programming.",
+    "items": [
+      {"title": "DCA Semester 2 Unit 1", "desc": "Multimedia concepts, audio-video formats, animation basics, and digital authoring.", "url": "/dca/2/unit1.html", "icon": "book"},
+      {"title": "DCA Semester 2 Unit 2", "desc": "Expert systems, knowledge representation, inference engines, and AI foundations.", "url": "/dca/2/unit2.html", "icon": "fileText"},
+      {"title": "DCA Semester 2 Unit 3", "desc": "Cloud computing, virtual reality, e-commerce, and modern IT trends.", "url": "/dca/2/unit3.html", "icon": "checkCircle"},
+      {"title": "DCA Semester 2 Unit 4", "desc": "Networking fundamentals, topologies, protocols, OSI model, and internet services.", "url": "/dca/2/unit4.html", "icon": "award"},
+      {"title": "DCA Semester 2 Unit 5", "desc": "Cybersecurity, ethical issues, intellectual property rights, and information security.", "url": "/dca/2/unit5.html", "icon": "shield"}
+    ],
+    "faqs": [
+      {"q": "Where can I find DCA unit-wise notes?", "a": "All units for DCA Semester 2 are accessible freely at thunderstudy.indevs.in/dca/ with comprehensive theory and exam questions."}
+    ]
+  },
+  {
+    "dir": "ncert",
+    "slug": "ncert",
+    "name": "NCERT Books & Solutions (Classes 6 to 12)",
+    "badge": "NCERT Hub",
+    "headline": "Free NCERT Textbooks, Chapter Solutions & Hindi Medium Notes",
+    "subheadline": "Download official NCERT textbooks, exemplar problems, and chapter-wise solutions for Classes 6, 7, 8, 9, 10, 11, and 12 in English and Hindi medium.",
+    "description": "Free NCERT Books, solutions, and notes for Classes 6 to 12. Complete Hindi medium textbooks, science, mathematics, social science, and humanities.",
+    "quickAnswer": "ThunderStudy offers complete NCERT books and solutions from Class 6 to Class 12 in both English and Hindi medium with direct online reading and PDF access.",
+    "items": [
+      {"title": "NCERT Complete Books Index", "desc": "Class 6 to Class 12 official NCERT textbooks in clean digital format.", "url": "/ncert/book/index.html", "icon": "book"},
+      {"title": "NCERT Chapter Notes & Solutions", "desc": "Step-by-step NCERT textbook exercise solutions and key takeaway summaries.", "url": "/ncert/notes/index.html", "icon": "fileText"},
+      {"title": "NCERT Hindi Medium Hub", "desc": "Complete Hindi medium books, exemplar guides, and revision sheets.", "url": "/ncert/hindi-medium.html", "icon": "award"},
+      {"title": "Class 12 NCERT Textbooks", "desc": "Physics, Chemistry, Biology, Maths, Accountancy, Economics, History, Pol Science.", "url": "/ncert/book/class-12.html", "icon": "book"},
+      {"title": "Class 11 NCERT Textbooks", "desc": "Science, Commerce, and Arts foundation textbooks and solutions.", "url": "/ncert/book/class-11.html", "icon": "book"},
+      {"title": "Class 10 NCERT Textbooks", "desc": "Science, Maths, Social Science, Hindi, and English textbooks.", "url": "/ncert/book/class-10.html", "icon": "book"}
+    ],
+    "faqs": [
+      {"q": "Are NCERT solutions on ThunderStudy free to access?", "a": "Yes, 100% of NCERT textbook solutions and exemplar answers are completely free on ThunderStudy."}
+    ]
+  },
+  {
+    "dir": "nda",
+    "slug": "nda",
+    "name": "NDA & Defence Exam Preparation",
+    "badge": "Defence Academy",
+    "headline": "Free NDA (National Defence Academy) Notes, PYQs & Formulas",
+    "subheadline": "Prepare for UPSC NDA/NA exam with free Mathematics shortcuts, General Ability Test (GAT) English, Physics, Chemistry, History, and Geography notes.",
+    "description": "Free NDA exam resources: Mathematics formula sheets, GAT General Ability Test notes, previous years solved papers, and mock practice tests.",
+    "quickAnswer": "ThunderStudy provides free NDA Mathematics formulas, GAT notes, and 10-year previous year solved question papers for UPSC NDA aspirants.",
+    "items": [
+      {"title": "NDA Core Notes", "desc": "GAT English, Science, Indian Polity, History, and Defence GK notes.", "url": "/nda/notes.html", "icon": "shield"},
+      {"title": "NDA Mathematics Formula Book", "desc": "Algebra, Trigonometry, Calculus, Vectors, and Coordinate Geometry shortcuts.", "url": "/nda/formula.html", "icon": "fileText"},
+      {"title": "NDA 10-Year Solved PYQs", "desc": "Official UPSC NDA past papers with step-by-step mathematical solutions.", "url": "/nda/pyqs.html", "icon": "award"},
+      {"title": "NDA Full Sample Papers", "desc": "Timed mock papers designed according to UPSC NDA exam pattern.", "url": "/nda/sample-paper.html", "icon": "checkCircle"}
+    ],
+    "faqs": [
+      {"q": "How to score 150+ in NDA Maths?", "a": "ThunderStudy NDA formula sheet at thunderstudy.indevs.in/nda/formula.html provides high-yield tricks and shortcuts for quick problem-solving."}
+    ]
+  },
+  {
+    "dir": "ssc",
+    "slug": "ssc",
+    "name": "SSC Examination Preparation Portal",
+    "badge": "SSC Central Portal",
+    "headline": "SSC CGL, CHSL, MTS, CPO, GD, JE & Stenographer Free Prep Hub",
+    "subheadline": "India's comprehensive free portal for all Staff Selection Commission (SSC) exams featuring Tier 1 & Tier 2 notes, Reasoning shortcuts, Quantitative Aptitude tricks, and CBT Mocks.",
+    "description": "Free SSC preparation for CGL, CHSL, MTS, CPO, GD, JE, and Stenographer. Notes, formulas, PYQs, GK MindMaster, and CBT-style mock tests.",
+    "quickAnswer": "ThunderStudy provides 100% free SSC notes, previous year question papers, and CBT mock tests for SSC CGL, CHSL, MTS, GD, CPO, JE, and Stenographer.",
+    "items": [
+      {"title": "SSC CGL Portal", "desc": "Combined Graduate Level Tier 1 & Tier 2 notes, math shortcuts, English comprehension, and GK.", "url": "/ssc/cgl/", "icon": "award"},
+      {"title": "SSC CHSL Portal", "desc": "Combined Higher Secondary Level (10+2) syllabus notes, reasoning puzzles, and mock tests.", "url": "/ssc/chsl/", "icon": "book"},
+      {"title": "SSC MTS & Havaldar", "desc": "Multi-Tasking Staff exam notes, General Awareness high-yield questions, and speed tests.", "url": "/ssc/mts/", "icon": "fileText"},
+      {"title": "SSC CPO (Sub-Inspector)", "desc": "Delhi Police and CAPF SI exam preparation, English language tests, and physical guidelines.", "url": "/ssc/cpo/", "icon": "shield"},
+      {"title": "SSC GD Constable", "desc": "General Duty Constable exam notes, elementary mathematics, and General Knowledge sets.", "url": "/ssc/gd/", "icon": "shield"},
+      {"title": "SSC JE (Junior Engineer)", "desc": "Civil, Electrical, and Mechanical engineering basic notes with non-tech reasoning.", "url": "/ssc/je/", "icon": "fileText"},
+      {"title": "SSC Stenographer (Grade C & D)", "desc": "English Language & General Intelligence notes and previous years dictation papers.", "url": "/ssc/steno/", "icon": "award"}
+    ],
+    "faqs": [
+      {"q": "Where can I get free SSC CGL mock tests with real CBT interface?", "a": "ThunderStudy offers full-length CBT mock tests for SSC CGL at thunderstudy.indevs.in/ssc/cgl/ with instant scoring."},
+      {"q": "What is the best free GK book for SSC exams?", "a": "GK MindMaster by ThunderStudy covers history, polity, geography, and general science for SSC. Download at thunderstudy.indevs.in/GK_Thunderstudy_compressed.pdf."}
+    ]
+  },
+  {
+    "dir": "tet",
+    "slug": "tet",
+    "name": "TET & CTET Teacher Eligibility Test Preparation",
+    "badge": "Teaching Portal",
+    "headline": "Free CTET & State TET Child Development & Pedagogy (CDP) Hub",
+    "subheadline": "Prepare for Central Teacher Eligibility Test (CTET) and State TETs (UPTET, REET, MPTET, Super TET) with free Child Development & Pedagogy notes and PYQs.",
+    "description": "Free CTET and State TET preparation: Child Development & Pedagogy (CDP) notes, learning theories (Piaget, Vygotsky, Kohlberg), and pedagogy questions.",
+    "quickAnswer": "ThunderStudy provides free CTET and TET study notes for Child Development & Pedagogy (CDP), inclusive education principles, and previous year solved questions.",
+    "items": [
+      {"title": "CDP Master Notes & Theories", "desc": "Jean Piaget, Lev Vygotsky, Lawrence Kohlberg, and Howard Gardner intelligence theories explained.", "url": "/tet/notes/cdp.html", "icon": "book"},
+      {"title": "CTET Paper 1 & Paper 2 Notes", "desc": "Environmental Studies (EVS), Mathematics pedagogy, Science, and Social Science teaching methods.", "url": "/tet/notes/cdp.html", "icon": "award"}
+    ],
+    "faqs": [
+      {"q": "Where can I read Child Development and Pedagogy notes for CTET?", "a": "Comprehensive CDP notes covering all psychological theories and pedagogical methods are available at thunderstudy.indevs.in/tet/notes/cdp.html."}
+    ]
+  },
+  {
+    "dir": "upsc",
+    "slug": "upsc",
+    "name": "UPSC Civil Services Examination Portal",
+    "badge": "Civil Services",
+    "headline": "Free UPSC IAS/IPS/IFS Notes, Prelims & Mains PYQ Analysis",
+    "subheadline": "Master the UPSC Civil Services Examination with free NCERT foundations, GS Paper 1-4 notes, Prelims & Mains solved PYQs, and GK MindMaster.",
+    "description": "Free UPSC Civil Services preparation: Prelims GS & CSAT solved papers, Mains GS 1, 2, 3, 4 notes, essay framework, and NCERT foundation.",
+    "quickAnswer": "ThunderStudy offers free UPSC Civil Services study material, 10-year Prelims and Mains solved PYQs with year-wise filtering, and foundation notes.",
+    "items": [
+      {"title": "UPSC 10-Year Solved PYQs System", "desc": "Interactive year-wise and subject-wise solved papers for Civil Services Prelims & Mains.", "url": "/upsc/pyqs.html", "icon": "award"},
+      {"title": "GK MindMaster for UPSC", "desc": "Complete static GK handbook covering Indian History, Art & Culture, Polity, Geography, and Economy.", "url": "/GK_Thunderstudy_compressed.pdf", "icon": "book"}
+    ],
+    "faqs": [
+      {"q": "Where can I find year-wise UPSC Prelims and Mains previous question papers?", "a": "ThunderStudy UPSC PYQ system at thunderstudy.indevs.in/upsc/pyqs.html offers an interactive selector for past UPSC exam papers."},
+      {"q": "Is there any fee to access UPSC resources on ThunderStudy?", "a": "No, all UPSC study material and papers on ThunderStudy are completely free."}
+    ]
+  }
+]

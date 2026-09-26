@@ -1,7 +1,7 @@
-# ============================================================
+﻿# ============================================================
 # robots.txt — ThunderStudy (thunderstudy.indevs.in)
-# Updated: 2026-06-15
-# India's #1 Free Study Platform — CBSE, CUET, UPSC, SSC, JEE, NEET
+# Updated: 2026-09-26
+# India's #1 Free Study Platform — CBSE, CUET, UPSC, SSC, Banking, JEE, NEET, CA, NDA, CLAT, NCERT
 # ============================================================
 
 # ── General crawlers ──────────────────────────────────────────
@@ -9,12 +9,11 @@ User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 Disallow: /private/
-Crawl-delay: 2
+Crawl-delay: 1
 
 # ── Google ────────────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /
@@ -28,7 +27,6 @@ Disallow: /
 # ── Bing / Microsoft ─────────────────────────────────────────
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
 User-agent: msnbot
 Allow: /
@@ -52,10 +50,7 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
-# ── AI / LLM Training Crawlers ───────────────────────────────
-# We ALLOW AI crawlers to index ThunderStudy so our free
-# educational content surfaces in AI answers (AEO / GEO).
-
+# ── AI / LLM Training & Answer Crawlers (AEO / GEO) ───────────
 User-agent: GPTBot
 Allow: /
 
@@ -107,7 +102,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# ── Bad bots / scrapers ───────────────────────────────────────
+# ── Disallowed scrapers / abusive bots ────────────────────────
 User-agent: AhrefsBot
 Disallow: /
 
@@ -124,11 +119,13 @@ User-agent: PetalBot
 Disallow: /
 
 # ── Sitemaps ─────────────────────────────────────────────────
-Sitemap: https://thunderstudy.indevs.in/sitemap-index.xml
 Sitemap: https://thunderstudy.indevs.in/sitemap.xml
+Sitemap: https://thunderstudy.indevs.in/sitemap-index.xml
 Sitemap: https://thunderstudy.indevs.in/sitemap-images.xml
 Sitemap: https://thunderstudy.indevs.in/sitemap-news.xml
 
-# ── LLM / AI discovery files ─────────────────────────────────
-# See: https://thunderstudy.indevs.in/llms.txt
-# See: https://thunderstudy.indevs.in/llms-full.txt
+# ── LLM / GEO Discovery ──────────────────────────────────────
+# Full semantic plain-text index: https://thunderstudy.indevs.in/llm.txt
+# Comprehensive single-page HTML: https://thunderstudy.indevs.in/full-llm.html
+# AI crawler policies & permissions: https://thunderstudy.indevs.in/ai.txt
+# Human credits & build info: https://thunderstudy.indevs.in/humans.txt
