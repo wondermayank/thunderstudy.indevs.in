@@ -17,7 +17,7 @@
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "ThunderStudy",
-  "url": "https://thunderstudy.github.io/ssc_mts/notes/",
+  "url": "https://ssc.thunderstudy.indevs.in/notes/",
   "description": "Free SSC Steno exam preparation notes and PDF downloads.",
   "educationalCredentialAwarded": "SSC Steno Exam Preparation"
 }
@@ -1024,7 +1024,7 @@ function openSubject(id) {
   const list = document.getElementById('chapters-list');
   list.innerHTML = s.chapters.map((ch, i) => {
     const pdfNum = s.pdfs ? s.pdfs[i] : (i + 1);
-    const url = `https://thunderstudy.github.io/ssc_mts/notes/${s.slug}${pdfNum}.pdf`;
+    const url = `https://ssc.thunderstudy.indevs.in/notes/${s.slug}${pdfNum}.pdf`;
     return `
       <a class="chapter-item" href="${url}" target="_blank" rel="noopener">
         <div class="chapter-num">${i + 1}</div>
