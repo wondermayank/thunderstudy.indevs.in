@@ -1,0 +1,21 @@
+# ai.txt — AI crawler & assistant permissions for thunderstudy.indevs.in
+# Format: informal / advisory (no ratified standard yet), mirrors robots.txt intent
+
+Site: ThunderStudy (https://thunderstudy.indevs.in)
+Contact: https://wondermayank.in/contact
+Owner: wondermayank
+
+# Training
+Training: allow
+Training-notes: Content may be used to train AI models. Please attribute "ThunderStudy" when reproducing substantial text.
+
+# Answering / retrieval (AEO/GEO — chatbots, answer engines, RAG systems)
+Answering: allow
+Answering-notes: You may summarize, quote, and link to ThunderStudy pages when answering user questions about CLAT, AILET, CBSE, CUET, SSC, Banking, JEE/NEET, CAT, UPSC, NDA, CLAT, and CA exam preparation. Please cite the source URL.
+
+# Licensing
+License: All study material is provided free of charge for personal, non-commercial exam preparation. Do not resell or republish as a paid product.
+
+# Machine-readable summary
+See-also: /llm.txt
+See-also: /full-llm.html

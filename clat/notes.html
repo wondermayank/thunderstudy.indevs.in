@@ -1,507 +1,512 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CLAT Notes – ThunderStudy</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --blue-50: #e8f4fd;
-  --blue-100: #c3e2f9;
-  --blue-200: #9acef5;
-  --blue-400: #3fa8e8;
-  --blue-500: #1a8fd1;
-  --blue-600: #1478b3;
-  --blue-800: #0d4f7a;
-  --blue-900: #083454;
-  --white: #ffffff;
-  --gray-50: #f7fafc;
-  --gray-100: #eef2f7;
-  --gray-200: #dde6f0;
-  --gray-400: #94a8bf;
-  --gray-600: #5a7390;
-  --gray-800: #2c3e52;
-  --accent: #f59e0b;
-  --accent-light: #fef3c7;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLAT Notes — Legal, Logical, Quant, English & GK Chapter-wise | ThunderStudy</title>
+  <meta name="description" content="Free CLAT chapter-wise notes covering Legal Reasoning, Logical Reasoning, Quantitative Techniques, English, and General Knowledge for Common Law Admission Test aspirants.">
+  <link rel="canonical" href="https://thunderstudy.indevs.in/clat/notes.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#70a1fc">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thunderstudy.indevs.in/clat/notes.html">
+  <meta property="og:title" content="CLAT Notes — Chapter-wise Legal, Logical, Quant & GK | ThunderStudy">
+  <meta property="og:description" content="Free CLAT chapter-wise notes covering Legal Reasoning, Logical Reasoning, Quantitative Techniques, English, and General Knowledge for Common Law Admission Test aspirants.">
+  <meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
+  <meta property="og:site_name" content="ThunderStudy">
+  <meta property="og:locale" content="en_IN">
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(155deg, #e8f4fd 0%, #f0f7ff 40%, #ffffff 100%);
-  min-height: 100vh;
-  color: var(--gray-800);
-}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Thunderstudyx">
+  <meta name="twitter:creator" content="@wondermayank">
+  <meta name="twitter:title" content="CLAT Notes — Chapter-wise Legal, Logical, Quant & GK | ThunderStudy">
+  <meta name="twitter:description" content="Free CLAT chapter-wise notes covering Legal Reasoning, Logical Reasoning, Quantitative Techniques, English, and General Knowledge for Common Law Admission Test aspirants.">
+  <meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
 
-/* ─── HEADER ─── */
-header {
-  background: var(--white);
-  border-bottom: 1.5px solid var(--blue-100);
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  box-shadow: 0 2px 12px rgba(26,143,209,0.08);
-}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ThunderStudy","item":"https://thunderstudy.indevs.in/"},{"@type":"ListItem","position":2,"name":"CLAT & AILET Law Entrance Preparation","item":"https://thunderstudy.indevs.in/clat/"},{"@type":"ListItem","position":3,"name":"CLAT Notes","item":"https://thunderstudy.indevs.in/clat/notes.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What subjects does ThunderStudy cover in CLAT notes?","acceptedAnswer":{"@type":"Answer","text":"ThunderStudy's CLAT notes cover English, General Knowledge (Physics, Chemistry, Biology, Economics, Geography, History, Polity), Legal Reasoning, Logical Reasoning, and Quantitative Techniques, organised chapter by chapter."}},{"@type":"Question","name":"Are the CLAT notes free to access?","acceptedAnswer":{"@type":"Answer","text":"Yes, all CLAT chapter-wise notes on ThunderStudy are completely free, with no login or paywall."}}]}</script>
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+  <style>
+    :root {
+      --primary: #70a1fc;
+      --primary-soft: #7897D1;
+      --primary-active: #5D79B3;
+      --secondary: #D6BD82;
+      --ink: #26324A;
+      --muted: #667085;
+      --on-primary: #FFFFFF;
+      --on-dark: #F4F1FF;
+      --canvas: #EEF3FF;
+      --surface: #FFFFFF;
+      --card: #FFFFFF;
+      --surface-dark: #121212;
+      --hairline: #D8E1F2;
+      --hairline-strong: #B9C8E3;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 11px;
+      --radius-lg: 18px;
+      --radius-pill: 9999px;
+    }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: white;
-  font-weight: 800;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  letter-spacing: -1px;
-}
+    [data-theme="dark"] {
+      --primary: #9A7AFB;
+      --primary-soft: #7560C7;
+      --primary-active: #7E64CE;
+      --secondary: #CBDD98;
+      --ink: #F4F1FF;
+      --muted: #A9A4B8;
+      --canvas: #121212;
+      --surface: #1B1B1F;
+      --card: #222228;
+      --surface-dark: #000000;
+      --hairline: #2A2A2A;
+      --hairline-strong: #3A3A3C;
+    }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-.logo-main {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  color: var(--blue-800);
-  letter-spacing: -0.3px;
-}
-.logo-sub {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--blue-400);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--canvas);
+      color: var(--ink);
+      line-height: 1.5;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
 
-.header-tag {
-  background: var(--blue-50);
-  border: 1px solid var(--blue-200);
-  color: var(--blue-600);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 20px;
-  letter-spacing: 0.3px;
-}
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--hairline);
+      backdrop-filter: blur(20px);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.2px;
+    }
+    .brand-thunder { color: var(--ink); }
+    .brand-study {
+      background: linear-gradient(135deg, var(--primary), #7560C7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .nav-link:hover {
+      color: var(--primary);
+      background-color: var(--canvas);
+    }
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--hairline-strong);
+      color: var(--ink);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, background-color 0.2s;
+    }
+    .theme-toggle-btn:active { transform: scale(0.95); }
 
-/* ─── HERO ─── */
-.hero {
-  text-align: center;
-  padding: 48px 24px 36px;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--blue-50);
-  border: 1px solid var(--blue-200);
-  color: var(--blue-600);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-  letter-spacing: 0.4px;
-}
-.hero-badge .dot {
-  width: 6px; height: 6px;
-  background: var(--blue-400);
-  border-radius: 50%;
-}
-.hero h1 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 800;
-  color: var(--blue-900);
-  letter-spacing: -1px;
-  margin-bottom: 10px;
-}
-.hero h1 span { color: var(--blue-500); }
-.hero p {
-  font-size: 15px;
-  color: var(--gray-600);
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
+    .breadcrumb-bar {
+      max-width: 1200px;
+      margin: 16px auto 0;
+      padding: 0 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-bar a { color: var(--muted); text-decoration: none; }
+    .breadcrumb-bar a:hover { color: var(--primary); }
 
-/* ─── SUBJECT SELECTOR ─── */
-.section-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--blue-400);
-  text-align: center;
-  margin-bottom: 16px;
-}
+    footer.site-footer {
+      background: var(--surface);
+      color: var(--muted);
+      padding: 60px 20px 32px;
+      border-top: 1px solid var(--hairline);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    .social-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-pill);
+      background: var(--canvas);
+      border: 1px solid var(--hairline);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s, transform 0.15s ease;
+    }
+    .social-link:hover { color: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid var(--hairline);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.8125rem;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--on-primary);
+      border: none;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      z-index: 99;
+      transition: transform 0.15s ease;
+    }
+    .back-to-top.show { display: flex; }
+    .back-to-top:active { transform: scale(0.95); }
 
-.subjects-grid {
-  display: flex;
-  gap: 14px;
-  padding: 0 24px;
-  max-width: 1100px;
-  margin: 0 auto 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    .hero-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px 8px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--primary); background: var(--surface); border: 1px solid var(--hairline);
+      padding: 6px 14px; border-radius: var(--radius-pill); margin-bottom: 16px;
+    }
+    .hero-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.5px; line-height: 1.15; color: var(--ink); margin-bottom: 12px; }
+    .hero-title span { color: var(--primary); }
+    .hero-summary { max-width: 700px; margin: 0 auto 8px; font-size: 1.05rem; color: var(--muted); line-height: 1.6; }
 
-.subject-card {
-  flex: 1;
-  min-width: 160px;
-  max-width: 200px;
-  background: var(--white);
-  border: 2px solid var(--blue-100);
-  border-radius: 18px;
-  padding: 20px 16px 18px;
-  cursor: pointer;
-  transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.subject-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: var(--card-accent, var(--blue-400));
-  border-radius: 18px 18px 0 0;
-}
-.subject-card:hover {
-  border-color: var(--card-accent, var(--blue-400));
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(26,143,209,0.13);
-}
-.subject-card.active {
-  border-color: var(--card-accent, var(--blue-400));
-  background: var(--blue-50);
-  box-shadow: 0 6px 20px rgba(26,143,209,0.15);
-  transform: translateY(-2px);
-}
-.subject-card.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 50%;
-  transform: translateX(-50%);
-  width: 20px; height: 4px;
-  background: var(--card-accent, var(--blue-400));
-  border-radius: 2px 2px 0 0;
-}
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted); text-align: center; margin: 32px 0 16px;
+    }
 
-.subject-emoji {
-  font-size: 30px;
-  margin-bottom: 10px;
-  display: block;
-}
-.subject-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--blue-900);
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-.subject-count {
-  font-size: 11px;
-  color: var(--gray-400);
-  font-weight: 500;
-}
+    .subjects-grid { display: flex; gap: 14px; padding: 0 20px; max-width: 1100px; margin: 0 auto 32px; flex-wrap: wrap; justify-content: center; }
+    .subject-card {
+      flex: 1; min-width: 160px; max-width: 200px;
+      background: var(--card); border: 1px solid var(--hairline); border-radius: var(--radius-lg);
+      padding: 20px 16px 18px; cursor: pointer; transition: all 0.2s ease; text-align: center; position: relative;
+    }
+    .subject-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .subject-card.active { border-color: var(--primary); background: var(--canvas); }
+    .subject-icon-wrap {
+      width: 44px; height: 44px; margin: 0 auto 12px; border-radius: var(--radius-md);
+      background: var(--canvas); color: var(--primary); display: flex; align-items: center; justify-content: center;
+    }
+    .subject-name { font-weight: 700; font-size: 0.9rem; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+    .subject-count { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
 
-/* ─── CONTENT AREA ─── */
-.content-area {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px 60px;
-}
+    .content-area { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+    .subject-panel { display: none; }
+    .subject-panel.active { display: block; }
 
-.subject-panel { display: none; }
-.subject-panel.active { display: block; }
+    .sub-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .sub-tab {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: var(--card); border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-pill); font-size: 0.8125rem; font-weight: 600; color: var(--muted);
+      cursor: pointer; transition: all 0.18s;
+    }
+    .sub-tab:hover { border-color: var(--primary); color: var(--primary); }
+    .sub-tab.active { background: var(--ink); border-color: var(--ink); color: var(--canvas); }
 
-/* ─── SUB-SUBJECT TABS ─── */
-.sub-tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-.sub-tab {
-  padding: 8px 18px;
-  background: var(--white);
-  border: 1.5px solid var(--blue-100);
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--gray-600);
-  cursor: pointer;
-  transition: all 0.18s;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.sub-tab:hover {
-  border-color: var(--blue-300, var(--blue-400));
-  color: var(--blue-600);
-  background: var(--blue-50);
-}
-.sub-tab.active {
-  background: var(--blue-500);
-  border-color: var(--blue-500);
-  color: white;
-}
+    .chapters-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .chapters-header h2 { font-size: 1.15rem; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+    .chapters-header .badge {
+      background: var(--canvas); border: 1px solid var(--hairline); color: var(--primary);
+      font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-pill);
+    }
+    .chapters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+    .chapter-link {
+      display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+      background: var(--card); border: 1px solid var(--hairline); border-radius: var(--radius-md);
+      text-decoration: none; color: var(--ink); font-size: 0.8125rem; font-weight: 500; transition: all 0.18s; line-height: 1.35;
+    }
+    .chapter-link:hover { border-color: var(--primary); color: var(--primary); transform: translateX(2px); }
+    .chapter-num {
+      width: 26px; height: 26px; background: var(--canvas); border: 1px solid var(--hairline);
+      border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
+      font-size: 0.6875rem; font-weight: 700; color: var(--primary); flex-shrink: 0;
+    }
+    .chapter-link .arrow { margin-left: auto; color: var(--muted); flex-shrink: 0; }
 
-/* ─── CHAPTER GRID ─── */
-.chapters-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.chapters-header h2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--blue-900);
-}
-.chapters-header .badge {
-  background: var(--blue-50);
-  border: 1px solid var(--blue-200);
-  color: var(--blue-500);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
+    .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); }
+    .empty-state .icon-wrap { color: var(--primary); margin-bottom: 12px; display: flex; justify-content: center; }
 
-.chapters-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-}
-
-.chapter-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  background: var(--white);
-  border: 1.5px solid var(--blue-100);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--gray-800);
-  font-size: 13px;
-  font-weight: 500;
-  transition: all 0.18s;
-  line-height: 1.35;
-}
-.chapter-link:hover {
-  border-color: var(--blue-400);
-  background: var(--blue-50);
-  color: var(--blue-800);
-  transform: translateX(2px);
-  box-shadow: 0 3px 10px rgba(26,143,209,0.1);
-}
-.chapter-num {
-  width: 26px; height: 26px;
-  background: var(--blue-50);
-  border: 1px solid var(--blue-100);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--blue-500);
-  flex-shrink: 0;
-}
-.chapter-link:hover .chapter-num {
-  background: var(--blue-500);
-  border-color: var(--blue-500);
-  color: white;
-}
-.arrow {
-  margin-left: auto;
-  color: var(--blue-200);
-  font-size: 14px;
-  flex-shrink: 0;
-  transition: all 0.18s;
-}
-.chapter-link:hover .arrow {
-  color: var(--blue-400);
-  transform: translateX(2px);
-}
-
-/* ─── EMPTY STATE ─── */
-.empty-state {
-  text-align: center;
-  padding: 60px 24px;
-  color: var(--gray-400);
-}
-.empty-state .big {
-  font-size: 48px;
-  margin-bottom: 12px;
-}
-.empty-state p {
-  font-size: 15px;
-}
-
-/* ─── FOOTER ─── */
-footer {
-  text-align: center;
-  padding: 24px;
-  border-top: 1px solid var(--blue-100);
-  font-size: 12px;
-  color: var(--gray-400);
-  background: var(--white);
-}
-footer a { color: var(--blue-500); text-decoration: none; font-weight: 600; }
-
-/* ─── DIVIDER ─── */
-.sub-section-divider {
-  border: none;
-  border-top: 1.5px solid var(--blue-100);
-  margin: 28px 0;
-}
-
-@media (max-width: 600px) {
-  .subjects-grid { gap: 10px; }
-  .subject-card { min-width: 140px; padding: 16px 12px 14px; }
-  .subject-emoji { font-size: 26px; }
-  .chapters-grid { grid-template-columns: 1fr 1fr; }
-}
+    @media (max-width: 600px) {
+      .subjects-grid { gap: 10px; }
+      .subject-card { min-width: 140px; padding: 16px 12px 14px; }
+      .chapters-grid { grid-template-columns: 1fr 1fr; }
+    }
 </style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <div class="logo-icon">⚡</div>
-    <div class="logo-text">
-      <span class="logo-main">ThunderStudy</span>
-      <span class="logo-sub">by Wondermayank</span>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand-link" aria-label="ThunderStudy Home">
+        <img src="/favicon.svg" alt="Thunder logo" width="28" height="28">
+        <span class="logo-text"><span class="brand-thunder">Thunder</span><span class="brand-study">Study</span></span>
+      </a>
+      <nav class="header-nav" aria-label="Main Navigation">
+        <a href="/cbse/" class="nav-link">CBSE</a>
+        <a href="/ssc/" class="nav-link">SSC</a>
+        <a href="/banking/" class="nav-link">Banking</a>
+        <a href="/ca/" class="nav-link">CA</a>
+        <a href="/search.html" class="nav-link">Search</a>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+          <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
+        </button>
+      </nav>
     </div>
-  </div>
-  <span class="header-tag">CLAT Notes</span>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="hero-badge"><span class="dot"></span> Complete Study Material</div>
-  <h1>CLAT <span>Notes</span> Index</h1>
-  <p>Structured chapter-wise notes for every CLAT section. Select a subject to begin.</p>
-</section>
+  <nav class="breadcrumb-bar" aria-label="Breadcrumbs">
+    <a href="/">Home</a>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+    <a href="/clat/">CLAT &amp; AILET</a>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+    <span style="color: var(--ink); font-weight: 500;">CLAT Notes</span>
+  </nav>
 
-<p class="section-label">Choose Your Subject</p>
+  <main>
+    <section class="hero-section">
+      <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg> Study Notes</span>
+      <h1 class="hero-title">CLAT <span>Notes</span> Index</h1>
+      <p class="hero-summary">Structured, chapter-wise notes covering every CLAT section — English, General Knowledge, Legal Reasoning, Logical Reasoning, and Quantitative Techniques. Select a subject below to begin.</p>
+    </section>
 
-<div class="subjects-grid">
-  <div class="subject-card" style="--card-accent:#1a8fd1" onclick="selectSubject('english')" id="card-english">
-    <span class="subject-emoji">📝</span>
-    <div class="subject-name">English</div>
-    <div class="subject-count">19 Chapters</div>
-  </div>
-  <div class="subject-card" style="--card-accent:#059669" onclick="selectSubject('gk')" id="card-gk">
-    <span class="subject-emoji">🌍</span>
-    <div class="subject-name">General Knowledge</div>
-    <div class="subject-count">7 Subjects · 70+ Chapters</div>
-  </div>
-  <div class="subject-card" style="--card-accent:#7c3aed" onclick="selectSubject('legal')" id="card-legal">
-    <span class="subject-emoji">⚖️</span>
-    <div class="subject-name">Legal Reasoning</div>
-    <div class="subject-count">5 Sub-sections</div>
-  </div>
-  <div class="subject-card" style="--card-accent:#dc2626" onclick="selectSubject('logical')" id="card-logical">
-    <span class="subject-emoji">🧩</span>
-    <div class="subject-name">Logical Reasoning</div>
-    <div class="subject-count">18 Chapters</div>
-  </div>
-  <div class="subject-card" style="--card-accent:#d97706" onclick="selectSubject('quant')" id="card-quant">
-    <span class="subject-emoji">🔢</span>
-    <div class="subject-name">Quantitative Techniques</div>
-    <div class="subject-count">22 Chapters</div>
-  </div>
-</div>
+    <p class="section-label">Choose Your Subject</p>
 
-<div class="content-area">
-
-  <!-- ── DEFAULT ── -->
-  <div id="panel-default" style="text-align:center;padding:48px 0">
-    <div style="font-size:56px;margin-bottom:14px">📚</div>
-    <p style="font-size:16px;color:var(--gray-400);">Select a subject above to browse chapters</p>
-  </div>
-
-  <!-- ══════════════ ENGLISH ══════════════ -->
-  <div class="subject-panel" id="panel-english">
-    <div class="chapters-header">
-      <h2>📝 English</h2>
-      <span class="badge">19 Chapters</span>
+    <div class="subjects-grid">
+      <div class="subject-card" onclick="selectSubject('english')" id="card-english">
+        <div class="subject-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div>
+        <div class="subject-name">English</div>
+        <div class="subject-count">19 Chapters</div>
+      </div>
+      <div class="subject-card" onclick="selectSubject('gk')" id="card-gk">
+        <div class="subject-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+        <div class="subject-name">General Knowledge</div>
+        <div class="subject-count">7 Subjects &middot; 70+ Chapters</div>
+      </div>
+      <div class="subject-card" onclick="selectSubject('legal')" id="card-legal">
+        <div class="subject-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M3 7h4l3 9H3z"/><path d="M17 7h4l-3 9h4"/><path d="m3 7 4-1 4 1"/><path d="m17 7 3-1 4 1"/><path d="M6 21h12"/></svg></div>
+        <div class="subject-name">Legal Reasoning</div>
+        <div class="subject-count">5 Sub-sections</div>
+      </div>
+      <div class="subject-card" onclick="selectSubject('logical')" id="card-logical">
+        <div class="subject-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-3.408 0l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.4.06-.721.36-.855.742a2.5 2.5 0 1 1-3.242-3.242c.383-.134.683-.454.744-.855a1.027 1.027 0 0 0-.291-.878l-1.568-1.568a2.404 2.404 0 0 1 0-3.408l1.61-1.61a.979.979 0 0 1 .837-.276c.47.07.803.48.968.925a2.501 2.501 0 1 0 3.214-3.214c-.446-.166-.855-.497-.925-.968a.98.98 0 0 1 .276-.837l1.61-1.61a2.404 2.404 0 0 1 3.408 0l1.568 1.568c.23.23.556.338.877.29.4-.06.722-.36.855-.742a2.5 2.5 0 1 1 3.242 3.242c-.383.134-.683.454-.744.855z"/></svg></div>
+        <div class="subject-name">Logical Reasoning</div>
+        <div class="subject-count">18 Chapters</div>
+      </div>
+      <div class="subject-card" onclick="selectSubject('quant')" id="card-quant">
+        <div class="subject-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div>
+        <div class="subject-name">Quantitative Techniques</div>
+        <div class="subject-count">22 Chapters</div>
+      </div>
     </div>
-    <div class="chapters-grid" id="chapters-english"></div>
-  </div>
 
-  <!-- ══════════════ GENERAL KNOWLEDGE ══════════════ -->
-  <div class="subject-panel" id="panel-gk">
-    <div class="sub-tabs" id="gk-tabs"></div>
-    <div id="gk-content"></div>
-  </div>
+    <div class="content-area">
 
-  <!-- ══════════════ LEGAL REASONING ══════════════ -->
-  <div class="subject-panel" id="panel-legal">
-    <div class="sub-tabs" id="legal-tabs"></div>
-    <div id="legal-content"></div>
-  </div>
+      <div id="panel-default" class="empty-state">
+        <div class="icon-wrap"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
+        <p>Select a subject above to browse chapters</p>
+      </div>
 
-  <!-- ══════════════ LOGICAL REASONING ══════════════ -->
-  <div class="subject-panel" id="panel-logical">
-    <div class="chapters-header">
-      <h2>🧩 Logical Reasoning</h2>
-      <span class="badge">18 Chapters</span>
+      <div class="subject-panel" id="panel-english">
+        <div class="chapters-header">
+          <h2><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> English</h2>
+          <span class="badge">19 Chapters</span>
+        </div>
+        <div class="chapters-grid" id="chapters-english"></div>
+      </div>
+
+      <div class="subject-panel" id="panel-gk">
+        <div class="sub-tabs" id="gk-tabs"></div>
+        <div id="gk-content"></div>
+      </div>
+
+      <div class="subject-panel" id="panel-legal">
+        <div class="sub-tabs" id="legal-tabs"></div>
+        <div id="legal-content"></div>
+      </div>
+
+      <div class="subject-panel" id="panel-logical">
+        <div class="chapters-header">
+          <h2><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-3.408 0l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.4.06-.721.36-.855.742a2.5 2.5 0 1 1-3.242-3.242c.383-.134.683-.454.744-.855a1.027 1.027 0 0 0-.291-.878l-1.568-1.568a2.404 2.404 0 0 1 0-3.408l1.61-1.61a.979.979 0 0 1 .837-.276c.47.07.803.48.968.925a2.501 2.501 0 1 0 3.214-3.214c-.446-.166-.855-.497-.925-.968a.98.98 0 0 1 .276-.837l1.61-1.61a2.404 2.404 0 0 1 3.408 0l1.568 1.568c.23.23.556.338.877.29.4-.06.722-.36.855-.742a2.5 2.5 0 1 1 3.242 3.242c-.383.134-.683.454-.744.855z"/></svg> Logical Reasoning</h2>
+          <span class="badge">18 Chapters</span>
+        </div>
+        <div class="chapters-grid" id="chapters-logical"></div>
+      </div>
+
+      <div class="subject-panel" id="panel-quant">
+        <div class="chapters-header">
+          <h2><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg> Quantitative Techniques</h2>
+          <span class="badge">22 Chapters</span>
+        </div>
+        <div class="chapters-grid" id="chapters-quant"></div>
+      </div>
+
     </div>
-    <div class="chapters-grid" id="chapters-logical"></div>
-  </div>
+  </main>
 
-  <!-- ══════════════ QUANTITATIVE TECHNIQUES ══════════════ -->
-  <div class="subject-panel" id="panel-quant">
-    <div class="chapters-header">
-      <h2>🔢 Quantitative Techniques</h2>
-      <span class="badge">22 Chapters</span>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>ThunderStudy</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/cbse/">CBSE Hub</a></li>
+          <li><a href="/ssc/">SSC Hub</a></li>
+          <li><a href="/banking/">Banking Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/ca/">CA Hub</a></li>
+          <li><a href="/ncert/">NCERT Textbooks</a></li>
+          <li><a href="/upsc/pyqs.html">UPSC PYQs</a></li>
+          <li><a href="/GK_Thunderstudy_compressed.pdf" target="_blank" rel="noopener noreferrer">Free GK MindMaster PDF</a></li>
+          <li><a href="/full-llm.html">LLM Semantic Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community &amp; Social</h4>
+        <p style="font-size: 0.875rem; line-height: 1.5;">Join our official channels for free updates, study materials, and mock exam notifications.</p>
+        <div class="social-row">
+          <a href="https://t.me/Thunderstudy_official" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+          <a href="https://instagram.com/Thunderstudyx" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="https://youtube.com/@Thunderstudy_official" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><polygon points="10 15 15 12 10 9 10 15"/></svg></a>
+          <a href="https://twitter.com/Thunderstudyx" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X Twitter Profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="https://github.com/wondermayank" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub Developer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          <a href="https://github.com/ThunderStudy" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy GitHub Org"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+        </div>
+      </div>
     </div>
-    <div class="chapters-grid" id="chapters-quant"></div>
-  </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Thunder &middot; by wondermayank &middot; 100% Free Indian Education</span>
+      <span>No Ads &middot; No Login &middot; Privacy First</span>
+    </div>
+  </footer>
 
-</div>
+  <script>
+    const themeBtn = document.getElementById('themeToggle');
+    const sunSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+    const moonSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
 
-<footer>
-  Made with ⚡ by <a href="https://thunderstudy.indevs.in" target="_blank">ThunderStudy</a> &nbsp;·&nbsp;
-  <a href="https://t.me/thunderstudy_official" target="_blank">@thunderstudy_official</a>
-</footer>
+    function updateThemeIcon() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeBtn.innerHTML = isDark ? sunSvg : moonSvg;
+    }
+    updateThemeIcon();
 
-<script>
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateThemeIcon();
+    });
+  </script>
+  <script>
 const BASE = 'https://clat.thunderstudy.indevs.in/notes';
 
-/* ── slug helper ── */
-function slug(s) {
-  return s.toLowerCase()
-    .replace(/[^a-z0-9\s]/g,'')
-    .trim().replace(/\s+/g,'-');
-}
+const ICONS = {
+  'phy': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg>`,
+  'che': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg>`,
+  'bio': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/><path d="M16 3.5c2 1.5 3 3 3 4.5"/><path d="M5 20.5c-2-1.5-3-3-3-4.5"/><path d="m7 18 2.5-2.5"/><path d="m17 6-2.5 2.5"/></svg>`,
+  'eco': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+  'geo': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>`,
+  'his': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>`,
+  'polity': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>`,
+  'law-of-crimes': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  'law-of-tort': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M3 7h4l3 9H3z"/><path d="M17 7h4l-3 9h4"/><path d="m3 7 4-1 4 1"/><path d="m17 7 3-1 4 1"/><path d="M6 21h12"/></svg>`,
+  'constitution': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg>`,
+  'contract-act': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>`,
+  'misc-laws': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>`
+};
 
-/* ════════ DATA ════════ */
+function slug(s) {
+  return s.toLowerCase().replace(/[^a-z0-9\s]/g,'').trim().replace(/\s+/g,'-');
+}
 
 const englishChapters = [
   'Nouns','Pronouns','Tenses','Subject Verb Agreement or Syntax',
@@ -512,57 +517,21 @@ const englishChapters = [
 ];
 
 const gkSubjects = {
-  'Physics': {
-    key:'phy', emoji:'⚛️',
-    chapters:['Physical Quantities','Rest and Motion','Force and Newton\'s Law of Motion','Oscillations and Waves','Sound','Heat','Matter','Light','Magnetism and Electricity','Nuclear Reactor','Work, Power and Energy','Gravitation','Satellite']
-  },
-  'Chemistry': {
-    key:'che', emoji:'🧪',
-    chapters:['Nature and Composition of Substances','Acid, Base and Salts','Structure of Atom','Elements & their Compounds','Chemistry in Everyday Life','Chemistry in Agriculture & Medicine','Polymerization','Classification of Elements','Chemical Reactions and Equation','Matter & Its Nature','Some Important Metals & their Uses','Chemical Bonding','Pollution','Gases','Organic Chemistry']
-  },
-  'Biology': {
-    key:'bio', emoji:'🧬',
-    chapters:['Introduction','Cells & Tissues','Muscular & Skeletal System','Nervous System','Endocrine System','Lymphatic System & Immunity','Circulatory System','Reproductive System','Digestive System','The Excretory System','Diversity in Living Organisms','Micro-Organisms','Some Important Facts']
-  },
-  'Economics': {
-    key:'eco', emoji:'📈',
-    chapters:['Introduction','Demand & Supply','Macro Economics','Inflation','Tax Structure in India','Economics Reforms','Poverty & Unemployment','Reserve Bank of India','Stock Exchange','Important Schemes']
-  },
-  'Geography': {
-    key:'geo', emoji:'🗺️',
-    chapters:['Solar System','Interior Structure of the Earth','Atmosphere','Oceanography','Physiographic Division of India','Drainage System','Climate','Soil','Natural Vegetation','Agriculture','Transport System of India','Minerals','Some Important Facts about India','Continents of the World','Miscellaneous']
-  },
-  'History': {
-    key:'his', emoji:'🏛️',
-    chapters:['Ancient History','Medieval History','Modern History']
-  },
-  'Polity': {
-    key:'polity', emoji:'🏛️',
-    chapters:['Framing of Indian Constitution','Parts & Schedules of Indian Constitution','Preamble, Union & its Territories, Citizenship','Fundamental Rights & Duties','Union Executive','Parliament','Emergency Provisions in India','State Legislature','Governor','Local-Self Governance','Judiciary','Union Territories','Special Status of Jammu & Kashmir','Government Bodies','Parliamentary Funds','Some Important Points','GST & Union Budget','Index']
-  }
+  'Physics': { key:'phy', chapters:['Physical Quantities','Rest and Motion','Force and Newton\'s Law of Motion','Oscillations and Waves','Sound','Heat','Matter','Light','Magnetism and Electricity','Nuclear Reactor','Work, Power and Energy','Gravitation','Satellite'] },
+  'Chemistry': { key:'che', chapters:['Nature and Composition of Substances','Acid, Base and Salts','Structure of Atom','Elements & their Compounds','Chemistry in Everyday Life','Chemistry in Agriculture & Medicine','Polymerization','Classification of Elements','Chemical Reactions and Equation','Matter & Its Nature','Some Important Metals & their Uses','Chemical Bonding','Pollution','Gases','Organic Chemistry'] },
+  'Biology': { key:'bio', chapters:['Introduction','Cells & Tissues','Muscular & Skeletal System','Nervous System','Endocrine System','Lymphatic System & Immunity','Circulatory System','Reproductive System','Digestive System','The Excretory System','Diversity in Living Organisms','Micro-Organisms','Some Important Facts'] },
+  'Economics': { key:'eco', chapters:['Introduction','Demand & Supply','Macro Economics','Inflation','Tax Structure in India','Economics Reforms','Poverty & Unemployment','Reserve Bank of India','Stock Exchange','Important Schemes'] },
+  'Geography': { key:'geo', chapters:['Solar System','Interior Structure of the Earth','Atmosphere','Oceanography','Physiographic Division of India','Drainage System','Climate','Soil','Natural Vegetation','Agriculture','Transport System of India','Minerals','Some Important Facts about India','Continents of the World','Miscellaneous'] },
+  'History': { key:'his', chapters:['Ancient History','Medieval History','Modern History'] },
+  'Polity': { key:'polity', chapters:['Framing of Indian Constitution','Parts & Schedules of Indian Constitution','Preamble, Union & its Territories, Citizenship','Fundamental Rights & Duties','Union Executive','Parliament','Emergency Provisions in India','State Legislature','Governor','Local-Self Governance','Judiciary','Union Territories','Special Status of Jammu & Kashmir','Government Bodies','Parliamentary Funds','Some Important Points','GST & Union Budget','Index'] }
 };
 
 const legalSubjects = {
-  'Law of Crimes': {
-    key:'law-of-crimes', emoji:'🔒',
-    chapters:['Nature and Stages of Crime','Punishment in IPC','Elements of Criminal Liability','Joint Liability','General Exceptions','Offences Affecting The Human Body','Offences Against Property','Other Offences']
-  },
-  'Law of Tort': {
-    key:'law-of-tort', emoji:'⚖️',
-    chapters:['Nature Of Torts','Liability Based On Tort','Vicarious Liability','Trespass','Negligence','Defamation','Malicious Prosecution','Nuisance','Other Kinds of Liability in Tort','Economic Torts','New and Emergent Torts','Remedies','General Defences']
-  },
-  'Constitution of India': {
-    key:'constitution', emoji:'📜',
-    chapters:['Framing of Indian Constitution','Parts & Schedules of Indian Constitution','Preamble, Union & its Territories, Citizenship','Fundamental Rights & Duties','Union Executive','Parliament','Emergency Provisions in India','State Legislature','Governor','Local-Self Governance','Judiciary','Union Territories','Government Bodies','Official Language','Some Important Points','GST & Union Budget','Index']
-  },
-  'Indian Contract Act': {
-    key:'contract-act', emoji:'📋',
-    chapters:['Introduction','Kinds of Contract','Proposal','Acceptance','Free Consent','Capacity of Parties','Consideration','Void Agreements','Performance of Contract','Quasi Contract','Discharge of Contract','Remedies for Breach of Contract','Differences','Special Contracts']
-  },
-  'Miscellaneous Laws': {
-    key:'misc-laws', emoji:'📚',
-    chapters:['Important Legal Maxims','100 Important Legal Terms','United Nations','Most Important Case Laws of 2022-2023','Landmark Judgement','Legal Aptitude-I','Transfer of Property Act, 1882','POCSO Act, 2012','International Law','Family Law','Information Technology Act, 2000','Intellectual Property Rights']
-  }
+  'Law of Crimes': { key:'law-of-crimes', chapters:['Nature and Stages of Crime','Punishment in IPC','Elements of Criminal Liability','Joint Liability','General Exceptions','Offences Affecting The Human Body','Offences Against Property','Other Offences'] },
+  'Law of Tort': { key:'law-of-tort', chapters:['Nature Of Torts','Liability Based On Tort','Vicarious Liability','Trespass','Negligence','Defamation','Malicious Prosecution','Nuisance','Other Kinds of Liability in Tort','Economic Torts','New and Emergent Torts','Remedies','General Defences'] },
+  'Constitution of India': { key:'constitution', chapters:['Framing of Indian Constitution','Parts & Schedules of Indian Constitution','Preamble, Union & its Territories, Citizenship','Fundamental Rights & Duties','Union Executive','Parliament','Emergency Provisions in India','State Legislature','Governor','Local-Self Governance','Judiciary','Union Territories','Government Bodies','Official Language','Some Important Points','GST & Union Budget','Index'] },
+  'Indian Contract Act': { key:'contract-act', chapters:['Introduction','Kinds of Contract','Proposal','Acceptance','Free Consent','Capacity of Parties','Consideration','Void Agreements','Performance of Contract','Quasi Contract','Discharge of Contract','Remedies for Breach of Contract','Differences','Special Contracts'] },
+  'Miscellaneous Laws': { key:'misc-laws', chapters:['Important Legal Maxims','100 Important Legal Terms','United Nations','Most Important Case Laws of 2022-2023','Landmark Judgement','Legal Aptitude-I','Transfer of Property Act, 1882','POCSO Act, 2012','International Law','Family Law','Information Technology Act, 2000','Intellectual Property Rights'] }
 };
 
 const logicalChapters = [
@@ -583,8 +552,6 @@ const quantChapters = [
   'Height and Distance','Mensuration-1','Mensuration-2'
 ];
 
-/* ════════ RENDER HELPERS ════════ */
-
 function renderChapters(container, chapters, subjectPath) {
   container.innerHTML = '';
   chapters.forEach((ch, i) => {
@@ -593,7 +560,8 @@ function renderChapters(container, chapters, subjectPath) {
     a.className = 'chapter-link';
     a.href = url;
     a.target = '_blank';
-    a.innerHTML = `<span class="chapter-num">${i+1}</span><span>${ch}</span><span class="arrow">→</span>`;
+    a.rel = 'noopener noreferrer';
+    a.innerHTML = `<span class="chapter-num">${i+1}</span><span>${ch}</span><span class="arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>`;
     container.appendChild(a);
   });
 }
@@ -607,7 +575,7 @@ function renderSubTabs(tabsEl, contentEl, subjects, parentPath, activeKey) {
     const d = subjects[name];
     const btn = document.createElement('button');
     btn.className = 'sub-tab' + (name === firstKey ? ' active' : '');
-    btn.textContent = `${d.emoji} ${name}`;
+    btn.innerHTML = `${ICONS[d.key] || ''}<span>${name}</span>`;
     btn.onclick = () => {
       tabsEl.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -623,7 +591,7 @@ function showSubSubject(contentEl, name, data, parentPath) {
 
   const header = document.createElement('div');
   header.className = 'chapters-header';
-  header.innerHTML = `<h2>${data.emoji} ${name}</h2><span class="badge">${data.chapters.length} Chapters</span>`;
+  header.innerHTML = `<h2>${ICONS[data.key] || ''}<span>${name}</span></h2><span class="badge">${data.chapters.length} Chapters</span>`;
   contentEl.appendChild(header);
 
   const grid = document.createElement('div');
@@ -634,55 +602,34 @@ function showSubSubject(contentEl, name, data, parentPath) {
   renderChapters(grid, data.chapters, path);
 }
 
-/* ════════ INIT STATIC GRIDS ════════ */
-
 renderChapters(document.getElementById('chapters-english'), englishChapters, 'english');
 renderChapters(document.getElementById('chapters-logical'), logicalChapters, 'logical-reasoning');
 renderChapters(document.getElementById('chapters-quant'), quantChapters, 'quantitative-techniques');
 
-/* ════════ SUBJECT SELECTION ════════ */
-
 let currentSubject = null;
 
 function selectSubject(subj) {
-  // hide all panels
   document.querySelectorAll('.subject-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.subject-card').forEach(c => c.classList.remove('active'));
   document.getElementById('panel-default').style.display = 'none';
 
-  // activate card
   const card = document.getElementById('card-' + subj);
   if (card) card.classList.add('active');
 
-  // show panel
   const panel = document.getElementById('panel-' + subj);
   if (panel) panel.classList.add('active');
 
-  // lazy-render sub-tabs
   if (subj === 'gk' && !document.getElementById('gk-tabs').hasChildNodes()) {
-    renderSubTabs(
-      document.getElementById('gk-tabs'),
-      document.getElementById('gk-content'),
-      gkSubjects,
-      'general-knowledge'
-    );
+    renderSubTabs(document.getElementById('gk-tabs'), document.getElementById('gk-content'), gkSubjects, 'general-knowledge');
   }
   if (subj === 'legal' && !document.getElementById('legal-tabs').hasChildNodes()) {
-    renderSubTabs(
-      document.getElementById('legal-tabs'),
-      document.getElementById('legal-content'),
-      legalSubjects,
-      'legal-reasoning'
-    );
+    renderSubTabs(document.getElementById('legal-tabs'), document.getElementById('legal-content'), legalSubjects, 'legal-reasoning');
   }
 
   currentSubject = subj;
 
-  // smooth scroll to content
-  setTimeout(() => {
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 80);
+  setTimeout(() => { panel.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
 }
-</script>
+  </script>
 </body>
 </html>

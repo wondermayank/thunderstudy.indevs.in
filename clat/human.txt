@@ -1,0 +1,21 @@
+/* TEAM */
+Built by: wondermayank
+Site: https://wondermayank.in
+GitHub: https://github.com/wondermayank
+Org GitHub: https://github.com/ThunderStudy
+Contact: https://wondermayank.in/contact
+
+/* SITE */
+Name: ThunderStudy
+Description: Free educational platform for Indian competitive exam aspirants — CBSE, CUET, SSC, Banking, JEE/NEET, CAT, UPSC, NDA, CLAT, CA.
+Last updated: 2026-09-27
+Standards: HTML5, WCAG AA (target)
+
+/* TECH STACK */
+Frontend: Self-contained single-file HTML/CSS/JS (Thunder design system, Inter typeface)
+Hosting: Vercel + GitHub Pages
+Storage: localStorage (client-side), no tracking cookies
+
+/* THANKS */
+Thanks to every student who sent feedback, bug reports, and PDF requests —
+this project exists because it's free, and it stays free because of you.

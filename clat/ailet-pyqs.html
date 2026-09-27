@@ -1,1321 +1,710 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AILET PYQs 2016-2026 - Previous Year Questions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-blue: #0066cc;
-            --light-blue: #e8f2ff;
-            --lighter-blue: #f0f8ff;
-            --sky-blue: #87ceeb;
-            --white: #ffffff;
-            --dark-gray: #2c3e50;
-            --border-gray: #d0dae8;
-            --accent-teal: #00a8a8;
-            --hover-blue: #0052a3;
-            --accent-purple: #6c5ce7;
-            --success-green: #27ae60;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f0f8ff 0%, #e8f2ff 100%);
-            color: var(--dark-gray);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
-            color: var(--white);
-            padding: 2rem 0;
-            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            opacity: 0.95;
-            font-weight: 300;
-            margin-top: 0.3rem;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .header-nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-        }
-
-        .header-nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 3rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.08);
-            border: 2px solid var(--light-blue);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-teal);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.05rem;
-            color: var(--dark-gray);
-            margin-bottom: 0.8rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            background: linear-gradient(135deg, var(--lighter-blue), var(--light-blue));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-blue);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.15);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-            margin-top: 0.5rem;
-        }
-
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--dark-gray);
-            margin-bottom: 3rem;
-            font-size: 1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* PYQs Grid */
-        .pyqs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .pyq-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 12px rgba(0, 102, 204, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            border: 2px solid transparent;
-            height: 100%;
-        }
-
-        .pyq-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 12px 35px rgba(0, 102, 204, 0.2);
-            border-color: var(--primary-blue);
-        }
-
-        /* PYQ Header */
-        .pyq-header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
-            color: var(--white);
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pyq-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transition: left 0.5s ease;
-        }
-
-        .pyq-card:hover .pyq-header::before {
-            left: 100%;
-        }
-
-        .year-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.3);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            backdrop-filter: blur(10px);
-            letter-spacing: 0.5px;
-        }
-
-        .year-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-
-        .year-subtitle {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
-        }
-
-        /* PYQ Content */
-        .pyq-content {
-            padding: 2rem 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pyq-info {
-            margin-bottom: 1.5rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .info-icon {
-            font-size: 1.3rem;
-            min-width: 25px;
-        }
-
-        .info-label {
-            color: var(--dark-gray);
-        }
-
-        .info-value {
-            font-weight: 600;
-            color: var(--primary-blue);
-        }
-
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-gray), transparent);
-            margin: 1.5rem 0;
-        }
-
-        /* Features */
-        .features {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-        }
-
-        .feature-icon {
-            color: var(--accent-teal);
-            font-weight: bold;
-            margin-top: 2px;
-            min-width: 20px;
-        }
-
-        /* Download Button */
-        .download-btn {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-            color: var(--white);
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            text-decoration: none;
-            width: 100%;
-            margin-top: auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
-        }
-
-        .download-btn:hover::before {
-            left: 100%;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
-        }
-
-        .download-btn:active {
-            transform: translateY(-1px);
-        }
-
-        /* Badge */
-        .badge {
-            display: inline-block;
-            background: var(--success-green);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-top: 1rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        /* Difficulty Badge */
-        .difficulty-badge {
-            display: inline-block;
-            margin-left: 0.5rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
-        .difficulty-easy {
-            background: rgba(39, 174, 96, 0.2);
-            color: var(--success-green);
-        }
-
-        .difficulty-medium {
-            background: rgba(241, 196, 15, 0.2);
-            color: #f39c12;
-        }
-
-        .difficulty-hard {
-            background: rgba(231, 76, 60, 0.2);
-            color: #e74c3c;
-        }
-
-        /* Timeline View Option */
-        .view-toggle {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .toggle-btn {
-            background: var(--primary-blue);
-            color: var(--white);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            margin: 0 0.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-btn.active {
-            background: var(--accent-teal);
-            box-shadow: 0 4px 12px rgba(0, 168, 168, 0.3);
-        }
-
-        .toggle-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--dark-gray) 0%, #1a2634 100%);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-            margin-top: 3rem;
-            text-align: center;
-            border-top: 4px solid var(--primary-blue);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto 2rem;
-        }
-
-        .footer-section {
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--accent-teal);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-teal);
-        }
-
-        .wondermayank-footer {
-            background: rgba(0, 102, 204, 0.1);
-            padding: 1.5rem;
-            border-top: 2px solid var(--primary-blue);
-            margin-top: 1.5rem;
-        }
-
-        .wondermayank-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .wondermayank-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--accent-teal);
-            letter-spacing: 0.5px;
-        }
-
-        .wondermayank-footer p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0.5rem 0;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary-blue);
-            color: var(--white);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-            transition: all 0.3s ease;
-            z-index: 99;
-        }
-
-        .back-to-top.show {
-            display: flex;
-        }
-
-        .back-to-top:hover {
-            background: var(--hover-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .header-nav {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .pyqs-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .year-title {
-                font-size: 1.8rem;
-            }
-
-            .pyq-header {
-                padding: 1.5rem 1rem;
-            }
-
-            .pyq-content {
-                padding: 1.5rem 1rem;
-            }
-
-            .footer-links {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.5rem 1rem;
-            }
-
-            .hero {
-                padding: 1.5rem;
-                border-radius: 10px;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .year-title {
-                font-size: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .back-to-top {
-                width: 45px;
-                height: 45px;
-                bottom: 1.5rem;
-                right: 1.5rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .pyq-card {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .pyq-card:nth-child(1) { animation-delay: 0.1s; }
-        .pyq-card:nth-child(2) { animation-delay: 0.15s; }
-        .pyq-card:nth-child(3) { animation-delay: 0.2s; }
-        .pyq-card:nth-child(4) { animation-delay: 0.25s; }
-        .pyq-card:nth-child(5) { animation-delay: 0.3s; }
-        .pyq-card:nth-child(6) { animation-delay: 0.35s; }
-        .pyq-card:nth-child(7) { animation-delay: 0.4s; }
-        .pyq-card:nth-child(8) { animation-delay: 0.45s; }
-        .pyq-card:nth-child(9) { animation-delay: 0.5s; }
-        .pyq-card:nth-child(10) { animation-delay: 0.55s; }
-        .pyq-card:nth-child(11) { animation-delay: 0.6s; }
-
-        /* Pulse Animation */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .loading {
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AILET PYQs 2016–2026 — Previous Year Question Papers | ThunderStudy</title>
+  <meta name="description" content="Download AILET previous year question papers from 2016 to 2026 with detailed answer keys and topic-wise analysis, free for NLU Delhi aspirants.">
+  <link rel="canonical" href="https://thunderstudy.indevs.in/clat/ailet-pyqs.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#70a1fc">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thunderstudy.indevs.in/clat/ailet-pyqs.html">
+  <meta property="og:title" content="AILET PYQs 2016-2026 — Previous Year Papers | ThunderStudy">
+  <meta property="og:description" content="Download AILET previous year question papers from 2016 to 2026 with detailed answer keys and topic-wise analysis, free for NLU Delhi aspirants.">
+  <meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
+  <meta property="og:site_name" content="ThunderStudy">
+  <meta property="og:locale" content="en_IN">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Thunderstudyx">
+  <meta name="twitter:creator" content="@wondermayank">
+  <meta name="twitter:title" content="AILET PYQs 2016-2026 — Previous Year Papers | ThunderStudy">
+  <meta name="twitter:description" content="Download AILET previous year question papers from 2016 to 2026 with detailed answer keys and topic-wise analysis, free for NLU Delhi aspirants.">
+  <meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ThunderStudy","item":"https://thunderstudy.indevs.in/"},{"@type":"ListItem","position":2,"name":"CLAT & AILET Law Entrance Preparation","item":"https://thunderstudy.indevs.in/clat/"},{"@type":"ListItem","position":3,"name":"AILET PYQs","item":"https://thunderstudy.indevs.in/clat/ailet-pyqs.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many years of AILET previous year papers are available?","acceptedAnswer":{"@type":"Answer","text":"ThunderStudy provides AILET previous year question papers spanning 11 years, from 2016 to 2026, each with 150 questions."}},{"@type":"Question","name":"Do the AILET PYQs include solutions?","acceptedAnswer":{"@type":"Answer","text":"Yes, every AILET previous year paper on ThunderStudy includes a detailed answer key and topic-wise analysis."}}]}</script>
+
+  <style>
+    :root {
+      --primary: #70a1fc;
+      --primary-soft: #7897D1;
+      --primary-active: #5D79B3;
+      --secondary: #D6BD82;
+      --ink: #26324A;
+      --muted: #667085;
+      --on-primary: #FFFFFF;
+      --on-dark: #F4F1FF;
+      --canvas: #EEF3FF;
+      --surface: #FFFFFF;
+      --card: #FFFFFF;
+      --surface-dark: #121212;
+      --hairline: #D8E1F2;
+      --hairline-strong: #B9C8E3;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 11px;
+      --radius-lg: 18px;
+      --radius-pill: 9999px;
+    }
+
+    [data-theme="dark"] {
+      --primary: #9A7AFB;
+      --primary-soft: #7560C7;
+      --primary-active: #7E64CE;
+      --secondary: #CBDD98;
+      --ink: #F4F1FF;
+      --muted: #A9A4B8;
+      --canvas: #121212;
+      --surface: #1B1B1F;
+      --card: #222228;
+      --surface-dark: #000000;
+      --hairline: #2A2A2A;
+      --hairline-strong: #3A3A3C;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--canvas);
+      color: var(--ink);
+      line-height: 1.5;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--hairline);
+      backdrop-filter: blur(20px);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.2px;
+    }
+    .brand-thunder { color: var(--ink); }
+    .brand-study {
+      background: linear-gradient(135deg, var(--primary), #7560C7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .nav-link:hover {
+      color: var(--primary);
+      background-color: var(--canvas);
+    }
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--hairline-strong);
+      color: var(--ink);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, background-color 0.2s;
+    }
+    .theme-toggle-btn:active { transform: scale(0.95); }
+
+    .breadcrumb-bar {
+      max-width: 1200px;
+      margin: 16px auto 0;
+      padding: 0 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-bar a { color: var(--muted); text-decoration: none; }
+    .breadcrumb-bar a:hover { color: var(--primary); }
+
+    footer.site-footer {
+      background: var(--surface);
+      color: var(--muted);
+      padding: 60px 20px 32px;
+      border-top: 1px solid var(--hairline);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    .social-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-pill);
+      background: var(--canvas);
+      border: 1px solid var(--hairline);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s, transform 0.15s ease;
+    }
+    .social-link:hover { color: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid var(--hairline);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.8125rem;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--on-primary);
+      border: none;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      z-index: 99;
+      transition: transform 0.15s ease;
+    }
+    .back-to-top.show { display: flex; }
+    .back-to-top:active { transform: scale(0.95); }
+
+    .hero-section { max-width: 1100px; margin: 0 auto; padding: 40px 20px 8px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--primary); background: var(--surface); border: 1px solid var(--hairline);
+      padding: 6px 14px; border-radius: var(--radius-pill); margin-bottom: 16px;
+    }
+    .hero-title { font-size: clamp(1.8rem, 5vw, 2.75rem); font-weight: 700; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 10px; }
+    .hero-title span { color: var(--primary); }
+    .hero-summary { font-size: 1.05rem; color: var(--muted); max-width: 640px; margin: 0 auto 24px; line-height: 1.6; }
+
+    .stats-bar { display: flex; justify-content: center; flex-wrap: wrap; max-width: 640px; margin: 0 auto; background: var(--card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); overflow: hidden; }
+    .stat-item { flex: 1; min-width: 120px; padding: 14px 10px; text-align: center; border-right: 1px solid var(--hairline); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 1.35rem; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .stat-label { font-size: 0.6875rem; color: var(--muted); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+
+    .content-section { max-width: 1200px; margin: 0 auto; padding: 40px 20px 20px; }
+    .section-header { text-align: center; margin-bottom: 28px; }
+    .section-title { font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 600px; margin: 0 auto; }
+
+    .pyqs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding-bottom: 40px; }
+    .pyq-card { background: var(--card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+    .pyq-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+    .pyq-header { padding: 20px; text-align: center; background: var(--canvas); border-bottom: 1px solid var(--hairline); }
+    .year-badge { display: inline-block; background: var(--surface); border: 1px solid var(--hairline-strong); color: var(--primary); padding: 4px 12px; border-radius: var(--radius-pill); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .year-title { font-size: 1.6rem; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; }
+    .year-subtitle { font-size: 0.8125rem; color: var(--muted); margin-top: 2px; }
+    .pyq-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .pyq-info { margin-bottom: 16px; }
+    .info-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.875rem; color: var(--ink); }
+    .info-item .icon { color: var(--primary); display: flex; }
+    .info-label { color: var(--muted); }
+    .info-value { font-weight: 700; color: var(--ink); margin-left: auto; }
+    .divider { height: 1px; background: var(--hairline); margin: 4px 0 16px; }
+    .features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .feature { display: flex; align-items: flex-start; gap: 8px; font-size: 0.8125rem; color: var(--ink); }
+    .feature .icon { color: #22c55e; flex-shrink: 0; margin-top: 1px; }
+    .download-btn {
+      background: var(--primary); color: var(--on-primary); border: none; padding: 12px 20px;
+      border-radius: var(--radius-pill); font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
+      width: 100%; margin-top: auto; transition: transform 0.15s ease, background 0.2s;
+    }
+    .download-btn:hover { background: var(--primary-active); }
+    .download-btn:active { transform: scale(0.97); }
+    .pyq-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.12); color: #16a34a; padding: 6px 12px; border-radius: var(--radius-pill); font-size: 0.6875rem; font-weight: 700; margin-top: 12px; text-align: center; letter-spacing: 0.3px; justify-content: center; }
+    [data-theme="dark"] .pyq-badge { background: rgba(34,197,94,0.18); color: #4ade80; }
+
+    @media (max-width: 600px) {
+      .pyqs-grid { grid-template-columns: 1fr; }
+      .stats-bar { max-width: 400px; }
+    }
+</style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div>
-                <div class="logo">⚖️ AILET PREP</div>
-                <div class="tagline">Master Previous Years • Perfect Your Preparation</div>
-            </div>
-            <nav class="header-nav">
-                <a href="#home">Home</a>
-                <a href="#pyqs">PYQs</a>
-                <a href="#about">About</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1 class="gradient-text">AILET Previous Year Questions</h1>
-            <div class="hero-subtitle">2016 - 2026 | 11 Years of Complete Solutions</div>
-            <p>Access all authentic AILET papers from the past 11 years with detailed solutions and analysis</p>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label">Years of PYQs</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">150</div>
-                    <div class="stat-label">Questions/Year</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Authentic</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">With Solutions</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PYQs Section -->
-        <div style="margin-top: 3rem;">
-            <h2 class="section-title">Download AILET Papers</h2>
-            <p class="section-subtitle">Complete collection of previous year questions with detailed explanations and solutions</p>
-
-            <!-- PYQs Grid -->
-            <div class="pyqs-grid">
-                <!-- 2026 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">LATEST</div>
-                        <div class="year-title">2026</div>
-                        <div class="year-subtitle">Most Recent Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2026.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2025 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">RECENT</div>
-                        <div class="year-title">2025</div>
-                        <div class="year-subtitle">Previous Year</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2025.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2024 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2024</div>
-                        <div class="year-title">2024</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2024.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2023 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2023</div>
-                        <div class="year-title">2023</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2023.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2022 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2022</div>
-                        <div class="year-title">2022</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2022.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2021 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2021</div>
-                        <div class="year-title">2021</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2021.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2020 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2020</div>
-                        <div class="year-title">2020</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2020.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2019 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2019</div>
-                        <div class="year-title">2019</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2019.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2018 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2018</div>
-                        <div class="year-title">2018</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2018.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2017 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">2017</div>
-                        <div class="year-title">2017</div>
-                        <div class="year-subtitle">Full Length Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2017.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-
-                <!-- 2016 -->
-                <div class="pyq-card">
-                    <div class="pyq-header">
-                        <div class="year-badge">ARCHIVE</div>
-                        <div class="year-title">2016</div>
-                        <div class="year-subtitle">Foundational Paper</div>
-                    </div>
-                    <div class="pyq-content">
-                        <div class="pyq-info">
-                            <div class="info-item">
-                                <span class="info-icon">📝</span>
-                                <span class="info-label">Questions:</span>
-                                <span class="info-value">150</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">⏱️</span>
-                                <span class="info-label">Duration:</span>
-                                <span class="info-value">2 Hours</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📊</span>
-                                <span class="info-label">Type:</span>
-                                <span class="info-value">Full Paper</span>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Complete Examination Paper</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Detailed Answer Key</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">✓</span>
-                                <span>Topic-wise Analysis</span>
-                            </div>
-                        </div>
-                        <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2016.pdf" class="download-btn" target="_blank">
-                            <span>📥</span>
-                            <span>Download Paper</span>
-                        </a>
-                        <div class="badge">✓ SOLUTIONS INCLUDED</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand-link" aria-label="ThunderStudy Home">
+        <img src="/favicon.svg" alt="Thunder logo" width="28" height="28">
+        <span class="logo-text"><span class="brand-thunder">Thunder</span><span class="brand-study">Study</span></span>
+      </a>
+      <nav class="header-nav" aria-label="Main Navigation">
+        <a href="/cbse/" class="nav-link">CBSE</a>
+        <a href="/ssc/" class="nav-link">SSC</a>
+        <a href="/banking/" class="nav-link">Banking</a>
+        <a href="/ca/" class="nav-link">CA</a>
+        <a href="/search.html" class="nav-link">Search</a>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+          <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
+        </button>
+      </nav>
     </div>
+  </header>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+  <nav class="breadcrumb-bar" aria-label="Breadcrumbs">
+    <a href="/">Home</a>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+    <a href="/clat/">CLAT &amp; AILET</a>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+    <span style="color: var(--ink); font-weight: 500;">AILET PYQs</span>
+  </nav>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#pyqs">All PYQs</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms & Conditions</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
+  <main>
+    <section class="hero-section">
+      <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M3 7h4l3 9H3z"/><path d="M17 7h4l-3 9h4"/><path d="m3 7 4-1 4 1"/><path d="m17 7 3-1 4 1"/><path d="M6 21h12"/></svg> Previous Year Questions</span>
+      <h1 class="hero-title">AILET <span>Previous Year Questions</span></h1>
+      <p class="hero-summary">Access all authentic AILET papers from the past 11 years (2016&ndash;2026) with detailed solutions and topic-wise analysis.</p>
+
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">Years of PYQs</div></div>
+        <div class="stat-item"><div class="stat-num">150</div><div class="stat-label">Questions / Year</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Authentic</div></div>
+        <div class="stat-item"><div class="stat-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><div class="stat-label">With Solutions</div></div>
+      </div>
+    </section>
+
+    <div class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Download AILET Papers</h2>
+        <p class="section-sub">Complete collection of previous year questions with detailed explanations and solutions.</p>
+      </div>
+      <div class="pyqs-grid">
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Latest</div>
+            <div class="year-title">2026</div>
+            <div class="year-subtitle">Most Recent Paper</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
             </div>
-
-            <div class="footer-section">
-                <p style="font-size: 0.95rem; margin-bottom: 1rem;">
-                    📞 Support: support@ailetprep.com | 📧 Email: info@ailetprep.com
-                </p>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
             </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2026.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
         </div>
-
-        <!-- WonderMayank Footer -->
-        <div class="wondermayank-footer">
-            <div class="wondermayank-logo">
-                <span>✨</span>
-                <span class="wondermayank-text">WonderMayank</span>
-                <span>✨</span>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Recent</div>
+            <div class="year-title">2025</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
             </div>
-            <p>Premium AILET Preparation Platform</p>
-            <p>Developed with dedication to help aspiring lawyers excel</p>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);">
-                © 2024 WonderMayank | All Rights Reserved | commercesehoga.github.io
-            </p>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2025.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
         </div>
-    </footer>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Recent</div>
+            <div class="year-title">2024</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2024.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Recent</div>
+            <div class="year-title">2023</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2023.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2022</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2022.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2021</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2021.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2020</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2020.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2019</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2019.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2018</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2018.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2017</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2017.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+        <div class="pyq-card">
+          <div class="pyq-header">
+            <div class="year-badge">Archive</div>
+            <div class="year-title">2016</div>
+            <div class="year-subtitle">Previous Year</div>
+          </div>
+          <div class="pyq-content">
+            <div class="pyq-info">
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 3 3 3-3"/><path d="M6 10V5"/><path d="m3 17 3 3 3-3"/><path d="M6 20v-5"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="info-label">Questions</span><span class="info-value">150</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="info-label">Duration</span><span class="info-value">2 Hours</span></div>
+              <div class="info-item"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="info-label">Type</span><span class="info-value">Full Paper</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="features">
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Complete Examination Paper</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Detailed Answer Key</span></div>
+              <div class="feature"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Topic-wise Analysis</span></div>
+            </div>
+            <a href="https://pqys.thunderstudypdf.indevs.in/ailet/2016.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Paper</span>
+            </a>
+            <div class="pyq-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Solutions Included</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-    <script>
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>ThunderStudy</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/cbse/">CBSE Hub</a></li>
+          <li><a href="/ssc/">SSC Hub</a></li>
+          <li><a href="/banking/">Banking Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/ca/">CA Hub</a></li>
+          <li><a href="/ncert/">NCERT Textbooks</a></li>
+          <li><a href="/upsc/pyqs.html">UPSC PYQs</a></li>
+          <li><a href="/GK_Thunderstudy_compressed.pdf" target="_blank" rel="noopener noreferrer">Free GK MindMaster PDF</a></li>
+          <li><a href="/full-llm.html">LLM Semantic Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community &amp; Social</h4>
+        <p style="font-size: 0.875rem; line-height: 1.5;">Join our official channels for free updates, study materials, and mock exam notifications.</p>
+        <div class="social-row">
+          <a href="https://t.me/Thunderstudy_official" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+          <a href="https://instagram.com/Thunderstudyx" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="https://youtube.com/@Thunderstudy_official" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><polygon points="10 15 15 12 10 9 10 15"/></svg></a>
+          <a href="https://twitter.com/Thunderstudyx" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X Twitter Profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="https://github.com/wondermayank" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub Developer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          <a href="https://github.com/ThunderStudy" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy GitHub Org"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Thunder &middot; by wondermayank &middot; 100% Free Indian Education</span>
+      <span>No Ads &middot; No Login &middot; Privacy First</span>
+    </div>
+  </footer>
 
-        // Show/hide back to top button
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                btn.classList.add('show');
-            } else {
-                btn.classList.remove('show');
-            }
-        });
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
 
-        // Add animation to cards on load
-        window.addEventListener('load', () => {
-            const cards = document.querySelectorAll('.pyq-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 50);
-            });
-        });
-    </script>
+  <script>
+    const themeBtn = document.getElementById('themeToggle');
+    const sunSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+    const moonSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
+
+    function updateThemeIcon() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeBtn.innerHTML = isDark ? sunSvg : moonSvg;
+    }
+    updateThemeIcon();
+
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateThemeIcon();
+    });
+  </script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) { btn.classList.add('show'); } else { btn.classList.remove('show'); }
+    });
+
+    window.addEventListener('load', () => {
+      const cards = document.querySelectorAll('.pyq-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          card.style.transition = 'all 0.5s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 50);
+      });
+    });
+  </script>
 </body>
 </html>
