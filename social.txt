@@ -1,5 +1,7 @@
 # ThunderStudy Social Media Links
-# Updated: 2026-09-26
+# Updated: 2026-09-27
+# IMPORTANT: Verify every profile below before publishing it in Organization.sameAs.
+# Conflicting handles currently exist in older generated pages.
 
 ## Telegram
 - @Thunderstudy_official
@@ -21,19 +23,25 @@
 - https://github.com/wondermayank
 - https://github.com/ThunderStudy
 
-## Blogs
+## Blogs (verify before publishing)
 - https://blog.thunderstudy.indevs.in (Commerce notes)
 - https://blog.thunderstudy.indevs.in (Science notes)
-- https://blog.thundertest.indevs.in (Blog)
-- https://mock.thundertest.indevs.in (Notes)
+- NEEDS LINK: official blog URL
+- NEEDS LINK: official mock-test URL, if separate from this domain
 
 ## Contact
 - Email: contact@wondermayank.in
 - Creator: Wondermayank
 - Company: ThunderStudy / CommerceSehoga
 
-## Reddit
-- https://reddit.com/u/wondermayankx
+## Reddit (verify)
+- NEEDS LINK: official Reddit profile or subreddit
 
-## LinkedIn
-- https://linkedin.com/in/wondermayankx
+## LinkedIn (verify)
+- NEEDS LINK: official LinkedIn profile or company page
+
+## Additional profiles (optional)
+- NEEDS LINK: Facebook page
+- NEEDS LINK: WhatsApp channel/community
+- NEEDS LINK: Discord server
+- NEEDS LINK: Pinterest profile

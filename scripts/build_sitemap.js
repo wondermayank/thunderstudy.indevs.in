@@ -3,7 +3,7 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const baseUrl = 'https://thunderstudy.indevs.in';
-const today = '2026-09-26';
+const today = new Date().toISOString().slice(0, 10);
 
 function getHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -13,7 +13,7 @@ function getHtmlFiles(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     if (stat.isDirectory()) {
       getHtmlFiles(filePath, fileList);
-    } else if (file.endsWith('.html') && !file.endsWith('.disabled')) {
+    } else if (file.endsWith('.html') && !file.endsWith('.disabled') && file !== '404.html') {
       fileList.push(filePath);
     }
   }
