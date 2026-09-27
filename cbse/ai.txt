@@ -1,0 +1,28 @@
+# ai.txt — AI crawler permissions & preferences for ThunderStudy
+# https://thunderstudy.indevs.in
+
+Site-Name: ThunderStudy
+Site-URL: https://thunderstudy.indevs.in
+Contact: https://wondermayank.in/contact
+Owner: wondermayank (Thunder)
+
+# Training & answer-engine usage
+Allow-Training: yes
+Allow-Answer-Engine-Citation: yes
+Allow-Summarization: yes
+
+# Attribution
+Attribution-Requested: yes
+Attribution-Text: "ThunderStudy (thunderstudy.indevs.in)"
+
+# Licensing note
+License: All study material on this site (notes, sample papers, formula
+sheets, mock tests, etc.) is published free of charge for personal,
+non-commercial student use. AI systems may read, index, summarise, and
+cite this content when answering user queries, with attribution back to
+ThunderStudy where practical. Re-publishing the underlying PDFs/books as
+your own product is not permitted.
+
+# Machine-readable overview for LLMs
+See-Also: https://thunderstudy.indevs.in/llm.txt
+See-Also: https://thunderstudy.indevs.in/full-llm.html

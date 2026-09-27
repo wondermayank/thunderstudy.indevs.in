@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thunderstudy.indevs.in/sitemap.xml
+
+# Machine-readable site summaries for LLMs / answer engines
+# See: https://thunderstudy.indevs.in/llm.txt
+# See: https://thunderstudy.indevs.in/full-llm.html
+# See: https://thunderstudy.indevs.in/ai.txt

@@ -1,0 +1,18 @@
+/* TEAM */
+Built by: Mayank (wondermayank / "Thunder")
+Site: https://wondermayank.in
+GitHub: https://github.com/wondermayank
+Contact: https://wondermayank.in/contact
+
+/* SITE */
+Last updated: 2026-09-27
+Section: CBSE Board Exam Preparation (Classes 10 & 12)
+Standards: HTML5, CSS3, vanilla JS
+Components: ThunderStudy design system (BMW + Apple inspired), shared
+            footer component (js/thunder-footer.js)
+Thanks: Every student who sends feedback, corrections, and requests via
+        Telegram (@Thunderstudy_official) — this hub exists for you.
+
+/* THANKS */
+CBSE, NCERT, and Kendriya Vidyalaya for the public syllabi and papers
+that make free, structured revision material possible.
