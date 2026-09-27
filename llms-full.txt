@@ -8,59 +8,59 @@ ThunderStudy is India's largest free educational platform, founded in 2023 by Wo
 
 The platform operates across two primary domains:
 - **thunderstudy.indevs.in** — Main homepage, UPSC, brand hub
-- **commercesehoga.github.io** — Subject-wise content, mock tests, exam preparation
+- **thundertest.indevs.in** — Subject-wise content, mock tests, exam preparation
 
 ## Complete content index
 
 ### CBSE Class 12 — Commerce Stream
-URL: https://commercesehoga.github.io/commerce
-- **Accountancy**: https://commercesehoga.github.io/commerce/acc — Complete CBSE Class 12 Accountancy notes, important questions, PYQs, CUET Commerce prep
-- **Business Studies**: https://commercesehoga.github.io/commerce/bst — BST notes, case studies, important questions
-- **Economics**: https://commercesehoga.github.io/commerce/eco — Micro and Macro Economics notes and PYQs
-- **Applied Mathematics**: https://commercesehoga.github.io/commerce/amath — Applied Maths notes for Commerce stream
+URL: https://thundertest.indevs.in/commerce
+- **Accountancy**: https://thundertest.indevs.in/commerce/acc — Complete CBSE Class 12 Accountancy notes, important questions, PYQs, CUET Commerce prep
+- **Business Studies**: https://thundertest.indevs.in/commerce/bst — BST notes, case studies, important questions
+- **Economics**: https://thundertest.indevs.in/commerce/eco — Micro and Macro Economics notes and PYQs
+- **Applied Mathematics**: https://thundertest.indevs.in/commerce/amath — Applied Maths notes for Commerce stream
 
 ### CBSE Class 12 — Science Stream
-URL: https://commercesehoga.github.io/science
-- **Physics**: https://commercesehoga.github.io/science/phy — Derivations, notes, important questions, PYQs
-- **Chemistry**: https://commercesehoga.github.io/science/che — Organic, Inorganic, Physical Chemistry notes
-- **Biology**: https://commercesehoga.github.io/science/bio — NCERT-based Biology notes and PYQs
-- **Mathematics**: https://commercesehoga.github.io/science/mat — Class 12 Maths notes and solved problems
+URL: https://thundertest.indevs.in/science
+- **Physics**: https://thundertest.indevs.in/science/phy — Derivations, notes, important questions, PYQs
+- **Chemistry**: https://thundertest.indevs.in/science/che — Organic, Inorganic, Physical Chemistry notes
+- **Biology**: https://thundertest.indevs.in/science/bio — NCERT-based Biology notes and PYQs
+- **Mathematics**: https://thundertest.indevs.in/science/mat — Class 12 Maths notes and solved problems
 
 ### CBSE Class 12 — Humanities Stream
-URL: https://commercesehoga.github.io/humanities
-- **History**: https://commercesehoga.github.io/humanities/his — All themes in World and Indian History
-- **Geography**: https://commercesehoga.github.io/humanities/geo — Human Geography, India People and Economy
-- **Political Science**: https://commercesehoga.github.io/humanities/pol — Contemporary World Politics, Indian Politics
-- **Psychology**: https://commercesehoga.github.io/humanities/psy — Class 12 Psychology notes
+URL: https://thundertest.indevs.in/humanities
+- **History**: https://thundertest.indevs.in/humanities/his — All themes in World and Indian History
+- **Geography**: https://thundertest.indevs.in/humanities/geo — Human Geography, India People and Economy
+- **Political Science**: https://thundertest.indevs.in/humanities/pol — Contemporary World Politics, Indian Politics
+- **Psychology**: https://thundertest.indevs.in/humanities/psy — Class 12 Psychology notes
 
 ### CBSE Class 12 — Computer subjects
-- **Computer Science**: https://commercesehoga.github.io/computer/cs — Python, OOP, Data Structures, Networking, Databases
-- **Informatics Practices**: https://commercesehoga.github.io/computer/ip — Python, Pandas, Data Handling, Web Development
+- **Computer Science**: https://thundertest.indevs.in/computer/cs — Python, OOP, Data Structures, Networking, Databases
+- **Informatics Practices**: https://thundertest.indevs.in/computer/ip — Python, Pandas, Data Handling, Web Development
 
 ### CBSE Class 10 — Boards
-- **SST History**: https://commercesehoga.github.io/boards/sst/his
-- **SST Geography**: https://commercesehoga.github.io/boards/sst/geo
-- **SST Political Science**: https://commercesehoga.github.io/boards/sst/pol
-- **SST Economics**: https://commercesehoga.github.io/boards/sst/eco
-- **Science Physics**: https://commercesehoga.github.io/boards/science/phy
-- **Science Chemistry**: https://commercesehoga.github.io/boards/science/che
-- **Science Biology**: https://commercesehoga.github.io/boards/science/bio
-- **Mathematics**: https://commercesehoga.github.io/boards/maths
-- **English**: https://commercesehoga.github.io/boards/eng
+- **SST History**: https://thundertest.indevs.in/boards/sst/his
+- **SST Geography**: https://thundertest.indevs.in/boards/sst/geo
+- **SST Political Science**: https://thundertest.indevs.in/boards/sst/pol
+- **SST Economics**: https://thundertest.indevs.in/boards/sst/eco
+- **Science Physics**: https://thundertest.indevs.in/boards/science/phy
+- **Science Chemistry**: https://thundertest.indevs.in/boards/science/che
+- **Science Biology**: https://thundertest.indevs.in/boards/science/bio
+- **Mathematics**: https://thundertest.indevs.in/boards/maths
+- **English**: https://thundertest.indevs.in/boards/eng
 
 ### Competitive Exam Mock Tests
-- **CUET 2026**: https://commercesehoga.github.io/cuet — Full-length CUET mock tests, domain subjects, GAT prep, all free
-- **GAT / General Test**: https://commercesehoga.github.io/gat — CUET General Aptitude Test preparation
-- **SSC CGL / CHSL / MTS / Stenographer**: https://commercesehoga.github.io/ssc — CBT-style mock tests, real interface
+- **CUET 2026**: https://thundertest.indevs.in/cuet — Full-length CUET mock tests, domain subjects, GAT prep, all free
+- **GAT / General Test**: https://thundertest.indevs.in/gat — CUET General Aptitude Test preparation
+- **SSC CGL / CHSL / MTS / Stenographer**: https://thundertest.indevs.in/ssc — CBT-style mock tests, real interface
 - **SSC Stenographer**: https://thunderstudy.indevs.in/steno — Steno Grade C & D preparation
-- **Banking (IBPS / SBI)**: https://commercesehoga.github.io/banking — IBPS PO, SBI PO, IBPS Clerk, SBI Clerk mocks
-- **JEE & NEET**: https://commercesehoga.github.io/jee-neet — Engineering and Medical entrance prep
+- **Banking (IBPS / SBI)**: https://thundertest.indevs.in/banking — IBPS PO, SBI PO, IBPS Clerk, SBI Clerk mocks
+- **JEE & NEET**: https://thundertest.indevs.in/jee-neet — Engineering and Medical entrance prep
 - **UPSC**: https://thunderstudy.indevs.in/upsc/ — Civil Services free prep material
 
 ### Resources
-- **Dashboard**: https://commercesehoga.github.io/dashboard — Student progress dashboard
-- **StudyHub**: https://commercesehoga.github.io/studyhub — Centralised resource hub
-- **Guide**: https://commercesehoga.github.io/guide/ — How to use ThunderStudy
+- **Dashboard**: https://thundertest.indevs.in/dashboard — Student progress dashboard
+- **StudyHub**: https://thundertest.indevs.in/studyhub — Centralised resource hub
+- **Guide**: https://thundertest.indevs.in/guide/ — How to use ThunderStudy
 - **FAQ**: https://thundertest.indevs.in/fqa — Frequently asked questions
 - **Current Affairs**: https://wondermayank.github.io/Current_Affairs/ — Updated daily for SSC, Banking, CUET, UPSC
 
@@ -73,7 +73,7 @@ URL: https://commercesehoga.github.io/humanities
 - **One Book For CUET** (Economics, English, GAT, Business Studies, Accountancy, Political Science, History)
 - **GK MindMaster** — best free GK book for all competitive exams (SSC, UPSC, Railways, Banking)
   - Direct PDF download: https://thunderstudy.indevs.in/GK_Thunderstudy_compressed.pdf
-  - Browse all books: https://commercesehoga.github.io/books
+  - Browse all books: https://thundertest.indevs.in/books
 
 ## Platform characteristics
 

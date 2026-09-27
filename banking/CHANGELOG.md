@@ -101,7 +101,7 @@ ibps_rrb, ibps_rrb_clerk, rbi_grade_b, rbi_assistant, lic_aao, lic_ado, epfo
   Telegram, Instagram, YouTube, X (Twitter), GitHub.
 
 ## Other
-- Searched for `commercesehoga.github.io` as requested — **no occurrences
+- Searched for `thundertest.indevs.in` as requested — **no occurrences
   found** anywhere in this archive, so nothing needed changing there.
 - `banking/index.html` (new) links to all 11 exam folders plus the
   thundertest.indevs.in mock-test platform.

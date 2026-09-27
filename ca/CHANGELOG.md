@@ -35,9 +35,9 @@ scoped to these 8 pages: `index.html`, `notes.html`, `404.html`,
 - No `<img>` tags exist anywhere in this codebase (all icons are inline SVG),
   so there was no alt-text or lazy-loading work needed.
 
-## 2. `commercesehoga.github.io` → `thundertest.indevs.in`
+## 2. `thundertest.indevs.in` → `thundertest.indevs.in`
 
-The literal string `commercesehoga.github.io` doesn't appear anywhere in the
+The literal string `thundertest.indevs.in` doesn't appear anywhere in the
 site content — the closest real matches were legacy `*.github.io` URLs
 functioning as content hosts. Updated:
 - `foundation/notes.html`: the PDF-notes `BASE_URL` (`thunderstudy.github.io/ca_notes/`

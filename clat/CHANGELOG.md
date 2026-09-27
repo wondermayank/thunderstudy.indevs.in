@@ -25,7 +25,7 @@ section of the site, not just `/clat/`).
   contact emails (`support@clatprep.com`, `info@ailetprep.com`, etc.) on a
   domain unrelated to ThunderStudy.
 - `sample-paper.html` and `ailet-pyqs.html` footers read
-  "© 2024 WonderMayank | All Rights Reserved | **commercesehoga.github.io**".
+  "© 2024 WonderMayank | All Rights Reserved | **thundertest.indevs.in**".
 - All five pages had exactly one `<h1>` and no broken heading hierarchy.
 
 ## Fixes applied
@@ -96,7 +96,7 @@ section of the site, not just `/clat/`).
   split consistently in the header of every page.
 
 ### Footer skill + social links
-- Replaced the old "WonderMayank" footer (with the `commercesehoga.github.io`
+- Replaced the old "WonderMayank" footer (with the `thundertest.indevs.in`
   credit line) on `sample-paper.html` and `ailet-pyqs.html`, and the minimal
   "Made with ⚡" footer on `notes.html`/`pyqs.html`, with the same
   three-column Thunder standard footer + social-icon row already used on
@@ -109,8 +109,8 @@ section of the site, not just `/clat/`).
   All social links use SVG icons, `target="_blank" rel="noopener noreferrer"`,
   and `aria-label`s.
 
-### `commercesehoga.github.io` → `thundertest.indevs.in`
-- Per your instruction, removed the `commercesehoga.github.io` footer credit
+### `thundertest.indevs.in` → `thundertest.indevs.in`
+- Per your instruction, removed the `thundertest.indevs.in` footer credit
   entirely (it was part of the old WonderMayank footer that's now replaced
   site-wide with the Thunder standard footer, which doesn't carry a
   `commercesehoga`/`thundertest` credit line at all — the domain no longer

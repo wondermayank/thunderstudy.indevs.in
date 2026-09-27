@@ -528,7 +528,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
         Back to Home
       </a>
-      <a class="btn-secondary" href="https://commercesehoga.github.io/dashboard">
+      <a class="btn-secondary" href="https://thundertest.indevs.in/dashboard">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
         CBT Mock Platform
       </a>
@@ -538,27 +538,27 @@
     <div>
       <p class="quick-title">Quick Links</p>
       <div class="quick-grid">
-        <a class="quick-chip" href="https://commercesehoga.github.io/cuet">
+        <a class="quick-chip" href="https://thundertest.indevs.in/cuet">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1e88e5" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
           CUET Mock
         </a>
-        <a class="quick-chip" href="https://commercesehoga.github.io/ssc">
+        <a class="quick-chip" href="https://thundertest.indevs.in/ssc">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1e88e5" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
           SSC Mock
         </a>
-        <a class="quick-chip" href="https://commercesehoga.github.io/banking">
+        <a class="quick-chip" href="https://thundertest.indevs.in/banking">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1e88e5" stroke-width="2"><path d="M3 21h18M6 21V10M18 21V10M2 10h20M12 3L2 10h20z"/></svg>
           Banking Mock
         </a>
-        <a class="quick-chip" href="https://commercesehoga.github.io/commerce">
+        <a class="quick-chip" href="https://thundertest.indevs.in/commerce">
           <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           Commerce
         </a>
-        <a class="quick-chip" href="https://commercesehoga.github.io/science">
+        <a class="quick-chip" href="https://thundertest.indevs.in/science">
           <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
           Science
         </a>
-        <a class="quick-chip" href="https://commercesehoga.github.io/gat">
+        <a class="quick-chip" href="https://thundertest.indevs.in/gat">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1e88e5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           GAT Test
         </a>
@@ -566,7 +566,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M4 22V12a8 8 0 0 1 16 0v10"/><path d="M2 22h20"/></svg>
           Current Affairs
         </a>
-        <a class="quick-chip" href="https://commercesehoga.github.io/fqa">
+        <a class="quick-chip" href="https://thundertest.indevs.in/fqa">
           <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Ask a Question
         </a>
@@ -591,17 +591,17 @@
       <div class="footer-col">
         <h4>Platforms</h4>
         <a href="https://wondermayank.github.io/">Wondermayank Portfolio</a>
-        <a href="https://commercesehoga.github.io/dashboard">CBT Mock Platform <span class="badge-small">Test</span></a>
+        <a href="https://thundertest.indevs.in/dashboard">CBT Mock Platform <span class="badge-small">Test</span></a>
         <a href="https://thunderstudy.indevs.in/">ThunderStudy Home</a>
       </div>
 
       <!-- Mock Tests -->
       <div class="footer-col">
         <h4>Mock Tests</h4>
-        <a href="https://commercesehoga.github.io/cuet">CUET Mock</a>
-        <a href="https://commercesehoga.github.io/ssc">SSC CBT Mock</a>
-        <a href="https://commercesehoga.github.io/banking">Banking Mock</a>
-        <a href="https://commercesehoga.github.io/gat">GAT Test</a>
+        <a href="https://thundertest.indevs.in/cuet">CUET Mock</a>
+        <a href="https://thundertest.indevs.in/ssc">SSC CBT Mock</a>
+        <a href="https://thundertest.indevs.in/banking">Banking Mock</a>
+        <a href="https://thundertest.indevs.in/gat">GAT Test</a>
       </div>
 
       <!-- Legal -->
@@ -616,8 +616,8 @@
       <div class="footer-col">
         <h4>Support</h4>
         <a href="https://wondermayank.github.io/contact">Contact Owner</a>
-        <a href="https://commercesehoga.github.io/help">Donate / Support <span class="badge-small">❤</span></a>
-        <a href="https://commercesehoga.github.io/fqa">Ask a Question</a>
+        <a href="https://thundertest.indevs.in/help">Donate / Support <span class="badge-small">❤</span></a>
+        <a href="https://thundertest.indevs.in/fqa">Ask a Question</a>
       </div>
 
     </div>

@@ -96,8 +96,8 @@ non-SVG glyph icon was the `✕` close button (see above), now SVG.
 the rest of the site. `full-llm.html` is generated directly from each
 page's real `<title>`/meta description/canonical, not invented copy.
 
-## `commercesehoga.github.io` → `thundertest.indevs.in`
-The literal string `commercesehoga.github.io` doesn't appear anywhere
+## `thundertest.indevs.in` → `thundertest.indevs.in`
+The literal string `thundertest.indevs.in` doesn't appear anywhere
 in this zip. The only related text is
 `raw.githubusercontent.com/commercesehoga/books/main/*.jpg` — actual
 image asset URLs in `question-bank.html` and `sample-paper.html`. These

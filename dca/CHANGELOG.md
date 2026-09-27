@@ -7,8 +7,8 @@ site. Everything below was applied to those 8 pages. Root-level files
 (`llm.txt`, `sitemap.xml`, etc.) are scoped accordingly and say so inline —
 merge them into the site's existing root files rather than overwriting.
 
-**On `commercesehoga.github.io` → `thundertest.indevs.in`:** searched the
-entire archive — there are zero occurrences of `commercesehoga.github.io`
+**On `thundertest.indevs.in` → `thundertest.indevs.in`:** searched the
+entire archive — there are zero occurrences of `thundertest.indevs.in`
 anywhere in these 8 files, so there was nothing literal to change here.
 (It only appears in your design-system skill's own reference notes, which
 is configuration, not site content, so I left that alone.) I did find and

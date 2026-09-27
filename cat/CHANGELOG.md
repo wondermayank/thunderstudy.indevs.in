@@ -86,7 +86,7 @@ groups by shared template:
   Preparation &rsaquo; [Page]) to every subpage, matching index.html's
   pattern — wasn't explicitly requested but is a natural extension of the
   BreadcrumbList JSON-LD and a low-risk, high-value addition.
-- No `commercesehoga.github.io` references existed in this archive either.
+- No `thundertest.indevs.in` references existed in this archive either.
 
 ## Known gaps / things to double check before deploying
 - No root `favicon.svg`, site-root `index.html`, or shared root files

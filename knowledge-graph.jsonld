@@ -15,7 +15,7 @@
         "width": 400,
         "height": 400
       },
-      "image": "https://commercesehoga.github.io/og-cover.png",
+      "image": "https://thundertest.indevs.in/og-cover.png",
       "description": "ThunderStudy is India's largest 100% free study platform providing notes, mock tests and PYQs for CBSE Class 12, CUET 2026, UPSC, SSC CGL, Banking, JEE and NEET — with no registration, no ads and no cost.",
       "slogan": "Free Education for Every Indian Student",
       "foundingDate": "2023",
@@ -41,8 +41,8 @@
         "availableLanguage": ["English", "Hindi"]
       },
       "sameAs": [
-        "https://commercesehoga.github.io",
-        "https://commercesehoga.blogspot.com",
+        "https://thundertest.indevs.in",
+        "https://blog.thunderstudy.indevs.in",
         "https://thunderstudy.blogspot.com",
         "https://t.me/Thunderstudy_official",
         "https://youtube.com/@Thunderstudy_official",
@@ -84,13 +84,13 @@
           {
             "@type": "Offer",
             "name": "Free CBSE Class 12 Commerce Notes",
-            "url": "https://commercesehoga.github.io/commerce",
+            "url": "https://thundertest.indevs.in/commerce",
             "price": "0",
             "priceCurrency": "INR",
             "itemOffered": {
               "@type": "Course",
               "name": "CBSE Class 12 Commerce — Accountancy, BST, Economics, Applied Maths",
-              "url": "https://commercesehoga.github.io/commerce",
+              "url": "https://thundertest.indevs.in/commerce",
               "educationalLevel": "Class 12",
               "isAccessibleForFree": true,
               "inLanguage": "en-IN",
@@ -100,13 +100,13 @@
           {
             "@type": "Offer",
             "name": "Free CBSE Class 12 Science Notes",
-            "url": "https://commercesehoga.github.io/science",
+            "url": "https://thundertest.indevs.in/science",
             "price": "0",
             "priceCurrency": "INR",
             "itemOffered": {
               "@type": "Course",
               "name": "CBSE Class 12 Science — Physics, Chemistry, Biology, Maths",
-              "url": "https://commercesehoga.github.io/science",
+              "url": "https://thundertest.indevs.in/science",
               "educationalLevel": "Class 12",
               "isAccessibleForFree": true,
               "inLanguage": "en-IN",
@@ -116,13 +116,13 @@
           {
             "@type": "Offer",
             "name": "Free CUET 2026 Mock Tests",
-            "url": "https://commercesehoga.github.io/cuet",
+            "url": "https://thundertest.indevs.in/cuet",
             "price": "0",
             "priceCurrency": "INR",
             "itemOffered": {
               "@type": "Course",
               "name": "CUET 2026 Full-Length Mock Tests — All Domain Subjects + GAT",
-              "url": "https://commercesehoga.github.io/cuet",
+              "url": "https://thundertest.indevs.in/cuet",
               "educationalLevel": "Undergraduate Entrance",
               "isAccessibleForFree": true,
               "inLanguage": "en-IN",
@@ -132,13 +132,13 @@
           {
             "@type": "Offer",
             "name": "Free SSC CGL Mock Tests",
-            "url": "https://commercesehoga.github.io/ssc",
+            "url": "https://thundertest.indevs.in/ssc",
             "price": "0",
             "priceCurrency": "INR",
             "itemOffered": {
               "@type": "Course",
               "name": "SSC CGL CBT Mock Tests with Real Interface",
-              "url": "https://commercesehoga.github.io/ssc",
+              "url": "https://thundertest.indevs.in/ssc",
               "isAccessibleForFree": true,
               "inLanguage": "en-IN",
               "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
@@ -147,13 +147,13 @@
           {
             "@type": "Offer",
             "name": "Free Banking Mock Tests IBPS SBI",
-            "url": "https://commercesehoga.github.io/banking",
+            "url": "https://thundertest.indevs.in/banking",
             "price": "0",
             "priceCurrency": "INR",
             "itemOffered": {
               "@type": "Course",
               "name": "Banking Mock Tests — IBPS PO, SBI PO, IBPS Clerk, SBI Clerk",
-              "url": "https://commercesehoga.github.io/banking",
+              "url": "https://thundertest.indevs.in/banking",
               "isAccessibleForFree": true,
               "inLanguage": "en-IN",
               "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
@@ -169,7 +169,7 @@
               "@type": "Book",
               "name": "GK MindMaster — General Knowledge for All Competitive Exams",
               "downloadUrl": "https://thunderstudy.indevs.in/GK_Thunderstudy_compressed.pdf",
-              "url": "https://commercesehoga.github.io/books",
+              "url": "https://thundertest.indevs.in/books",
               "description": "Best free GK book for SSC, UPSC, Railways, Banking and all government exams. Top GK from India and the world.",
               "inLanguage": "en-IN",
               "isAccessibleForFree": true,
@@ -196,13 +196,13 @@
           {
             "@type": "Offer",
             "name": "Free Class 12 Books — Boards Dominator & Boards Killer",
-            "url": "https://commercesehoga.github.io/books",
+            "url": "https://thundertest.indevs.in/books",
             "price": "0",
             "priceCurrency": "INR",
             "itemOffered": {
               "@type": "ItemList",
               "name": "Free Class 12 Boards Books — Boards Dominator, Boards Killer, 20+ Sample Papers",
-              "url": "https://commercesehoga.github.io/books",
+              "url": "https://thundertest.indevs.in/books",
               "description": "Best free books for CBSE Class 12 boards: Boards Dominator (Science), Boards Killer (Humanities), 20+ Sample Papers (Commerce) — all free at ThunderStudy.",
               "isAccessibleForFree": true,
               "provider": { "@id": "https://thunderstudy.indevs.in/#org" }
