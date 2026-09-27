@@ -1,47 +1,53 @@
 # ThunderStudy Social Media Links
 # Updated: 2026-09-27
-# IMPORTANT: Verify every profile below before publishing it in Organization.sameAs.
-# Conflicting handles currently exist in older generated pages.
+# Canonical profiles confirmed by the site owner on 2026-09-27.
 
 ## Telegram
-- @Thunderstudy_official
-- https://t.me/Thunderstudy_official
+- @thunderstudy
+- https://t.me/thunderstudy
 
 ## Instagram
-- @Thunderstudyx
-- https://instagram.com/Thunderstudyx
+- @thunderstudyx
+- https://instagram.com/thunderstudyx
 
 ## YouTube
-- @Thunderstudy_official
-- https://youtube.com/@Thunderstudy_official
+- @thunderstudy_official
+- https://youtube.com/@thunderstudy_official
 
 ## X (Twitter)
-- @Thunderstudyx
-- https://twitter.com/Thunderstudyx
+- @thunderstudyx
+- https://x.com/thunderstudyx
 
 ## GitHub
 - https://github.com/wondermayank
 - https://github.com/ThunderStudy
 
-## Blogs (verify before publishing)
-- https://blog.thunderstudy.indevs.in (Commerce notes)
-- https://blog.thunderstudy.indevs.in (Science notes)
-- NEEDS LINK: official blog URL
-- NEEDS LINK: official mock-test URL, if separate from this domain
+## Official Platforms
+- https://blog.thunderstudy.indevs.in (official blog)
+- https://thundertest.indevs.in (official mock-test platform)
 
 ## Contact
 - Email: contact@wondermayank.in
 - Creator: Wondermayank
 - Company: ThunderStudy / CommerceSehoga
 
-## Reddit (verify)
-- NEEDS LINK: official Reddit profile or subreddit
+## Reddit
+- @thunderstudy_official
+- https://reddit.com/u/thunderstudy_official
 
-## LinkedIn (verify)
-- NEEDS LINK: official LinkedIn profile or company page
+## LinkedIn
+- Not available
 
-## Additional profiles (optional)
-- NEEDS LINK: Facebook page
-- NEEDS LINK: WhatsApp channel/community
-- NEEDS LINK: Discord server
-- NEEDS LINK: Pinterest profile
+## Facebook
+- @thunderstudyx
+- https://facebook.com/thunderstudyx
+
+## Pinterest
+- @thunderstudy
+- https://pinterest.com/thunderstudy
+
+## WhatsApp
+- Not available
+
+## Discord
+- Not available

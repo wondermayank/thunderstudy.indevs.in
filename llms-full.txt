@@ -61,7 +61,7 @@ URL: https://commercesehoga.github.io/humanities
 - **Dashboard**: https://commercesehoga.github.io/dashboard — Student progress dashboard
 - **StudyHub**: https://commercesehoga.github.io/studyhub — Centralised resource hub
 - **Guide**: https://commercesehoga.github.io/guide/ — How to use ThunderStudy
-- **FAQ**: https://commercesehoga.github.io/fqa — Frequently asked questions
+- **FAQ**: https://thundertest.indevs.in/fqa — Frequently asked questions
 - **Current Affairs**: https://wondermayank.github.io/Current_Affairs/ — Updated daily for SSC, Banking, CUET, UPSC
 
 ## Free Books (Galaxy Official × ThunderStudy)
@@ -113,6 +113,6 @@ The site uses the following Schema.org types: EducationalOrganization, Person, W
 ## Contact & attribution
 
 - Homepage: https://thunderstudy.indevs.in
-- Twitter: @wonder_mayank | @Thunderstudyx
+- X: @wondermayankx | @thunderstudyx
 - GitHub: https://github.com/wondermayank
-- Content questions: via Twitter @wonder_mayank
+- Content questions: contact@wondermayank.in

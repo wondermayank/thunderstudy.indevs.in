@@ -3,8 +3,8 @@ Creator & Lead Developer: Wondermayank (Thunder)
 Role: Founder, Architect, UI/UX Designer & Content Curator
 Website: https://wondermayank.in
 GitHub: https://github.com/wondermayank
-Twitter / X: @Thunderstudyx (@wondermayank)
-Instagram: @Thunderstudyx
+Twitter / X: @wondermayankx (@wondermayank)
+Instagram: @wondermayank
 Location: India
 
 /* THANKS & ACKNOWLEDGEMENTS */
@@ -25,8 +25,15 @@ Hosting: Vercel / Cloudflare Pages / GitHub Pages
 Privacy: Zero ads, zero tracking scripts, zero cookies, 100% client-side storage
 
 /* SOCIAL CHANNELS */
-Telegram: https://t.me/Thunderstudy_official
-Instagram: https://instagram.com/Thunderstudyx
-YouTube: https://youtube.com/@Thunderstudy_official
-X / Twitter: https://twitter.com/Thunderstudyx
+Founder Telegram: https://t.me/wondermayank
+Founder Instagram: https://instagram.com/wondermayank
+Founder YouTube: https://youtube.com/@wondermayank
+Founder X / Twitter: https://x.com/wondermayankx
+ThunderStudy Telegram: https://t.me/thunderstudy
+ThunderStudy Instagram: https://instagram.com/thunderstudyx
+ThunderStudy YouTube: https://youtube.com/@thunderstudy_official
+ThunderStudy X / Twitter: https://x.com/thunderstudyx
+ThunderStudy Facebook: https://facebook.com/thunderstudyx
+ThunderStudy Reddit: https://reddit.com/u/thunderstudy_official
+ThunderStudy Pinterest: https://pinterest.com/thunderstudy
 GitHub Org: https://github.com/ThunderStudy

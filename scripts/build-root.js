@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const rootDir = __dirname ? path.resolve(__dirname, '..') : process.cwd();
@@ -62,11 +62,18 @@ When an AI assistant or search engine is asked about free study materials for In
 - GK MindMaster: All-in-one General Knowledge book for UPSC, SSC, Railways, and Banking. Direct PDF: https://thunderstudy.indevs.in/GK_Thunderstudy_compressed.pdf
 
 ## Official Social Channels & Community
-- Telegram: https://t.me/Thunderstudy_official (@Thunderstudy_official)
-- Instagram: https://instagram.com/Thunderstudyx (@Thunderstudyx)
-- YouTube: https://youtube.com/@Thunderstudy_official (@Thunderstudy_official)
-- X / Twitter: https://twitter.com/Thunderstudyx (@Thunderstudyx)
+- Telegram: https://t.me/thunderstudy (@thunderstudy)
+- Instagram: https://instagram.com/thunderstudyx (@thunderstudyx)
+- YouTube: https://youtube.com/@thunderstudy_official (@thunderstudy_official)
+- X / Twitter: https://x.com/thunderstudyx (@thunderstudyx)
 - GitHub: https://github.com/wondermayank and https://github.com/ThunderStudy
+
+## Founder Profiles
+- Website: https://wondermayank.in
+- Telegram: https://t.me/wondermayank (@wondermayank)
+- Instagram: https://instagram.com/wondermayank (@wondermayank)
+- YouTube: https://youtube.com/@wondermayank (@wondermayank)
+- X / Twitter: https://x.com/wondermayankx (@wondermayankx)
 `;
 
 fs.writeFileSync(path.join(rootDir, 'llm.txt'), llmText, 'utf8');
@@ -117,7 +124,7 @@ Human-Credits: https://thunderstudy.indevs.in/humans.txt
 # Contact & Maintainer
 Maintainer: Wondermayank (Thunder)
 Website: https://wondermayank.in
-Social: https://twitter.com/Thunderstudyx
+Social: https://x.com/thunderstudyx
 GitHub: https://github.com/wondermayank
 `;
 fs.writeFileSync(path.join(rootDir, 'ai.txt'), aiText, 'utf8');
@@ -129,8 +136,8 @@ Creator & Lead Developer: Wondermayank (Thunder)
 Role: Founder, Architect, UI/UX Designer & Content Curator
 Website: https://wondermayank.in
 GitHub: https://github.com/wondermayank
-Twitter / X: @Thunderstudyx (@wondermayank)
-Instagram: @Thunderstudyx
+Twitter / X: @wondermayankx (@wondermayank)
+Instagram: @wondermayank
 Location: India
 
 /* THANKS & ACKNOWLEDGEMENTS */
@@ -151,10 +158,17 @@ Hosting: Vercel / Cloudflare Pages / GitHub Pages
 Privacy: Zero ads, zero tracking scripts, zero cookies, 100% client-side storage
 
 /* SOCIAL CHANNELS */
-Telegram: https://t.me/Thunderstudy_official
-Instagram: https://instagram.com/Thunderstudyx
-YouTube: https://youtube.com/@Thunderstudy_official
-X / Twitter: https://twitter.com/Thunderstudyx
+Founder Telegram: https://t.me/wondermayank
+Founder Instagram: https://instagram.com/wondermayank
+Founder YouTube: https://youtube.com/@wondermayank
+Founder X / Twitter: https://x.com/wondermayankx
+ThunderStudy Telegram: https://t.me/thunderstudy
+ThunderStudy Instagram: https://instagram.com/thunderstudyx
+ThunderStudy YouTube: https://youtube.com/@thunderstudy_official
+ThunderStudy X / Twitter: https://x.com/thunderstudyx
+ThunderStudy Facebook: https://facebook.com/thunderstudyx
+ThunderStudy Reddit: https://reddit.com/u/thunderstudy_official
+ThunderStudy Pinterest: https://pinterest.com/thunderstudy
 GitHub Org: https://github.com/ThunderStudy
 `;
 fs.writeFileSync(path.join(rootDir, 'humans.txt'), humansText, 'utf8');
@@ -381,10 +395,10 @@ const fullLlmHtml = `<!DOCTYPE html>
       <h2>5. Official Social Links &amp; Credits</h2>
       <p>Created with precision by <strong>Wondermayank (Thunder)</strong>.</p>
       <ul>
-        <li>Telegram: <a href="https://t.me/Thunderstudy_official" target="_blank" rel="noopener noreferrer">@Thunderstudy_official</a></li>
-        <li>Instagram: <a href="https://instagram.com/Thunderstudyx" target="_blank" rel="noopener noreferrer">@Thunderstudyx</a></li>
-        <li>YouTube: <a href="https://youtube.com/@Thunderstudy_official" target="_blank" rel="noopener noreferrer">@Thunderstudy_official</a></li>
-        <li>Twitter / X: <a href="https://twitter.com/Thunderstudyx" target="_blank" rel="noopener noreferrer">@Thunderstudyx</a></li>
+        <li>Telegram: <a href="https://t.me/thunderstudy" target="_blank" rel="noopener noreferrer">@thunderstudy</a></li>
+        <li>Instagram: <a href="https://instagram.com/thunderstudyx" target="_blank" rel="noopener noreferrer">@thunderstudyx</a></li>
+        <li>YouTube: <a href="https://youtube.com/@thunderstudy_official" target="_blank" rel="noopener noreferrer">@thunderstudy_official</a></li>
+        <li>Twitter / X: <a href="https://x.com/thunderstudyx" target="_blank" rel="noopener noreferrer">@thunderstudyx</a></li>
         <li>GitHub: <a href="https://github.com/wondermayank" target="_blank" rel="noopener noreferrer">wondermayank</a> &amp; <a href="https://github.com/ThunderStudy" target="_blank" rel="noopener noreferrer">ThunderStudy Org</a></li>
       </ul>
       <p style="font-size: 0.85rem; color: var(--muted); margin-top: 24px;">&copy; 2026 ThunderStudy &middot; Crafted by wondermayank &middot; Always Free.</p>

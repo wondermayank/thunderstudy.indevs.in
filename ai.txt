@@ -1,6 +1,6 @@
 # ai.txt — AI Crawler Policies & Permissions for ThunderStudy
 # URL: https://thunderstudy.indevs.in/ai.txt
-# Last updated: 2026-09-27
+# Last updated: 2026-09-26
 
 # Mission & Open Education Notice
 # ThunderStudy is dedicated to democratizing quality education across India.
@@ -41,5 +41,5 @@ Human-Credits: https://thunderstudy.indevs.in/humans.txt
 # Contact & Maintainer
 Maintainer: Wondermayank (Thunder)
 Website: https://wondermayank.in
-Social: See https://thunderstudy.indevs.in/social.txt for the current public profile list.
+Social: https://x.com/thunderstudyx
 GitHub: https://github.com/wondermayank
