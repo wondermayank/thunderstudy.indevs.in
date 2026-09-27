@@ -21,6 +21,10 @@ for (const file of files) {
   const html = fs.readFileSync(file, 'utf8');
   const relative = path.relative(root, file);
   if (!html.includes('data-seo-answer="v1"')) errors.push(`${relative}: missing visible answer block`);
+  if (!html.includes('color:#1f2937')) errors.push(`${relative}: answer block lacks explicit light-mode text color`);
+  const answerPosition = html.indexOf('data-seo-answer="v1"');
+  const footerPosition = html.search(/<footer\b/i);
+  if (footerPosition >= 0 && answerPosition > footerPosition) errors.push(`${relative}: answer block is after the footer`);
   for (const token of ['What is this?', 'Who is it for?', 'What is included?', 'Is it free?', 'How can I start?', 'Written/edited by:', 'Last reviewed:', 'Sources used:', 'Corrections:', 'editorial-policy']) {
     if (!html.includes(token)) errors.push(`${relative}: missing ${token}`);
   }

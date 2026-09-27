@@ -57,7 +57,9 @@ function buildVisibleBlock({ title, description, url, examYear }) {
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const topic = escapeHtml(title.replace(/\s*[|—-]\s*ThunderStudy.*$/i, '').trim() || title);
-  const yearLine = examYear === 'Not applicable' ? examYear : `Current cycle: ${escapeHtml(examYear)}`;
+  const yearLine = examYear === 'Not applicable' || examYear === 'Current exam cycle'
+    ? examYear
+    : `Current cycle: ${escapeHtml(examYear)}`;
   return `
 <section class="ts-seo-answer" data-seo-answer="v1" aria-labelledby="ts-seo-answer-title">
   <div class="ts-seo-answer__inner">
