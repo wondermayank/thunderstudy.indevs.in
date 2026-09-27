@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; }
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
 
 <!-- ===== FONT PRECONNECT (Core Web Vitals) ===== -->
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -862,11 +871,53 @@
     --gray-200: #e2e8f0;
     --gray-400: #94a3b8;
     --gray-600: #475569;
+    --gray-700: #334155;
     --gray-800: #0f172a;
+    --ink: #0f172a;
+    --canvas: #EEF3FF;
+    --hairline: #D8E1F2;
+    --primary: #70a1fc;
+    --primary-soft: #7897D1;
+    --primary-active: #5D79B3;
+    --primary-tint: #e8effe;
     --font-display: 'Syne', sans-serif;
     --font-body: 'DM Sans', sans-serif;
-    --grad-main: linear-gradient(135deg, #0077f5 0%, #6d28d9 100%);
-    --grad-soft: linear-gradient(135deg, #e0f0ff 0%, #f0e8ff 100%);
+    --grad-main: #0077f5;
+    --grad-soft: #e0f0ff;
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    --blue-100: #16233a;
+    --blue-200: #1c2c47;
+    --blue-300: #3a5a8f;
+    --blue-400: #4aa3ff;
+    --blue-500: #4aa3ff;
+    --purple-100: #241c3d;
+    --purple-200: #2f2350;
+    --purple-300: #6b4fc9;
+    --purple-400: #a78bfa;
+    --purple-500: #a78bfa;
+    --white: #1B1B1F;
+    --gray-50: #1B1B1F;
+    --gray-100: #202024;
+    --gray-200: #2A2A2A;
+    --gray-400: #9aa5b8;
+    --gray-600: #A9A4B8;
+    --gray-700: #C8C3D6;
+    --ink: #F4F1FF;
+    --canvas: #121212;
+    --hairline: #2A2A2A;
+    --primary: #9A7AFB;
+    --primary-soft: #7560C7;
+    --primary-active: #7E64CE;
+    --primary-tint: #241c3d;
+    color-scheme: dark;
+  }
+
+  html[data-theme="dark"] body { background: var(--canvas); }
+  body, header, footer, .hero, .section-blue, .faq-item, .contact-card, .social-btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -876,7 +927,7 @@
   body {
     font-family: var(--font-body);
     background: var(--white);
-    color: var(--gray-800);
+    color: var(--ink);
     overflow-x: hidden;
   }
 
@@ -889,7 +940,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #e0f0ff 0%, #f0e8ff 50%, #f8f4ff 100%);
+    background: var(--canvas);
     transition: opacity 0.6s ease, visibility 0.6s ease;
   }
   #boot.hidden { opacity: 0; visibility: hidden; }
@@ -904,7 +955,7 @@
   .boot-book-glow {
     position: absolute;
     inset: -34px;
-    background: radial-gradient(circle, rgba(124,58,237,0.30) 0%, rgba(30,136,229,0.14) 45%, transparent 72%);
+    background: rgba(124,58,237,0.30);
     filter: blur(2px);
     animation: bookGlow 2.6s ease-in-out infinite;
     z-index: 0;
@@ -924,14 +975,14 @@
   .boot-pages-left {
     left: 6px;
     border-radius: 10px 3px 3px 10px;
-    background: linear-gradient(200deg, #ffffff, #e9f1ff);
+    background: #ffffff;
     transform: rotateY(6deg);
     transform-origin: right center;
   }
   .boot-pages-right {
     right: 6px;
     border-radius: 3px 10px 10px 3px;
-    background: linear-gradient(160deg, #f4efff, #e3d9ff);
+    background: #f4efff;
     transform: rotateY(-6deg);
     transform-origin: left center;
   }
@@ -940,7 +991,7 @@
     content: '';
     position: absolute;
     left: 10px; right: 10px; top: 14px; bottom: 14px;
-    background-image: repeating-linear-gradient(180deg, rgba(30,41,80,0.07) 0, rgba(30,41,80,0.07) 1px, transparent 1px, transparent 10px);
+    background: rgba(30,41,80,0.07);
   }
   .boot-spine {
     position: absolute;
@@ -949,7 +1000,7 @@
     width: 9px;
     height: 100px;
     margin-left: -4.5px;
-    background: linear-gradient(180deg, #1e88e5, #7c3aed);
+    background: #1e88e5;
     border-radius: 3px;
     z-index: 3;
     box-shadow: 0 0 12px rgba(124,58,237,0.55);
@@ -962,7 +1013,7 @@
     width: 62px;
     height: 88px;
     border-radius: 3px 10px 10px 3px;
-    background: linear-gradient(135deg, #ffffff, #dce8ff);
+    background: #ffffff;
     box-shadow: 1px 0 6px rgba(30,41,80,0.14);
     transform-origin: left center;
     backface-visibility: hidden;
@@ -983,7 +1034,7 @@
     transform: translateX(-50%);
     width: 22px;
     height: 32px;
-    background: linear-gradient(180deg, #1e88e5, #7c3aed);
+    background: #1e88e5;
     clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
     z-index: 4;
     display: flex;
@@ -991,19 +1042,17 @@
     justify-content: center;
     box-shadow: 0 4px 10px rgba(124,58,237,0.45);
   }
-  .boot-bolt-mark svg { width: 11px; height: 11px; }
+  .boot-bolt-mark img { width: 14px; height: 14px; }
 
   .boot-title {
     font-family: var(--font-display);
     font-size: 2.4rem;
     font-weight: 800;
-    background: linear-gradient(90deg, #0077f5, #6d28d9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--ink);
     letter-spacing: -0.5px;
     margin-bottom: 8px;
   }
+  .boot-title-accent { color: #0077f5; }
   .boot-sub {
     font-size: 0.95rem;
     color: var(--gray-600);
@@ -1019,7 +1068,7 @@
   }
   .boot-bar {
     height: 100%;
-    background: linear-gradient(90deg, #1e88e5, #7c3aed);
+    background: #1e88e5;
     border-radius: 99px;
     animation: bootLoad 1.8s ease forwards;
   }
@@ -1035,7 +1084,7 @@
 
   /* ========== HEADER ========== */
   header {
-    background: linear-gradient(135deg, #dbeeff 0%, #ede8ff 60%, #f8f4ff 100%);
+    background: var(--canvas);
     border-bottom: 1px solid var(--blue-200);
     padding: 0 24px;
     position: sticky;
@@ -1051,26 +1100,49 @@
     align-items: center;
     justify-content: space-between;
   }
-  .logo-group { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-icon { width: 34px; height: 34px; }
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background: var(--gray-800);
+    padding: 6px 14px 6px 8px;
+    border-radius: 99px;
+  }
+  .logo-icon { width: 26px; height: 26px; display: block; }
   .logo-text {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 1.25rem;
-    background: linear-gradient(90deg, #1e88e5, #7c3aed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 1.15rem;
+    color: #ffffff;
   }
+  .logo-text .logo-text-accent { color: #60a5fa; }
   .header-badge {
     font-size: 0.72rem;
     font-weight: 600;
-    background: linear-gradient(90deg, var(--blue-500), var(--purple-400));
+    background: #7C3AED;
     color: white;
     padding: 4px 10px;
     border-radius: 99px;
     letter-spacing: 0.3px;
   }
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 99px;
+    border: 1px solid var(--gray-200);
+    background: var(--white);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .theme-toggle-btn:hover { background: var(--blue-100); border-color: var(--blue-300); }
+  .theme-toggle-btn:active { transform: scale(0.9); }
+  .theme-toggle-btn svg { width: 18px; height: 18px; }
   nav { display: flex; gap: 6px; }
   @media (max-width: 1023px) { nav { display: none !important; } }
   nav a {
@@ -1086,7 +1158,7 @@
 
   /* ========== HERO ========== */
   .hero {
-    background: linear-gradient(135deg, #dbeeff 0%, #ede8ff 55%, #f8f4ff 100%);
+    background: var(--canvas);
     padding: 72px 24px 60px;
     text-align: center;
     position: relative;
@@ -1097,7 +1169,7 @@
     position: absolute;
     width: 600px; height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+    background: rgba(168,85,247,0.08);
     top: -200px; right: -100px;
     pointer-events: none;
   }
@@ -1106,7 +1178,7 @@
     position: absolute;
     width: 400px; height: 400px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(30,136,229,0.07) 0%, transparent 70%);
+    background: rgba(30,136,229,0.07);
     bottom: -100px; left: -80px;
     pointer-events: none;
   }
@@ -1130,10 +1202,7 @@
     line-height: 1.15;
     letter-spacing: -1px;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #1e3a5f 0%, #1e88e5 40%, #7c3aed 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1e3a5f;
   }
   .hero p {
     font-size: 1.05rem;
@@ -1156,10 +1225,7 @@
     font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: 800;
-    background: linear-gradient(90deg, #1e88e5, #7c3aed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1e88e5;
     display: block;
     line-height: 1;
   }
@@ -1183,12 +1249,16 @@
     margin-bottom: 8px;
     display: block;
   }
+  .section-blue .section-label,
+  #faq .section-label {
+    color: var(--primary-active);
+  }
   .section-title {
     font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: var(--gray-800);
+    color: var(--ink);
     line-height: 1.2;
   }
   .section-desc {
@@ -1224,7 +1294,7 @@
   .mock-featured {
     grid-column: span 2;
   }
-  /* Colored top gradient header */
+  /* Header accent bar */
   .mc-header {
     background: var(--mc-grad);
     padding: 20px 20px 16px;
@@ -1274,7 +1344,7 @@
     font-family: var(--font-display);
     font-size: 1.05rem;
     font-weight: 800;
-    color: var(--gray-800);
+    color: var(--ink);
     line-height: 1.2;
   }
   .mock-featured .mc-title { font-size: 1.25rem; }
@@ -1361,7 +1431,7 @@
     inset: 0;
     opacity: 0;
     transition: opacity 0.3s;
-    background: linear-gradient(135deg, rgba(219,238,255,0.4), rgba(237,232,255,0.4));
+    background: rgba(219,238,255,0.4);
     border-radius: 16px;
   }
   .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(124,58,237,0.1); border-color: var(--purple-300); }
@@ -1386,7 +1456,7 @@
     font-family: var(--font-display);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--gray-800);
+    color: var(--ink);
     line-height: 1.3;
   }
   .card-desc {
@@ -1453,7 +1523,7 @@
   .subj-name {
     font-weight: 600;
     font-size: 0.88rem;
-    color: var(--gray-800);
+    color: var(--ink);
     line-height: 1.3;
   }
   .subj-stream {
@@ -1476,13 +1546,13 @@
     font-size: 1rem;
   }
   .stream-band svg { width: 20px; height: 20px; }
-  .stream-band.commerce { background: linear-gradient(90deg, #e3f2fd, #f3e8ff); color: #1565c0; }
-  .stream-band.science { background: linear-gradient(90deg, #e8f5e9, #e0f7fa); color: #1b5e20; }
-  .stream-band.humanities { background: linear-gradient(90deg, #fff8e1, #fce4ec); color: #e65100; }
+  .stream-band.commerce { background: #e3f2fd; color: #1565c0; }
+  .stream-band.science { background: #e8f5e9; color: #1b5e20; }
+  .stream-band.humanities { background: #fff8e1; color: #e65100; }
 
   /* ========== ALTERNATING SECTIONS ========== */
   .section-alt { background: var(--gray-50); }
-  .section-blue { background: linear-gradient(135deg, #dbeeff 0%, #ede8ff 100%); }
+  .section-blue { background: var(--canvas); }
 
   /* ========== FAQ ========== */
   .faq-item {
@@ -1504,7 +1574,7 @@
     font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--gray-800);
+    color: var(--ink);
     text-align: left;
     gap: 12px;
   }
@@ -1584,10 +1654,7 @@
     font-family: var(--font-display);
     font-weight: 800;
     font-size: 1.5rem;
-    background: linear-gradient(90deg, #60a5fa, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #60a5fa;
     margin-bottom: 10px;
   }
   .footer-tagline { font-size: 0.83rem; color: #64748b; }
@@ -1595,7 +1662,7 @@
   /* ========== DIVIDER ========== */
   .divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--blue-200), var(--purple-200), transparent);
+    background: #7C3AED;
     margin: 0;
   }
 
@@ -1637,7 +1704,7 @@
     font-size: 0.9rem;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--gray-800);
+    color: var(--ink);
   }
   .exam-theme-card .etc-sub {
     font-size: 0.7rem;
@@ -1791,19 +1858,19 @@
   }
   .exam-band:hover .exam-band-arrow { opacity: 1; transform: translateX(3px); }
   .exam-band svg:first-child { width: 20px; height: 20px; flex-shrink: 0; }
-  .exam-band.jee { background: linear-gradient(90deg, #e8f5e9, #c8e6c9); color: #1b5e20; }
-  .exam-band.neet { background: linear-gradient(90deg, #e0f7fa, #b2ebf2); color: #006064; }
-  .exam-band.cat { background: linear-gradient(90deg, #fce4ec, #f8bbd0); color: #880e4f; }
-  .exam-band.nda { background: linear-gradient(90deg, #e8eaf6, #c5cae9); color: #1a237e; }
-  .exam-band.clat { background: linear-gradient(90deg, #fce4ec, #f48fb1); color: #880e4f; }
-  .exam-band.ca { background: linear-gradient(90deg, #fff8e1, #ffecb3); color: #f57f17; }
-  .exam-band.ncert { background: linear-gradient(90deg, #eceff1, #cfd8dc); color: #37474f; }
-  .exam-band.diploma { background: linear-gradient(90deg, #efebe9, #d7ccc8); color: #4e342e; }
-  .exam-band.tet { background: linear-gradient(90deg, #e0f7fa, #b2ebf2); color: #006064; }
+  .exam-band.jee { background: #e8f5e9; color: #1b5e20; }
+  .exam-band.neet { background: #e0f7fa; color: #006064; }
+  .exam-band.cat { background: #fce4ec; color: #880e4f; }
+  .exam-band.nda { background: #e8eaf6; color: #1a237e; }
+  .exam-band.clat { background: #fce4ec; color: #880e4f; }
+  .exam-band.ca { background: #fff8e1; color: #f57f17; }
+  .exam-band.ncert { background: #eceff1; color: #37474f; }
+  .exam-band.diploma { background: #efebe9; color: #4e342e; }
+  .exam-band.tet { background: #e0f7fa; color: #006064; }
 
   /* ========== TELEGRAM STRIP ========== */
   .tg-strip {
-    background: linear-gradient(90deg, #0088cc, #0055aa);
+    background: #0088cc;
     color: white;
     text-align: center;
     padding: 9px 16px;
@@ -1842,7 +1909,7 @@
     border-radius: 14px;
     font-family: var(--font-body);
     font-size: 0.92rem;
-    color: var(--gray-800);
+    color: var(--ink);
     background: white;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -1884,7 +1951,7 @@
     gap: 12px;
     padding: 12px 18px;
     text-decoration: none;
-    color: var(--gray-800);
+    color: var(--ink);
     font-size: 0.88rem;
     font-weight: 500;
     transition: background 0.15s;
@@ -1916,7 +1983,7 @@
     height: 12px;
     border-radius: 999px;
     margin: 8px 0;
-    background: linear-gradient(90deg, #eef2ff, #dbeafe, #eef2ff);
+    background: #eef2ff;
     background-size: 200% 100%;
     animation: searchSkeleton 1s linear infinite;
   }
@@ -2018,14 +2085,14 @@
 
   /* ========== CONTACT SECTION ========== */
   .contact-section {
-    background: linear-gradient(135deg, #f0f7ff 0%, #f3eeff 100%);
+    background: #f0f7ff;
     padding: 56px 24px 48px;
-    color: var(--gray-800);
+    color: var(--ink);
     border-top: 1px solid var(--blue-200);
   }
   .contact-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-  .contact-inner .section-label { color: var(--blue-500); margin-bottom: 10px; }
-  .contact-inner .section-title { color: var(--gray-800); margin-bottom: 10px; }
+  .contact-inner .section-label { color: var(--primary-active); margin-bottom: 10px; }
+  .contact-inner .section-title { color: var(--ink); margin-bottom: 10px; }
   .contact-inner .section-desc { color: var(--gray-600); margin-bottom: 36px; }
   .contact-grid {
     display: grid;
@@ -2039,7 +2106,7 @@
     border-radius: 16px;
     padding: 20px 14px;
     text-decoration: none;
-    color: var(--gray-800);
+    color: var(--ink);
     transition: background 0.2s, transform 0.25s cubic-bezier(.22,.68,0,1.2), border-color 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
@@ -2048,11 +2115,11 @@
     box-shadow: 0 2px 10px rgba(0,119,245,0.05);
     min-width: 0;
   }
-  .contact-card:hover { background: var(--blue-100); transform: translateY(-4px); border-color: var(--blue-300); box-shadow: 0 8px 24px rgba(0,119,245,0.12); }
+  .contact-card:hover { background: var(--primary-tint); transform: translateY(-4px); border-color: var(--primary-soft); box-shadow: 0 8px 24px rgba(154,122,251,0.16); }
   .contact-card svg { width: 28px; height: 28px; flex-shrink: 0; }
   .contact-card .cc-title { font-weight: 700; font-size: 0.85rem; word-break: break-word; text-align: center; line-height: 1.3; }
   .contact-card .cc-handle { font-size: 0.72rem; color: var(--gray-400); font-weight: 500; word-break: break-all; text-align: center; line-height: 1.3; }
-  .contact-card .cc-role { font-size: 0.63rem; background: var(--blue-100); color: var(--blue-500); padding: 2px 8px; border-radius: 99px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+  .contact-card .cc-role { font-size: 0.63rem; background: var(--primary-tint); color: var(--primary-active); padding: 2px 8px; border-radius: 99px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
 
   /* ========== HEADER — MADE BY ========== */
   .header-made-by {
@@ -2069,8 +2136,8 @@
     nav { display: none; }
     .header-made-by { display: none; }
     .header-badge { display: none; }
-    .logo-text { font-size: 1.05rem; }
-    .logo-icon { width: 28px; height: 28px; }
+    .logo-text { font-size: 1rem; }
+    .logo-icon { width: 22px; height: 22px; }
     .hero { padding: 44px 16px 38px; }
     .hero h1 { font-size: 1.65rem; }
     .hero p { font-size: 0.9rem; margin-bottom: 24px; }
@@ -2155,7 +2222,7 @@
   .notice-popup-close { position: absolute; right: 12px; top: 10px; border: 0; background: #f1f5f9; border-radius: 999px; width: 32px; height: 32px; cursor: pointer; font-size: 1.2rem; }
   .notice-popup h3 { margin: 12px 36px 8px 0; }
   .notice-popup p { margin: 0; color: #475569; line-height: 1.55; }
-  .faq-a a { color: #2563eb; font-weight: 800; text-decoration: none; }
+  .faq-a a { color: var(--primary-active); font-weight: 800; text-decoration: none; }
   @media (max-width: 760px) {
     .hero { min-height: auto; padding-top: 76px; padding-bottom: 38px; }
     .hero h1 { font-size: 2.25rem; line-height: 1.04; }
@@ -2177,7 +2244,7 @@
   }
 
 .hero {
-    background: #eef5ff !important;
+    background: var(--canvas) !important;
     border-bottom: 1px solid #c7dcf5;
     padding: 48px 24px 0 !important;
     position: relative;
@@ -2203,9 +2270,9 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(0,119,245,0.1);
-    border: 1px solid rgba(0,119,245,0.25);
-    color: #1d4ed8;
+    background: var(--primary-tint);
+    border: 1px solid var(--primary-soft);
+    color: var(--primary-active);
     font-size: 0.75rem;
     font-weight: 600;
     padding: 5px 14px;
@@ -2219,10 +2286,7 @@
     line-height: 1.18;
     letter-spacing: -0.5px;
     margin-bottom: 14px;
-    background: linear-gradient(135deg, #0f172a 0%, #0077f5 45%, #6d28d9 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+    color: #0f172a !important!important;
   }
   .hero p {
     font-size: 1rem;
@@ -2249,7 +2313,7 @@
     text-decoration: none;
   }
   .htp-green { background: #f0fdf4; border: 1px solid #bbf7d0; color: #059669; }
-  .htp-blue  { background: rgba(255,255,255,0.6); border: 1px solid #bdd7f5; color: #1d4ed8; }
+  .htp-blue  { background: rgba(255,255,255,0.6); border: 1px solid var(--primary-soft); color: var(--primary-active); }
   .htp-amber { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
   .htp-purple{ background: #f5f3ff; border: 1px solid #ddd6fe; color: #5b21b6; }
   .htp-install{ background: rgba(255,255,255,0.6); border: 1px solid #bdd7f5; color: #1d4ed8; font-size: inherit; font-weight: 700; letter-spacing: inherit; transition: background 0.16s, border-color 0.16s, transform 0.16s; }
@@ -2263,7 +2327,7 @@
   }
   .hero-stats-new .stat {
     background: rgba(255,255,255,0.75);
-    border: 1px solid rgba(0,119,245,0.15);
+    border: 1px solid var(--primary-soft);
     border-radius: 12px;
     padding: 10px 18px;
     text-align: center;
@@ -2273,10 +2337,7 @@
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 800;
-    background: linear-gradient(90deg, #0077f5, #6d28d9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-active);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2679,7 +2740,7 @@
   /* ========== EXAM SECTION SEPARATOR ========== */
   .exam-sep {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #c7d2fe 50%, #e2e8f0 80%, transparent 100%);
+    background: #e2e8f0;
     margin: 22px 0 20px;
     border: none;
     position: relative;
@@ -2696,7 +2757,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(86,58,252,0.06) 0%, transparent 70%);
+  background: rgba(86,58,252,0.06);
   pointer-events: none;
 }
 .thunder-tools-header {
@@ -2763,7 +2824,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(86,58,252,0.04) 0%, transparent 60%);
+  background: rgba(86,58,252,0.04);
   border-radius: inherit;
   pointer-events: none;
 }
@@ -2783,9 +2844,9 @@
   margin-bottom: 20px;
   flex-shrink: 0;
 }
-.tool-card-icon.flashcard-icon { background: linear-gradient(135deg, #e8e2ff 0%, #d4caff 100%); }
-.tool-card-icon.ai-icon        { background: linear-gradient(135deg, #dbeeff 0%, #c8e0ff 100%); }
-.tool-card-icon.mindmap-icon   { background: linear-gradient(135deg, #d6f5e8 0%, #b8edcf 100%); }
+.tool-card-icon.flashcard-icon { background: #e8e2ff; }
+.tool-card-icon.ai-icon        { background: #dbeeff; }
+.tool-card-icon.mindmap-icon   { background: #d6f5e8; }
 .tool-card-name {
   font-size: 1.05rem;
   font-weight: 700;
@@ -2839,7 +2900,7 @@
     position: absolute;
     width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,119,245,0.05) 0%, transparent 70%);
+    background: rgba(0,119,245,0.05);
     top: -200px; right: -200px;
     pointer-events: none;
   }
@@ -2848,7 +2909,7 @@
     position: absolute;
     width: 500px; height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(109,40,217,0.04) 0%, transparent 70%);
+    background: rgba(109,40,217,0.04);
     bottom: -150px; left: -100px;
     pointer-events: none;
   }
@@ -2885,10 +2946,7 @@
     margin-bottom: 12px;
   }
   .streams-heading span {
-    background: linear-gradient(90deg, #0077f5, #6d28d9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #0077f5;
   }
   .streams-subtext {
     font-size: 0.95rem;
@@ -2961,11 +3019,11 @@
   }
 
   /* Commerce: deep blue */
-  .scn-commerce { background: linear-gradient(135deg, #0055cc 0%, #0077f5 50%, #38b2ff 100%); }
+  .scn-commerce { background: #0055cc; }
   /* Science: deep emerald */
-  .scn-science  { background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%); }
+  .scn-science  { background: #064e3b; }
   /* Humanities: rich amber-rose */
-  .scn-humanities { background: linear-gradient(135deg, #92400e 0%, #d97706 45%, #f59e0b 100%); }
+  .scn-humanities { background: #92400e; }
 
   .scn-icon-ring {
     width: 54px; height: 54px;
@@ -3142,8 +3200,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 70% at 10% 50%, rgba(102,153,251,0.06) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 60% at 90% 30%, rgba(0,119,245,0.04) 0%, transparent 60%);
+    rgba(102,153,251,0.06),
+    rgba(0,119,245,0.04);
   pointer-events: none;
 }
 .galaxy-banner::after {
@@ -3151,7 +3209,7 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #6699FB, #0077f5, #AECBF0, #6699FB);
+  background: #6699FB;
 }
 .galaxy-inner {
   max-width: 1200px;
@@ -3201,10 +3259,7 @@
 }
 .galaxy-title em {
   font-style: normal;
-  background: linear-gradient(90deg, #0077f5, #6699FB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #0077f5;
 }
 .galaxy-desc {
   font-size: 0.9rem;
@@ -3329,7 +3384,6 @@
 .gslider-card .gs-overlay {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(15,23,42,0.82));
   padding: 22px 12px 12px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -3342,11 +3396,13 @@
   color: #fff;
   line-height: 1.3;
   margin-bottom: 3px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 0 10px rgba(0,0,0,0.6);
 }
 .gs-overlay-sub {
   font-size: 0.62rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.92);
   font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.85), 0 0 10px rgba(0,0,0,0.6);
 }
 .gs-overlay-badge {
   display: inline-block;
@@ -3630,7 +3686,7 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.hfi-blue   { background: #e6f0ff; color: #0077f5; }
+.hfi-blue   { background: var(--primary-tint); color: var(--primary); }
 .hfi-purple { background: #f0ecff; color: #6d28d9; }
 .hfi-red    { background: #fee2e2; color: #dc2626; }
 .hfi-amber  { background: #fef3c7; color: #b45309; }
@@ -3675,10 +3731,10 @@
     <div class="boot-flip-page bfp-3"></div>
     <div class="boot-spine"></div>
     <div class="boot-bolt-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="white"><polygon points="13,2 4,14 11,14 10,22 20,10 13,10"/></svg>
+      <img src="/favicon.svg" alt="" width="16" height="16" style="display:block;">
     </div>
   </div>
-  <div class="boot-title">ThunderStudy</div>
+  <div class="boot-title">Thunder<span class="boot-title-accent">Study</span></div>
   <div class="boot-sub">Turning the page on free education</div>
   <div class="boot-bar-wrap"><div class="boot-bar"></div></div>
 </div>
@@ -3751,19 +3807,15 @@
 <header>
   <div class="header-inner">
     <a class="logo-group" href="https://thunderstudy.indevs.in" aria-label="ThunderStudy Home">
-      <svg class="logo-icon" viewBox="0 0 34 34" fill="none">
-        <rect width="34" height="34" rx="9" fill="url(#hbg)"/>
-        <defs>
-          <linearGradient id="hbg" x1="0" y1="0" x2="34" y2="34">
-            <stop stop-color="#0077f5"/><stop offset="1" stop-color="#6d28d9"/>
-          </linearGradient>
-        </defs>
-        <polygon points="18.5,5 9,18 17,18 15.5,29 25,16 17,16" fill="white" opacity="0.95"/>
-      </svg>
-      <span class="logo-text">ThunderStudy</span>
+      <img class="logo-icon" src="/favicon.svg" alt="" width="26" height="26" loading="eager" decoding="async">
+      <span class="logo-text">Thunder<span class="logo-text-accent">Study</span></span>
     </a>
     <span class="header-made-by">by <a href="https://wondermayank.in" target="_blank" rel="noopener">Wondermayank</a></span>
     <span class="header-badge">100% Free</span>
+    <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
     <nav aria-label="Main navigation">
       <a href="#streams">Streams</a>
       <a href="#exams">Exams</a>
@@ -3913,28 +3965,28 @@
     <div class="hero-stats-new">
       <div class="stat">
         <span class="stat-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="url(#sg1)" stroke-width="2"><defs><linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0077f5"/><stop offset="1" stop-color="#6d28d9"/></linearGradient></defs><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-active)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
           100K+
         </span>
         <span class="stat-label">Study Files</span>
       </div>
       <div class="stat">
         <span class="stat-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="url(#sg2)" stroke-width="2"><defs><linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0077f5"/><stop offset="1" stop-color="#6d28d9"/></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-active)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
           30+
         </span>
         <span class="stat-label">exam/subject</span>
       </div>
       <div class="stat">
         <span class="stat-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="url(#sg3)" stroke-width="2"><defs><linearGradient id="sg3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0077f5"/><stop offset="1" stop-color="#6d28d9"/></linearGradient></defs><circle cx="12" cy="12" r="10"/><path d="M12 6v6.5l3 1.8"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-active)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6.5l3 1.8"/></svg>
           5k+
         </span>
         <span class="stat-label">CBT Mocks</span>
       </div>
       <div class="stat">
         <span class="stat-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="url(#sg4)" stroke-width="2"><defs><linearGradient id="sg4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0077f5"/><stop offset="1" stop-color="#6d28d9"/></linearGradient></defs><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-active)" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           100%
         </span>
         <span class="stat-label">Free · No Ads</span>
@@ -4308,7 +4360,7 @@
     </div>
 
     <!-- ===== CBSE RESOURCES ===== -->
-    <a id="cbse-resources" class="exam-band" style="background:linear-gradient(90deg,#dbeeff,#e0f0ff);color:#1565c0;" href="https://thunderstudy.indevs.in/cbse/" target="_blank" rel="noopener">
+    <a id="cbse-resources" class="exam-band" style="background:#dbeeff;color:#1565c0;" href="https://thunderstudy.indevs.in/cbse/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       CBSE — Exam Resources (All Subjects)
       <svg class="exam-band-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -4331,7 +4383,7 @@
     </div>
 
     <!-- ===== CBSE CLASS 12 — 11 KEY SUB-SECTIONS ===== -->
-    <div style="background:linear-gradient(90deg,#e3f2fd,#ede8ff);border-radius:14px;padding:13px 20px;margin:22px 0 14px;display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:0.95rem;color:#1565c0;">
+    <div style="background:#e3f2fd;border-radius:14px;padding:13px 20px;margin:22px 0 14px;display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:0.95rem;color:#1565c0;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
       CBSE Class 12 — Study Material Sections
     </div>
@@ -4482,7 +4534,7 @@
       <a href="https://thunderstudy.indevs.in/jee/flashcard" class="subtopic-pill green" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span>Flashcard</span></a>
     </div>
     <!-- JEE Mock Test CTA -->
-    <a href="https://thundertest.indevs.in/jee-neet" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/jee-neet" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#166534;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 3v11a6 6 0 0 0 6 0V3"/><line x1="6" y1="3" x2="18" y2="3"/></svg>
@@ -4519,7 +4571,7 @@
       <a href="https://thunderstudy.indevs.in/neet/diagram-based" class="subtopic-pill teal" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Diagram Based Q</span></a>
     </div>
     <!-- NEET Mock Test CTA -->
-    <a href="https://thundertest.indevs.in/jee-neet" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#0c4a6e,#0369a1);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/jee-neet" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#0c4a6e;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -4534,7 +4586,7 @@
 
     <hr class="exam-sep">
     <!-- ===== CUET FULL ===== -->
-    <a id="cuet-full" class="exam-band" style="background:linear-gradient(90deg,#f3e8ff,#ede8ff);color:#5b21b6;" href="https://thundertest.indevs.in/cuet" target="_blank" rel="noopener">
+    <a id="cuet-full" class="exam-band" style="background:#f3e8ff;color:#5b21b6;" href="https://thundertest.indevs.in/cuet" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       CUET — All Subjects & Resources
       <svg class="exam-band-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -4563,7 +4615,7 @@
       <a href="https://thundertest.indevs.in/physical" class="subtopic-pill purple" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><circle cx="12" cy="5" r="2"/><path d="M12 7v4l-3 4M12 11l3 3M9 21l3-4"/><path d="M17 17l-2-6"/></svg><span>Physical Education</span></a>
     </div>
     <!-- CUET Mock Test CTA -->
-    <a href="https://thundertest.indevs.in/cuet" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#4c1d95,#7c3aed);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/cuet" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#4c1d95;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
@@ -4615,7 +4667,7 @@
       <a href="https://thunderstudy.indevs.in/nda/formula" class="subtopic-pill" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg><span>Formula</span></a>
     </div>
     <!-- NDA Mock Test CTA -->
-    <a href="https://thundertest.indevs.in/nda" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#1e3a8a,#3b5bdb);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/nda" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#1e3a8a;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -4646,7 +4698,7 @@
       <a href="https://thunderstudy.indevs.in/clat/formula" class="subtopic-pill rose" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg><span>Formula</span></a>
     </div>
     <!-- CLAT Mock Test CTA -->
-    <a href="https://thundertest.indevs.in/clat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#831843,#be185d);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/clat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#831843;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
@@ -4729,7 +4781,7 @@
 
     <hr class="exam-sep">
     <!-- ===== UPSC ===== -->
-    <a id="upsc-section" class="exam-band" style="background:linear-gradient(90deg,#fef3c7,#fff7ed);color:#92400e;border-left:4px solid #f59e0b;" href="https://thunderstudy.indevs.in/upsc/" target="_blank" rel="noopener">
+    <a id="upsc-section" class="exam-band" style="background:#fef3c7;color:#92400e;border-left:4px solid #f59e0b;" href="https://thunderstudy.indevs.in/upsc/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       UPSC — Civil Services (IAS / IPS / IFS)
       <svg class="exam-band-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -4749,7 +4801,7 @@
 
     <!-- ===== SSC ===== -->
     <!-- ===== SSC ===== -->
-    <a id="ssc-section" class="exam-band" style="background:linear-gradient(90deg,#dbeafe,#eff6ff);color:#1e40af;border-left:4px solid #3b82f6;" href="https://thundertest.indevs.in/ssc" target="_blank" rel="noopener">
+    <a id="ssc-section" class="exam-band" style="background:#dbeafe;color:#1e40af;border-left:4px solid #3b82f6;" href="https://thundertest.indevs.in/ssc" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
       SSC — Staff Selection Commission
       <svg class="exam-band-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -4757,7 +4809,7 @@
     <p style="font-size:0.85rem;color:var(--gray-600);margin-bottom:18px;">Free SSC study material — notes, PYQs and CBT-style mock tests for CGL, CHSL, MTS, GD, CPO, JE, Stenographer and more. No login, no cost.</p>
 
     <!-- Notes row -->
-    <div class="stream-band" style="background:linear-gradient(90deg,#dbeafe,#eff6ff);color:#1e40af;">
+    <div class="stream-band" style="background:#dbeafe;color:#1e40af;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
       Notes &amp; Study Material
     </div>
@@ -4770,7 +4822,7 @@
     </div>
 
     <!-- Exam-wise cards -->
-    <div class="stream-band" style="background:linear-gradient(90deg,#dbeafe,#eff6ff);color:#1e40af;">
+    <div class="stream-band" style="background:#dbeafe;color:#1e40af;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v11a6 6 0 0 0 6 0V3"/><line x1="6" y1="3" x2="18" y2="3"/></svg>
       Exam-wise Mock Tests &amp; Resources
     </div>
@@ -4806,7 +4858,7 @@
     </div>
 
     <!-- Mock Test CTA -->
-    <a href="https://thundertest.indevs.in/ssc" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#1e40af,#2563eb);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/ssc" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#1e40af;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 3v11a6 6 0 0 0 6 0V3"/><line x1="6" y1="3" x2="18" y2="3"/></svg>
@@ -4828,7 +4880,7 @@
 <section class="section-alt" id="banking" aria-labelledby="banking-heading">
   <div class="container">
 
-    <a id="banking-section" class="exam-band" style="background:linear-gradient(90deg,#dbeafe,#eff6ff);color:#1e40af;border-left:4px solid #3b82f6;" href="https://thunderstudy.indevs.in/banking/exam.html" target="_blank" rel="noopener">
+    <a id="banking-section" class="exam-band" style="background:#dbeafe;color:#1e40af;border-left:4px solid #3b82f6;" href="https://thunderstudy.indevs.in/banking/exam.html" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M3 10l9-7 9 7"/><line x1="12" y1="10" x2="12" y2="21"/><line x1="7" y1="14" x2="7" y2="21"/><line x1="17" y1="14" x2="17" y2="21"/></svg>
       Banking — IBPS · SBI · RBI · LIC · EPFO
       <svg class="exam-band-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -4836,7 +4888,7 @@
     <p style="font-size:0.85rem;color:var(--gray-600);margin-bottom:18px;">Free Banking exam mock tests — IBPS RRB, IBPS PO/Clerk, SBI PO/Clerk, RBI Grade B/Assistant, LIC AAO/ADO, EPFO and more. CBT-style interface, auto-scoring, no login, no cost.</p>
 
     <!-- Exam-wise cards -->
-    <div class="stream-band" style="background:linear-gradient(90deg,#dbeafe,#eff6ff);color:#1e40af;">
+    <div class="stream-band" style="background:#dbeafe;color:#1e40af;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v11a6 6 0 0 0 6 0V3"/><line x1="6" y1="3" x2="18" y2="3"/></svg>
       Exam-wise Mock Tests &amp; Resources
     </div>
@@ -4888,7 +4940,7 @@
     </div>
 
     <!-- Banking Mock Test CTA — SSC style -->
-    <a href="https://thundertest.indevs.in/banking" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#1e40af,#2563eb);color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+    <a href="https://thundertest.indevs.in/banking" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#1e40af;color:#fff;border-radius:14px;padding:16px 22px;text-decoration:none;margin-bottom:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
       <div style="display:flex;align-items:center;gap:14px;">
         <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M3 10l9-7 9 7"/><line x1="12" y1="10" x2="12" y2="21"/><line x1="7" y1="14" x2="7" y2="21"/><line x1="17" y1="14" x2="17" y2="21"/></svg>
@@ -4916,7 +4968,7 @@
     </div>
 
     <!-- ===== BOARD SECTION ===== -->
-    <div style="background:linear-gradient(90deg,#e3f2fd,#ede8ff);border-radius:14px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:#1565c0;">
+    <div style="background:#e3f2fd;border-radius:14px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:#1565c0;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
       Board Exams — Class 10 &amp; 12
     </div>
@@ -5005,7 +5057,7 @@
     </div>
 
     <!-- Class 12 Common -->
-    <div class="stream-band" style="background:linear-gradient(90deg,#ede8ff,#dbeeff);color:#4a1d96;margin-bottom:16px;">
+    <div class="stream-band" style="background:#ede8ff;color:#4a1d96;margin-bottom:16px;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Class 12 — Common Subjects (All Streams)
     </div>
@@ -5036,7 +5088,7 @@
     </div>
 
     <!-- Class 10 Section -->
-    <div style="background:linear-gradient(90deg,#e8f5e9,#fff8e1);border-radius:14px;padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:#2e7d32;">
+    <div style="background:#e8f5e9;border-radius:14px;padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:#2e7d32;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
       Class 10 — Board Subjects
     </div>
@@ -5082,7 +5134,7 @@
     </div>
 
     <!-- ===== CUET SECTION ===== -->
-    <div style="background:linear-gradient(90deg,#f3e8ff,#ede8ff);border-radius:14px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:#5b21b6;">
+    <div style="background:#f3e8ff;border-radius:14px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:#5b21b6;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       CUET — Domain Subjects &amp; GAT
     </div>
@@ -5156,7 +5208,7 @@
     </div>
 
     <!-- CUET Common -->
-    <div class="stream-band" style="background:linear-gradient(90deg,#ede8ff,#dbeeff);color:#4a1d96;margin-bottom:16px;">
+    <div class="stream-band" style="background:#ede8ff;color:#4a1d96;margin-bottom:16px;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       CUET — Common Subjects (All Streams)
     </div>
@@ -5191,7 +5243,7 @@
 
 
     <!-- Notes by Class/Exam -->
-    <div style="background:linear-gradient(90deg,#e3f2fd,#ede8ff);border-radius:14px;padding:14px 20px;margin-bottom:18px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1rem;color:#1565c0;">
+    <div style="background:#e3f2fd;border-radius:14px;padding:14px 20px;margin-bottom:18px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1rem;color:#1565c0;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Notes by Class &amp; Exam — Direct Access
     </div>
@@ -5224,7 +5276,7 @@
     </div>
 
     <!-- Info strip -->
-    <div class="faq-item" style="margin-bottom:28px;background:linear-gradient(90deg,#f0f7ff,#f5f0ff);">
+    <div class="faq-item" style="margin-bottom:28px;background:var(--blue-100);">
       <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)" style="font-size:0.85rem;padding:13px 18px;">
         💡 Which exams does ThunderStudy cover and what types of mocks are available?
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -5236,7 +5288,7 @@
     <div class="mock-bento" style="margin-bottom:36px;">
 
       <!-- CUET — featured wide card -->
-      <a class="mock-card mock-featured" href="https://thundertest.indevs.in/cuet" aria-label="CUET Mock Tests" style="--mc:#7c3aed;--mc-light:#f3e8ff;--mc-grad:linear-gradient(135deg,#4a1d96,#7c3aed);">
+      <a class="mock-card mock-featured" href="https://thundertest.indevs.in/cuet" aria-label="CUET Mock Tests" style="--mc:#7c3aed;--mc-light:#f3e8ff;--mc-grad:#4a1d96;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
@@ -5257,7 +5309,7 @@
       </a>
 
       <!-- JEE -->
-      <a class="mock-card" href="https://thundertest.indevs.in/jee-neet" aria-label="JEE Mock Tests" style="--mc:#1b5e20;--mc-light:#e8f5e9;--mc-grad:linear-gradient(135deg,#1b5e20,#43a047);">
+      <a class="mock-card" href="https://thundertest.indevs.in/jee-neet" aria-label="JEE Mock Tests" style="--mc:#1b5e20;--mc-light:#e8f5e9;--mc-grad:#1b5e20;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 3v11a6 6 0 0 0 6 0V3"/><line x1="6" y1="3" x2="18" y2="3"/></svg>
@@ -5275,7 +5327,7 @@
       </a>
 
       <!-- NEET -->
-      <a class="mock-card" href="https://thundertest.indevs.in/jee-neet" aria-label="NEET Mock Tests" style="--mc:#00695c;--mc-light:#e0f2f1;--mc-grad:linear-gradient(135deg,#00695c,#26a69a);">
+      <a class="mock-card" href="https://thundertest.indevs.in/jee-neet" aria-label="NEET Mock Tests" style="--mc:#00695c;--mc-light:#e0f2f1;--mc-grad:#00695c;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -5293,7 +5345,7 @@
       </a>
 
       <!-- SSC -->
-      <a class="mock-card" href="https://thundertest.indevs.in/ssc" aria-label="SSC Mock Tests" style="--mc:#e65100;--mc-light:#fff3e0;--mc-grad:linear-gradient(135deg,#e65100,#ff7043);">
+      <a class="mock-card" href="https://thundertest.indevs.in/ssc" aria-label="SSC Mock Tests" style="--mc:#e65100;--mc-light:#fff3e0;--mc-grad:#e65100;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
@@ -5311,7 +5363,7 @@
       </a>
 
       <!-- Banking -->
-      <a class="mock-card" href="https://thundertest.indevs.in/banking" aria-label="Banking Mock Tests" style="--mc:#004d40;--mc-light:#e0f2f1;--mc-grad:linear-gradient(135deg,#004d40,#00897b);">
+      <a class="mock-card" href="https://thundertest.indevs.in/banking" aria-label="Banking Mock Tests" style="--mc:#004d40;--mc-light:#e0f2f1;--mc-grad:#004d40;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
@@ -5329,7 +5381,7 @@
       </a>
 
       <!-- CAT -->
-      <a class="mock-card" href="https://thundertest.indevs.in/cat" aria-label="CAT Mock Tests" style="--mc:#b71c1c;--mc-light:#fce4ec;--mc-grad:linear-gradient(135deg,#b71c1c,#e53935);">
+      <a class="mock-card" href="https://thundertest.indevs.in/cat" aria-label="CAT Mock Tests" style="--mc:#b71c1c;--mc-light:#fce4ec;--mc-grad:#b71c1c;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
@@ -5347,7 +5399,7 @@
       </a>
 
       <!-- CLAT -->
-      <a class="mock-card" href="https://thundertest.indevs.in/clat" aria-label="CLAT Mock Tests" style="--mc:#880e4f;--mc-light:#fce4ec;--mc-grad:linear-gradient(135deg,#880e4f,#e91e63);">
+      <a class="mock-card" href="https://thundertest.indevs.in/clat" aria-label="CLAT Mock Tests" style="--mc:#880e4f;--mc-light:#fce4ec;--mc-grad:#880e4f;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -5365,7 +5417,7 @@
       </a>
 
       <!-- NDA -->
-      <a class="mock-card" href="https://thundertest.indevs.in/nda/" aria-label="NDA Mock Tests" style="--mc:#1a237e;--mc-light:#e8eaf6;--mc-grad:linear-gradient(135deg,#1a237e,#3949ab);">
+      <a class="mock-card" href="https://thundertest.indevs.in/nda/" aria-label="NDA Mock Tests" style="--mc:#1a237e;--mc-light:#e8eaf6;--mc-grad:#1a237e;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
@@ -5385,14 +5437,14 @@
     </div><!-- end mock-bento -->
 
     <!-- Common Subjects -->
-    <div style="background:linear-gradient(90deg,#ede8ff,#dbeeff);border-radius:14px;padding:12px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1rem;color:#5b21b6;">
+    <div style="background:#ede8ff;border-radius:14px;padding:12px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1rem;color:#5b21b6;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       Common Subjects (All Exams)
     </div>
     <div class="mock-bento">
 
       <!-- GAT — featured wide -->
-      <a class="mock-card mock-featured" href="https://thundertest.indevs.in/gat" aria-label="General Aptitude Test" style="--mc:#e65100;--mc-light:#fff3e0;--mc-grad:linear-gradient(135deg,#bf360c,#ff7043);">
+      <a class="mock-card mock-featured" href="https://thundertest.indevs.in/gat" aria-label="General Aptitude Test" style="--mc:#e65100;--mc-light:#fff3e0;--mc-grad:#bf360c;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -5411,7 +5463,7 @@
       </a>
 
       <!-- English -->
-      <a class="mock-card" href="https://thundertest.indevs.in/english" aria-label="English Common" style="--mc:#0277bd;--mc-light:#e1f5fe;--mc-grad:linear-gradient(135deg,#01579b,#0288d1);">
+      <a class="mock-card" href="https://thundertest.indevs.in/english" aria-label="English Common" style="--mc:#0277bd;--mc-light:#e1f5fe;--mc-grad:#01579b;">
         <div class="mc-header">
           <div class="mc-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -5719,7 +5771,7 @@
         YouTube
       </a>
       <a class="social-btn" href="https://instagram.com/wondermayank" target="_blank" rel="noopener" aria-label="Instagram @wondermayank">
-        <svg viewBox="0 0 24 24" fill="url(#ig)"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <svg viewBox="0 0 24 24"><defs><radialGradient id="igGrad1" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="url(#igGrad1)"/></svg>
         Instagram
       </a>
       <a class="social-btn" href="https://x.com/ThunderstudyX" target="_blank" rel="noopener" aria-label="X / Twitter">
@@ -5922,13 +5974,13 @@
     <p class="section-desc">Questions, suggestions or just want to say hi? Find us on social media.</p>
     <div class="contact-grid">
       <a class="contact-card" href="https://instagram.com/wondermayank" target="_blank" rel="noopener" aria-label="Instagram - wondermayank">
-        <svg viewBox="0 0 24 24" fill="url(#igc)"><defs><linearGradient id="igc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <svg viewBox="0 0 24 24"><defs><radialGradient id="igGrad2" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="url(#igGrad2)"/></svg>
         <div class="cc-title">@wondermayank</div>
         <div class="cc-handle">Instagram</div>
         <div class="cc-role">Owner &amp; Creator</div>
       </a>
       <a class="contact-card" href="https://instagram.com/wondermayank" target="_blank" rel="noopener" aria-label="Instagram - wondermayank">
-        <svg viewBox="0 0 24 24" fill="url(#igc2)"><defs><linearGradient id="igc2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <svg viewBox="0 0 24 24"><defs><radialGradient id="igGrad3" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="url(#igGrad3)"/></svg>
         <div class="cc-title">@WONDERMAYANK</div>
         <div class="cc-handle">Instagram</div>
         <div class="cc-role">Official Page</div>
@@ -6012,11 +6064,7 @@
     <div class="footer-grid">
       <div class="footer-col" style="grid-column:span 1;">
         <div class="footer-logo" style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-          <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="80" height="80" rx="18" fill="#573AFC"/>
-            <path d="M22 24h36M40 24v32M28 56h24" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="58" cy="56" r="5" fill="#60a5fa"/>
-          </svg>
+          <img src="/favicon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
           <span style="font-size:1.25rem;font-weight:700;letter-spacing:-0.3px;color:#ffffff;font-family:'Syne','DM Sans',sans-serif;">Thunder<span style="color:#60a5fa;">Study</span></span>
         </div>
         <div class="footer-tagline" style="font-size:0.8rem;color:#94a3b8;line-height:1.5;margin-bottom:4px;">India's Largest Free Study Platform</div>
@@ -6024,7 +6072,7 @@
         <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
           <a href="https://t.me/Thunderstudyx" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:background 0.2s;" title="Telegram" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="#60a5fa"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg></a>
           <a href="https://youtube.com/@Thunderstudyx" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:background 0.2s;" title="YouTube" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f87171"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-          <a href="https://instagram.com/wondermayank" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:background 0.2s;" title="Instagram @wondermayank" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="#c084fc"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="https://instagram.com/wondermayank" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:background 0.2s;" title="Instagram @wondermayank" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'"><svg width="16" height="16" viewBox="0 0 24 24"><defs><radialGradient id="igGrad4" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="url(#igGrad4)"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -6086,7 +6134,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span style="display:flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" rx="18" fill="#573AFC"/><path d="M22 24h36M40 24v32M28 56h24" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="56" r="5" fill="#60a5fa"/></svg>© 2026 <strong style="color:#ffffff;">Thunder<span style="color:#60a5fa;">Study</span></strong> · thunderstudy.indevs.in · Free Education For All</span>
+      <span style="display:flex;align-items:center;gap:6px;"><img src="/favicon.svg" alt="" width="14" height="14" loading="lazy" decoding="async">© 2026 <strong style="color:#ffffff;">Thunder<span style="color:#60a5fa;">Study</span></strong> · thunderstudy.indevs.in · Free Education For All</span>
       <span style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
         <a href="https://wondermayank.in/privacy" style="color:#94a3b8;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#94a3b8'">Privacy</a>
         <a href="https://wondermayank.in/terms" style="color:#94a3b8;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#94a3b8'">Terms</a>
@@ -6465,6 +6513,31 @@
       btn.nextElementSibling.classList.add('open');
     }
   }
+
+  // Dark mode toggle
+  function updateThemeIcon() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var sun = document.getElementById('theme-icon-sun');
+    var moon = document.getElementById('theme-icon-moon');
+    if (sun && moon) {
+      sun.style.display = isDark ? 'none' : 'block';
+      moon.style.display = isDark ? 'block' : 'none';
+    }
+  }
+  function toggleTheme() {
+    var html = document.documentElement;
+    var isDark = html.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      html.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', 'light'); } catch (e) {}
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+    }
+    updateThemeIcon();
+  }
+  document.addEventListener('DOMContentLoaded', updateThemeIcon);
+
 
   // Fade in cards on scroll
   var observer = new IntersectionObserver(function(entries) {
