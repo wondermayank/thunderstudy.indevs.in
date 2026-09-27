@@ -6,6 +6,7 @@
 
 User-agent: *
 Allow: /ca/
+Disallow: /ca/404.html
 
 Sitemap: https://thunderstudy.indevs.in/sitemap.xml
 
