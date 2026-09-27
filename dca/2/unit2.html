@@ -3,37 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ThunderStudy | 2DCA1 IT Trends – Unit 2</title>
+<title>2DCA1 IT Trends Unit 2: Text & Sound in Multimedia Notes - ThunderStudy</title>
+<meta name="description" content="Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 2 - text and sound components of multimedia, from the official MCU course material.">
+<link rel="canonical" href="https://thunderstudy.indevs.in/dca/2/unit2.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#70a1fc">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://thunderstudy.indevs.in/dca/2/unit2.html">
+<meta property="og:title" content="2DCA1 IT Trends Unit 2: Text & Sound in Multimedia Notes - ThunderStudy">
+<meta property="og:description" content="Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 2 - text and sound components of multimedia, from the official MCU course material.">
+<meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
+<meta property="og:site_name" content="ThunderStudy">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Thunderstudyx">
+<meta name="twitter:creator" content="@wondermayank">
+<meta name="twitter:title" content="2DCA1 IT Trends Unit 2: Text & Sound in Multimedia Notes - ThunderStudy">
+<meta name="twitter:description" content="Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 2 - text and sound components of multimedia, from the official MCU course material.">
+<meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
+
+<meta name="speakable" content="ThunderStudy provides free 2DCA1 IT Trends Unit 2 notes covering text and sound in multimedia for DCA Semester 2 students.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ThunderStudy","item":"https://thunderstudy.indevs.in/"},{"@type":"ListItem","position":2,"name":"DCA & PGDCA","item":"https://thunderstudy.indevs.in/dca/"},{"@type":"ListItem","position":3,"name":"Unit 2 - Text & Sound in Multimedia","item":"https://thunderstudy.indevs.in/dca/2/unit2.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Unit 2 - Text & Sound in Multimedia","description":"Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 2 - text and sound components of multimedia, from the official MCU course material.","url":"https://thunderstudy.indevs.in/dca/2/unit2.html","inLanguage":"en-IN","educationalLevel":"Diploma","isPartOf":{"@type":"Course","name":"DCA & PGDCA - Diploma in Computer Applications","url":"https://thunderstudy.indevs.in/dca/"},"provider":{"@type":"EducationalOrganization","name":"ThunderStudy","url":"https://thunderstudy.indevs.in"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blue: #1565C0;
-  --blue-mid: #1976D2;
-  --blue-light: #42A5F5;
-  --blue-pale: #E3F2FD;
-  --amber: #F59E0B;
-  --amber-light: #FEF3C7;
-  --green: #22C55E;
-  --red: #EF4444;
-  --bg: #F0F6FF;
+  /* ThunderStudy design-system tokens (light) */
+  --primary: #70a1fc;
+  --primary-soft: #7897D1;
+  --primary-active: #5D79B3;
+  --secondary: #D6BD82;
+  --accent-pink: #F7B8CB;
+  --accent-yellow: #FBE99C;
+  --ink: #26324A;
+  --muted: #667085;
+  --on-primary: #FFFFFF;
+  --on-dark: #F4F1FF;
+  --canvas: #EEF3FF;
+  --surface: #FFFFFF;
   --card: #FFFFFF;
-  --text: #0F1B35;
-  --muted: #5A6885;
-  --border: #D0E3FF;
-  --shadow: 0 2px 16px rgba(21,101,192,0.10);
-  --shadow-md: 0 4px 32px rgba(21,101,192,0.14);
+  --surface-dark: #121212;
+  --hairline: #D8E1F2;
+  --hairline-strong: #B9C8E3;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #dc2626;
+
+  /* legacy aliases used throughout this page's original CSS -
+     now resolve to design-system tokens so both palettes stay in sync */
+  --blue: var(--primary);
+  --blue-mid: var(--primary-active);
+  --blue-light: var(--primary-soft);
+  --blue-pale: var(--canvas);
+  --amber: var(--secondary);
+  --amber-light: var(--accent-yellow);
+  --green: var(--success);
+  --red: var(--error);
+  --bg: var(--canvas);
+  --text: var(--ink);
+  --border: var(--hairline);
+  --shadow: none;
+  --shadow-md: none;
 }
+
+[data-theme="dark"] {
+  --primary: #9A7AFB;
+  --primary-soft: #7560C7;
+  --primary-active: #7E64CE;
+  --secondary: #CBDD98;
+  --accent-pink: #F0A8C0;
+  --accent-yellow: #F2DB82;
+  --ink: #F4F1FF;
+  --muted: #A9A4B8;
+  --canvas: #121212;
+  --surface: #1B1B1F;
+  --card: #222228;
+  --surface-dark: #000000;
+  --hairline: #2A2A2A;
+  --hairline-strong: #3A3A3C;
+}
+
+.icon-inline { display: inline-block; vertical-align: -0.125em; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:15.5px; }
 
 /* HEADER */
-header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%); box-shadow:0 2px 24px rgba(13,71,161,0.4); }
+header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg,var(--primary-active) 0%,var(--primary) 50%,var(--primary-soft) 100%); box-shadow:none; }
 .header-inner { max-width:1200px; margin:auto; padding:0 24px; height:62px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
 .brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
-.brand-icon { width:36px; height:36px; background:var(--amber); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; color:#fff; flex-shrink:0; box-shadow:0 2px 8px rgba(245,158,11,0.5); }
+.brand-icon { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; flex-shrink: 0; }
 .brand-text { display:flex; flex-direction:column; line-height:1.1; }
 .brand-name { font-size:18px; font-weight:800; color:#fff; letter-spacing:-0.3px; }
+.brand-thunder { color: #fff; }
+.brand-study { background: linear-gradient(135deg, var(--primary), var(--primary-active)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.theme-toggle-btn { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:9999px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.15); color:#fff; cursor:pointer; flex-shrink:0; }
+.theme-toggle-btn:active { transform: scale(0.95); }
 .brand-tagline { font-size:10px; color:rgba(255,255,255,0.7); font-weight:400; letter-spacing:0.5px; }
 
 /* DROPDOWN */
@@ -54,7 +123,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .nav-pill { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.9); padding:5px 12px; border-radius:20px; font-size:12px; font-weight:600; letter-spacing:0.3px; }
 
 /* HERO */
-.hero { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 60%,#1E88E5 100%); padding:40px 24px 36px; text-align:center; color:#fff; position:relative; overflow:hidden; }
+.hero { background:linear-gradient(135deg,var(--primary-active) 0%,var(--primary) 60%,var(--primary-soft) 100%); padding:40px 24px 36px; text-align:center; color:#fff; position:relative; overflow:hidden; }
 .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; background:rgba(255,255,255,0.05); border-radius:50%; }
 .hero::after { content:''; position:absolute; bottom:-80px; left:-40px; width:250px; height:250px; background:rgba(255,255,255,0.04); border-radius:50%; }
 .hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); padding:4px 14px; border-radius:20px; font-size:12px; font-weight:600; margin-bottom:12px; letter-spacing:0.5px; }
@@ -94,15 +163,15 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .sec-card.open .sec-body { display:block; }
 
 /* TYPOGRAPHY */
-.sec-body p { margin-top:14px; color:#2C3E60; font-size:15px; line-height:1.8; }
+.sec-body p { margin-top:14px; color:var(--ink); font-size:15px; line-height:1.8; }
 .sec-body h3 { font-size:15px; font-weight:700; color:var(--blue); margin-top:22px; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
 .sec-body h3::before { content:''; width:4px; height:16px; background:var(--amber); border-radius:2px; flex-shrink:0; }
 .sec-body h4 { font-size:14px; font-weight:700; color:var(--text); margin-top:16px; margin-bottom:4px; }
 .sec-body ul { margin-top:10px; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
-.sec-body ul li { padding-left:20px; position:relative; font-size:14.5px; color:#2C3E60; line-height:1.7; }
+.sec-body ul li { padding-left:20px; position:relative; font-size:14.5px; color:var(--ink); line-height:1.7; }
 .sec-body ul li::before { content:'▸'; position:absolute; left:0; color:var(--blue-light); font-size:12px; top:3px; }
 .sec-body ol { margin-top:10px; padding-left:20px; }
-.sec-body ol li { font-size:14.5px; color:#2C3E60; line-height:1.7; margin-bottom:4px; }
+.sec-body ol li { font-size:14.5px; color:var(--ink); line-height:1.7; margin-bottom:4px; }
 
 /* INFO BOXES */
 .info-box { margin-top:16px; padding:14px 18px; border-radius:10px; font-size:14px; line-height:1.7; }
@@ -112,7 +181,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .info-box strong { font-weight:700; display:block; margin-bottom:4px; }
 
 /* SUB SECTIONS */
-.sub-sec { margin-top:20px; background:#F8FAFE; border-radius:10px; border:1px solid var(--border); padding:14px 18px; }
+.sub-sec { margin-top:20px; background:var(--canvas); border-radius:10px; border:1px solid var(--border); padding:14px 18px; }
 .sub-sec-title { font-size:14px; font-weight:700; color:var(--blue); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
 .sub-sec-title .dot { width:8px; height:8px; background:var(--amber); border-radius:50%; flex-shrink:0; }
 
@@ -130,7 +199,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .content-table th { background:var(--blue); color:#fff; padding:10px 14px; text-align:left; font-weight:700; }
 .content-table td { padding:9px 14px; border-bottom:1px solid var(--border); color:var(--text); vertical-align:top; }
 .content-table tr:last-child td { border-bottom:none; }
-.content-table tr:nth-child(even) td { background:#F8FBFF; }
+.content-table tr:nth-child(even) td { background:var(--canvas); }
 
 /* DEFINITION BOX */
 .def-box { margin-top:16px; background:linear-gradient(135deg,#E8F1FE 0%,#F0F7FF 100%); border:1px solid rgba(21,101,192,0.2); border-radius:12px; padding:16px 20px; }
@@ -148,7 +217,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 
 /* FONT TYPE CARDS */
 .font-type-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
-.font-type-card { background:#F8FAFE; border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+.font-type-card { background:var(--canvas); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
 .font-type-card .ftc-type { font-size:11px; font-weight:800; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
 .font-type-card .ftc-examples { display:flex; flex-direction:column; gap:3px; margin-bottom:8px; }
 .font-type-card .ftc-desc { font-size:12.5px; color:var(--muted); line-height:1.5; }
@@ -157,23 +226,23 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .step-list { list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
 .step-list li { display:flex; gap:12px; align-items:flex-start; }
 .step-list li .step-n { width:24px; height:24px; background:var(--blue); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; margin-top:1px; }
-.step-list li .step-text { font-size:14px; color:#2C3E60; line-height:1.6; }
+.step-list li .step-text { font-size:14px; color:var(--ink); line-height:1.6; }
 
 /* COMPARISON TABLE */
 .compare-table { width:100%; border-collapse:collapse; margin-top:14px; font-size:13.5px; border-radius:8px; overflow:hidden; }
 .compare-table th { padding:10px 14px; text-align:left; font-weight:700; color:#fff; }
 .compare-table th:nth-child(1) { background:#546E7A; }
-.compare-table th:nth-child(2) { background:#1565C0; }
+.compare-table th:nth-child(2) { background:var(--primary); }
 .compare-table th:nth-child(3) { background:#2E7D32; }
 .compare-table td { padding:9px 14px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text); font-size:13.5px; }
 .compare-table tr:last-child td { border-bottom:none; }
-.compare-table tr:nth-child(even) td { background:#F8FBFF; }
+.compare-table tr:nth-child(even) td { background:var(--canvas); }
 
 /* SIGNAL VISUAL */
 .signal-box { display:flex; gap:16px; margin-top:14px; }
 .signal-card { flex:1; border-radius:10px; padding:14px; border:2px solid; text-align:center; }
 .signal-card.analog { border-color:#FF6B35; background:#FFF3EE; }
-.signal-card.digital { border-color:#1565C0; background:#E3F2FD; }
+.signal-card.digital { border-color:var(--primary); background:var(--canvas); }
 .signal-card .sig-title { font-size:14px; font-weight:800; margin-bottom:6px; }
 .signal-card.analog .sig-title { color:#D84315; }
 .signal-card.digital .sig-title { color:var(--blue); }
@@ -185,7 +254,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .format-tag { padding:5px 14px; border-radius:20px; font-size:12.5px; font-weight:700; letter-spacing:0.3px; }
 .format-tag.uncomp { background:#E8F5E9; color:#2E7D32; border:1px solid #A5D6A7; }
 .format-tag.lossy { background:#FFF3E0; color:#E65100; border:1px solid #FFCC80; }
-.format-tag.lossless { background:#E3F2FD; color:#1565C0; border:1px solid #90CAF9; }
+.format-tag.lossless { background:var(--canvas); color:var(--primary); border:1px solid #90CAF9; }
 
 /* SOFTWARE CARDS */
 .software-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
@@ -193,7 +262,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .software-card .sw-icon { font-size:28px; margin-bottom:8px; }
 .software-card .sw-name { font-size:14px; font-weight:800; color:var(--blue); margin-bottom:4px; }
 .software-card .sw-by { font-size:11px; color:var(--muted); margin-bottom:8px; }
-.software-card .sw-desc { font-size:13px; color:#2C3E60; line-height:1.6; }
+.software-card .sw-desc { font-size:13px; color:var(--ink); line-height:1.6; }
 .software-card .sw-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
 .software-card .sw-tag { background:rgba(21,101,192,0.1); color:var(--blue); padding:2px 8px; border-radius:8px; font-size:11px; font-weight:600; }
 
@@ -203,15 +272,7 @@ header { position:sticky; top:0; z-index:1000; background:linear-gradient(135deg
 .divider { height:1px; background:var(--border); margin:16px 0; }
 
 /* FOOTER */
-footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(255,255,255,0.85); padding:36px 24px 24px; }
-.footer-inner { max-width:1200px; margin:auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; }
-.footer-brand .brand-name { font-size:20px; font-weight:800; color:#fff; margin-bottom:6px; }
-.footer-brand p { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; }
-.footer-col h4 { font-size:13px; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.5px; text-transform:uppercase; margin-bottom:12px; }
-.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
-.footer-col ul li a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:13px; transition:color 0.15s; }
-.footer-col ul li a:hover { color:#fff; }
-.footer-bottom { max-width:1200px; margin:24px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.15); text-align:center; font-size:12.5px; color:rgba(255,255,255,0.5); }
+/* Footer styling now lives in the shared /footer.js include. */
 
 /* SCROLL TOP */
 .scroll-top { position:fixed; bottom:28px; right:24px; width:44px; height:44px; background:var(--blue); color:#fff; border-radius:50%; border:none; font-size:18px; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(21,101,192,0.4); z-index:500; transition:transform 0.2s; }
@@ -232,6 +293,15 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
   .sec-title { font-size:14px; }
 }
 </style>
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 </head>
 <body>
 
@@ -239,9 +309,9 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
 <header>
   <div class="header-inner">
     <a class="brand" href="#">
-      <div class="brand-icon">T</div>
+      <img src="/favicon.svg" alt="Thunder" class="brand-icon">
       <div class="brand-text">
-        <span class="brand-name">ThunderStudy</span>
+        <span class="brand-name"><span class="brand-thunder">Thunder</span><span class="brand-study">Study</span></span>
         <span class="brand-tagline">by Wondermayank</span>
       </div>
     </a>
@@ -249,30 +319,31 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
       <span class="nav-pill">2DCA1 – IT Trends</span>
       <div class="unit-dropdown-wrap" id="unitDrop">
         <button class="unit-btn" onclick="toggleDrop()">
-          📚 Unit 2 &nbsp;<span class="arrow">▾</span>
+          <svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Unit 2 &nbsp;<span class="arrow">▾</span>
         </button>
         <div class="unit-menu">
-          <a href="https://thunderstudy.github.io/dca/2/unit1.html">Unit 1 – Multimedia</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit2.html" class="active">Unit 2 – Text &amp; Sound <span class="badge">Current</span></a>
-          <a href="https://thunderstudy.github.io/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit5.html">Unit 5 – AI, Cloud &amp; Google Apps</a>
+          <a href="/dca/2/unit1.html">Unit 1 – Multimedia</a>
+          <a href="/dca/2/unit2.html" class="active">Unit 2 – Text &amp; Sound <span class="badge">Current</span></a>
+          <a href="/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
+          <a href="/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
+          <a href="/dca/2/unit5.html">Unit 5 – AI, Cloud &amp; Google Apps</a>
         </div>
       </div>
+      <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle dark mode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
     </div>
   </div>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">📖 Unit 2 Notes</div>
+  <div class="hero-badge"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg> Unit 2 Notes</div>
   <h1>Text &amp; Sound in Multimedia</h1>
   <p>Complete Unit 2 study notes for 2DCA1 IT Trends – translated from official course material</p>
   <div class="hero-meta">
-    <span>🏫 MCU, Bhopal</span>
-    <span>📋 7 Major Topics</span>
-    <span>⚡ Full PDF Content</span>
-    <span>🌐 English Medium</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 21 7 3 7"/></svg> MCU, Bhopal</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg> 7 Major Topics</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Full PDF Content</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> English Medium</span>
   </div>
 </div>
 
@@ -281,7 +352,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
 
   <!-- TOC Sidebar -->
   <aside class="toc-sidebar">
-    <div class="toc-head">📑 Contents</div>
+    <div class="toc-head"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Contents</div>
     <ul class="toc-list" id="tocList">
       <li><a href="#s1"><span class="toc-num">2.1</span> Text as Multimedia Component</a></li>
       <li><a href="#s2"><span class="toc-num">2.2</span> Plain &amp; Formatted Text</a></li>
@@ -313,7 +384,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
 
         <h3>2.1.1 Definition of Text</h3>
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">"Text is the most common system of communication in which communication can be done in written or oral form. Text is an important component used in most multimedia applications. With the help of multimedia technology, text can be combined with other media in a powerful and meaningful way, so that it can effectively present any information and express ideas."</div>
         </div>
 
@@ -321,7 +392,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>Text in multimedia presentations can deliver a large amount of information using very little storage space. The main features of text include <span class="kw">paragraph styling, character styling, font family</span>, and <span class="kw">font size</span>.</p>
 
         <div class="info-box blue">
-          <strong>📌 Types of Text</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Types of Text</strong>
           <ul style="margin-top:6px;">
             <li><strong>Plain Text</strong> — Unformatted, same-looking characters throughout</li>
             <li><strong>Formatted Text</strong> — Can be changed using font parameters (bold, italic, underline, size, colour)</li>
@@ -333,22 +404,22 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>The categories of text elements are as follows:</p>
         <div class="grid-4">
           <div class="mini-card">
-            <div class="mc-icon">🔤</div>
+            <div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg></div>
             <div class="mc-title">Alphabets</div>
             <div class="mc-text">A–Z, a–z</div>
           </div>
           <div class="mini-card">
-            <div class="mc-icon">🔢</div>
+            <div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg></div>
             <div class="mc-title">Numbers</div>
             <div class="mc-text">0–9</div>
           </div>
           <div class="mini-card">
-            <div class="mc-icon">✏️</div>
+            <div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
             <div class="mc-title">Special Characters</div>
             <div class="mc-text">। ; : ' "</div>
           </div>
           <div class="mini-card">
-            <div class="mc-icon">🔣</div>
+            <div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg></div>
             <div class="mc-title">Symbols</div>
             <div class="mc-text">@ # $ &amp; *</div>
           </div>
@@ -384,7 +455,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
           <li><strong>Text Importing &amp; Exporting</strong> — bringing already-prepared files or databases into a text file without re-typing</li>
         </ul>
         <div class="info-box amber">
-          <strong>📝 Common Text Software</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.855z"/></svg> Common Text Software</strong>
           Microsoft Word (MS Word), WordPerfect, LibreOffice Writer — these are the main examples used for creating text and documents.
         </div>
       </div>
@@ -434,7 +505,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>HTML is a markup language that uses various <span class="tech">tags</span> to format content. These tags are enclosed within angle braces <span class="tech">&lt;Tag Name&gt;</span>. Most tags have their corresponding closing tags. For example, <span class="tech">&lt;html&gt;</span> has its closing tag <span class="tech">&lt;/html&gt;</span> and <span class="tech">&lt;body&gt;</span> has <span class="tech">&lt;/body&gt;</span>.</p>
 
         <div class="info-box blue">
-          <strong>🏷️ Common HTML Elements</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42Z"/><circle cx="7.5" cy="7.5" r=".5"/></svg> Common HTML Elements</strong>
           &lt;head&gt;, &lt;title&gt;, &lt;body&gt;, &lt;header&gt;, &lt;footer&gt;, &lt;article&gt;, &lt;section&gt;, &lt;p&gt;, &lt;div&gt;, &lt;span&gt;, &lt;img&gt;, &lt;aside&gt;, &lt;audio&gt;, &lt;canvas&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt; etc.
         </div>
 
@@ -452,7 +523,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         </ul>
 
         <div class="info-box amber">
-          <strong>⚠️ Disadvantages of OLE</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--warning)"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Disadvantages of OLE</strong>
           <ul style="margin-top:6px;">
             <li>Embedded objects increase the file size of the host document, resulting in possible storage or loading difficulties.</li>
             <li>Linked objects can break links when a host document is moved to a location where the original object application is not present.</li>
@@ -475,7 +546,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>A font is a graphic representation of text that can include a different typeface, point size, weight, colour, or design. Software programs like <span class="tech">Microsoft Word, Microsoft Excel</span>, and <span class="tech">WordPad</span> allow users to change the font used when typing text in documents or spreadsheets.</p>
 
         <div class="font-showcase">
-          <div class="fs-label">🔤 Common Computer Font Examples</div>
+          <div class="fs-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg> Common Computer Font Examples</div>
           <div class="font-row">
             <div class="font-name-col">Courier</div>
             <div class="font-sample" style="font-family:Courier,monospace">The quick brown fox</div>
@@ -540,7 +611,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>Most typefaces can be classified in one of four basic groups: those with serifs, those without serifs (sans serif), script, and decorative styles. A classification system can help in identifying, selecting, and combining typefaces.</p>
 
         <div class="info-box blue">
-          <strong>📌 Two Main Categories</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Two Main Categories</strong>
           <strong>Serif</strong> — typefaces with small strokes at the ends of letters (better readability in print)<br>
           <strong>Sans Serif</strong> — typefaces without strokes (better readability on screen)
         </div>
@@ -680,7 +751,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>Sound is used to make multimedia applications more effective. <span class="kw">Sound (Dhwani)</span> is the most important element of multimedia. Any meaningful sound in any language, from a very soft voice to a loud shout, is sound. This is what gives us pleasure in listening to music. Films, animation, etc. are made effective through sound.</p>
 
         <div class="info-box blue">
-          <strong>🔊 Sound vs Audio</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg> Sound vs Audio</strong>
           The word <strong>Sound</strong> is used for the analogue form of sound. In digital form, this same sound is called <strong>Audio</strong>.
         </div>
 
@@ -691,13 +762,13 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>Mono and stereo audio provide quite different listening experiences. Stereo is the most common format for home audio systems and recorded music, while mono sound provides different benefits for users who want high-quality experiences with older recordings.</p>
 
         <div class="signal-box">
-          <div class="signal-card analog" style="border-color:#1565C0;background:#E3F2FD;">
-            <div class="signal-wave">📻</div>
-            <div class="sig-title" style="color:#0D47A1;">Mono Sound</div>
+          <div class="signal-card analog" style="border-color:var(--primary);background:var(--canvas);">
+            <div class="signal-wave"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg></div>
+            <div class="sig-title" style="color:var(--primary-active);">Mono Sound</div>
             <p>Audio signals are grouped together and played through a <strong>single channel</strong>. Used in: public address systems, radio talk shows, hearing aids, telephone, mobile communication, some AM radio stations.</p>
           </div>
           <div class="signal-card digital" style="border-color:#2E7D32;background:#E8F5E9;">
-            <div class="signal-wave">🔊</div>
+            <div class="signal-wave"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></div>
             <div class="sig-title" style="color:#1B5E20;">Stereo Sound</div>
             <p>Uses <strong>two or more audio channels</strong> and two or more loudspeakers or stereo headphones. Used in: cinema, television, music players, FM radio stations. Provides richer audio quality and audio imaging experience.</p>
           </div>
@@ -795,7 +866,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         </table>
 
         <div class="info-box green">
-          <strong>🔁 Why Everything is Going Digital</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg> Why Everything is Going Digital</strong>
           All types of information over time are being converted to digital because creating, sending from one place to another, storing, and editing them is far easier than analog.
         </div>
 
@@ -901,14 +972,14 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
       </div>
       <div class="sec-body">
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">"MIDI (Musical Instrument Digital Interface) is a connectivity standard for transferring digital instrument data. It is mainly used by computers, synthesizers, and electronic keyboards. It is a protocol used for electronic instruments and other digital musical tools to communicate with each other."</div>
         </div>
 
         <p>MIDI by itself does not produce any sound — it only sends messages. MIDI instruments understand these messages and produce sound. These instruments can be any hardware like an electronic keyboard or synthesizer, or any software of that environment like <span class="tech">GarageBand, Digital Performer</span>.</p>
 
         <div class="info-box amber">
-          <strong>🎹 MIDI Also Supports</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> MIDI Also Supports</strong>
           Electronic drums, beat boxes, and even digitally-stringed instruments such as guitar and violin — through MIDI.
         </div>
 
@@ -928,7 +999,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <p>Originally, MIDI connections used a <span class="tech">MIDI cable</span> connected to a <span class="kw">5-pin MIDI port</span> on each device. Now most MIDI instruments have standard computer interfaces such as <span class="tech">USB or Thunderbolt ports</span>. These modern interfaces provide more bandwidth than traditional MIDI ports, allowing tracks with more data to be transmitted at once.</p>
 
         <div class="info-box green">
-          <strong>🎵 MIDI vs Audio Recording</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> MIDI vs Audio Recording</strong>
           A MIDI recording contains only instrument information and notes to be played. The actual sound is played back using samples (individual recordings) from actual instruments. A MIDI track recorded as a piano song can be played back with a guitar sound by simply changing the output instrument.
         </div>
       </div>
@@ -948,7 +1019,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
 
         <div class="software-grid">
           <div class="software-card">
-            <div class="sw-icon">🎛️</div>
+            <div class="sw-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></div>
             <div class="sw-name">Adobe Audition</div>
             <div class="sw-by">By Adobe Systems · Windows &amp; Mac</div>
             <div class="sw-desc">One of the best audio editing software available. Comes with multi-track editing and mixing features. Uses AI-based 'Adobe Sensei' technology for an 'Auto Ducking' feature that detects where you want to reduce the volume of a background track to make vocal/speech sound clearer. Also includes powerful clip editing features like mirror fades and maintaining layer stacks when moving a single piece.</div>
@@ -960,7 +1031,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
           </div>
 
           <div class="software-card">
-            <div class="sw-icon">🍎</div>
+            <div class="sw-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="currentColor" stroke="none"/></svg></div>
             <div class="sw-name">Logic Pro X</div>
             <div class="sw-by">By Apple · Mac Only</div>
             <div class="sw-desc">Apple's DAW (Digital Audio Workstation) for Mac operating systems. Famous for its creative applications. One of the best audio editing software, but only available on Mac OS, so its reach is limited to fewer users. Has basic features needed in an audio editor plus 'Smart Tempo' feature for automatically matching the timing of various tracks in a project.</div>
@@ -984,7 +1055,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
           </div>
 
           <div class="software-card">
-            <div class="sw-icon">🔧</div>
+            <div class="sw-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z"/></svg></div>
             <div class="sw-name">Sound Forge</div>
             <div class="sw-by">By Magix · Windows</div>
             <div class="sw-desc">A powerful, full-featured, and easy-to-use digital sound editor used by many audio professionals. Although not a video editor, you can still open and edit video files like other files and edit the audio track with familiar Sound Forge tools. You can preview audio files using the play bar from the main Sound Forge window or from each window. Supports multi-channel recording. Data selection and cursor placement are the main tasks of most editing processes.</div>
@@ -999,7 +1070,7 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
         <div class="divider"></div>
 
         <p style="text-align:center;color:var(--muted);font-size:13.5px;font-style:italic;">
-          📚 Source: 2DCA1 IT Trends – Unit 2 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
+          <svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Source: 2DCA1 IT Trends – Unit 2 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
           Authors: Dr. Sunita Dwivedi (HOD, New Media Technology) &amp; Prashant Parashar (Tutor, Management Dept.)
         </p>
       </div>
@@ -1009,35 +1080,8 @@ footer { background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%); color:rgba(
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="brand-name">⚡ ThunderStudy</div>
-      <p>Your ultimate study companion for CUET, DCA, and competitive exams. Built with ❤️ by Wondermayank.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">StudyHub</a></li>
-        <li><a href="#">Mock Tests</a></li>
-        <li><a href="#">Leaderboard</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="#">@wondermayankx (Instagram)</a></li>
-        <li><a href="#">@thunderstudy_official (Telegram)</a></li>
-        <li><a href="#">@wondermayankx (YouTube)</a></li>
-        <li><a href="#">@mindmaster_robot (Support Bot)</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2025 ThunderStudy by Wondermayank · All Rights Reserved · wondermayank.github.io
-  </div>
-</footer>
+<div id="footer-mount"></div>
+<script src="/footer.js"></script>
 
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
@@ -1068,5 +1112,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin:'-20% 0px -60% 0px' });
 sections.forEach(sec => observer.observe(sec));
 </script>
+<script src="/theme-toggle.js"></script>
 </body>
 </html>

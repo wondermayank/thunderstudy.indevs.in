@@ -1,0 +1,25 @@
+/* TEAM */
+Built by: Thunder (wondermayank / Mayank)
+Contact: contact@wondermayank.indevs.in
+GitHub: https://github.com/wondermayank, https://github.com/ThunderStudy
+Telegram: https://t.me/Thunderstudy_official
+Instagram: https://instagram.com/Thunderstudyx
+YouTube: https://youtube.com/@Thunderstudy_official
+X (Twitter): https://twitter.com/Thunderstudyx
+
+/* THANKS */
+Thanks to every student who's shared notes, flagged typos, and kept
+ThunderStudy 100% free, ad-free, and login-free.
+
+/* SITE */
+Last update: 2026-09-27
+Language: English (en-IN)
+Doctype: HTML5
+Components: Static HTML/CSS/JS, no build step
+Standards: Semantic HTML, JSON-LD structured data, WCAG AA color contrast
+
+/* TECH STACK */
+Hosting: GitHub Pages / Vercel
+Fonts: Google Fonts (self-hosted alternative under consideration)
+Icons: Inline SVG (lucide-style), no icon-font, no emoji
+Analytics: none / privacy-first

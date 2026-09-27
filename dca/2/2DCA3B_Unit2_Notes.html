@@ -3,24 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2DCA3(B) – Unit 2 | Adobe PageMaker</title>
+<title>2DCA3(B) Unit 2: Adobe PageMaker Tools, Menus & Page Layout - ThunderStudy</title>
+<meta name="description" content="Free 2DCA3(B) DTP with PageMaker & Photoshop Unit 2 notes - PageMaker toolbox, menus, grids, guides, shortcuts, and control palettes.">
+<link rel="canonical" href="https://thunderstudy.indevs.in/dca/2/2DCA3B_Unit2_Notes.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#70a1fc">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://thunderstudy.indevs.in/dca/2/2DCA3B_Unit2_Notes.html">
+<meta property="og:title" content="2DCA3(B) Unit 2: Adobe PageMaker Tools, Menus & Page Layout - ThunderStudy">
+<meta property="og:description" content="Free 2DCA3(B) DTP with PageMaker & Photoshop Unit 2 notes - PageMaker toolbox, menus, grids, guides, shortcuts, and control palettes.">
+<meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
+<meta property="og:site_name" content="ThunderStudy">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Thunderstudyx">
+<meta name="twitter:creator" content="@wondermayank">
+<meta name="twitter:title" content="2DCA3(B) Unit 2: Adobe PageMaker Tools, Menus & Page Layout - ThunderStudy">
+<meta name="twitter:description" content="Free 2DCA3(B) DTP with PageMaker & Photoshop Unit 2 notes - PageMaker toolbox, menus, grids, guides, shortcuts, and control palettes.">
+<meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
+
+<meta name="speakable" content="ThunderStudy provides free 2DCA3(B) Unit 2 notes on Adobe PageMaker's toolbox, menus, grids, guides, and control palettes.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ThunderStudy","item":"https://thunderstudy.indevs.in/"},{"@type":"ListItem","position":2,"name":"DCA & PGDCA","item":"https://thunderstudy.indevs.in/dca/"},{"@type":"ListItem","position":3,"name":"Unit 2 - Adobe PageMaker: Tools, Menus & Page Layout","item":"https://thunderstudy.indevs.in/dca/2/2DCA3B_Unit2_Notes.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Unit 2 - Adobe PageMaker: Tools, Menus & Page Layout","description":"Free 2DCA3(B) DTP with PageMaker & Photoshop Unit 2 notes - PageMaker toolbox, menus, grids, guides, shortcuts, and control palettes.","url":"https://thunderstudy.indevs.in/dca/2/2DCA3B_Unit2_Notes.html","inLanguage":"en-IN","educationalLevel":"Diploma","isPartOf":{"@type":"Course","name":"DCA & PGDCA - Diploma in Computer Applications","url":"https://thunderstudy.indevs.in/dca/"},"provider":{"@type":"EducationalOrganization","name":"ThunderStudy","url":"https://thunderstudy.indevs.in"}}</script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink: #1a1410;
-  --ink-soft: #4a3f35;
-  --ink-muted: #7a6d63;
-  --page: #faf8f4;
-  --cream: #f0ece3;
-  --cream2: #e8e2d6;
-  --accent: #8b3a2a;
-  --accent2: #c46b3a;
-  --accent3: #2a5c8b;
-  --accent4: #2a7a4a;
-  --gold: #c4960a;
-  --border: #d4c9bc;
-  --r: 6px;
+  /* ThunderStudy design-system tokens (light) */
+  --primary: #70a1fc; --primary-soft: #7897D1; --primary-active: #5D79B3;
+  --secondary: #D6BD82; --accent-pink: #F7B8CB; --accent-yellow: #FBE99C;
+  --on-primary: #FFFFFF; --on-dark: #F4F1FF;
+  --surface-dark: #121212; --hairline-strong: #B9C8E3;
+  --success: #22c55e; --warning: #f59e0b; --error: #dc2626;
+
+  /* legacy variable names used throughout this page's original CSS -
+     remapped onto design-system tokens so the whole site shares one palette */
+  --ink: #26324A;
+  --ink-soft: #667085;
+  --ink-muted: #667085;
+  --page: #EEF3FF;
+  --cream: #FFFFFF;
+  --cream2: #FFFFFF;
+  --accent: var(--primary);
+  --accent2: var(--secondary);
+  --accent3: var(--primary-soft);
+  --accent4: var(--success);
+  --gold: var(--secondary);
+  --border: #D8E1F2;
+  --shadow: none;
+  --r: 8px;
 }
+[data-theme="dark"] {
+  --primary: #9A7AFB; --primary-soft: #7560C7; --primary-active: #7E64CE;
+  --secondary: #CBDD98; --accent-pink: #F0A8C0; --accent-yellow: #F2DB82;
+  --ink: #F4F1FF; --ink-soft: #A9A4B8; --ink-muted: #A9A4B8;
+  --page: #121212; --cream: #1B1B1F; --cream2: #222228;
+  --surface-dark: #000000; --border: #2A2A2A; --hairline-strong: #3A3A3C;
+}
+.icon-inline { display: inline-block; vertical-align: -0.125em; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Source Serif 4', Georgia, serif;
@@ -35,8 +78,12 @@ nav {
   padding: 0 32px;
   display: flex; align-items: center; justify-content: space-between;
   height: 56px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  border-bottom: 1px solid var(--hairline-strong, rgba(255,255,255,0.12));
 }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.theme-toggle-btn { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:9999px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.12); color:#fff; cursor:pointer; flex-shrink:0; }
+.theme-toggle-btn:active { transform: scale(0.95); }
+.nav-logo { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
 .nav-brand {
   display: flex; align-items: center; gap: 12px;
   color: #fff; font-family: 'Playfair Display', serif; font-size: 18px;
@@ -189,10 +236,10 @@ nav {
   margin: 18px 0; padding: 14px 18px;
   border-radius: var(--r); font-size: 14.5px; line-height: 1.7;
 }
-.callout.note { background: #eef4fb; border-left: 4px solid var(--accent3); color: #1a3a5c; }
-.callout.tip { background: #fdf5e0; border-left: 4px solid var(--gold); color: #5c3d00; }
-.callout.def { background: #f5f0e8; border-left: 4px solid var(--accent); color: #4a1e10; }
-.callout.green { background: #edf7ef; border-left: 4px solid var(--accent4); color: #1a4a28; }
+.callout.note { background: var(--canvas); border-left: 4px solid var(--accent3); color: #1a3a5c; }
+.callout.tip { background: var(--accent-yellow); border-left: 4px solid var(--gold); color: #5c3d00; }
+.callout.def { background: var(--surface); border-left: 4px solid var(--accent); color: #4a1e10; }
+.callout.green { background: var(--canvas); border-left: 4px solid var(--accent4); color: #1a4a28; }
 .callout strong { font-weight: 600; display: block; margin-bottom: 4px; }
 .grid2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 16px 0; }
 .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 16px 0; }
@@ -243,12 +290,7 @@ nav {
   color: var(--accent3); margin-bottom: 4px;
 }
 .tool-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
-footer {
-  background: var(--ink); color: rgba(255,255,255,0.5);
-  text-align: center; padding: 28px 24px;
-  font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.5px;
-}
-footer strong { color: rgba(255,255,255,0.8); }
+/* Footer styling now lives in the shared /footer.js include. */
 .scroll-top {
   position: fixed; bottom: 28px; right: 28px;
   width: 44px; height: 44px; background: var(--accent3);
@@ -267,17 +309,30 @@ footer strong { color: rgba(255,255,255,0.8); }
   .hero { padding: 40px 24px 36px; }
 }
 </style>
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 </head>
 <body>
 
 <nav>
   <a class="nav-brand" href="#">
+    <img src="/favicon.svg" alt="Thunder" class="nav-logo">
     <span class="nav-tag">2DCA3(B)</span>
     DTP with PageMaker &amp; Photoshop
   </a>
-  <div class="nav-links">
-    <a href="2DCA3B_Unit1_Notes.html">Unit 1</a>
-    <a href="2DCA3B_Unit2_Notes.html" class="active">Unit 2</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/dca/2/2DCA3B_Unit1_Notes.html">Unit 1</a>
+      <a href="/dca/2/2DCA3B_Unit2_Notes.html" class="active">Unit 2</a>
+    </div>
+    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </div>
 </nav>
 
@@ -286,9 +341,9 @@ footer strong { color: rgba(255,255,255,0.8); }
   <h1>Adobe PageMaker:<br>Tools, Menus &amp; Page Layout</h1>
   <p>Complete notes on PageMaker's history, versions, toolbox, menus, grids, guides, keyboard shortcuts, and control palettes — from the official MCU course material.</p>
   <div class="hero-chips">
-    <span class="hero-chip">📖 MCU Bhopal</span>
-    <span class="hero-chip">🛠 PageMaker Tools</span>
-    <span class="hero-chip">📋 Menus</span>
+    <span class="hero-chip"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg> MCU Bhopal</span>
+    <span class="hero-chip"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z"/></svg> PageMaker Tools</span>
+    <span class="hero-chip"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg> Menus</span>
     <span class="hero-chip">⌨ Shortcuts</span>
     <span class="hero-chip">11 Topics</span>
   </div>
@@ -325,24 +380,24 @@ footer strong { color: rgba(255,255,255,0.8); }
       </div>
       <div class="sec-body">
         <div class="callout def">
-          <strong>📘 Definition</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</strong>
           Adobe PageMaker is the "world's leading cross-platform professional page layout software." PageMaker is primarily used for designing and producing publications that require a combination of text and graphics.
         </div>
         <p>PageMaker has a rich array of facilities to import text and artwork from other computer application packages, as well as allowing you to generate these directly from within PageMaker itself. PageMaker can handle text better than Illustrator and Photoshop and also gives you the flexibility of graphic control not available in word processors.</p>
         <h3>Key Capabilities</h3>
         <div class="grid3">
           <div class="gcard">
-            <div class="gcard-icon">📄</div>
+            <div class="gcard-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg></div>
             <div class="gcard-title">Page Layout</div>
             <div class="gcard-text">Professional page layout for publications</div>
           </div>
           <div class="gcard">
-            <div class="gcard-icon">🖼</div>
+            <div class="gcard-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>
             <div class="gcard-title">Text + Graphics</div>
             <div class="gcard-text">Combines text and graphics flexibly</div>
           </div>
           <div class="gcard">
-            <div class="gcard-icon">📥</div>
+            <div class="gcard-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></div>
             <div class="gcard-title">Import/Export</div>
             <div class="gcard-text">Imports from many application packages</div>
           </div>
@@ -361,7 +416,7 @@ footer strong { color: rgba(255,255,255,0.8); }
         <p>PageMaker was the first desktop publishing program, introduced in 1985 by Aldus Corporation, initially for the Apple Macintosh but soon after also for the PC. It relies on Adobe Systems' PostScript page description language.</p>
         <p>In 1994, Aldus and PageMaker were acquired by Adobe Systems. PageMaker was awarded a SPA Excellence in Software Award for Best New Use of a Computer in 1986.</p>
         <div class="callout note">
-          <strong>📌 Key Dates</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Key Dates</strong>
           Introduced: 1985 (by Aldus Corporation) | Acquired by Adobe: 1994 | Final Version: 7.0 (July 9, 2001)
         </div>
       </div>
@@ -499,7 +554,7 @@ footer strong { color: rgba(255,255,255,0.8); }
           <li>Click a style name in the palette</li>
         </ol>
         <div class="callout note">
-          <strong>📌 Default Styles in Palette</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Default Styles in Palette</strong>
           [No style], Body text, Caption, Hanging indent, Headline, Subhead 1, Subhead 2
         </div>
       </div>
@@ -621,7 +676,7 @@ footer strong { color: rgba(255,255,255,0.8); }
           <tr><td><strong>Ruler Guides</strong></td><td>Light Blue lines</td><td>Non-printing guidelines primarily used for alignment of objects in the publication.</td></tr>
         </table>
         <div class="callout tip">
-          <strong>💡 Page Size vs Paper Size</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Page Size vs Paper Size</strong>
           Paper size is the actual size of the paper. Page Size is the printable area of the page — the area enclosed by the page margins.
         </div>
       </div>
@@ -786,7 +841,7 @@ footer strong { color: rgba(255,255,255,0.8); }
           </div>
         </div>
         <div class="callout green">
-          <strong>✅ Summary of Key Palettes in PageMaker</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--success)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Summary of Key Palettes in PageMaker</strong>
           <ul style="margin-top:8px">
             <li><strong>Toolbox</strong> — All drawing, text, and editing tools (Window → Show Tools)</li>
             <li><strong>Styles Palette</strong> — Apply/view/edit text styles (Window → Show Styles)</li>
@@ -802,10 +857,8 @@ footer strong { color: rgba(255,255,255,0.8); }
   </main>
 </div>
 
-<footer>
-  <strong>2DCA3(B) DTP with PageMaker &amp; Photoshop · Unit 2 Notes</strong><br>
-  Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal
-</footer>
+<div id="footer-mount"></div>
+<script src="/footer.js"></script>
 
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
@@ -830,5 +883,6 @@ const obs = new IntersectionObserver(entries=>{
 },{rootMargin:'-10% 0px -70% 0px'});
 sections.forEach(s=>obs.observe(s));
 </script>
+<script src="/theme-toggle.js"></script>
 </body>
 </html>

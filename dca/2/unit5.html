@@ -3,26 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ThunderStudy | 2DCA1 IT Trends – Unit 5</title>
+<title>2DCA1 IT Trends Unit 5: AI, Cloud Computing & Google Apps Notes - ThunderStudy</title>
+<meta name="description" content="Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 5 - AI, cloud computing, and Google Apps, from the official MCU course material.">
+<link rel="canonical" href="https://thunderstudy.indevs.in/dca/2/unit5.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#70a1fc">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://thunderstudy.indevs.in/dca/2/unit5.html">
+<meta property="og:title" content="2DCA1 IT Trends Unit 5: AI, Cloud Computing & Google Apps Notes - ThunderStudy">
+<meta property="og:description" content="Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 5 - AI, cloud computing, and Google Apps, from the official MCU course material.">
+<meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
+<meta property="og:site_name" content="ThunderStudy">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Thunderstudyx">
+<meta name="twitter:creator" content="@wondermayank">
+<meta name="twitter:title" content="2DCA1 IT Trends Unit 5: AI, Cloud Computing & Google Apps Notes - ThunderStudy">
+<meta name="twitter:description" content="Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 5 - AI, cloud computing, and Google Apps, from the official MCU course material.">
+<meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
+
+<meta name="speakable" content="ThunderStudy provides free 2DCA1 IT Trends Unit 5 notes covering AI, cloud computing, and Google Apps for DCA Semester 2 students.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ThunderStudy","item":"https://thunderstudy.indevs.in/"},{"@type":"ListItem","position":2,"name":"DCA & PGDCA","item":"https://thunderstudy.indevs.in/dca/"},{"@type":"ListItem","position":3,"name":"Unit 5 - AI, Cloud Computing & Google Apps","item":"https://thunderstudy.indevs.in/dca/2/unit5.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Unit 5 - AI, Cloud Computing & Google Apps","description":"Free DCA Semester 2 notes for 2DCA1 IT Trends Unit 5 - AI, cloud computing, and Google Apps, from the official MCU course material.","url":"https://thunderstudy.indevs.in/dca/2/unit5.html","inLanguage":"en-IN","educationalLevel":"Diploma","isPartOf":{"@type":"Course","name":"DCA & PGDCA - Diploma in Computer Applications","url":"https://thunderstudy.indevs.in/dca/"},"provider":{"@type":"EducationalOrganization","name":"ThunderStudy","url":"https://thunderstudy.indevs.in"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blue:#1565C0;--blue-mid:#1976D2;--blue-light:#42A5F5;--blue-pale:#E3F2FD;
-  --amber:#F59E0B;--amber-light:#FEF3C7;--green:#22C55E;--red:#EF4444;
-  --bg:#F0F6FF;--card:#FFFFFF;--text:#0F1B35;--muted:#5A6885;
-  --border:#D0E3FF;--shadow:0 2px 16px rgba(21,101,192,0.10);
+  /* ThunderStudy design-system tokens (light) */
+  --primary: #70a1fc; --primary-soft: #7897D1; --primary-active: #5D79B3;
+  --secondary: #D6BD82; --accent-pink: #F7B8CB; --accent-yellow: #FBE99C;
+  --ink: #26324A; --muted: #667085; --on-primary: #FFFFFF; --on-dark: #F4F1FF;
+  --canvas: #EEF3FF; --surface: #FFFFFF; --card: #FFFFFF; --surface-dark: #121212;
+  --hairline: #D8E1F2; --hairline-strong: #B9C8E3;
+  --success: #22c55e; --warning: #f59e0b; --error: #dc2626;
+  /* legacy aliases used throughout this page's original CSS */
+  --blue: var(--primary); --blue-mid: var(--primary-active); --blue-light: var(--primary-soft);
+  --blue-pale: var(--canvas); --amber: var(--secondary); --amber-light: var(--accent-yellow);
+  --green: var(--success); --red: var(--error); --bg: var(--canvas); --text: var(--ink);
+  --border: var(--hairline); --shadow: none;
 }
+[data-theme="dark"] {
+  --primary: #9A7AFB; --primary-soft: #7560C7; --primary-active: #7E64CE;
+  --secondary: #CBDD98; --accent-pink: #F0A8C0; --accent-yellow: #F2DB82;
+  --ink: #F4F1FF; --muted: #A9A4B8; --canvas: #121212; --surface: #1B1B1F;
+  --card: #222228; --surface-dark: #000000; --hairline: #2A2A2A; --hairline-strong: #3A3A3C;
+}
+.icon-inline { display: inline-block; vertical-align: -0.125em; }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15.5px;}
 
 /* HEADER */
-header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%);box-shadow:0 2px 24px rgba(13,71,161,0.4);}
+header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,var(--primary-active) 0%,var(--primary) 50%,var(--primary-soft) 100%);box-shadow:none;}
 .header-inner{max-width:1200px;margin:auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.brand-icon{width:36px;height:36px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(245,158,11,0.5);}
+.brand-icon { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; flex-shrink: 0; }
 .brand-text{display:flex;flex-direction:column;line-height:1.1;}
 .brand-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.brand-thunder { color: #fff; }
+.brand-study { background: linear-gradient(135deg, var(--primary), var(--primary-active)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.theme-toggle-btn { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:9999px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.15); color:#fff; cursor:pointer; flex-shrink:0; }
+.theme-toggle-btn:active { transform: scale(0.95); }
 .brand-tagline{font-size:10px;color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.5px;}
 .unit-dropdown-wrap{position:relative;}
 .unit-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:7px 16px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
@@ -41,7 +85,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 .nav-pill{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 60%,#1E88E5 100%);padding:40px 24px 36px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.hero{background:linear-gradient(135deg,var(--primary-active) 0%,var(--primary) 60%,var(--primary-soft) 100%);padding:40px 24px 36px;text-align:center;color:#fff;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;}
 .hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,0.04);border-radius:50%;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;}
@@ -77,14 +121,14 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 .sec-card.open .sec-body{display:block;}
 
 /* TYPOGRAPHY */
-.sec-body p{margin-top:14px;color:#2C3E60;font-size:15px;line-height:1.8;}
+.sec-body p{margin-top:14px;color:var(--ink);font-size:15px;line-height:1.8;}
 .sec-body h3{font-size:15px;font-weight:700;color:var(--blue);margin-top:22px;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
 .sec-body h3::before{content:'';width:4px;height:16px;background:var(--amber);border-radius:2px;flex-shrink:0;}
 .sec-body ul{margin-top:10px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
-.sec-body ul li{padding-left:20px;position:relative;font-size:14.5px;color:#2C3E60;line-height:1.7;}
+.sec-body ul li{padding-left:20px;position:relative;font-size:14.5px;color:var(--ink);line-height:1.7;}
 .sec-body ul li::before{content:'▸';position:absolute;left:0;color:var(--blue-light);font-size:12px;top:3px;}
 .sec-body ol{margin-top:10px;padding-left:20px;}
-.sec-body ol li{font-size:14.5px;color:#2C3E60;line-height:1.7;margin-bottom:6px;}
+.sec-body ol li{font-size:14.5px;color:var(--ink);line-height:1.7;margin-bottom:6px;}
 
 /* INFO BOXES */
 .info-box{margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;line-height:1.7;}
@@ -95,7 +139,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 .info-box strong{font-weight:700;display:block;margin-bottom:4px;}
 
 /* SUB SECTIONS */
-.sub-sec{margin-top:20px;background:#F8FAFE;border-radius:10px;border:1px solid var(--border);padding:14px 18px;}
+.sub-sec{margin-top:20px;background:var(--canvas);border-radius:10px;border:1px solid var(--border);padding:14px 18px;}
 .sub-sec-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .sub-sec-title .dot{width:8px;height:8px;background:var(--amber);border-radius:50%;flex-shrink:0;}
 
@@ -113,7 +157,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 .content-table th{background:var(--blue);color:#fff;padding:10px 14px;text-align:left;font-weight:700;}
 .content-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;}
 .content-table tr:last-child td{border-bottom:none;}
-.content-table tr:nth-child(even) td{background:#F8FBFF;}
+.content-table tr:nth-child(even) td{background:var(--canvas);}
 
 /* DEF BOX */
 .def-box{margin-top:16px;background:linear-gradient(135deg,#E8F1FE 0%,#F0F7FF 100%);border:1px solid rgba(21,101,192,0.2);border-radius:12px;padding:16px 20px;}
@@ -134,7 +178,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 
 /* AI USE CARDS */
 .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
-.ai-card{background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:14px;}
+.ai-card{background:var(--canvas);border:1px solid var(--border);border-radius:10px;padding:14px;}
 .ai-card .ai-icon{font-size:24px;margin-bottom:8px;}
 .ai-card .ai-title{font-size:13.5px;font-weight:700;color:var(--blue);margin-bottom:6px;}
 .ai-card p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
@@ -142,7 +186,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 /* CLOUD MODEL CARDS */
 .cloud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
 .cloud-card{border-radius:12px;padding:14px 12px;text-align:center;border:2px solid;}
-.cloud-card.pub{border-color:#1565C0;background:#EFF6FF;}
+.cloud-card.pub{border-color:var(--primary);background:var(--canvas);}
 .cloud-card.priv{border-color:#059669;background:#ECFDF5;}
 .cloud-card.comm{border-color:#D97706;background:#FFFBEB;}
 .cloud-card.hyb{border-color:#7C3AED;background:#F5F3FF;}
@@ -157,11 +201,11 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 /* SERVICE MODEL */
 .service-pyramid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px;}
 .svc-card{border-radius:12px;padding:16px;text-align:center;border:2px solid;}
-.svc-card.iaas{border-color:#1565C0;background:#EFF6FF;}
+.svc-card.iaas{border-color:var(--primary);background:var(--canvas);}
 .svc-card.paas{border-color:#D97706;background:#FFFBEB;}
 .svc-card.saas{border-color:#059669;background:#ECFDF5;}
 .svc-card .sv-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800;margin-bottom:8px;}
-.iaas .sv-badge{background:#1565C0;color:#fff;}
+.iaas .sv-badge{background:var(--primary);color:var(--on-primary);}
 .paas .sv-badge{background:#D97706;color:#fff;}
 .saas .sv-badge{background:#059669;color:#fff;}
 .svc-card .sv-title{font-size:13px;font-weight:700;margin-bottom:6px;}
@@ -173,14 +217,14 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 
 /* FEAT LIST */
 .feat-list{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
-.feat-item{display:flex;gap:12px;align-items:flex-start;background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.feat-item{display:flex;gap:12px;align-items:flex-start;background:var(--canvas);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
 .feat-item .fi-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
 .feat-item .fi-content .fi-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .feat-item .fi-content p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
 
 /* STEP LIST */
 .step-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
-.step-item{display:flex;gap:14px;align-items:flex-start;background:#F8FAFE;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.step-item{display:flex;gap:14px;align-items:flex-start;background:var(--canvas);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
 .step-item .step-num{width:28px;height:28px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
 .step-item .step-content .step-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .step-item .step-content p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:0!important;}
@@ -193,7 +237,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 /* EXPERT SYSTEM COMPONENTS */
 .es-components{display:flex;flex-direction:column;gap:12px;margin-top:14px;}
 .es-comp{display:flex;gap:14px;align-items:flex-start;border-radius:12px;padding:16px;}
-.es-comp.ui{background:#EFF6FF;border:1px solid rgba(21,101,192,0.2);}
+.es-comp.ui{background:var(--canvas);border:1px solid rgba(21,101,192,0.2);}
 .es-comp.ie{background:#FFF7ED;border:1px solid rgba(217,119,6,0.2);}
 .es-comp.kb{background:#F0FDF4;border:1px solid rgba(5,150,105,0.2);}
 .es-comp .ec-icon{font-size:28px;flex-shrink:0;}
@@ -207,15 +251,7 @@ header{position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#0D4
 .es-comp.kb .ec-text{color:#065F46;}
 
 /* FOOTER */
-footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255,255,255,0.85);padding:36px 24px 24px;}
-.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;}
-.footer-brand .brand-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;}
-.footer-brand p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;}
-.footer-col h4{font-size:13px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
-.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;transition:color 0.15s;}
-.footer-col ul li a:hover{color:#fff;}
-.footer-bottom{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.15);text-align:center;font-size:12.5px;color:rgba(255,255,255,0.5);}
+/* Footer styling now lives in the shared /footer.js include. */
 
 .scroll-top{position:fixed;bottom:28px;right:24px;width:44px;height:44px;background:var(--blue);color:#fff;border-radius:50%;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(21,101,192,0.4);z-index:500;transition:transform 0.2s;}
 .scroll-top:hover{transform:translateY(-3px);}
@@ -232,49 +268,59 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
   .nav-pill{display:none;}
 }
 </style>
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
     <a class="brand" href="#">
-      <div class="brand-icon">T</div>
+      <img src="/favicon.svg" alt="Thunder" class="brand-icon">
       <div class="brand-text">
-        <span class="brand-name">ThunderStudy</span>
+        <span class="brand-name"><span class="brand-thunder">Thunder</span><span class="brand-study">Study</span></span>
         <span class="brand-tagline">by Wondermayank</span>
       </div>
     </a>
     <div class="nav-right">
       <span class="nav-pill">2DCA1 – IT Trends</span>
       <div class="unit-dropdown-wrap" id="unitDrop">
-        <button class="unit-btn" onclick="toggleDrop()">📚 Unit 5 &nbsp;<span class="arrow">▾</span></button>
+        <button class="unit-btn" onclick="toggleDrop()"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Unit 5 &nbsp;<span class="arrow">▾</span></button>
         <div class="unit-menu">
-          <a href="https://thunderstudy.github.io/dca/2/unit1.html">Unit 1 – Multimedia</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit2.html">Unit 2 – Text &amp; Sound</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
-          <a href="https://thunderstudy.github.io/dca/2/unit5.html" class="active">Unit 5 – AI, Cloud &amp; Google Apps <span class="badge">Current</span></a>
+          <a href="/dca/2/unit1.html">Unit 1 – Multimedia</a>
+          <a href="/dca/2/unit2.html">Unit 2 – Text &amp; Sound</a>
+          <a href="/dca/2/unit3.html">Unit 3 – E-Governance &amp; Cyber</a>
+          <a href="/dca/2/unit4.html">Unit 4 – Wireless &amp; Mobile Tech</a>
+          <a href="/dca/2/unit5.html" class="active">Unit 5 – AI, Cloud &amp; Google Apps <span class="badge">Current</span></a>
         </div>
       </div>
+      <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle dark mode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
     </div>
   </div>
 </header>
 
 <div class="hero">
-  <div class="hero-badge">📖 Unit 5 Notes</div>
+  <div class="hero-badge"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg> Unit 5 Notes</div>
   <h1>AI, Cloud Computing &amp; Google Apps</h1>
   <p>Complete Unit 5 study notes for 2DCA1 IT Trends – translated from official course material</p>
   <div class="hero-meta">
-    <span>🏫 MCU, Bhopal</span>
-    <span>📋 6 Major Topics</span>
-    <span>⚡ Full PDF Content</span>
-    <span>🌐 English Medium</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 21 7 3 7"/></svg> MCU, Bhopal</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg> 6 Major Topics</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Full PDF Content</span>
+    <span><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> English Medium</span>
   </div>
 </div>
 
 <div class="layout">
   <aside class="toc-sidebar">
-    <div class="toc-head">📑 Contents</div>
+    <div class="toc-head"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Contents</div>
     <ul class="toc-list">
       <li><a href="#s1"><span class="toc-num">5.1</span> Artificial Intelligence</a></li>
       <li><a href="#s2"><span class="toc-num">5.2</span> Expert System</a></li>
@@ -298,7 +344,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <p>When you see a familiar person, you greet them — because your brain has stored that person's face and the learned response to greet acquaintances. When this same process is performed by a machine — storing all familiar faces, searching them when a person appears, and learning appropriate behaviour — that entire process of the machine is called its <span class="kw">Artificial Intelligence</span>.</p>
 
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">Artificial Intelligence (AI) is a branch of computer science through which we can build intelligent machines — machines that can think, work, and behave like humans. Machines that can think like humans and are capable of making decisions. Examples: Speech Recognition, Problem Solving, Learning, and Planning.</div>
         </div>
 
@@ -307,12 +353,12 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <h3>5.1.1 Goals of AI</h3>
         <div class="grid-2">
           <div class="mini-card">
-            <div class="mc-icon">🧠</div>
+            <div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div>
             <div class="mc-title">Knowledge-Intensive Tasks</div>
             <div class="mc-text">Make machines perform intelligent work like humans — with no visible difference — understanding, thinking, learning, and behaving like humans.</div>
           </div>
           <div class="mini-card">
-            <div class="mc-icon">🏆</div>
+            <div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
             <div class="mc-title">Expert Systems</div>
             <div class="mc-text">Systems that display intelligent behaviour, learn new things on their own, demonstrate knowledge, explain it, and advise users.</div>
           </div>
@@ -321,52 +367,52 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <h3>5.1.2 Applications of AI</h3>
         <div class="ai-grid">
           <div class="ai-card">
-            <div class="ai-icon">🎮</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></div>
             <div class="ai-title">Gaming</div>
             <p>Many video games are AI-based. AI machines can play strategic games like chess, analysing every possible move. With each move, the machine analyses and makes new moves — storing new patterns for future analysis. Categories: Board Games, Bots, Combat, Evolving Surroundings.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">👁️</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></div>
             <div class="ai-title">Vision System / Image Recognition</div>
             <p>These systems understand and interpret visual input. Examples: Face detection login on laptops/mobiles, fingerprint lock, police criminal face matching from stored sketches, Facebook auto photo tagging using AI face recognition.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🗣️</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
             <div class="ai-title">Speech Recognition</div>
             <p>Intelligent systems listen to and understand language in the context of sentences and meanings when a human talks to the machine. Google Voice Search is a classic example.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">✍️</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.855z"/></svg></div>
             <div class="ai-title">Handwriting Recognition</div>
             <p>Software reads text written by a pen or stylus on a screen (like paper). It recognises the shape of letters and can convert them into editable text.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🤖</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="10" x="3" y="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" x2="8" y1="16" y2="16"/><line x1="16" x2="16" y1="16" y2="16"/></svg></div>
             <div class="ai-title">Robots</div>
             <p>AI plays a notable role in robotics. AI helps build intelligent robots that can learn from mistakes and adapt to new environments. They have skilled processors, multiple sensors, and vast memory. Recent examples: humanoid robots Erica and Sophia, which can talk and behave like humans.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🚗</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9L2 10.9c-.4.2-.6.6-.6 1v2.6c0 .6.4 1 1 1h1"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></div>
             <div class="ai-title">Self-Driving Cars</div>
             <p>Self-driving (autonomous) cars that operate without a driver. Tesla's famous self-driving cars are a real-life AI application. These cars have many sensors monitoring the road and surroundings as they move.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🌐</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <div class="ai-title">Natural Language Processing (NLP)</div>
             <p>Enables conversation with computers in human-spoken language. The computer is programmed to understand our language. ML technology converts sounds of speech/language into words and ideas. NLP handles multiple languages and dialects — even drawing conclusions from conversations on a topic by different people.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🎬</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20.2 6-.9-2.1a2 2 0 0 0-2.6-1.1L3.6 7.9a2 2 0 0 0-1.1 2.6l.9 2.1"/><path d="m5 6 2 4"/><path d="m10 5 2 4"/><path d="m15 4 2 4"/><rect width="20" height="12" x="2" y="10" rx="2"/></svg></div>
             <div class="ai-title">AI in Entertainment</div>
             <p>Services like Netflix and Amazon use AI algorithms to show personalised programme recommendations. AI also tracks which locations/situations audiences like and even suggests story titles based on scripts.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🌾</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
             <div class="ai-title">AI in Agriculture</div>
             <p>AI is mainly used for crop and soil monitoring. AI/ML tools advise when to plant which seeds. Microsoft India's AI-based Sowing App provides this facility in India. AI also alerts farmers about pest threats and manages supply chains between companies and agriculture.</p>
           </div>
           <div class="ai-card">
-            <div class="ai-icon">🏥</div>
+            <div class="ai-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
             <div class="ai-title">AI in Healthcare</div>
             <p>AI handles and analyses medical records rapidly and without error. Fitness bands use AI for data analysis. AI enables online medical consultations by entering symptoms. Robots can perform delicate surgeries (like brain operations) with lower error probability. Drug testing, medical trial patient care — all benefit from AI.</p>
           </div>
@@ -393,7 +439,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
       </div>
       <div class="sec-body">
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">An Expert System is a part of AI. It is a computer application that simulates the decision-making ability of a human expert. Expert systems can solve problems that normally require human expertise — like diagnosing diseases, weather forecasting, and financial forecasting. It is an interactive, reliable, computer-based decision-making system that solves complex problems based on facts, logic, and presumptions according to user queries.</div>
         </div>
         <p>Expert systems are designed to solve complex issues of a specific knowledge domain. They can express domain knowledge, reason, and solve complex problems. They use high-level human intelligence and expertise, storing knowledge in a knowledge base. The system uses that stored knowledge to solve complex issues as an expert would — using both facts and inferences. A common example: Google's Search Box suggesting spelling corrections as you type.</p>
@@ -423,21 +469,21 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <h3>5.2.3 Components of an Expert System</h3>
         <div class="es-components">
           <div class="es-comp ui">
-            <div class="ec-icon">🖥️</div>
+            <div class="ec-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
             <div>
               <div class="ec-title">1. User Interface</div>
               <div class="ec-text">The expert system communicates with the user through this component. It takes questions in the user's language and sends them to the Inference Engine. After getting a response, it displays results to the user. Non-expert users need no knowledge of AI to use it.</div>
             </div>
           </div>
           <div class="es-comp ie">
-            <div class="ec-icon">⚙️</div>
+            <div class="ec-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
             <div>
               <div class="ec-title">2. Inference Engine (Brain of Expert System)</div>
               <div class="ec-text">Contains rules for solving specific problems. Selects facts and rules to solve user queries. Uses two key strategies: <strong>Forward Chaining</strong> (answers "What can happen next?" — follows conditions sequentially to draw conclusions; e.g. forecasting stock market based on interest rate changes) and <strong>Backward Chaining</strong> (answers "Why did this happen?" — traces back from results to causes; e.g. investigating causes of cancer).</div>
             </div>
           </div>
           <div class="es-comp kb">
-            <div class="ec-icon">📚</div>
+            <div class="ec-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
             <div>
               <div class="ec-title">3. Knowledge Base (Store of Facts)</div>
               <div class="ec-text">Intelligence requires knowledge. The knowledge base contains high-quality domain-specific knowledge. It collects and organises data and facts according to the problem domain, along with rules and procedures for solving problems. The success of an expert system mainly depends on its knowledge base — more knowledge means a more accurate system. Uses <strong>IF THEN ELSE</strong> rules for knowledge representation.</div>
@@ -457,7 +503,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <h3>5.2.5 Advantages of Expert Systems</h3>
         <div class="pros-cons">
           <div class="pros-box">
-            <div class="pc-title">✅ Advantages</div>
+            <div class="pc-title"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--success)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Advantages</div>
             <ul>
               <li>Computer-based, not affected by emotions, stress, or fatigue — consistent stable performance; same situation always gives same decision.</li>
               <li>Available to all users simultaneously — multiple users can use one expert system and get instant responses.</li>
@@ -469,7 +515,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
             </ul>
           </div>
           <div class="cons-box">
-            <div class="pc-title">⚠️ Limitations</div>
+            <div class="pc-title"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--warning)"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Limitations</div>
             <ul>
               <li>If errors or wrong information are stored in the knowledge base, decisions can be wrong.</li>
               <li>Typically built for a specific knowledge domain — separate systems needed for different domains.</li>
@@ -481,9 +527,9 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
 
         <h3>5.2.7 Participants in Expert System Development</h3>
         <div class="grid-3">
-          <div class="mini-card"><div class="mc-icon">🎓</div><div class="mc-title">Domain Expert</div><div class="mc-text">A person or group whose expertise and knowledge is taken to develop the expert system. The system's success depends on the knowledge experts provide.</div></div>
-          <div class="mini-card"><div class="mc-icon">🔧</div><div class="mc-title">Knowledge Engineer</div><div class="mc-text">A technical person who collects knowledge from domain experts and integrates it into the computer system.</div></div>
-          <div class="mini-card"><div class="mc-icon">👤</div><div class="mc-title">End-User</div><div class="mc-text">A person or group that uses the expert system to receive advice and guidance.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="mc-title">Domain Expert</div><div class="mc-text">A person or group whose expertise and knowledge is taken to develop the expert system. The system's success depends on the knowledge experts provide.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z"/></svg></div><div class="mc-title">Knowledge Engineer</div><div class="mc-text">A technical person who collects knowledge from domain experts and integrates it into the computer system.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div><div class="mc-title">End-User</div><div class="mc-text">A person or group that uses the expert system to receive advice and guidance.</div></div>
         </div>
       </div>
     </div>
@@ -496,7 +542,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
       </div>
       <div class="sec-body">
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">Cloud Computing provides various services and resources through the internet — including data storage, servers, databases, networking, and software tools and applications. It is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be used with minimal management.</div>
         </div>
         <p>You know YouTube — you can watch videos using the internet and a smart device without the video being stored on your device. You don't know what kind of file it is or where it's stored, yet you can watch it. All of this is possible through cloud computing.</p>
@@ -506,29 +552,29 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <h3>5.3.1 Types of Cloud Computing – By Deployment</h3>
         <div class="cloud-grid">
           <div class="cloud-card pub">
-            <div class="cc-icon">🚌</div>
+            <div class="cc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg></div>
             <div class="cc-title">Public Cloud</div>
             <div class="cc-text">Available to general public. Data stored on third-party servers. No need to buy/maintain hardware. Pay-per-use. Examples: Amazon, Microsoft Azure, Google App Engine, IBM Cloud.</div>
           </div>
           <div class="cloud-card priv">
-            <div class="cc-icon">🔒</div>
+            <div class="cc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
             <div class="cc-title">Private Cloud</div>
             <div class="cc-text">Fully dedicated to one company. Hardware and software managed by the organisation itself. More secure but comparatively expensive. Examples: Amazon, IBM, Cisco, Dell, Red Hat.</div>
           </div>
           <div class="cloud-card comm">
-            <div class="cc-icon">🤝</div>
+            <div class="cc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
             <div class="cc-title">Community Cloud</div>
             <div class="cc-text">Multiple organisations doing similar work share infrastructure and resources. Lower cost, more security than public, less than private. Sharing of costs among companies. Less common.</div>
           </div>
           <div class="cloud-card hyb">
-            <div class="cc-icon">🔀</div>
+            <div class="cc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.3 0 2.5.6 3.3 1.7l.9 1.2"/><path d="M22 18h-5.9c-1.3 0-2.5-.6-3.3-1.7l-.9-1.2"/><path d="m18 14 4 4-4 4"/></svg></div>
             <div class="cc-title">Hybrid Cloud</div>
             <div class="cc-text">Combines the best of all models. Highly sensitive data on private cloud; less sensitive resources on public. Data and applications are portable between environments. Best of cost and security.</div>
           </div>
         </div>
 
         <div class="info-box amber">
-          <strong>🚗 Analogy to Understand Cloud Deployment</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9L2 10.9c-.4.2-.6.6-.6 1v2.6c0 .6.4 1 1 1h1"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg> Analogy to Understand Cloud Deployment</strong>
           Bus = Public Cloud (pay only for your seat/distance). Own car = Private Cloud (bear all costs). Carpooling = Community Cloud (share maintenance costs). Taxi = Hybrid Cloud (between public and private in cost and flexibility).
         </div>
 
@@ -555,7 +601,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         </div>
 
         <div class="info-box blue">
-          <strong>📊 SaaS Services Include</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg> SaaS Services Include</strong>
           Business Services like ERP (Enterprise Resource Planning), CRM (Customer Relationship Management), billing and sales. Document management — creating, managing, and retrieving electronic documents. Social networks and email services also use this model.
         </div>
       </div>
@@ -569,7 +615,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
       </div>
       <div class="sec-body">
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">Google Drive is a cloud-based versatile storage service that allows you to upload and download files. Its main purpose is to expand your file storage capacity beyond your computer's hard disk. With Google Drive, users can share files from various locations and devices via the internet using simple drag and drop.</div>
         </div>
         <p>Google Drive is a secure place for any type of file — all data is encrypted. Others can access, edit, or view your files only with your permission. You can collaborate on your documents with others. Google Drive provides users <strong>15 GB of free cloud storage</strong> — shared across Google Drive, Google Photos, and Gmail. Additional storage can be purchased for a fixed fee.</p>
@@ -577,9 +623,9 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
 
         <h3>5.4.1 Ways to Use Google Drive</h3>
         <div class="grid-3">
-          <div class="mini-card"><div class="mc-icon">🌐</div><div class="mc-title">Google Drive Online</div><div class="mc-text">Access via any modern web browser at drive.google.com. Simple user interface for all operations.</div></div>
-          <div class="mini-card"><div class="mc-icon">💻</div><div class="mc-title">Computer Application</div><div class="mc-text">Desktop application for Windows/Mac allowing Drive to work like a local folder with automatic syncing.</div></div>
-          <div class="mini-card"><div class="mc-icon">📱</div><div class="mc-title">Mobile Application</div><div class="mc-text">Available on Android and iOS for accessing your Drive files from your smartphone or tablet.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="mc-title">Google Drive Online</div><div class="mc-text">Access via any modern web browser at drive.google.com. Simple user interface for all operations.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg></div><div class="mc-title">Computer Application</div><div class="mc-text">Desktop application for Windows/Mac allowing Drive to work like a local folder with automatic syncing.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div><div class="mc-title">Mobile Application</div><div class="mc-text">Available on Android and iOS for accessing your Drive files from your smartphone or tablet.</div></div>
         </div>
 
         <h3>Dashboard Features</h3>
@@ -608,7 +654,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
         <p>Google provides a suite of apps designed for users who work online. Regular document-making apps work offline — files must be sent from one user to another via email or pen drive. Google Docs, integrated with Google Drive's cloud storage, lets you access, work on, and share your documents from anywhere.</p>
 
         <div class="info-box blue">
-          <strong>💡 Key Advantage</strong>
+          <strong><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Key Advantage</strong>
           Integration with Google Drive's cloud storage means you can access and collaborate on documents from any device, at any location — without emailing files back and forth.
         </div>
 
@@ -654,19 +700,19 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
       </div>
       <div class="sec-body">
         <div class="def-box">
-          <div class="def-label">📘 Definition</div>
+          <div class="def-label"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Definition</div>
           <div class="def-text">Google Forms is a free Google online tool that allows users to create forms, conduct surveys and quizzes, and edit and share forms with others. It is part of Google's online app suite (along with Docs, Sheets, and Slides) that works in your browser using the cloud. It is one of the simplest ways to send data directly to a spreadsheet.</div>
         </div>
         <p>Teachers can use Google Forms to assess students at the start of a class and gauge prior knowledge. Forms can also collect feedback from students and parents. Students can use it to assess their own learning, set goals, and collect data for research projects.</p>
 
         <h3>Question Types in Google Forms</h3>
         <div class="grid-3">
-          <div class="mini-card"><div class="mc-icon">📝</div><div class="mc-title">Short Answer</div><div class="mc-text">For brief text responses — names, numbers, single-line answers.</div></div>
-          <div class="mini-card"><div class="mc-icon">📄</div><div class="mc-title">Paragraph</div><div class="mc-text">For longer text responses spanning multiple lines.</div></div>
-          <div class="mini-card"><div class="mc-icon">🔘</div><div class="mc-title">Multiple Choice</div><div class="mc-text">One answer from several options using radio buttons.</div></div>
-          <div class="mini-card"><div class="mc-icon">☑️</div><div class="mc-title">Checkboxes</div><div class="mc-text">Multiple answers can be selected from several options.</div></div>
-          <div class="mini-card"><div class="mc-icon">🔽</div><div class="mc-title">Dropdown</div><div class="mc-text">Select one answer from a dropdown list.</div></div>
-          <div class="mini-card"><div class="mc-icon">📊</div><div class="mc-title">Linear Scale / Grid</div><div class="mc-text">Rating scales and multiple-choice grid questions.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.855z"/></svg></div><div class="mc-title">Short Answer</div><div class="mc-text">For brief text responses — names, numbers, single-line answers.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg></div><div class="mc-title">Paragraph</div><div class="mc-text">For longer text responses spanning multiple lines.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/></svg></div><div class="mc-title">Multiple Choice</div><div class="mc-text">One answer from several options using radio buttons.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--success)"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg></div><div class="mc-title">Checkboxes</div><div class="mc-text">Multiple answers can be selected from several options.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div><div class="mc-title">Dropdown</div><div class="mc-text">Select one answer from a dropdown list.</div></div>
+          <div class="mini-card"><div class="mc-icon"><svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div><div class="mc-title">Linear Scale / Grid</div><div class="mc-text">Rating scales and multiple-choice grid questions.</div></div>
         </div>
 
         <h3>5.6.1 How to Create a Google Form — Step by Step</h3>
@@ -724,7 +770,7 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
 
         <div class="divider"></div>
         <p style="text-align:center;color:var(--muted);font-size:13.5px;font-style:italic;">
-          📚 Source: 2DCA1 IT Trends – Unit 5 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
+          <svg class="icon-inline" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Source: 2DCA1 IT Trends – Unit 5 | Makhanlal Chaturvedi National University of Journalism &amp; Communication, Bhopal<br>
           Authors: Dr. Manish Maheshwari, Dr. Sunita Dwivedi &amp; Prashant Parashar
         </p>
       </div>
@@ -733,28 +779,8 @@ footer{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 100%);color:rgba(255
   </main>
 </div>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="brand-name">⚡ ThunderStudy</div>
-      <p>Your ultimate study companion for CUET, DCA, and competitive exams. Built with ❤️ by Wondermayank.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul><li><a href="#">Dashboard</a></li><li><a href="#">StudyHub</a></li><li><a href="#">Mock Tests</a></li><li><a href="#">Leaderboard</a></li></ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="#">@wondermayankx (Instagram)</a></li>
-        <li><a href="#">@thunderstudy_official (Telegram)</a></li>
-        <li><a href="#">@wondermayankx (YouTube)</a></li>
-        <li><a href="#">@mindmaster_robot (Support Bot)</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2025 ThunderStudy by Wondermayank · All Rights Reserved · wondermayank.github.io</div>
-</footer>
+<div id="footer-mount"></div>
+<script src="/footer.js"></script>
 
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
@@ -768,5 +794,6 @@ const tocLinks=document.querySelectorAll('.toc-list li a');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const link=document.querySelector(`.toc-list li a[href="#${entry.target.id}"]`);if(link)link.classList.add('active');}});},{rootMargin:'-20% 0px -60% 0px'});
 sections.forEach(sec=>observer.observe(sec));
 </script>
+<script src="/theme-toggle.js"></script>
 </body>
 </html>

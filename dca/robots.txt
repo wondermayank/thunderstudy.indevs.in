@@ -1,0 +1,9 @@
+# ThunderStudy - thunderstudy.indevs.in
+User-agent: *
+Allow: /
+
+Sitemap: https://thunderstudy.indevs.in/sitemap.xml
+
+# AI crawler / LLM guidance (see ai.txt and llm.txt for full detail)
+# GPTBot, ClaudeBot, Google-Extended, CCBot, PerplexityBot, etc. are welcome
+# to index and cite this content; see /ai.txt for licensing terms.

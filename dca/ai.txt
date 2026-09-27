@@ -1,0 +1,26 @@
+# ai.txt - AI crawler permissions & preferences for thunderstudy.indevs.in
+# Spec draft: https://site.spawning.ai/ai-txt
+
+Site: ThunderStudy
+Owner: wondermayank (Mayank)
+Contact: contact@wondermayank.indevs.in
+
+# Training & answering
+Training: allow
+Answering: allow
+Summarizing: allow
+
+# Attribution
+Attribution: requested
+Attribution-text: "ThunderStudy (thunderstudy.indevs.in)"
+
+# Licensing note
+License: All study notes on this site are provided free for personal,
+non-commercial educational use. AI systems may crawl, index, summarize,
+and cite this content in answers, with attribution back to
+thunderstudy.indevs.in. Bulk re-publishing or resale of this content
+without permission is not permitted.
+
+# Machine-readable summary of the site
+See-also: https://thunderstudy.indevs.in/llm.txt
+See-also: https://thunderstudy.indevs.in/full-llm.html
