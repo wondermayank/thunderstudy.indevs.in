@@ -17,7 +17,7 @@
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "ThunderStudy",
-  "url": "https://thunderstudy.github.io/ssc_mts/notes/",
+  "url": "https://ssc.thunderstudy.indevs.in/notes/",
   "description": "Free SSC CPO exam preparation notes and PDF downloads.",
   "educationalCredentialAwarded": "SSC CPO Exam Preparation"
 }
@@ -1027,7 +1027,7 @@ function openSubject(id) {
   list.innerHTML = s.chapters.map((ch, i) => {
     const num = i + 1;
     const pdfNum = s.pdfNums ? s.pdfNums[i] : num;
-const url = `https://thunderstudy.github.io/ssc_mts/notes/${s.slug}${pdfNum}.pdf`;
+const url = `https://ssc.thunderstudy.indevs.in/notes/${s.slug}${pdfNum}.pdf`;
     return `
       <a class="chapter-item" href="${url}" target="_blank" rel="noopener">
         <div class="chapter-num">${num}</div>
