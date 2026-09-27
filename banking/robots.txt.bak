@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thunderstudy.indevs.in/sitemap.xml
+
+# GEO / AEO discovery files
+# https://thunderstudy.indevs.in/llm.txt
+# https://thunderstudy.indevs.in/ai.txt
+# https://thunderstudy.indevs.in/full-llm.html
