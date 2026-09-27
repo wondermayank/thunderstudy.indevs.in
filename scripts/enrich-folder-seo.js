@@ -27,7 +27,7 @@ function listHtmlFiles(dir, result = []) {
     if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
     const absolute = path.join(dir, entry.name);
     if (entry.isDirectory()) listHtmlFiles(absolute, result);
-    else if (entry.name.endsWith('.html') && !entry.name.endsWith('.disabled')) result.push(absolute);
+    else if (entry.name.endsWith('.html') && !entry.name.endsWith('.disabled') && entry.name !== 'footer.html') result.push(absolute);
   }
   return result;
 }
@@ -172,10 +172,10 @@ function enrich(file) {
   const isSearchPage = /[\\/]search[\\/]index\.html$/i.test(file);
   const visible = buildVisibleBlock({ title, description, url, examYear });
   const schema = buildSchema({ title, description, url, examYear, breadcrumbs: breadcrumbItems(url, title), isSearchPage });
-  const style = `<style data-seo-answer-style>\n.ts-seo-answer{margin:24px auto;max-width:1120px;padding:0 20px;font:inherit;color:inherit}.ts-seo-answer__inner{border:1px solid #d8e1f2;border-radius:12px;padding:22px;background:#f8fbff}.ts-seo-answer__eyebrow{margin:0 0 6px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2563eb}.ts-seo-answer h2{margin:0 0 16px;font-size:clamp(1.2rem,2.4vw,1.7rem)}.ts-seo-answer h3{margin:0 0 6px;font-size:1rem}.ts-seo-answer p{margin:0 0 8px;line-height:1.6}.ts-seo-answer__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.ts-seo-answer__trust{margin-top:18px;padding-top:16px;border-top:1px solid #d8e1f2}.ts-seo-answer a{color:#1d4ed8;font-weight:600}@media(prefers-color-scheme:dark){.ts-seo-answer__inner{background:#1b2433;border-color:#3b4a63}.ts-seo-answer__trust{border-color:#3b4a63}.ts-seo-answer a{color:#93c5fd}}\n</style>`;
+  const style = `<style data-seo-answer-style>\n.ts-seo-answer{margin:24px auto;max-width:1120px;padding:0 20px;font:inherit;color:#1f2937}.ts-seo-answer__inner{border:1px solid #cbd5e1;border-radius:12px;padding:22px;background:#f8fbff;color:#1f2937}.ts-seo-answer__eyebrow{margin:0 0 6px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1d4ed8}.ts-seo-answer h2,.ts-seo-answer h3,.ts-seo-answer p{color:#1f2937}.ts-seo-answer h2{margin:0 0 16px;font-size:clamp(1.2rem,2.4vw,1.7rem)}.ts-seo-answer h3{margin:0 0 6px;font-size:1rem}.ts-seo-answer p{margin:0 0 8px;line-height:1.6}.ts-seo-answer__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.ts-seo-answer__trust{margin-top:18px;padding-top:16px;border-top:1px solid #cbd5e1}.ts-seo-answer a{color:#1d4ed8;font-weight:700}@media(prefers-color-scheme:dark){.ts-seo-answer__inner{background:#1b2433;border-color:#475569;color:#f8fafc}.ts-seo-answer h2,.ts-seo-answer h3,.ts-seo-answer p{color:#f8fafc}.ts-seo-answer__trust{border-color:#475569}.ts-seo-answer a{color:#93c5fd}}\n</style>`;
   html = html.replace(/<\/head>/i, `${style}\n${schema}\n</head>`);
-  const insertion = html.match(/<main\b[^>]*>/i) ? /<main\b[^>]*>/i : /<body\b[^>]*>/i;
-  html = html.replace(insertion, match => `${match}${visible}`);
+  const insertion = /<footer\b[^>]*>/i.test(html) ? /<footer\b[^>]*>/i : (/<\/main>/i.test(html) ? /<\/main>/i : /<\/body>/i);
+  html = html.replace(insertion, match => `${visible}\n${match}`);
   fs.writeFileSync(file, html, 'utf8');
   return true;
 }
