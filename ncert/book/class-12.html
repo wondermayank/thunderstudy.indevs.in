@@ -329,11 +329,46 @@ footer { background: var(--canvas-parchment); padding: 48px 0 24px; }
 }
 </script>
 <style data-thunderstudy-brand>
-.ts-brand-thunder,.brand-thunder,.wm-thunder{color:#ffffff !important;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.ts-brand-thunder,.brand-thunder,.wm-thunder{color:#111827 !important;text-shadow:none}
+[data-theme="dark"] .ts-brand-thunder,[data-theme="dark"] .brand-thunder,[data-theme="dark"] .wm-thunder{color:#ffffff !important}
 .ts-brand-study,.brand-study,.wm-study,.logo-text-accent,.logo-text .logo-text-accent,.boot-title-accent{color:#2563eb !important;-webkit-text-fill-color:#2563eb !important;background:none !important}
 [data-theme="dark"] .ts-brand-study,[data-theme="dark"] .brand-study,[data-theme="dark"] .wm-study,[data-theme="dark"] .logo-text-accent,[data-theme="dark"] .logo-text .logo-text-accent,[data-theme="dark"] .boot-title-accent{color:#a78bfa !important;-webkit-text-fill-color:#a78bfa !important}
 </style>
   <link rel="stylesheet" href="/footer.css">
+<style data-ts-footer>
+.ts-site-footer{background:var(--surface);border-top:1px solid var(--hairline);color:var(--muted);padding:0;font-family:'Inter',system-ui,-apple-system,sans-serif;}
+.ts-footer-wrap{max-width:1120px;margin:0 auto;padding:56px 24px 32px;}
+.ts-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
+.ts-site-footer nav{position:static;top:auto;z-index:auto;height:auto;display:block;padding:0;margin:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;}
+.ts-site-footer .ts-footer-legal{display:flex;}
+.ts-footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:14px;}
+.ts-brand-mark{width:38px;height:38px;border-radius:var(--r-md);background:var(--primary-tint);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ts-brand-mark img{display:block;width:22px;height:22px;}
+.ts-footer-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.ts-footer-brand-name{font-size:1.1rem;font-weight:700;color:#111827;}
+[data-theme="dark"] .ts-footer-brand-name{color:#ffffff;}
+.ts-footer-brand-name .ts-brand-accent{color:var(--primary);}
+.ts-footer-brand-by{font-size:.72rem;color:var(--muted);}
+.ts-footer-desc{font-size:.86rem;line-height:1.6;color:var(--muted);max-width:340px;margin:0 0 20px;}
+.ts-footer-social{display:flex;flex-direction:column;gap:14px;}
+.ts-footer-social-label{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.ts-footer-social-row{display:flex;flex-wrap:wrap;gap:8px;}
+.ts-social-btn{width:36px;height:36px;border-radius:var(--r-pill);border:1px solid var(--hairline);background:var(--card);color:var(--muted);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:color .15s,border-color .15s,transform .15s;}
+.ts-social-btn svg{width:18px;height:18px;}
+.ts-social-btn:hover{color:var(--primary);border-color:var(--primary);transform:translateY(-2px);}
+.ts-footer-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;}
+.ts-footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.ts-footer-links a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .15s;}
+.ts-footer-links a:hover{color:var(--primary);}
+.ts-footer-bottom{border-top:1px solid var(--hairline);}
+.ts-footer-bottom .footer-bottom-inner{max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;}
+.ts-footer-copy{font-size:.76rem;color:var(--muted);}
+.ts-footer-legal{display:flex;flex-wrap:wrap;gap:18px;}
+.ts-footer-legal a{font-size:.76rem;color:var(--muted);text-decoration:none;}
+.ts-footer-legal a:hover{color:var(--primary);}
+@media(max-width:900px){.ts-footer-grid{grid-template-columns:1fr 1fr;gap:32px;}.ts-footer-brand-col{grid-column:1/-1;}}
+@media(max-width:520px){.ts-footer-wrap{padding:40px 20px 24px;}.ts-footer-bottom .footer-bottom-inner{flex-direction:column;align-items:flex-start;}}
+</style>
   <link rel="stylesheet" href="/ncert-design.css">
 
 <script id="ncert-page-knowledge-graph" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://thunderstudy.indevs.in/#org","name":"ThunderStudy","url":"https://thunderstudy.indevs.in","description":"Free NCERT books, notes and study resources for Indian students.","isAccessibleForFree":true,"areaServed":{"@type":"Country","name":"India"},"sameAs":["https://t.me/Thunderstudy_official","https://instagram.com/Thunderstudyx","https://youtube.com/@Thunderstudy_official","https://twitter.com/Thunderstudyx","https://github.com/wondermayank","https://github.com/ThunderStudy"]},{"@type":"WebSite","@id":"https://thunderstudy.indevs.in/#website","name":"ThunderStudy","url":"https://thunderstudy.indevs.in","publisher":{"@id":"https://thunderstudy.indevs.in/#org"},"inLanguage":"en-IN"},{"@type":"WebPage","@id":"https://thunderstudy.indevs.in/ncert/book/class-12#webpage","name":"NCERT Class 12 Books PDF Free Download (English &amp; Hindi Medium) | ThunderStudy","url":"https://thunderstudy.indevs.in/ncert/book/class-12","isPartOf":{"@id":"https://thunderstudy.indevs.in/#website"},"about":{"@id":"https://thunderstudy.indevs.in/#org"},"inLanguage":"en-IN","isAccessibleForFree":true}]}</script>
