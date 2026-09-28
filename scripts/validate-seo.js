@@ -25,6 +25,19 @@ for (const token of [
 
 const allText = requiredFiles.concat(['index.html']).map(read).join('\n');
 if (allText.includes('https://https://')) errors.push('Malformed double-protocol URL found');
+const malformedFiles = [];
+function scanForMalformedUrls(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name.startsWith('.') || entry.name === 'node_modules' || entry.name === 'dist') continue;
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) scanForMalformedUrls(file);
+    else if (/\.(html|js|json|xml|txt)$/.test(entry.name) && entry.name !== 'validate-seo.js') {
+      if (fs.readFileSync(file, 'utf8').includes('https://https://')) malformedFiles.push(path.relative(root, file));
+    }
+  }
+}
+scanForMalformedUrls(root);
+if (malformedFiles.length) errors.push(`Malformed double-protocol URLs in: ${malformedFiles.join(', ')}`);
 
 const robots = read('robots.txt');
 if (!robots.includes(`Sitemap: ${baseUrl}/sitemap.xml`)) errors.push('robots.txt missing primary sitemap');

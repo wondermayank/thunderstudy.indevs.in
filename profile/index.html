@@ -1,3 +1,76 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your study profile | ThunderStudy</title>
+  <meta name="description" content="Manage your private ThunderStudy profile, recent resources and saved study links.">
+  <meta data-thunderstudy-brand="true">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { color-scheme:light; --ink:#172033; --muted:#64748b; --line:#dbe3ef; --canvas:#f6f8fc; --blue:#365fb5; --danger:#b42318; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--canvas); color:var(--ink); font:16px/1.5 Arial,sans-serif; }
+    header { padding:18px 20px; border-bottom:1px solid var(--line); background:#fff; }
+    .nav { max-width:940px; margin:auto; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+    .brand { color:var(--ink); font-weight:800; text-decoration:none; } .brand span { color:#2563eb; }
+    .back { color:var(--blue); font-weight:700; text-decoration:none; }
+    main { width:min(940px,calc(100% - 32px)); margin:34px auto 70px; }
+    .eyebrow { color:var(--blue); font-size:.72rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:5px 0 8px; font-size:clamp(1.8rem,4vw,2.8rem); letter-spacing:-.04em; }
+    .intro { color:var(--muted); max-width:620px; }
+    .layout { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+    .panel { padding:22px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+    .panel h2 { margin:0 0 14px; font-size:1.05rem; }
+    label { display:block; margin:12px 0 6px; font-size:.82rem; font-weight:700; }
+    input { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font:inherit; }
+    button { border:0; border-radius:8px; padding:10px 13px; font-weight:700; cursor:pointer; }
+    .save { margin-top:16px; background:var(--blue); color:#fff; }
+    .delete { margin-top:10px; background:#fff0f0; color:var(--danger); }
+    .list { display:grid; gap:10px; }
+    .item { display:block; padding:12px; border:1px solid var(--line); border-radius:9px; color:var(--ink); text-decoration:none; }
+    .item small { display:block; margin-top:3px; color:var(--muted); }
+    .empty { color:var(--muted); font-size:.9rem; }
+    #message { min-height:1.3em; color:var(--muted); font-size:.82rem; }
+    @media (max-width:680px) { .layout { grid-template-columns:1fr; } main { margin-top:26px; } }
+  </style>
+  <link rel="stylesheet" href="/footer.css">
+</head>
+<body>
+  <header><div class="nav"><a class="brand" href="/">Thunder<span>Study</span></a><a class="back" href="/">Back to home</a></div></header>
+  <main>
+    <span class="eyebrow">Private on this device</span>
+    <h1>Your study profile</h1>
+    <p class="intro">Your profile, bookmarks and recent resources are stored only in this browser. No account is needed.</p>
+    <div class="layout">
+      <section class="panel" aria-labelledby="profile-title">
+        <h2 id="profile-title">Profile details</h2>
+        <form id="profile-form">
+          <label for="name">Your name</label><input id="name" maxlength="40" required>
+          <label for="focus">Class or exam</label><input id="focus" maxlength="60" required>
+          <button class="save" type="submit">Save profile</button>
+          <button class="delete" id="delete" type="button">Delete all local data</button>
+          <p id="message" role="status"></p>
+        </form>
+      </section>
+      <section class="panel" id="saved" aria-labelledby="saved-title"><h2 id="saved-title">Saved resources</h2><div id="saved-list" class="list"></div></section>
+      <section class="panel" aria-labelledby="recent-title"><h2 id="recent-title">Recent resources</h2><div id="recent-list" class="list"></div></section>
+    </div>
+  </main>
+  
+  <script>
+    (function () {
+      var profileKey='thunderstudy-profile', recentKey='thunderstudy-recent', bookmarkKey='thunderstudy-bookmarks';
+      function read(key, fallback) { try { var v=JSON.parse(localStorage.getItem(key)); return v == null ? fallback : v; } catch(e) { return fallback; } }
+      function write(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) {} }
+      function renderList(id, rows, empty) { var box=document.getElementById(id); box.innerHTML=''; if(!rows.length){box.innerHTML='<p class="empty">'+empty+'</p>';return;} rows.forEach(function(r){var a=document.createElement('a');a.className='item';a.href=r.url;a.textContent=r.title||r.url;var s=document.createElement('small');s.textContent=r.url;a.appendChild(s);box.appendChild(a);}); }
+      function render(){ var p=read(profileKey,{}); document.getElementById('name').value=p.name||''; document.getElementById('focus').value=p.focus||''; renderList('saved-list',read(bookmarkKey,[]),'No saved resources yet.'); renderList('recent-list',read(recentKey,[]),'Your recently opened resources will appear here.'); }
+      document.getElementById('profile-form').addEventListener('submit',function(e){e.preventDefault();write(profileKey,{name:document.getElementById('name').value.trim(),focus:document.getElementById('focus').value.trim(),updatedAt:Date.now()});document.getElementById('message').textContent='Profile saved on this device.';});
+      document.getElementById('delete').addEventListener('click',function(){localStorage.removeItem(profileKey);localStorage.removeItem(recentKey);localStorage.removeItem(bookmarkKey);render();document.getElementById('message').textContent='Your local study data has been deleted.';});
+      render();
+    })();
+  </script>
+
 <script>
 /* =========================
    LOADER
@@ -161,3 +234,5 @@ themeBtn.addEventListener('click',function(){
     </div>
   </div>
 </footer>
+</body>
+</html>
