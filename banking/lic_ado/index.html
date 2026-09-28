@@ -476,11 +476,46 @@ footer{
 }
 </script>
 <style data-thunderstudy-brand>
-.ts-brand-thunder,.brand-thunder,.wm-thunder{color:#ffffff !important;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.ts-brand-thunder,.brand-thunder,.wm-thunder{color:#111827 !important;text-shadow:none}
+[data-theme="dark"] .ts-brand-thunder,[data-theme="dark"] .brand-thunder,[data-theme="dark"] .wm-thunder{color:#ffffff !important}
 .ts-brand-study,.brand-study,.wm-study,.logo-text-accent,.logo-text .logo-text-accent,.boot-title-accent{color:#2563eb !important;-webkit-text-fill-color:#2563eb !important;background:none !important}
 [data-theme="dark"] .ts-brand-study,[data-theme="dark"] .brand-study,[data-theme="dark"] .wm-study,[data-theme="dark"] .logo-text-accent,[data-theme="dark"] .logo-text .logo-text-accent,[data-theme="dark"] .boot-title-accent{color:#a78bfa !important;-webkit-text-fill-color:#a78bfa !important}
 </style>
   <link rel="stylesheet" href="/footer.css">
+<style data-ts-footer>
+.ts-site-footer{background:var(--surface);border-top:1px solid var(--hairline);color:var(--muted);padding:0;font-family:'Inter',system-ui,-apple-system,sans-serif;}
+.ts-footer-wrap{max-width:1120px;margin:0 auto;padding:56px 24px 32px;}
+.ts-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
+.ts-site-footer nav{position:static;top:auto;z-index:auto;height:auto;display:block;padding:0;margin:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;}
+.ts-site-footer .ts-footer-legal{display:flex;}
+.ts-footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:14px;}
+.ts-brand-mark{width:38px;height:38px;border-radius:var(--r-md);background:var(--primary-tint);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ts-brand-mark img{display:block;width:22px;height:22px;}
+.ts-footer-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.ts-footer-brand-name{font-size:1.1rem;font-weight:700;color:#111827;}
+[data-theme="dark"] .ts-footer-brand-name{color:#ffffff;}
+.ts-footer-brand-name .ts-brand-accent{color:var(--primary);}
+.ts-footer-brand-by{font-size:.72rem;color:var(--muted);}
+.ts-footer-desc{font-size:.86rem;line-height:1.6;color:var(--muted);max-width:340px;margin:0 0 20px;}
+.ts-footer-social{display:flex;flex-direction:column;gap:14px;}
+.ts-footer-social-label{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.ts-footer-social-row{display:flex;flex-wrap:wrap;gap:8px;}
+.ts-social-btn{width:36px;height:36px;border-radius:var(--r-pill);border:1px solid var(--hairline);background:var(--card);color:var(--muted);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:color .15s,border-color .15s,transform .15s;}
+.ts-social-btn svg{width:18px;height:18px;}
+.ts-social-btn:hover{color:var(--primary);border-color:var(--primary);transform:translateY(-2px);}
+.ts-footer-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;}
+.ts-footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.ts-footer-links a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .15s;}
+.ts-footer-links a:hover{color:var(--primary);}
+.ts-footer-bottom{border-top:1px solid var(--hairline);}
+.ts-footer-bottom .footer-bottom-inner{max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;}
+.ts-footer-copy{font-size:.76rem;color:var(--muted);}
+.ts-footer-legal{display:flex;flex-wrap:wrap;gap:18px;}
+.ts-footer-legal a{font-size:.76rem;color:var(--muted);text-decoration:none;}
+.ts-footer-legal a:hover{color:var(--primary);}
+@media(max-width:900px){.ts-footer-grid{grid-template-columns:1fr 1fr;gap:32px;}.ts-footer-brand-col{grid-column:1/-1;}}
+@media(max-width:520px){.ts-footer-wrap{padding:40px 20px 24px;}.ts-footer-bottom .footer-bottom-inner{flex-direction:column;align-items:flex-start;}}
+</style>
 </head>
 <body>
 
@@ -521,27 +556,27 @@ footer{
     </a>
   </div>
   <div class="quick-grid">
-    <a class="quick-card" href="exam">
+    <a class="quick-card" href="https://thunderstudy.indevs.in/banking/lic_ado/exam">
       <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div>
       <div class="qc-label">Exam Pattern</div>
       <div class="qc-sub">Pre + Mains</div>
     </a>
-    <a class="quick-card" href="pyqs">
+    <a class="quick-card" href="https://thunderstudy.indevs.in/banking/lic_ado/pyqs">
       <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
       <div class="qc-label">PYQs</div>
       <div class="qc-sub">Previous Papers</div>
     </a>
-    <a class="quick-card" href="notes">
+    <a class="quick-card" href="https://thunderstudy.indevs.in/banking/lic_ado/notes">
       <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
       <div class="qc-label">Notes</div>
       <div class="qc-sub">All Subjects</div>
     </a>
-    <a class="quick-card" href="chapter_pyqs/box">
+    <a class="quick-card" href="https://thunderstudy.indevs.in/banking/lic_ado/chapter_pyqs/box">
       <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
       <div class="qc-label">Chapter PYQ</div>
       <div class="qc-sub">Coming Soon</div>
     </a>
-    <a class="quick-card" href="analytics">
+    <a class="quick-card" href="https://thunderstudy.indevs.in/banking/lic_ado/analytics">
       <div class="qc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="qc-label">Analytics</div>
       <div class="qc-sub">ThunderStudy</div>
