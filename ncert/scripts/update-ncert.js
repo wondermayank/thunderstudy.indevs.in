@@ -48,6 +48,10 @@ for (const file of files) {
   const is404 = path.basename(file) === '404.html';
 
   html = html.replace(/https:\/\/https:\/\//g, 'https://').replace(/og-cover\.png/g, 'og-image.png');
+  // Remove the legacy inline footer styles; the shared footer.css is authoritative.
+  html = html.replace(/\s*footer\.site-footer\s*\{[\s\S]*?\.footer-bottom\s*\{[\s\S]*?\n\s*\}\s*(?=<\/style>)/i, '\n');
+  html = html.replace(/https:\/\/thunderstudy\.indevs\.in\/og-image\.png/g, `${site}/ncert/og-image.png`)
+    .replace(/content="\/og-image\.png"/g, 'content="/ncert/og-image.png"');
   html = stripDuplicateMeta(html, /<meta\s+name=["']twitter:card["'][^>]*>\s*/gi);
 
   if (!/<link[^>]+rel=["']canonical["']/i.test(html) && !is404) {
@@ -57,13 +61,16 @@ for (const file of files) {
     html = html.replace(/<\/head>/i, `  <meta property="og:url" content="${url}">\n</head>`);
   }
   if (!/<meta\s+property=["']og:image["']/i.test(html) && !is404) {
-    html = html.replace(/<\/head>/i, '  <meta property="og:image" content="/og-image.png">\n</head>');
+    html = html.replace(/<\/head>/i, '  <meta property="og:image" content="/ncert/og-image.png">\n</head>');
   }
   if (!/<meta\s+name=["']twitter:image["']/i.test(html) && !is404) {
-    html = html.replace(/<\/head>/i, '  <meta name="twitter:image" content="/og-image.png">\n</head>');
+    html = html.replace(/<\/head>/i, '  <meta name="twitter:image" content="/ncert/og-image.png">\n</head>');
   }
-  if (!/<link[^>]+href=["']\/ncert-design\.css["']/i.test(html) && /<head\b/i.test(html)) {
-    html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/ncert-design.css">\n</head>');
+  if (!/<link[^>]+href=["']\/ncert\/ncert-design\.css["']/i.test(html) && /<head\b/i.test(html)) {
+    html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/ncert/ncert-design.css">\n</head>');
+  }
+  if (!/<link[^>]+href=["']\/footer\.css["']/i.test(html) && /<head\b/i.test(html)) {
+    html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/footer.css">\n</head>');
   }
   if (!/<p[^>]+class=["']ts-aeo-summary["']/i.test(html) && !is404) {
     const firstH1 = html.search(/<h1\b[^>]*>[\s\S]*?<\/h1>/i);
@@ -98,6 +105,12 @@ for (const file of files) {
   if (!html.includes('https://github.com/wondermayank')) {
     html = html.replace(/(<div class="ts-footer-social-row">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>)/i, `$1`);
     html = html.replace(/(<div class="ts-footer-social-row">[\s\S]*?)(<\/div>\s*<\/div>\s*<\/div>)/i, `$1${githubLinks}$2`);
+  }
+
+  if (!/<footer\b/i.test(html) && /<\/body>/i.test(html)) {
+    const source = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+    const footer = source.match(/<footer class="ts-site-footer">[\s\S]*?<\/footer>/i);
+    if (footer) html = html.replace(/<\/body>/i, `${footer[0]}\n</body>`);
   }
 
   fs.writeFileSync(file, html);
