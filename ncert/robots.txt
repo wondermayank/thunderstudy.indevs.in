@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thunderstudy.indevs.in/ncert/sitemap.xml
+
+# Machine-readable site context
+llms.txt: https://thunderstudy.indevs.in/ncert/llm.txt
+ai.txt: https://thunderstudy.indevs.in/ncert/ai.txt

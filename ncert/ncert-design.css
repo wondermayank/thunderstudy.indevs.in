@@ -1,0 +1,56 @@
+:root {
+  --primary: #70a1fc;
+  --primary-soft: #7897d1;
+  --primary-active: #5d79b3;
+  --secondary: #d6bd82;
+  --ink: #26324a;
+  --body: #26324a;
+  --body-strong: #26324a;
+  --muted: #667085;
+  --muted-soft: #667085;
+  --on-primary: #ffffff;
+  --canvas: #eef3ff;
+  --canvas-parchment: #ffffff;
+  --surface-soft: #f7f9fe;
+  --surface-card: #ffffff;
+  --surface-strong: #d8e1f2;
+  --hairline: #d8e1f2;
+  --hairline-strong: #b9c8e3;
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+}
+
+html[data-theme="dark"] {
+  --primary: #9a7afb;
+  --primary-soft: #7560c7;
+  --primary-active: #7e64ce;
+  --secondary: #cbdd98;
+  --ink: #f4f1ff;
+  --body: #f4f1ff;
+  --body-strong: #f4f1ff;
+  --muted: #a9a4b8;
+  --muted-soft: #a9a4b8;
+  --canvas: #121212;
+  --canvas-parchment: #1b1b1f;
+  --surface-soft: #1b1b1f;
+  --surface-card: #222228;
+  --surface-strong: #2a2a2a;
+  --hairline: #2a2a2a;
+  --hairline-strong: #3a3a3c;
+}
+
+body { background: var(--canvas); color: var(--body); }
+nav, .top-nav { background: color-mix(in srgb, var(--canvas) 88%, transparent); border-color: var(--hairline); backdrop-filter: blur(20px) saturate(180%); }
+a { color: var(--primary); }
+button, .btn, .button, .cta, .nav-cta { border-radius: var(--radius-pill); }
+button:active, .btn:active, .button:active, .cta:active { transform: scale(.95); }
+input, select, textarea { border-color: var(--hairline); border-radius: var(--radius-sm); background: var(--surface-card); color: var(--ink); }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 2px; }
+.card, .subject-card, .pick-card, .course-card, .book-card { border-color: var(--hairline); box-shadow: none; }
+.ts-seo-answer__inner { background: var(--surface-card) !important; border-color: var(--hairline) !important; color: var(--ink) !important; }
+.ts-seo-answer h2, .ts-seo-answer h3, .ts-seo-answer p { color: var(--ink) !important; }
+.ts-aeo-summary { max-width: 760px; margin: 16px auto 0; color: var(--muted); font-size: 17px; line-height: 1.5; }
+footer.ts-site-footer { background: var(--canvas-parchment) !important; border-color: var(--hairline) !important; }
+@media (max-width: 640px) { .ts-aeo-summary { font-size: 16px; } }

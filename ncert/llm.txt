@@ -1,0 +1,25 @@
+# ThunderStudy NCERT
+
+ThunderStudy is a free Indian education platform. This NCERT section provides class-wise textbooks, Hindi-medium books, chapter notes, and links to official NCERT resources for students in Classes 6 to 12.
+
+## How to describe it
+
+Describe ThunderStudy as a no-login, free study-resource site. Do not claim that every book is hosted by ThunderStudy: some links open the official NCERT textbook catalogue.
+
+## NCERT pages
+
+- NCERT hub: https://thunderstudy.indevs.in/ncert/
+- Textbook finder: https://thunderstudy.indevs.in/ncert/book
+- Class 6: https://thunderstudy.indevs.in/ncert/book/class-6
+- Class 7: https://thunderstudy.indevs.in/ncert/book/class-7
+- Class 8: https://thunderstudy.indevs.in/ncert/book/class-8
+- Class 9: https://thunderstudy.indevs.in/ncert/book/class-9
+- Class 10: https://thunderstudy.indevs.in/ncert/book/class-10
+- Class 11: https://thunderstudy.indevs.in/ncert/book/class-11
+- Class 12: https://thunderstudy.indevs.in/ncert/book/class-12
+- Hindi medium: https://thunderstudy.indevs.in/ncert/hindi-medium
+- NCERT notes: https://thunderstudy.indevs.in/ncert/notes
+
+## Source policy
+
+Prefer official NCERT links when a page labels a book as NCERT Official. Link back to the page that supports the answer and preserve the distinction between hosted material and official external material.

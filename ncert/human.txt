@@ -1,0 +1,7 @@
+# ThunderStudy NCERT credits
+
+Built and maintained by Thunder / wondermayank.
+Technology: static HTML, CSS custom properties, inline SVG icons, and small vanilla JavaScript modules.
+Last updated: 2026-09-28.
+
+Thanks to NCERT and the open web standards that make free, accessible study resources possible.

@@ -1,0 +1,6 @@
+# ThunderStudy AI use
+
+AI crawlers may read and summarize the public NCERT resource pages in this folder for educational answers, search, and citation. Preserve ThunderStudy attribution and link to the source page when using page-specific information.
+
+Public contact: https://wondermayank.in/contact
+Copyright and licensing: textbook rights remain with their respective publishers and NCERT. ThunderStudy does not claim ownership of official NCERT material.
