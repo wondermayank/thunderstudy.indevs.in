@@ -49,8 +49,5 @@ button:active, .btn:active, .button:active, .cta:active { transform: scale(.95);
 input, select, textarea { border-color: var(--hairline); border-radius: var(--radius-sm); background: var(--surface-card); color: var(--ink); }
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 2px; }
 .card, .subject-card, .pick-card, .course-card, .book-card { border-color: var(--hairline); box-shadow: none; }
-.ts-seo-answer__inner { background: var(--surface-card) !important; border-color: var(--hairline) !important; color: var(--ink) !important; }
-.ts-seo-answer h2, .ts-seo-answer h3, .ts-seo-answer p { color: var(--ink) !important; }
 .ts-aeo-summary { max-width: 760px; margin: 16px auto 0; color: var(--muted); font-size: 17px; line-height: 1.5; }
-footer.ts-site-footer { background: var(--canvas-parchment) !important; border-color: var(--hairline) !important; }
 @media (max-width: 640px) { .ts-aeo-summary { font-size: 16px; } }

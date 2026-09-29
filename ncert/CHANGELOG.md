@@ -9,3 +9,10 @@ Date: 2026-09-28
 - Updated NCERT footer social links to Telegram, Instagram, YouTube, X, and both GitHub profiles.
 - Added `llm.txt`, `full-llm.html`, `ai.txt`, `human.txt`, `robots.txt`, and `sitemap.xml`.
 - Kept official NCERT source links and existing page content meaning intact.
+
+## UI sync with 404.html
+
+- Header, footer, buttons and the "ThunderStudy quick answers" box now match `404.html` on every page via shared `thunder-ui.css` and `thunder-ui.js`.
+- Header: added "Request file" button (wondermayank.in/contact) before the light/dark toggle.
+- Quick answers box: same box UI as the 404 card; white box with black text in light mode, dark surface in dark mode.
+- Removed `footer.css`, old per-page footer/theme scripts and the `prefers-color-scheme` override for the quick answers box.

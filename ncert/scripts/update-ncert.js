@@ -48,8 +48,6 @@ for (const file of files) {
   const is404 = path.basename(file) === '404.html';
 
   html = html.replace(/https:\/\/https:\/\//g, 'https://').replace(/og-cover\.png/g, 'og-image.png');
-  // Remove the legacy inline footer styles; the shared footer.css is authoritative.
-  html = html.replace(/\s*footer\.site-footer\s*\{[\s\S]*?\.footer-bottom\s*\{[\s\S]*?\n\s*\}\s*(?=<\/style>)/i, '\n');
   html = html.replace(/https:\/\/thunderstudy\.indevs\.in\/og-image\.png/g, `${site}/ncert/og-image.png`)
     .replace(/content="\/og-image\.png"/g, 'content="/ncert/og-image.png"');
   html = stripDuplicateMeta(html, /<meta\s+name=["']twitter:card["'][^>]*>\s*/gi);
@@ -69,8 +67,8 @@ for (const file of files) {
   if (!/<link[^>]+href=["']\/ncert\/ncert-design\.css["']/i.test(html) && /<head\b/i.test(html)) {
     html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/ncert/ncert-design.css">\n</head>');
   }
-  if (!/<link[^>]+href=["']\/footer\.css["']/i.test(html) && /<head\b/i.test(html)) {
-    html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/footer.css">\n</head>');
+  if (!/<link[^>]+href=["']\/ncert\/thunder-ui\.css["']/i.test(html) && /<head\b/i.test(html)) {
+    html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/ncert/thunder-ui.css">\n  <script src="/ncert/thunder-ui.js"></script>\n</head>');
   }
   if (!/<p[^>]+class=["']ts-aeo-summary["']/i.test(html) && !is404) {
     const firstH1 = html.search(/<h1\b[^>]*>[\s\S]*?<\/h1>/i);
@@ -91,25 +89,9 @@ for (const file of files) {
     html = html.replace(/<\/head>/i, graph + '</head>');
   }
 
-  html = html.replace(/https:\/\/www\.instagram\.com\/wondermayank/g, 'https://instagram.com/Thunderstudyx')
-    .replace(/https:\/\/www\.youtube\.com\/@wondermayank/g, 'https://youtube.com/@Thunderstudy_official')
-    .replace(/https:\/\/x\.com\/wondermayankx/g, 'https://twitter.com/Thunderstudyx')
-    .replace(/https:\/\/t\.me\/wondermayank/g, 'https://t.me/Thunderstudy_official')
-    .replace(/aria-label="Wondermayank on Instagram"/g, 'aria-label="ThunderStudyx on Instagram"')
-    .replace(/aria-label="Wondermayank on YouTube"/g, 'aria-label="ThunderStudy official on YouTube"')
-    .replace(/aria-label="Wondermayank on X"/g, 'aria-label="ThunderStudyx on X"')
-    .replace(/aria-label="Wondermayank on Telegram"/g, 'aria-label="ThunderStudy official on Telegram"')
-    .replace(/© 2026 ThunderStudy by wondermayank\. All rights reserved\./g, '© 2025 Thunder · by wondermayank');
-
-  const githubLinks = '<a class="ts-social-btn" href="https://github.com/wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on GitHub" title="GitHub"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 7.01c.85 0 1.7.11 2.49.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a><a class="ts-social-btn" href="https://github.com/ThunderStudy" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on GitHub" title="ThunderStudy GitHub"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 7.01c.85 0 1.7.11 2.49.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>';
-  if (!html.includes('https://github.com/wondermayank')) {
-    html = html.replace(/(<div class="ts-footer-social-row">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>)/i, `$1`);
-    html = html.replace(/(<div class="ts-footer-social-row">[\s\S]*?)(<\/div>\s*<\/div>\s*<\/div>)/i, `$1${githubLinks}$2`);
-  }
-
   if (!/<footer\b/i.test(html) && /<\/body>/i.test(html)) {
     const source = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-    const footer = source.match(/<footer class="ts-site-footer">[\s\S]*?<\/footer>/i);
+    const footer = source.match(/<footer class="tu-footer">[\s\S]*?<\/footer>/i);
     if (footer) html = html.replace(/<\/body>/i, `${footer[0]}\n</body>`);
   }
 
