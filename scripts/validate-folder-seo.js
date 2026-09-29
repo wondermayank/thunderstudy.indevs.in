@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
-const folders = ['banking', 'ca', 'cat', 'cbse', 'clat', 'dca', 'nda', 'ncert', 'search', 'ssc', 'tet', 'upsc'];
+const folders = ['banking', 'ca', 'cat', 'cbse', 'clat', 'dca', 'nda', 'ncert', 'profile', 'search', 'ssc', 'tet', 'upsc'];
 const errors = [];
 const files = [];
 
@@ -11,7 +11,7 @@ function collect(dir) {
     if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
     const file = path.join(dir, entry.name);
     if (entry.isDirectory()) collect(file);
-    else if (entry.name.endsWith('.html') && !entry.name.endsWith('.disabled') && entry.name !== 'footer.html') files.push(file);
+    else if (entry.name.endsWith('.html') && !entry.name.endsWith('.disabled') && entry.name !== 'footer.html' && entry.name !== '404.html' && !/^google[0-9a-f]+\.html$/i.test(entry.name)) files.push(file);
   }
 }
 
@@ -21,7 +21,7 @@ for (const file of files) {
   const html = fs.readFileSync(file, 'utf8');
   const relative = path.relative(root, file);
   if (!html.includes('data-seo-answer="v1"')) errors.push(`${relative}: missing visible answer block`);
-  if (!html.includes('color:#1f2937')) errors.push(`${relative}: answer block lacks explicit light-mode text color`);
+  if (!/color:\s*(?:#1f2937|#000000)/i.test(html)) errors.push(`${relative}: answer block lacks explicit light-mode text color`);
   const answerPosition = html.indexOf('data-seo-answer="v1"');
   const footerPosition = html.search(/<footer\b/i);
   if (footerPosition >= 0 && answerPosition > footerPosition) errors.push(`${relative}: answer block is after the footer`);

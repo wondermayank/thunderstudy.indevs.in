@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="alternate" hreflang="en-IN" href="https://thunderstudy.indevs.in/upsc/pyqs.html">
+<meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
+<meta name="twitter:description" content="Free study material, notes, previous-year questions and exam preparation resources from ThunderStudy.">
+<meta name="twitter:title" content="ThunderStudy — UPSC PYQs">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="ThunderStudy">
+<meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
+<meta property="og:description" content="Free study material, notes, previous-year questions and exam preparation resources from ThunderStudy.">
+<meta property="og:title" content="ThunderStudy — UPSC PYQs">
+<meta property="og:url" content="https://thunderstudy.indevs.in/upsc/pyqs.html">
+<meta property="og:type" content="website">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0077f5">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="description" content="Free study material, notes, previous-year questions and exam preparation resources from ThunderStudy.">
+<link rel="canonical" href="https://thunderstudy.indevs.in/upsc/pyqs.html">
 <meta charset="UTF-8">
 <script>
 (function(){
@@ -1015,7 +1031,7 @@ footer.ts-footer h2{ font-family:var(--font); }
 .ts-seo-answer{
   display:block; max-width:none; margin:0; padding:56px 32px 64px;
   background:var(--canvas); color:var(--body-c);
-}
+;color:#1f2937}
 .ts-seo-answer__inner{
   --qa-head:#000000; --qa-text:#111111;
   max-width:1176px; margin:0 auto; padding:36px 34px;
@@ -1193,13 +1209,13 @@ body{ transition:background .3s ease,color .3s ease; }
   <div class="step-panel visible" id="panel1">
     <div class="panel-header">
       <div>
-        <div class="panel-title">🎓 Select an Exam</div>
+        <div class="panel-title"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> Select an Exam</div>
         <div class="panel-hint">Choose the UPSC examination you want papers for</div>
       </div>
       <div class="panel-count" id="examCount">0 exams</div>
     </div>
     <div class="panel-search-wrap">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg></span>
       <input type="text" id="examSearch" placeholder="Search exams…" oninput="renderExams(this.value)">
     </div>
     <div class="exam-grid" id="examGrid"></div>
@@ -1209,7 +1225,7 @@ body{ transition:background .3s ease,color .3s ease; }
   <div class="step-panel" id="panel2">
     <div class="panel-header">
       <div>
-        <div class="panel-title">📅 Select Year</div>
+        <div class="panel-title"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> Select Year</div>
         <div class="panel-hint" id="yearHint">Papers available for selected exam</div>
       </div>
       <div class="panel-count" id="yearCount">0 years</div>
@@ -1221,13 +1237,13 @@ body{ transition:background .3s ease,color .3s ease; }
   <div class="step-panel" id="panel3">
     <div class="panel-header">
       <div>
-        <div class="panel-title">📖 Select Subject / Paper</div>
+        <div class="panel-title"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> Select Subject / Paper</div>
         <div class="panel-hint" id="subjectHint">Pick a paper to download</div>
       </div>
       <div class="panel-count" id="subjectCount">0 papers</div>
     </div>
     <div class="panel-search-wrap">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg></span>
       <input type="text" id="subjectSearch" placeholder="Search subjects…" oninput="renderSubjects(this.value)">
     </div>
     <div class="subject-list" id="subjectList"></div>
@@ -1427,21 +1443,21 @@ const papers = [
 
 // ── EXAM ICONS ────────────────────────────────────────────────────────────
 const examIcons = {
-  "Civil Services (Preliminary)": "🏛️",
-  "Civil Services (Main)": "📝",
-  "Combined Defence Services Examination (I)": "🎖️",
-  "Combined Defence Services Examination (II)": "🎖️",
-  "NDA & NA Examination (I)": "⚔️",
-  "NDA & NA Examination (II)": "⚔️",
-  "CAPF (ACs) Examination": "🛡️",
-  "Engineering Services (Preliminary)": "⚙️",
-  "Engineering Services (Main)": "🔧",
-  "Combined Medical Services": "🏥",
-  "IES-ISS Examination": "📊",
-  "CISF AC(EXE) LDCE": "👮",
-  "Combined Geo-Scientist (Preliminary)": "🌍",
+  "Civil Services (Preliminary)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Civil Services (Main)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Combined Defence Services Examination (I)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Combined Defence Services Examination (II)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "NDA & NA Examination (I)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "NDA & NA Examination (II)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "CAPF (ACs) Examination": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Engineering Services (Preliminary)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Engineering Services (Main)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Combined Medical Services": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "IES-ISS Examination": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "CISF AC(EXE) LDCE": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
+  "Combined Geo-Scientist (Preliminary)": "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>",
 };
-function examIcon(e) { return examIcons[e] || "📋"; }
+function examIcon(e) { return examIcons[e] || "<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>"; }
 
 // ── STATE ─────────────────────────────────────────────────────────────────
 let sel = { exam: '', year: '', subject: '' };
@@ -1502,14 +1518,14 @@ function renderExams(q) {
   document.getElementById('examCount').textContent = shown.length + ' exams';
   const grid = document.getElementById('examGrid');
   grid.innerHTML = '';
-  if (!shown.length) { grid.innerHTML = '<div class="empty"><div class="ei">🔍</div><h3>No exams found</h3></div>'; return; }
+  if (!shown.length) { grid.innerHTML = '<div class="empty"><div class="ei"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg></div><h3>No exams found</h3></div>'; return; }
   shown.forEach(function(e) {
     const cnt = papers.filter(function(p) { return p.exam === e; }).length;
     const card = document.createElement('div');
     card.className = 'exam-card' + (sel.exam === e ? ' selected' : '');
     card.innerHTML = '<div class="exam-icon">' + examIcon(e) + '</div>'
       + '<div class="exam-info"><div class="exam-name">' + e + '</div><div class="exam-count">' + cnt + ' papers</div></div>'
-      + '<div class="exam-check">' + (sel.exam === e ? '✓' : '') + '</div>';
+      + '<div class="exam-check">' + (sel.exam === e ? '<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>' : '') + '</div>';
     card.addEventListener('click', function() { selectExam(e); });
     grid.appendChild(card);
   });
@@ -1533,7 +1549,7 @@ function renderYears() {
   document.getElementById('yearCount').textContent = years.length + ' year' + (years.length===1?'':'s');
   const grid = document.getElementById('yearGrid');
   grid.innerHTML = '';
-  if (!years.length) { grid.innerHTML = '<div class="empty"><div class="ei">📭</div><h3>No years found</h3></div>'; return; }
+  if (!years.length) { grid.innerHTML = '<div class="empty"><div class="ei"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg></div><h3>No years found</h3></div>'; return; }
   years.forEach(function(y) {
     const cnt = papersFor(sel.exam, y).length;
     const card = document.createElement('div');
@@ -1561,7 +1577,7 @@ function renderSubjects(q) {
   document.getElementById('subjectCount').textContent = shown.length + ' paper' + (shown.length===1?'':'s');
   const container = document.getElementById('subjectList');
   container.innerHTML = '';
-  if (!shown.length) { container.innerHTML = '<div class="empty"><div class="ei">📭</div><h3>No papers found</h3></div>'; return; }
+  if (!shown.length) { container.innerHTML = '<div class="empty"><div class="ei"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg></div><h3>No papers found</h3></div>'; return; }
   shown.forEach(function(p) {
     const card = document.createElement('div');
     card.className = 'subject-card' + (sel.subject === p.subject ? ' selected' : '');
@@ -1594,15 +1610,15 @@ function showResult(p) {
 
   const icon = document.createElement('div');
   icon.className = 'result-pdf-icon';
-  icon.textContent = '📄';
+  icon.textContent = '<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>';
 
   const info = document.createElement('div');
   info.className = 'result-info';
   info.innerHTML = '<div class="result-exam">' + p.category + ' · ' + p.year + '</div>'
     + '<div class="result-subject">' + p.subject + '</div>'
     + '<div class="result-meta">'
-    + '<span>🎓 <strong>' + p.exam + '</strong></span>'
-    + '<span>📦 <strong>' + p.size + '</strong></span>'
+    + '<span><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> <strong>' + p.exam + '</strong></span>'
+    + '<span><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> <strong>' + p.size + '</strong></span>'
     + '</div>';
 
   const btn = document.createElement('button');
@@ -1718,7 +1734,7 @@ renderExams('');
         <a href="https://wondermayank.in/terms">Terms</a>
         <a href="https://wondermayank.in/privacy">Privacy</a>
         <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
-        <a href="/sitemap">Sitemap</a>
+        <a href="/sitemap.xml">Sitemap</a>
       </nav>
     </div>
   </div>

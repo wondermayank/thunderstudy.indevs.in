@@ -13,7 +13,7 @@ function getHtmlFiles(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     if (stat.isDirectory()) {
       getHtmlFiles(filePath, fileList);
-    } else if (file.endsWith('.html') && !file.endsWith('.disabled') && file !== '404.html') {
+    } else if (file.endsWith('.html') && !file.endsWith('.disabled') && file !== '404.html' && !/^google[0-9a-f]+\.html$/i.test(file)) {
       fileList.push(filePath);
     }
   }

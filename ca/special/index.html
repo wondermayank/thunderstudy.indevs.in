@@ -2,16 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="mobile-web-app-capable" content="yes">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CA Aspirants 2026 · CA Foundation Planner | ThunderStudy</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="description" content="Free CA Foundation, Inter and Final planner tool. Calculate your exam prep timeline, track subjects, set goals, and monitor progress — all free, no login required by ThunderStudy." />
+<meta name="description" content="Free CA Foundation, Inter and Final planner tool. Calculate your exam prep timeline, track subjects, set goals, and monitor progress — all free, no login required by ThunderStudy.">
     <meta name="keywords" content="CA planner, CA Foundation planner, CA Inter planner, CA Final planner, CA exam timeline, CA study plan, Chartered Accountancy planner, CA schedule, CA prep tracker, exam preparation" />
     <meta name="author" content="Wondermayank" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-    <meta name="theme-color" content="#573AFC" />
-    <link rel="canonical" href="https://thunderstudy.indevs.in/ca/special" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#0077f5">
+    <link rel="canonical" href="https://thunderstudy.indevs.in/ca/special/">
 
     <!-- AEO: Answer Engine Optimization -->
     <meta name="speakable" content="Free CA Foundation, Inter and Final planner tool by ThunderStudy. Calculate your exam prep timeline, track subjects, set goals, and monitor progress — no login required." />
@@ -33,28 +34,28 @@
     <meta name="revisit-after" content="3 days" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://thunderstudy.indevs.in/ca/special" />
-    <meta property="og:title" content="CA Aspirants 2026 · CA Foundation Planner | ThunderStudy" />
-    <meta property="og:description" content="Free CA Foundation, Inter and Final planner tool. Calculate your exam prep timeline, track subjects, set goals, and monitor progress — no login required." />
-    <meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thunderstudy.indevs.in/ca/special/">
+    <meta property="og:title" content="CA Aspirants 2026 · CA Foundation Planner | ThunderStudy">
+    <meta property="og:description" content="Free CA Foundation, Inter and Final planner tool. Calculate your exam prep timeline, track subjects, set goals, and monitor progress — all free, no login required by ThunderStudy.">
+    <meta property="og:image" content="https://thunderstudy.indevs.in/og-cover.png">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="CA Planner Tool | ThunderStudy" />
-    <meta property="og:site_name" content="ThunderStudy" />
+    <meta property="og:site_name" content="ThunderStudy">
     <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@ThunderstudyX" />
     <meta name="twitter:creator" content="@wondermayank" />
-    <meta name="twitter:title" content="CA Aspirants 2026 · CA Foundation Planner | ThunderStudy" />
-    <meta name="twitter:description" content="Free CA Foundation, Inter and Final planner tool. Calculate your exam prep timeline — no login required." />
-    <meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png" />
+    <meta name="twitter:title" content="CA Aspirants 2026 · CA Foundation Planner | ThunderStudy">
+    <meta name="twitter:description" content="Free CA Foundation, Inter and Final planner tool. Calculate your exam prep timeline, track subjects, set goals, and monitor progress — all free, no login required by ThunderStudy.">
+    <meta name="twitter:image" content="https://thunderstudy.indevs.in/og-cover.png">
     <meta name="twitter:image:alt" content="CA Planner by ThunderStudy" />
 
     <!-- hreflang -->
-    <link rel="alternate" hreflang="en-IN" href="https://thunderstudy.indevs.in/ca/special" />
+    <link rel="alternate" hreflang="en-IN" href="https://thunderstudy.indevs.in/ca/special/">
     <link rel="alternate" hreflang="en" href="https://thunderstudy.indevs.in/ca/special" />
 
     <!-- Schema: WebApp + FAQPage -->
@@ -2694,7 +2695,7 @@ html[data-theme="dark"] body footer .footer-brand-by,html[data-theme="dark"] bod
             let lines = [`CA Foundation Study Planner – ${name}${city ? ' (' + city + ')' : ''}`];
             lines.push('='.repeat(60));
             for (const item of generatedPlan) {
-                const check = plannerChecks[item.day] ? '[✓]' : '[ ]';
+                const check = plannerChecks[item.day] ? '[<svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg>]' : '[ ]';
                 const note  = plannerNotes[item.day]  ? `  | Note: ${plannerNotes[item.day]}` : '';
                 lines.push(`${check} Day ${String(item.day).padStart(2,'0')} | ${item.dateStr} | ${item.subject.padEnd(22)} | ${item.work}${note}`);
             }
@@ -3090,7 +3091,7 @@ if(themeBtn)themeBtn.addEventListener('click',function(){
         <a href="https://wondermayank.in/terms">Terms</a>
         <a href="https://wondermayank.in/privacy">Privacy</a>
         <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
-        <a href="/sitemap">Sitemap</a>
+        <a href="/sitemap.xml">Sitemap</a>
       </nav>
     </div>
   </div>
