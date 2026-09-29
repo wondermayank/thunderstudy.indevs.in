@@ -2,6 +2,16 @@
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'light'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ThunderStudy Search — Free Study Material</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -90,223 +100,1000 @@
   </script>
 
   <script src="../search-index.js" defer></script>
-  <style>
-    :root {
-      --brand: #573AFC;
-      --blue: #0077f5;
-      --ink: #0f172a;
-      --muted: #64748b;
-      --line: #e2e8f0;
-      --soft: #f8fafc;
-      --card: #ffffff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--soft);
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255,255,255,0.94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
-    }
-    .wrap {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-    .nav {
-      min-height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .brand, .home {
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 800;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.05rem;
-    }
-    .home { color: var(--brand); }
-    main { padding: 34px 0 44px; }
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-    .panel {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--card);
-      box-shadow: 0 18px 48px rgba(15,23,42,0.08);
-    }
-    .form {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-    }
-    input, select {
-      width: 100%;
-      min-height: 46px;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 0 13px;
-      color: var(--ink);
-      background: #fff;
-      font: inherit;
-    }
-    button, .request {
-      min-height: 46px;
-      border: 0;
-      border-radius: 12px;
-      padding: 0 18px;
-      background: var(--brand);
-      color: #fff;
-      font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .filters {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .summary {
-      min-height: 28px;
-      margin: 18px 0 12px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .results {
-      display: grid;
-      gap: 10px;
-    }
-    .suggestions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0 2px;
-    }
-    .chip, .did-you-mean button, .load-more {
-      border: 1px solid #c7d2fe;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #4338ca;
-      min-height: 36px;
-      padding: 0 12px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .did-you-mean {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      color: var(--ink);
-      text-decoration: none;
-      box-shadow: 0 8px 22px rgba(15,23,42,0.04);
-    }
-    .item:hover { border-color: #bfdbfe; background: #eff6ff; }
-    .badge {
-      flex: 0 0 auto;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #dbeafe;
-      color: #1d4ed8;
-      font-size: 0.68rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .stream {
-      display: inline-block;
-      margin-left: 6px;
-      color: #94a3b8;
-      font-size: 0.86em;
-      font-weight: 500;
-    }
-    .meta {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 7px;
-    }
-    .meta span {
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: #f1f5f9;
-      color: #475569;
-      font-size: 0.72rem;
-      font-weight: 800;
-    }
-    .load-row {
-      display: flex;
-      justify-content: center;
-      margin-top: 14px;
-    }
-    .load-more {
-      border-radius: 12px;
-      min-height: 44px;
-      padding: 0 18px;
-    }
-    mark {
-      background: rgba(0,119,245,0.16);
-      color: #075985;
-      border-radius: 3px;
-      padding: 0 1px;
-    }
-    .end {
-      margin-top: 18px;
-      padding: 18px;
-      border: 1px solid #dbeafe;
-      border-radius: 16px;
-      background: #eff6ff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .end strong { display: block; margin-bottom: 4px; }
-    .end p { margin: 0; color: var(--muted); }
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 24px 0;
-      background: #fff;
-      color: var(--muted);
-    }
-    footer a { color: var(--brand); font-weight: 800; text-decoration: none; }
-    @media (max-width: 720px) {
-      .form, .filters { grid-template-columns: 1fr; }
-      .item { align-items: flex-start; }
-    }
-  </style>
-<style data-seo-answer-style>
-.ts-seo-answer{margin:24px auto;max-width:1120px;padding:0 20px;font:inherit;color:#1f2937}.ts-seo-answer__inner{border:1px solid #cbd5e1;border-radius:12px;padding:22px;background:#f8fbff;color:#1f2937}.ts-seo-answer__eyebrow{margin:0 0 6px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1d4ed8}.ts-seo-answer h2,.ts-seo-answer h3,.ts-seo-answer p{color:#1f2937}.ts-seo-answer h2{margin:0 0 16px;font-size:clamp(1.2rem,2.4vw,1.7rem)}.ts-seo-answer h3{margin:0 0 6px;font-size:1rem}.ts-seo-answer p{margin:0 0 8px;line-height:1.6}.ts-seo-answer__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.ts-seo-answer__trust{margin-top:18px;padding-top:16px;border-top:1px solid #cbd5e1}.ts-seo-answer a{color:#1d4ed8;font-weight:700}@media(prefers-color-scheme:dark){.ts-seo-answer__inner{background:#1b2433;border-color:#475569;color:#f8fafc}.ts-seo-answer h2,.ts-seo-answer h3,.ts-seo-answer p{color:#f8fafc}.ts-seo-answer__trust{border-color:#475569}.ts-seo-answer a{color:#93c5fd}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --canvas:#F4F1FC;
+  --canvas-deep:#ECE6FB;
+  --surface:#FAF8FE;
+
+  --ink:#2B2640;
+  --body-c:#5C5575;
+  --muted:#8B84A0;
+
+  --hairline:rgba(43,38,64,.08);
+
+  --primary:#573AFC;
+  --primary-active:#4527E0;
+  --primary-soft:#E4DEFF;
+  --on-primary:#ffffff;
+
+  --clay-light:rgba(255,255,255,.9);
+  --clay-dark:rgba(120,108,180,.5);
+  --clay-dark-strong:rgba(120,108,180,.5);
+
+  --radius-card:28px;
+  --radius-sm:16px;
+  --radius-pill:999px;
+
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+}
+
+[data-theme="dark"]{
+  --canvas:#1A1730;
+  --canvas-deep:#15122A;
+  --surface:#221D3C;
+
+  --ink:#F1EEFB;
+  --body-c:#C7C0E0;
+  --muted:#8E86AC;
+
+  --hairline:rgba(255,255,255,.08);
+
+  --primary:#9A7AFB;
+  --primary-active:#B196FB;
+  --primary-soft:#2E2650;
+  --on-primary:#1A1730;
+
+  --clay-light:rgba(255,255,255,.05);
+  --clay-dark:rgba(0,0,0,.55);
+  --clay-dark-strong:rgba(0,0,0,.7);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+}
+
+body{
+  font-family:var(--font);
+  background:var(--canvas);
+  color:var(--body-c);
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s ease,color .3s ease;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  font-family:var(--font);
+  border:none;
+  background:none;
+  cursor:pointer;
+}
+
+.wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+@media(max-width:640px){
+  .wrap{
+    padding:0 20px;
+  }
+}
+
+
+/* ========================= LOADER ========================= */
+
+#loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:var(--canvas);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:opacity .4s ease,visibility .4s ease;
+}
+
+#loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-blob{
+  width:64px;
+  height:64px;
+  border-radius:28px;
+  background:var(--primary-soft);
+
+  box-shadow:
+    8px 8px 20px var(--clay-dark),
+    -8px -8px 20px var(--clay-light);
+
+  animation:pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{
+    transform:scale(.85);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+}
+
+
+/* ========================= NAV ========================= */
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  background:var(--canvas);
+  border-bottom:1px solid var(--hairline);
+
+  backdrop-filter:blur(16px) saturate(160%);
+}
+
+.nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:76px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  font-weight:700;
+  font-size:16px;
+  color:var(--ink);
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.brand-name{
+  color:var(--ink);            /* "Thunder": white in dark mode, dark ink in light mode */
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:-.2px;
+}
+
+.brand-accent{
+  color:var(--primary);        /* "Study": blue in light mode, purple in dark mode */
+}
+
+.brand-by{
+  color:var(--muted);
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:.1px;
+}
+
+.brand-mark{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+
+  background:var(--primary);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+}
+
+.brand-mark img{
+  width:18px;
+  height:18px;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.theme-btn{
+  width:40px;
+  height:40px;
+
+  border-radius:14px;
+  background:var(--surface);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:var(--ink);
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease;
+}
+
+.theme-btn:hover{
+  transform:translateY(-2px);
+}
+
+.theme-btn svg{
+  width:18px;
+  height:18px;
+}
+
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  height:40px;
+  padding:0 18px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--primary);
+  color:var(--on-primary);
+
+  font-size:14px;
+  font-weight:600;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease,background .2s ease;
+}
+
+.nav-cta:hover{
+  background:var(--primary-active);
+  transform:translateY(-2px);
+}
+
+
+/* Request File button (header, sits before the theme toggle) */
+.nav-request{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  height:40px;
+  padding:0 16px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--surface);
+  color:var(--ink);
+
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease,color .2s ease;
+}
+
+.nav-request:hover{
+  color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.nav-request svg{
+  width:17px;
+  height:17px;
+  flex:0 0 auto;
+}
+
+/* Footer: white in light mode */
+footer{
+  background:#ffffff;
+}
+
+[data-theme="dark"] footer{
+  background:var(--surface);
+}
+
+/* ========================= BUTTONS ========================= */
+
+.error-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+
+  margin-top:30px;
+
+  flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+  min-height:46px;
+
+  padding:0 22px;
+
+  border-radius:var(--radius-pill);
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+
+  font-size:14px;
+  font-weight:700;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.primary-btn{
+  background:var(--primary);
+  color:var(--on-primary);
+
+  box-shadow:
+    6px 6px 14px var(--clay-dark),
+    -6px -6px 14px var(--clay-light);
+}
+
+.primary-btn:hover{
+  background:var(--primary-active);
+  transform:translateY(-3px);
+}
+
+.secondary-btn{
+  background:var(--surface);
+  color:var(--ink);
+
+  box-shadow:
+    6px 6px 14px var(--clay-dark),
+    -6px -6px 14px var(--clay-light);
+}
+
+.secondary-btn:hover{
+  color:var(--primary);
+  transform:translateY(-3px);
+}
+
+.primary-btn svg,
+.secondary-btn svg{
+  width:17px;
+  height:17px;
+}
+
+
+/* ========================= FOOTER ========================= */
+
+footer{
+  background:var(--surface);
+  border-top:1px solid var(--hairline);
+  color:var(--muted);
+  padding-top:64px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px 48px;
+  padding-bottom:48px;
+}
+
+/* brand column */
+.footer-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  color:var(--ink);
+}
+
+.footer-brand .brand-mark{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  box-shadow:none;
+}
+
+.footer-brand .brand-mark img{
+  width:22px;
+  height:22px;
+}
+
+.footer-brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+
+.footer-brand-name{
+  color:var(--ink);
+  font-size:20px;
+  font-weight:700;
+}
+
+.footer-brand-by{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:400;
+}
+
+.footer-desc{
+  margin:16px 0 0;
+  max-width:300px;
+
+  color:var(--muted);
+
+  font-size:14px;
+  font-weight:300;
+  line-height:1.55;
+}
+
+.footer-social{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:24px;
+}
+
+.footer-social-label{
+  margin-bottom:6px;
+
+  color:var(--muted);
+
+  font-size:12px;
+  line-height:1.3;
+}
+
+.footer-social-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.social-btn{
+  width:44px;
+  height:44px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+  border:1px solid var(--hairline);
+
+  background:var(--canvas);
+  color:var(--ink);
+
+  transition:
+    transform .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.social-btn:hover,
+.social-btn:focus-visible{
+  color:var(--primary);
+  border-color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.social-btn:active{
+  transform:scale(.95);
+}
+
+.social-btn svg{
+  width:18px;
+  height:18px;
+}
+
+/* link columns */
+.footer-title{
+  margin:0 0 12px;
+
+  color:var(--ink);
+
+  font-size:18px;
+  font-weight:700;
+  line-height:1.4;
+}
+
+.footer-links{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.footer-links a,
+.footer-legal a{
+  display:inline-flex;
+  align-items:center;
+
+  min-height:44px;
+
+  color:var(--body-c);
+
+  font-size:15px;
+  font-weight:400;
+  line-height:1.4;
+
+  transition:color .2s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-legal a:hover,
+.footer-legal a:focus-visible{
+  color:var(--primary);
+}
+
+/* bottom bar */
+.footer-bottom{
+  border-top:1px solid var(--hairline-strong,var(--hairline));
+}
+
+.footer-bottom-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px 24px;
+
+  padding-top:14px;
+  padding-bottom:14px;
+}
+
+.footer-copy{
+  color:var(--muted);
+
+  font-size:14px;
+  line-height:1.43;
+  letter-spacing:-.1px;
+}
+
+.footer-legal{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0 28px;
+}
+
+@media(max-width:900px){
+  .footer-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .footer-brand-col{
+    grid-column:1 / -1;
+  }
+}
+
+@media(max-width:640px){
+  footer{
+    padding-top:48px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+    padding-bottom:32px;
+  }
+
+  .footer-bottom-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+
+/* =========================
+   SEARCH PAGE
+========================= */
+main{
+  padding:48px 0 56px;
+}
+
+h1{
+  margin:0 0 24px;
+  color:var(--ink);
+  font-size:clamp(2rem,5vw,3.25rem);
+  line-height:1.1;
+  font-weight:700;
+  letter-spacing:-.6px;
+}
+
+.panel{
+  padding:22px;
+  background:var(--surface);
+  border-radius:var(--radius-card);
+  box-shadow:
+    10px 10px 24px var(--clay-dark),
+    -10px -10px 24px var(--clay-light);
+}
+
+.form{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+}
+
+.filters{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+input,
+select{
+  width:100%;
+  min-height:48px;
+  padding:0 20px;
+
+  border:1px solid var(--hairline);
+  border-radius:var(--radius-pill);
+
+  background:var(--canvas);
+  color:var(--ink);
+
+  font:inherit;
+  font-size:15px;
+  outline:none;
+
+  transition:border-color .2s ease;
+}
+
+input::placeholder{
+  color:var(--muted);
+}
+
+input:focus,
+select:focus{
+  border-color:var(--primary);
+}
+
+.suggestions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:22px 0 2px;
+}
+
+.chip{
+  min-height:38px;
+  padding:0 16px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--surface);
+  color:var(--ink);
+
+  font-size:13px;
+  font-weight:600;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease,color .2s ease;
+}
+
+.chip:hover{
+  color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.summary{
+  min-height:28px;
+  margin:22px 0 12px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.did-you-mean{
+  margin:0 0 12px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.did-you-mean button{
+  min-height:34px;
+  padding:0 14px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--primary-soft);
+  color:var(--primary);
+
+  font-weight:700;
+}
+
+.results{
+  display:grid;
+  gap:14px;
+  padding:4px 10px 10px 4px;
+}
+
+.item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding:16px 20px;
+
+  border-radius:20px;
+
+  background:var(--surface);
+  color:var(--ink);
+
+  box-shadow:
+    6px 6px 14px var(--clay-dark),
+    -6px -6px 14px var(--clay-light);
+
+  transition:transform .2s ease;
+}
+
+.item:hover{
+  transform:translateY(-2px);
+}
+
+.item:hover .item-title{
+  color:var(--primary);
+}
+
+.item-title{
+  transition:color .2s ease;
+}
+
+.badge{
+  flex:0 0 auto;
+
+  padding:5px 11px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--primary-soft);
+  color:var(--primary);
+
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+
+.stream{
+  display:inline-block;
+  margin-left:6px;
+  color:var(--muted);
+  font-size:.86em;
+  font-weight:400;
+}
+
+.meta{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+
+.meta span{
+  padding:3px 9px;
+
+  border:1px solid var(--hairline);
+  border-radius:var(--radius-pill);
+
+  background:var(--canvas);
+  color:var(--body-c);
+
+  font-size:11.5px;
+  font-weight:600;
+}
+
+.load-row{
+  display:flex;
+  justify-content:center;
+  margin-top:16px;
+}
+
+.load-more{
+  min-height:46px;
+}
+
+mark{
+  background:var(--primary-soft);
+  color:var(--primary);
+  border-radius:4px;
+  padding:0 2px;
+}
+
+.end{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+
+  margin-top:28px;
+  padding:26px 28px;
+
+  border-radius:var(--radius-card);
+  background:var(--surface);
+
+  box-shadow:
+    10px 10px 24px var(--clay-dark),
+    -10px -10px 24px var(--clay-light);
+}
+
+.end strong{
+  display:block;
+  margin-bottom:4px;
+  color:var(--ink);
+  font-size:18px;
+}
+
+.end p{
+  margin:0;
+  color:var(--body-c);
+  font-size:15px;
+}
+
+/* =========================
+   THUNDERSTUDY QUICK ANSWERS
+========================= */
+.ts-seo-answer{
+  margin-top:0;
+  margin-bottom:64px;
+}
+
+.ts-seo-answer__inner{
+  --qa-head:#000000;
+  --qa-text:#111111;
+
+  padding:36px 34px;
+
+  border-radius:var(--radius-card);
+  background:#ffffff;
+  color:var(--qa-text);
+
+  box-shadow:
+    10px 10px 24px var(--clay-dark),
+    -10px -10px 24px var(--clay-light);
+}
+
+[data-theme="dark"] .ts-seo-answer__inner{
+  --qa-head:var(--ink);
+  --qa-text:var(--body-c);
+  background:var(--surface);
+}
+
+.ts-seo-answer__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  margin:0 0 14px;
+  padding:8px 16px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--primary-soft);
+  color:var(--primary);
+
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+}
+
+.ts-seo-answer__eyebrow::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--primary);
+}
+
+.ts-seo-answer h2{
+  margin:0 0 22px;
+  color:var(--qa-head);
+  font-size:clamp(1.3rem,2.6vw,1.9rem);
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:-.4px;
+}
+
+.ts-seo-answer h3{
+  margin:0 0 6px;
+  color:var(--qa-head);
+  font-size:1rem;
+  font-weight:700;
+}
+
+.ts-seo-answer p{
+  margin:0 0 8px;
+  color:var(--qa-text);
+  font-size:15px;
+  line-height:1.6;
+}
+
+.ts-seo-answer__grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+
+.ts-seo-answer__trust{
+  margin-top:26px;
+  padding-top:22px;
+  border-top:1px solid var(--hairline);
+}
+
+.ts-seo-answer strong{
+  color:var(--qa-head);
+  font-weight:600;
+}
+
+.ts-seo-answer a{
+  color:var(--primary);
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+@media(max-width:720px){
+  .form,
+  .filters{
+    grid-template-columns:1fr;
+  }
+
+  .item{
+    align-items:flex-start;
+  }
+
+  .panel{
+    padding:18px;
+  }
+
+  .ts-seo-answer__inner{
+    padding:28px 22px;
+  }
+
+  .end{
+    padding:22px;
+  }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -410,66 +1197,66 @@
   ]
 }
 </script>
-<style data-thunderstudy-brand>
-.ts-brand-thunder,.brand-thunder,.wm-thunder{color:#111827 !important;text-shadow:none}
-[data-theme="dark"] .ts-brand-thunder,[data-theme="dark"] .brand-thunder,[data-theme="dark"] .wm-thunder{color:#ffffff !important}
-.ts-brand-study,.brand-study,.wm-study,.logo-text-accent,.logo-text .logo-text-accent,.boot-title-accent{color:#2563eb !important;-webkit-text-fill-color:#2563eb !important;background:none !important}
-[data-theme="dark"] .ts-brand-study,[data-theme="dark"] .brand-study,[data-theme="dark"] .wm-study,[data-theme="dark"] .logo-text-accent,[data-theme="dark"] .logo-text .logo-text-accent,[data-theme="dark"] .boot-title-accent{color:#a78bfa !important;-webkit-text-fill-color:#a78bfa !important}
-</style>
-  <link rel="stylesheet" href="/footer.css">
-<style data-ts-footer>
-.ts-site-footer{--surface:#ffffff;--hairline:var(--line,#e2e8f0);--primary:var(--blue,#0077f5);--primary-tint:rgba(0,119,245,.10);--r-md:11px;--r-pill:9999px;}
-.ts-site-footer{background:var(--surface);border-top:1px solid var(--hairline);color:var(--muted);padding:0;font-family:'Inter',system-ui,-apple-system,sans-serif;}
-.ts-footer-wrap{max-width:1120px;margin:0 auto;padding:56px 24px 32px;}
-.ts-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
-.ts-site-footer nav{position:static;top:auto;z-index:auto;height:auto;display:block;padding:0;margin:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;}
-.ts-site-footer .ts-footer-legal{display:flex;}
-.ts-footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:14px;}
-.ts-brand-mark{width:38px;height:38px;border-radius:var(--r-md);background:var(--primary-tint);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.ts-brand-mark img{display:block;width:22px;height:22px;}
-.ts-footer-brand-text{display:flex;flex-direction:column;line-height:1.15;}
-.ts-footer-brand-name{font-size:1.1rem;font-weight:700;color:#111827;}
-[data-theme="dark"] .ts-footer-brand-name{color:#ffffff;}
-.ts-footer-brand-name .ts-brand-accent{color:var(--primary);}
-.ts-footer-brand-by{font-size:.72rem;color:var(--muted);}
-.ts-footer-desc{font-size:.86rem;line-height:1.6;color:var(--muted);max-width:340px;margin:0 0 20px;}
-.ts-footer-social{display:flex;flex-direction:column;gap:14px;}
-.ts-footer-social-label{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-.ts-footer-social-row{display:flex;flex-wrap:wrap;gap:8px;}
-.ts-social-btn{width:36px;height:36px;border-radius:var(--r-pill);border:1px solid var(--hairline);background:var(--card);color:var(--muted);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:color .15s,border-color .15s,transform .15s;}
-.ts-social-btn svg{width:18px;height:18px;}
-.ts-social-btn:hover{color:var(--primary);border-color:var(--primary);transform:translateY(-2px);}
-.ts-footer-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;}
-.ts-footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
-.ts-footer-links a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .15s;}
-.ts-footer-links a:hover{color:var(--primary);}
-.ts-footer-bottom{border-top:1px solid var(--hairline);}
-.ts-footer-bottom .footer-bottom-inner{max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;}
-.ts-footer-copy{font-size:.76rem;color:var(--muted);}
-.ts-footer-legal{display:flex;flex-wrap:wrap;gap:18px;}
-.ts-footer-legal a{font-size:.76rem;color:var(--muted);text-decoration:none;}
-.ts-footer-legal a:hover{color:var(--primary);}
-@media(max-width:900px){.ts-footer-grid{grid-template-columns:1fr 1fr;gap:32px;}.ts-footer-brand-col{grid-column:1/-1;}}
-@media(max-width:520px){.ts-footer-wrap{padding:40px 20px 24px;}.ts-footer-bottom .footer-bottom-inner{flex-direction:column;align-items:flex-start;}}
-</style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="/">
-        <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="80" height="80" rx="18" fill="#573AFC"/><path d="M22 24h36M40 24v32M28 56h24" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="56" r="5" fill="#60a5fa"/></svg>
-        ThunderStudy Search
+
+<!-- LOADER -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-blob"></div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <a href="https://thunderstudy.indevs.in" class="brand" aria-label="ThunderStudy by wondermayank">
+      <span class="brand-mark">
+        <img src="/favicon.svg" alt="ThunderStudy" width="32" height="32">
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Thunder<span class="brand-accent">Study</span></span>
+        <span class="brand-by">by wondermayank</span>
+      </span>
+    </a>
+
+    <div class="nav-right">
+      <!-- REQUEST FILE -->
+      <a href="https://wondermayank.in/contact" class="nav-request" target="_blank" rel="noopener noreferrer" aria-label="Request a file">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+          <path d="M14 3v5h5"/>
+          <path d="M12 12v6M9 15h6"/>
+        </svg>
+        <span>Request File</span>
       </a>
-      <a class="home" href="/">Home</a>
+
+      <!-- THEME -->
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.4M12 19.1v2.4"/>
+          <path d="M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7"/>
+          <path d="M2.5 12h2.4M19.1 12h2.4"/>
+          <path d="M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
+        </svg>
+        <svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="display:none">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/>
+        </svg>
+      </button>
+
+      <a href="https://thundertest.indevs.in" class="nav-cta">
+        Mock Test
+      </a>
     </div>
-  </header>
-  <main>
+  </div>
+</header>
+
+<main>
     <div class="wrap">
       <h1>Find notes, PDFs and exam resources</h1>
       <section class="panel" aria-label="Advanced search">
         <div class="form">
           <input type="search" id="q" placeholder="Search class 12 notes, chapter name, exam, subject..." autocomplete="off">
-          <button type="button" id="searchBtn">Search</button>
+          <button type="button" id="searchBtn" class="primary-btn">Search</button>
         </div>
         <div class="filters">
           <select id="exam" aria-label="Exam filter"><option value="">All exams</option></select>
@@ -485,17 +1272,18 @@
       <div id="summary" class="summary">Loading search data...</div>
       <div id="didYouMean" class="did-you-mean"></div>
       <div id="results" class="results"></div>
-      <div class="load-row"><button type="button" id="loadMore" class="load-more" hidden>Load more results</button></div>
+      <div class="load-row"><button type="button" id="loadMore" class="secondary-btn load-more" hidden>Load more results</button></div>
       <div class="end">
         <div>
           <strong id="endTitle">Need a resource added?</strong>
           <p>Contact us or request notes, PDFs and new exam material.</p>
         </div>
-        <a class="request" href="https://docs.google.com/forms/d/e/1FAIpQLSePwlvdMzRLYoYuXNbKlamargjazyRiedg0rE0JfAzyKPyHEA/viewform" target="_blank" rel="noopener">Contact and request</a>
+        <a class="primary-btn request" href="https://docs.google.com/forms/d/e/1FAIpQLSePwlvdMzRLYoYuXNbKlamargjazyRiedg0rE0JfAzyKPyHEA/viewform" target="_blank" rel="noopener">Contact and request</a>
       </div>
     </div>
   </main>
-  <section class="ts-seo-answer" data-seo-answer="v1" aria-labelledby="ts-seo-answer-title">
+
+<section class="ts-seo-answer wrap" data-seo-answer="v1" aria-labelledby="ts-seo-answer-title">
   <div class="ts-seo-answer__inner">
     <p class="ts-seo-answer__eyebrow">ThunderStudy quick answers</p>
     <h2 id="ts-seo-answer-title">ThunderStudy Search — Free Study Material</h2>
@@ -516,7 +1304,105 @@
   </div>
 </section>
 
-  <script>
+<!-- FOOTER -->
+<footer>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></symbol>
+      <symbol id="i-reddit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="4.5" cy="11.5" r="1.6"/><circle cx="19.5" cy="11.5" r="1.6"/><path d="M12 8.5 13 4l4 1"/><circle cx="18" cy="5.2" r="1.2"/><path d="M9 13.5h.01M15 13.5h.01"/><path d="M9.5 16.5c1.4 1 3.6 1 5 0"/></symbol>
+      <symbol id="i-telegram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="footer-brand-col">
+        <a href="https://thunderstudy.indevs.in" class="footer-brand" aria-label="ThunderStudy by wondermayank">
+          <span class="brand-mark">
+            <img src="/favicon.svg" alt="ThunderStudy" width="22" height="22">
+          </span>
+          <span class="footer-brand-text">
+            <span class="footer-brand-name">Thunder<span class="brand-accent">Study</span></span>
+            <span class="footer-brand-by">by wondermayank</span>
+          </span>
+        </a>
+
+        <p class="footer-desc">Free project tools and exam-prep resources for Indian competitive exam students.</p>
+
+        <div class="footer-social">
+        <div>
+          <div class="footer-social-label">Wondermayank</div>
+          <div class="footer-social-row">
+            <a class="social-btn" href="https://www.instagram.com/wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            <a class="social-btn" href="https://www.youtube.com/@wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on YouTube" title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+            <a class="social-btn" href="https://x.com/wondermayankx" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on X" title="X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+            <a class="social-btn" href="https://www.reddit.com/user/wondermayankx" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on Reddit" title="Reddit"><svg aria-hidden="true"><use href="#i-reddit"/></svg></a>
+            <a class="social-btn" href="https://t.me/wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on Telegram" title="Telegram"><svg aria-hidden="true"><use href="#i-telegram"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-social-label">ThunderStudy</div>
+          <div class="footer-social-row">
+            <a class="social-btn" href="https://www.instagram.com/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            <a class="social-btn" href="https://www.youtube.com/@thunderstudy_official" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on YouTube" title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+            <a class="social-btn" href="https://x.com/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on X" title="X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+            <a class="social-btn" href="https://www.reddit.com/user/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on Reddit" title="Reddit"><svg aria-hidden="true"><use href="#i-reddit"/></svg></a>
+            <a class="social-btn" href="https://t.me/thunderstudy" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on Telegram" title="Telegram"><svg aria-hidden="true"><use href="#i-telegram"/></svg></a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <nav aria-label="ThunderStudy">
+        <h2 class="footer-title">ThunderStudy</h2>
+        <ul class="footer-links">
+          <li><a href="https://thunderstudy.indevs.in">ThunderStudy</a></li>
+          <li><a href="https://thundertest.indevs.in">CBT Mock</a></li>
+          <li><a href="https://blog.thunderstudy.indevs.in">Blog</a></li>
+          <li><a href="https://thunderstudy.indevs.in/about">Help / Donate</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Support">
+        <h2 class="footer-title">Support</h2>
+        <ul class="footer-links">
+          <li><a href="https://wondermayank.in/fqa">FAQ</a></li>
+          <li><a href="https://wondermayank.in/mail">Mail</a></li>
+          <li><a href="https://wondermayank.in/contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="wondermayank">
+        <h2 class="footer-title">wondermayank</h2>
+        <ul class="footer-links">
+          <li><a href="https://make.wondermayank.in">Vibecoding</a></li>
+          <li><a href="https://project.wondermayank.in">Useful Projects</a></li>
+          <li><a href="https://wondermayank.in">Portfolio</a></li>
+          <li><a href="https://blog.wondermayank.indevs.in/">Blog</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="wrap footer-bottom-inner">
+      <div class="footer-copy">© 2026 ThunderStudy by wondermayank. All rights reserved.</div>
+
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="https://wondermayank.in/terms">Terms</a>
+        <a href="https://wondermayank.in/privacy">Privacy</a>
+        <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
+        <a href="/sitemap">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
     var STOP = { a:1, an:1, and:1, are:1, all:1, any:1, for:1, from:1, in:1, me:1, of:1, on:1, please:1, show:1, the:1, to:1, with:1 };
     var ALIASES = {
       '12th':'class 12', '11th':'class 11', '10th':'class 10', '9th':'class 9',
@@ -716,7 +1602,7 @@
       });
       box.innerHTML = found.list.slice(0, visibleCount).map(function(item) {
         var meta = itemMeta(item).map(function(value) { return '<span>' + escHtml(value) + '</span>'; }).join('');
-        return '<a class="item" href="' + escHtml(item.url || '#') + '"><span class="badge">' + escHtml(item.badge || itemType(item)) + '</span><span>' + highlight(item.name, found.words) + '<span class="stream">' + escHtml(item.stream || '') + '</span><span class="meta">' + meta + '</span></span></a>';
+        return '<a class="item" href="' + escHtml(item.url || '#') + '"><span class="badge">' + escHtml(item.badge || itemType(item)) + '</span><span class="item-title">' + highlight(item.name, found.words) + '<span class="stream">' + escHtml(item.stream || '') + '</span><span class="meta">' + meta + '</span></span></a>';
       }).join('') || '<div class="panel">No matching result found. Try another word or use the request button below.</div>';
       var load = document.getElementById('loadMore');
       load.hidden = found.list.length <= visibleCount;
@@ -778,17 +1664,12 @@
 window.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
     var loader=document.getElementById('loader');
-    if(loader){
-      loader.classList.add('hide');
-    }
+    if(loader){ loader.classList.add('hide'); }
   },200);
 });
-
 setTimeout(function(){
   var loader=document.getElementById('loader');
-  if(loader){
-    loader.classList.add('hide');
-  }
+  if(loader){ loader.classList.add('hide'); }
 },1500);
 
 /* =========================
@@ -811,128 +1692,7 @@ themeBtn.addEventListener('click',function(){
   try{ localStorage.setItem('theme', next); }catch(e){}
   syncIcons();
 });
-
-/* =========================
-   BROKEN URL + REPORT LINK
-========================= */
-(function(){
-  var box=document.getElementById('errorUrl');
-  var report=document.getElementById('reportBtn');
-  if(!/^https?:$/.test(location.protocol)) return;
-
-  // Ignore the 404 page opened directly (or the home page)
-  var path=location.pathname;
-  if(path==='/' || /^\/404(\.html)?\/?$/.test(path)) return;
-
-  var shown=location.host+path+location.search;
-  if(box){
-    box.textContent=shown.length>110 ? shown.slice(0,107)+'…' : shown;  // textContent only — never innerHTML
-    box.hidden=false;
-  }
-
-  if(report){
-    var msg='Broken link: '+location.origin+path+location.search;
-    if(document.referrer) msg+='\nFound on: '+document.referrer;
-    report.href='https://wondermayank.in/contact?subject='+encodeURIComponent('Broken link report')+'&message='+encodeURIComponent(msg);
-  }
-})();
 </script>
 
-<footer class="ts-site-footer">
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
-      <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></symbol>
-      <symbol id="i-reddit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="4.5" cy="11.5" r="1.6"/><circle cx="19.5" cy="11.5" r="1.6"/><path d="M12 8.5 13 4l4 1"/><circle cx="18" cy="5.2" r="1.2"/><path d="M9 13.5h.01M15 13.5h.01"/><path d="M9.5 16.5c1.4 1 3.6 1 5 0"/></symbol>
-      <symbol id="i-telegram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
-    </defs>
-  </svg>
-
-  <div class="ts-footer-wrap">
-    <div class="ts-footer-grid">
-
-      <div class="ts-footer-brand-col">
-        <a href="https://thunderstudy.indevs.in" class="ts-footer-brand" aria-label="ThunderStudy by wondermayank">
-          <span class="ts-brand-mark">
-            <img src="/favicon.svg" alt="ThunderStudy" width="22" height="22">
-          </span>
-          <span class="ts-footer-brand-text">
-            <span class="ts-footer-brand-name">Thunder<span class="ts-brand-accent">Study</span></span>
-            <span class="ts-footer-brand-by">by wondermayank</span>
-          </span>
-        </a>
-
-        <p class="ts-footer-desc">Free project tools and exam-prep resources for Indian competitive exam students.</p>
-
-        <div class="ts-footer-social">
-        <div>
-          <div class="ts-footer-social-label">Wondermayank</div>
-          <div class="ts-footer-social-row">
-            <a class="ts-social-btn" href="https://www.instagram.com/wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-            <a class="ts-social-btn" href="https://www.youtube.com/@wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on YouTube" title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
-            <a class="ts-social-btn" href="https://x.com/wondermayankx" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on X" title="X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
-            <a class="ts-social-btn" href="https://www.reddit.com/user/wondermayankx" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on Reddit" title="Reddit"><svg aria-hidden="true"><use href="#i-reddit"/></svg></a>
-            <a class="ts-social-btn" href="https://t.me/wondermayank" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on Telegram" title="Telegram"><svg aria-hidden="true"><use href="#i-telegram"/></svg></a>
-          </div>
-        </div>
-        <div>
-          <div class="ts-footer-social-label">ThunderStudy</div>
-          <div class="ts-footer-social-row">
-            <a class="ts-social-btn" href="https://www.instagram.com/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-            <a class="ts-social-btn" href="https://www.youtube.com/@thunderstudy_official" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on YouTube" title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
-            <a class="ts-social-btn" href="https://x.com/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on X" title="X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
-            <a class="ts-social-btn" href="https://www.reddit.com/user/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on Reddit" title="Reddit"><svg aria-hidden="true"><use href="#i-reddit"/></svg></a>
-            <a class="ts-social-btn" href="https://t.me/thunderstudy" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on Telegram" title="Telegram"><svg aria-hidden="true"><use href="#i-telegram"/></svg></a>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      <nav aria-label="ThunderStudy">
-        <h2 class="ts-footer-title">ThunderStudy</h2>
-        <ul class="ts-footer-links">
-          <li><a href="https://thunderstudy.indevs.in">ThunderStudy</a></li>
-          <li><a href="https://thundertest.indevs.in">CBT Mock</a></li>
-          <li><a href="https://blog.thunderstudy.indevs.in">Blog</a></li>
-          <li><a href="https://thunderstudy.indevs.in/about">Help / Donate</a></li>
-        </ul>
-      </nav>
-
-      <nav aria-label="Support">
-        <h2 class="ts-footer-title">Support</h2>
-        <ul class="ts-footer-links">
-          <li><a href="https://wondermayank.in/fqa">FAQ</a></li>
-          <li><a href="https://wondermayank.in/mail">Mail</a></li>
-          <li><a href="https://wondermayank.in/contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <nav aria-label="wondermayank">
-        <h2 class="ts-footer-title">wondermayank</h2>
-        <ul class="ts-footer-links">
-          <li><a href="https://project.wondermayank.in">Vibecoding</a></li>
-          <li><a href="https://project.wondermayank.in">Useful Projects</a></li>
-          <li><a href="https://wondermayank.in">Portfolio</a></li>
-          <li><a href="https://blog.wondermayank.indevs.in/">Blog</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </div>
-
-  <div class="ts-footer-bottom">
-    <div class="wrap footer-bottom-inner">
-      <div class="ts-footer-copy">© 2026 ThunderStudy by wondermayank. All rights reserved.</div>
-
-      <nav class="ts-footer-legal" aria-label="Legal">
-        <a href="https://wondermayank.in/terms">Terms</a>
-        <a href="https://wondermayank.in/privacy">Privacy</a>
-        <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
-        <a href="/sitemap">Sitemap</a>
-      </nav>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

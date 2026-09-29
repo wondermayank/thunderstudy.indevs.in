@@ -897,6 +897,65 @@ footer{
 
 }
 
+/* Request File button (header, sits before the theme toggle) */
+.nav-request{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  height:40px;
+  padding:0 16px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--surface);
+  color:var(--ink);
+
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease,color .2s ease;
+}
+
+.nav-request:hover{
+  color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.nav-request svg{
+  width:17px;
+  height:17px;
+  flex:0 0 auto;
+}
+
+/* Footer: white in light mode */
+footer{
+  background:#ffffff;
+}
+
+[data-theme="dark"] footer{
+  background:var(--surface);
+}
+
+
+@media(max-width:640px){
+  .nav .wrap{ height:68px; }
+  .nav-right{ gap:8px; }
+  .nav-cta{ padding:0 14px; }
+  .nav-request{ width:40px; padding:0; }
+  .nav-request span{ display:none; }
+}
+
+@media(max-width:380px){
+  .brand-by{ display:none; }
+}
+
 </style>
 </head>
 
@@ -921,6 +980,16 @@ footer{
     </a>
 
     <div class="nav-right">
+      <!-- REQUEST FILE -->
+      <a href="https://wondermayank.in/contact" class="nav-request" target="_blank" rel="noopener noreferrer" aria-label="Request a file">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+          <path d="M14 3v5h5"/>
+          <path d="M12 12v6M9 15h6"/>
+        </svg>
+        <span>Request File</span>
+      </a>
+
       <!-- THEME -->
       <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
         <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
@@ -1063,7 +1132,7 @@ footer{
       <nav aria-label="wondermayank">
         <h2 class="footer-title">wondermayank</h2>
         <ul class="footer-links">
-          <li><a href="https://project.wondermayank.in">Vibecoding</a></li>
+          <li><a href="https://make.wondermayank.in">Vibecoding</a></li>
           <li><a href="https://project.wondermayank.in">Useful Projects</a></li>
           <li><a href="https://wondermayank.in">Portfolio</a></li>
           <li><a href="https://blog.wondermayank.indevs.in/">Blog</a></li>

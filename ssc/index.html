@@ -2,12 +2,22 @@
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if(!t){ t = 'light'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SSC Examination Preparation Portal Free Study Material, Notes, PYQs &amp; Mock Tests - ThunderStudy</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="description" content="Free SSC preparation for CGL, CHSL, MTS, CPO, GD, JE, and Stenographer. Notes, formulas, PYQs, GK MindMaster, and CBT-style mock tests.">
   <link rel="canonical" href="https://thunderstudy.indevs.in/ssc/">
-  <meta name="theme-color" content="#70a1fc">
+  <meta name="theme-color" content="#573AFC">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   
   <meta property="og:type" content="website">
@@ -323,19 +333,7 @@
       font-size: 0.8125rem;
     }
   </style>
-  <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-<style data-seo-answer-style>
-.ts-seo-answer{margin:24px auto;max-width:1120px;padding:0 20px;font:inherit;color:#1f2937}.ts-seo-answer__inner{border:1px solid #cbd5e1;border-radius:12px;padding:22px;background:#f8fbff;color:#1f2937}.ts-seo-answer__eyebrow{margin:0 0 6px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1d4ed8}.ts-seo-answer h2,.ts-seo-answer h3,.ts-seo-answer p{color:#1f2937}.ts-seo-answer h2{margin:0 0 16px;font-size:clamp(1.2rem,2.4vw,1.7rem)}.ts-seo-answer h3{margin:0 0 6px;font-size:1rem}.ts-seo-answer p{margin:0 0 8px;line-height:1.6}.ts-seo-answer__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.ts-seo-answer__trust{margin-top:18px;padding-top:16px;border-top:1px solid #cbd5e1}.ts-seo-answer a{color:#1d4ed8;font-weight:700}@media(prefers-color-scheme:dark){.ts-seo-answer__inner{background:#1b2433;border-color:#475569;color:#f8fafc}.ts-seo-answer h2,.ts-seo-answer h3,.ts-seo-answer p{color:#f8fafc}.ts-seo-answer__trust{border-color:#475569}.ts-seo-answer a{color:#93c5fd}}
-</style>
-<script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -451,68 +449,572 @@
   ]
 }
 </script>
-<style data-thunderstudy-brand>
-.ts-brand-thunder,.brand-thunder,.wm-thunder{color:#111827 !important;text-shadow:none}
-[data-theme="dark"] .ts-brand-thunder,[data-theme="dark"] .brand-thunder,[data-theme="dark"] .wm-thunder{color:#ffffff !important}
-.ts-brand-study,.brand-study,.wm-study,.logo-text-accent,.logo-text .logo-text-accent,.boot-title-accent{color:#2563eb !important;-webkit-text-fill-color:#2563eb !important;background:none !important}
-[data-theme="dark"] .ts-brand-study,[data-theme="dark"] .brand-study,[data-theme="dark"] .wm-study,[data-theme="dark"] .logo-text-accent,[data-theme="dark"] .logo-text .logo-text-accent,[data-theme="dark"] .boot-title-accent{color:#a78bfa !important;-webkit-text-fill-color:#a78bfa !important}
-</style>
-  <link rel="stylesheet" href="/footer.css">
-<style data-ts-footer>
-.ts-site-footer{--primary-tint:color-mix(in srgb,var(--primary) 12%,transparent);--r-md:11px;--r-pill:9999px;}
-.ts-site-footer{background:var(--surface);border-top:1px solid var(--hairline);color:var(--muted);padding:0;font-family:'Inter',system-ui,-apple-system,sans-serif;}
-.ts-footer-wrap{max-width:1120px;margin:0 auto;padding:56px 24px 32px;}
-.ts-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
-.ts-site-footer nav{position:static;top:auto;z-index:auto;height:auto;display:block;padding:0;margin:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;}
-.ts-site-footer .ts-footer-legal{display:flex;}
-.ts-footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:14px;}
-.ts-brand-mark{width:38px;height:38px;border-radius:var(--r-md);background:var(--primary-tint);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.ts-brand-mark img{display:block;width:22px;height:22px;}
-.ts-footer-brand-text{display:flex;flex-direction:column;line-height:1.15;}
-.ts-footer-brand-name{font-size:1.1rem;font-weight:700;color:#111827;}
-[data-theme="dark"] .ts-footer-brand-name{color:#ffffff;}
-.ts-footer-brand-name .ts-brand-accent{color:var(--primary);}
-.ts-footer-brand-by{font-size:.72rem;color:var(--muted);}
-.ts-footer-desc{font-size:.86rem;line-height:1.6;color:var(--muted);max-width:340px;margin:0 0 20px;}
-.ts-footer-social{display:flex;flex-direction:column;gap:14px;}
-.ts-footer-social-label{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-.ts-footer-social-row{display:flex;flex-wrap:wrap;gap:8px;}
-.ts-social-btn{width:36px;height:36px;border-radius:var(--r-pill);border:1px solid var(--hairline);background:var(--card);color:var(--muted);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:color .15s,border-color .15s,transform .15s;}
-.ts-social-btn svg{width:18px;height:18px;}
-.ts-social-btn:hover{color:var(--primary);border-color:var(--primary);transform:translateY(-2px);}
-.ts-footer-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;}
-.ts-footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
-.ts-footer-links a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .15s;}
-.ts-footer-links a:hover{color:var(--primary);}
-.ts-footer-bottom{border-top:1px solid var(--hairline);}
-.ts-footer-bottom .footer-bottom-inner{max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;}
-.ts-footer-copy{font-size:.76rem;color:var(--muted);}
-.ts-footer-legal{display:flex;flex-wrap:wrap;gap:18px;}
-.ts-footer-legal a{font-size:.76rem;color:var(--muted);text-decoration:none;}
-.ts-footer-legal a:hover{color:var(--primary);}
-@media(max-width:900px){.ts-footer-grid{grid-template-columns:1fr 1fr;gap:32px;}.ts-footer-brand-col{grid-column:1/-1;}}
-@media(max-width:520px){.ts-footer-wrap{padding:40px 20px 24px;}.ts-footer-bottom .footer-bottom-inner{flex-direction:column;align-items:flex-start;}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style data-ts-chrome>
+/* ===== ThunderStudy shared chrome (from 404.html) — tokens scoped so page styles are untouched ===== */
+.ts-nav,
+footer.ts-footer,
+.ts-seo-answer,
+.btn-primary,
+.btn-secondary,
+.btn-secondary-dark,
+.filter-chip{
+  --canvas:#F4F1FC;--canvas-deep:#ECE6FB;--surface:#FAF8FE;
+  --ink:#2B2640;--body-c:#5C5575;--muted:#8B84A0;
+  --hairline:rgba(43,38,64,.08);
+  --primary:#573AFC;--primary-active:#4527E0;--primary-soft:#E4DEFF;--on-primary:#ffffff;
+  --clay-light:rgba(255,255,255,.9);--clay-dark:rgba(120,108,180,.5);--clay-dark-strong:rgba(120,108,180,.5);
+  --radius-card:28px;--radius-sm:16px;--radius-pill:999px;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+}
+[data-theme="dark"] .ts-nav,
+[data-theme="dark"] footer.ts-footer,
+[data-theme="dark"] .ts-seo-answer,
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .btn-secondary-dark,
+[data-theme="dark"] .filter-chip{
+  --canvas:#1A1730;--canvas-deep:#15122A;--surface:#221D3C;
+  --ink:#F1EEFB;--body-c:#C7C0E0;--muted:#8E86AC;
+  --hairline:rgba(255,255,255,.08);
+  --primary:#9A7AFB;--primary-active:#B196FB;--primary-soft:#2E2650;--on-primary:#1A1730;
+  --clay-light:rgba(255,255,255,.05);--clay-dark:rgba(0,0,0,.55);--clay-dark-strong:rgba(0,0,0,.7);
+}
+:where(.ts-nav a, footer.ts-footer a){ color:inherit; text-decoration:none; }
+.ts-nav, footer.ts-footer, .ts-seo-answer{ font-family:var(--font); -webkit-font-smoothing:antialiased; }
+
+
+.ts-nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  background:var(--canvas);
+  border-bottom:1px solid var(--hairline);
+
+  backdrop-filter:blur(16px) saturate(160%);
+}
+
+.ts-nav .ts-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:76px;
+}
+
+.ts-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  font-weight:700;
+  font-size:16px;
+  color:var(--ink);
+}
+
+.ts-brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.ts-brand-name{
+  color:var(--ink);            /* "Thunder": white in dark mode, dark ink in light mode */
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:-.2px;
+}
+
+.ts-brand-accent{
+  color:var(--primary);        /* "Study": blue in light mode, purple in dark mode */
+}
+
+.ts-brand-by{
+  color:var(--muted);
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:.1px;
+}
+
+.ts-brand-mark{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+
+  background:var(--primary);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+}
+
+.ts-brand-mark img{
+  width:18px;
+  height:18px;
+}
+
+.ts-nav-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.ts-theme-btn{
+  width:40px;
+  height:40px;
+
+  border-radius:14px;
+  background:var(--surface);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:var(--ink);
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease;
+}
+
+.ts-theme-btn:hover{
+  transform:translateY(-2px);
+}
+
+.ts-theme-btn svg{
+  width:18px;
+  height:18px;
+}
+
+.ts-nav-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  height:40px;
+  padding:0 18px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--primary);
+  color:var(--on-primary);
+
+  font-size:14px;
+  font-weight:600;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease,background .2s ease;
+}
+
+.ts-nav-cta:hover{
+  background:var(--primary-active);
+  transform:translateY(-2px);
+}
+
+
+.ts-nav{ z-index:200; }
+.ts-nav .ts-wrap{ width:100%; }
+.ts-theme-btn{ border:0; cursor:pointer; font-family:inherit; }
+.ts-nav .ts-brand{ font-size:16px; }
+
+.ts-nav-request{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  height:40px; padding:0 16px;
+  border-radius:var(--radius-pill);
+  background:var(--surface); color:var(--ink);
+  font-size:14px; font-weight:600; white-space:nowrap;
+  box-shadow:4px 4px 10px var(--clay-dark),-4px -4px 10px var(--clay-light);
+  transition:transform .2s ease,color .2s ease;
+}
+.ts-nav-request:hover{ color:var(--primary); transform:translateY(-2px); }
+.ts-nav-request svg{ width:17px; height:17px; flex:0 0 auto; }
+
+.ts-back-btn{
+  display:none; align-items:center; justify-content:center; gap:6px;
+  height:40px; padding:0 16px;
+  border:0; cursor:pointer; font-family:inherit;
+  border-radius:var(--radius-pill);
+  background:var(--surface); color:var(--primary);
+  font-size:14px; font-weight:700; white-space:nowrap;
+  box-shadow:4px 4px 10px var(--clay-dark),-4px -4px 10px var(--clay-light);
+  transition:transform .2s ease;
+}
+.ts-back-btn:hover{ transform:translateY(-2px); }
+.ts-back-btn svg{ width:17px; height:17px; }
+
+.ts-nav-links{ display:none; align-items:center; gap:4px; }
+.ts-nav-links a{
+  padding:8px 12px; border-radius:var(--radius-pill);
+  color:var(--body-c); font-size:14px; font-weight:600;
+  transition:color .2s ease,background .2s ease;
+}
+.ts-nav-links a:hover{ color:var(--primary); background:var(--canvas-deep); }
+@media(min-width:960px){ .ts-nav-links{ display:flex; } }
+
+@media(max-width:640px){
+  .ts-nav .ts-wrap{ height:68px; }
+  .ts-nav-right{ gap:8px; }
+  .ts-nav-cta{ padding:0 14px; }
+  .ts-nav-request{ width:40px; padding:0; }
+  .ts-nav-request span{ display:none; }
+  .ts-back-btn{ width:40px; padding:0; }
+  .ts-back-btn span{ display:none; }
+}
+@media(max-width:380px){ .ts-brand-by{ display:none; } }
+
+
+footer.ts-footer{
+  background:var(--surface);
+  border-top:1px solid var(--hairline);
+  color:var(--muted);
+  padding-top:64px;
+}
+
+.ts-footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px 48px;
+  padding-bottom:48px;
+}
+
+/* brand column */
+.ts-footer-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  color:var(--ink);
+}
+
+.ts-footer-brand .ts-brand-mark{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  box-shadow:none;
+}
+
+.ts-footer-brand .ts-brand-mark img{
+  width:22px;
+  height:22px;
+}
+
+.ts-footer-brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+
+.ts-footer-brand-name{
+  color:var(--ink);
+  font-size:20px;
+  font-weight:700;
+}
+
+.ts-footer-brand-by{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:400;
+}
+
+.ts-footer-desc{
+  margin:16px 0 0;
+  max-width:300px;
+
+  color:var(--muted);
+
+  font-size:14px;
+  font-weight:300;
+  line-height:1.55;
+}
+
+.ts-footer-social{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:24px;
+}
+
+.ts-footer-social-label{
+  margin-bottom:6px;
+
+  color:var(--muted);
+
+  font-size:12px;
+  line-height:1.3;
+}
+
+.ts-footer-social-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.ts-social-btn{
+  width:44px;
+  height:44px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+  border:1px solid var(--hairline);
+
+  background:var(--canvas);
+  color:var(--ink);
+
+  transition:
+    transform .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.ts-social-btn:hover,
+.ts-social-btn:focus-visible{
+  color:var(--primary);
+  border-color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.ts-social-btn:active{
+  transform:scale(.95);
+}
+
+.ts-social-btn svg{
+  width:18px;
+  height:18px;
+}
+
+/* link columns */
+.ts-footer-title{
+  margin:0 0 12px;
+
+  color:var(--ink);
+
+  font-size:18px;
+  font-weight:700;
+  line-height:1.4;
+}
+
+.ts-footer-links{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.ts-footer-links a,
+.ts-footer-legal a{
+  display:inline-flex;
+  align-items:center;
+
+  min-height:44px;
+
+  color:var(--body-c);
+
+  font-size:15px;
+  font-weight:400;
+  line-height:1.4;
+
+  transition:color .2s ease;
+}
+
+.ts-footer-links a:hover,
+.ts-footer-links a:focus-visible,
+.ts-footer-legal a:hover,
+.ts-footer-legal a:focus-visible{
+  color:var(--primary);
+}
+
+/* bottom bar */
+.ts-footer-bottom{
+  border-top:1px solid var(--hairline-strong,var(--hairline));
+}
+
+.ts-footer-bottom-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px 24px;
+
+  padding-top:14px;
+  padding-bottom:14px;
+}
+
+.ts-footer-copy{
+  color:var(--muted);
+
+  font-size:14px;
+  line-height:1.43;
+  letter-spacing:-.1px;
+}
+
+.ts-footer-legal{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0 28px;
+}
+
+@media(max-width:900px){
+  .ts-footer-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .ts-footer-brand-col{
+    grid-column:1 / -1;
+  }
+}
+
+@media(max-width:640px){
+  footer.ts-footer{
+    padding-top:48px;
+  }
+
+  .ts-footer-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+    padding-bottom:32px;
+  }
+
+  .ts-footer-bottom-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+
+footer.ts-footer{ background:#ffffff; margin:0; }
+[data-theme="dark"] footer.ts-footer{ background:var(--surface); }
+footer.ts-footer h2{ font-family:var(--font); }
+
+/* ===== Buttons: 404 pill + clay style ===== */
+.btn-primary,.btn-secondary,.btn-secondary-dark{
+  min-height:46px; height:auto; padding:0 24px;
+  border:0; border-radius:var(--radius-pill);
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  font-family:var(--font); font-size:14px; font-weight:700; line-height:1;
+  white-space:nowrap; cursor:pointer; text-decoration:none;
+  box-shadow:6px 6px 14px var(--clay-dark),-6px -6px 14px var(--clay-light);
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease;
+}
+.btn-primary{ background:var(--primary); color:var(--on-primary); }
+.btn-primary:hover{ background:var(--primary-active); transform:translateY(-3px); }
+.btn-primary:active{ background:var(--primary-active); transform:scale(.97); }
+.btn-secondary,.btn-secondary-dark{ background:var(--surface); color:var(--ink); }
+.btn-secondary:hover,.btn-secondary-dark:hover{ background:var(--surface); color:var(--primary); transform:translateY(-3px); }
+.btn-secondary:active,.btn-secondary-dark:active{ transform:scale(.97); }
+.btn-primary svg,.btn-secondary svg,.btn-secondary-dark svg{ width:17px; height:17px; }
+
+.filter-chip{
+  min-height:38px; padding:0 16px;
+  border:0; border-radius:var(--radius-pill);
+  background:var(--surface); color:var(--ink);
+  font-family:var(--font); font-size:13px; font-weight:600;
+  box-shadow:4px 4px 10px var(--clay-dark),-4px -4px 10px var(--clay-light);
+  transition:transform .2s ease,color .2s ease,background .2s ease;
+}
+.filter-chip:hover{ background:var(--surface); color:var(--primary); border-color:transparent; transform:translateY(-2px); }
+.filter-chip.active{ background:var(--primary); color:var(--on-primary); border-color:transparent; }
+
+/* ===== ThunderStudy quick answers: 404 box style ===== */
+.ts-seo-answer{
+  display:block; max-width:none; margin:0; padding:56px 32px 64px;
+  background:var(--canvas); color:var(--body-c);
+}
+.ts-seo-answer__inner{
+  --qa-head:#000000; --qa-text:#111111;
+  max-width:1176px; margin:0 auto; padding:36px 34px;
+  border:0; border-radius:var(--radius-card);
+  background:#ffffff; color:var(--qa-text);
+  box-shadow:10px 10px 24px var(--clay-dark),-10px -10px 24px var(--clay-light);
+}
+[data-theme="dark"] .ts-seo-answer__inner{ --qa-head:var(--ink); --qa-text:var(--body-c); background:var(--surface); }
+.ts-seo-answer__eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  margin:0 0 14px; padding:8px 16px; border-radius:var(--radius-pill);
+  background:var(--primary-soft); color:var(--primary);
+  font-size:12px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase;
+}
+.ts-seo-answer__eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--primary); }
+.ts-seo-answer h2{ margin:0 0 22px; color:var(--qa-head); font-size:clamp(1.3rem,2.6vw,1.9rem); line-height:1.2; font-weight:700; letter-spacing:-.4px; }
+.ts-seo-answer h3{ margin:0 0 6px; color:var(--qa-head); font-size:1rem; font-weight:700; }
+.ts-seo-answer p{ margin:0 0 8px; color:var(--qa-text); font-size:15px; line-height:1.6; }
+.ts-seo-answer strong{ color:var(--qa-head); font-weight:600; }
+.ts-seo-answer__grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; }
+.ts-seo-answer__trust{ margin-top:26px; padding-top:22px; border-top:1px solid var(--hairline); }
+.ts-seo-answer a{ color:var(--primary); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:640px){
+  .ts-seo-answer{ padding:40px 20px 48px; }
+  .ts-seo-answer__inner{ padding:28px 22px; }
+}
+
+/* ===== hub: use the same ThunderStudy purple as the 404 ===== */
+:root{ --primary:#573AFC; --primary-active:#4527E0; }
+[data-theme="dark"]{ --primary:#9A7AFB; --primary-active:#B196FB; }
 </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="brand-link" aria-label="ThunderStudy Home">
-        <img src="/favicon.svg" alt="Thunder logo" width="28" height="28">
-        <span class="logo-text"><span class="brand-thunder">Thunder</span><span class="brand-study">Study</span></span>
+  <!-- NAV -->
+<header class="ts-nav">
+  <div class="ts-wrap">
+    <a href="https://thunderstudy.indevs.in" class="ts-brand" aria-label="ThunderStudy by wondermayank">
+      <span class="ts-brand-mark">
+        <img src="/favicon.svg" alt="ThunderStudy" width="32" height="32">
+      </span>
+      <span class="ts-brand-text">
+        <span class="ts-brand-name">Thunder<span class="ts-brand-accent">Study</span></span>
+        <span class="ts-brand-by">by wondermayank</span>
+      </span>
+    </a>
+
+    <nav class="ts-nav-links" aria-label="Main Navigation">
+      <a href="/cbse/">CBSE</a>
+      <a href="/ssc/">SSC</a>
+      <a href="/banking/">Banking</a>
+      <a href="/ca/">CA</a>
+      <a href="/search.html">Search</a>
+    </nav>
+
+    <div class="ts-nav-right">
+      <!-- REQUEST FILE -->
+      <a href="https://wondermayank.in/contact" class="ts-nav-request" target="_blank" rel="noopener noreferrer" aria-label="Request a file">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+          <path d="M14 3v5h5"/>
+          <path d="M12 12v6M9 15h6"/>
+        </svg>
+        <span>Request File</span>
       </a>
-      <nav class="header-nav" aria-label="Main Navigation">
-        <a href="/cbse/" class="nav-link">CBSE</a>
-        <a href="/ssc/" class="nav-link">SSC</a>
-        <a href="/banking/" class="nav-link">Banking</a>
-        <a href="/ca/" class="nav-link">CA</a>
-        <a href="/search.html" class="nav-link">Search</a>
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
-          <span class="theme-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
-        </button>
-      </nav>
+
+      <!-- THEME -->
+      <button class="ts-theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.4M12 19.1v2.4"/>
+          <path d="M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7"/>
+          <path d="M2.5 12h2.4M19.1 12h2.4"/>
+          <path d="M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
+        </svg>
+        <svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="display:none">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/>
+        </svg>
+      </button>
+
+      <a href="https://thundertest.indevs.in" class="ts-nav-cta">Mock Test</a>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <nav class="breadcrumb-bar" aria-label="Breadcrumbs">
     <a href="/">Home</a>
@@ -645,98 +1147,7 @@
 </section>
 
 
-  <script>
-    const themeBtn = document.getElementById('themeToggle');
-    const sunSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
-    const moonSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
-
-    function updateThemeIcon() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      themeBtn.innerHTML = isDark ? sunSvg : moonSvg;
-    }
-    updateThemeIcon();
-
-    themeBtn.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-      updateThemeIcon();
-    });
-  </script>
-
-<script>
-/* =========================
-   LOADER
-========================= */
-window.addEventListener('DOMContentLoaded',function(){
-  setTimeout(function(){
-    var loader=document.getElementById('loader');
-    if(loader){
-      loader.classList.add('hide');
-    }
-  },200);
-});
-
-setTimeout(function(){
-  var loader=document.getElementById('loader');
-  if(loader){
-    loader.classList.add('hide');
-  }
-},1500);
-
-/* =========================
-   THEME
-========================= */
-var themeBtn=document.getElementById('themeBtn');
-var sunIcon=document.getElementById('themeIconSun');
-var moonIcon=document.getElementById('themeIconMoon');
-
-function syncIcons(){
-  var theme=document.documentElement.getAttribute('data-theme');
-  sunIcon.style.display=theme === 'dark' ? 'none' : 'block';
-  moonIcon.style.display=theme === 'dark' ? 'block' : 'none';
-}
-
-syncIcons();
-themeBtn.addEventListener('click',function(){
-  var next=document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  try{ localStorage.setItem('theme', next); }catch(e){}
-  syncIcons();
-});
-
-/* =========================
-   BROKEN URL + REPORT LINK
-========================= */
-(function(){
-  var box=document.getElementById('errorUrl');
-  var report=document.getElementById('reportBtn');
-  if(!/^https?:$/.test(location.protocol)) return;
-
-  // Ignore the 404 page opened directly (or the home page)
-  var path=location.pathname;
-  if(path==='/' || /^\/404(\.html)?\/?$/.test(path)) return;
-
-  var shown=location.host+path+location.search;
-  if(box){
-    box.textContent=shown.length>110 ? shown.slice(0,107)+'…' : shown;  // textContent only — never innerHTML
-    box.hidden=false;
-  }
-
-  if(report){
-    var msg='Broken link: '+location.origin+path+location.search;
-    if(document.referrer) msg+='\nFound on: '+document.referrer;
-    report.href='https://wondermayank.in/contact?subject='+encodeURIComponent('Broken link report')+'&message='+encodeURIComponent(msg);
-  }
-})();
-</script>
-
-<footer class="ts-site-footer">
+  <footer class="ts-footer">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
       <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
@@ -747,7 +1158,7 @@ themeBtn.addEventListener('click',function(){
     </defs>
   </svg>
 
-  <div class="ts-footer-wrap">
+  <div class="ts-wrap">
     <div class="ts-footer-grid">
 
       <div class="ts-footer-brand-col">
@@ -809,7 +1220,7 @@ themeBtn.addEventListener('click',function(){
       <nav aria-label="wondermayank">
         <h2 class="ts-footer-title">wondermayank</h2>
         <ul class="ts-footer-links">
-          <li><a href="https://project.wondermayank.in">Vibecoding</a></li>
+          <li><a href="https://make.wondermayank.in">Vibecoding</a></li>
           <li><a href="https://project.wondermayank.in">Useful Projects</a></li>
           <li><a href="https://wondermayank.in">Portfolio</a></li>
           <li><a href="https://blog.wondermayank.indevs.in/">Blog</a></li>
@@ -820,7 +1231,7 @@ themeBtn.addEventListener('click',function(){
   </div>
 
   <div class="ts-footer-bottom">
-    <div class="wrap footer-bottom-inner">
+    <div class="ts-wrap ts-footer-bottom-inner">
       <div class="ts-footer-copy">© 2026 ThunderStudy by wondermayank. All rights reserved.</div>
 
       <nav class="ts-footer-legal" aria-label="Legal">
@@ -832,5 +1243,27 @@ themeBtn.addEventListener('click',function(){
     </div>
   </div>
 </footer>
+<script>
+/* THEME TOGGLE (shared with the 404 page) */
+(function(){
+  var themeBtn=document.getElementById('themeBtn');
+  var sunIcon=document.getElementById('themeIconSun');
+  var moonIcon=document.getElementById('themeIconMoon');
+  if(!themeBtn) return;
+  function syncIcons(){
+    var theme=document.documentElement.getAttribute('data-theme');
+    sunIcon.style.display=theme === 'dark' ? 'none' : 'block';
+    moonIcon.style.display=theme === 'dark' ? 'block' : 'none';
+  }
+  syncIcons();
+  themeBtn.addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('theme', next); }catch(e){}
+    syncIcons();
+  });
+})();
+</script>
+
 </body>
 </html>
