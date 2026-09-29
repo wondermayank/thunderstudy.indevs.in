@@ -14,7 +14,8 @@ function getHtmlFiles(dir, fileList = []) {
     if (stat.isDirectory()) {
       getHtmlFiles(filePath, fileList);
     } else if (file.endsWith('.html') && !file.endsWith('.disabled') && file !== '404.html' && !/^google[0-9a-f]+\.html$/i.test(file)) {
-      fileList.push(filePath);
+      const source = fs.readFileSync(filePath, 'utf8');
+      if (!/\bnoindex\b/i.test(source)) fileList.push(filePath);
     }
   }
   return fileList;

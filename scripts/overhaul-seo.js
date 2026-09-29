@@ -111,6 +111,12 @@ for (const file of walk(root)) {
     const heading = `<h1 class="ts-visually-hidden">${esc(data.title)}</h1>`;
     html = html.replace(/<main\b([^>]*)>/i, `$&${heading}`).replace(/<body\b([^>]*)>/i, `$&${heading}`);
   }
+  let answerSeen = false;
+  html = html.replace(/<section class="ts-seo-answer"[\s\S]*?<\/section>/gi, block => {
+    if (answerSeen) return '';
+    answerSeen = true;
+    return block;
+  });
   if (html !== before) { fs.writeFileSync(file, html, 'utf8'); changed += 1; }
 }
 console.log(`SEO/AEO/GEO overhaul updated ${changed} indexable HTML pages.`);

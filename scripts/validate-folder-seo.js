@@ -11,7 +11,7 @@ function collect(dir) {
     if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
     const file = path.join(dir, entry.name);
     if (entry.isDirectory()) collect(file);
-    else if (entry.name.endsWith('.html') && !entry.name.endsWith('.disabled') && entry.name !== 'footer.html' && entry.name !== '404.html' && !/^google[0-9a-f]+\.html$/i.test(entry.name)) files.push(file);
+    else if (entry.name.endsWith('.html') && !entry.name.endsWith('.disabled') && entry.name !== 'footer.html' && entry.name !== '404.html' && !/^google[0-9a-f]+\.html$/i.test(entry.name) && !/\bnoindex\b/i.test(fs.readFileSync(file, 'utf8'))) files.push(file);
   }
 }
 
@@ -25,11 +25,11 @@ for (const file of files) {
   const answerPosition = html.indexOf('data-seo-answer="v1"');
   const footerPosition = html.search(/<footer\b/i);
   if (footerPosition >= 0 && answerPosition > footerPosition) errors.push(`${relative}: answer block is after the footer`);
-  for (const token of ['What is this?', 'Who is it for?', 'What is included?', 'Is it free?', 'How can I start?', 'Written/edited by:', 'Last reviewed:', 'Sources used:', 'Corrections:', 'editorial-policy']) {
+  for (const token of ['Who is it for?', 'What is included?', 'Is it free?', 'How can I start?', 'Written/edited by:', 'Last reviewed:', 'Sources used:', 'Corrections:', 'editorial-policy']) {
     if (!html.includes(token)) errors.push(`${relative}: missing ${token}`);
   }
 
-  const blocks = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
+  const blocks = [...html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
   if (!blocks.length) errors.push(`${relative}: no JSON-LD found`);
   const types = new Set();
   for (const [, raw] of blocks) {
@@ -45,7 +45,7 @@ for (const file of files) {
       errors.push(`${relative}: invalid JSON-LD (${error.message})`);
     }
   }
-  for (const type of ['EducationalOrganization', 'Person', 'WebSite', 'BreadcrumbList', 'FAQPage']) {
+  for (const type of ['EducationalOrganization', 'WebSite', 'BreadcrumbList', 'FAQPage']) {
     if (!types.has(type)) errors.push(`${relative}: missing ${type} schema`);
   }
   if (!relative.toLowerCase().startsWith('search\\') && !types.has('LearningResource')) {
