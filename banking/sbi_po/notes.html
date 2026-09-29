@@ -583,6 +583,20 @@ footer.ts-site-footer .ts-footer-legal{display:flex;flex-wrap:wrap;gap:0 28px}
 [data-theme="dark"] .ts-seo-answer__eyebrow,[data-theme="dark"] .ts-seo-answer a{color:var(--ts-primary)!important}
 body:has(#chapterScreen.active) .ts-seo-answer{display:none}
 </style>
+<style data-ts-footer-fix>
+/* Footer theme fix (purple palette): white footer in light mode, dark in dark mode.
+   Footer brand link ("ThunderStudy by wondermayank") uses the same colors as the header brand
+   and switches with the theme. Covers both .footer-brand and .ts-footer-brand markup. */
+html body footer{background:#FFFFFF !important;border-top-color:#E6E0F5 !important}
+html body footer .footer-brand,html body footer .ts-footer-brand,html body footer a.footer-brand:visited,html body footer a.ts-footer-brand:visited,html body footer a.footer-brand:hover,html body footer a.ts-footer-brand:hover,html body footer .footer-brand-name,html body footer .ts-footer-brand-name{color:#2B2640 !important}
+html body footer .footer-brand .brand-accent,html body footer .ts-footer-brand .ts-brand-accent,html body footer .ts-footer-brand .brand-accent{color:#573AFC !important;-webkit-text-fill-color:#573AFC !important;background:none !important}
+html body footer .footer-brand-by,html body footer .ts-footer-brand-by{color:#8B84A0 !important}
+html[data-theme="dark"] body footer{background:#221D3C !important;border-top-color:rgba(255,255,255,.08) !important}
+html[data-theme="dark"] body footer .footer-brand,html[data-theme="dark"] body footer .ts-footer-brand,html[data-theme="dark"] body footer a.footer-brand:visited,html[data-theme="dark"] body footer a.ts-footer-brand:visited,html[data-theme="dark"] body footer a.footer-brand:hover,html[data-theme="dark"] body footer a.ts-footer-brand:hover,html[data-theme="dark"] body footer .footer-brand-name,html[data-theme="dark"] body footer .ts-footer-brand-name{color:#F1EEFB !important}
+html[data-theme="dark"] body footer .footer-brand .brand-accent,html[data-theme="dark"] body footer .ts-footer-brand .ts-brand-accent,html[data-theme="dark"] body footer .ts-footer-brand .brand-accent{color:#9A7AFB !important;-webkit-text-fill-color:#9A7AFB !important;background:none !important}
+html[data-theme="dark"] body footer .footer-brand-by,html[data-theme="dark"] body footer .ts-footer-brand-by{color:#8E86AC !important}
+</style>
+
 </head>
 <body>
 

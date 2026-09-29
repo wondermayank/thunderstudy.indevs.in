@@ -1131,6 +1131,19 @@ header {
 @media(max-width:640px){.toc-sidebar,.sidebar{top:84px !important;}.ts-units-btn{padding:0 12px;}.ts-units-menu{min-width:230px;}}
 @media(max-width:520px){.ts-units-btn span{display:none;}.ts-units-btn{width:40px;padding:0;}.ts-nav .ts-unit-links a{padding:8px 10px;}}
 </style>
+<style data-ts-footer-fix>
+/* Footer theme fix: white footer in light mode, dark in dark mode.
+   Brand link ("ThunderStudy by wondermayank") uses the same colors as the header brand
+   and switches with the theme. Kept last + !important so /footer.css cannot override it. */
+footer.ts-site-footer{background:#FFFFFF !important;color:#667085 !important;border-top-color:#D8E1F2 !important}
+footer.ts-site-footer .ts-footer-brand,footer.ts-site-footer a.ts-footer-brand:visited,footer.ts-site-footer a.ts-footer-brand:hover,footer.ts-site-footer .ts-footer-brand-name{color:#26324A !important}
+footer.ts-site-footer .ts-footer-brand .ts-brand-accent{color:#70a1fc !important;-webkit-text-fill-color:#70a1fc !important;background:none !important}
+footer.ts-site-footer .ts-footer-brand-by{color:#667085 !important}
+[data-theme="dark"] footer.ts-site-footer{background:#1B1B1F !important;color:#A9A4B8 !important;border-top-color:#2A2A2A !important}
+[data-theme="dark"] footer.ts-site-footer .ts-footer-brand,[data-theme="dark"] footer.ts-site-footer a.ts-footer-brand:visited,[data-theme="dark"] footer.ts-site-footer a.ts-footer-brand:hover,[data-theme="dark"] footer.ts-site-footer .ts-footer-brand-name{color:#F4F1FF !important}
+[data-theme="dark"] footer.ts-site-footer .ts-footer-brand .ts-brand-accent{color:#9A7AFB !important;-webkit-text-fill-color:#9A7AFB !important;background:none !important}
+[data-theme="dark"] footer.ts-site-footer .ts-footer-brand-by{color:#A9A4B8 !important}
+</style>
 </head>
 <body>
 
