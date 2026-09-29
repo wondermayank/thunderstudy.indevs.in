@@ -318,6 +318,42 @@ button{
   transform:translateY(-2px);
 }
 
+.nav-request{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  height:40px;
+  padding:0 16px;
+
+  border-radius:var(--radius-pill);
+
+  background:var(--surface);
+  color:var(--ink);
+
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+
+  box-shadow:
+    4px 4px 10px var(--clay-dark),
+    -4px -4px 10px var(--clay-light);
+
+  transition:transform .2s ease,color .2s ease;
+}
+
+.nav-request:hover{
+  color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.nav-request svg{
+  width:17px;
+  height:17px;
+  flex-shrink:0;
+}
+
 /* =========================
    404 HERO
 ========================= */
@@ -863,6 +899,20 @@ footer{
     padding:0 14px;
   }
 
+  .nav-right{
+    gap:8px;
+  }
+
+  .nav-request{
+    width:40px;
+    padding:0;
+    border-radius:14px;
+  }
+
+  .nav-request-text{
+    display:none;
+  }
+
   .error-page{
     min-height:calc(100vh - 68px);
     padding:55px 0;
@@ -897,63 +947,28 @@ footer{
 
 }
 
-/* Request File button (header, sits before the theme toggle) */
-.nav-request{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
+@media(max-width:400px){
 
-  height:40px;
-  padding:0 16px;
+  .nav .wrap{
+    padding:0 14px;
+  }
 
-  border-radius:var(--radius-pill);
+  .nav-right{
+    gap:6px;
+  }
 
-  background:var(--surface);
-  color:var(--ink);
+  .theme-btn,
+  .nav-request{
+    width:36px;
+    height:36px;
+  }
 
-  font-size:14px;
-  font-weight:600;
-  white-space:nowrap;
+  .nav-cta{
+    height:36px;
+    padding:0 12px;
+    font-size:13px;
+  }
 
-  box-shadow:
-    4px 4px 10px var(--clay-dark),
-    -4px -4px 10px var(--clay-light);
-
-  transition:transform .2s ease,color .2s ease;
-}
-
-.nav-request:hover{
-  color:var(--primary);
-  transform:translateY(-2px);
-}
-
-.nav-request svg{
-  width:17px;
-  height:17px;
-  flex:0 0 auto;
-}
-
-/* Footer: white in light mode */
-footer{
-  background:#ffffff;
-}
-
-[data-theme="dark"] footer{
-  background:var(--surface);
-}
-
-
-@media(max-width:640px){
-  .nav .wrap{ height:68px; }
-  .nav-right{ gap:8px; }
-  .nav-cta{ padding:0 14px; }
-  .nav-request{ width:40px; padding:0; }
-  .nav-request span{ display:none; }
-}
-
-@media(max-width:380px){
-  .brand-by{ display:none; }
 }
 
 </style>
@@ -987,7 +1002,7 @@ footer{
           <path d="M14 3v5h5"/>
           <path d="M12 12v6M9 15h6"/>
         </svg>
-        <span>Request File</span>
+        <span class="nav-request-text">Request File</span>
       </a>
 
       <!-- THEME -->

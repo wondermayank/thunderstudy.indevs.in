@@ -349,8 +349,8 @@ button{
 }
 
 .nav-request svg{
-  width:16px;
-  height:16px;
+  width:17px;
+  height:17px;
   flex-shrink:0;
 }
 
@@ -903,6 +903,16 @@ footer{
     gap:8px;
   }
 
+  .nav-request{
+    width:40px;
+    padding:0;
+    border-radius:14px;
+  }
+
+  .nav-request-text{
+    display:none;
+  }
+
   .error-page{
     min-height:calc(100vh - 68px);
     padding:55px 0;
@@ -937,50 +947,28 @@ footer{
 
 }
 
-@media(max-width:520px){
-  .nav-request{
-    width:40px;
-    padding:0;
-  }
+@media(max-width:400px){
 
-  .nav-request span{
-    display:none;
-  }
-}
-
-@media(max-width:480px){
-  .brand{
-    gap:8px;
-  }
-
-  .brand-mark{
-    width:32px;
-    height:32px;
-    border-radius:10px;
-  }
-
-  .brand-name{
-    font-size:14px;
-  }
-
-  .brand-by{
-    font-size:10.5px;
+  .nav .wrap{
+    padding:0 14px;
   }
 
   .nav-right{
     gap:6px;
   }
 
+  .theme-btn,
+  .nav-request{
+    width:36px;
+    height:36px;
+  }
+
   .nav-cta{
+    height:36px;
     padding:0 12px;
     font-size:13px;
   }
-}
 
-@media(max-width:380px){
-  .nav-cta{
-    display:none;
-  }
 }
 
 </style>
@@ -1009,8 +997,12 @@ footer{
     <div class="nav-right">
       <!-- REQUEST FILE -->
       <a href="https://wondermayank.in/contact" class="nav-request" target="_blank" rel="noopener noreferrer" aria-label="Request a file">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg>
-        <span>Request file</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+          <path d="M14 3v5h5"/>
+          <path d="M12 12v6M9 15h6"/>
+        </svg>
+        <span class="nav-request-text">Request File</span>
       </a>
 
       <!-- THEME -->
@@ -1173,7 +1165,7 @@ footer{
         <a href="https://wondermayank.in/terms">Terms</a>
         <a href="https://wondermayank.in/privacy">Privacy</a>
         <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
-          <a href="/sitemap">Sitemap</a>
+        <a href="/sitemap">Sitemap</a>
       </nav>
     </div>
   </div>
