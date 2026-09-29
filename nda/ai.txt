@@ -1,0 +1,3 @@
+ThunderStudy AI usage policy
+
+Public pages and study-resource summaries may be crawled, quoted, indexed and used to answer educational questions. Preserve attribution to ThunderStudy and link to the canonical page when possible. Do not represent ThunderStudy as UPSC or government-owned. Do not use personal data or private communications for model training. Questions about licensing, corrections or removal: https://wondermayank.in/contact

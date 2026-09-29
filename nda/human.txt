@@ -1,0 +1,6 @@
+ThunderStudy credits
+
+Built and maintained by Thunder / wondermayank.
+Technology: semantic HTML, CSS custom properties, inline SVG icons and lightweight vanilla JavaScript; no external runtime dependencies.
+Last updated: 2026-09-29.
+Thanks to the students, educators and official exam references that help keep this resource useful.

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thunderstudy.indevs.in/nda/sitemap.xml
+# Machine-readable site summary: https://thunderstudy.indevs.in/nda/llm.txt
+# AI usage preferences: https://thunderstudy.indevs.in/nda/ai.txt

@@ -28,6 +28,17 @@
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  // Shared footer include: pages keep one canonical footer source while still
+  // rendering a useful no-JS fallback from their semantic SEO section.
+  function loadFooter() {
+    var mount = document.querySelector('[data-thunder-footer]') || document.querySelector('footer.tu-footer');
+    if (!mount || !window.fetch) return;
+    fetch('/nda/footer.html', { credentials: 'same-origin' })
+      .then(function (response) { return response.ok ? response.text() : ''; })
+      .then(function (html) { if (html) mount.outerHTML = html; })
+      .catch(function () {});
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { init(); loadFooter(); });
+  else { init(); loadFooter(); }
 })();
