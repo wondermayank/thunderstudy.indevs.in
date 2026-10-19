@@ -3459,6 +3459,665 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 [data-theme="dark"] [style*="background:#fff0ea;"],[data-theme="dark"] [style$="background:#fff0ea"]{background-color:#2c1e18!important}
 [data-theme="dark"] [style*="color:#1e88e5;"],[data-theme="dark"] [style$="color:#1e88e5"]{color:#cbd9e6!important}
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
+<style id="tc-design">
+/* =========================================================
+   THUNDER CLAY (from design.html). Scoped to .tc so the rest of the page is untouched.
+   Used by: header.nav, .mobile-menu, footer.wmf, .xm-wrap (14 exam buttons), #pwa-banner
+========================================================= */
+@property --xang{syntax:"<angle>";initial-value:0deg;inherits:false}
+.tc{
+  --canvas:#F4F1FC;--canvas-deep:#ECE6FB;--surface:#FAF8FE;
+  --ink:#2B2640;--body-c:#5C5575;--muted:#8B84A0;
+  --hairline:rgba(43,38,64,.08);
+  --primary:#573AFC;--primary-active:#4527E0;--primary-soft:#E4DEFF;--on-primary:#ffffff;
+  --success:#22c55e;--error:#dc2626;
+  --clay-light:rgba(255,255,255,.9);--clay-dark:rgba(120,108,180,.5);
+  --radius-card:28px;--radius-md:20px;--radius-sm:16px;--radius-pill:999px;
+  --e-sm:4px 4px 10px var(--clay-dark),-4px -4px 10px var(--clay-light);
+  --e-md:6px 6px 14px var(--clay-dark),-6px -6px 14px var(--clay-light);
+  --e-lg:10px 10px 24px var(--clay-dark),-10px -10px 24px var(--clay-light);
+  --e-pressed:inset 4px 4px 10px var(--clay-dark),inset -4px -4px 10px var(--clay-light);
+  --ease-out:cubic-bezier(.2,.8,.2,1);
+  --tcfont:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --purple:#D9CCFF;--purple-ink:#3E2A9E;--blue:#C7DDFF;--blue-ink:#1F4FA3;--green:#C6F0D3;--green-ink:#1B6B3A;
+  --red:#FFCFCF;--red-ink:#A12626;--yellow:#FFF0A8;--yellow-ink:#7A5C00;--pink:#FFCFE6;--pink-ink:#9E2A68;
+  --orange:#FFD9B8;--orange-ink:#A34A0B;--teal:#BDF0EA;--teal-ink:#0F6A63;--lime:#E0F5A8;--lime-ink:#4D6B0A;
+  --cyan:#BDEBFF;--cyan-ink:#0B6180;
+  font-family:var(--tcfont);
+}
+[data-theme="dark"] .tc{
+  --canvas:#1A1730;--canvas-deep:#15122A;--surface:#221D3C;
+  --ink:#F1EEFB;--body-c:#C7C0E0;--muted:#8E86AC;
+  --hairline:rgba(255,255,255,.08);
+  --primary:#9A7AFB;--primary-active:#B196FB;--primary-soft:#2E2650;--on-primary:#1A1730;
+  --clay-light:rgba(255,255,255,.05);--clay-dark:rgba(0,0,0,.55);
+  --purple:#3B2F75;--purple-ink:#E3DAFF;--blue:#26427A;--blue-ink:#D6E6FF;--green:#1F5A36;--green-ink:#D3F6DF;
+  --red:#7A2A2A;--red-ink:#FFDADA;--yellow:#6B5A1A;--yellow-ink:#FFF2B8;--pink:#7A2F58;--pink-ink:#FFDAEE;
+  --orange:#7A4220;--orange-ink:#FFE2CB;--teal:#1D5A56;--teal-ink:#CCF6F1;--lime:#4A5E1E;--lime-ink:#E8F8BE;
+  --cyan:#1C5670;--cyan-ink:#CDF1FF;
+}
+.tc,.tc *,.tc *::before,.tc *::after{box-sizing:border-box}
+
+/* =========================================================
+   HEADER (design.html)
+========================================================= */
+header.nav{position:sticky;top:0;z-index:100;padding:0;background:var(--canvas);border-bottom:1px solid var(--hairline);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);transition:background .3s ease}
+header.nav .wrap{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:76px}
+header.nav .brand{display:flex;align-items:center;gap:10px;padding:0;background:none;font-weight:700;font-size:16px;color:var(--ink);text-decoration:none}
+header.nav .brand-text{display:flex;flex-direction:column;line-height:1.15}
+header.nav .brand-name{color:var(--ink);font-size:17px;font-weight:700;letter-spacing:-.2px}
+header.nav .brand-accent{color:var(--primary)}
+header.nav .brand-by{color:var(--muted);font-size:11.5px;font-weight:400;letter-spacing:.1px}
+header.nav .brand-mark{width:36px;height:36px;border-radius:12px;background:none;display:flex;align-items:center;justify-content:center;box-shadow:none}
+header.nav .brand-mark img{width:32px;height:32px;display:block}
+header.nav .nav-right{display:flex;align-items:center;gap:12px}
+header.nav .nav-icons{display:flex;align-items:center;gap:inherit}
+header.nav .theme-btn,header.nav .nav-request,header.nav .ham-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;margin:0;border:0;border-radius:14px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:600;white-space:nowrap;text-decoration:none;cursor:pointer;box-shadow:var(--e-sm);transition:transform .2s ease,color .2s ease}
+header.nav .theme-btn:hover,header.nav .nav-request:hover,header.nav .ham-btn:hover{color:var(--primary);transform:translateY(-2px)}
+header.nav .theme-btn:active,header.nav .nav-request:active,header.nav .ham-btn:active{transform:translateY(0) scale(.92)}
+header.nav .theme-btn svg{width:18px;height:18px;flex-shrink:0}
+header.nav .nav-request svg{width:17px;height:17px;flex-shrink:0}
+header.nav .theme-btn:focus-visible,header.nav .nav-request:focus-visible,header.nav .ham-btn:focus-visible,header.nav .brand:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.mobile-menu{display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;z-index:99;background:var(--canvas);border-bottom:1px solid var(--hairline);padding:0 20px;max-height:0;overflow:hidden;visibility:hidden;border-bottom-width:0;transition:max-height .25s ease,padding .25s ease,visibility 0s .25s}
+.mobile-menu.open{max-height:80vh;overflow-y:auto;padding:8px 20px 20px;visibility:visible;border-bottom-width:1px;transition:max-height .25s ease,padding .25s ease,visibility 0s}
+.mobile-menu a{font-size:15px;font-weight:600;color:var(--ink);padding:14px 4px;border-bottom:1px solid var(--hairline);text-decoration:none;background:none;border-radius:0}
+.mobile-menu a:hover{color:var(--primary);background:none}
+.mobile-menu a:last-child{border-bottom:none}
+.ham-icon path{transform-box:fill-box;transform-origin:center;transition:transform .25s ease,opacity .2s ease}
+.ham-btn[aria-expanded="true"] .ham-top{transform:translateY(6px) rotate(45deg)}
+.ham-btn[aria-expanded="true"] .ham-mid{opacity:0;transform:scaleX(0)}
+.ham-btn[aria-expanded="true"] .ham-bot{transform:translateY(-6px) rotate(-45deg)}
+@media(min-width:1100px){
+  .mobile-menu{left:auto;right:20px;width:260px;border:1px solid var(--hairline);border-radius:var(--radius-card);box-shadow:var(--e-lg)}
+  .mobile-menu:not(.open){border-color:transparent;box-shadow:none}
+}
+@media(max-width:640px){
+  header.nav .wrap{height:68px;padding:0 20px}
+  header.nav .nav-right{gap:8px}
+  header.nav .brand-by,header.nav .nav-home{display:none}
+  .mobile-menu{top:68px}
+}
+@media(max-width:520px){header.nav .brand-text{display:none}}
+@media(max-width:400px){
+  header.nav .wrap{padding:0 14px}
+  header.nav .nav-right{gap:6px}
+  header.nav .theme-btn,header.nav .nav-request,header.nav .ham-btn{width:36px;height:36px}
+}
+@media(prefers-reduced-motion:reduce){header.nav *,.mobile-menu,.ham-icon path{transition:none!important}}
+
+/* =========================================================
+   FOOTER (design.html, footer.wmf)
+========================================================= */
+footer.wmf{--f-surface:#FAF8FE;--f-canvas:#F4F1FC;--f-ink:#2B2640;--f-body:#5C5575;--f-muted:#8B84A0;--f-hair:rgba(43,38,64,.08);--f-primary:#573AFC;display:block;position:relative;float:none;clear:both;width:auto;max-width:none;margin:0;padding:64px 0 0;text-align:left;background:var(--f-surface);border:0;border-top:1px solid var(--f-hair);border-radius:0;overflow:visible;color:var(--f-muted);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16px;font-weight:400;line-height:1.5;letter-spacing:normal;text-transform:none}
+[data-theme="dark"] footer.wmf{--f-surface:#221D3C;--f-canvas:#1A1730;--f-ink:#F1EEFB;--f-body:#C7C0E0;--f-muted:#8E86AC;--f-hair:rgba(255,255,255,.08);--f-primary:#9A7AFB}
+footer.wmf,footer.wmf *,footer.wmf *::before,footer.wmf *::after{box-sizing:border-box}
+footer.wmf .wmf-wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+footer.wmf .wmf-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px 48px;padding:0 0 48px;margin:0}
+footer.wmf a{text-decoration:none;background:none;box-shadow:none}
+footer.wmf nav{display:block!important;gap:0;margin:0;padding:0}
+footer.wmf nav a{padding:0;border-radius:0}
+footer.wmf .wmf-brand{display:inline-flex;align-items:center;gap:12px;color:var(--f-ink)}
+footer.wmf .wmf-mark{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:none;box-shadow:none}
+footer.wmf .wmf-mark img{width:36px;height:36px;display:block;max-width:none}
+footer.wmf .wmf-brand-text{display:flex;flex-direction:column;line-height:1.2}
+footer.wmf .wmf-brand-name{color:var(--f-ink);font-size:20px;font-weight:700}
+footer.wmf .wmf-accent{color:var(--f-primary)}
+footer.wmf .wmf-brand-by{color:var(--f-muted);font-size:13px;font-weight:400}
+footer.wmf .wmf-desc{margin:16px 0 0;max-width:300px;color:var(--f-muted);font-size:14px;font-weight:300;line-height:1.55}
+footer.wmf .wmf-mascot{display:inline-flex;align-items:center;gap:12px;margin-top:20px;padding:8px 14px 8px 8px;border:1px solid var(--f-hair);border-radius:18px;background:var(--f-canvas);color:var(--f-ink);transition:transform .2s ease,border-color .2s ease}
+footer.wmf .wmf-mascot:hover,footer.wmf .wmf-mascot:focus-visible{border-color:var(--f-primary);transform:translateY(-2px)}
+footer.wmf .wmf-mascot img{width:72px;height:auto;aspect-ratio:16/9;border-radius:10px;display:block;object-fit:cover;max-width:none}
+footer.wmf .wmf-mascot span{display:flex;flex-direction:column;line-height:1.25}
+footer.wmf .wmf-mascot b{font-size:14px;font-weight:700;color:var(--f-ink)}
+footer.wmf .wmf-mascot small{font-size:12px;color:var(--f-muted)}
+footer.wmf .wmf-social{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+footer.wmf .wmf-social-label{margin-bottom:6px;color:var(--f-muted);font-size:12px;line-height:1.3}
+footer.wmf .wmf-social-row{display:flex;flex-wrap:wrap;gap:8px}
+footer.wmf .wmf-social-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--f-hair);background:var(--f-canvas);color:var(--f-ink);transition:transform .2s ease,color .2s ease,border-color .2s ease}
+footer.wmf .wmf-social-btn:hover,footer.wmf .wmf-social-btn:focus-visible{color:var(--f-primary);border-color:var(--f-primary);transform:translateY(-2px)}
+footer.wmf .wmf-social-btn:active{transform:scale(.95)}
+footer.wmf .wmf-social-btn svg{width:24px;height:24px;display:block}
+footer.wmf .wmf-title{margin:0 0 12px;padding:0;color:var(--f-ink);font-family:inherit;font-size:18px;font-weight:700;line-height:1.4;letter-spacing:normal;text-transform:none}
+footer.wmf .wmf-links{list-style:none;margin:0;padding:0}
+footer.wmf .wmf-links li{margin:0;padding:0;list-style:none}
+footer.wmf .wmf-links a,footer.wmf .wmf-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--f-body);font-size:15px;font-weight:400;line-height:1.4;transition:color .2s ease}
+footer.wmf .wmf-links a:hover,footer.wmf .wmf-links a:focus-visible,footer.wmf .wmf-legal a:hover,footer.wmf .wmf-legal a:focus-visible{color:var(--f-primary);background:none}
+footer.wmf .wmf-quick{padding:0 0 40px}
+footer.wmf .wmf-quick .wmf-social-label{margin-bottom:10px}
+footer.wmf .wmf-quick-row{display:flex;flex-wrap:wrap;gap:8px}
+footer.wmf .wmf-quick-row a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid var(--f-hair);border-radius:999px;background:var(--f-canvas);color:var(--f-body);font-size:14px;font-weight:600;transition:transform .2s ease,color .2s ease,border-color .2s ease}
+footer.wmf .wmf-quick-row a:hover,footer.wmf .wmf-quick-row a:focus-visible{color:var(--f-primary);border-color:var(--f-primary);transform:translateY(-2px);background:var(--f-canvas)}
+footer.wmf .wmf-bottom{border-top:1px solid var(--f-hair)}
+footer.wmf .wmf-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding-top:14px;padding-bottom:14px}
+footer.wmf .wmf-copy{color:var(--f-muted);font-size:14px;line-height:1.43;letter-spacing:-.1px}
+footer.wmf .wmf-legal{display:flex!important;flex-wrap:wrap;gap:0 28px;margin-right:64px}
+@media(max-width:900px){
+  footer.wmf .wmf-grid{grid-template-columns:repeat(3,1fr)}
+  footer.wmf .wmf-brand-col{grid-column:1 / -1}
+}
+@media(max-width:640px){
+  footer.wmf{padding-top:48px}
+  footer.wmf .wmf-wrap{padding:0 20px}
+  footer.wmf .wmf-grid{grid-template-columns:1fr;gap:28px;padding-bottom:32px}
+  footer.wmf .wmf-bottom-inner{flex-direction:column;align-items:flex-start;padding-bottom:84px}
+  footer.wmf .wmf-legal{margin-right:0}
+}
+
+/* =========================================================
+   14 EXAM BUTTONS: 7 study styles + 7 mock-test styles, every one different
+========================================================= */
+.xm-wrap{flex:0 0 100%;width:100%;min-width:0;margin:6px 0 0;color:var(--body-c)}
+.xm-group{margin:0 0 36px}
+.xm-group:last-child{margin-bottom:0}
+.xm-group-head{display:flex;align-items:center;gap:12px;margin:0 0 20px}
+.xm-group-head::after{content:"";flex:1;height:1px;background:var(--hairline)}
+.xm-group-ico{flex:none;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary)}
+.xm-group-ico svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.xm-group-title{margin:0;padding:0;font-family:var(--tcfont);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink)}
+.xm-group-note{font-size:12.5px;color:var(--muted)}
+.xm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:26px 20px;align-items:stretch;padding:4px 6px 10px}
+
+.xm{position:relative;display:flex;align-items:center;gap:14px;min-height:96px;padding:14px 16px;border:0;border-radius:var(--radius-md);background:var(--surface);color:var(--ink);box-shadow:var(--e-sm);text-align:left;text-decoration:none;font-family:var(--tcfont);cursor:pointer;transition:transform .2s var(--ease-out),box-shadow .2s ease;-webkit-tap-highlight-color:transparent}
+.xm:hover,.xm:focus-visible{transform:translateY(-3px);box-shadow:var(--e-md)}
+.xm:active{transform:scale(.97)}
+.xm:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.xm-i{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--c);color:var(--k)}
+.xm-i svg,.xm-sh svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.xm-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.xm-t b{font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
+.xm-t small{font-size:12.5px;line-height:1.4;color:var(--body-c)}
+.xm-tag{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;margin-top:6px;padding:3px 10px 3px 8px;border-radius:99px;background:var(--c);color:var(--k);font-size:10.5px;font-weight:700;letter-spacing:.8px;line-height:1.4;text-transform:uppercase}
+.xm-tag svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.xm-chev{flex:none;width:18px;height:18px;fill:none;stroke:var(--muted);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease,stroke .2s ease}
+.xm:hover .xm-chev,.xm:focus-visible .xm-chev{stroke:var(--primary);transform:translateX(3px)}
+.xm-fx{position:relative;flex:none;width:52px;height:60px;border-radius:12px 20px 12px 12px;background:var(--c);color:var(--k);display:grid;place-items:end center;padding-bottom:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.xm-fx::before{content:"";position:absolute;top:0;right:0;width:18px;height:18px;border-radius:0 20px 0 8px;background:linear-gradient(225deg,var(--surface) 50%,color-mix(in srgb,var(--k) 28%,transparent) 50%)}
+
+/* ---------- STUDY 1: CBSE, stacked pages that fan out ---------- */
+.xm-org{isolation:isolate;align-items:stretch;padding:0;background:none;box-shadow:none}
+.xm-org:hover,.xm-org:focus-visible{box-shadow:none}
+.xm-org .xm-face{position:relative;z-index:1;display:flex;align-items:center;gap:14px;width:100%;min-height:96px;align-self:stretch;padding:14px 16px;border-radius:var(--radius-md);background:var(--surface);box-shadow:var(--e-sm)}
+.xm-org::before,.xm-org::after{content:"";position:absolute;inset:0;z-index:0;border-radius:var(--radius-md);background:var(--c);box-shadow:var(--e-sm);transition:transform .35s var(--ease-out)}
+.xm-org::before{opacity:.55;transform:translateY(7px) scale(.93)}
+.xm-org::after{opacity:.85;transform:translateY(3px) scale(.97)}
+.xm-org:hover::before,.xm-org:focus-visible::before{transform:translate(-5px,-7px) rotate(-4deg)}
+.xm-org:hover::after,.xm-org:focus-visible::after{transform:translate(5px,-4px) rotate(3deg)}
+.xm-org .xm-i{transition:transform .3s var(--ease-out)}
+.xm-org:hover .xm-i,.xm-org:focus-visible .xm-i{transform:rotate(-8deg) scale(1.08)}
+
+/* ---------- STUDY 2: NCERT, file tile, progress bar, download ---------- */
+.xm-to{gap:16px;padding:16px;border-radius:22px;overflow:hidden}
+.xm-bar{display:block;height:6px;margin-top:10px;border-radius:99px;background:var(--canvas-deep);box-shadow:var(--e-pressed);overflow:hidden}
+.xm-bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--k);transition:width .7s var(--ease-out)}
+.xm-to:hover .xm-bar i,.xm-to:focus-visible .xm-bar i{width:100%}
+.xm-dl{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary);opacity:0;transform:scale(.6);transition:.25s var(--ease-out)}
+.xm-dl svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.xm-to:hover .xm-dl,.xm-to:focus-visible .xm-dl{opacity:1;transform:none}
+@media(hover:none){.xm-dl{opacity:1;transform:none}}
+.xm-to:hover .xm-fx,.xm-to:focus-visible .xm-fx{animation:xmPop .5s var(--ease-out)}
+@keyframes xmPop{40%{transform:translateY(-6px) rotate(-5deg)}}
+
+/* ---------- STUDY 3: NEET, PCB tile to NEET tile with a moving arrow ---------- */
+.xm-from{flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:16px 18px}
+.xm-ff{display:flex;align-items:center;gap:10px}
+.xm-ff .xm-fx{width:42px;height:48px;border-radius:10px 16px 10px 10px;padding-bottom:6px;font-size:10px;transition:transform .3s var(--ease-out)}
+.xm-ff .xm-fx::before{width:14px;height:14px;border-radius:0 16px 0 6px}
+.xm-arw{width:32px;height:20px;fill:none;stroke:var(--k);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4 4;animation:xmDash 1s linear infinite paused}
+@keyframes xmDash{to{stroke-dashoffset:-16}}
+.xm-from:hover .xm-arw,.xm-from:focus-visible .xm-arw{animation-play-state:running}
+.xm-from:hover .xm-ff .xm-pcb,.xm-from:focus-visible .xm-ff .xm-pcb{transform:translateX(-4px)}
+.xm-from:hover .xm-ff .xm-goal,.xm-from:focus-visible .xm-ff .xm-goal{transform:translateX(4px) scale(1.12) rotate(4deg)}
+.xm-from .xm-t{width:100%}
+
+/* ---------- STUDY 4: NDA, shield with pulse ring and shine pass ---------- */
+.xm-sec{overflow:hidden}
+.xm-sh{position:relative;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--k)}
+.xm-sh svg{transition:transform .3s var(--ease-out)}
+.xm-sec:hover .xm-sh svg,.xm-sec:focus-visible .xm-sh svg{transform:scale(1.14) rotate(-6deg)}
+.xm-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--k);opacity:0}
+.xm-sec:hover .xm-ring,.xm-sec:focus-visible .xm-ring{animation:xmRing 1.4s ease-out infinite}
+@keyframes xmRing{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.8);opacity:0}}
+.xm-sec::after{content:"";position:absolute;top:0;bottom:0;left:-50%;width:35%;background:linear-gradient(100deg,transparent,color-mix(in srgb,var(--k) 16%,transparent),transparent);transform:skewX(-18deg);transition:left .7s ease;pointer-events:none}
+.xm-sec:hover::after,.xm-sec:focus-visible::after{left:130%}
+
+/* ---------- STUDY 5: CA, three-level meter (Foundation, Inter, Final) that fills ---------- */
+.xm-opt{display:grid;grid-template-columns:auto 1fr;gap:12px 14px;align-items:center}
+.xm-sz{grid-column:1/-1;position:relative;height:8px;border-radius:99px;background:var(--canvas-deep);box-shadow:var(--e-pressed);overflow:hidden}
+.xm-sz i{position:absolute;left:0;top:0;bottom:0;width:34%;border-radius:99px;background:var(--k);opacity:.55;transition:width .8s var(--ease-out),opacity .3s ease}
+.xm-sz::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,transparent 33%,var(--surface) 33% 34.2%,transparent 34.2% 65.8%,var(--surface) 65.8% 67%,transparent 67%)}
+.xm-opt:hover .xm-sz i,.xm-opt:focus-visible .xm-sz i{width:100%;opacity:1}
+.xm-opt .xm-i svg{transition:transform .4s var(--ease-out)}
+.xm-opt:hover .xm-i svg,.xm-opt:focus-visible .xm-i svg{transform:scale(.82)}
+
+/* ---------- STUDY 6: Diploma, pill with wiggling badge and ink underline ---------- */
+.xm-edit{border-radius:var(--radius-pill);padding:12px 26px 12px 12px;min-height:96px}
+.xm-edit .xm-i{border-radius:50%}
+.xm-edit:hover .xm-i svg,.xm-edit:focus-visible .xm-i svg{animation:xmWig .6s ease-in-out}
+@keyframes xmWig{0%,100%{transform:rotate(0)}25%{transform:rotate(-16deg)}75%{transform:rotate(14deg)}}
+.xm-edit .xm-t b{position:relative;align-self:flex-start}
+.xm-edit .xm-t b::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;border-radius:2px;background:var(--k);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out)}
+.xm-edit:hover .xm-t b::after,.xm-edit:focus-visible .xm-t b::after{transform:scaleX(1)}
+
+/* ---------- STUDY 7: UPSC, orbiting border, route path, blinking caret ---------- */
+.xm-adv::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--xang),transparent 0 62%,var(--k) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.4;animation:xmOrbit 4s linear infinite paused;pointer-events:none}
+.xm-adv:hover::before,.xm-adv:focus-visible::before{opacity:1;animation-play-state:running;animation-duration:1.8s}
+@keyframes xmOrbit{to{--xang:360deg}}
+.xm-adv .xm-i svg{transition:transform .6s var(--ease-out)}
+.xm-adv:hover .xm-i svg,.xm-adv:focus-visible .xm-i svg{transform:translateY(-3px) scale(1.1)}
+.xm-adv code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--k);margin-top:4px}
+.xm-caret{display:inline-block;width:6px;height:12px;margin-left:2px;vertical-align:-2px;background:var(--k);animation:xmBlink 1s steps(1) infinite}
+@keyframes xmBlink{50%{opacity:0}}
+
+/* ---------- MOCK TEST family: CBT question palette + its own hover motion ---------- */
+.xm-m{overflow:hidden;isolation:isolate}
+.xm-m>*{position:relative;z-index:1}
+.xm-qp{flex:none;display:grid;grid-template-columns:repeat(2,9px);gap:4px;padding:6px;border-radius:10px;background:var(--canvas-deep);box-shadow:var(--e-pressed)}
+.xm-qp i{width:9px;height:9px;border-radius:3px;background:var(--success)}
+.xm-qp i:nth-child(2){background:var(--error)}
+.xm-qp i:nth-child(3){background:var(--primary)}
+.xm-qp i:nth-child(4){background:transparent;box-shadow:inset 0 0 0 1.5px var(--muted)}
+.xm-m:hover .xm-qp i,.xm-m:focus-visible .xm-qp i{animation:xmQp .9s ease-in-out infinite}
+.xm-m:hover .xm-qp i:nth-child(2),.xm-m:focus-visible .xm-qp i:nth-child(2){animation-delay:.15s}
+.xm-m:hover .xm-qp i:nth-child(3),.xm-m:focus-visible .xm-qp i:nth-child(3){animation-delay:.3s}
+.xm-m:hover .xm-qp i:nth-child(4),.xm-m:focus-visible .xm-qp i:nth-child(4){animation-delay:.45s}
+@keyframes xmQp{0%,100%{transform:scale(1)}50%{transform:scale(.55)}}
+
+/* MOCK 1: CUET, countdown ring around the icon; colour fill sweeps in on hover */
+@property --xp{syntax:"<percentage>";initial-value:72%;inherits:false}
+.xm-timer{--xp:72%;flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--k) var(--xp),color-mix(in srgb,var(--k) 20%,transparent) 0);transition:--xp .9s var(--ease-out)}
+.xm-timer .xm-i{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 4px var(--surface);transition:box-shadow .3s}
+.xm-sweep:hover .xm-timer,.xm-sweep:focus-visible .xm-timer{--xp:100%}
+.xm-sweep:hover .xm-timer .xm-i,.xm-sweep:focus-visible .xm-timer .xm-i{box-shadow:0 0 0 4px var(--k)}
+.xm-sweep::before{content:"";position:absolute;inset:0;z-index:0;background:var(--k);transform:translateX(-101%);transition:transform .4s var(--ease-out)}
+.xm-sweep:hover::before,.xm-sweep:focus-visible::before{transform:none}
+.xm-sweep .xm-t b,.xm-sweep .xm-t small{transition:color .3s}
+.xm-sweep:hover .xm-t b,.xm-sweep:focus-visible .xm-t b,.xm-sweep:hover .xm-t small,.xm-sweep:focus-visible .xm-t small{color:var(--c)}
+.xm-sweep:hover .xm-qp,.xm-sweep:focus-visible .xm-qp{background:color-mix(in srgb,var(--c) 22%,transparent);box-shadow:none}
+
+/* MOCK 2: JEE, round atom with a dashed orbit; pulse ring on hover */
+.xm-orbit{position:relative;flex:none;width:58px;height:58px;display:grid;place-items:center}
+.xm-orbit::before{content:"";position:absolute;inset:0;border:2px dashed var(--k);border-radius:50%;opacity:.5;animation:xmSpin 14s linear infinite}
+.xm-orbit .xm-i{width:44px;height:44px;border-radius:50%}
+.xm-pulse:hover,.xm-pulse:focus-visible{animation:xmCardRing 1s infinite}
+@keyframes xmCardRing{0%{box-shadow:var(--e-md),0 0 0 0 color-mix(in srgb,var(--k) 45%,transparent)}100%{box-shadow:var(--e-md),0 0 0 16px transparent}}
+.xm-pulse:hover .xm-i svg,.xm-pulse:focus-visible .xm-i svg{animation:xmSpin 3s linear infinite}
+.xm-pulse:hover .xm-orbit::before,.xm-pulse:focus-visible .xm-orbit::before{animation-duration:3s;opacity:1}
+@keyframes xmSpin{to{transform:rotate(360deg)}}
+
+/* MOCK 3: CAT, a wave rests at the bottom and rises to fill the card */
+.xm-liquid::after{content:"";position:absolute;z-index:0;left:-6%;width:112%;bottom:0;height:24%;border-radius:50% 50% 0 0/70% 70% 0 0;background:var(--c);opacity:.6;transition:opacity .3s}
+.xm-liquid::before{content:"";position:absolute;z-index:0;left:-10%;width:120%;height:0;bottom:0;border-radius:50% 50% 0 0/22% 22% 0 0;background:var(--c);transition:height .45s var(--ease-out)}
+.xm-liquid:hover::before,.xm-liquid:focus-visible::before{height:135%}
+.xm-liquid:hover::after,.xm-liquid:focus-visible::after{opacity:0}
+.xm-liquid .xm-i{transition:background .3s}
+.xm-liquid:hover .xm-i,.xm-liquid:focus-visible .xm-i{background:var(--surface)}
+.xm-liquid:hover .xm-i svg,.xm-liquid:focus-visible .xm-i svg{animation:xmBob 1.2s ease-in-out infinite}
+@keyframes xmBob{50%{transform:translateY(-4px)}}
+
+/* MOCK 4: CLAT, rounded card with the badge pinned top-right; jelly squash and swinging scales */
+.xm-jelly{border-radius:30px;padding:16px 16px 16px 22px;align-items:flex-start}
+.xm-jelly .xm-t{order:1;align-self:center}
+.xm-jelly .xm-qp{order:2;align-self:center}
+.xm-jelly .xm-i{order:3;width:50px;height:50px;border-radius:50%}
+.xm-jelly:hover,.xm-jelly:focus-visible{animation:xmJelly .6s}
+@keyframes xmJelly{30%{transform:scale(1.07,.93)}50%{transform:scale(.96,1.05)}70%{transform:scale(1.03,.98)}}
+.xm-jelly .xm-i svg{transform-origin:50% 90%}
+.xm-jelly:hover .xm-i svg,.xm-jelly:focus-visible .xm-i svg{animation:xmSway 1.4s ease-in-out infinite}
+@keyframes xmSway{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+
+/* MOCK 5: SSC, admit-card stub with a dashed tear line; shine pass on hover */
+.xm-shine .xm-i{width:50px;height:62px;border-radius:12px}
+.xm-shine .xm-t{align-self:stretch;justify-content:center;padding-left:14px;border-left:2px dashed color-mix(in srgb,var(--k) 38%,transparent)}
+.xm-shine::after{content:"";position:absolute;z-index:2;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);pointer-events:none}
+.xm-shine:hover::after,.xm-shine:focus-visible::after{animation:xmShine .8s}
+@keyframes xmShine{to{left:130%}}
+
+/* MOCK 6: Banking, bank-card stripe across the top; arrow button reveals on hover */
+.xm-arrow{padding-top:26px;background:linear-gradient(var(--c),var(--c)) top left/100% 11px no-repeat,var(--surface)}
+.xm-arrow .xm-i{border-radius:50%}
+.xm-go{flex:none;width:0;height:34px;margin-left:-14px;border-radius:50%;display:grid;place-items:center;background:var(--k);color:var(--c);opacity:0;overflow:hidden;transition:width .3s var(--ease-out),opacity .3s,margin .3s}
+.xm-go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.xm-arrow:hover .xm-go,.xm-arrow:focus-visible .xm-go{width:34px;margin-left:0;opacity:1}
+@media(hover:none){.xm-go{width:34px;margin-left:0;opacity:1}}
+
+/* MOCK 7: TET, speech-bubble card; ripple from the pointer on hover */
+.xm-ripple{border-radius:26px 26px 26px 6px}
+.xm-ripple .xm-i{border-radius:50%}
+.xm-ripple::before{content:"";position:absolute;z-index:0;left:var(--rx,50%);top:var(--ry,50%);width:0;height:0;border-radius:50%;background:color-mix(in srgb,var(--k) 22%,transparent);transform:translate(-50%,-50%);transition:width .6s ease,height .6s ease}
+.xm-ripple:hover::before,.xm-ripple:focus-visible::before{width:420px;height:420px}
+
+@media(max-width:640px){
+  .xm-grid{grid-template-columns:1fr;gap:22px;padding:4px 4px 8px}
+  .xm-group-note{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .xm,.xm *,.xm::before,.xm::after{animation:none!important;transition:none!important}
+}
+
+/* =========================================================
+   INSTALL BOX (#pwa-banner), clay card
+========================================================= */
+#pwa-banner{display:none;position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:9000;width:calc(100% - 40px);max-width:360px;padding:16px;border:0;border-radius:var(--radius-card);background:var(--surface);color:var(--ink);box-shadow:var(--e-lg);flex-direction:column;gap:0;font-family:var(--tcfont)}
+#pwa-banner.show{display:flex;animation:pwaIn .45s var(--ease-out)}
+@keyframes pwaIn{from{opacity:0;transform:translate(-50%,24px) scale(.94)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+#pwa-banner .pwa-top{display:flex;align-items:center;gap:14px;margin:0 0 12px}
+#pwa-banner .pwa-icon-wrap{flex:none;width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:var(--primary-soft);border:0;box-shadow:var(--e-sm)}
+#pwa-banner .pwa-icon-wrap img{width:30px;height:30px;display:block}
+#pwa-banner .pwa-text{flex:1;min-width:0}
+#pwa-banner .pwa-title{margin:0 0 2px;font-size:16px;font-weight:700;line-height:1.25;color:var(--ink)}
+#pwa-banner .pwa-sub{font-size:13px;line-height:1.4;color:var(--muted)}
+#pwa-banner .pwa-perks{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+#pwa-banner .pwa-perk{display:inline-flex;align-items:center;gap:5px;padding:5px 11px 5px 9px;border:0;border-radius:var(--radius-pill);background:var(--primary-soft);color:var(--primary);font-size:11.5px;font-weight:700;line-height:1.3}
+#pwa-banner .pwa-perk svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+#pwa-banner .pwa-actions{display:flex;gap:10px}
+#pwa-banner #pwa-install-btn,#pwa-banner #pwa-dismiss-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border:0;border-radius:var(--radius-pill);font-family:var(--tcfont);font-size:14px;font-weight:700;line-height:1;letter-spacing:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+#pwa-banner #pwa-install-btn{flex:1;background:var(--primary);color:var(--on-primary);box-shadow:6px 6px 14px var(--clay-dark),-6px -6px 14px var(--clay-light)}
+#pwa-banner #pwa-install-btn:hover{background:var(--primary-active);transform:translateY(-3px)}
+#pwa-banner #pwa-dismiss-btn{background:var(--surface);color:var(--ink);box-shadow:6px 6px 14px var(--clay-dark),-6px -6px 14px var(--clay-light)}
+#pwa-banner #pwa-dismiss-btn:hover{color:var(--primary);background:var(--surface);transform:translateY(-3px)}
+#pwa-banner #pwa-install-btn:active,#pwa-banner #pwa-dismiss-btn:active{transform:scale(.96);box-shadow:inset 5px 5px 12px var(--clay-dark),inset -5px -5px 12px var(--clay-light)}
+#pwa-banner #pwa-install-btn:focus-visible,#pwa-banner #pwa-dismiss-btn:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+#pwa-banner #pwa-install-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media(min-width:901px){#pwa-banner{bottom:28px}}
+@media(prefers-reduced-motion:reduce){#pwa-banner.show{animation:none}}
+/* beat the page's older dark-mode rules for the install box */
+[data-theme="dark"] #pwa-banner{background:var(--surface);color:var(--ink);border:0}
+[data-theme="dark"] #pwa-banner .pwa-icon-wrap{background:var(--primary-soft);border:0}
+[data-theme="dark"] #pwa-banner .pwa-title{color:var(--ink)}
+[data-theme="dark"] #pwa-banner .pwa-sub{color:var(--muted)}
+[data-theme="dark"] #pwa-banner .pwa-perk{background:var(--primary-soft);color:var(--primary);border:0}
+[data-theme="dark"] #pwa-banner #pwa-dismiss-btn{background:var(--surface);color:var(--ink);border:0}
+[data-theme="dark"] #pwa-banner #pwa-dismiss-btn:hover{background:var(--surface);color:var(--primary)}
+</style>
+<style id="tc-sections">
+/* =========================================================
+   THUNDER CLAY for section buttons (from design.html)
+   Scope: .tcx sections only (AI tools, More Exams, Banking, Subjects).
+   The CBSE Class 12 study-material grid (.c12-keep) is left untouched.
+   Static clay: raised shadow, pressed on click, no movement or animation.
+========================================================= */
+.tcx{
+  --canvas:#F4F1FC;--canvas-deep:#ECE6FB;--surface:#FAF8FE;
+  --ink:#2B2640;--body-c:#5C5575;--muted:#8B84A0;--hairline:rgba(43,38,64,.08);
+  --primary:#573AFC;--primary-soft:#E4DEFF;--on-primary:#ffffff;
+  --clay-light:rgba(255,255,255,.9);--clay-dark:rgba(120,108,180,.5);
+  --e-sm:4px 4px 10px var(--clay-dark),-4px -4px 10px var(--clay-light);
+  --e-md:6px 6px 14px var(--clay-dark),-6px -6px 14px var(--clay-light);
+  --e-pressed:inset 4px 4px 10px var(--clay-dark),inset -4px -4px 10px var(--clay-light);
+  --tcfont:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --purple:#D9CCFF;--purple-ink:#3E2A9E;--blue:#C7DDFF;--blue-ink:#1F4FA3;--green:#C6F0D3;--green-ink:#1B6B3A;
+  --red:#FFCFCF;--red-ink:#A12626;--yellow:#FFF0A8;--yellow-ink:#7A5C00;--pink:#FFCFE6;--pink-ink:#9E2A68;
+  --orange:#FFD9B8;--orange-ink:#A34A0B;--teal:#BDF0EA;--teal-ink:#0F6A63;--lime:#E0F5A8;--lime-ink:#4D6B0A;
+  --cyan:#BDEBFF;--cyan-ink:#0B6180;
+}
+[data-theme="dark"] .tcx{
+  --canvas:#1A1730;--canvas-deep:#15122A;--surface:#221D3C;
+  --ink:#F1EEFB;--body-c:#C7C0E0;--muted:#8E86AC;--hairline:rgba(255,255,255,.08);
+  --primary:#9A7AFB;--primary-soft:#2E2650;--on-primary:#1A1730;
+  --clay-light:rgba(255,255,255,.05);--clay-dark:rgba(0,0,0,.55);
+  --purple:#3B2F75;--purple-ink:#E3DAFF;--blue:#26427A;--blue-ink:#D6E6FF;--green:#1F5A36;--green-ink:#D3F6DF;
+  --red:#7A2A2A;--red-ink:#FFDADA;--yellow:#6B5A1A;--yellow-ink:#FFF2B8;--pink:#7A2F58;--pink-ink:#FFDAEE;
+  --orange:#7A4220;--orange-ink:#FFE2CB;--teal:#1D5A56;--teal-ink:#CCF6F1;--lime:#4A5E1E;--lime-ink:#E8F8BE;
+  --cyan:#1C5670;--cyan-ink:#CDF1FF;
+}
+
+/* ---------- Exam heading bands (CBSE, JEE, NEET, CUET ... Banking) ---------- */
+.tcx .exam-band{--c:var(--blue);--k:var(--blue-ink);display:flex;align-items:center;gap:14px;min-height:60px;padding:10px 18px 10px 12px;margin:6px 4px 16px;border:0!important;border-radius:20px;background:var(--surface)!important;color:var(--ink)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:1rem;font-weight:700;transform:none!important;filter:none!important;transition:box-shadow .15s}
+.tcx .exam-band:hover{box-shadow:var(--e-md);transform:none!important;filter:none!important}
+.tcx .exam-band:active{box-shadow:var(--e-pressed)}
+.tcx .exam-band:focus-visible,.tcx .subtopic-pill:focus-visible,.tcx .subj-card:focus-visible,.tcx .tool-card:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.tcx .exam-band>svg:first-child{box-sizing:content-box;width:20px;height:20px;padding:10px;border-radius:14px;background:var(--c);color:var(--k);flex:none}
+.tcx .exam-band .exam-band-arrow{margin-left:auto;width:18px;height:18px;flex:none;opacity:1;color:var(--muted);transform:none}
+.tcx #cbse-resources,.tcx #ssc-section{--c:var(--blue);--k:var(--blue-ink)}
+.tcx #jee-section{--c:var(--green);--k:var(--green-ink)}
+.tcx #neet-section,.tcx #tet-section{--c:var(--teal);--k:var(--teal-ink)}
+.tcx #cuet-full{--c:var(--purple);--k:var(--purple-ink)}
+.tcx #cat-section,.tcx #clat-section{--c:var(--pink);--k:var(--pink-ink)}
+.tcx #nda-section{--c:var(--orange);--k:var(--orange-ink)}
+.tcx #ca-section,.tcx #upsc-section{--c:var(--yellow);--k:var(--yellow-ink)}
+.tcx #ncert-section,.tcx #banking-section{--c:var(--green);--k:var(--green-ink)}
+.tcx #diploma-section{--c:var(--lime);--k:var(--lime-ink)}
+.tcx .exam-sep{height:1px;margin:30px 0 26px;border:0;background:var(--hairline)!important}
+
+/* ---------- Topic buttons (Topper Notes, Formula, PYQs ...) ---------- */
+.tcx .subtopic-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:14px 12px;padding:4px 4px 10px;margin-bottom:22px}
+.tcx #nda-section+.subtopic-row{--rc:var(--orange);--rck:var(--orange-ink)}
+.tcx #ncert-section+.subtopic-row{--rc:var(--green);--rck:var(--green-ink)}
+.tcx #diploma-section+.subtopic-row{--rc:var(--lime);--rck:var(--lime-ink)}
+.tcx .subtopic-row .subtopic-pill{--c:var(--rc,var(--blue));--k:var(--rck,var(--blue-ink));display:flex;align-items:center;gap:10px;min-width:0;min-height:46px;padding:8px 14px 8px 8px;border:0!important;border-radius:999px;background:var(--surface)!important;color:var(--ink)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:13.5px;font-weight:600;line-height:1.3;transform:none!important;transition:box-shadow .15s,color .15s}
+.tcx .subtopic-row .subtopic-pill.purple{--c:var(--purple);--k:var(--purple-ink)}
+.tcx .subtopic-row .subtopic-pill.green{--c:var(--green);--k:var(--green-ink)}
+.tcx .subtopic-row .subtopic-pill.teal{--c:var(--teal);--k:var(--teal-ink)}
+.tcx .subtopic-row .subtopic-pill.amber{--c:var(--yellow);--k:var(--yellow-ink)}
+.tcx .subtopic-row .subtopic-pill.rose{--c:var(--pink);--k:var(--pink-ink)}
+.tcx .subtopic-row .subtopic-pill:hover{background:var(--surface)!important;color:var(--k)!important;border:0!important;box-shadow:var(--e-md);transform:none!important}
+.tcx .subtopic-row .subtopic-pill:active{box-shadow:var(--e-pressed)}
+.tcx .subtopic-row .subtopic-pill>svg,.tcx .subtopic-row .subtopic-pill .pill-ic{box-sizing:border-box;width:30px!important;height:30px!important;padding:7px;border-radius:50%;background:var(--c)!important;color:var(--k)!important;flex:none}
+.tcx .subtopic-row .subtopic-pill .pill-ic svg{width:16px;height:16px}
+.tcx .subtopic-row .subtopic-pill span{color:inherit!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- Subject buttons (everything except the Class 12 study-material grid) ---------- */
+.tcx .grid-4:not(.c12-keep){gap:18px 16px;padding:4px 4px 10px}
+.tcx .grid-4:not(.c12-keep) .subj-card{display:flex;align-items:center;gap:14px;min-height:76px;padding:14px 16px;border:0!important;border-radius:20px;background:var(--surface)!important;box-shadow:var(--e-sm);transform:none!important;transition:box-shadow .15s}
+.tcx .grid-4:not(.c12-keep) .subj-card:hover{border:0!important;box-shadow:var(--e-md);transform:none!important}
+.tcx .grid-4:not(.c12-keep) .subj-card:active{box-shadow:var(--e-pressed)}
+.tcx .grid-4:not(.c12-keep) .subj-icon{--c:var(--blue);--k:var(--blue-ink);display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:14px;background:var(--c)!important;color:var(--k)}
+.tcx .grid-4:not(.c12-keep) .subj-icon.teal{--c:var(--teal);--k:var(--teal-ink)}
+.tcx .grid-4:not(.c12-keep) .subj-icon.amber{--c:var(--yellow);--k:var(--yellow-ink)}
+.tcx .grid-4:not(.c12-keep) .subj-icon.rose{--c:var(--pink);--k:var(--pink-ink)}
+.tcx .grid-4:not(.c12-keep) .subj-icon.green{--c:var(--green);--k:var(--green-ink)}
+.tcx .grid-4:not(.c12-keep) .subj-icon.purple{--c:var(--purple);--k:var(--purple-ink)}
+.tcx .grid-4:not(.c12-keep) .subj-icon svg{width:22px!important;height:22px!important;color:var(--k)!important}
+.tcx .grid-4:not(.c12-keep) .subj-icon svg:not([stroke="none"]),.tcx .grid-4:not(.c12-keep) .subj-icon svg:not([stroke="none"]) *{stroke:currentColor!important}
+.tcx .grid-4:not(.c12-keep) .subj-icon svg [fill]:not([fill="none"]),.tcx .grid-4:not(.c12-keep) .subj-icon svg[fill]:not([fill="none"]){fill:currentColor!important}
+.tcx .grid-4:not(.c12-keep) .subj-name{color:var(--ink)!important;font-family:var(--tcfont);font-size:15px;font-weight:700;line-height:1.3}
+.tcx .grid-4:not(.c12-keep) .subj-stream{color:var(--body-c)!important;font-family:var(--tcfont);font-size:12.5px;line-height:1.4}
+
+/* ---------- Group labels and Mock Test call-to-action buttons ---------- */
+.tcx .stream-band,#subjects.tcx div[style*="border-radius:14px"][style*="font-family:var(--font-display)"]{background:var(--primary-soft)!important;color:var(--primary)!important;border:0!important;border-radius:20px!important;font-family:var(--tcfont)}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"]{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:4px 4px 20px!important;padding:12px 18px 12px 12px!important;border-radius:20px!important;background:var(--surface)!important;color:var(--ink)!important;box-shadow:var(--e-sm);opacity:1!important;font-family:var(--tcfont);transition:box-shadow .15s!important}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"]:hover{box-shadow:var(--e-md)}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"]:active{box-shadow:var(--e-pressed)}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"]>div>div:first-child{width:44px!important;height:44px!important;border-radius:14px!important;background:var(--primary-soft)!important}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"] svg{stroke:var(--primary)!important}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"]>div>div:last-child>div:first-child{color:var(--ink)!important}
+.tcx a[style*="border-radius:14px"][style*="padding:16px 22px"]>div>div:last-child>div:last-child{color:var(--body-c)!important;opacity:1!important}
+
+/* ---------- Top three quick pills (Class 12, CUET, Class 10) ---------- */
+.tcx .exam-theme-card{background:var(--surface)!important;color:var(--ink)!important;border:0!important;box-shadow:var(--e-sm);transform:none!important;transition:box-shadow .15s}
+.tcx .exam-theme-card:hover{box-shadow:var(--e-md);transform:none!important}
+.tcx .exam-theme-card .etc-title{color:var(--ink)!important}
+.tcx .exam-theme-card .etc-sub{color:var(--body-c)!important}
+.tcx .exam-theme-card .etc-emoji-wrap{background:var(--primary-soft)!important}
+
+/* ---------- Free AI-Powered Study Tools ---------- */
+.tcx .thunder-tools-section{background:var(--canvas-deep)!important;border-radius:28px;padding:48px 24px 56px;box-shadow:var(--e-pressed)}
+.tcx .thunder-tools-section::before{display:none}
+.tcx .thunder-tools-label{background:var(--primary-soft)!important;color:var(--primary)!important;font-family:var(--tcfont)}
+.tcx .thunder-tools-title{color:var(--ink)!important;font-family:var(--tcfont)}
+.tcx .thunder-tools-desc{color:var(--body-c)!important;font-family:var(--tcfont)}
+.tcx .thunder-tools-grid{gap:28px 24px;padding:4px}
+.tcx .tool-card{--c:var(--purple);--k:var(--purple-ink);padding:28px 24px 24px;border:0!important;border-radius:24px;background:var(--surface)!important;box-shadow:var(--e-md);transform:none!important;transition:box-shadow .15s;font-family:var(--tcfont)}
+.tcx .tool-card::before{display:none}
+.tcx .tool-card:hover{border:0!important;box-shadow:var(--e-md),0 0 0 2px var(--c);transform:none!important}
+.tcx .tool-card:active{transform:none!important}
+.tcx .tool-card:has(.ai-icon){--c:var(--blue);--k:var(--blue-ink)}
+.tcx .tool-card:has(.mindmap-icon){--c:var(--green);--k:var(--green-ink)}
+.tcx .tool-card-icon{width:52px;height:52px;border-radius:16px;background:var(--c)!important;color:var(--k)}
+.tcx .tool-card-icon svg,.tcx .tool-card-icon svg *{stroke:currentColor!important}
+.tcx .tool-card-name{color:var(--ink)!important}
+.tcx .tool-card-desc{color:var(--body-c)!important}
+.tcx .tool-card-cta{align-self:flex-start;min-height:44px;padding:0 20px;border-radius:999px;background:var(--primary);color:var(--on-primary)!important;box-shadow:var(--e-sm);font-size:12.5px;letter-spacing:.8px}
+.tcx .tool-card-cta svg,.tcx .tool-card-cta svg *{stroke:currentColor!important;transform:none!important}
+.tcx .tool-card:hover .tool-card-cta svg{transform:none}
+.tcx .tool-card-badge{background:var(--primary-soft)!important;color:var(--primary)!important;padding:3px 10px}
+
+.tcx .xm-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:560px){.tcx .xm-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){
+  .tcx .subtopic-row{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px 10px}
+  .tcx .subtopic-row .subtopic-pill{font-size:13px;padding-right:10px}
+  .tcx .thunder-tools-section{padding:36px 14px 40px;border-radius:24px}
+}
+
+/* =========================================================
+   NOTES BY CLASS & EXAM: filled colour tiles (icon on top, label below)
+========================================================= */
+.tcx.nd-head{background:var(--primary-soft)!important;color:var(--primary)!important;border:0!important;border-radius:20px!important;font-family:var(--tcfont)}
+.tcx.nd-row{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))!important;gap:16px!important;padding:4px 4px 10px}
+.tcx.nd-row .subtopic-pill{--c:var(--blue);--k:var(--blue-ink);flex-direction:column;justify-content:center;align-items:center;gap:10px;min-height:112px;padding:18px 12px;border:0!important;border-radius:24px;background:var(--c)!important;color:var(--k)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:13.5px;font-weight:700;text-align:center;transform:none!important;transition:box-shadow .15s}
+.tcx.nd-row .subtopic-pill.purple{--c:var(--purple);--k:var(--purple-ink)}
+.tcx.nd-row .subtopic-pill.green{--c:var(--green);--k:var(--green-ink)}
+.tcx.nd-row .subtopic-pill.teal{--c:var(--teal);--k:var(--teal-ink)}
+.tcx.nd-row .subtopic-pill.amber{--c:var(--yellow);--k:var(--yellow-ink)}
+.tcx.nd-row .subtopic-pill.rose{--c:var(--pink);--k:var(--pink-ink)}
+.tcx.nd-row .subtopic-pill:hover{background:var(--c)!important;color:var(--k)!important;border:0!important;box-shadow:var(--e-md);transform:none!important}
+.tcx.nd-row .subtopic-pill:active{box-shadow:var(--e-pressed)}
+.tcx.nd-row .subtopic-pill:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.tcx.nd-row .subtopic-pill>svg{width:30px!important;height:30px!important;padding:0!important;border-radius:0;background:none!important;color:var(--k)!important}
+.tcx.nd-row .subtopic-pill span{white-space:normal;color:inherit!important}
+
+/* =========================================================
+   ALL SUBJECTS: list-row cards with a colour edge, and sunken topic wells
+========================================================= */
+#subjects.tcx .grid-4 .subj-card{--c:var(--blue);--k:var(--blue-ink);gap:12px;min-height:68px;padding:12px 14px 12px 20px;border:0!important;border-radius:14px!important;background:var(--surface)!important;box-shadow:var(--e-sm),inset 6px 0 0 var(--k);transform:none!important}
+#subjects.tcx .grid-4 .subj-card:has(.subj-icon.teal){--k:var(--teal-ink)}
+#subjects.tcx .grid-4 .subj-card:has(.subj-icon.amber){--k:var(--yellow-ink)}
+#subjects.tcx .grid-4 .subj-card:has(.subj-icon.rose){--k:var(--pink-ink)}
+#subjects.tcx .grid-4 .subj-card:has(.subj-icon.green){--k:var(--green-ink)}
+#subjects.tcx .grid-4 .subj-card:has(.subj-icon.purple){--k:var(--purple-ink)}
+#subjects.tcx .grid-4 .subj-card:hover{box-shadow:var(--e-md),inset 6px 0 0 var(--k)}
+#subjects.tcx .grid-4 .subj-card:active{box-shadow:var(--e-pressed),inset 6px 0 0 var(--k)}
+#subjects.tcx .grid-4 .subj-card:not(.col)::after{content:"\203A";margin-left:auto;font-size:24px;line-height:1;color:var(--muted)}
+#subjects.tcx .grid-4 .subj-icon{width:auto;height:auto;border-radius:0;background:none!important;color:var(--k)!important}
+#subjects.tcx .grid-4 .subj-icon svg{width:26px!important;height:26px!important;color:var(--k)!important}
+#subjects.tcx .subtopic-row .subtopic-pill{min-height:42px;padding:8px 14px 8px 12px;gap:8px;border-radius:14px;background:var(--canvas-deep)!important;box-shadow:var(--e-pressed);font-size:13px}
+#subjects.tcx .subtopic-row .subtopic-pill:hover{background:var(--canvas-deep)!important;box-shadow:var(--e-pressed),inset 0 0 0 2px var(--k)}
+#subjects.tcx .subtopic-row .subtopic-pill>svg{width:20px!important;height:20px!important;padding:0!important;border-radius:0;background:none!important;color:var(--k)!important}
+.tcx.nd-head{margin:8px 24px 18px!important}
+.tcx.nd-row{margin:0 24px 28px!important}
+#subjects.tcx .grid-4 .subj-card:not(.col)::after{align-self:center}
+@media(max-width:640px){.tcx.nd-row{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}}
+
+/* =========================================================
+   HEADER AUTO-HIDE, HERO PILLS, STATS, QUICK ANSWER
+========================================================= */
+header.nav{transition:transform .25s ease,background .3s ease}
+header.nav.nav-hide{transform:translateY(-100%)}
+@media(prefers-reduced-motion:reduce){header.nav{transition:none}}
+
+.hero.tcx .hero-trust-pills{gap:12px;margin-bottom:26px;padding:4px}
+.hero.tcx .hero-trust-pills>*{--c:var(--blue);--k:var(--blue-ink);display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 16px 6px 6px;border:0!important;border-radius:999px;background:var(--surface)!important;color:var(--ink)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:13px;font-weight:700;line-height:1;transform:none!important}
+.hero.tcx .hero-trust-pills .htp-green{--c:var(--green);--k:var(--green-ink)}
+.hero.tcx .hero-trust-pills .htp-amber{--c:var(--yellow);--k:var(--yellow-ink)}
+.hero.tcx .hero-trust-pills .htp-purple{--c:var(--purple);--k:var(--purple-ink)}
+.hero.tcx .hero-trust-pills>*>svg{box-sizing:content-box;width:14px;height:14px;padding:7px;border-radius:50%;background:var(--c);color:var(--k);flex:none}
+.hero.tcx .hero-trust-pills .htp-purple>svg{fill:currentColor}
+.hero.tcx .hero-trust-pills a:hover{box-shadow:var(--e-md)}
+.hero.tcx .hero-trust-pills .htp-install{background:var(--primary)!important;color:var(--on-primary)!important;cursor:pointer}
+.hero.tcx .hero-trust-pills .htp-install>svg{background:rgba(255,255,255,.22);color:inherit}
+
+.hero.tcx .hero-stats-new{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:780px;margin:0 auto 26px;padding:4px}
+.hero.tcx .hero-stats-new .stat{--c:var(--blue);--k:var(--blue-ink);min-width:0;padding:16px 10px 14px;border:0!important;border-radius:22px;background:var(--surface)!important;box-shadow:var(--e-sm)}
+.hero.tcx .hero-stats-new .stat:nth-child(2){--c:var(--purple);--k:var(--purple-ink)}
+.hero.tcx .hero-stats-new .stat:nth-child(3){--c:var(--teal);--k:var(--teal-ink)}
+.hero.tcx .hero-stats-new .stat:nth-child(4){--c:var(--green);--k:var(--green-ink)}
+.hero.tcx .hero-stats-new .stat-num{flex-direction:column;gap:10px;font-family:var(--tcfont);font-size:1.6rem;font-weight:800;line-height:1;color:var(--ink)!important}
+.hero.tcx .hero-stats-new .stat-num svg{box-sizing:border-box;width:40px;height:40px;padding:10px;border-radius:14px;background:var(--c);color:var(--k);stroke:currentColor}
+.hero.tcx .hero-stats-new .stat-label{margin-top:6px;font-family:var(--tcfont);font-size:.78rem;font-weight:600;color:var(--body-c)!important}
+
+.hero.tcx .quick-answer-new{max-width:680px;padding:18px 22px 20px;border:0!important;border-radius:24px;background:var(--surface)!important;box-shadow:var(--e-md)}
+.hero.tcx .quick-answer-new .qa-label{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:4px 12px;border-radius:999px;background:var(--primary-soft);color:var(--primary)!important;font-family:var(--tcfont);font-size:.7rem;font-weight:700;letter-spacing:1.2px}
+.hero.tcx .quick-answer-new .qa-label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary)}
+.hero.tcx .quick-answer-new p{color:#000!important;font-family:var(--tcfont);font-size:.92rem;line-height:1.65}
+[data-theme="dark"] .hero.tcx .quick-answer-new p{color:var(--ink)!important}
+@media(max-width:560px){
+  .hero.tcx .hero-stats-new{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .hero.tcx .hero-trust-pills>*{font-size:12.5px;padding-right:13px}
+}
+
+/* =========================================================
+   FREE AI-POWERED STUDY TOOLS: animated stage per tool
+========================================================= */
+.tcx .tool-card{padding:18px 18px 22px}
+.tcx .tool-card.tc-flash{--c:var(--purple);--k:var(--purple-ink)}
+.tcx .tool-card.tc-ai{--c:var(--blue);--k:var(--blue-ink)}
+.tcx .tool-card.tc-map{--c:var(--green);--k:var(--green-ink)}
+.tcx .tool-card:hover{transform:translateY(-4px)!important;box-shadow:var(--e-md),0 0 0 2px var(--c)}
+.tcx .tool-card-badge{z-index:3}
+.tcx .tool-stage{position:relative;height:136px;margin:0 0 18px;border-radius:18px;background:var(--canvas-deep);box-shadow:var(--e-pressed);overflow:hidden;display:grid;place-items:center}
+.tcx .tool-card-name{padding:0 4px}
+.tcx .tool-card-desc{margin:0 0 14px;padding:0 4px}
+.tcx .tool-card-by{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:0 4px 18px;padding:4px 11px 4px 7px;border-radius:999px;background:var(--canvas-deep);color:var(--body-c);font-size:11.5px;font-weight:700;line-height:1.3}
+.tcx .tool-card-by svg{width:13px;height:13px;color:var(--primary);flex:none}
+.tcx .tool-card-cta{margin-left:4px}
+.tcx .tool-tiny-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 16px 8px 10px;border-radius:999px;background:var(--surface);color:var(--ink)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:13px;font-weight:700;text-decoration:none}
+.tcx .tool-tiny-link svg{width:16px;height:16px;color:var(--primary)}
+.tcx .tool-tiny-link:hover{box-shadow:var(--e-md)}
+
+/* Flashcards: stacked cards, the front one flips question to answer */
+.fc-stack{position:relative;width:104px;height:78px}
+.fc-card{position:absolute;inset:0;border-radius:14px}
+.fc-b1{background:var(--c);box-shadow:var(--e-sm);transform:rotate(-9deg) translate(-16px,4px)}
+.fc-b2{background:var(--c);opacity:.65;box-shadow:var(--e-sm);transform:rotate(8deg) translate(16px,4px)}
+.fc-flip{transform-style:preserve-3d}
+.fc-face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:var(--e-sm)}
+.fc-front{background:var(--surface);color:var(--k);font-size:26px;font-weight:800;line-height:1}
+.fc-front i{display:block;width:44px;height:5px;border-radius:3px;background:var(--c)}
+.fc-front i+i{width:30px}
+.fc-back{background:var(--k);color:var(--c);transform:rotateY(180deg);font-size:26px;font-weight:800;line-height:1}
+.fc-back svg{width:30px;height:30px}
+
+/* Thunder AI: chat with typing dots, then an answer */
+.ai-chat{position:relative;width:78%;height:96px}
+.ai-b{position:absolute;display:flex;align-items:center;gap:5px;border-radius:14px}
+.ai-user{top:0;right:0;width:56%;height:26px;background:var(--k)}
+.ai-user::after{content:"";width:60%;height:5px;margin-left:12px;border-radius:3px;background:var(--c)}
+.ai-typing{top:36px;left:0;height:28px;padding:0 14px;background:var(--surface);box-shadow:var(--e-sm)}
+.ai-typing i{width:7px;height:7px;border-radius:50%;background:var(--k)}
+.ai-ans{top:36px;left:0;width:82%;height:50px;padding:0 14px;flex-direction:column;align-items:flex-start;justify-content:center;gap:7px;background:var(--surface);box-shadow:var(--e-sm)}
+.ai-ans i{display:block;height:6px;border-radius:3px;background:var(--c)}
+.ai-ans i:nth-child(1){width:90%}.ai-ans i:nth-child(2){width:68%}.ai-ans i:nth-child(3){width:78%}
+.ai-spark{position:absolute;top:14px;left:16px;width:20px;height:20px;color:var(--k)}
+
+/* Mind map: lines draw out, nodes pop in */
+.mm-svg{width:200px;height:112px}
+.mm-line{fill:none;stroke:var(--k);stroke-width:2.4;stroke-linecap:round}
+.mm-node{fill:var(--c);stroke:var(--k);stroke-width:2.2;transform-box:fill-box;transform-origin:center}
+.mm-core{fill:var(--k);transform-box:fill-box;transform-origin:center}
+.mm-ring{fill:none;stroke:var(--k);stroke-width:2;transform-box:fill-box;transform-origin:center;opacity:0}
+
+@media(prefers-reduced-motion:no-preference){
+  .fc-flip{animation:fcFlip 5s ease-in-out infinite}
+  .fc-b1{animation:fcA 5s ease-in-out infinite}
+  .fc-b2{animation:fcB 5s ease-in-out infinite}
+  .ai-user{animation:aiUser 7s ease infinite}
+  .ai-typing{animation:aiTyping 7s ease infinite}
+  .ai-typing i{animation:aiDot 1s ease-in-out infinite}
+  .ai-typing i:nth-child(2){animation-delay:.15s}.ai-typing i:nth-child(3){animation-delay:.3s}
+  .ai-ans{animation:aiAns 7s ease infinite}
+  .ai-spark{animation:aiSpin 6s linear infinite}
+  .mm-line{stroke-dasharray:80;stroke-dashoffset:80;animation:mmDraw 6s ease infinite}
+  .mm-line:nth-of-type(2){animation-delay:.25s}.mm-line:nth-of-type(3){animation-delay:.5s}.mm-line:nth-of-type(4){animation-delay:.75s}
+  .mm-node{animation:mmPop 6s ease infinite}
+  .mm-n1{animation-delay:.3s}.mm-n2{animation-delay:.55s}.mm-n3{animation-delay:.8s}.mm-n4{animation-delay:1.05s}
+  .mm-ring{animation:mmRing 3s ease-out infinite}
+}
+@keyframes fcFlip{0%,30%{transform:rotateY(0)}45%,80%{transform:rotateY(180deg)}95%,100%{transform:rotateY(360deg)}}
+@keyframes fcA{0%,100%{transform:rotate(-9deg) translate(-16px,4px)}50%{transform:rotate(-12deg) translate(-20px,0)}}
+@keyframes fcB{0%,100%{transform:rotate(8deg) translate(16px,4px)}50%{transform:rotate(11deg) translate(20px,0)}}
+@keyframes aiUser{0%{opacity:0;transform:translateY(8px)}6%,90%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes aiTyping{0%,12%{opacity:0;transform:translateY(8px)}18%,42%{opacity:1;transform:none}48%,100%{opacity:0}}
+@keyframes aiAns{0%,46%{opacity:0;transform:translateY(8px)}54%,90%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes aiDot{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-4px);opacity:1}}
+@keyframes aiSpin{to{transform:rotate(360deg)}}
+@keyframes mmDraw{0%{stroke-dashoffset:80}18%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:80}}
+@keyframes mmPop{0%,8%{transform:scale(0)}22%{transform:scale(1.18)}30%,85%{transform:scale(1)}100%{transform:scale(0)}}
+@keyframes mmRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.2);opacity:0}}
+</style>
+
 </head>
 <body>
 
@@ -3536,36 +4195,48 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 </div>
 
 <!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="brand-stack">
-    <a class="logo-group" href="https://thunderstudy.indevs.in" aria-label="ThunderStudy Home">
-      <img class="logo-icon" src="/favicon.svg" alt="" width="26" height="26" loading="eager" decoding="async">
-      <span class="logo-text">Thunder<span class="logo-text-accent">Study</span></span>
-    </a>
-    <span class="header-made-by">by <a href="https://wondermayank.in" target="_blank" rel="noopener">Wondermayank</a></span>
-    </div>
-    <span class="header-badge">100% Free</span>
-    <button type="button" id="profile-nav-btn" class="profile-nav-btn" aria-label="Open your study profile" onclick="openProfilePanel()">Profile</button>
-    <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
-      <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-    </button>
-    <nav aria-label="Main navigation">
-      <a href="#streams">Streams</a>
-      <a href="#exams">Exams</a>
-      <a href="#more-exams">JEE/NEET/CAT</a>
-      <a href="#subjects">Notes</a>
-      <a href="#resources">Resources</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-  </div>
+<header class="nav tc">
+<div class="wrap">
+<a aria-label="ThunderStudy by wondermayank" class="brand" href="https://thunderstudy.indevs.in">
+<span class="brand-mark"><img alt="ThunderStudy logo" height="32" src="/favicon.svg" width="32" decoding="async" loading="eager"></span>
+<span class="brand-text">
+<span class="brand-name">Thunder<span class="brand-accent">Study</span></span>
+<span class="brand-by">by wondermayank</span>
+</span>
+</a>
+<div class="nav-right">
+<div aria-label="Quick links" class="nav-icons" role="navigation">
+<a aria-label="Home" class="nav-request nav-home" href="https://thunderstudy.indevs.in" title="Home"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg></a>
+<button aria-label="Open your study profile" class="nav-request" id="profile-nav-btn" onclick="openProfilePanel()" title="Profile" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"></path></svg></button>
+<a aria-label="FAQ" class="nav-request" href="#faq" title="FAQ"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"></path></svg></a>
+</div>
+<a aria-label="Contact" class="nav-request" href="https://wondermayank.in/contact" rel="noopener noreferrer" target="_blank" title="Contact"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M12 12v6M9 15h6"></path></svg></a>
+<button aria-label="Toggle dark mode" class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" type="button">
+<svg aria-hidden="true" fill="none" id="theme-icon-sun" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.4M12 19.1v2.4"></path><path d="M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7"></path><path d="M2.5 12h2.4M19.1 12h2.4"></path><path d="M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"></path></svg>
+<svg aria-hidden="true" fill="none" id="theme-icon-moon" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" style="display:none;" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"></path></svg>
+</button>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Menu" class="ham-btn" id="hamBtn" type="button">
+<svg aria-hidden="true" class="ham-icon" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path class="ham-top" d="M3 6h18"></path><path class="ham-mid" d="M3 12h18"></path><path class="ham-bot" d="M3 18h18"></path></svg>
+</button>
+</div>
+</div>
 </header>
+
+<div aria-label="Site menu" class="mobile-menu tc" id="mobileMenu">
+<a href="#streams">Streams</a>
+<a href="#exams">Exams</a>
+<a href="#more-exams">JEE/NEET/CAT</a>
+<a href="#subjects">Notes</a>
+<a href="#resources">Resources</a>
+<a href="#faq">FAQ</a>
+<a href="https://thundertest.indevs.in">Mock Test</a>
+<a href="https://thunderstudy.indevs.in/about">About</a>
+</div>
 
 <!-- HERO — sky-blue frosted redesign -->
 
 
-<section class="hero" aria-labelledby="hero-heading">
+<section class="hero tcx" aria-labelledby="hero-heading">
 
   <!-- Side illustrations -->
   <img src="./img/hero-books.png" alt="" class="hero-side-img hero-books-img" loading="lazy" decoding="async" width="440" height="640">
@@ -3855,77 +4526,70 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 </section>
 
 <!-- ===== THUNDER AI TOOLS SECTION ===== -->
-<section id="thunder-tools" aria-labelledby="thunder-tools-heading">
+<section id="thunder-tools" class="tcx" aria-labelledby="thunder-tools-heading">
 
 
 <div class="thunder-tools-section">
   <div class="thunder-tools-header">
     <span class="thunder-tools-label">Thunder AI Tools</span>
     <h2 class="thunder-tools-title" id="thunder-tools-heading">Free AI-Powered Study Tools</h2>
-    <p class="thunder-tools-desc">Flashcards, AI chat, and mind maps — built for Indian exam prep. No login. No cost.</p>
+    <p class="thunder-tools-desc">Flashcards, Thunder AI and mind maps — built for Indian exam prep, all powered by Tiny. No login. No cost.</p>
+    <a class="tool-tiny-link" href="https://tiny.wondermayank.in" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Powered by Tiny · tiny.wondermayank.in</a>
   </div>
 
   <div class="thunder-tools-grid">
 
     <!-- Flashcard -->
-    <a class="tool-card" href="https://flashcard.thunderstudy.indevs.in/" target="_blank" rel="noopener" aria-label="Create free flashcards on ThunderStudy">
+    <a class="tool-card tc-flash" href="https://flashcard.thunderstudy.indevs.in/" target="_blank" rel="noopener" aria-label="Create free flashcards on ThunderStudy, powered by Tiny">
       <span class="tool-card-badge">Free</span>
-      <div class="tool-card-icon flashcard-icon" aria-hidden="true">
-        <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="5" width="20" height="14" rx="3" stroke="#573AFC" stroke-width="2"/>
-          <path d="M8 9h8M8 12h5" stroke="#573AFC" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+      <div class="tool-stage" aria-hidden="true">
+        <div class="fc-stack">
+          <span class="fc-card fc-b1"></span><span class="fc-card fc-b2"></span>
+          <span class="fc-card fc-flip">
+            <span class="fc-face fc-front">Q<i></i><i></i></span>
+            <span class="fc-face fc-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+          </span>
+        </div>
       </div>
       <p class="tool-card-name">Flashcard Maker</p>
       <p class="tool-card-desc">Create smart flashcards for any subject — CUET, SSC, Banking, CBSE and more. Study faster with active recall.</p>
-      <span class="tool-card-cta">
-        Create Flashcards
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="#573AFC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+      <span class="tool-card-by"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Powered by Tiny</span>
+      <span class="tool-card-cta">Create Flashcards <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </a>
 
-    <!-- AI Chat -->
-    <a class="tool-card" href="https://ai.thunderstudy.indevs.in/" target="_blank" rel="noopener" aria-label="ThunderAI — AI chat for study">
+    <!-- Thunder AI -->
+    <a class="tool-card tc-ai" href="https://ai.thunderstudy.indevs.in/" target="_blank" rel="noopener" aria-label="Thunder AI — all AI study tools in one place, powered by Tiny">
       <span class="tool-card-badge">Free</span>
-      <div class="tool-card-icon ai-icon" aria-hidden="true">
-        <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 3C7.03 3 3 6.58 3 11c0 2.07.88 3.95 2.32 5.35L4 20l4.12-1.38C9.33 19.2 10.63 19.5 12 19.5c4.97 0 9-3.58 9-8S16.97 3 12 3Z" stroke="#0077f5" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M8 11h.01M12 11h.01M16 11h.01" stroke="#0077f5" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
+      <div class="tool-stage" aria-hidden="true">
+        <div class="ai-chat">
+          <span class="ai-b ai-user"></span>
+          <span class="ai-b ai-typing"><i></i><i></i><i></i></span>
+          <span class="ai-b ai-ans"><i></i><i></i><i></i></span>
+        </div>
+        <svg class="ai-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>
       </div>
-      <p class="tool-card-name">ThunderAI Chat</p>
-      <p class="tool-card-desc">Ask anything about your syllabus. Get instant explanations, solved examples and concept clarity — powered by AI.</p>
-      <span class="tool-card-cta">
-        Chat with AI
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="#573AFC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+      <p class="tool-card-name">Thunder AI</p>
+      <p class="tool-card-desc">All your AI study tools in one place — ask doubts, get explanations, solved examples, quizzes and summaries.</p>
+      <span class="tool-card-by"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Powered by Tiny</span>
+      <span class="tool-card-cta">Open Thunder AI <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </a>
 
     <!-- Mind Map -->
-    <a class="tool-card" href="https://mindmap.thunderstudy.indevs.in/" target="_blank" rel="noopener" aria-label="Create free mind maps on ThunderStudy">
+    <a class="tool-card tc-map" href="https://mindmap.thunderstudy.indevs.in/" target="_blank" rel="noopener" aria-label="Create free mind maps on ThunderStudy, powered by Tiny">
       <span class="tool-card-badge">Free</span>
-      <div class="tool-card-icon mindmap-icon" aria-hidden="true">
-        <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="3" stroke="#16a34a" stroke-width="2"/>
-          <circle cx="4" cy="6" r="2" stroke="#16a34a" stroke-width="1.8"/>
-          <circle cx="20" cy="6" r="2" stroke="#16a34a" stroke-width="1.8"/>
-          <circle cx="4" cy="18" r="2" stroke="#16a34a" stroke-width="1.8"/>
-          <circle cx="20" cy="18" r="2" stroke="#16a34a" stroke-width="1.8"/>
-          <path d="M9.5 10.5 6 8M14.5 10.5 18 8M9.5 13.5 6 16M14.5 13.5 18 16" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round"/>
+      <div class="tool-stage" aria-hidden="true">
+        <svg class="mm-svg" viewBox="0 0 200 112">
+          <path class="mm-line" d="M100 56 L38 24"/><path class="mm-line" d="M100 56 L162 24"/><path class="mm-line" d="M100 56 L38 88"/><path class="mm-line" d="M100 56 L162 88"/>
+          <circle class="mm-ring" cx="100" cy="56" r="15"/>
+          <circle class="mm-node mm-n1" cx="34" cy="22" r="10"/><circle class="mm-node mm-n2" cx="166" cy="22" r="10"/>
+          <circle class="mm-node mm-n3" cx="34" cy="90" r="10"/><circle class="mm-node mm-n4" cx="166" cy="90" r="10"/>
+          <circle class="mm-core" cx="100" cy="56" r="15"/>
         </svg>
       </div>
       <p class="tool-card-name">Mind Map Builder</p>
       <p class="tool-card-desc">Visualise topics and chapters as connected mind maps. Perfect for revision — link concepts, remember more.</p>
-      <span class="tool-card-cta">
-        Build Mind Map
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="#573AFC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+      <span class="tool-card-by"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Powered by Tiny</span>
+      <span class="tool-card-cta">Build Mind Map <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </a>
 
   </div>
@@ -4058,7 +4722,7 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
   </div>
 </div>
 
-<section id="more-exams" aria-labelledby="more-exams-heading">
+<section id="more-exams" class="tcx" aria-labelledby="more-exams-heading">
   <div class="container">
     <div class="section-header">
       <span class="section-label">All Exams & Resources</span>
@@ -4083,64 +4747,27 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
       </a>
       <!-- Divider label -->
       <div class="etc-divider-label">All Exams</div>
-      <a href="#cbse-resources" class="exam-theme-card etc-cbse">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#1e40af" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <div><div class="etc-title">CBSE</div><div class="etc-sub">Topper Notes · Formula · PYQs</div></div>
-      </a>
-      <a href="#jee-section" class="exam-theme-card etc-jee">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#0f766e" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg></div>
-        <div><div class="etc-title">JEE</div><div class="etc-sub">Mains · Advanced · Mock Test</div></div>
-      </a>
-      <a href="#neet-section" class="exam-theme-card etc-neet">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#be185d" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></div>
-        <div><div class="etc-title">NEET</div><div class="etc-sub">Physics · Chemistry · Biology</div></div>
-      </a>
-      <a href="#cuet-full" class="exam-theme-card etc-cuet">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#7e22ce" aria-hidden="true" focusable="false"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
-        <div><div class="etc-title">CUET</div><div class="etc-sub">Mock Test · PYQs · All Subjects</div></div>
-      </a>
-      <a href="#cat-section" class="exam-theme-card etc-cat">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#b91c1c" aria-hidden="true" focusable="false"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div>
-        <div><div class="etc-title">CAT</div><div class="etc-sub">Mock Test · PYQs · VARC · QA</div></div>
-      </a>
-      <a href="#clat-section" class="exam-theme-card etc-clat">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#9d174d" aria-hidden="true" focusable="false"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
-        <div><div class="etc-title">CLAT</div><div class="etc-sub">Law Entrance · AILET · Mock</div></div>
-      </a>
-      <a href="#nda-section" class="exam-theme-card etc-nda">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#3730a3" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div><div class="etc-title">NDA</div><div class="etc-sub">Maths · GAT · Defence</div></div>
-      </a>
-      <a href="#ncert-section" class="exam-theme-card etc-ncert">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#475569" aria-hidden="true" focusable="false"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg></div>
-        <div><div class="etc-title">NCERT</div><div class="etc-sub">Class 6–12 · Solutions · Exemplar</div></div>
-      </a>
-      <a href="#ca-section" class="exam-theme-card etc-ca">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#a16207" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></div>
-        <div><div class="etc-title">CA</div><div class="etc-sub">Foundation · Inter · Final</div></div>
-      </a>
-      <a href="#diploma-section" class="exam-theme-card etc-diploma">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#78350f" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg></div>
-        <div><div class="etc-title">Diploma</div><div class="etc-sub">DCA · PGDCA · D.Ed · B.Ed</div></div>
-      </a>
-      <a href="#tet-section" class="exam-theme-card etc-tet">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#0e7490" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div><div class="etc-title">TET / CTET</div><div class="etc-sub">Teacher Eligibility · All States</div></div>
-      </a>
-      <a href="#upsc-section" class="exam-theme-card" style="border-color:#fcd34d;">
-        <div class="etc-emoji-wrap" style="background:#fef9e4;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#92400e" aria-hidden="true" focusable="false"><path d="M3 22h18"/><path d="M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 3 7v2h18V7z"/></svg></div>
-        <div><div class="etc-title" style="color:#92400e;">UPSC</div><div class="etc-sub">IAS · IPS · Civil Services</div></div>
-      </a>
-      <a href="#ssc-section" class="exam-theme-card etc-ssc">
-        <div class="etc-emoji-wrap"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#1d4ed8" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-        <div><div class="etc-title">SSC</div><div class="etc-sub">CGL · CHSL · MTS</div></div>
-      </a>
-      <a href="#banking-section" class="exam-theme-card" style="border-color:#00897b;">
-        <div class="etc-emoji-wrap" style="background:#e0f2f1;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#004d40" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></div>
-        <div><div class="etc-title" style="color:#004d40;">Banking</div><div class="etc-sub">IBPS · SBI · RBI · LIC</div></div>
-      </a>
+      <div class="xm-wrap tc">
+<div class="xm-grid">
+<a class="xm xm-org" href="#cbse-resources" style="--c:var(--blue);--k:var(--blue-ink)"><span class="xm-face"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="xm-t"><b>CBSE</b><small>Topper Notes · Formula · PYQs</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span></span><svg class="xm-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></a>
+<a class="xm xm-to" href="#ncert-section" style="--c:var(--green);--k:var(--green-ink)"><span class="xm-fx" aria-hidden="true">PDF</span><span class="xm-t"><b>NCERT</b><small>Class 6–12 · Solutions · Exemplar</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span><span class="xm-bar" aria-hidden="true"><i></i></span></span><span class="xm-dl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg></span></a>
+<a class="xm xm-opt" href="#ca-section" style="--c:var(--yellow);--k:var(--yellow-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></span><span class="xm-t"><b>CA</b><small>Foundation · Inter · Final</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span></span><span class="xm-sz" aria-hidden="true"><i></i></span></a>
+<a class="xm xm-sec" href="#nda-section" style="--c:var(--orange);--k:var(--orange-ink)"><span class="xm-sh"><span class="xm-ring"></span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="xm-t"><b>NDA</b><small>Maths · GAT · Defence</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span></span><svg class="xm-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="xm xm-m xm-sweep" href="#cuet-full" style="--c:var(--purple);--k:var(--purple-ink)"><span class="xm-timer"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></span></span><span class="xm-t"><b>CUET</b><small>Mock Test · PYQs · All Subjects</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
+<a class="xm xm-adv" href="#upsc-section" style="--c:var(--teal);--k:var(--teal-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 22h18"/><path d="M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 3 7v2h18V7z"/></svg></span><span class="xm-t"><b>UPSC</b><small>IAS · IPS · Civil Services</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span><code aria-hidden="true">/upsc<span class="xm-caret"></span></code></span><svg class="xm-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="xm xm-m xm-jelly" href="#clat-section" style="--c:var(--pink);--k:var(--pink-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span><span class="xm-t"><b>CLAT</b><small>Law Entrance · AILET · Mock</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
+<a class="xm xm-m xm-liquid" href="#cat-section" style="--c:var(--red);--k:var(--red-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></span><span class="xm-t"><b>CAT</b><small>Mock Test · PYQs · VARC · QA</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
+<a class="xm xm-m xm-shine" href="#ssc-section" style="--c:var(--blue);--k:var(--blue-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="xm-t"><b>SSC</b><small>CGL · CHSL · MTS</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
+<a class="xm xm-m xm-arrow" href="#banking-section" style="--c:var(--green);--k:var(--green-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span><span class="xm-t"><b>Banking</b><small>IBPS · SBI · RBI · LIC</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="xm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="xm xm-m xm-pulse" href="#jee-section" style="--c:var(--cyan);--k:var(--cyan-ink)"><span class="xm-orbit"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg></span></span><span class="xm-t"><b>JEE</b><small>Mains · Advanced · Mock Test</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
+<a class="xm xm-neet" href="#neet-section" style="--c:var(--pink);--k:var(--pink-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span><span class="xm-t"><b>NEET</b><small>Physics · Chemistry · Biology</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span></span><svg class="xm-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="xm xm-m xm-ripple" href="#tet-section" style="--c:var(--orange);--k:var(--orange-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="xm-t"><b>TET / CTET</b><small>Teacher Eligibility · All States</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Notes + Mocks</span></span><span class="xm-qp" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
+<a class="xm xm-edit" href="#diploma-section" style="--c:var(--lime);--k:var(--lime-ink)"><span class="xm-i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg></span><span class="xm-t"><b>Diploma</b><small>DCA · PGDCA · D.Ed · B.Ed</small><span class="xm-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Notes + Mocks</span></span><svg class="xm-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+</div>
+</div>
     </div>
 
+    <hr class="exam-sep">
     <!-- ===== CBSE RESOURCES ===== -->
     <a id="cbse-resources" class="exam-band" style="background:#dbeeff;color:#1565c0;" href="https://thunderstudy.indevs.in/cbse/" rel="noopener">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -4169,7 +4796,7 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
       CBSE Class 12 — Study Material Sections
     </div>
-    <div class="grid-4" style="margin-bottom:32px">
+    <div class="grid-4 c12-keep" style="margin-bottom:32px">
 
       <!-- Topper Notes -->
       <a class="subj-card" href="https://thunderstudy.indevs.in/cbse/topper-notes" style="border-top:3px solid #f59e0b;" aria-label="CBSE Topper Notes">
@@ -4659,7 +5286,7 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 <div class="divider"></div>
 
 <!-- ===== BANKING SECTION ===== -->
-<section class="section-alt" id="banking" aria-labelledby="banking-heading">
+<section class="section-alt tcx" id="banking" aria-labelledby="banking-heading">
   <div class="container">
 
     <a id="banking-section" class="exam-band" style="background:#dbeafe;color:#1e40af;border-left:4px solid #3b82f6;" href="https://thunderstudy.indevs.in/banking/exam.html" rel="noopener">
@@ -4741,7 +5368,7 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 <div class="divider"></div>
 
 <!-- ALL SUBJECTS -->
-<section class="section-alt" id="subjects" aria-labelledby="subjects-heading">
+<section class="section-alt tcx" id="subjects" aria-labelledby="subjects-heading">
   <div class="container">
     <div class="section-header">
       <span class="section-label">Subject-Wise Access</span>
@@ -5025,11 +5652,11 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 
 
     <!-- Notes by Class/Exam -->
-    <div style="background:#e3f2fd;border-radius:14px;padding:14px 20px;margin-bottom:18px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1rem;color:#1565c0;">
+    <div class="tcx nd-head" style="background:#e3f2fd;border-radius:14px;padding:14px 20px;margin-bottom:18px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1rem;color:#1565c0;">
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Notes by Class &amp; Exam — Direct Access
     </div>
-    <div class="subtopic-row" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:24px;">
+    <div class="subtopic-row tcx nd-row" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:24px;">
       <a href="https://thundertest.indevs.in/class9/notes" class="subtopic-pill" target="_blank" rel="noopener"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Class 9 Notes</span></a>
       <a href="https://thundertest.indevs.in/class10/notes" class="subtopic-pill" target="_blank" rel="noopener"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Class 10 Notes</span></a>
       <a href="https://thundertest.indevs.in/class11/notes" class="subtopic-pill" target="_blank" rel="noopener"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Class 11 Notes</span></a>
@@ -5812,22 +6439,22 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 </button>
 
 <!-- PWA INSTALL BANNER -->
-<div id="pwa-banner" role="dialog" aria-label="Install ThunderStudy App" style="position:relative;">
+<div id="pwa-banner" class="tc" role="dialog" aria-label="Install ThunderStudy App">
   <div class="pwa-top">
-    <div class="pwa-icon-wrap"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg></div>
+    <div class="pwa-icon-wrap"><img src="/favicon.svg" alt="" width="30" height="30" decoding="async"></div>
     <div class="pwa-text">
       <div class="pwa-title">Install ThunderStudy App</div>
       <div class="pwa-sub">Study offline · Always free</div>
     </div>
   </div>
   <div class="pwa-perks">
-    <span class="pwa-perk"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> Works offline</span>
-    <span class="pwa-perk"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> No login</span>
-    <span class="pwa-perk"><svg class=&quot;ts-inline-icon&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;1em&quot; height=&quot;1em&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;><path fill=&quot;currentColor&quot; d=&quot;M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm1 14.2h-2v-2h2v2Zm1.7-6.1-.9.8c-.6.5-.8.8-.8 1.6h-2c0-1.2.4-1.9 1.2-2.6l1-.9c.4-.3.6-.7.6-1.2a1.8 1.8 0 0 0-3.5-.4l-1.9-.6a3.8 3.8 0 0 1 7.4 1.1c0 .9-.4 1.6-1.1 2.2Z&quot;/></svg> Zero ads</span>
+    <span class="pwa-perk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Works offline</span>
+    <span class="pwa-perk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> No login</span>
+    <span class="pwa-perk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Zero ads</span>
   </div>
   <div class="pwa-actions">
-    <button id="pwa-install-btn" onclick="pwaTriggerInstall()">Install Free App</button>
-    <button id="pwa-dismiss-btn" onclick="pwaDismiss()">Later</button>
+    <button id="pwa-install-btn" type="button" onclick="pwaTriggerInstall()"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg> Install Free App</button>
+    <button id="pwa-dismiss-btn" type="button" onclick="pwaDismiss()">Later</button>
   </div>
 </div>
 
@@ -6874,7 +7501,7 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
       try { localStorage.removeItem(BOOKMARK_KEY); } catch (e) {}
       renderStudyDashboard();
       if (!profilePanel) return;
-      if (!currentProfile()) setTimeout(openProfilePanel, 850);
+      /* profile panel opens only when the user taps the profile button */
       var form = document.getElementById('profile-form');
       var close = document.getElementById('profile-panel-close');
       var message = document.getElementById('profile-form-message');
@@ -6899,7 +7526,7 @@ footer.tsf nav.tsf-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
       });
       document.addEventListener('click', function(event) {
         var anchor = event.target.closest && event.target.closest('a');
-        if (anchor && !anchor.closest('#profile-panel') && !anchor.matches('.logo-group, nav a, .footer-col a, .footer-bottom a, .study-more-link')) rememberResource(anchor);
+        if (anchor && !anchor.closest('#profile-panel') && !anchor.matches('.logo-group, nav a, .footer-col a, .footer-bottom a, .study-more-link, header.nav a, .mobile-menu a, footer.wmf a, #pwa-banner a')) rememberResource(anchor);
       }, true);
     });
   })();
@@ -7061,63 +7688,141 @@ themeBtn.addEventListener('click',function(){
 </script>
 
 
-<footer class="tsf">
-  <div class="tsf-wrap">
-    <div class="tsf-brand">
-      <a class="tsf-logo" href="https://thunderstudy.indevs.in" aria-label="ThunderStudy home">
-        <img src="/favicon.svg" alt="" width="32" height="32" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='18' fill='%23573AFC'/%3E%3Cpath d='M22 24h36M40 24v32M28 56h24' stroke='%23fff' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E'">
-        <span>Thunder<b>Study</b></span>
-      </a>
-      <p class="tsf-about">Free notes, PDFs and mock tests for CBSE, CUET, JEE, NEET, SSC, Banking and UPSC students. No ads, no login.</p>
-      <div class="tsf-social">
-        <a class="tsf-x" href="https://x.com/thunderstudyx" target="_blank" rel="noopener noreferrer" aria-label="ThunderStudy on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>@thunderstudyx</span></a>
-        <a class="tsf-x" href="https://x.com/wondermayankx" target="_blank" rel="noopener noreferrer" aria-label="Wondermayank on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>@wondermayankx</span></a>
-      </div>
-    </div>
-    <div class="tsf-links">
-      <nav class="tsf-col" aria-label="wondermayank">
-        <h2>wondermayank</h2>
-        <ul>
-          <li><a href="https://wondermayank.in">Portfolio</a></li>
-          <li><a href="https://project.wondermayank.in">Vibecoding</a></li>
-          <li><a href="https://project.wondermayank.in">Useful Projects</a></li>
-          <li><a href="https://blog.wondermayank.indevs.in/">Blog</a></li>
-        </ul>
-      </nav>
-      <nav class="tsf-col" aria-label="Support">
-        <h2>Support</h2>
-        <ul>
-          <li><a href="https://wondermayank.in/fqa">FAQ</a></li>
-          <li><a href="https://wondermayank.in/mail">Mail</a></li>
-          <li><a href="https://wondermayank.in/contact">Contact</a></li>
-        </ul>
-      </nav>
-      <nav class="tsf-col" aria-label="ThunderStudy">
-        <h2>ThunderStudy</h2>
-        <ul>
-          <li><a href="https://thunderstudy.indevs.in">Home</a></li>
-          <li><a href="https://thundertest.indevs.in">CBT Mock</a></li>
-          <li><a href="https://blog.thunderstudy.indevs.in">Blog</a></li>
-          <li><a href="https://thunderstudy.indevs.in/about">Help / Donate</a></li>
-        </ul>
-      </nav>
-      <nav class="tsf-col tsf-quick" aria-label="Project quick links">
-        <h2>Quick links</h2>
-        <ul><li><a href="/banking">Banking</a></li><li><a href="/ca">CA</a></li><li><a href="/cat">CAT</a></li><li><a href="/cbse">CBSE</a></li><li><a href="/clat">CLAT</a></li><li><a href="/dca">DCA</a></li><li><a href="/ncert">NCERT</a></li><li><a href="/nda">NDA</a></li><li><a href="/ssc">SSC</a></li><li><a href="/tet">TET</a></li><li><a href="/upsc">UPSC</a></li></ul>
-      </nav>
-    </div>
-  </div>
-  <div class="tsf-bar">
-    <div class="tsf-bar-in">
-      <div>© 2026 ThunderStudy by wondermayank. All rights reserved.</div>
-      <nav class="tsf-legal" aria-label="Legal">
-        <a href="https://wondermayank.in/terms">Terms</a>
-        <a href="https://wondermayank.in/privacy">Privacy</a>
-        <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
-        <a href="/sitemap.xml">Sitemap</a>
-      </nav>
-    </div>
-  </div>
+<footer class="wmf" aria-label="Site footer">
+<svg aria-hidden="true" focusable="false" height="0" style="position:absolute" width="0">
+<defs>
+<symbol id="i-instagram" viewBox="0 0 2500 2500"><defs><radialGradient id="ig-grad-a" cx="332.14" cy="2511.81" r="3263.54" gradientUnits="userSpaceOnUse"><stop offset=".09" stop-color="#fa8f21"/><stop offset=".78" stop-color="#d82d7e"/></radialGradient><radialGradient id="ig-grad-b" cx="1516.14" cy="2623.81" r="2572.12" gradientUnits="userSpaceOnUse"><stop offset=".64" stop-color="#8c3aaa" stop-opacity="0"/><stop offset="1" stop-color="#8c3aaa"/></radialGradient></defs><path d="M833.4,1250c0-230.11,186.49-416.7,416.6-416.7s416.7,186.59,416.7,416.7-186.59,416.7-416.7,416.7S833.4,1480.11,833.4,1250m-225.26,0c0,354.5,287.36,641.86,641.86,641.86S1891.86,1604.5,1891.86,1250,1604.5,608.14,1250,608.14,608.14,895.5,608.14,1250M1767.27,582.69a150,150,0,1,0,150.06-149.94h-0.06a150.07,150.07,0,0,0-150,149.94M745,2267.47c-121.87-5.55-188.11-25.85-232.13-43-58.36-22.72-100-49.78-143.78-93.5s-70.88-85.32-93.5-143.68c-17.16-44-37.46-110.26-43-232.13-6.06-131.76-7.27-171.34-7.27-505.15s1.31-373.28,7.27-505.15c5.55-121.87,26-188,43-232.13,22.72-58.36,49.78-100,93.5-143.78s85.32-70.88,143.78-93.5c44-17.16,110.26-37.46,232.13-43,131.76-6.06,171.34-7.27,505-7.27s373.28,1.31,505.15,7.27c121.87,5.55,188,26,232.13,43,58.36,22.62,100,49.78,143.78,93.5s70.78,85.42,93.5,143.78c17.16,44,37.46,110.26,43,232.13,6.06,131.87,7.27,171.34,7.27,505.15s-1.21,373.28-7.27,505.15c-5.55,121.87-25.95,188.11-43,232.13-22.72,58.36-49.78,100-93.5,143.68s-85.42,70.78-143.78,93.5c-44,17.16-110.26,37.46-232.13,43-131.76,6.06-171.34,7.27-505.15,7.27s-373.28-1.21-505-7.27M734.65,7.57c-133.07,6.06-224,27.16-303.41,58.06C349,97.54,279.38,140.35,209.81,209.81S97.54,349,65.63,431.24c-30.9,79.46-52,170.34-58.06,303.41C1.41,867.93,0,910.54,0,1250s1.41,382.07,7.57,515.35c6.06,133.08,27.16,223.95,58.06,303.41,31.91,82.19,74.62,152,144.18,221.43S349,2402.37,431.24,2434.37c79.56,30.9,170.34,52,303.41,58.06C868,2498.49,910.54,2500,1250,2500s382.07-1.41,515.35-7.57c133.08-6.06,223.95-27.16,303.41-58.06,82.19-32,151.86-74.72,221.43-144.18s112.18-139.24,144.18-221.43c30.9-79.46,52.1-170.34,58.06-303.41,6.06-133.38,7.47-175.89,7.47-515.35s-1.41-382.07-7.47-515.35c-6.06-133.08-27.16-224-58.06-303.41-32-82.19-74.72-151.86-144.18-221.43S2150.95,97.54,2068.86,65.63c-79.56-30.9-170.44-52.1-303.41-58.06C1632.17,1.51,1589.56,0,1250.1,0S868,1.41,734.65,7.57" fill="url(#ig-grad-a)"/><path d="M833.4,1250c0-230.11,186.49-416.7,416.6-416.7s416.7,186.59,416.7,416.7-186.59,416.7-416.7,416.7S833.4,1480.11,833.4,1250m-225.26,0c0,354.5,287.36,641.86,641.86,641.86S1891.86,1604.5,1891.86,1250,1604.5,608.14,1250,608.14,608.14,895.5,608.14,1250M1767.27,582.69a150,150,0,1,0,150.06-149.94h-0.06a150.07,150.07,0,0,0-150,149.94M745,2267.47c-121.87-5.55-188.11-25.85-232.13-43-58.36-22.72-100-49.78-143.78-93.5s-70.88-85.32-93.5-143.68c-17.16-44-37.46-110.26-43-232.13-6.06-131.76-7.27-171.34-7.27-505.15s1.31-373.28,7.27-505.15c5.55-121.87,26-188,43-232.13,22.72-58.36,49.78-100,93.5-143.78s85.32-70.88,143.78-93.5c44-17.16,110.26-37.46,232.13-43,131.76-6.06,171.34-7.27,505-7.27s373.28,1.31,505.15,7.27c121.87,5.55,188,26,232.13,43,58.36,22.62,100,49.78,143.78,93.5s70.78,85.42,93.5,143.78c17.16,44,37.46,110.26,43,232.13,6.06,131.87,7.27,171.34,7.27,505.15s-1.21,373.28-7.27,505.15c-5.55,121.87-25.95,188.11-43,232.13-22.72,58.36-49.78,100-93.5,143.68s-85.42,70.78-143.78,93.5c-44,17.16-110.26,37.46-232.13,43-131.76,6.06-171.34,7.27-505.15,7.27s-373.28-1.21-505-7.27M734.65,7.57c-133.07,6.06-224,27.16-303.41,58.06C349,97.54,279.38,140.35,209.81,209.81S97.54,349,65.63,431.24c-30.9,79.46-52,170.34-58.06,303.41C1.41,867.93,0,910.54,0,1250s1.41,382.07,7.57,515.35c6.06,133.08,27.16,223.95,58.06,303.41,31.91,82.19,74.62,152,144.18,221.43S349,2402.37,431.24,2434.37c79.56,30.9,170.34,52,303.41,58.06C868,2498.49,910.54,2500,1250,2500s382.07-1.41,515.35-7.57c133.08-6.06,223.95-27.16,303.41-58.06,82.19-32,151.86-74.72,221.43-144.18s112.18-139.24,144.18-221.43c30.9-79.46,52.1-170.34,58.06-303.41,6.06-133.38,7.47-175.89,7.47-515.35s-1.41-382.07-7.47-515.35c-6.06-133.08-27.16-224-58.06-303.41-32-82.19-74.72-151.86-144.18-221.43S2150.95,97.54,2068.86,65.63c-79.56-30.9-170.44-52.1-303.41-58.06C1632.17,1.51,1589.56,0,1250.1,0S868,1.41,734.65,7.57" fill="url(#ig-grad-b)"/></symbol>
+<symbol id="i-youtube" viewBox="0 0 256 180"><path fill="red" d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134"/><path fill="#fff" d="m102.421 128.06l66.328-38.418l-66.328-38.418z"/></symbol>
+<symbol id="i-x" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2L487 464H345L233.7 318.6L106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></symbol>
+<symbol id="i-reddit" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#ff4500"/><path fill="#fff" d="M213.15 129.22c0-10.376-8.391-18.617-18.617-18.617a18.74 18.74 0 0 0-12.97 5.189c-12.818-9.157-30.368-15.107-49.9-15.87l8.544-39.981l27.773 5.95c.307 7.02 6.104 12.667 13.278 12.667c7.324 0 13.275-5.95 13.275-13.278c0-7.324-5.95-13.275-13.275-13.275c-5.188 0-9.768 3.052-11.904 7.478l-30.976-6.562c-.916-.154-1.832 0-2.443.458c-.763.458-1.22 1.22-1.371 2.136l-9.464 44.558c-19.837.612-37.692 6.562-50.662 15.872a18.74 18.74 0 0 0-12.971-5.188c-10.377 0-18.617 8.391-18.617 18.617c0 7.629 4.577 14.037 10.988 16.939a33.6 33.6 0 0 0-.458 5.646c0 28.686 33.42 52.036 74.621 52.036c41.202 0 74.622-23.196 74.622-52.036a35 35 0 0 0-.458-5.646c6.408-2.902 10.985-9.464 10.985-17.093M85.272 142.495c0-7.324 5.95-13.275 13.278-13.275c7.324 0 13.275 5.95 13.275 13.275s-5.95 13.278-13.275 13.278c-7.327.15-13.278-5.953-13.278-13.278m74.317 35.251c-9.156 9.157-26.553 9.768-31.588 9.768c-5.188 0-22.584-.765-31.59-9.768c-1.371-1.373-1.371-3.51 0-4.883c1.374-1.371 3.51-1.371 4.884 0c5.8 5.8 18.008 7.782 26.706 7.782s21.058-1.983 26.704-7.782c1.374-1.371 3.51-1.371 4.884 0c1.22 1.373 1.22 3.51 0 4.883m-2.443-21.822c-7.325 0-13.275-5.95-13.275-13.275s5.95-13.275 13.275-13.275c7.327 0 13.277 5.95 13.277 13.275c0 7.17-5.95 13.275-13.277 13.275"/></symbol>
+<symbol id="i-telegram" viewBox="0 0 256 256"><defs><linearGradient id="tg-grad" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#2aabee"/><stop offset="100%" stop-color="#229ed9"/></linearGradient></defs><path fill="url(#tg-grad)" d="M128 0C94.06 0 61.48 13.494 37.5 37.49A128.04 128.04 0 0 0 0 128c0 33.934 13.5 66.514 37.5 90.51C61.48 242.506 94.06 256 128 256s66.52-13.494 90.5-37.49c24-23.996 37.5-56.576 37.5-90.51s-13.5-66.514-37.5-90.51C194.52 13.494 161.94 0 128 0"/><path fill="#fff" d="M57.94 126.648q55.98-24.384 74.64-32.152c35.56-14.786 42.94-17.354 47.76-17.441c1.06-.017 3.42.245 4.96 1.49c1.28 1.05 1.64 2.47 1.82 3.467c.16.996.38 3.266.2 5.038c-1.92 20.24-10.26 69.356-14.5 92.026c-1.78 9.592-5.32 12.808-8.74 13.122c-7.44.684-13.08-4.912-20.28-9.63c-11.26-7.386-17.62-11.982-28.56-19.188c-12.64-8.328-4.44-12.906 2.76-20.386c1.88-1.958 34.64-31.748 35.26-34.45c.08-.338.16-1.598-.6-2.262c-.74-.666-1.84-.438-2.64-.258c-1.14.256-19.12 12.152-54 35.686c-5.1 3.508-9.72 5.218-13.88 5.128c-4.56-.098-13.36-2.584-19.9-4.708c-8-2.606-14.38-3.984-13.82-8.41c.28-2.304 3.46-4.662 9.52-7.072"/></symbol>
+</defs>
+</svg>
+
+<div class="wmf-wrap">
+<div class="wmf-grid">
+<div class="wmf-brand-col">
+<a aria-label="WonderMayank home" class="wmf-brand" href="https://wondermayank.in/">
+<span class="wmf-mark"><img alt="WonderMayank logo" decoding="async" height="36" loading="lazy" src="/favicon.svg" width="36"></span>
+<span class="wmf-brand-text">
+<span class="wmf-brand-name">Wonder<span class="wmf-accent">Mayank</span></span>
+<span class="wmf-brand-by">Web Developer &amp; Creator</span>
+</span>
+</a>
+<p class="wmf-desc">Free project tools, vibecoding experiments and exam-prep resources for Indian students.</p>
+<a aria-label="Meet Tiny and Byte, the Wondermayank mascots" class="wmf-mascot" href="https://wondermayank.in/mascot/">
+<img alt="Tiny and Byte, the Wondermayank mascots" decoding="async" height="40" loading="lazy" src="https://wondermayank.in/mascot/img/duo-thumb.webp" width="72">
+<span><b>Meet Tiny &amp; Byte</b><small>Our mascots</small></span>
+</a>
+<div class="wmf-social">
+<div>
+<div class="wmf-social-label">Wondermayank</div>
+<div class="wmf-social-row">
+<a aria-label="Wondermayank on Instagram" class="wmf-social-btn" href="https://www.instagram.com/wondermayank" rel="noopener noreferrer" target="_blank" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
+<a aria-label="Wondermayank on YouTube" class="wmf-social-btn" href="https://www.youtube.com/@wondermayank" rel="noopener noreferrer" target="_blank" title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"></use></svg></a>
+<a aria-label="Wondermayank on X" class="wmf-social-btn" href="https://x.com/wondermayankx" rel="noopener noreferrer" target="_blank" title="X"><svg aria-hidden="true"><use href="#i-x"></use></svg></a>
+<a aria-label="Wondermayank on Reddit" class="wmf-social-btn" href="https://www.reddit.com/user/wondermayankx" rel="noopener noreferrer" target="_blank" title="Reddit"><svg aria-hidden="true"><use href="#i-reddit"></use></svg></a>
+<a aria-label="Wondermayank on Telegram" class="wmf-social-btn" href="https://t.me/wondermayank" rel="noopener noreferrer" target="_blank" title="Telegram"><svg aria-hidden="true"><use href="#i-telegram"></use></svg></a>
+</div>
+</div>
+<div>
+<div class="wmf-social-label">ThunderStudy</div>
+<div class="wmf-social-row">
+<a aria-label="ThunderStudy on Instagram" class="wmf-social-btn" href="https://www.instagram.com/thunderstudyx" rel="noopener noreferrer" target="_blank" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
+<a aria-label="ThunderStudy on YouTube" class="wmf-social-btn" href="https://www.youtube.com/@thunderstudy_official" rel="noopener noreferrer" target="_blank" title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"></use></svg></a>
+<a aria-label="ThunderStudy on X" class="wmf-social-btn" href="https://x.com/thunderstudyx" rel="noopener noreferrer" target="_blank" title="X"><svg aria-hidden="true"><use href="#i-x"></use></svg></a>
+<a aria-label="ThunderStudy on Reddit" class="wmf-social-btn" href="https://www.reddit.com/user/thunderstudyx" rel="noopener noreferrer" target="_blank" title="Reddit"><svg aria-hidden="true"><use href="#i-reddit"></use></svg></a>
+<a aria-label="ThunderStudy on Telegram" class="wmf-social-btn" href="https://t.me/thunderstudy" rel="noopener noreferrer" target="_blank" title="Telegram"><svg aria-hidden="true"><use href="#i-telegram"></use></svg></a>
+</div>
+</div>
+</div>
+</div>
+<nav aria-label="ThunderStudy">
+<h2 class="wmf-title">ThunderStudy</h2>
+<ul class="wmf-links">
+<li><a href="https://thunderstudy.indevs.in/">ThunderStudy</a></li>
+<li><a href="https://thundertest.indevs.in/">CBT Mock</a></li>
+<li><a aria-label="ThunderStudy blog" href="https://blog.thunderstudy.indevs.in/">Blog</a></li>
+<li><a aria-label="ThunderStudy AI home" href="https://ai.thunderstudy.indevs.in/">AI</a></li>
+</ul>
+</nav>
+<nav aria-label="Support">
+<h2 class="wmf-title">Support</h2>
+<ul class="wmf-links">
+<li><a aria-label="Wondermayank FAQ" href="https://wondermayank.in/faq">FAQ</a></li>
+<li><a aria-label="Email Wondermayank" href="https://wondermayank.in/mail">Mail</a></li>
+<li><a href="https://wondermayank.in/contact">Contact</a></li>
+<li><a href="https://wondermayank.in/copyright">Copyright</a></li>
+<li><a href="https://wondermayank.in/legal">Legal</a></li>
+</ul>
+</nav>
+<nav aria-label="wondermayank">
+<h2 class="wmf-title">wondermayank</h2>
+<ul class="wmf-links">
+<li><a href="https://make.wondermayank.in/">Vibecoding</a></li>
+<li><a href="https://project.wondermayank.in/">Useful Projects</a></li>
+<li><a href="https://wondermayank.in/">Portfolio</a></li>
+<li><a href="https://wondermayank.in/about">About</a></li>
+<li><a href="https://wondermayank.in/new">New</a></li>
+<li><a href="https://wondermayank.in/mascot/">Mascot</a></li>
+<li><a aria-label="Wondermayank blog" href="https://blog.wondermayank.indevs.in/">Blog</a></li>
+</ul>
+</nav>
+</div>
+<div class="wmf-quick">
+<div class="wmf-social-label">Quick links</div>
+<nav aria-label="Project quick links" class="wmf-quick-row"><a href="/banking">Banking</a><a href="/ca">CA</a><a href="/cat">CAT</a><a href="/cbse">CBSE</a><a href="/clat">CLAT</a><a href="/dca">DCA</a><a href="/ncert">NCERT</a><a href="/nda">NDA</a><a href="/ssc">SSC</a><a href="/tet">TET</a><a href="/upsc">UPSC</a></nav>
+</div>
+</div>
+<div class="wmf-bottom">
+<div class="wmf-wrap wmf-bottom-inner">
+<div class="wmf-copy">&copy; 2026 WonderMayank. All rights reserved.</div>
+<nav aria-label="Legal" class="wmf-legal">
+<a href="https://wondermayank.in/cookies">Cookies</a>
+<a href="https://wondermayank.in/terms">Terms</a>
+<a href="https://wondermayank.in/privacy">Privacy</a>
+<a href="https://wondermayank.in/disclaimer">Disclaimer</a>
+<a href="https://wondermayank.in/sitemap">Sitemap</a>
+</nav>
+</div>
+</div>
 </footer>
+<script>
+(function(){
+  var b=document.getElementById('hamBtn'),m=document.getElementById('mobileMenu');
+  if(b&&m){
+    var set=function(o){m.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');};
+    b.addEventListener('click',function(e){e.stopPropagation();set(!m.classList.contains('open'));});
+    m.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))set(false);});
+    document.addEventListener('click',function(e){if(m.classList.contains('open')&&!m.contains(e.target))set(false);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  }
+  document.querySelectorAll('.xm-ripple').forEach(function(el){
+    el.addEventListener('pointerenter',function(e){
+      var r=el.getBoundingClientRect();
+      el.style.setProperty('--rx',(e.clientX-r.left)+'px');
+      el.style.setProperty('--ry',(e.clientY-r.top)+'px');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  function init(){
+    var h=document.querySelector('header.nav'); if(!h) return;
+    var last=window.scrollY||0, ticking=false;
+    function update(){
+      var y=window.scrollY||0;
+      if(document.querySelector('.mobile-menu.open')||y<80){h.classList.remove('nav-hide');}
+      else if(y>last+6){h.classList.add('nav-hide');}
+      else if(y<last-6){h.classList.remove('nav-hide');}
+      last=y; ticking=false;
+    }
+    window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
+    h.addEventListener('focusin',function(){h.classList.remove('nav-hide');});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
 </body>
 </html>
