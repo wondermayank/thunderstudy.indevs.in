@@ -4116,6 +4116,69 @@ header.nav.nav-hide{transform:translateY(-100%)}
 @keyframes mmDraw{0%{stroke-dashoffset:80}18%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:80}}
 @keyframes mmPop{0%,8%{transform:scale(0)}22%{transform:scale(1.18)}30%,85%{transform:scale(1)}100%{transform:scale(0)}}
 @keyframes mmRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.2);opacity:0}}
+
+/* =========================================================
+   WELCOME BACK, QUICK ACCESS, LATEST NOTICES, TRUST STRIP
+========================================================= */
+.study-dashboard-section.tcx{background:var(--canvas)!important;padding:44px 20px 40px}
+.tcx .study-dashboard-head .section-label{display:inline-flex;padding:4px 12px;border-radius:999px;background:var(--primary-soft);color:var(--primary)!important;font-family:var(--tcfont);font-weight:700}
+.tcx .study-dashboard-head .section-title{color:var(--ink)!important;font-family:var(--tcfont)}
+.tcx .study-dashboard-head .section-sub{color:var(--body-c)!important;font-family:var(--tcfont)}
+.tcx .study-more-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 20px;border-radius:999px;background:var(--surface);color:var(--primary)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:13.5px}
+.tcx .study-more-link:hover{box-shadow:var(--e-md)}
+.tcx .study-dashboard-grid{gap:20px;padding:4px}
+.tcx .study-dashboard-card{--c:var(--purple);--k:var(--purple-ink);min-height:150px;padding:22px;gap:6px;border:0!important;border-radius:24px;background:var(--surface)!important;box-shadow:var(--e-md);font-family:var(--tcfont)}
+.tcx .study-dashboard-card:nth-child(2){--c:var(--teal);--k:var(--teal-ink)}
+.tcx .study-dashboard-card strong{color:var(--ink)!important;font-size:1.1rem}
+.tcx .study-dashboard-card>span:not(.study-card-kicker){color:var(--body-c)!important}
+.tcx .study-card-kicker{padding:4px 11px;border-radius:999px;background:var(--c);color:var(--k)!important;font-weight:800}
+.tcx .study-card-action{display:inline-flex;align-items:center;min-height:44px;margin-top:auto;padding:0 20px;border-radius:999px;background:var(--primary);color:var(--on-primary)!important;box-shadow:var(--e-sm);font-family:var(--tcfont);font-size:13px}
+.tcx .study-card-action:active,.tcx .study-more-link:active{box-shadow:var(--e-pressed)}
+
+.home-quick.tcx,.home-notices.tcx,.home-popular.tcx{background:transparent!important}
+.home-quick.tcx .bento-panel,.home-notices.tcx .bento-panel{padding:32px 26px;border-radius:28px;background:var(--canvas-deep)!important;box-shadow:var(--e-pressed)}
+.tcx .bento-eyebrow{display:inline-flex;padding:4px 12px;border-radius:999px;background:var(--primary-soft);color:var(--primary)!important;font-family:var(--tcfont);font-weight:700}
+.tcx .bento-title{margin-top:10px;color:var(--ink)!important;font-family:var(--tcfont);font-size:22px;font-weight:800}
+.tcx .bento-sub{color:var(--body-c)!important;font-family:var(--tcfont)}
+.tcx .qa-bento-grid{gap:16px;padding:4px}
+.tcx .qa-row-3{gap:16px;margin-top:16px;padding:4px}
+.tcx .qa-hero-card{padding:24px;border-radius:24px;background:var(--primary)!important;color:var(--on-primary)!important;box-shadow:var(--e-md);transition:box-shadow .15s}
+.tcx .qa-hero-card:hover{background:var(--primary)!important;box-shadow:var(--e-md),0 0 0 3px var(--primary-soft)}
+.tcx .qa-hero-card>svg{box-sizing:content-box;width:24px;height:24px;padding:12px;border-radius:16px;background:rgba(255,255,255,.2);color:inherit}
+.tcx .qa-hero-title{color:var(--on-primary)!important;font-family:var(--tcfont);font-size:18px;font-weight:800}
+.tcx .qa-hero-sub{color:var(--on-primary)!important;opacity:.82;font-family:var(--tcfont);font-size:13px}
+.tcx .qa-mini-card{--c:var(--blue);--k:var(--blue-ink);display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:16px;border:0!important;border-radius:20px;background:var(--surface)!important;color:var(--k)!important;box-shadow:var(--e-sm);transform:none!important;transition:box-shadow .15s}
+.tcx .qa-mini-card:hover{background:var(--surface)!important;box-shadow:var(--e-md);transform:none!important}
+.tcx .qa-mini-card:active{box-shadow:var(--e-pressed)}
+.tcx .qa-bento-grid .qa-mini-card:nth-child(3){--c:var(--teal);--k:var(--teal-ink)}
+.tcx .qa-row-3 .qa-mini-card:nth-child(1){--c:var(--green);--k:var(--green-ink)}
+.tcx .qa-row-3 .qa-mini-card:nth-child(2){--c:var(--yellow);--k:var(--yellow-ink)}
+.tcx .qa-row-3 .qa-mini-card:nth-child(3){--c:var(--pink);--k:var(--pink-ink)}
+.tcx .qa-mini-card>svg{box-sizing:content-box;width:18px;height:18px;padding:10px;border-radius:14px;background:var(--c);color:var(--k)}
+.tcx .qa-mini-title{margin:0;color:var(--ink)!important;font-family:var(--tcfont);font-size:14px;font-weight:700}
+
+.tcx .notice-grid{gap:18px;padding:4px}
+.tcx .notice-card{padding:18px;border:0!important;border-radius:22px;background:var(--surface)!important;color:var(--ink)!important;box-shadow:var(--e-sm);font-family:var(--tcfont)}
+.tcx .notice-card strong{margin-top:12px;color:var(--ink)!important;font-size:14.5px;font-weight:700;line-height:1.4}
+.tcx .notice-card span,.tcx .notice-card p{color:var(--body-c)!important;font-size:12.5px;line-height:1.5}
+.tcx .notice-type{padding:4px 12px;border-radius:999px;background:var(--primary-soft)!important;color:var(--primary)!important;font-size:11px;font-weight:800;letter-spacing:.6px}
+.tcx .notice-type.tag-purple{background:var(--purple)!important;color:var(--purple-ink)!important}
+.tcx .notice-type.tag-green{background:var(--green)!important;color:var(--green-ink)!important}
+.tcx .notice-type.tag-orange{background:var(--orange)!important;color:var(--orange-ink)!important}
+.tcx .notice-type.tag-pink{background:var(--pink)!important;color:var(--pink-ink)!important}
+.tcx .notice-type.tag-blue{background:var(--blue)!important;color:var(--blue-ink)!important}
+.tcx .notice-type.tag-amber{background:var(--yellow)!important;color:var(--yellow-ink)!important}
+.tcx .notice-type.tag-gray{background:var(--canvas-deep)!important;color:var(--body-c)!important}
+
+.home-popular.tcx{padding:8px 20px 36px}
+.tcx .home-trust-grid{gap:16px;margin-top:0;padding:4px}
+.tcx .home-trust-grid div{padding:16px 12px;border:0!important;border-radius:20px;background:var(--surface)!important;box-shadow:var(--e-sm);font-family:var(--tcfont)}
+.tcx .home-trust-grid strong{color:var(--ink)!important;font-weight:800}
+.tcx .home-trust-grid span{color:var(--body-c)!important}
+@media(max-width:640px){
+  .home-quick.tcx .bento-panel,.home-notices.tcx .bento-panel{padding:24px 14px;border-radius:24px}
+  .tcx .study-dashboard-head .study-more-link{align-self:flex-start}
+}
 </style>
 
 </head>
@@ -4410,7 +4473,7 @@ header.nav.nav-hide{transform:translateY(-100%)}
 
 <div class="divider"></div>
 
-<section id="study-dashboard" class="study-dashboard-section" aria-labelledby="study-dashboard-heading">
+<section id="study-dashboard" class="study-dashboard-section tcx" aria-labelledby="study-dashboard-heading">
   <div class="section-inner">
     <div class="study-dashboard-head">
       <div>
@@ -4457,7 +4520,7 @@ header.nav.nav-hide{transform:translateY(-100%)}
   </div>
 </div>
 
-<section class="home-quick" aria-labelledby="home-quick-heading">
+<section class="home-quick tcx" aria-labelledby="home-quick-heading">
   <div class="section-inner">
     <div class="bento-panel">
       <div class="bento-head">
@@ -4499,22 +4562,8 @@ header.nav.nav-hide{transform:translateY(-100%)}
   </div>
 </section>
 
-<section class="home-popular" aria-labelledby="home-popular-heading">
+<section class="home-popular tcx" aria-label="ThunderStudy highlights">
   <div class="section-inner">
-    <div class="home-popular-layout">
-      <div>
-        <span class="section-label">Popular Now</span>
-        <h2 class="section-title" id="home-popular-heading">Most Searched Resources</h2>
-        <p class="section-sub">Fresh shortcuts for board, entrance and government exam prep.</p>
-      </div>
-      <div class="home-popular-tags">
-        <a href="/search?q=Class%2012%20Sample%20Paper%202026">Class 12 Sample Paper 2026</a>
-        <a href="/search?q=CBSE%20Topper%20Notes">CBSE Topper Notes</a>
-        <a href="/search?q=SSC%20CGL%20Notes">SSC CGL Notes</a>
-        <a href="/search?q=CA%20Foundation%20Important%20Notes">CA Foundation Important Notes</a>
-        <a href="/search?q=GK%20Book">GK Book</a>
-      </div>
-    </div>
     <div class="home-trust-grid" aria-label="ThunderStudy stats">
       <div><strong>100,000+</strong><span>study files</span></div>
       <div><strong>No login</strong><span>open access</span></div>
@@ -4698,7 +4747,7 @@ header.nav.nav-hide{transform:translateY(-100%)}
 </section>
 
 <div class="divider"></div>
-<section id="notices" class="home-notices" aria-labelledby="notices-heading">
+<section id="notices" class="home-notices tcx" aria-labelledby="notices-heading">
   <div class="section-inner">
     <div class="bento-panel">
       <div class="bento-head center">
@@ -7782,7 +7831,7 @@ themeBtn.addEventListener('click',function(){
 <a href="https://wondermayank.in/terms">Terms</a>
 <a href="https://wondermayank.in/privacy">Privacy</a>
 <a href="https://wondermayank.in/disclaimer">Disclaimer</a>
-<a href="https://wondermayank.in/sitemap">Sitemap</a>
+<a href="https://thunderstudy.indevs.in/sitemap.xml">Sitemap</a>
 </nav>
 </div>
 </div>
